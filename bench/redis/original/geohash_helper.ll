@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.GeoShape = type { i32, [2 x double], double, [4 x double], %union.anon }
 %union.anon = type { %struct.anon }
@@ -16,997 +16,1078 @@ target triple = "x86_64-unknown-linux-gnu"
 @MERCATOR_MIN = dso_local constant double 0xC1731C05E5EB851F, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i8 @geohashEstimateStepsByRadius(double noundef %range_meters, double noundef %lat) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %range_meters.addr = alloca double, align 8
-  %lat.addr = alloca double, align 8
-  %step = alloca i32, align 4
-  store double %range_meters, ptr %range_meters.addr, align 8
-  store double %lat, ptr %lat.addr, align 8
-  %0 = load double, ptr %range_meters.addr, align 8
-  %cmp = fcmp oeq double %0, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local zeroext i8 @geohashEstimateStepsByRadius(double noundef %0, double noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  %6 = alloca i32, align 4
+  store double %0, ptr %4, align 8, !tbaa !5
+  store double %1, ptr %5, align 8, !tbaa !5
+  %7 = load double, ptr %4, align 8, !tbaa !5
+  %8 = fcmp oeq double %7, 0.000000e+00
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i8 26, ptr %retval, align 1
-  br label %return
+9:                                                ; preds = %2
+  store i8 26, ptr %3, align 1
+  br label %50
 
-if.end:                                           ; preds = %entry
-  store i32 1, ptr %step, align 4
-  br label %while.cond
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  store i32 1, ptr %6, align 4, !tbaa !9
+  br label %11
 
-while.cond:                                       ; preds = %while.body, %if.end
-  %1 = load double, ptr %range_meters.addr, align 8
-  %cmp1 = fcmp olt double %1, 0x41731C05E5EB851F
-  br i1 %cmp1, label %while.body, label %while.end
+11:                                               ; preds = %14, %10
+  %12 = load double, ptr %4, align 8, !tbaa !5
+  %13 = fcmp olt double %12, 0x41731C05E5EB851F
+  br i1 %13, label %14, label %19
 
-while.body:                                       ; preds = %while.cond
-  %2 = load double, ptr %range_meters.addr, align 8
-  %mul = fmul double %2, 2.000000e+00
-  store double %mul, ptr %range_meters.addr, align 8
-  %3 = load i32, ptr %step, align 4
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %step, align 4
-  br label %while.cond, !llvm.loop !5
+14:                                               ; preds = %11
+  %15 = load double, ptr %4, align 8, !tbaa !5
+  %16 = fmul double %15, 2.000000e+00
+  store double %16, ptr %4, align 8, !tbaa !5
+  %17 = load i32, ptr %6, align 4, !tbaa !9
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %6, align 4, !tbaa !9
+  br label %11, !llvm.loop !11
 
-while.end:                                        ; preds = %while.cond
-  %4 = load i32, ptr %step, align 4
-  %sub = sub nsw i32 %4, 2
-  store i32 %sub, ptr %step, align 4
-  %5 = load double, ptr %lat.addr, align 8
-  %cmp2 = fcmp ogt double %5, 6.600000e+01
-  br i1 %cmp2, label %if.then4, label %lor.lhs.false
+19:                                               ; preds = %11
+  %20 = load i32, ptr %6, align 4, !tbaa !9
+  %21 = sub nsw i32 %20, 2
+  store i32 %21, ptr %6, align 4, !tbaa !9
+  %22 = load double, ptr %5, align 8, !tbaa !5
+  %23 = fcmp ogt double %22, 6.600000e+01
+  br i1 %23, label %27, label %24
 
-lor.lhs.false:                                    ; preds = %while.end
-  %6 = load double, ptr %lat.addr, align 8
-  %cmp3 = fcmp olt double %6, -6.600000e+01
-  br i1 %cmp3, label %if.then4, label %if.end11
+24:                                               ; preds = %19
+  %25 = load double, ptr %5, align 8, !tbaa !5
+  %26 = fcmp olt double %25, -6.600000e+01
+  br i1 %26, label %27, label %39
 
-if.then4:                                         ; preds = %lor.lhs.false, %while.end
-  %7 = load i32, ptr %step, align 4
-  %dec = add nsw i32 %7, -1
-  store i32 %dec, ptr %step, align 4
-  %8 = load double, ptr %lat.addr, align 8
-  %cmp5 = fcmp ogt double %8, 8.000000e+01
-  br i1 %cmp5, label %if.then8, label %lor.lhs.false6
+27:                                               ; preds = %24, %19
+  %28 = load i32, ptr %6, align 4, !tbaa !9
+  %29 = add nsw i32 %28, -1
+  store i32 %29, ptr %6, align 4, !tbaa !9
+  %30 = load double, ptr %5, align 8, !tbaa !5
+  %31 = fcmp ogt double %30, 8.000000e+01
+  br i1 %31, label %35, label %32
 
-lor.lhs.false6:                                   ; preds = %if.then4
-  %9 = load double, ptr %lat.addr, align 8
-  %cmp7 = fcmp olt double %9, -8.000000e+01
-  br i1 %cmp7, label %if.then8, label %if.end10
+32:                                               ; preds = %27
+  %33 = load double, ptr %5, align 8, !tbaa !5
+  %34 = fcmp olt double %33, -8.000000e+01
+  br i1 %34, label %35, label %38
 
-if.then8:                                         ; preds = %lor.lhs.false6, %if.then4
-  %10 = load i32, ptr %step, align 4
-  %dec9 = add nsw i32 %10, -1
-  store i32 %dec9, ptr %step, align 4
-  br label %if.end10
+35:                                               ; preds = %32, %27
+  %36 = load i32, ptr %6, align 4, !tbaa !9
+  %37 = add nsw i32 %36, -1
+  store i32 %37, ptr %6, align 4, !tbaa !9
+  br label %38
 
-if.end10:                                         ; preds = %if.then8, %lor.lhs.false6
-  br label %if.end11
+38:                                               ; preds = %35, %32
+  br label %39
 
-if.end11:                                         ; preds = %if.end10, %lor.lhs.false
-  %11 = load i32, ptr %step, align 4
-  %cmp12 = icmp slt i32 %11, 1
-  br i1 %cmp12, label %if.then13, label %if.end14
+39:                                               ; preds = %38, %24
+  %40 = load i32, ptr %6, align 4, !tbaa !9
+  %41 = icmp slt i32 %40, 1
+  br i1 %41, label %42, label %43
 
-if.then13:                                        ; preds = %if.end11
-  store i32 1, ptr %step, align 4
-  br label %if.end14
+42:                                               ; preds = %39
+  store i32 1, ptr %6, align 4, !tbaa !9
+  br label %43
 
-if.end14:                                         ; preds = %if.then13, %if.end11
-  %12 = load i32, ptr %step, align 4
-  %cmp15 = icmp sgt i32 %12, 26
-  br i1 %cmp15, label %if.then16, label %if.end17
+43:                                               ; preds = %42, %39
+  %44 = load i32, ptr %6, align 4, !tbaa !9
+  %45 = icmp sgt i32 %44, 26
+  br i1 %45, label %46, label %47
 
-if.then16:                                        ; preds = %if.end14
-  store i32 26, ptr %step, align 4
-  br label %if.end17
+46:                                               ; preds = %43
+  store i32 26, ptr %6, align 4, !tbaa !9
+  br label %47
 
-if.end17:                                         ; preds = %if.then16, %if.end14
-  %13 = load i32, ptr %step, align 4
-  %conv = trunc i32 %13 to i8
-  store i8 %conv, ptr %retval, align 1
-  br label %return
+47:                                               ; preds = %46, %43
+  %48 = load i32, ptr %6, align 4, !tbaa !9
+  %49 = trunc i32 %48 to i8
+  store i8 %49, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  br label %50
 
-return:                                           ; preds = %if.end17, %if.then
-  %14 = load i8, ptr %retval, align 1
-  ret i8 %14
+50:                                               ; preds = %47, %9
+  %51 = load i8, ptr %3, align 1
+  ret i8 %51
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @geohashBoundingBox(ptr noundef %shape, ptr noundef %bounds) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %shape.addr = alloca ptr, align 8
-  %bounds.addr = alloca ptr, align 8
-  %longitude = alloca double, align 8
-  %latitude = alloca double, align 8
-  %height = alloca double, align 8
-  %width = alloca double, align 8
-  %lat_delta = alloca double, align 8
-  %long_delta_top = alloca double, align 8
-  %long_delta_bottom = alloca double, align 8
-  %southern_hemisphere = alloca i32, align 4
-  store ptr %shape, ptr %shape.addr, align 8
-  store ptr %bounds, ptr %bounds.addr, align 8
-  %0 = load ptr, ptr %bounds.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define dso_local i32 @geohashBoundingBox(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  %14 = load ptr, ptr %5, align 8, !tbaa !15
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %17, label %16
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %128
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %shape.addr, align 8
-  %xy = getelementptr inbounds %struct.GeoShape, ptr %1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [2 x double], ptr %xy, i64 0, i64 0
-  %2 = load double, ptr %arrayidx, align 8
-  store double %2, ptr %longitude, align 8
-  %3 = load ptr, ptr %shape.addr, align 8
-  %xy1 = getelementptr inbounds %struct.GeoShape, ptr %3, i32 0, i32 1
-  %arrayidx2 = getelementptr inbounds [2 x double], ptr %xy1, i64 0, i64 1
-  %4 = load double, ptr %arrayidx2, align 8
-  store double %4, ptr %latitude, align 8
-  %5 = load ptr, ptr %shape.addr, align 8
-  %conversion = getelementptr inbounds %struct.GeoShape, ptr %5, i32 0, i32 2
-  %6 = load double, ptr %conversion, align 8
-  %7 = load ptr, ptr %shape.addr, align 8
-  %type = getelementptr inbounds %struct.GeoShape, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %type, align 8
-  %cmp = icmp eq i32 %8, 1
-  br i1 %cmp, label %cond.true, label %cond.false
+17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %18 = load ptr, ptr %4, align 8, !tbaa !13
+  %19 = getelementptr inbounds nuw %struct.GeoShape, ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds [2 x double], ptr %19, i64 0, i64 0
+  %21 = load double, ptr %20, align 8, !tbaa !5
+  store double %21, ptr %6, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %22 = load ptr, ptr %4, align 8, !tbaa !13
+  %23 = getelementptr inbounds nuw %struct.GeoShape, ptr %22, i32 0, i32 1
+  %24 = getelementptr inbounds [2 x double], ptr %23, i64 0, i64 1
+  %25 = load double, ptr %24, align 8, !tbaa !5
+  store double %25, ptr %7, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %26 = load ptr, ptr %4, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw %struct.GeoShape, ptr %26, i32 0, i32 2
+  %28 = load double, ptr %27, align 8, !tbaa !17
+  %29 = load ptr, ptr %4, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.GeoShape, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 8, !tbaa !19
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %33, label %37
 
-cond.true:                                        ; preds = %if.end
-  %9 = load ptr, ptr %shape.addr, align 8
-  %t = getelementptr inbounds %struct.GeoShape, ptr %9, i32 0, i32 4
-  %10 = load double, ptr %t, align 8
-  br label %cond.end
+33:                                               ; preds = %17
+  %34 = load ptr, ptr %4, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.GeoShape, ptr %34, i32 0, i32 4
+  %36 = load double, ptr %35, align 8, !tbaa !20
+  br label %43
 
-cond.false:                                       ; preds = %if.end
-  %11 = load ptr, ptr %shape.addr, align 8
-  %t3 = getelementptr inbounds %struct.GeoShape, ptr %11, i32 0, i32 4
-  %height4 = getelementptr inbounds %struct.anon, ptr %t3, i32 0, i32 0
-  %12 = load double, ptr %height4, align 8
-  %div = fdiv double %12, 2.000000e+00
-  br label %cond.end
+37:                                               ; preds = %17
+  %38 = load ptr, ptr %4, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.GeoShape, ptr %38, i32 0, i32 4
+  %40 = getelementptr inbounds nuw %struct.anon, ptr %39, i32 0, i32 0
+  %41 = load double, ptr %40, align 8, !tbaa !20
+  %42 = fdiv double %41, 2.000000e+00
+  br label %43
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi double [ %10, %cond.true ], [ %div, %cond.false ]
-  %mul = fmul double %6, %cond
-  store double %mul, ptr %height, align 8
-  %13 = load ptr, ptr %shape.addr, align 8
-  %conversion5 = getelementptr inbounds %struct.GeoShape, ptr %13, i32 0, i32 2
-  %14 = load double, ptr %conversion5, align 8
-  %15 = load ptr, ptr %shape.addr, align 8
-  %type6 = getelementptr inbounds %struct.GeoShape, ptr %15, i32 0, i32 0
-  %16 = load i32, ptr %type6, align 8
-  %cmp7 = icmp eq i32 %16, 1
-  br i1 %cmp7, label %cond.true8, label %cond.false10
+43:                                               ; preds = %37, %33
+  %44 = phi double [ %36, %33 ], [ %42, %37 ]
+  %45 = fmul double %28, %44
+  store double %45, ptr %8, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %46 = load ptr, ptr %4, align 8, !tbaa !13
+  %47 = getelementptr inbounds nuw %struct.GeoShape, ptr %46, i32 0, i32 2
+  %48 = load double, ptr %47, align 8, !tbaa !17
+  %49 = load ptr, ptr %4, align 8, !tbaa !13
+  %50 = getelementptr inbounds nuw %struct.GeoShape, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8, !tbaa !19
+  %52 = icmp eq i32 %51, 1
+  br i1 %52, label %53, label %57
 
-cond.true8:                                       ; preds = %cond.end
-  %17 = load ptr, ptr %shape.addr, align 8
-  %t9 = getelementptr inbounds %struct.GeoShape, ptr %17, i32 0, i32 4
-  %18 = load double, ptr %t9, align 8
-  br label %cond.end14
+53:                                               ; preds = %43
+  %54 = load ptr, ptr %4, align 8, !tbaa !13
+  %55 = getelementptr inbounds nuw %struct.GeoShape, ptr %54, i32 0, i32 4
+  %56 = load double, ptr %55, align 8, !tbaa !20
+  br label %63
 
-cond.false10:                                     ; preds = %cond.end
-  %19 = load ptr, ptr %shape.addr, align 8
-  %t11 = getelementptr inbounds %struct.GeoShape, ptr %19, i32 0, i32 4
-  %width12 = getelementptr inbounds %struct.anon, ptr %t11, i32 0, i32 1
-  %20 = load double, ptr %width12, align 8
-  %div13 = fdiv double %20, 2.000000e+00
-  br label %cond.end14
+57:                                               ; preds = %43
+  %58 = load ptr, ptr %4, align 8, !tbaa !13
+  %59 = getelementptr inbounds nuw %struct.GeoShape, ptr %58, i32 0, i32 4
+  %60 = getelementptr inbounds nuw %struct.anon, ptr %59, i32 0, i32 1
+  %61 = load double, ptr %60, align 8, !tbaa !20
+  %62 = fdiv double %61, 2.000000e+00
+  br label %63
 
-cond.end14:                                       ; preds = %cond.false10, %cond.true8
-  %cond15 = phi double [ %18, %cond.true8 ], [ %div13, %cond.false10 ]
-  %mul16 = fmul double %14, %cond15
-  store double %mul16, ptr %width, align 8
-  %21 = load double, ptr %height, align 8
-  %div17 = fdiv double %21, 0x41584F6F63E51090
-  %call = call double @rad_deg(double noundef %div17)
-  store double %call, ptr %lat_delta, align 8
-  %22 = load double, ptr %width, align 8
-  %div18 = fdiv double %22, 0x41584F6F63E51090
-  %23 = load double, ptr %latitude, align 8
-  %24 = load double, ptr %lat_delta, align 8
-  %add = fadd double %23, %24
-  %call19 = call double @deg_rad(double noundef %add)
-  %call20 = call double @cos(double noundef %call19) #5
-  %div21 = fdiv double %div18, %call20
-  %call22 = call double @rad_deg(double noundef %div21)
-  store double %call22, ptr %long_delta_top, align 8
-  %25 = load double, ptr %width, align 8
-  %div23 = fdiv double %25, 0x41584F6F63E51090
-  %26 = load double, ptr %latitude, align 8
-  %27 = load double, ptr %lat_delta, align 8
-  %sub = fsub double %26, %27
-  %call24 = call double @deg_rad(double noundef %sub)
-  %call25 = call double @cos(double noundef %call24) #5
-  %div26 = fdiv double %div23, %call25
-  %call27 = call double @rad_deg(double noundef %div26)
-  store double %call27, ptr %long_delta_bottom, align 8
-  %28 = load double, ptr %latitude, align 8
-  %cmp28 = fcmp olt double %28, 0.000000e+00
-  %cond29 = select i1 %cmp28, i32 1, i32 0
-  store i32 %cond29, ptr %southern_hemisphere, align 4
-  %29 = load i32, ptr %southern_hemisphere, align 4
-  %tobool30 = icmp ne i32 %29, 0
-  br i1 %tobool30, label %cond.true31, label %cond.false33
+63:                                               ; preds = %57, %53
+  %64 = phi double [ %56, %53 ], [ %62, %57 ]
+  %65 = fmul double %48, %64
+  store double %65, ptr %9, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %66 = load double, ptr %8, align 8, !tbaa !5
+  %67 = fdiv double %66, 0x41584F6F63E51090
+  %68 = call double @rad_deg(double noundef %67)
+  store double %68, ptr %10, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %69 = load double, ptr %9, align 8, !tbaa !5
+  %70 = fdiv double %69, 0x41584F6F63E51090
+  %71 = load double, ptr %7, align 8, !tbaa !5
+  %72 = load double, ptr %10, align 8, !tbaa !5
+  %73 = fadd double %71, %72
+  %74 = call double @deg_rad(double noundef %73)
+  %75 = call double @cos(double noundef %74) #7, !tbaa !9
+  %76 = fdiv double %70, %75
+  %77 = call double @rad_deg(double noundef %76)
+  store double %77, ptr %11, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %78 = load double, ptr %9, align 8, !tbaa !5
+  %79 = fdiv double %78, 0x41584F6F63E51090
+  %80 = load double, ptr %7, align 8, !tbaa !5
+  %81 = load double, ptr %10, align 8, !tbaa !5
+  %82 = fsub double %80, %81
+  %83 = call double @deg_rad(double noundef %82)
+  %84 = call double @cos(double noundef %83) #7, !tbaa !9
+  %85 = fdiv double %79, %84
+  %86 = call double @rad_deg(double noundef %85)
+  store double %86, ptr %12, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  %87 = load double, ptr %7, align 8, !tbaa !5
+  %88 = fcmp olt double %87, 0.000000e+00
+  %89 = select i1 %88, i32 1, i32 0
+  store i32 %89, ptr %13, align 4, !tbaa !9
+  %90 = load i32, ptr %13, align 4, !tbaa !9
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %96
 
-cond.true31:                                      ; preds = %cond.end14
-  %30 = load double, ptr %longitude, align 8
-  %31 = load double, ptr %long_delta_bottom, align 8
-  %sub32 = fsub double %30, %31
-  br label %cond.end35
+92:                                               ; preds = %63
+  %93 = load double, ptr %6, align 8, !tbaa !5
+  %94 = load double, ptr %12, align 8, !tbaa !5
+  %95 = fsub double %93, %94
+  br label %100
 
-cond.false33:                                     ; preds = %cond.end14
-  %32 = load double, ptr %longitude, align 8
-  %33 = load double, ptr %long_delta_top, align 8
-  %sub34 = fsub double %32, %33
-  br label %cond.end35
+96:                                               ; preds = %63
+  %97 = load double, ptr %6, align 8, !tbaa !5
+  %98 = load double, ptr %11, align 8, !tbaa !5
+  %99 = fsub double %97, %98
+  br label %100
 
-cond.end35:                                       ; preds = %cond.false33, %cond.true31
-  %cond36 = phi double [ %sub32, %cond.true31 ], [ %sub34, %cond.false33 ]
-  %34 = load ptr, ptr %bounds.addr, align 8
-  %arrayidx37 = getelementptr inbounds double, ptr %34, i64 0
-  store double %cond36, ptr %arrayidx37, align 8
-  %35 = load i32, ptr %southern_hemisphere, align 4
-  %tobool38 = icmp ne i32 %35, 0
-  br i1 %tobool38, label %cond.true39, label %cond.false41
+100:                                              ; preds = %96, %92
+  %101 = phi double [ %95, %92 ], [ %99, %96 ]
+  %102 = load ptr, ptr %5, align 8, !tbaa !15
+  %103 = getelementptr inbounds double, ptr %102, i64 0
+  store double %101, ptr %103, align 8, !tbaa !5
+  %104 = load i32, ptr %13, align 4, !tbaa !9
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %110
 
-cond.true39:                                      ; preds = %cond.end35
-  %36 = load double, ptr %longitude, align 8
-  %37 = load double, ptr %long_delta_bottom, align 8
-  %add40 = fadd double %36, %37
-  br label %cond.end43
+106:                                              ; preds = %100
+  %107 = load double, ptr %6, align 8, !tbaa !5
+  %108 = load double, ptr %12, align 8, !tbaa !5
+  %109 = fadd double %107, %108
+  br label %114
 
-cond.false41:                                     ; preds = %cond.end35
-  %38 = load double, ptr %longitude, align 8
-  %39 = load double, ptr %long_delta_top, align 8
-  %add42 = fadd double %38, %39
-  br label %cond.end43
+110:                                              ; preds = %100
+  %111 = load double, ptr %6, align 8, !tbaa !5
+  %112 = load double, ptr %11, align 8, !tbaa !5
+  %113 = fadd double %111, %112
+  br label %114
 
-cond.end43:                                       ; preds = %cond.false41, %cond.true39
-  %cond44 = phi double [ %add40, %cond.true39 ], [ %add42, %cond.false41 ]
-  %40 = load ptr, ptr %bounds.addr, align 8
-  %arrayidx45 = getelementptr inbounds double, ptr %40, i64 2
-  store double %cond44, ptr %arrayidx45, align 8
-  %41 = load double, ptr %latitude, align 8
-  %42 = load double, ptr %lat_delta, align 8
-  %sub46 = fsub double %41, %42
-  %43 = load ptr, ptr %bounds.addr, align 8
-  %arrayidx47 = getelementptr inbounds double, ptr %43, i64 1
-  store double %sub46, ptr %arrayidx47, align 8
-  %44 = load double, ptr %latitude, align 8
-  %45 = load double, ptr %lat_delta, align 8
-  %add48 = fadd double %44, %45
-  %46 = load ptr, ptr %bounds.addr, align 8
-  %arrayidx49 = getelementptr inbounds double, ptr %46, i64 3
-  store double %add48, ptr %arrayidx49, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+114:                                              ; preds = %110, %106
+  %115 = phi double [ %109, %106 ], [ %113, %110 ]
+  %116 = load ptr, ptr %5, align 8, !tbaa !15
+  %117 = getelementptr inbounds double, ptr %116, i64 2
+  store double %115, ptr %117, align 8, !tbaa !5
+  %118 = load double, ptr %7, align 8, !tbaa !5
+  %119 = load double, ptr %10, align 8, !tbaa !5
+  %120 = fsub double %118, %119
+  %121 = load ptr, ptr %5, align 8, !tbaa !15
+  %122 = getelementptr inbounds double, ptr %121, i64 1
+  store double %120, ptr %122, align 8, !tbaa !5
+  %123 = load double, ptr %7, align 8, !tbaa !5
+  %124 = load double, ptr %10, align 8, !tbaa !5
+  %125 = fadd double %123, %124
+  %126 = load ptr, ptr %5, align 8, !tbaa !15
+  %127 = getelementptr inbounds double, ptr %126, i64 3
+  store double %125, ptr %127, align 8, !tbaa !5
+  store i32 1, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %128
 
-return:                                           ; preds = %cond.end43, %if.then
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+128:                                              ; preds = %114, %16
+  %129 = load i32, ptr %3, align 4
+  ret i32 %129
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @rad_deg(double noundef %ang) #0 {
-entry:
-  %ang.addr = alloca double, align 8
-  store double %ang, ptr %ang.addr, align 8
-  %0 = load double, ptr %ang.addr, align 8
-  %div = fdiv double %0, 0x3F91DF46A2529D39
-  ret double %div
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @rad_deg(double noundef %0) #2 {
+  %2 = alloca double, align 8
+  store double %0, ptr %2, align 8, !tbaa !5
+  %3 = load double, ptr %2, align 8, !tbaa !5
+  %4 = fdiv double %3, 0x3F91DF46A2529D39
+  ret double %4
 }
 
 ; Function Attrs: nounwind
-declare double @cos(double noundef) #1
+declare double @cos(double noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal double @deg_rad(double noundef %ang) #0 {
-entry:
-  %ang.addr = alloca double, align 8
-  store double %ang, ptr %ang.addr, align 8
-  %0 = load double, ptr %ang.addr, align 8
-  %mul = fmul double %0, 0x3F91DF46A2529D39
-  ret double %mul
+; Function Attrs: inlinehint nounwind uwtable
+define internal double @deg_rad(double noundef %0) #2 {
+  %2 = alloca double, align 8
+  store double %0, ptr %2, align 8, !tbaa !5
+  %3 = load double, ptr %2, align 8, !tbaa !5
+  %4 = fmul double %3, 0x3F91DF46A2529D39
+  ret double %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noalias writable sret(%struct.GeoHashRadius) align 8 %agg.result, ptr noundef %shape) #0 {
-entry:
-  %shape.addr = alloca ptr, align 8
-  %long_range = alloca %struct.GeoHashRange, align 8
-  %lat_range = alloca %struct.GeoHashRange, align 8
-  %hash = alloca %struct.GeoHashBits, align 8
-  %neighbors = alloca %struct.GeoHashNeighbors, align 8
-  %area = alloca %struct.GeoHashArea, align 8
-  %min_lon = alloca double, align 8
-  %max_lon = alloca double, align 8
-  %min_lat = alloca double, align 8
-  %max_lat = alloca double, align 8
-  %steps = alloca i32, align 4
-  %longitude = alloca double, align 8
-  %latitude = alloca double, align 8
-  %radius_meters = alloca double, align 8
-  %decrease_step = alloca i32, align 4
-  %north = alloca %struct.GeoHashArea, align 8
-  %south = alloca %struct.GeoHashArea, align 8
-  %east = alloca %struct.GeoHashArea, align 8
-  %west = alloca %struct.GeoHashArea, align 8
-  store ptr %shape, ptr %shape.addr, align 8
-  %0 = load ptr, ptr %shape.addr, align 8
-  %1 = load ptr, ptr %shape.addr, align 8
-  %bounds = getelementptr inbounds %struct.GeoShape, ptr %1, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [4 x double], ptr %bounds, i64 0, i64 0
-  %call = call i32 @geohashBoundingBox(ptr noundef %0, ptr noundef %arraydecay)
-  %2 = load ptr, ptr %shape.addr, align 8
-  %bounds1 = getelementptr inbounds %struct.GeoShape, ptr %2, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [4 x double], ptr %bounds1, i64 0, i64 0
-  %3 = load double, ptr %arrayidx, align 8
-  store double %3, ptr %min_lon, align 8
-  %4 = load ptr, ptr %shape.addr, align 8
-  %bounds2 = getelementptr inbounds %struct.GeoShape, ptr %4, i32 0, i32 3
-  %arrayidx3 = getelementptr inbounds [4 x double], ptr %bounds2, i64 0, i64 1
-  %5 = load double, ptr %arrayidx3, align 8
-  store double %5, ptr %min_lat, align 8
-  %6 = load ptr, ptr %shape.addr, align 8
-  %bounds4 = getelementptr inbounds %struct.GeoShape, ptr %6, i32 0, i32 3
-  %arrayidx5 = getelementptr inbounds [4 x double], ptr %bounds4, i64 0, i64 2
-  %7 = load double, ptr %arrayidx5, align 8
-  store double %7, ptr %max_lon, align 8
-  %8 = load ptr, ptr %shape.addr, align 8
-  %bounds6 = getelementptr inbounds %struct.GeoShape, ptr %8, i32 0, i32 3
-  %arrayidx7 = getelementptr inbounds [4 x double], ptr %bounds6, i64 0, i64 3
-  %9 = load double, ptr %arrayidx7, align 8
-  store double %9, ptr %max_lat, align 8
-  %10 = load ptr, ptr %shape.addr, align 8
-  %xy = getelementptr inbounds %struct.GeoShape, ptr %10, i32 0, i32 1
-  %arrayidx8 = getelementptr inbounds [2 x double], ptr %xy, i64 0, i64 0
-  %11 = load double, ptr %arrayidx8, align 8
-  store double %11, ptr %longitude, align 8
-  %12 = load ptr, ptr %shape.addr, align 8
-  %xy9 = getelementptr inbounds %struct.GeoShape, ptr %12, i32 0, i32 1
-  %arrayidx10 = getelementptr inbounds [2 x double], ptr %xy9, i64 0, i64 1
-  %13 = load double, ptr %arrayidx10, align 8
-  store double %13, ptr %latitude, align 8
-  %14 = load ptr, ptr %shape.addr, align 8
-  %type = getelementptr inbounds %struct.GeoShape, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %type, align 8
-  %cmp = icmp eq i32 %15, 1
-  br i1 %cmp, label %cond.true, label %cond.false
+define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noalias writable sret(%struct.GeoHashRadius) align 8 %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.GeoHashRange, align 8
+  %5 = alloca %struct.GeoHashRange, align 8
+  %6 = alloca %struct.GeoHashBits, align 8
+  %7 = alloca %struct.GeoHashNeighbors, align 8
+  %8 = alloca %struct.GeoHashArea, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca double, align 8
+  %15 = alloca double, align 8
+  %16 = alloca double, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca %struct.GeoHashArea, align 8
+  %19 = alloca %struct.GeoHashArea, align 8
+  %20 = alloca %struct.GeoHashArea, align 8
+  %21 = alloca %struct.GeoHashArea, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 128, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  %22 = load ptr, ptr %3, align 8, !tbaa !13
+  %23 = load ptr, ptr %3, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw %struct.GeoShape, ptr %23, i32 0, i32 3
+  %25 = getelementptr inbounds [4 x double], ptr %24, i64 0, i64 0
+  %26 = call i32 @geohashBoundingBox(ptr noundef %22, ptr noundef %25)
+  %27 = load ptr, ptr %3, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.GeoShape, ptr %27, i32 0, i32 3
+  %29 = getelementptr inbounds [4 x double], ptr %28, i64 0, i64 0
+  %30 = load double, ptr %29, align 8, !tbaa !5
+  store double %30, ptr %9, align 8, !tbaa !5
+  %31 = load ptr, ptr %3, align 8, !tbaa !13
+  %32 = getelementptr inbounds nuw %struct.GeoShape, ptr %31, i32 0, i32 3
+  %33 = getelementptr inbounds [4 x double], ptr %32, i64 0, i64 1
+  %34 = load double, ptr %33, align 8, !tbaa !5
+  store double %34, ptr %11, align 8, !tbaa !5
+  %35 = load ptr, ptr %3, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %struct.GeoShape, ptr %35, i32 0, i32 3
+  %37 = getelementptr inbounds [4 x double], ptr %36, i64 0, i64 2
+  %38 = load double, ptr %37, align 8, !tbaa !5
+  store double %38, ptr %10, align 8, !tbaa !5
+  %39 = load ptr, ptr %3, align 8, !tbaa !13
+  %40 = getelementptr inbounds nuw %struct.GeoShape, ptr %39, i32 0, i32 3
+  %41 = getelementptr inbounds [4 x double], ptr %40, i64 0, i64 3
+  %42 = load double, ptr %41, align 8, !tbaa !5
+  store double %42, ptr %12, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %43 = load ptr, ptr %3, align 8, !tbaa !13
+  %44 = getelementptr inbounds nuw %struct.GeoShape, ptr %43, i32 0, i32 1
+  %45 = getelementptr inbounds [2 x double], ptr %44, i64 0, i64 0
+  %46 = load double, ptr %45, align 8, !tbaa !5
+  store double %46, ptr %14, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %47 = load ptr, ptr %3, align 8, !tbaa !13
+  %48 = getelementptr inbounds nuw %struct.GeoShape, ptr %47, i32 0, i32 1
+  %49 = getelementptr inbounds [2 x double], ptr %48, i64 0, i64 1
+  %50 = load double, ptr %49, align 8, !tbaa !5
+  store double %50, ptr %15, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %51 = load ptr, ptr %3, align 8, !tbaa !13
+  %52 = getelementptr inbounds nuw %struct.GeoShape, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !19
+  %54 = icmp eq i32 %53, 1
+  br i1 %54, label %55, label %59
 
-cond.true:                                        ; preds = %entry
-  %16 = load ptr, ptr %shape.addr, align 8
-  %t = getelementptr inbounds %struct.GeoShape, ptr %16, i32 0, i32 4
-  %17 = load double, ptr %t, align 8
-  br label %cond.end
+55:                                               ; preds = %2
+  %56 = load ptr, ptr %3, align 8, !tbaa !13
+  %57 = getelementptr inbounds nuw %struct.GeoShape, ptr %56, i32 0, i32 4
+  %58 = load double, ptr %57, align 8, !tbaa !20
+  br label %83
 
-cond.false:                                       ; preds = %entry
-  %18 = load ptr, ptr %shape.addr, align 8
-  %t11 = getelementptr inbounds %struct.GeoShape, ptr %18, i32 0, i32 4
-  %width = getelementptr inbounds %struct.anon, ptr %t11, i32 0, i32 1
-  %19 = load double, ptr %width, align 8
-  %div = fdiv double %19, 2.000000e+00
-  %20 = load ptr, ptr %shape.addr, align 8
-  %t12 = getelementptr inbounds %struct.GeoShape, ptr %20, i32 0, i32 4
-  %width13 = getelementptr inbounds %struct.anon, ptr %t12, i32 0, i32 1
-  %21 = load double, ptr %width13, align 8
-  %div14 = fdiv double %21, 2.000000e+00
-  %22 = load ptr, ptr %shape.addr, align 8
-  %t15 = getelementptr inbounds %struct.GeoShape, ptr %22, i32 0, i32 4
-  %height = getelementptr inbounds %struct.anon, ptr %t15, i32 0, i32 0
-  %23 = load double, ptr %height, align 8
-  %div16 = fdiv double %23, 2.000000e+00
-  %24 = load ptr, ptr %shape.addr, align 8
-  %t17 = getelementptr inbounds %struct.GeoShape, ptr %24, i32 0, i32 4
-  %height18 = getelementptr inbounds %struct.anon, ptr %t17, i32 0, i32 0
-  %25 = load double, ptr %height18, align 8
-  %div19 = fdiv double %25, 2.000000e+00
-  %mul20 = fmul double %div16, %div19
-  %26 = call double @llvm.fmuladd.f64(double %div, double %div14, double %mul20)
-  %call21 = call double @sqrt(double noundef %26) #5
-  br label %cond.end
+59:                                               ; preds = %2
+  %60 = load ptr, ptr %3, align 8, !tbaa !13
+  %61 = getelementptr inbounds nuw %struct.GeoShape, ptr %60, i32 0, i32 4
+  %62 = getelementptr inbounds nuw %struct.anon, ptr %61, i32 0, i32 1
+  %63 = load double, ptr %62, align 8, !tbaa !20
+  %64 = fdiv double %63, 2.000000e+00
+  %65 = load ptr, ptr %3, align 8, !tbaa !13
+  %66 = getelementptr inbounds nuw %struct.GeoShape, ptr %65, i32 0, i32 4
+  %67 = getelementptr inbounds nuw %struct.anon, ptr %66, i32 0, i32 1
+  %68 = load double, ptr %67, align 8, !tbaa !20
+  %69 = fdiv double %68, 2.000000e+00
+  %70 = load ptr, ptr %3, align 8, !tbaa !13
+  %71 = getelementptr inbounds nuw %struct.GeoShape, ptr %70, i32 0, i32 4
+  %72 = getelementptr inbounds nuw %struct.anon, ptr %71, i32 0, i32 0
+  %73 = load double, ptr %72, align 8, !tbaa !20
+  %74 = fdiv double %73, 2.000000e+00
+  %75 = load ptr, ptr %3, align 8, !tbaa !13
+  %76 = getelementptr inbounds nuw %struct.GeoShape, ptr %75, i32 0, i32 4
+  %77 = getelementptr inbounds nuw %struct.anon, ptr %76, i32 0, i32 0
+  %78 = load double, ptr %77, align 8, !tbaa !20
+  %79 = fdiv double %78, 2.000000e+00
+  %80 = fmul double %74, %79
+  %81 = call double @llvm.fmuladd.f64(double %64, double %69, double %80)
+  %82 = call double @sqrt(double noundef %81) #7, !tbaa !9
+  br label %83
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi double [ %17, %cond.true ], [ %call21, %cond.false ]
-  store double %cond, ptr %radius_meters, align 8
-  %27 = load ptr, ptr %shape.addr, align 8
-  %conversion = getelementptr inbounds %struct.GeoShape, ptr %27, i32 0, i32 2
-  %28 = load double, ptr %conversion, align 8
-  %29 = load double, ptr %radius_meters, align 8
-  %mul = fmul double %29, %28
-  store double %mul, ptr %radius_meters, align 8
-  %30 = load double, ptr %radius_meters, align 8
-  %31 = load double, ptr %latitude, align 8
-  %call22 = call zeroext i8 @geohashEstimateStepsByRadius(double noundef %30, double noundef %31)
-  %conv = zext i8 %call22 to i32
-  store i32 %conv, ptr %steps, align 4
-  call void @geohashGetCoordRange(ptr noundef %long_range, ptr noundef %lat_range)
-  %32 = load double, ptr %longitude, align 8
-  %33 = load double, ptr %latitude, align 8
-  %34 = load i32, ptr %steps, align 4
-  %conv23 = trunc i32 %34 to i8
-  %call24 = call i32 @geohashEncode(ptr noundef %long_range, ptr noundef %lat_range, double noundef %32, double noundef %33, i8 noundef zeroext %conv23, ptr noundef %hash)
-  call void @geohashNeighbors(ptr noundef %hash, ptr noundef %neighbors)
-  %35 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 0
-  %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 1
-  %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 0
-  %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 1
-  %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds { i64, i8 }, ptr %hash, i32 0, i32 0
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds { i64, i8 }, ptr %hash, i32 0, i32 1
-  %46 = load i8, ptr %45, align 8
-  %call25 = call i32 @geohashDecode(double %36, double %38, double %40, double %42, i64 %44, i8 %46, ptr noundef %area)
-  store i32 0, ptr %decrease_step, align 4
-  %north26 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 0
-  %47 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 0
-  %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 1
-  %50 = load double, ptr %49, align 8
-  %51 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 0
-  %52 = load double, ptr %51, align 8
-  %53 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 1
-  %54 = load double, ptr %53, align 8
-  %55 = getelementptr inbounds { i64, i8 }, ptr %north26, i32 0, i32 0
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds { i64, i8 }, ptr %north26, i32 0, i32 1
-  %58 = load i8, ptr %57, align 8
-  %call27 = call i32 @geohashDecode(double %48, double %50, double %52, double %54, i64 %56, i8 %58, ptr noundef %north)
-  %south28 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 3
-  %59 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 0
-  %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 1
-  %62 = load double, ptr %61, align 8
-  %63 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 0
-  %64 = load double, ptr %63, align 8
-  %65 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 1
-  %66 = load double, ptr %65, align 8
-  %67 = getelementptr inbounds { i64, i8 }, ptr %south28, i32 0, i32 0
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds { i64, i8 }, ptr %south28, i32 0, i32 1
-  %70 = load i8, ptr %69, align 8
-  %call29 = call i32 @geohashDecode(double %60, double %62, double %64, double %66, i64 %68, i8 %70, ptr noundef %south)
-  %east30 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 1
-  %71 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 0
-  %72 = load double, ptr %71, align 8
-  %73 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 1
-  %74 = load double, ptr %73, align 8
-  %75 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 0
-  %76 = load double, ptr %75, align 8
-  %77 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 1
-  %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds { i64, i8 }, ptr %east30, i32 0, i32 0
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds { i64, i8 }, ptr %east30, i32 0, i32 1
-  %82 = load i8, ptr %81, align 8
-  %call31 = call i32 @geohashDecode(double %72, double %74, double %76, double %78, i64 %80, i8 %82, ptr noundef %east)
-  %west32 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 2
-  %83 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 0
-  %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 1
-  %86 = load double, ptr %85, align 8
-  %87 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 0
-  %88 = load double, ptr %87, align 8
-  %89 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 1
-  %90 = load double, ptr %89, align 8
-  %91 = getelementptr inbounds { i64, i8 }, ptr %west32, i32 0, i32 0
-  %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds { i64, i8 }, ptr %west32, i32 0, i32 1
-  %94 = load i8, ptr %93, align 8
-  %call33 = call i32 @geohashDecode(double %84, double %86, double %88, double %90, i64 %92, i8 %94, ptr noundef %west)
-  %latitude34 = getelementptr inbounds %struct.GeoHashArea, ptr %north, i32 0, i32 2
-  %max = getelementptr inbounds %struct.GeoHashRange, ptr %latitude34, i32 0, i32 1
-  %95 = load double, ptr %max, align 8
-  %96 = load double, ptr %max_lat, align 8
-  %cmp35 = fcmp olt double %95, %96
-  br i1 %cmp35, label %if.then, label %if.end
-
-if.then:                                          ; preds = %cond.end
-  store i32 1, ptr %decrease_step, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %cond.end
-  %latitude37 = getelementptr inbounds %struct.GeoHashArea, ptr %south, i32 0, i32 2
-  %min = getelementptr inbounds %struct.GeoHashRange, ptr %latitude37, i32 0, i32 0
-  %97 = load double, ptr %min, align 8
-  %98 = load double, ptr %min_lat, align 8
-  %cmp38 = fcmp ogt double %97, %98
-  br i1 %cmp38, label %if.then40, label %if.end41
-
-if.then40:                                        ; preds = %if.end
-  store i32 1, ptr %decrease_step, align 4
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.then40, %if.end
-  %longitude42 = getelementptr inbounds %struct.GeoHashArea, ptr %east, i32 0, i32 1
-  %max43 = getelementptr inbounds %struct.GeoHashRange, ptr %longitude42, i32 0, i32 1
-  %99 = load double, ptr %max43, align 8
-  %100 = load double, ptr %max_lon, align 8
-  %cmp44 = fcmp olt double %99, %100
-  br i1 %cmp44, label %if.then46, label %if.end47
-
-if.then46:                                        ; preds = %if.end41
-  store i32 1, ptr %decrease_step, align 4
-  br label %if.end47
-
-if.end47:                                         ; preds = %if.then46, %if.end41
-  %longitude48 = getelementptr inbounds %struct.GeoHashArea, ptr %west, i32 0, i32 1
-  %min49 = getelementptr inbounds %struct.GeoHashRange, ptr %longitude48, i32 0, i32 0
-  %101 = load double, ptr %min49, align 8
-  %102 = load double, ptr %min_lon, align 8
-  %cmp50 = fcmp ogt double %101, %102
-  br i1 %cmp50, label %if.then52, label %if.end53
-
-if.then52:                                        ; preds = %if.end47
-  store i32 1, ptr %decrease_step, align 4
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.then52, %if.end47
-  %103 = load i32, ptr %steps, align 4
-  %cmp54 = icmp sgt i32 %103, 1
-  br i1 %cmp54, label %land.lhs.true, label %if.end60
-
-land.lhs.true:                                    ; preds = %if.end53
-  %104 = load i32, ptr %decrease_step, align 4
-  %tobool = icmp ne i32 %104, 0
-  br i1 %tobool, label %if.then56, label %if.end60
-
-if.then56:                                        ; preds = %land.lhs.true
-  %105 = load i32, ptr %steps, align 4
-  %dec = add nsw i32 %105, -1
-  store i32 %dec, ptr %steps, align 4
-  %106 = load double, ptr %longitude, align 8
-  %107 = load double, ptr %latitude, align 8
-  %108 = load i32, ptr %steps, align 4
-  %conv57 = trunc i32 %108 to i8
-  %call58 = call i32 @geohashEncode(ptr noundef %long_range, ptr noundef %lat_range, double noundef %106, double noundef %107, i8 noundef zeroext %conv57, ptr noundef %hash)
-  call void @geohashNeighbors(ptr noundef %hash, ptr noundef %neighbors)
-  %109 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 0
-  %110 = load double, ptr %109, align 8
-  %111 = getelementptr inbounds { double, double }, ptr %long_range, i32 0, i32 1
-  %112 = load double, ptr %111, align 8
-  %113 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 0
+83:                                               ; preds = %59, %55
+  %84 = phi double [ %58, %55 ], [ %82, %59 ]
+  store double %84, ptr %16, align 8, !tbaa !5
+  %85 = load ptr, ptr %3, align 8, !tbaa !13
+  %86 = getelementptr inbounds nuw %struct.GeoShape, ptr %85, i32 0, i32 2
+  %87 = load double, ptr %86, align 8, !tbaa !17
+  %88 = load double, ptr %16, align 8, !tbaa !5
+  %89 = fmul double %88, %87
+  store double %89, ptr %16, align 8, !tbaa !5
+  %90 = load double, ptr %16, align 8, !tbaa !5
+  %91 = load double, ptr %15, align 8, !tbaa !5
+  %92 = call zeroext i8 @geohashEstimateStepsByRadius(double noundef %90, double noundef %91)
+  %93 = zext i8 %92 to i32
+  store i32 %93, ptr %13, align 4, !tbaa !9
+  call void @geohashGetCoordRange(ptr noundef %4, ptr noundef %5)
+  %94 = load double, ptr %14, align 8, !tbaa !5
+  %95 = load double, ptr %15, align 8, !tbaa !5
+  %96 = load i32, ptr %13, align 4, !tbaa !9
+  %97 = trunc i32 %96 to i8
+  %98 = call i32 @geohashEncode(ptr noundef %4, ptr noundef %5, double noundef %94, double noundef %95, i8 noundef zeroext %97, ptr noundef %6)
+  call void @geohashNeighbors(ptr noundef %6, ptr noundef %7)
+  %99 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 0
+  %100 = load double, ptr %99, align 8
+  %101 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 1
+  %102 = load double, ptr %101, align 8
+  %103 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 0
+  %104 = load double, ptr %103, align 8
+  %105 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 1
+  %106 = load double, ptr %105, align 8
+  %107 = getelementptr inbounds nuw { i64, i8 }, ptr %6, i32 0, i32 0
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds nuw { i64, i8 }, ptr %6, i32 0, i32 1
+  %110 = load i8, ptr %109, align 8
+  %111 = call i32 @geohashDecode(double %100, double %102, double %104, double %106, i64 %108, i8 %110, ptr noundef %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  store i32 0, ptr %17, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 48, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr %21) #7
+  %112 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 0
+  %113 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 0
   %114 = load double, ptr %113, align 8
-  %115 = getelementptr inbounds { double, double }, ptr %lat_range, i32 0, i32 1
+  %115 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 1
   %116 = load double, ptr %115, align 8
-  %117 = getelementptr inbounds { i64, i8 }, ptr %hash, i32 0, i32 0
-  %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds { i64, i8 }, ptr %hash, i32 0, i32 1
-  %120 = load i8, ptr %119, align 8
-  %call59 = call i32 @geohashDecode(double %110, double %112, double %114, double %116, i64 %118, i8 %120, ptr noundef %area)
-  br label %if.end60
+  %117 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 0
+  %118 = load double, ptr %117, align 8
+  %119 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 1
+  %120 = load double, ptr %119, align 8
+  %121 = getelementptr inbounds nuw { i64, i8 }, ptr %112, i32 0, i32 0
+  %122 = load i64, ptr %121, align 8
+  %123 = getelementptr inbounds nuw { i64, i8 }, ptr %112, i32 0, i32 1
+  %124 = load i8, ptr %123, align 8
+  %125 = call i32 @geohashDecode(double %114, double %116, double %118, double %120, i64 %122, i8 %124, ptr noundef %18)
+  %126 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 3
+  %127 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 0
+  %128 = load double, ptr %127, align 8
+  %129 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 1
+  %130 = load double, ptr %129, align 8
+  %131 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 0
+  %132 = load double, ptr %131, align 8
+  %133 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 1
+  %134 = load double, ptr %133, align 8
+  %135 = getelementptr inbounds nuw { i64, i8 }, ptr %126, i32 0, i32 0
+  %136 = load i64, ptr %135, align 8
+  %137 = getelementptr inbounds nuw { i64, i8 }, ptr %126, i32 0, i32 1
+  %138 = load i8, ptr %137, align 8
+  %139 = call i32 @geohashDecode(double %128, double %130, double %132, double %134, i64 %136, i8 %138, ptr noundef %19)
+  %140 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 1
+  %141 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 0
+  %142 = load double, ptr %141, align 8
+  %143 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 1
+  %144 = load double, ptr %143, align 8
+  %145 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 0
+  %146 = load double, ptr %145, align 8
+  %147 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 1
+  %148 = load double, ptr %147, align 8
+  %149 = getelementptr inbounds nuw { i64, i8 }, ptr %140, i32 0, i32 0
+  %150 = load i64, ptr %149, align 8
+  %151 = getelementptr inbounds nuw { i64, i8 }, ptr %140, i32 0, i32 1
+  %152 = load i8, ptr %151, align 8
+  %153 = call i32 @geohashDecode(double %142, double %144, double %146, double %148, i64 %150, i8 %152, ptr noundef %20)
+  %154 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 2
+  %155 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 0
+  %156 = load double, ptr %155, align 8
+  %157 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 1
+  %158 = load double, ptr %157, align 8
+  %159 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 0
+  %160 = load double, ptr %159, align 8
+  %161 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 1
+  %162 = load double, ptr %161, align 8
+  %163 = getelementptr inbounds nuw { i64, i8 }, ptr %154, i32 0, i32 0
+  %164 = load i64, ptr %163, align 8
+  %165 = getelementptr inbounds nuw { i64, i8 }, ptr %154, i32 0, i32 1
+  %166 = load i8, ptr %165, align 8
+  %167 = call i32 @geohashDecode(double %156, double %158, double %160, double %162, i64 %164, i8 %166, ptr noundef %21)
+  %168 = getelementptr inbounds nuw %struct.GeoHashArea, ptr %18, i32 0, i32 2
+  %169 = getelementptr inbounds nuw %struct.GeoHashRange, ptr %168, i32 0, i32 1
+  %170 = load double, ptr %169, align 8, !tbaa !21
+  %171 = load double, ptr %12, align 8, !tbaa !5
+  %172 = fcmp olt double %170, %171
+  br i1 %172, label %173, label %174
 
-if.end60:                                         ; preds = %if.then56, %land.lhs.true, %if.end53
-  %121 = load i32, ptr %steps, align 4
-  %cmp61 = icmp sge i32 %121, 2
-  br i1 %cmp61, label %if.then63, label %if.end130
+173:                                              ; preds = %83
+  store i32 1, ptr %17, align 4, !tbaa !9
+  br label %174
 
-if.then63:                                        ; preds = %if.end60
-  %latitude64 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i32 0, i32 2
-  %min65 = getelementptr inbounds %struct.GeoHashRange, ptr %latitude64, i32 0, i32 0
-  %122 = load double, ptr %min65, align 8
-  %123 = load double, ptr %min_lat, align 8
-  %cmp66 = fcmp olt double %122, %123
-  br i1 %cmp66, label %if.then68, label %if.end77
+174:                                              ; preds = %173, %83
+  %175 = getelementptr inbounds nuw %struct.GeoHashArea, ptr %19, i32 0, i32 2
+  %176 = getelementptr inbounds nuw %struct.GeoHashRange, ptr %175, i32 0, i32 0
+  %177 = load double, ptr %176, align 8, !tbaa !26
+  %178 = load double, ptr %11, align 8, !tbaa !5
+  %179 = fcmp ogt double %177, %178
+  br i1 %179, label %180, label %181
 
-if.then68:                                        ; preds = %if.then63
-  %south69 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 3
-  %step = getelementptr inbounds %struct.GeoHashBits, ptr %south69, i32 0, i32 1
-  store i8 0, ptr %step, align 8
-  %south70 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 3
-  %bits = getelementptr inbounds %struct.GeoHashBits, ptr %south70, i32 0, i32 0
-  store i64 0, ptr %bits, align 8
-  %south_west = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 7
-  %step71 = getelementptr inbounds %struct.GeoHashBits, ptr %south_west, i32 0, i32 1
-  store i8 0, ptr %step71, align 8
-  %south_west72 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 7
-  %bits73 = getelementptr inbounds %struct.GeoHashBits, ptr %south_west72, i32 0, i32 0
-  store i64 0, ptr %bits73, align 8
-  %south_east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 5
-  %step74 = getelementptr inbounds %struct.GeoHashBits, ptr %south_east, i32 0, i32 1
-  store i8 0, ptr %step74, align 8
-  %south_east75 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 5
-  %bits76 = getelementptr inbounds %struct.GeoHashBits, ptr %south_east75, i32 0, i32 0
-  store i64 0, ptr %bits76, align 8
-  br label %if.end77
+180:                                              ; preds = %174
+  store i32 1, ptr %17, align 4, !tbaa !9
+  br label %181
 
-if.end77:                                         ; preds = %if.then68, %if.then63
-  %latitude78 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i32 0, i32 2
-  %max79 = getelementptr inbounds %struct.GeoHashRange, ptr %latitude78, i32 0, i32 1
-  %124 = load double, ptr %max79, align 8
-  %125 = load double, ptr %max_lat, align 8
-  %cmp80 = fcmp ogt double %124, %125
-  br i1 %cmp80, label %if.then82, label %if.end93
+181:                                              ; preds = %180, %174
+  %182 = getelementptr inbounds nuw %struct.GeoHashArea, ptr %20, i32 0, i32 1
+  %183 = getelementptr inbounds nuw %struct.GeoHashRange, ptr %182, i32 0, i32 1
+  %184 = load double, ptr %183, align 8, !tbaa !27
+  %185 = load double, ptr %10, align 8, !tbaa !5
+  %186 = fcmp olt double %184, %185
+  br i1 %186, label %187, label %188
 
-if.then82:                                        ; preds = %if.end77
-  %north83 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 0
-  %step84 = getelementptr inbounds %struct.GeoHashBits, ptr %north83, i32 0, i32 1
-  store i8 0, ptr %step84, align 8
-  %north85 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 0
-  %bits86 = getelementptr inbounds %struct.GeoHashBits, ptr %north85, i32 0, i32 0
-  store i64 0, ptr %bits86, align 8
-  %north_east = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 4
-  %step87 = getelementptr inbounds %struct.GeoHashBits, ptr %north_east, i32 0, i32 1
-  store i8 0, ptr %step87, align 8
-  %north_east88 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 4
-  %bits89 = getelementptr inbounds %struct.GeoHashBits, ptr %north_east88, i32 0, i32 0
-  store i64 0, ptr %bits89, align 8
-  %north_west = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 6
-  %step90 = getelementptr inbounds %struct.GeoHashBits, ptr %north_west, i32 0, i32 1
-  store i8 0, ptr %step90, align 8
-  %north_west91 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 6
-  %bits92 = getelementptr inbounds %struct.GeoHashBits, ptr %north_west91, i32 0, i32 0
-  store i64 0, ptr %bits92, align 8
-  br label %if.end93
+187:                                              ; preds = %181
+  store i32 1, ptr %17, align 4, !tbaa !9
+  br label %188
 
-if.end93:                                         ; preds = %if.then82, %if.end77
-  %longitude94 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i32 0, i32 1
-  %min95 = getelementptr inbounds %struct.GeoHashRange, ptr %longitude94, i32 0, i32 0
-  %126 = load double, ptr %min95, align 8
-  %127 = load double, ptr %min_lon, align 8
-  %cmp96 = fcmp olt double %126, %127
-  br i1 %cmp96, label %if.then98, label %if.end111
+188:                                              ; preds = %187, %181
+  %189 = getelementptr inbounds nuw %struct.GeoHashArea, ptr %21, i32 0, i32 1
+  %190 = getelementptr inbounds nuw %struct.GeoHashRange, ptr %189, i32 0, i32 0
+  %191 = load double, ptr %190, align 8, !tbaa !28
+  %192 = load double, ptr %9, align 8, !tbaa !5
+  %193 = fcmp ogt double %191, %192
+  br i1 %193, label %194, label %195
 
-if.then98:                                        ; preds = %if.end93
-  %west99 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 2
-  %step100 = getelementptr inbounds %struct.GeoHashBits, ptr %west99, i32 0, i32 1
-  store i8 0, ptr %step100, align 8
-  %west101 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 2
-  %bits102 = getelementptr inbounds %struct.GeoHashBits, ptr %west101, i32 0, i32 0
-  store i64 0, ptr %bits102, align 8
-  %south_west103 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 7
-  %step104 = getelementptr inbounds %struct.GeoHashBits, ptr %south_west103, i32 0, i32 1
-  store i8 0, ptr %step104, align 8
-  %south_west105 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 7
-  %bits106 = getelementptr inbounds %struct.GeoHashBits, ptr %south_west105, i32 0, i32 0
-  store i64 0, ptr %bits106, align 8
-  %north_west107 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 6
-  %step108 = getelementptr inbounds %struct.GeoHashBits, ptr %north_west107, i32 0, i32 1
-  store i8 0, ptr %step108, align 8
-  %north_west109 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 6
-  %bits110 = getelementptr inbounds %struct.GeoHashBits, ptr %north_west109, i32 0, i32 0
-  store i64 0, ptr %bits110, align 8
-  br label %if.end111
+194:                                              ; preds = %188
+  store i32 1, ptr %17, align 4, !tbaa !9
+  br label %195
 
-if.end111:                                        ; preds = %if.then98, %if.end93
-  %longitude112 = getelementptr inbounds %struct.GeoHashArea, ptr %area, i32 0, i32 1
-  %max113 = getelementptr inbounds %struct.GeoHashRange, ptr %longitude112, i32 0, i32 1
-  %128 = load double, ptr %max113, align 8
-  %129 = load double, ptr %max_lon, align 8
-  %cmp114 = fcmp ogt double %128, %129
-  br i1 %cmp114, label %if.then116, label %if.end129
+195:                                              ; preds = %194, %188
+  call void @llvm.lifetime.end.p0(i64 48, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr %18) #7
+  %196 = load i32, ptr %13, align 4, !tbaa !9
+  %197 = icmp sgt i32 %196, 1
+  br i1 %197, label %198, label %222
 
-if.then116:                                       ; preds = %if.end111
-  %east117 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 1
-  %step118 = getelementptr inbounds %struct.GeoHashBits, ptr %east117, i32 0, i32 1
-  store i8 0, ptr %step118, align 8
-  %east119 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 1
-  %bits120 = getelementptr inbounds %struct.GeoHashBits, ptr %east119, i32 0, i32 0
-  store i64 0, ptr %bits120, align 8
-  %south_east121 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 5
-  %step122 = getelementptr inbounds %struct.GeoHashBits, ptr %south_east121, i32 0, i32 1
-  store i8 0, ptr %step122, align 8
-  %south_east123 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 5
-  %bits124 = getelementptr inbounds %struct.GeoHashBits, ptr %south_east123, i32 0, i32 0
-  store i64 0, ptr %bits124, align 8
-  %north_east125 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 4
-  %step126 = getelementptr inbounds %struct.GeoHashBits, ptr %north_east125, i32 0, i32 1
-  store i8 0, ptr %step126, align 8
-  %north_east127 = getelementptr inbounds %struct.GeoHashNeighbors, ptr %neighbors, i32 0, i32 4
-  %bits128 = getelementptr inbounds %struct.GeoHashBits, ptr %north_east127, i32 0, i32 0
-  store i64 0, ptr %bits128, align 8
-  br label %if.end129
+198:                                              ; preds = %195
+  %199 = load i32, ptr %17, align 4, !tbaa !9
+  %200 = icmp ne i32 %199, 0
+  br i1 %200, label %201, label %222
 
-if.end129:                                        ; preds = %if.then116, %if.end111
-  br label %if.end130
+201:                                              ; preds = %198
+  %202 = load i32, ptr %13, align 4, !tbaa !9
+  %203 = add nsw i32 %202, -1
+  store i32 %203, ptr %13, align 4, !tbaa !9
+  %204 = load double, ptr %14, align 8, !tbaa !5
+  %205 = load double, ptr %15, align 8, !tbaa !5
+  %206 = load i32, ptr %13, align 4, !tbaa !9
+  %207 = trunc i32 %206 to i8
+  %208 = call i32 @geohashEncode(ptr noundef %4, ptr noundef %5, double noundef %204, double noundef %205, i8 noundef zeroext %207, ptr noundef %6)
+  call void @geohashNeighbors(ptr noundef %6, ptr noundef %7)
+  %209 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 0
+  %210 = load double, ptr %209, align 8
+  %211 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 1
+  %212 = load double, ptr %211, align 8
+  %213 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 0
+  %214 = load double, ptr %213, align 8
+  %215 = getelementptr inbounds nuw { double, double }, ptr %5, i32 0, i32 1
+  %216 = load double, ptr %215, align 8
+  %217 = getelementptr inbounds nuw { i64, i8 }, ptr %6, i32 0, i32 0
+  %218 = load i64, ptr %217, align 8
+  %219 = getelementptr inbounds nuw { i64, i8 }, ptr %6, i32 0, i32 1
+  %220 = load i8, ptr %219, align 8
+  %221 = call i32 @geohashDecode(double %210, double %212, double %214, double %216, i64 %218, i8 %220, ptr noundef %8)
+  br label %222
 
-if.end130:                                        ; preds = %if.end129, %if.end60
-  %hash131 = getelementptr inbounds %struct.GeoHashRadius, ptr %agg.result, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %hash131, ptr align 8 %hash, i64 16, i1 false)
-  %neighbors132 = getelementptr inbounds %struct.GeoHashRadius, ptr %agg.result, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %neighbors132, ptr align 8 %neighbors, i64 128, i1 false)
-  %area133 = getelementptr inbounds %struct.GeoHashRadius, ptr %agg.result, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %area133, ptr align 8 %area, i64 48, i1 false)
+222:                                              ; preds = %201, %198, %195
+  %223 = load i32, ptr %13, align 4, !tbaa !9
+  %224 = icmp sge i32 %223, 2
+  br i1 %224, label %225, label %302
+
+225:                                              ; preds = %222
+  %226 = getelementptr inbounds nuw %struct.GeoHashArea, ptr %8, i32 0, i32 2
+  %227 = getelementptr inbounds nuw %struct.GeoHashRange, ptr %226, i32 0, i32 0
+  %228 = load double, ptr %227, align 8, !tbaa !26
+  %229 = load double, ptr %11, align 8, !tbaa !5
+  %230 = fcmp olt double %228, %229
+  br i1 %230, label %231, label %244
+
+231:                                              ; preds = %225
+  %232 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 3
+  %233 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %232, i32 0, i32 1
+  store i8 0, ptr %233, align 8, !tbaa !29
+  %234 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 3
+  %235 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %234, i32 0, i32 0
+  store i64 0, ptr %235, align 8, !tbaa !31
+  %236 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 7
+  %237 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %236, i32 0, i32 1
+  store i8 0, ptr %237, align 8, !tbaa !32
+  %238 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 7
+  %239 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %238, i32 0, i32 0
+  store i64 0, ptr %239, align 8, !tbaa !33
+  %240 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 5
+  %241 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %240, i32 0, i32 1
+  store i8 0, ptr %241, align 8, !tbaa !34
+  %242 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 5
+  %243 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %242, i32 0, i32 0
+  store i64 0, ptr %243, align 8, !tbaa !35
+  br label %244
+
+244:                                              ; preds = %231, %225
+  %245 = getelementptr inbounds nuw %struct.GeoHashArea, ptr %8, i32 0, i32 2
+  %246 = getelementptr inbounds nuw %struct.GeoHashRange, ptr %245, i32 0, i32 1
+  %247 = load double, ptr %246, align 8, !tbaa !21
+  %248 = load double, ptr %12, align 8, !tbaa !5
+  %249 = fcmp ogt double %247, %248
+  br i1 %249, label %250, label %263
+
+250:                                              ; preds = %244
+  %251 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 0
+  %252 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %251, i32 0, i32 1
+  store i8 0, ptr %252, align 8, !tbaa !36
+  %253 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 0
+  %254 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %253, i32 0, i32 0
+  store i64 0, ptr %254, align 8, !tbaa !37
+  %255 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 4
+  %256 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %255, i32 0, i32 1
+  store i8 0, ptr %256, align 8, !tbaa !38
+  %257 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 4
+  %258 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %257, i32 0, i32 0
+  store i64 0, ptr %258, align 8, !tbaa !39
+  %259 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 6
+  %260 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %259, i32 0, i32 1
+  store i8 0, ptr %260, align 8, !tbaa !40
+  %261 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 6
+  %262 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %261, i32 0, i32 0
+  store i64 0, ptr %262, align 8, !tbaa !41
+  br label %263
+
+263:                                              ; preds = %250, %244
+  %264 = getelementptr inbounds nuw %struct.GeoHashArea, ptr %8, i32 0, i32 1
+  %265 = getelementptr inbounds nuw %struct.GeoHashRange, ptr %264, i32 0, i32 0
+  %266 = load double, ptr %265, align 8, !tbaa !28
+  %267 = load double, ptr %9, align 8, !tbaa !5
+  %268 = fcmp olt double %266, %267
+  br i1 %268, label %269, label %282
+
+269:                                              ; preds = %263
+  %270 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 2
+  %271 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %270, i32 0, i32 1
+  store i8 0, ptr %271, align 8, !tbaa !42
+  %272 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 2
+  %273 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %272, i32 0, i32 0
+  store i64 0, ptr %273, align 8, !tbaa !43
+  %274 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 7
+  %275 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %274, i32 0, i32 1
+  store i8 0, ptr %275, align 8, !tbaa !32
+  %276 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 7
+  %277 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %276, i32 0, i32 0
+  store i64 0, ptr %277, align 8, !tbaa !33
+  %278 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 6
+  %279 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %278, i32 0, i32 1
+  store i8 0, ptr %279, align 8, !tbaa !40
+  %280 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 6
+  %281 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %280, i32 0, i32 0
+  store i64 0, ptr %281, align 8, !tbaa !41
+  br label %282
+
+282:                                              ; preds = %269, %263
+  %283 = getelementptr inbounds nuw %struct.GeoHashArea, ptr %8, i32 0, i32 1
+  %284 = getelementptr inbounds nuw %struct.GeoHashRange, ptr %283, i32 0, i32 1
+  %285 = load double, ptr %284, align 8, !tbaa !27
+  %286 = load double, ptr %10, align 8, !tbaa !5
+  %287 = fcmp ogt double %285, %286
+  br i1 %287, label %288, label %301
+
+288:                                              ; preds = %282
+  %289 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 1
+  %290 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %289, i32 0, i32 1
+  store i8 0, ptr %290, align 8, !tbaa !44
+  %291 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 1
+  %292 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %291, i32 0, i32 0
+  store i64 0, ptr %292, align 8, !tbaa !45
+  %293 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 5
+  %294 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %293, i32 0, i32 1
+  store i8 0, ptr %294, align 8, !tbaa !34
+  %295 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 5
+  %296 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %295, i32 0, i32 0
+  store i64 0, ptr %296, align 8, !tbaa !35
+  %297 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 4
+  %298 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %297, i32 0, i32 1
+  store i8 0, ptr %298, align 8, !tbaa !38
+  %299 = getelementptr inbounds nuw %struct.GeoHashNeighbors, ptr %7, i32 0, i32 4
+  %300 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %299, i32 0, i32 0
+  store i64 0, ptr %300, align 8, !tbaa !39
+  br label %301
+
+301:                                              ; preds = %288, %282
+  br label %302
+
+302:                                              ; preds = %301, %222
+  %303 = getelementptr inbounds nuw %struct.GeoHashRadius, ptr %0, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %303, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !46
+  %304 = getelementptr inbounds nuw %struct.GeoHashRadius, ptr %0, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %304, ptr align 8 %7, i64 128, i1 false), !tbaa.struct !48
+  %305 = getelementptr inbounds nuw %struct.GeoHashRadius, ptr %0, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %305, ptr align 8 %8, i64 48, i1 false), !tbaa.struct !49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 128, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #7
   ret void
 }
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #1
+declare double @sqrt(double noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
-declare void @geohashGetCoordRange(ptr noundef, ptr noundef) #3
+declare void @geohashGetCoordRange(ptr noundef, ptr noundef) #5
 
-declare i32 @geohashEncode(ptr noundef, ptr noundef, double noundef, double noundef, i8 noundef zeroext, ptr noundef) #3
+declare i32 @geohashEncode(ptr noundef, ptr noundef, double noundef, double noundef, i8 noundef zeroext, ptr noundef) #5
 
-declare void @geohashNeighbors(ptr noundef, ptr noundef) #3
+declare void @geohashNeighbors(ptr noundef, ptr noundef) #5
 
-declare i32 @geohashDecode(double, double, double, double, i64, i8, ptr noundef) #3
+declare i32 @geohashDecode(double, double, double, double, i64, i8, ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @geohashAlign52Bits(i64 %hash.coerce0, i8 %hash.coerce1) #0 {
-entry:
-  %hash = alloca %struct.GeoHashBits, align 8
-  %bits = alloca i64, align 8
-  %0 = getelementptr inbounds { i64, i8 }, ptr %hash, i32 0, i32 0
-  store i64 %hash.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i8 }, ptr %hash, i32 0, i32 1
-  store i8 %hash.coerce1, ptr %1, align 8
-  %bits1 = getelementptr inbounds %struct.GeoHashBits, ptr %hash, i32 0, i32 0
-  %2 = load i64, ptr %bits1, align 8
-  store i64 %2, ptr %bits, align 8
-  %step = getelementptr inbounds %struct.GeoHashBits, ptr %hash, i32 0, i32 1
-  %3 = load i8, ptr %step, align 8
-  %conv = zext i8 %3 to i32
-  %mul = mul nsw i32 %conv, 2
-  %sub = sub nsw i32 52, %mul
-  %4 = load i64, ptr %bits, align 8
-  %sh_prom = zext i32 %sub to i64
-  %shl = shl i64 %4, %sh_prom
-  store i64 %shl, ptr %bits, align 8
-  %5 = load i64, ptr %bits, align 8
-  ret i64 %5
+define dso_local i64 @geohashAlign52Bits(i64 %0, i8 %1) #0 {
+  %3 = alloca %struct.GeoHashBits, align 8
+  %4 = alloca i64, align 8
+  %5 = getelementptr inbounds nuw { i64, i8 }, ptr %3, i32 0, i32 0
+  store i64 %0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw { i64, i8 }, ptr %3, i32 0, i32 1
+  store i8 %1, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %7 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %3, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !50
+  store i64 %8, ptr %4, align 8, !tbaa !47
+  %9 = getelementptr inbounds nuw %struct.GeoHashBits, ptr %3, i32 0, i32 1
+  %10 = load i8, ptr %9, align 8, !tbaa !51
+  %11 = zext i8 %10 to i32
+  %12 = mul nsw i32 %11, 2
+  %13 = sub nsw i32 52, %12
+  %14 = load i64, ptr %4, align 8, !tbaa !47
+  %15 = zext i32 %13 to i64
+  %16 = shl i64 %14, %15
+  store i64 %16, ptr %4, align 8, !tbaa !47
+  %17 = load i64, ptr %4, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  ret i64 %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @geohashGetLatDistance(double noundef %lat1d, double noundef %lat2d) #0 {
-entry:
-  %lat1d.addr = alloca double, align 8
-  %lat2d.addr = alloca double, align 8
-  store double %lat1d, ptr %lat1d.addr, align 8
-  store double %lat2d, ptr %lat2d.addr, align 8
-  %0 = load double, ptr %lat2d.addr, align 8
-  %call = call double @deg_rad(double noundef %0)
-  %1 = load double, ptr %lat1d.addr, align 8
-  %call1 = call double @deg_rad(double noundef %1)
-  %sub = fsub double %call, %call1
-  %2 = call double @llvm.fabs.f64(double %sub)
-  %mul = fmul double 0x41584F6F63E51090, %2
-  ret double %mul
+define dso_local double @geohashGetLatDistance(double noundef %0, double noundef %1) #0 {
+  %3 = alloca double, align 8
+  %4 = alloca double, align 8
+  store double %0, ptr %3, align 8, !tbaa !5
+  store double %1, ptr %4, align 8, !tbaa !5
+  %5 = load double, ptr %4, align 8, !tbaa !5
+  %6 = call double @deg_rad(double noundef %5)
+  %7 = load double, ptr %3, align 8, !tbaa !5
+  %8 = call double @deg_rad(double noundef %7)
+  %9 = fsub double %6, %8
+  %10 = call double @llvm.fabs.f64(double %9)
+  %11 = fmul double 0x41584F6F63E51090, %10
+  ret double %11
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @geohashGetDistance(double noundef %lon1d, double noundef %lat1d, double noundef %lon2d, double noundef %lat2d) #0 {
-entry:
-  %retval = alloca double, align 8
-  %lon1d.addr = alloca double, align 8
-  %lat1d.addr = alloca double, align 8
-  %lon2d.addr = alloca double, align 8
-  %lat2d.addr = alloca double, align 8
-  %lat1r = alloca double, align 8
-  %lon1r = alloca double, align 8
-  %lat2r = alloca double, align 8
-  %lon2r = alloca double, align 8
-  %u = alloca double, align 8
-  %v = alloca double, align 8
-  %a = alloca double, align 8
-  store double %lon1d, ptr %lon1d.addr, align 8
-  store double %lat1d, ptr %lat1d.addr, align 8
-  store double %lon2d, ptr %lon2d.addr, align 8
-  store double %lat2d, ptr %lat2d.addr, align 8
-  %0 = load double, ptr %lon1d.addr, align 8
-  %call = call double @deg_rad(double noundef %0)
-  store double %call, ptr %lon1r, align 8
-  %1 = load double, ptr %lon2d.addr, align 8
-  %call1 = call double @deg_rad(double noundef %1)
-  store double %call1, ptr %lon2r, align 8
-  %2 = load double, ptr %lon2r, align 8
-  %3 = load double, ptr %lon1r, align 8
-  %sub = fsub double %2, %3
-  %div = fdiv double %sub, 2.000000e+00
-  %call2 = call double @sin(double noundef %div) #5
-  store double %call2, ptr %v, align 8
-  %4 = load double, ptr %v, align 8
-  %cmp = fcmp oeq double %4, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local double @geohashGetDistance(double noundef %0, double noundef %1, double noundef %2, double noundef %3) #0 {
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  %15 = alloca double, align 8
+  %16 = alloca double, align 8
+  %17 = alloca i32, align 4
+  store double %0, ptr %6, align 8, !tbaa !5
+  store double %1, ptr %7, align 8, !tbaa !5
+  store double %2, ptr %8, align 8, !tbaa !5
+  store double %3, ptr %9, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %18 = load double, ptr %6, align 8, !tbaa !5
+  %19 = call double @deg_rad(double noundef %18)
+  store double %19, ptr %11, align 8, !tbaa !5
+  %20 = load double, ptr %8, align 8, !tbaa !5
+  %21 = call double @deg_rad(double noundef %20)
+  store double %21, ptr %13, align 8, !tbaa !5
+  %22 = load double, ptr %13, align 8, !tbaa !5
+  %23 = load double, ptr %11, align 8, !tbaa !5
+  %24 = fsub double %22, %23
+  %25 = fdiv double %24, 2.000000e+00
+  %26 = call double @sin(double noundef %25) #7, !tbaa !9
+  store double %26, ptr %15, align 8, !tbaa !5
+  %27 = load double, ptr %15, align 8, !tbaa !5
+  %28 = fcmp oeq double %27, 0.000000e+00
+  br i1 %28, label %29, label %33
 
-if.then:                                          ; preds = %entry
-  %5 = load double, ptr %lat1d.addr, align 8
-  %6 = load double, ptr %lat2d.addr, align 8
-  %call3 = call double @geohashGetLatDistance(double noundef %5, double noundef %6)
-  store double %call3, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %4
+  %30 = load double, ptr %7, align 8, !tbaa !5
+  %31 = load double, ptr %9, align 8, !tbaa !5
+  %32 = call double @geohashGetLatDistance(double noundef %30, double noundef %31)
+  store double %32, ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  br label %59
 
-if.end:                                           ; preds = %entry
-  %7 = load double, ptr %lat1d.addr, align 8
-  %call4 = call double @deg_rad(double noundef %7)
-  store double %call4, ptr %lat1r, align 8
-  %8 = load double, ptr %lat2d.addr, align 8
-  %call5 = call double @deg_rad(double noundef %8)
-  store double %call5, ptr %lat2r, align 8
-  %9 = load double, ptr %lat2r, align 8
-  %10 = load double, ptr %lat1r, align 8
-  %sub6 = fsub double %9, %10
-  %div7 = fdiv double %sub6, 2.000000e+00
-  %call8 = call double @sin(double noundef %div7) #5
-  store double %call8, ptr %u, align 8
-  %11 = load double, ptr %u, align 8
-  %12 = load double, ptr %u, align 8
-  %13 = load double, ptr %lat1r, align 8
-  %call9 = call double @cos(double noundef %13) #5
-  %14 = load double, ptr %lat2r, align 8
-  %call10 = call double @cos(double noundef %14) #5
-  %mul11 = fmul double %call9, %call10
-  %15 = load double, ptr %v, align 8
-  %mul12 = fmul double %mul11, %15
-  %16 = load double, ptr %v, align 8
-  %mul13 = fmul double %mul12, %16
-  %17 = call double @llvm.fmuladd.f64(double %11, double %12, double %mul13)
-  store double %17, ptr %a, align 8
-  %18 = load double, ptr %a, align 8
-  %call14 = call double @sqrt(double noundef %18) #5
-  %call15 = call double @asin(double noundef %call14) #5
-  %mul = fmul double 0x41684F6F63E51090, %call15
-  store double %mul, ptr %retval, align 8
-  br label %return
+33:                                               ; preds = %4
+  %34 = load double, ptr %7, align 8, !tbaa !5
+  %35 = call double @deg_rad(double noundef %34)
+  store double %35, ptr %10, align 8, !tbaa !5
+  %36 = load double, ptr %9, align 8, !tbaa !5
+  %37 = call double @deg_rad(double noundef %36)
+  store double %37, ptr %12, align 8, !tbaa !5
+  %38 = load double, ptr %12, align 8, !tbaa !5
+  %39 = load double, ptr %10, align 8, !tbaa !5
+  %40 = fsub double %38, %39
+  %41 = fdiv double %40, 2.000000e+00
+  %42 = call double @sin(double noundef %41) #7, !tbaa !9
+  store double %42, ptr %14, align 8, !tbaa !5
+  %43 = load double, ptr %14, align 8, !tbaa !5
+  %44 = load double, ptr %14, align 8, !tbaa !5
+  %45 = load double, ptr %10, align 8, !tbaa !5
+  %46 = call double @cos(double noundef %45) #7, !tbaa !9
+  %47 = load double, ptr %12, align 8, !tbaa !5
+  %48 = call double @cos(double noundef %47) #7, !tbaa !9
+  %49 = fmul double %46, %48
+  %50 = load double, ptr %15, align 8, !tbaa !5
+  %51 = fmul double %49, %50
+  %52 = load double, ptr %15, align 8, !tbaa !5
+  %53 = fmul double %51, %52
+  %54 = call double @llvm.fmuladd.f64(double %43, double %44, double %53)
+  store double %54, ptr %16, align 8, !tbaa !5
+  %55 = load double, ptr %16, align 8, !tbaa !5
+  %56 = call double @sqrt(double noundef %55) #7, !tbaa !9
+  %57 = call double @asin(double noundef %56) #7, !tbaa !9
+  %58 = fmul double 0x41684F6F63E51090, %57
+  store double %58, ptr %5, align 8
+  store i32 1, ptr %17, align 4
+  br label %59
 
-return:                                           ; preds = %if.end, %if.then
-  %19 = load double, ptr %retval, align 8
-  ret double %19
+59:                                               ; preds = %33, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %60 = load double, ptr %5, align 8
+  ret double %60
 }
 
 ; Function Attrs: nounwind
-declare double @sin(double noundef) #1
+declare double @sin(double noundef) #3
 
 ; Function Attrs: nounwind
-declare double @asin(double noundef) #1
+declare double @asin(double noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @geohashGetDistanceIfInRadius(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr noundef %distance) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %x1.addr = alloca double, align 8
-  %y1.addr = alloca double, align 8
-  %x2.addr = alloca double, align 8
-  %y2.addr = alloca double, align 8
-  %radius.addr = alloca double, align 8
-  %distance.addr = alloca ptr, align 8
-  store double %x1, ptr %x1.addr, align 8
-  store double %y1, ptr %y1.addr, align 8
-  store double %x2, ptr %x2.addr, align 8
-  store double %y2, ptr %y2.addr, align 8
-  store double %radius, ptr %radius.addr, align 8
-  store ptr %distance, ptr %distance.addr, align 8
-  %0 = load double, ptr %x1.addr, align 8
-  %1 = load double, ptr %y1.addr, align 8
-  %2 = load double, ptr %x2.addr, align 8
-  %3 = load double, ptr %y2.addr, align 8
-  %call = call double @geohashGetDistance(double noundef %0, double noundef %1, double noundef %2, double noundef %3)
-  %4 = load ptr, ptr %distance.addr, align 8
-  store double %call, ptr %4, align 8
-  %5 = load ptr, ptr %distance.addr, align 8
-  %6 = load double, ptr %5, align 8
-  %7 = load double, ptr %radius.addr, align 8
-  %cmp = fcmp ogt double %6, %7
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @geohashGetDistanceIfInRadius(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca ptr, align 8
+  store double %0, ptr %8, align 8, !tbaa !5
+  store double %1, ptr %9, align 8, !tbaa !5
+  store double %2, ptr %10, align 8, !tbaa !5
+  store double %3, ptr %11, align 8, !tbaa !5
+  store double %4, ptr %12, align 8, !tbaa !5
+  store ptr %5, ptr %13, align 8, !tbaa !15
+  %14 = load double, ptr %8, align 8, !tbaa !5
+  %15 = load double, ptr %9, align 8, !tbaa !5
+  %16 = load double, ptr %10, align 8, !tbaa !5
+  %17 = load double, ptr %11, align 8, !tbaa !5
+  %18 = call double @geohashGetDistance(double noundef %14, double noundef %15, double noundef %16, double noundef %17)
+  %19 = load ptr, ptr %13, align 8, !tbaa !15
+  store double %18, ptr %19, align 8, !tbaa !5
+  %20 = load ptr, ptr %13, align 8, !tbaa !15
+  %21 = load double, ptr %20, align 8, !tbaa !5
+  %22 = load double, ptr %12, align 8, !tbaa !5
+  %23 = fcmp ogt double %21, %22
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %6
+  store i32 0, ptr %7, align 4
+  br label %26
 
-if.end:                                           ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %6
+  store i32 1, ptr %7, align 4
+  br label %26
 
-return:                                           ; preds = %if.end, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+26:                                               ; preds = %25, %24
+  %27 = load i32, ptr %7, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr noundef %distance) #0 {
-entry:
-  %x1.addr = alloca double, align 8
-  %y1.addr = alloca double, align 8
-  %x2.addr = alloca double, align 8
-  %y2.addr = alloca double, align 8
-  %radius.addr = alloca double, align 8
-  %distance.addr = alloca ptr, align 8
-  store double %x1, ptr %x1.addr, align 8
-  store double %y1, ptr %y1.addr, align 8
-  store double %x2, ptr %x2.addr, align 8
-  store double %y2, ptr %y2.addr, align 8
-  store double %radius, ptr %radius.addr, align 8
-  store ptr %distance, ptr %distance.addr, align 8
-  %0 = load double, ptr %x1.addr, align 8
-  %1 = load double, ptr %y1.addr, align 8
-  %2 = load double, ptr %x2.addr, align 8
-  %3 = load double, ptr %y2.addr, align 8
-  %4 = load double, ptr %radius.addr, align 8
-  %5 = load ptr, ptr %distance.addr, align 8
-  %call = call i32 @geohashGetDistanceIfInRadius(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5)
-  ret i32 %call
+define dso_local i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5) #0 {
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca ptr, align 8
+  store double %0, ptr %7, align 8, !tbaa !5
+  store double %1, ptr %8, align 8, !tbaa !5
+  store double %2, ptr %9, align 8, !tbaa !5
+  store double %3, ptr %10, align 8, !tbaa !5
+  store double %4, ptr %11, align 8, !tbaa !5
+  store ptr %5, ptr %12, align 8, !tbaa !15
+  %13 = load double, ptr %7, align 8, !tbaa !5
+  %14 = load double, ptr %8, align 8, !tbaa !5
+  %15 = load double, ptr %9, align 8, !tbaa !5
+  %16 = load double, ptr %10, align 8, !tbaa !5
+  %17 = load double, ptr %11, align 8, !tbaa !5
+  %18 = load ptr, ptr %12, align 8, !tbaa !15
+  %19 = call i32 @geohashGetDistanceIfInRadius(double noundef %13, double noundef %14, double noundef %15, double noundef %16, double noundef %17, ptr noundef %18)
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @geohashGetDistanceIfInRectangle(double noundef %width_m, double noundef %height_m, double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, ptr noundef %distance) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %width_m.addr = alloca double, align 8
-  %height_m.addr = alloca double, align 8
-  %x1.addr = alloca double, align 8
-  %y1.addr = alloca double, align 8
-  %x2.addr = alloca double, align 8
-  %y2.addr = alloca double, align 8
-  %distance.addr = alloca ptr, align 8
-  %lat_distance = alloca double, align 8
-  %lon_distance = alloca double, align 8
-  store double %width_m, ptr %width_m.addr, align 8
-  store double %height_m, ptr %height_m.addr, align 8
-  store double %x1, ptr %x1.addr, align 8
-  store double %y1, ptr %y1.addr, align 8
-  store double %x2, ptr %x2.addr, align 8
-  store double %y2, ptr %y2.addr, align 8
-  store ptr %distance, ptr %distance.addr, align 8
-  %0 = load double, ptr %y2.addr, align 8
-  %1 = load double, ptr %y1.addr, align 8
-  %call = call double @geohashGetLatDistance(double noundef %0, double noundef %1)
-  store double %call, ptr %lat_distance, align 8
-  %2 = load double, ptr %lat_distance, align 8
-  %3 = load double, ptr %height_m.addr, align 8
-  %div = fdiv double %3, 2.000000e+00
-  %cmp = fcmp ogt double %2, %div
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local i32 @geohashGetDistanceIfInRectangle(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef %6) #0 {
+  %8 = alloca i32, align 4
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca double, align 8
+  %13 = alloca double, align 8
+  %14 = alloca double, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca double, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca double, align 8
+  store double %0, ptr %9, align 8, !tbaa !5
+  store double %1, ptr %10, align 8, !tbaa !5
+  store double %2, ptr %11, align 8, !tbaa !5
+  store double %3, ptr %12, align 8, !tbaa !5
+  store double %4, ptr %13, align 8, !tbaa !5
+  store double %5, ptr %14, align 8, !tbaa !5
+  store ptr %6, ptr %15, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %19 = load double, ptr %14, align 8, !tbaa !5
+  %20 = load double, ptr %12, align 8, !tbaa !5
+  %21 = call double @geohashGetLatDistance(double noundef %19, double noundef %20)
+  store double %21, ptr %16, align 8, !tbaa !5
+  %22 = load double, ptr %16, align 8, !tbaa !5
+  %23 = load double, ptr %10, align 8, !tbaa !5
+  %24 = fdiv double %23, 2.000000e+00
+  %25 = fcmp ogt double %22, %24
+  br i1 %25, label %26, label %27
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %7
+  store i32 0, ptr %8, align 4
+  store i32 1, ptr %17, align 4
+  br label %46
 
-if.end:                                           ; preds = %entry
-  %4 = load double, ptr %x2.addr, align 8
-  %5 = load double, ptr %y2.addr, align 8
-  %6 = load double, ptr %x1.addr, align 8
-  %7 = load double, ptr %y2.addr, align 8
-  %call1 = call double @geohashGetDistance(double noundef %4, double noundef %5, double noundef %6, double noundef %7)
-  store double %call1, ptr %lon_distance, align 8
-  %8 = load double, ptr %lon_distance, align 8
-  %9 = load double, ptr %width_m.addr, align 8
-  %div2 = fdiv double %9, 2.000000e+00
-  %cmp3 = fcmp ogt double %8, %div2
-  br i1 %cmp3, label %if.then4, label %if.end5
+27:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %28 = load double, ptr %13, align 8, !tbaa !5
+  %29 = load double, ptr %14, align 8, !tbaa !5
+  %30 = load double, ptr %11, align 8, !tbaa !5
+  %31 = load double, ptr %14, align 8, !tbaa !5
+  %32 = call double @geohashGetDistance(double noundef %28, double noundef %29, double noundef %30, double noundef %31)
+  store double %32, ptr %18, align 8, !tbaa !5
+  %33 = load double, ptr %18, align 8, !tbaa !5
+  %34 = load double, ptr %9, align 8, !tbaa !5
+  %35 = fdiv double %34, 2.000000e+00
+  %36 = fcmp ogt double %33, %35
+  br i1 %36, label %37, label %38
 
-if.then4:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %27
+  store i32 0, ptr %8, align 4
+  store i32 1, ptr %17, align 4
+  br label %45
 
-if.end5:                                          ; preds = %if.end
-  %10 = load double, ptr %x1.addr, align 8
-  %11 = load double, ptr %y1.addr, align 8
-  %12 = load double, ptr %x2.addr, align 8
-  %13 = load double, ptr %y2.addr, align 8
-  %call6 = call double @geohashGetDistance(double noundef %10, double noundef %11, double noundef %12, double noundef %13)
-  %14 = load ptr, ptr %distance.addr, align 8
-  store double %call6, ptr %14, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %27
+  %39 = load double, ptr %11, align 8, !tbaa !5
+  %40 = load double, ptr %12, align 8, !tbaa !5
+  %41 = load double, ptr %13, align 8, !tbaa !5
+  %42 = load double, ptr %14, align 8, !tbaa !5
+  %43 = call double @geohashGetDistance(double noundef %39, double noundef %40, double noundef %41, double noundef %42)
+  %44 = load ptr, ptr %15, align 8, !tbaa !15
+  store double %43, ptr %44, align 8, !tbaa !5
+  store i32 1, ptr %8, align 4
+  store i32 1, ptr %17, align 4
+  br label %45
 
-return:                                           ; preds = %if.end5, %if.then4, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+45:                                               ; preds = %38, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  br label %46
+
+46:                                               ; preds = %45, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  %47 = load i32, ptr %8, align 4
+  ret i32 %47
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -1015,5 +1096,50 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"double", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"any pointer", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 double", !14, i64 0}
+!17 = !{!18, !6, i64 24}
+!18 = !{!"", !10, i64 0, !7, i64 8, !6, i64 24, !7, i64 32, !7, i64 64}
+!19 = !{!18, !10, i64 0}
+!20 = !{!7, !7, i64 0}
+!21 = !{!22, !6, i64 40}
+!22 = !{!"", !23, i64 0, !25, i64 16, !25, i64 32}
+!23 = !{!"", !24, i64 0, !7, i64 8}
+!24 = !{!"long", !7, i64 0}
+!25 = !{!"", !6, i64 0, !6, i64 8}
+!26 = !{!22, !6, i64 32}
+!27 = !{!22, !6, i64 24}
+!28 = !{!22, !6, i64 16}
+!29 = !{!30, !7, i64 56}
+!30 = !{!"", !23, i64 0, !23, i64 16, !23, i64 32, !23, i64 48, !23, i64 64, !23, i64 80, !23, i64 96, !23, i64 112}
+!31 = !{!30, !24, i64 48}
+!32 = !{!30, !7, i64 120}
+!33 = !{!30, !24, i64 112}
+!34 = !{!30, !7, i64 88}
+!35 = !{!30, !24, i64 80}
+!36 = !{!30, !7, i64 8}
+!37 = !{!30, !24, i64 0}
+!38 = !{!30, !7, i64 72}
+!39 = !{!30, !24, i64 64}
+!40 = !{!30, !7, i64 104}
+!41 = !{!30, !24, i64 96}
+!42 = !{!30, !7, i64 40}
+!43 = !{!30, !24, i64 32}
+!44 = !{!30, !7, i64 24}
+!45 = !{!30, !24, i64 16}
+!46 = !{i64 0, i64 8, !47, i64 8, i64 1, !20}
+!47 = !{!24, !24, i64 0}
+!48 = !{i64 0, i64 8, !47, i64 8, i64 1, !20, i64 16, i64 8, !47, i64 24, i64 1, !20, i64 32, i64 8, !47, i64 40, i64 1, !20, i64 48, i64 8, !47, i64 56, i64 1, !20, i64 64, i64 8, !47, i64 72, i64 1, !20, i64 80, i64 8, !47, i64 88, i64 1, !20, i64 96, i64 8, !47, i64 104, i64 1, !20, i64 112, i64 8, !47, i64 120, i64 1, !20}
+!49 = !{i64 0, i64 8, !47, i64 8, i64 1, !20, i64 16, i64 8, !5, i64 24, i64 8, !5, i64 32, i64 8, !5, i64 40, i64 8, !5}
+!50 = !{!23, !24, i64 0}
+!51 = !{!23, !7, i64 8}

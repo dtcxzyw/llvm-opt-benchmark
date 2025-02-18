@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/redis/original/lolwut.ll'
 source_filename = "bench/redis/original/lolwut.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [12 x i8] c"Redis ver. \00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"255.255.255\00", align 1
@@ -11,526 +11,542 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [7 x i8] c"%u.0.0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lolwutUnstableCommand(ptr noundef %c) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @sdsnew(ptr noundef nonnull @.str) #13
-  %call1 = tail call ptr @sdscat(ptr noundef %call, ptr noundef nonnull @.str.1) #13
-  %call2 = tail call ptr @sdscatlen(ptr noundef %call1, ptr noundef nonnull @.str.2, i64 noundef 1) #13
-  %arrayidx.i = getelementptr inbounds i8, ptr %call2, i64 -1
-  %0 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %0 to i32
-  %and.i = and i32 %conv.i, 7
-  switch i32 %and.i, label %sdslen.exit [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb3.i
-    i32 2, label %sw.bb5.i
-    i32 3, label %sw.bb9.i
-    i32 4, label %sw.bb13.i
+define dso_local void @lolwutUnstableCommand(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @sdsnew(ptr noundef nonnull @.str) #14
+  %3 = tail call ptr @sdscat(ptr noundef %2, ptr noundef nonnull @.str.1) #14
+  %4 = tail call ptr @sdscatlen(ptr noundef %3, ptr noundef nonnull @.str.2, i64 noundef 1) #14
+  %5 = getelementptr inbounds i8, ptr %4, i64 -1
+  %6 = load i8, ptr %5, align 1, !tbaa !5
+  %7 = zext i8 %6 to i32
+  %8 = and i32 %7, 7
+  switch i32 %8, label %sdslen.exit [
+    i32 0, label %9
+    i32 1, label %12
+    i32 2, label %16
+    i32 3, label %20
+    i32 4, label %24
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %shr.i = lshr i32 %conv.i, 3
-  %conv2.i = zext nneg i32 %shr.i to i64
+9:                                                ; preds = %1
+  %10 = lshr i32 %7, 3
+  %11 = zext nneg i32 %10 to i64
   br label %sdslen.exit
 
-sw.bb3.i:                                         ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %call2, i64 -3
-  %1 = load i8, ptr %add.ptr.i, align 1
-  %conv4.i = zext i8 %1 to i64
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds i8, ptr %4, i64 -3
+  %14 = load i8, ptr %13, align 1, !tbaa !5
+  %15 = zext i8 %14 to i64
   br label %sdslen.exit
 
-sw.bb5.i:                                         ; preds = %entry
-  %add.ptr6.i = getelementptr inbounds i8, ptr %call2, i64 -5
-  %2 = load i16, ptr %add.ptr6.i, align 1
-  %conv8.i = zext i16 %2 to i64
+16:                                               ; preds = %1
+  %17 = getelementptr inbounds i8, ptr %4, i64 -5
+  %18 = load i16, ptr %17, align 1, !tbaa !8
+  %19 = zext i16 %18 to i64
   br label %sdslen.exit
 
-sw.bb9.i:                                         ; preds = %entry
-  %add.ptr10.i = getelementptr inbounds i8, ptr %call2, i64 -9
-  %3 = load i32, ptr %add.ptr10.i, align 1
-  %conv12.i = zext i32 %3 to i64
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds i8, ptr %4, i64 -9
+  %22 = load i32, ptr %21, align 1, !tbaa !10
+  %23 = zext i32 %22 to i64
   br label %sdslen.exit
 
-sw.bb13.i:                                        ; preds = %entry
-  %add.ptr14.i = getelementptr inbounds i8, ptr %call2, i64 -17
-  %4 = load i64, ptr %add.ptr14.i, align 1
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds i8, ptr %4, i64 -17
+  %26 = load i64, ptr %25, align 1, !tbaa !12
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
-  %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
-  tail call void @addReplyVerbatim(ptr noundef %c, ptr noundef nonnull %call2, i64 noundef %retval.0.i, ptr noundef nonnull @.str.3) #13
-  tail call void @sdsfree(ptr noundef nonnull %call2) #13
+sdslen.exit:                                      ; preds = %1, %9, %12, %16, %20, %24
+  %.0.i = phi i64 [ %26, %24 ], [ %23, %20 ], [ %19, %16 ], [ %15, %12 ], [ %11, %9 ], [ 0, %1 ]
+  tail call void @addReplyVerbatim(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.0.i, ptr noundef nonnull @.str.3) #14
+  tail call void @sdsfree(ptr noundef nonnull %4) #14
   ret void
 }
 
-declare ptr @sdsnew(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @sdscat(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @sdsnew(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @sdscat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @addReplyVerbatim(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @sdsfree(ptr noundef) local_unnamed_addr #1
+declare void @addReplyVerbatim(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @sdsfree(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lolwutCommand(ptr noundef %c) local_unnamed_addr #0 {
-entry:
-  %verstr = alloca [64 x i8], align 16
-  %ver = alloca i64, align 8
-  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
-  %0 = load i32, ptr %argc, align 8
-  %cmp = icmp sgt i32 %0, 2
-  %v.0.sroa.gep = getelementptr inbounds nuw i8, ptr %verstr, i64 1
-  %v.0.sroa.gep24 = getelementptr inbounds nuw i8, ptr %verstr, i64 2
-  br i1 %cmp, label %land.lhs.true, label %if.end10
+define dso_local void @lolwutCommand(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca [64 x i8], align 16
+  %3 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #14
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %5 = load i32, ptr %4, align 8, !tbaa !14
+  %6 = icmp sgt i32 %5, 2
+  %.024.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %.024.sroa.gep37 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  br i1 %6, label %7, label %27
 
-land.lhs.true:                                    ; preds = %entry
-  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
-  %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load ptr, ptr %ptr, align 8
-  %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.4) #14
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end10
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !35
+  %14 = tail call i32 @strcasecmp(ptr noundef %13, ptr noundef nonnull @.str.4) #15
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %27
 
-if.then:                                          ; preds = %land.lhs.true
-  %arrayidx2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %arrayidx2, align 8
-  %call3 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull %ver, ptr noundef null) #13
-  %cmp4.not = icmp eq i32 %call3, 0
-  br i1 %cmp4.not, label %if.end, label %if.end80
+15:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %18 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %17, ptr noundef nonnull %3, ptr noundef null) #14
+  %.not25 = icmp eq i32 %18, 0
+  br i1 %.not25, label %.thread, label %26
 
-if.end:                                           ; preds = %if.then
-  %5 = load i64, ptr %ver, align 8
-  %conv = trunc i64 %5 to i32
-  %call6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %verstr, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %conv) #13
-  %6 = load ptr, ptr %argv, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %add.ptr, ptr %argv, align 8
-  %7 = load i32, ptr %argc, align 8
-  %sub = add nsw i32 %7, -2
-  store i32 %sub, ptr %argc, align 8
-  br label %if.end10
+.thread:                                          ; preds = %15
+  %19 = load i64, ptr %3, align 8, !tbaa !12
+  %20 = trunc i64 %19 to i32
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %20) #14
+  %22 = load ptr, ptr %8, align 8, !tbaa !33
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %23, ptr %8, align 8, !tbaa !33
+  %24 = load i32, ptr %4, align 8, !tbaa !14
+  %25 = add nsw i32 %24, -2
+  store i32 %25, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  br label %27
 
-if.end10:                                         ; preds = %if.end, %land.lhs.true, %entry
-  %v.0.sroa.phi = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %land.lhs.true ], [ %v.0.sroa.gep, %if.end ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %entry ]
-  %v.0.sroa.phi23 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %land.lhs.true ], [ %v.0.sroa.gep24, %if.end ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %entry ]
-  %v.0 = phi ptr [ @.str.1, %land.lhs.true ], [ %verstr, %if.end ], [ @.str.1, %entry ]
-  %8 = load i8, ptr %v.0, align 1
-  switch i8 %8, label %if.else70 [
-    i8 53, label %land.lhs.true15
-    i8 52, label %land.lhs.true29
-    i8 54, label %land.lhs.true44
+26:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  br label %58
+
+27:                                               ; preds = %.thread, %7, %1
+  %.024.sroa.phi = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %7 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %1 ], [ %.024.sroa.gep, %.thread ]
+  %.024.sroa.phi36 = phi ptr [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %7 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 2), %1 ], [ %.024.sroa.gep37, %.thread ]
+  %.024 = phi ptr [ @.str.1, %7 ], [ @.str.1, %1 ], [ %2, %.thread ]
+  %28 = load i8, ptr %.024, align 1, !tbaa !5
+  switch i8 %28, label %.thread33 [
+    i8 53, label %29
+    i8 52, label %34
+    i8 54, label %41
   ]
 
-land.lhs.true15:                                  ; preds = %if.end10
-  %9 = load i8, ptr %v.0.sroa.phi, align 1
-  %cmp18 = icmp eq i8 %9, 46
-  br i1 %cmp18, label %land.lhs.true20, label %if.else70
+29:                                               ; preds = %27
+  %30 = load i8, ptr %.024.sroa.phi, align 1, !tbaa !5
+  %31 = icmp eq i8 %30, 46
+  br i1 %31, label %32, label %.thread33
 
-land.lhs.true20:                                  ; preds = %land.lhs.true15
-  %10 = load i8, ptr %v.0.sroa.phi23, align 1
-  %cmp23.not = icmp eq i8 %10, 57
-  br i1 %cmp23.not, label %if.then69, label %if.then39
+32:                                               ; preds = %29
+  %33 = load i8, ptr %.024.sroa.phi36, align 1, !tbaa !5
+  %.not26 = icmp eq i8 %33, 57
+  br i1 %.not26, label %46, label %40
 
-land.lhs.true29:                                  ; preds = %if.end10
-  %11 = load i8, ptr %v.0.sroa.phi, align 1
-  %cmp32 = icmp eq i8 %11, 46
-  br i1 %cmp32, label %land.lhs.true34, label %if.else70
+34:                                               ; preds = %27
+  %35 = load i8, ptr %.024.sroa.phi, align 1, !tbaa !5
+  %36 = icmp eq i8 %35, 46
+  br i1 %36, label %37, label %.thread33
 
-land.lhs.true34:                                  ; preds = %land.lhs.true29
-  %12 = load i8, ptr %v.0.sroa.phi23, align 1
-  %cmp37 = icmp eq i8 %12, 57
-  br i1 %cmp37, label %if.then39, label %if.else70
+37:                                               ; preds = %34
+  %38 = load i8, ptr %.024.sroa.phi36, align 1, !tbaa !5
+  %39 = icmp eq i8 %38, 57
+  br i1 %39, label %40, label %.thread33
 
-if.then39:                                        ; preds = %land.lhs.true34, %land.lhs.true20
-  call void @lolwut5Command(ptr noundef nonnull %c) #13
-  br label %if.end72
+40:                                               ; preds = %37, %32
+  call void @lolwut5Command(ptr noundef nonnull %0) #14
+  br label %50
 
-land.lhs.true44:                                  ; preds = %if.end10
-  %13 = load i8, ptr %v.0.sroa.phi, align 1
-  %cmp47 = icmp eq i8 %13, 46
-  br i1 %cmp47, label %land.lhs.true49, label %if.else70
+41:                                               ; preds = %27
+  %42 = load i8, ptr %.024.sroa.phi, align 1, !tbaa !5
+  %43 = icmp eq i8 %42, 46
+  br i1 %43, label %44, label %.thread33
 
-land.lhs.true49:                                  ; preds = %land.lhs.true44
-  %14 = load i8, ptr %v.0.sroa.phi23, align 1
-  %cmp52.not = icmp eq i8 %14, 57
-  br i1 %cmp52.not, label %if.else70, label %if.then69
+44:                                               ; preds = %41
+  %45 = load i8, ptr %.024.sroa.phi36, align 1, !tbaa !5
+  %.not27 = icmp eq i8 %45, 57
+  br i1 %.not27, label %.thread33, label %49
 
-if.then69:                                        ; preds = %land.lhs.true20, %land.lhs.true49
-  call void @lolwut6Command(ptr noundef nonnull %c) #13
-  br label %if.end72
+46:                                               ; preds = %32
+  %47 = load i8, ptr %.024.sroa.phi36, align 1, !tbaa !5
+  %48 = icmp eq i8 %47, 57
+  br i1 %48, label %49, label %.thread33
 
-if.else70:                                        ; preds = %if.end10, %land.lhs.true29, %land.lhs.true34, %land.lhs.true44, %land.lhs.true49, %land.lhs.true15
-  call void @lolwutUnstableCommand(ptr noundef nonnull %c)
-  br label %if.end72
+49:                                               ; preds = %46, %44
+  call void @lolwut6Command(ptr noundef nonnull %0) #14
+  br label %50
 
-if.end72:                                         ; preds = %if.then69, %if.else70, %if.then39
-  %cmp74 = icmp eq ptr %v.0, %verstr
-  br i1 %cmp74, label %if.then76, label %if.end80
+.thread33:                                        ; preds = %29, %27, %34, %37, %41, %44, %46
+  call void @lolwutUnstableCommand(ptr noundef nonnull %0)
+  br label %50
 
-if.then76:                                        ; preds = %if.end72
-  %argv77 = getelementptr inbounds nuw i8, ptr %c, i64 96
-  %15 = load ptr, ptr %argv77, align 8
-  %add.ptr78 = getelementptr inbounds i8, ptr %15, i64 -16
-  store ptr %add.ptr78, ptr %argv77, align 8
-  %16 = load i32, ptr %argc, align 8
-  %add = add nsw i32 %16, 2
-  store i32 %add, ptr %argc, align 8
-  br label %if.end80
+50:                                               ; preds = %49, %.thread33, %40
+  %51 = icmp eq ptr %.024, %2
+  br i1 %51, label %52, label %58
 
-if.end80:                                         ; preds = %if.then, %if.then76, %if.end72
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %54 = load ptr, ptr %53, align 8, !tbaa !33
+  %55 = getelementptr inbounds i8, ptr %54, i64 -16
+  store ptr %55, ptr %53, align 8, !tbaa !33
+  %56 = load i32, ptr %4, align 8, !tbaa !14
+  %57 = add nsw i32 %56, 2
+  store i32 %57, ptr %4, align 8, !tbaa !14
+  br label %58
+
+58:                                               ; preds = %26, %50, %52
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-declare void @lolwut5Command(ptr noundef) local_unnamed_addr #1
+declare void @lolwut5Command(ptr noundef) local_unnamed_addr #2
 
-declare void @lolwut6Command(ptr noundef) local_unnamed_addr #1
+declare void @lolwut6Command(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @lwCreateCanvas(i32 noundef %width, i32 noundef %height, i32 noundef %bgcolor) local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #15
-  store i32 %width, ptr %call, align 8
-  %height2 = getelementptr inbounds nuw i8, ptr %call, i64 4
-  store i32 %height, ptr %height2, align 4
-  %conv = sext i32 %width to i64
-  %conv3 = sext i32 %height to i64
-  %mul = mul nsw i64 %conv3, %conv
-  %call4 = tail call noalias ptr @zmalloc(i64 noundef %mul) #15
-  %pixels = getelementptr inbounds nuw i8, ptr %call, i64 8
-  store ptr %call4, ptr %pixels, align 8
-  %0 = trunc i32 %bgcolor to i8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call4, i8 %0, i64 %mul, i1 false)
-  ret ptr %call
+define dso_local noalias noundef ptr @lwCreateCanvas(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #16
+  store i32 %0, ptr %4, align 8, !tbaa !37
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %1, ptr %5, align 4, !tbaa !39
+  %6 = sext i32 %0 to i64
+  %7 = sext i32 %1 to i64
+  %8 = mul nsw i64 %7, %6
+  %9 = tail call noalias ptr @zmalloc(i64 noundef %8) #16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %9, ptr %10, align 8, !tbaa !40
+  %11 = trunc i32 %2 to i8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 %11, i64 %8, i1 false)
+  ret ptr %4
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lwFreeCanvas(ptr noundef %canvas) local_unnamed_addr #0 {
-entry:
-  %pixels = getelementptr inbounds nuw i8, ptr %canvas, i64 8
-  %0 = load ptr, ptr %pixels, align 8
-  tail call void @zfree(ptr noundef %0) #13
-  tail call void @zfree(ptr noundef %canvas) #13
+define dso_local void @lwFreeCanvas(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  tail call void @zfree(ptr noundef %3) #14
+  tail call void @zfree(ptr noundef %0) #14
   ret void
 }
 
-declare void @zfree(ptr noundef) local_unnamed_addr #1
+declare void @zfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lwDrawPixel(ptr noundef readonly captures(none) %canvas, i32 noundef %x, i32 noundef %y, i32 noundef %color) local_unnamed_addr #6 {
-entry:
-  %cmp = icmp slt i32 %x, 0
-  br i1 %cmp, label %return, label %lor.lhs.false
+define dso_local void @lwDrawPixel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+  %5 = icmp slt i32 %1, 0
+  br i1 %5, label %21, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %0 = load i32, ptr %canvas, align 8
-  %cmp1 = icmp sge i32 %x, %0
-  %cmp3 = icmp slt i32 %y, 0
-  %or.cond = or i1 %cmp3, %cmp1
-  br i1 %or.cond, label %return, label %lor.lhs.false4
+6:                                                ; preds = %4
+  %7 = load i32, ptr %0, align 8, !tbaa !37
+  %8 = icmp sge i32 %1, %7
+  %9 = icmp slt i32 %2, 0
+  %or.cond = or i1 %9, %8
+  br i1 %or.cond, label %21, label %10
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %height = getelementptr inbounds nuw i8, ptr %canvas, i64 4
-  %1 = load i32, ptr %height, align 4
-  %cmp5.not = icmp slt i32 %y, %1
-  br i1 %cmp5.not, label %if.end, label %return
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !39
+  %.not = icmp slt i32 %2, %12
+  br i1 %.not, label %13, label %21
 
-if.end:                                           ; preds = %lor.lhs.false4
-  %conv = trunc i32 %color to i8
-  %pixels = getelementptr inbounds nuw i8, ptr %canvas, i64 8
-  %2 = load ptr, ptr %pixels, align 8
-  %mul = mul nsw i32 %0, %y
-  %add = add nuw nsw i32 %mul, %x
-  %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom
-  store i8 %conv, ptr %arrayidx, align 1
-  br label %return
+13:                                               ; preds = %10
+  %14 = trunc i32 %3 to i8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  %17 = mul nsw i32 %7, %2
+  %18 = add nuw nsw i32 %17, %1
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
+  store i8 %14, ptr %20, align 1, !tbaa !5
+  br label %21
 
-return:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false4, %if.end
+21:                                               ; preds = %4, %6, %10, %13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -128, 128) i32 @lwGetPixel(ptr noundef readonly captures(none) %canvas, i32 noundef %x, i32 noundef %y) local_unnamed_addr #7 {
-entry:
-  %cmp = icmp slt i32 %x, 0
-  br i1 %cmp, label %return, label %lor.lhs.false
+define dso_local range(i32 -128, 128) i32 @lwGetPixel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+  %4 = icmp slt i32 %1, 0
+  br i1 %4, label %21, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %0 = load i32, ptr %canvas, align 8
-  %cmp1 = icmp sge i32 %x, %0
-  %cmp3 = icmp slt i32 %y, 0
-  %or.cond = or i1 %cmp3, %cmp1
-  br i1 %or.cond, label %return, label %lor.lhs.false4
+5:                                                ; preds = %3
+  %6 = load i32, ptr %0, align 8, !tbaa !37
+  %7 = icmp sge i32 %1, %6
+  %8 = icmp slt i32 %2, 0
+  %or.cond = or i1 %8, %7
+  br i1 %or.cond, label %21, label %9
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %height = getelementptr inbounds nuw i8, ptr %canvas, i64 4
-  %1 = load i32, ptr %height, align 4
-  %cmp5.not = icmp slt i32 %y, %1
-  br i1 %cmp5.not, label %if.end, label %return
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !39
+  %.not = icmp slt i32 %2, %11
+  br i1 %.not, label %12, label %21
 
-if.end:                                           ; preds = %lor.lhs.false4
-  %pixels = getelementptr inbounds nuw i8, ptr %canvas, i64 8
-  %2 = load ptr, ptr %pixels, align 8
-  %mul = mul nsw i32 %0, %y
-  %add = add nuw nsw i32 %mul, %x
-  %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %3 to i32
-  br label %return
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  %15 = mul nsw i32 %6, %2
+  %16 = add nuw nsw i32 %15, %1
+  %17 = zext nneg i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !5
+  %20 = sext i8 %19 to i32
+  br label %21
 
-return:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false4, %if.end
-  %retval.0 = phi i32 [ %conv, %if.end ], [ 0, %lor.lhs.false4 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %retval.0
+21:                                               ; preds = %3, %5, %9, %12
+  %.0 = phi i32 [ %20, %12 ], [ 0, %9 ], [ 0, %5 ], [ 0, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lwDrawLine(ptr noundef readonly captures(none) %canvas, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2, i32 noundef %color) local_unnamed_addr #8 {
-entry:
-  %sub = sub nsw i32 %x2, %x1
-  %0 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
-  %sub1 = sub nsw i32 %y2, %y1
-  %1 = tail call i32 @llvm.abs.i32(i32 %sub1, i1 true)
-  %cmp = icmp slt i32 %x1, %x2
-  %cond = select i1 %cmp, i32 1, i32 -1
-  %cmp2 = icmp slt i32 %y1, %y2
-  %cond3 = select i1 %cmp2, i32 1, i32 -1
-  %sub4 = sub nsw i32 %0, %1
-  %height.i = getelementptr inbounds nuw i8, ptr %canvas, i64 4
-  %conv.i = trunc i32 %color to i8
-  %pixels.i = getelementptr inbounds nuw i8, ptr %canvas, i64 8
-  %sub7 = sub nsw i32 0, %1
-  br label %while.body
+define dso_local void @lwDrawLine(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
+  %7 = sub nsw i32 %3, %1
+  %8 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
+  %9 = sub nsw i32 %4, %2
+  %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
+  %11 = icmp slt i32 %1, %3
+  %12 = select i1 %11, i32 1, i32 -1
+  %13 = icmp slt i32 %2, %4
+  %14 = select i1 %13, i32 1, i32 -1
+  %15 = sub nsw i32 %8, %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %17 = trunc i32 %5 to i8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = sub nsw i32 0, %10
+  br label %20
 
-while.body:                                       ; preds = %if.end, %entry
-  %y1.addr.0 = phi i32 [ %y1, %entry ], [ %y1.addr.1, %if.end ]
-  %err.0 = phi i32 [ %sub4, %entry ], [ %err.2, %if.end ]
-  %x1.addr.0 = phi i32 [ %x1, %entry ], [ %x1.addr.1, %if.end ]
-  %cmp.i = icmp slt i32 %x1.addr.0, 0
-  br i1 %cmp.i, label %lwDrawPixel.exit, label %lor.lhs.false.i
+20:                                               ; preds = %36, %6
+  %.032 = phi i32 [ %2, %6 ], [ %.133, %36 ]
+  %.030 = phi i32 [ %15, %6 ], [ %.2, %36 ]
+  %.0 = phi i32 [ %1, %6 ], [ %.1, %36 ]
+  %21 = icmp slt i32 %.0, 0
+  br i1 %21, label %lwDrawPixel.exit, label %22
 
-lor.lhs.false.i:                                  ; preds = %while.body
-  %2 = load i32, ptr %canvas, align 8
-  %cmp1.i = icmp sge i32 %x1.addr.0, %2
-  %cmp3.i = icmp slt i32 %y1.addr.0, 0
-  %or.cond.i = or i1 %cmp3.i, %cmp1.i
-  br i1 %or.cond.i, label %lwDrawPixel.exit, label %lor.lhs.false4.i
+22:                                               ; preds = %20
+  %23 = load i32, ptr %0, align 8, !tbaa !37
+  %24 = icmp sge i32 %.0, %23
+  %25 = icmp slt i32 %.032, 0
+  %or.cond.i = or i1 %25, %24
+  br i1 %or.cond.i, label %lwDrawPixel.exit, label %26
 
-lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
-  %3 = load i32, ptr %height.i, align 4
-  %cmp5.not.i = icmp slt i32 %y1.addr.0, %3
-  br i1 %cmp5.not.i, label %if.end.i, label %lwDrawPixel.exit
+26:                                               ; preds = %22
+  %27 = load i32, ptr %16, align 4, !tbaa !39
+  %.not.i = icmp slt i32 %.032, %27
+  br i1 %.not.i, label %28, label %lwDrawPixel.exit
 
-if.end.i:                                         ; preds = %lor.lhs.false4.i
-  %4 = load ptr, ptr %pixels.i, align 8
-  %mul.i = mul nsw i32 %2, %y1.addr.0
-  %add.i = add nuw nsw i32 %mul.i, %x1.addr.0
-  %idxprom.i = zext nneg i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom.i
-  store i8 %conv.i, ptr %arrayidx.i, align 1
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %18, align 8, !tbaa !40
+  %30 = mul nsw i32 %23, %.032
+  %31 = add nuw nsw i32 %30, %.0
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
+  store i8 %17, ptr %33, align 1, !tbaa !5
   br label %lwDrawPixel.exit
 
-lwDrawPixel.exit:                                 ; preds = %while.body, %lor.lhs.false.i, %lor.lhs.false4.i, %if.end.i
-  %cmp5 = icmp eq i32 %x1.addr.0, %x2
-  %cmp6 = icmp eq i32 %y1.addr.0, %y2
-  %or.cond = and i1 %cmp6, %cmp5
-  br i1 %or.cond, label %while.end, label %if.end
+lwDrawPixel.exit:                                 ; preds = %20, %22, %26, %28
+  %34 = icmp eq i32 %.0, %3
+  %35 = icmp eq i32 %.032, %4
+  %or.cond = and i1 %35, %34
+  br i1 %or.cond, label %44, label %36
 
-if.end:                                           ; preds = %lwDrawPixel.exit
-  %mul = shl nsw i32 %err.0, 1
-  %cmp8 = icmp sgt i32 %mul, %sub7
-  %sub10 = select i1 %cmp8, i32 %1, i32 0
-  %err.1 = sub i32 %err.0, %sub10
-  %add = select i1 %cmp8, i32 %cond, i32 0
-  %x1.addr.1 = add nsw i32 %add, %x1.addr.0
-  %cmp12 = icmp slt i32 %mul, %0
-  %add15 = select i1 %cmp12, i32 %cond3, i32 0
-  %y1.addr.1 = add nsw i32 %add15, %y1.addr.0
-  %add14 = select i1 %cmp12, i32 %0, i32 0
-  %err.2 = add nsw i32 %err.1, %add14
-  br label %while.body
+36:                                               ; preds = %lwDrawPixel.exit
+  %37 = shl nsw i32 %.030, 1
+  %38 = icmp sgt i32 %37, %19
+  %39 = select i1 %38, i32 %10, i32 0
+  %.131 = sub i32 %.030, %39
+  %40 = select i1 %38, i32 %12, i32 0
+  %.1 = add nsw i32 %40, %.0
+  %41 = icmp slt i32 %37, %8
+  %42 = select i1 %41, i32 %14, i32 0
+  %.133 = add nsw i32 %42, %.032
+  %43 = select i1 %41, i32 %8, i32 0
+  %.2 = add nsw i32 %.131, %43
+  br label %20
 
-while.end:                                        ; preds = %lwDrawPixel.exit
+44:                                               ; preds = %lwDrawPixel.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local void @lwDrawSquare(ptr noundef readonly captures(none) %canvas, i32 noundef %x, i32 noundef %y, float noundef %size, float noundef %angle, i32 noundef %color) local_unnamed_addr #10 {
-entry:
-  %px = alloca [4 x i32], align 16
-  %py = alloca [4 x i32], align 16
-  %conv = fpext float %size to double
-  %div = fdiv double %conv, 0x3FF6A09E667A35E6
-  %conv1 = fptrunc double %div to float
-  %0 = tail call float @llvm.round.f32(float %conv1)
-  %conv4 = fpext float %angle to double
-  %add = fadd double %conv4, 0x3FE921FB54442D18
-  %conv8 = fpext float %0 to double
-  %conv9 = sitofp i32 %x to double
-  %conv14 = sitofp i32 %y to double
-  br label %for.body
+define dso_local void @lwDrawSquare(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #11 {
+  %7 = alloca [4 x i32], align 16
+  %8 = alloca [4 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
+  %9 = fpext float %3 to double
+  %10 = fdiv double %9, 0x3FF6A09E667A35E6
+  %11 = fptrunc double %10 to float
+  %12 = tail call float @llvm.round.f32(float %11)
+  %13 = fpext float %4 to double
+  %14 = fadd double %13, 0x3FE921FB54442D18
+  %15 = fpext float %12 to double
+  %16 = sitofp i32 %1 to double
+  %17 = sitofp i32 %2 to double
+  br label %21
 
-for.cond22.preheader:                             ; preds = %for.body
-  %height.i.i = getelementptr inbounds nuw i8, ptr %canvas, i64 4
-  %conv.i.i = trunc i32 %color to i8
-  %pixels.i.i = getelementptr inbounds nuw i8, ptr %canvas, i64 8
-  br label %for.body25
+lwDrawLine.exit.preheader:                        ; preds = %21
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %19 = trunc i32 %5 to i8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %35
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %k.0.in14 = phi double [ %add, %entry ], [ %add19, %for.body ]
-  %k.0 = fptrunc double %k.0.in14 to float
-  %conv7 = fpext float %k.0 to double
-  %call = tail call double @sin(double noundef %conv7) #13
-  %1 = tail call double @llvm.fmuladd.f64(double %call, double %conv8, double %conv9)
-  %2 = tail call double @llvm.round.f64(double %1)
-  %conv10 = fptosi double %2 to i32
-  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr %px, i64 0, i64 %indvars.iv
-  store i32 %conv10, ptr %arrayidx, align 4
-  %call12 = tail call double @cos(double noundef %conv7) #13
-  %3 = tail call double @llvm.fmuladd.f64(double %call12, double %conv8, double %conv14)
-  %4 = tail call double @llvm.round.f64(double %3)
-  %conv15 = fptosi double %4 to i32
-  %arrayidx17 = getelementptr inbounds nuw [4 x i32], ptr %py, i64 0, i64 %indvars.iv
-  store i32 %conv15, ptr %arrayidx17, align 4
-  %add19 = fadd double %conv7, 0x3FF921FB54442D18
+21:                                               ; preds = %6, %21
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %21 ]
+  %.022.in23 = phi double [ %14, %6 ], [ %33, %21 ]
+  %.022 = fptrunc double %.022.in23 to float
+  %22 = fpext float %.022 to double
+  %23 = tail call double @sin(double noundef %22) #14, !tbaa !10
+  %24 = tail call double @llvm.fmuladd.f64(double %23, double %15, double %16)
+  %25 = tail call double @llvm.round.f64(double %24)
+  %26 = fptosi double %25 to i32
+  %27 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  store i32 %26, ptr %27, align 4, !tbaa !10
+  %28 = tail call double @cos(double noundef %22) #14, !tbaa !10
+  %29 = tail call double @llvm.fmuladd.f64(double %28, double %15, double %17)
+  %30 = tail call double @llvm.round.f64(double %29)
+  %31 = fptosi double %30 to i32
+  %32 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv
+  store i32 %31, ptr %32, align 4, !tbaa !10
+  %33 = fadd double %22, 0x3FF921FB54442D18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.cond22.preheader, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %lwDrawLine.exit.preheader, label %21, !llvm.loop !41
 
-for.cond22.loopexit:                              ; preds = %lwDrawPixel.exit.i
-  %exitcond21.not = icmp eq i64 %indvars.iv.next19, 4
-  br i1 %exitcond21.not, label %for.end39, label %for.body25, !llvm.loop !7
+lwDrawLine.exit.loopexit:                         ; preds = %lwDrawPixel.exit.i
+  %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
+  br i1 %exitcond30.not, label %34, label %35, !llvm.loop !43
 
-for.body25:                                       ; preds = %for.cond22.preheader, %for.cond22.loopexit
-  %indvars.iv18 = phi i64 [ 0, %for.cond22.preheader ], [ %indvars.iv.next19, %for.cond22.loopexit ]
-  %arrayidx27 = getelementptr inbounds nuw [4 x i32], ptr %px, i64 0, i64 %indvars.iv18
-  %5 = load i32, ptr %arrayidx27, align 4
-  %arrayidx29 = getelementptr inbounds nuw [4 x i32], ptr %py, i64 0, i64 %indvars.iv18
-  %6 = load i32, ptr %arrayidx29, align 4
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %rem = and i64 %indvars.iv.next19, 3
-  %arrayidx32 = getelementptr inbounds nuw [4 x i32], ptr %px, i64 0, i64 %rem
-  %7 = load i32, ptr %arrayidx32, align 4
-  %arrayidx36 = getelementptr inbounds nuw [4 x i32], ptr %py, i64 0, i64 %rem
-  %8 = load i32, ptr %arrayidx36, align 4
-  %sub.i = sub nsw i32 %7, %5
-  %9 = tail call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
-  %sub1.i = sub nsw i32 %8, %6
-  %10 = tail call i32 @llvm.abs.i32(i32 %sub1.i, i1 true)
-  %cmp.i = icmp slt i32 %5, %7
-  %cond.i = select i1 %cmp.i, i32 1, i32 -1
-  %cmp2.i = icmp slt i32 %6, %8
-  %cond3.i = select i1 %cmp2.i, i32 1, i32 -1
-  %sub4.i = sub nsw i32 %9, %10
-  %sub7.i = sub nsw i32 0, %10
-  br label %while.body.i
+34:                                               ; preds = %lwDrawLine.exit.loopexit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  ret void
 
-while.body.i:                                     ; preds = %if.end.i, %for.body25
-  %y1.addr.0.i = phi i32 [ %6, %for.body25 ], [ %y1.addr.1.i, %if.end.i ]
-  %err.0.i = phi i32 [ %sub4.i, %for.body25 ], [ %err.2.i, %if.end.i ]
-  %x1.addr.0.i = phi i32 [ %5, %for.body25 ], [ %x1.addr.1.i, %if.end.i ]
-  %cmp.i.i = icmp slt i32 %x1.addr.0.i, 0
-  br i1 %cmp.i.i, label %lwDrawPixel.exit.i, label %lor.lhs.false.i.i
+35:                                               ; preds = %lwDrawLine.exit.preheader, %lwDrawLine.exit.loopexit
+  %indvars.iv27 = phi i64 [ 0, %lwDrawLine.exit.preheader ], [ %indvars.iv.next28, %lwDrawLine.exit.loopexit ]
+  %36 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv27
+  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %38 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv27
+  %39 = load i32, ptr %38, align 4, !tbaa !10
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %40 = and i64 %indvars.iv.next28, 3
+  %41 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !10
+  %43 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %40
+  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %45 = sub nsw i32 %42, %37
+  %46 = tail call i32 @llvm.abs.i32(i32 %45, i1 true)
+  %47 = sub nsw i32 %44, %39
+  %48 = tail call i32 @llvm.abs.i32(i32 %47, i1 true)
+  %49 = icmp slt i32 %37, %42
+  %50 = select i1 %49, i32 1, i32 -1
+  %51 = icmp slt i32 %39, %44
+  %52 = select i1 %51, i32 1, i32 -1
+  %53 = sub nsw i32 %46, %48
+  %54 = sub nsw i32 0, %48
+  br label %55
 
-lor.lhs.false.i.i:                                ; preds = %while.body.i
-  %11 = load i32, ptr %canvas, align 8
-  %cmp1.i.i = icmp sge i32 %x1.addr.0.i, %11
-  %cmp3.i.i = icmp slt i32 %y1.addr.0.i, 0
-  %or.cond.i.i = or i1 %cmp3.i.i, %cmp1.i.i
-  br i1 %or.cond.i.i, label %lwDrawPixel.exit.i, label %lor.lhs.false4.i.i
+55:                                               ; preds = %71, %35
+  %.032.i = phi i32 [ %39, %35 ], [ %.133.i, %71 ]
+  %.030.i = phi i32 [ %53, %35 ], [ %.2.i, %71 ]
+  %.0.i = phi i32 [ %37, %35 ], [ %.1.i, %71 ]
+  %56 = icmp slt i32 %.0.i, 0
+  br i1 %56, label %lwDrawPixel.exit.i, label %57
 
-lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i
-  %12 = load i32, ptr %height.i.i, align 4
-  %cmp5.not.i.i = icmp slt i32 %y1.addr.0.i, %12
-  br i1 %cmp5.not.i.i, label %if.end.i.i, label %lwDrawPixel.exit.i
+57:                                               ; preds = %55
+  %58 = load i32, ptr %0, align 8, !tbaa !37
+  %59 = icmp sge i32 %.0.i, %58
+  %60 = icmp slt i32 %.032.i, 0
+  %or.cond.i.i = or i1 %60, %59
+  br i1 %or.cond.i.i, label %lwDrawPixel.exit.i, label %61
 
-if.end.i.i:                                       ; preds = %lor.lhs.false4.i.i
-  %13 = load ptr, ptr %pixels.i.i, align 8
-  %mul.i.i = mul nsw i32 %11, %y1.addr.0.i
-  %add.i.i = add nuw nsw i32 %mul.i.i, %x1.addr.0.i
-  %idxprom.i.i = zext nneg i32 %add.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %idxprom.i.i
-  store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
+61:                                               ; preds = %57
+  %62 = load i32, ptr %18, align 4, !tbaa !39
+  %.not.i.i = icmp slt i32 %.032.i, %62
+  br i1 %.not.i.i, label %63, label %lwDrawPixel.exit.i
+
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %20, align 8, !tbaa !40
+  %65 = mul nsw i32 %58, %.032.i
+  %66 = add nuw nsw i32 %65, %.0.i
+  %67 = zext nneg i32 %66 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %67
+  store i8 %19, ptr %68, align 1, !tbaa !5
   br label %lwDrawPixel.exit.i
 
-lwDrawPixel.exit.i:                               ; preds = %if.end.i.i, %lor.lhs.false4.i.i, %lor.lhs.false.i.i, %while.body.i
-  %cmp5.i = icmp eq i32 %x1.addr.0.i, %7
-  %cmp6.i = icmp eq i32 %y1.addr.0.i, %8
-  %or.cond.i = and i1 %cmp6.i, %cmp5.i
-  br i1 %or.cond.i, label %for.cond22.loopexit, label %if.end.i
+lwDrawPixel.exit.i:                               ; preds = %63, %61, %57, %55
+  %69 = icmp eq i32 %.0.i, %42
+  %70 = icmp eq i32 %.032.i, %44
+  %or.cond.i = and i1 %70, %69
+  br i1 %or.cond.i, label %lwDrawLine.exit.loopexit, label %71
 
-if.end.i:                                         ; preds = %lwDrawPixel.exit.i
-  %mul.i = shl nsw i32 %err.0.i, 1
-  %cmp8.i = icmp sgt i32 %mul.i, %sub7.i
-  %sub10.i = select i1 %cmp8.i, i32 %10, i32 0
-  %err.1.i = sub i32 %err.0.i, %sub10.i
-  %add.i = select i1 %cmp8.i, i32 %cond.i, i32 0
-  %x1.addr.1.i = add nsw i32 %add.i, %x1.addr.0.i
-  %cmp12.i = icmp slt i32 %mul.i, %9
-  %add15.i = select i1 %cmp12.i, i32 %cond3.i, i32 0
-  %y1.addr.1.i = add nsw i32 %add15.i, %y1.addr.0.i
-  %add14.i = select i1 %cmp12.i, i32 %9, i32 0
-  %err.2.i = add nsw i32 %err.1.i, %add14.i
-  br label %while.body.i
-
-for.end39:                                        ; preds = %for.cond22.loopexit
-  ret void
+71:                                               ; preds = %lwDrawPixel.exit.i
+  %72 = shl nsw i32 %.030.i, 1
+  %73 = icmp sgt i32 %72, %54
+  %74 = select i1 %73, i32 %48, i32 0
+  %.131.i = sub i32 %.030.i, %74
+  %75 = select i1 %73, i32 %50, i32 0
+  %.1.i = add nsw i32 %75, %.0.i
+  %76 = icmp slt i32 %72, %46
+  %77 = select i1 %76, i32 %52, i32 0
+  %.133.i = add nsw i32 %77, %.032.i
+  %78 = select i1 %76, i32 %46, i32 0
+  %.2.i = add nsw i32 %.131.i, %78
+  br label %55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.round.f64(double) #9
+declare double @llvm.round.f64(double) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) local_unnamed_addr #11
+declare double @sin(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) local_unnamed_addr #11
+declare double @cos(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.round.f32(float) #12
+declare float @llvm.round.f32(float) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { nounwind allocsize(0) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -539,6 +555,42 @@ attributes #15 = { nounwind allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"short", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!15, !11, i64 88}
+!15 = !{!"client", !13, i64 0, !13, i64 8, !16, i64 16, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !11, i64 28, !18, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !20, i64 64, !13, i64 72, !13, i64 80, !11, i64 88, !21, i64 96, !11, i64 104, !11, i64 108, !21, i64 112, !13, i64 120, !22, i64 128, !22, i64 136, !22, i64 144, !22, i64 152, !17, i64 160, !11, i64 168, !11, i64 172, !13, i64 176, !23, i64 184, !24, i64 192, !23, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !11, i64 232, !25, i64 240, !13, i64 248, !13, i64 256, !11, i64 264, !11, i64 268, !11, i64 272, !11, i64 276, !13, i64 280, !13, i64 288, !20, i64 296, !24, i64 304, !24, i64 312, !24, i64 320, !24, i64 328, !24, i64 336, !24, i64 344, !24, i64 352, !24, i64 360, !6, i64 368, !11, i64 412, !20, i64 416, !11, i64 424, !11, i64 428, !13, i64 432, !26, i64 440, !28, i64 480, !24, i64 552, !23, i64 560, !29, i64 568, !29, i64 576, !29, i64 584, !20, i64 592, !20, i64 600, !30, i64 608, !30, i64 616, !30, i64 624, !17, i64 632, !17, i64 640, !17, i64 648, !17, i64 656, !17, i64 664, !13, i64 672, !31, i64 680, !13, i64 688, !11, i64 696, !30, i64 704, !17, i64 712, !30, i64 720, !13, i64 728, !32, i64 736, !13, i64 760, !24, i64 768, !11, i64 776, !13, i64 784, !20, i64 792}
+!16 = !{!"p1 _ZTS10connection", !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}
+!18 = !{!"p1 _ZTS7redisDb", !17, i64 0}
+!19 = !{!"p1 _ZTS11redisObject", !17, i64 0}
+!20 = !{!"p1 omnipotent char", !17, i64 0}
+!21 = !{!"p2 _ZTS11redisObject", !17, i64 0}
+!22 = !{!"p1 _ZTS12redisCommand", !17, i64 0}
+!23 = !{!"p1 _ZTS4list", !17, i64 0}
+!24 = !{!"long long", !6, i64 0}
+!25 = !{!"p1 _ZTS9dictEntry", !17, i64 0}
+!26 = !{!"multiState", !27, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !13, i64 24, !11, i64 32}
+!27 = !{!"p1 _ZTS8multiCmd", !17, i64 0}
+!28 = !{!"blockingState", !11, i64 0, !24, i64 8, !11, i64 16, !29, i64 24, !11, i64 32, !11, i64 36, !24, i64 40, !17, i64 48, !17, i64 56, !13, i64 64}
+!29 = !{!"p1 _ZTS4dict", !17, i64 0}
+!30 = !{!"p1 _ZTS8listNode", !17, i64 0}
+!31 = !{!"p1 _ZTS3rax", !17, i64 0}
+!32 = !{!"listNode", !30, i64 0, !30, i64 8, !17, i64 16}
+!33 = !{!15, !21, i64 96}
+!34 = !{!19, !19, i64 0}
+!35 = !{!36, !17, i64 8}
+!36 = !{!"redisObject", !11, i64 0, !11, i64 0, !11, i64 1, !11, i64 4, !17, i64 8}
+!37 = !{!38, !11, i64 0}
+!38 = !{!"lwCanvas", !11, i64 0, !11, i64 4, !20, i64 8}
+!39 = !{!38, !11, i64 4}
+!40 = !{!38, !20, i64 8}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = distinct !{!43, !42}

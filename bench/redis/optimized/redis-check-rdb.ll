@@ -1,26 +1,27 @@
 ; ModuleID = 'bench/redis/original/redis-check-rdb.ll'
 source_filename = "bench/redis/original/redis-check-rdb.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { ptr, ptr, i32, i64, i64, i64, i32, i32, [1024 x i8] }
+%struct.anon = type { ptr, ptr, i32, i64, i64, i64, i64, i32, i32, [1024 x i8] }
 %struct._rio = type { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, %union.anon }
 %union.anon = type { %struct.anon.2 }
 %struct.anon.2 = type { ptr, i64, ptr, i64, i64 }
-%struct.redisServer = type { i32, i64, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, i32, i32, i32, i32, ptr, i32, i32, [41 x i8], i32, i64, i32, i32, i32, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, ptr, [2 x i32], i32, i32, i32, i32, i32, [16 x ptr], i32, ptr, ptr, i32, [8 x %struct.connListener], i32, %struct.connListener, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, [3 x %struct.pause_event], [256 x i8], ptr, i64, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, ptr, i64, i64, i64, %struct.malloc_stats, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, [4 x i64], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [7 x %struct.anon.5], i64, i64, i64, i64, i64, i64, [4 x %struct.durationStats], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, ptr, [3 x %struct.clientBufferLimitsConfig], i32, i32, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i64, i64, i64, i64, i64, i32, i32, ptr, i32, i32, i64, i64, i64, i64, i64, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i64, i64, i64, i64, ptr, i32, ptr, i32, i32, i32, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, i32, [2 x i32], i32, %struct.redisOpArray, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, [41 x i8], [41 x i8], i64, i64, i64, i64, i32, i32, ptr, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i64, i64, i64, ptr, i32, ptr, i64, i32, i32, i32, i64, i32, i32, i32, i32, ptr, i32, i32, [41 x i8], i64, i32, ptr, i32, i32, i64, i64, i32, i32, i32, i32, i32, i64, [3 x i32], i32, i32, i32, [9 x i32], ptr, ptr, i32, i64, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i64, i64, i64, i64, i64, ptr, ptr, i32, ptr, i32, i32, i32, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i64, i32, i64, i32, i32, i32, i32, i32, i32, i32, i64, ptr, ptr, i64, ptr, i32, %struct.aclInfo, i32, i64, i32, i32, i32, %struct.redisTLSContextConfig, ptr, ptr, ptr, ptr, ptr, i64, i32, ptr, i32, i32, i32, i64, i32, ptr }
+%struct.redisServer = type { i32, i64, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i32, i32, i32, i32, ptr, i32, i32, [41 x i8], i32, i64, i32, i32, i32, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, ptr, [2 x i32], i32, i32, i32, i32, i32, i32, [16 x ptr], i32, ptr, ptr, i32, [8 x %struct.connListener], i32, %struct.connListener, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, [3 x %struct.pause_event], [256 x i8], ptr, i64, i32, i32, [128 x i32], i32, i32, i64, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, ptr, i64, i64, i64, %struct.malloc_stats, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, [4 x i64], i64, i64, i64, i64, [128 x i64], [128 x i64], i64, i64, [7 x %struct.anon.6], i64, i64, i64, i64, i64, i64, [4 x %struct.durationStats], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, ptr, [3 x %struct.clientBufferLimitsConfig], i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i64, i64, i64, i64, i64, i32, i32, ptr, i32, i32, i64, i64, i64, i64, i64, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i64, i64, i64, i64, i32, ptr, i32, ptr, i32, i32, i32, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, i32, [2 x i32], i32, %struct.redisOpArray, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, [41 x i8], [41 x i8], i64, i64, i64, i64, i32, i32, ptr, i64, i64, %struct.replDataBuf, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr, i64, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i32, i64, i64, i64, i64, ptr, ptr, i32, ptr, i64, i32, i32, i32, i64, i32, i32, i32, i32, ptr, i32, i32, [41 x i8], i64, i32, ptr, i32, i32, i64, i64, i32, i32, i32, i32, i32, i64, [3 x i32], i32, i32, i32, [10 x i32], ptr, ptr, i32, i64, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i64, i64, i64, i64, i64, ptr, ptr, i32, ptr, i32, i32, i32, i32, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, i64, ptr, ptr, i64, ptr, i32, %struct.aclInfo, i32, i64, i32, i32, i32, %struct.redisTLSContextConfig, ptr, ptr, ptr, ptr, ptr, i64, i32, ptr, i32, i32, i32, i64, i32, ptr }
 %struct.connListener = type { [16 x i32], i32, ptr, i32, i32, ptr, ptr }
 %struct.pause_event = type { i32, i64 }
-%struct.malloc_stats = type { i64, i64, i64, i64, i64 }
-%struct.anon.5 = type { i64, i64, [16 x i64], i32 }
+%struct.malloc_stats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
+%struct.anon.6 = type { i64, i64, [16 x i64], i32 }
 %struct.durationStats = type { i64, i64, i64 }
 %struct.clientBufferLimitsConfig = type { i64, i64, i64 }
 %struct.redisOpArray = type { ptr, i32, i32 }
+%struct.replDataBuf = type { ptr, i64, i64, i64, i64 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.sharedObjectsStruct = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [4 x ptr], [4 x ptr], [4 x ptr], [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], [10000 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], ptr, ptr }
+%struct.sharedObjectsStruct = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [4 x ptr], [4 x ptr], [4 x ptr], [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], [10000 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.sigaction = type { %union.anon.4, %struct.__sigset_t, i32, ptr }
-%union.anon.4 = type { ptr }
+%struct.sigaction = type { %union.anon.5, %struct.__sigset_t, i32, ptr }
+%union.anon.5 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
@@ -57,58 +58,61 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [14 x i8] c"hash-listpack\00", align 1
 @.str.27 = private unnamed_addr constant [14 x i8] c"zset-listpack\00", align 1
 @.str.28 = private unnamed_addr constant [13 x i8] c"quicklist-v2\00", align 1
-@.str.29 = private unnamed_addr constant [13 x i8] c"set-listpack\00", align 1
-@rdb_type_string = dso_local local_unnamed_addr global [20 x ptr] [ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 16
-@.str.30 = private unnamed_addr constant [22 x i8] c"[info] %lu keys read\0A\00", align 1
+@.str.29 = private unnamed_addr constant [10 x i8] c"stream-v2\00", align 1
+@.str.30 = private unnamed_addr constant [13 x i8] c"set-listpack\00", align 1
+@.str.31 = private unnamed_addr constant [10 x i8] c"stream-v3\00", align 1
+@.str.32 = private unnamed_addr constant [30 x i8] c"hash-hashtable-md-pre-release\00", align 1
+@.str.33 = private unnamed_addr constant [29 x i8] c"hash-listpack-md-pre-release\00", align 1
+@.str.34 = private unnamed_addr constant [18 x i8] c"hash-hashtable-md\00", align 1
+@.str.35 = private unnamed_addr constant [17 x i8] c"hash-listpack-md\00", align 1
+@rdb_type_string = dso_local local_unnamed_addr global [26 x ptr] [ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35], align 16
+@.str.36 = private unnamed_addr constant [22 x i8] c"[info] %lu keys read\0A\00", align 1
 @rdbstate = dso_local global %struct.anon zeroinitializer, align 8
-@.str.31 = private unnamed_addr constant [20 x i8] c"[info] %lu expires\0A\00", align 1
-@.str.32 = private unnamed_addr constant [28 x i8] c"[info] %lu already expired\0A\00", align 1
-@.str.34 = private unnamed_addr constant [18 x i8] c"[offset %llu] %s\0A\00", align 1
-@.str.35 = private unnamed_addr constant [35 x i8] c"[additional info] While doing: %s\0A\00", align 1
-@.str.36 = private unnamed_addr constant [36 x i8] c"[additional info] Reading key '%s'\0A\00", align 1
-@.str.37 = private unnamed_addr constant [40 x i8] c"[additional info] Reading type %d (%s)\0A\00", align 1
-@.str.38 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.39 = private unnamed_addr constant [46 x i8] c"Server crash checking the specified RDB file!\00", align 1
+@.str.37 = private unnamed_addr constant [20 x i8] c"[info] %lu expires\0A\00", align 1
+@.str.38 = private unnamed_addr constant [28 x i8] c"[info] %lu already expired\0A\00", align 1
+@.str.39 = private unnamed_addr constant [23 x i8] c"[info] %lu subexpires\0A\00", align 1
+@.str.41 = private unnamed_addr constant [18 x i8] c"[offset %llu] %s\0A\00", align 1
+@.str.42 = private unnamed_addr constant [35 x i8] c"[additional info] While doing: %s\0A\00", align 1
+@.str.43 = private unnamed_addr constant [36 x i8] c"[additional info] Reading key '%s'\0A\00", align 1
+@.str.44 = private unnamed_addr constant [40 x i8] c"[additional info] Reading type %d (%s)\0A\00", align 1
+@.str.45 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.46 = private unnamed_addr constant [46 x i8] c"Server crash checking the specified RDB file!\00", align 1
 @redis_check_rdb.rdb = internal global %struct._rio zeroinitializer, align 8
-@.str.40 = private unnamed_addr constant [2 x i8] c"r\00", align 1
-@.str.41 = private unnamed_addr constant [6 x i8] c"REDIS\00", align 1
-@.str.42 = private unnamed_addr constant [44 x i8] c"Wrong signature trying to load DB from file\00", align 1
-@.str.43 = private unnamed_addr constant [35 x i8] c"Can't handle RDB format version %d\00", align 1
-@.str.44 = private unnamed_addr constant [21 x i8] c"Selecting DB ID %llu\00", align 1
-@.str.45 = private unnamed_addr constant [20 x i8] c"AUX FIELD %s = '%s'\00", align 1
-@.str.46 = private unnamed_addr constant [16 x i8] c"bad when_opcode\00", align 1
-@.str.47 = private unnamed_addr constant [19 x i8] c"MODULE AUX for: %s\00", align 1
-@.str.48 = private unnamed_addr constant [45 x i8] c"Pre-release function format not supported %d\00", align 1
-@.str.49 = private unnamed_addr constant [27 x i8] c"Failed loading library, %s\00", align 1
-@.str.50 = private unnamed_addr constant [24 x i8] c"Invalid object type: %d\00", align 1
+@.str.47 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+@.str.48 = private unnamed_addr constant [6 x i8] c"REDIS\00", align 1
+@.str.49 = private unnamed_addr constant [44 x i8] c"Wrong signature trying to load DB from file\00", align 1
+@.str.50 = private unnamed_addr constant [35 x i8] c"Can't handle RDB format version %d\00", align 1
+@.str.51 = private unnamed_addr constant [21 x i8] c"Selecting DB ID %llu\00", align 1
+@.str.52 = private unnamed_addr constant [20 x i8] c"AUX FIELD %s = '%s'\00", align 1
+@.str.53 = private unnamed_addr constant [16 x i8] c"bad when_opcode\00", align 1
+@.str.54 = private unnamed_addr constant [19 x i8] c"MODULE AUX for: %s\00", align 1
+@.str.55 = private unnamed_addr constant [45 x i8] c"Pre-release function format not supported %d\00", align 1
+@.str.56 = private unnamed_addr constant [27 x i8] c"Failed loading library, %s\00", align 1
+@.str.57 = private unnamed_addr constant [24 x i8] c"Invalid object type: %d\00", align 1
 @server = external local_unnamed_addr global %struct.redisServer, align 8
-@.str.51 = private unnamed_addr constant [63 x i8] c"RDB file was saved with checksum disabled: no check performed.\00", align 1
-@.str.52 = private unnamed_addr constant [14 x i8] c"RDB CRC error\00", align 1
-@.str.53 = private unnamed_addr constant [12 x i8] c"Checksum OK\00", align 1
-@.str.54 = private unnamed_addr constant [32 x i8] c"Unexpected EOF reading RDB file\00", align 1
+@.str.58 = private unnamed_addr constant [63 x i8] c"RDB file was saved with checksum disabled: no check performed.\00", align 1
+@.str.59 = private unnamed_addr constant [14 x i8] c"RDB CRC error\00", align 1
+@.str.60 = private unnamed_addr constant [12 x i8] c"Checksum OK\00", align 1
+@.str.61 = private unnamed_addr constant [32 x i8] c"Unexpected EOF reading RDB file\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
-@.str.55 = private unnamed_addr constant [27 x i8] c"Usage: %s <rdb-file-name>\0A\00", align 1
-@.str.57 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
-@.str.58 = private unnamed_addr constant [20 x i8] c"redis-check-rdb %s\0A\00", align 1
+@.str.62 = private unnamed_addr constant [27 x i8] c"Usage: %s <rdb-file-name>\0A\00", align 1
+@.str.64 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
+@.str.65 = private unnamed_addr constant [20 x i8] c"redis-check-rdb %s\0A\00", align 1
 @shared = external local_unnamed_addr global %struct.sharedObjectsStruct, align 8
-@.str.59 = private unnamed_addr constant [21 x i8] c"Checking RDB file %s\00", align 1
-@.str.60 = private unnamed_addr constant [22 x i8] c"\\o/ RDB looks OK! \\o/\00", align 1
-@.str.61 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.62 = private unnamed_addr constant [12 x i8] c"255.255.255\00", align 1
-@.str.63 = private unnamed_addr constant [9 x i8] c" (git:%s\00", align 1
-@.str.64 = private unnamed_addr constant [7 x i8] c"-dirty\00", align 1
-@.str.65 = private unnamed_addr constant [2 x i8] c")\00", align 1
+@.str.66 = private unnamed_addr constant [21 x i8] c"Checking RDB file %s\00", align 1
+@.str.67 = private unnamed_addr constant [22 x i8] c"\\o/ RDB looks OK! \\o/\00", align 1
 @str = private unnamed_addr constant [27 x i8] c"--- RDB ERROR DETECTED ---\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @rdbShowGenericInfo() local_unnamed_addr #0 {
-entry:
-  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8
-  %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %0)
-  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8
-  %call1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %1)
-  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8
-  %call2 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %2)
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8, !tbaa !5
+  %2 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %1)
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8, !tbaa !14
+  %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %3)
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8, !tbaa !15
+  %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %5)
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8, !tbaa !16
+  %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %7)
   ret void
 }
 
@@ -116,569 +120,637 @@ entry:
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @rdbCheckError(ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 {
-entry:
-  %msg = alloca [1024 x i8], align 16
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call i32 @vsnprintf(ptr noundef nonnull %msg, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #15
-  call void @llvm.va_end.p0(ptr nonnull %ap)
+define dso_local void @rdbCheckError(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
+  %2 = alloca [1024 x i8], align 16
+  %3 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.va_start.p0(ptr nonnull %3)
+  %4 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %3) #15
+  call void @llvm.va_end.p0(ptr nonnull %3)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %0 = load ptr, ptr @rdbstate, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %cond.end, label %cond.true
+  %5 = load ptr, ptr @rdbstate, align 8, !tbaa !17
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %9, label %6
 
-cond.true:                                        ; preds = %entry
-  %processed_bytes = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %1 = load i64, ptr %processed_bytes, align 8
-  br label %cond.end
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %8 = load i64, ptr %7, align 8, !tbaa !18
+  br label %9
 
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ 0, %entry ]
-  %call6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %cond, ptr noundef nonnull %msg)
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [10 x ptr], ptr @rdb_check_doing_string, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %call7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef %3)
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 8), align 8
-  %tobool8.not = icmp eq ptr %4, null
-  br i1 %tobool8.not, label %if.end, label %if.then
+9:                                                ; preds = %1, %6
+  %10 = phi i64 [ %8, %6 ], [ 0, %1 ]
+  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %10, ptr noundef nonnull %2)
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds [10 x ptr], ptr @rdb_check_doing_string, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %15)
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 8), align 8, !tbaa !23
+  %.not3 = icmp eq ptr %17, null
+  br i1 %.not3, label %22, label %18
 
-if.then:                                          ; preds = %cond.end
-  %ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = load ptr, ptr %ptr, align 8
-  %call9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef %5)
-  br label %if.end
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef %20)
+  br label %22
 
-if.end:                                           ; preds = %if.then, %cond.end
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 16), align 8
-  %cmp.not = icmp eq i32 %6, -1
-  br i1 %cmp.not, label %if.end20, label %if.then10
+22:                                               ; preds = %18, %9
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 16), align 8, !tbaa !26
+  %.not4 = icmp eq i32 %23, -1
+  br i1 %.not4, label %33, label %24
 
-if.then10:                                        ; preds = %if.end
-  %cmp11 = icmp ult i32 %6, 20
-  br i1 %cmp11, label %cond.true13, label %cond.end17
+24:                                               ; preds = %22
+  %25 = icmp ult i32 %23, 26
+  br i1 %25, label %26, label %30
 
-cond.true13:                                      ; preds = %if.then10
-  %idxprom14 = zext nneg i32 %6 to i64
-  %arrayidx15 = getelementptr inbounds nuw [20 x ptr], ptr @rdb_type_string, i64 0, i64 %idxprom14
-  %7 = load ptr, ptr %arrayidx15, align 8
-  br label %cond.end17
+26:                                               ; preds = %24
+  %27 = zext nneg i32 %23 to i64
+  %28 = getelementptr inbounds nuw [26 x ptr], ptr @rdb_type_string, i64 0, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
+  br label %30
 
-cond.end17:                                       ; preds = %if.then10, %cond.true13
-  %cond18 = phi ptr [ %7, %cond.true13 ], [ @.str.38, %if.then10 ]
-  %call19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %6, ptr noundef %cond18)
-  br label %if.end20
+30:                                               ; preds = %24, %26
+  %31 = phi ptr [ %29, %26 ], [ @.str.45, %24 ]
+  %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %23, ptr noundef %31)
+  br label %33
 
-if.end20:                                         ; preds = %cond.end17, %if.end
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8
-  %call.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %8)
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8
-  %call1.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %9)
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8
-  %call2.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %10)
+33:                                               ; preds = %30, %22
+  %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8, !tbaa !5
+  %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %34)
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8, !tbaa !14
+  %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %36)
+  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8, !tbaa !15
+  %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %38)
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8, !tbaa !16
+  %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %40)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #15
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #2
+declare void @llvm.va_start.p0(ptr) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #2
+declare void @llvm.va_end.p0(ptr) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @rdbCheckInfo(ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 {
-entry:
-  %msg = alloca [1024 x i8], align 16
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call i32 @vsnprintf(ptr noundef nonnull %msg, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #15
-  call void @llvm.va_end.p0(ptr nonnull %ap)
-  %0 = load ptr, ptr @rdbstate, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %cond.end, label %cond.true
+define dso_local void @rdbCheckInfo(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
+  %2 = alloca [1024 x i8], align 16
+  %3 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.va_start.p0(ptr nonnull %3)
+  %4 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %3) #15
+  call void @llvm.va_end.p0(ptr nonnull %3)
+  %5 = load ptr, ptr @rdbstate, align 8, !tbaa !17
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %9, label %6
 
-cond.true:                                        ; preds = %entry
-  %processed_bytes = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %1 = load i64, ptr %processed_bytes, align 8
-  br label %cond.end
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %8 = load i64, ptr %7, align 8, !tbaa !18
+  br label %9
 
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ 0, %entry ]
-  %call5 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %cond, ptr noundef nonnull %msg)
+9:                                                ; preds = %1, %6
+  %10 = phi i64 [ %8, %6 ], [ 0, %1 ]
+  %11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %10, ptr noundef nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #15
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @rdbCheckSetError(ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 {
-entry:
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call i32 @vsnprintf(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #15
-  call void @llvm.va_end.p0(ptr nonnull %ap)
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 52), align 4
+define dso_local void @rdbCheckSetError(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
+  %2 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
+  call void @llvm.va_start.p0(ptr nonnull %2)
+  %3 = call i32 @vsnprintf(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rdbstate, i64 64), i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #15
+  call void @llvm.va_end.p0(ptr nonnull %2)
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 60), align 4, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #15
   ret void
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define dso_local void @rdbCheckHandleCrash(i32 %sig, ptr readnone captures(none) %info, ptr readnone captures(none) %secret) #3 {
-entry:
-  tail call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.39)
+define dso_local void @rdbCheckHandleCrash(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
+  tail call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.46)
   tail call void @exit(i32 noundef 1) #16
   unreachable
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rdbCheckSetupSignals() local_unnamed_addr #5 {
-entry:
-  %act = alloca %struct.sigaction, align 8
-  %sa_mask = getelementptr inbounds nuw i8, ptr %act, i64 8
-  %call = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #15
-  %sa_flags = getelementptr inbounds nuw i8, ptr %act, i64 136
-  store i32 -1073741820, ptr %sa_flags, align 8
-  store ptr @rdbCheckHandleCrash, ptr %act, align 8
-  %call1 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %act, ptr noundef null) #15
-  %call2 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %act, ptr noundef null) #15
-  %call3 = call i32 @sigaction(i32 noundef 8, ptr noundef nonnull %act, ptr noundef null) #15
-  %call4 = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %act, ptr noundef null) #15
-  %call5 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %act, ptr noundef null) #15
+define dso_local void @rdbCheckSetupSignals() local_unnamed_addr #6 {
+  %1 = alloca %struct.sigaction, align 8
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #15
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = call i32 @sigemptyset(ptr noundef nonnull %2) #15
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store i32 -1073741820, ptr %4, align 8, !tbaa !28
+  store ptr @rdbCheckHandleCrash, ptr %1, align 8, !tbaa !31
+  %5 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %1, ptr noundef null) #15
+  %6 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %1, ptr noundef null) #15
+  %7 = call i32 @sigaction(i32 noundef 8, ptr noundef nonnull %1, ptr noundef null) #15
+  %8 = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %1, ptr noundef null) #15
+  %9 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %1, ptr noundef null) #15
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #15
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #6
+declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @redis_check_rdb(ptr noundef %rdbfilename, ptr noundef %fp) local_unnamed_addr #5 {
-entry:
-  %buf = alloca [1024 x i8], align 16
-  %sb = alloca %struct.stat, align 8
-  %byte = alloca i8, align 1
-  %name = alloca [10 x i8], align 1
-  %err = alloca ptr, align 8
-  %cksum = alloca i64, align 8
-  %call = tail call i64 @mstime() #15
-  %cmp = icmp eq ptr %fp, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define dso_local noundef i32 @redis_check_rdb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+  %3 = alloca [1024 x i8], align 16
+  %4 = alloca %struct.stat, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca [10 x i8], align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #15
+  %9 = tail call i64 @mstime() #15
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #15
+  %10 = icmp eq ptr %1, null
+  br i1 %10, label %11, label %14
 
-land.lhs.true:                                    ; preds = %entry
-  %call3 = tail call noalias ptr @fopen64(ptr noundef %rdbfilename, ptr noundef nonnull @.str.40)
-  %cmp4 = icmp eq ptr %call3, null
-  br i1 %cmp4, label %return, label %if.end
+11:                                               ; preds = %2
+  %12 = tail call noalias ptr @fopen64(ptr noundef %0, ptr noundef nonnull @.str.47)
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %.loopexit, label %14
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %fp.addr.0 = phi ptr [ %call3, %land.lhs.true ], [ %fp, %entry ]
-  %call6 = tail call i32 @fileno(ptr noundef nonnull %fp.addr.0) #15
-  %call7 = call i32 @fstat64(i32 noundef %call6, ptr noundef nonnull %sb) #15
-  %cmp8 = icmp eq i32 %call7, -1
-  %st_size12.phi.trans.insert = getelementptr inbounds nuw i8, ptr %sb, i64 48
-  %.pre = load i64, ptr %st_size12.phi.trans.insert, align 8
-  %0 = select i1 %cmp8, i64 0, i64 %.pre
-  tail call void @startLoadingFile(i64 noundef %0, ptr noundef %rdbfilename, i32 noundef 0) #15
-  tail call void @rioInitWithFile(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef nonnull %fp.addr.0) #15
-  store ptr @redis_check_rdb.rdb, ptr @rdbstate, align 8
-  store ptr @rdbLoadProgressCallback, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 32), align 8
-  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %and.i = and i64 %1, 1
-  %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %while.body.i, label %eoferr
+14:                                               ; preds = %11, %2
+  %.068 = phi ptr [ %12, %11 ], [ %1, %2 ]
+  %15 = tail call i32 @fileno(ptr noundef nonnull %.068) #15
+  %16 = call i32 @fstat64(i32 noundef %15, ptr noundef nonnull %4) #15
+  %17 = icmp eq i32 %16, -1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %.pre = load i64, ptr %.phi.trans.insert, align 8
+  %18 = select i1 %17, i64 0, i64 %.pre
+  tail call void @startLoadingFile(i64 noundef %18, ptr noundef %0, i32 noundef 0) #15
+  tail call void @rioInitWithFile(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef nonnull %.068) #15
+  store ptr @redis_check_rdb.rdb, ptr @rdbstate, align 8, !tbaa !17
+  store ptr @rdbLoadProgressCallback, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 32), align 8, !tbaa !32
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  %20 = and i64 %19, 5
+  %.not.i = icmp eq i64 %20, 0
+  br i1 %.not.i, label %.preheader.i, label %rioRead.exit.thread
 
-while.body.i:                                     ; preds = %if.end, %if.end12.i
-  %len.addr.02.i = phi i64 [ %sub.i, %if.end12.i ], [ 9, %if.end ]
-  %buf.addr.01.i = phi ptr [ %add.ptr.i, %if.end12.i ], [ %buf, %if.end ]
-  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 64), align 8
-  %tobool2.not.not.i = icmp eq i64 %2, 0
-  %3 = call i64 @llvm.umin.i64(i64 %2, i64 %len.addr.02.i)
-  %cond.i = select i1 %tobool2.not.not.i, i64 %len.addr.02.i, i64 %3
-  %4 = load ptr, ptr @redis_check_rdb.rdb, align 8
-  %call.i = call i64 %4(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01.i, i64 noundef %cond.i) #15
-  %cmp5.i = icmp eq i64 %call.i, 0
-  br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
+.preheader.i:                                     ; preds = %14, %32
+  %.0255.i = phi i64 [ %34, %32 ], [ 9, %14 ]
+  %.0274.i = phi ptr [ %33, %32 ], [ %3, %14 ]
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 64), align 8, !tbaa !34
+  %.not32.not.i = icmp eq i64 %21, 0
+  %22 = call i64 @llvm.umin.i64(i64 %21, i64 %.0255.i)
+  %23 = select i1 %.not32.not.i, i64 %.0255.i, i64 %22
+  %24 = load ptr, ptr @redis_check_rdb.rdb, align 8, !tbaa !35
+  %25 = call i64 %24(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274.i, i64 noundef %23) #15
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %.thread.i, label %29
 
-if.then6.i:                                       ; preds = %while.body.i
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %or.i = or i64 %5, 1
-  store i64 %or.i, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  br label %eoferr
+.thread.i:                                        ; preds = %.preheader.i
+  %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  %28 = or i64 %27, 1
+  store i64 %28, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  br label %rioRead.exit.thread
 
-if.end8.i:                                        ; preds = %while.body.i
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 32), align 8
-  %tobool9.not.i = icmp eq ptr %6, null
-  br i1 %tobool9.not.i, label %if.end12.i, label %if.then10.i
+29:                                               ; preds = %.preheader.i
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 32), align 8, !tbaa !32
+  %.not33.i = icmp eq ptr %30, null
+  br i1 %.not33.i, label %32, label %31
 
-if.then10.i:                                      ; preds = %if.end8.i
-  call void %6(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01.i, i64 noundef %cond.i) #15
-  br label %if.end12.i
+31:                                               ; preds = %29
+  call void %30(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274.i, i64 noundef %23) #15
+  br label %32
 
-if.end12.i:                                       ; preds = %if.then10.i, %if.end8.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.addr.01.i, i64 %cond.i
-  %sub.i = sub i64 %len.addr.02.i, %cond.i
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
-  %add.i = add i64 %7, %cond.i
-  store i64 %add.i, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
-  %tobool1.not.i = icmp eq i64 %sub.i, 0
-  br i1 %tobool1.not.i, label %if.end17, label %while.body.i, !llvm.loop !5
+32:                                               ; preds = %31, %29
+  %33 = getelementptr inbounds nuw i8, ptr %.0274.i, i64 %23
+  %34 = sub i64 %.0255.i, %23
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
+  %36 = add i64 %35, %23
+  store i64 %36, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
+  %.not31.i = icmp eq i64 %34, 0
+  br i1 %.not31.i, label %rioRead.exit, label %.preheader.i
 
-if.end17:                                         ; preds = %if.end12.i
-  %arrayidx = getelementptr inbounds nuw i8, ptr %buf, i64 9
-  store i8 0, ptr %arrayidx, align 1
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %buf, ptr noundef nonnull dereferenceable(5) @.str.41, i64 5)
-  %cmp20.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp20.not, label %if.end23, label %if.then22
+rioRead.exit:                                     ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 0, ptr %37, align 1, !tbaa !31
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.48, i64 5)
+  %.not = icmp eq i32 %bcmp, 0
+  br i1 %.not, label %39, label %38
 
-if.then22:                                        ; preds = %if.end17
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.42)
-  br label %err251
+38:                                               ; preds = %rioRead.exit
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.49)
+  br label %.thread122
 
-if.end23:                                         ; preds = %if.end17
-  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 5
-  %call25 = call i32 @atoi(ptr noundef nonnull %add.ptr) #17
-  %8 = add i32 %call25, -13
-  %or.cond = icmp ult i32 %8, -12
-  br i1 %or.cond, label %if.then30, label %while.body
+39:                                               ; preds = %rioRead.exit
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %41 = call i64 @strtol(ptr noundef nonnull captures(none) %40, ptr noundef null, i32 noundef 10) #15
+  %42 = trunc i64 %41 to i32
+  %43 = add i32 %42, -13
+  %or.cond = icmp ult i32 %43, -12
+  br i1 %or.cond, label %44, label %.preheader
 
-if.then30:                                        ; preds = %if.end23
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.43, i32 noundef %call25)
-  br label %err251
+44:                                               ; preds = %39
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.50, i32 noundef %42)
+  br label %.thread122
 
-while.body:                                       ; preds = %if.end23, %while.body.backedge
-  %expiretime.0 = phi i64 [ %expiretime.0.be, %while.body.backedge ], [ -1, %if.end23 ]
-  %selected_dbid.0 = phi i32 [ %selected_dbid.0.be, %while.body.backedge ], [ -1, %if.end23 ]
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call32 = call i32 @rdbLoadType(ptr noundef nonnull @redis_check_rdb.rdb) #15
-  switch i32 %call32, label %if.else172 [
-    i32 -1, label %eoferr
-    i32 253, label %if.then39
-    i32 252, label %if.then46
-    i32 249, label %if.then55
-    i32 248, label %if.then64
-    i32 255, label %while.end
-    i32 254, label %if.then77
-    i32 251, label %if.then87
-    i32 244, label %if.then101
-    i32 250, label %if.then120
-    i32 247, label %if.then135
-    i32 246, label %if.then162
-    i32 245, label %if.then166
+.preheader:                                       ; preds = %39, %.preheader.backedge
+  %.070 = phi i64 [ %.070.be, %.preheader.backedge ], [ -1, %39 ]
+  %.069 = phi i32 [ %.069.be, %.preheader.backedge ], [ -1, %39 ]
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %45 = call i32 @rdbLoadType(ptr noundef nonnull @redis_check_rdb.rdb) #15
+  switch i32 %45, label %130 [
+    i32 -1, label %rioRead.exit.thread
+    i32 253, label %46
+    i32 252, label %51
+    i32 249, label %55
+    i32 248, label %75
+    i32 255, label %.thread126
+    i32 254, label %78
+    i32 251, label %83
+    i32 244, label %89
+    i32 250, label %98
+    i32 247, label %110
+    i32 246, label %123
+    i32 245, label %124
   ]
 
-if.then39:                                        ; preds = %while.body
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call40 = call i64 @rdbLoadTime(ptr noundef nonnull @redis_check_rdb.rdb) #15
-  %mul = mul nsw i64 %call40, 1000
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %conv.i73 = and i64 %9, 1
-  %tobool.not = icmp eq i64 %conv.i73, 0
-  br i1 %tobool.not, label %while.body.backedge, label %eoferr
+46:                                               ; preds = %.preheader
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %47 = call i64 @rdbLoadTime(ptr noundef nonnull @redis_check_rdb.rdb) #15
+  %48 = mul nsw i64 %47, 1000
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  %50 = and i64 %49, 1
+  %.not91 = icmp eq i64 %50, 0
+  br i1 %.not91, label %.preheader.backedge, label %rioRead.exit.thread
 
-if.then46:                                        ; preds = %while.body
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call47 = call i64 @rdbLoadMillisecondTime(ptr noundef nonnull @redis_check_rdb.rdb, i32 noundef %call25) #15
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %conv.i4672 = and i64 %10, 1
-  %tobool49.not = icmp eq i64 %conv.i4672, 0
-  br i1 %tobool49.not, label %while.body.backedge, label %eoferr
+51:                                               ; preds = %.preheader
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %52 = call i64 @rdbLoadMillisecondTime(ptr noundef nonnull @redis_check_rdb.rdb, i32 noundef %42) #15
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  %54 = and i64 %53, 1
+  %.not90 = icmp eq i64 %54, 0
+  br i1 %.not90, label %.preheader.backedge, label %rioRead.exit.thread
 
-if.then55:                                        ; preds = %while.body
-  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %and.i47 = and i64 %11, 1
-  %tobool.not.i48 = icmp eq i64 %and.i47, 0
-  br i1 %tobool.not.i48, label %while.body.i50, label %eoferr
+.preheader.backedge:                              ; preds = %51, %46, %121, %105, %95, %86, %75, %160, %81, %select.unfold
+  %.070.be = phi i64 [ %.070, %select.unfold ], [ %52, %51 ], [ %48, %46 ], [ %.070, %121 ], [ %.070, %105 ], [ %.070, %95 ], [ %.070, %86 ], [ %.070, %75 ], [ -1, %160 ], [ %.070, %81 ]
+  %.069.be = phi i32 [ %.069, %select.unfold ], [ %.069, %51 ], [ %.069, %46 ], [ %.069, %121 ], [ %.069, %105 ], [ %.069, %95 ], [ %.069, %86 ], [ %.069, %75 ], [ %.069, %160 ], [ %82, %81 ]
+  br label %.preheader
 
-while.body.i50:                                   ; preds = %if.then55, %if.end12.i60
-  %len.addr.02.i51 = phi i64 [ %sub.i62, %if.end12.i60 ], [ 1, %if.then55 ]
-  %buf.addr.01.i52 = phi ptr [ %add.ptr.i61, %if.end12.i60 ], [ %byte, %if.then55 ]
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 64), align 8
-  %tobool2.not.not.i53 = icmp eq i64 %12, 0
-  %13 = call i64 @llvm.umin.i64(i64 %12, i64 %len.addr.02.i51)
-  %cond.i54 = select i1 %tobool2.not.not.i53, i64 %len.addr.02.i51, i64 %13
-  %14 = load ptr, ptr @redis_check_rdb.rdb, align 8
-  %call.i55 = call i64 %14(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01.i52, i64 noundef %cond.i54) #15
-  %cmp5.i56 = icmp eq i64 %call.i55, 0
-  br i1 %cmp5.i56, label %if.then6.i65, label %if.end8.i57
+55:                                               ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  %57 = and i64 %56, 5
+  %.not.i101 = icmp eq i64 %57, 0
+  br i1 %.not.i101, label %.preheader.i103, label %rioRead.exit110
 
-if.then6.i65:                                     ; preds = %while.body.i50
-  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %or.i66 = or i64 %15, 1
-  store i64 %or.i66, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  br label %eoferr
+.preheader.i103:                                  ; preds = %55, %69
+  %.0255.i104 = phi i64 [ %71, %69 ], [ 1, %55 ]
+  %.0274.i105 = phi ptr [ %70, %69 ], [ %5, %55 ]
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 64), align 8, !tbaa !34
+  %.not32.not.i106 = icmp eq i64 %58, 0
+  %59 = call i64 @llvm.umin.i64(i64 %58, i64 %.0255.i104)
+  %60 = select i1 %.not32.not.i106, i64 %.0255.i104, i64 %59
+  %61 = load ptr, ptr @redis_check_rdb.rdb, align 8, !tbaa !35
+  %62 = call i64 %61(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274.i105, i64 noundef %60) #15
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %.thread.i109, label %66
 
-if.end8.i57:                                      ; preds = %while.body.i50
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 32), align 8
-  %tobool9.not.i58 = icmp eq ptr %16, null
-  br i1 %tobool9.not.i58, label %if.end12.i60, label %if.then10.i59
+.thread.i109:                                     ; preds = %.preheader.i103
+  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  %65 = or i64 %64, 1
+  store i64 %65, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  br label %rioRead.exit110
 
-if.then10.i59:                                    ; preds = %if.end8.i57
-  call void %16(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01.i52, i64 noundef %cond.i54) #15
-  br label %if.end12.i60
+66:                                               ; preds = %.preheader.i103
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 32), align 8, !tbaa !32
+  %.not33.i107 = icmp eq ptr %67, null
+  br i1 %.not33.i107, label %69, label %68
 
-if.end12.i60:                                     ; preds = %if.then10.i59, %if.end8.i57
-  %add.ptr.i61 = getelementptr inbounds i8, ptr %buf.addr.01.i52, i64 %cond.i54
-  %sub.i62 = sub i64 %len.addr.02.i51, %cond.i54
-  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
-  %add.i63 = add i64 %17, %cond.i54
-  store i64 %add.i63, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
-  %tobool1.not.i64 = icmp eq i64 %sub.i62, 0
-  br i1 %tobool1.not.i64, label %while.body.backedge, label %while.body.i50, !llvm.loop !5
+68:                                               ; preds = %66
+  call void %67(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274.i105, i64 noundef %60) #15
+  br label %69
 
-if.then64:                                        ; preds = %while.body
-  %call65 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp66 = icmp eq i64 %call65, -1
-  br i1 %cmp66, label %eoferr, label %while.body.backedge
+69:                                               ; preds = %68, %66
+  %70 = getelementptr inbounds nuw i8, ptr %.0274.i105, i64 %60
+  %71 = sub i64 %.0255.i104, %60
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
+  %73 = add i64 %72, %60
+  store i64 %73, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
+  %.not31.i108 = icmp eq i64 %71, 0
+  br i1 %.not31.i108, label %rioRead.exit110, label %.preheader.i103
 
-if.then77:                                        ; preds = %while.body
-  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call78 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp79 = icmp eq i64 %call78, -1
-  br i1 %cmp79, label %eoferr, label %if.end82
+rioRead.exit110:                                  ; preds = %69, %.thread.i109, %55
+  %74 = phi i32 [ 2, %55 ], [ 2, %.thread.i109 ], [ 4, %69 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
+  br label %select.unfold
 
-if.end82:                                         ; preds = %if.then77
-  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.44, i64 noundef %call78)
-  %conv83 = trunc i64 %call78 to i32
-  br label %while.body.backedge
+75:                                               ; preds = %.preheader
+  %76 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %77 = icmp eq i64 %76, -1
+  br i1 %77, label %rioRead.exit.thread, label %.preheader.backedge
 
-while.body.backedge:                              ; preds = %if.end12.i60, %if.end82, %if.end130, %if.end154, %if.end221, %if.then39, %if.then46, %if.then64, %if.end92, %if.end111, %if.then166
-  %expiretime.0.be = phi i64 [ %mul, %if.then39 ], [ %call47, %if.then46 ], [ %expiretime.0, %if.then64 ], [ %expiretime.0, %if.end82 ], [ %expiretime.0, %if.end92 ], [ %expiretime.0, %if.end111 ], [ %expiretime.0, %if.end130 ], [ %expiretime.0, %if.end154 ], [ %expiretime.0, %if.then166 ], [ -1, %if.end221 ], [ %expiretime.0, %if.end12.i60 ]
-  %selected_dbid.0.be = phi i32 [ %selected_dbid.0, %if.then39 ], [ %selected_dbid.0, %if.then46 ], [ %selected_dbid.0, %if.then64 ], [ %conv83, %if.end82 ], [ %selected_dbid.0, %if.end92 ], [ %selected_dbid.0, %if.end111 ], [ %selected_dbid.0, %if.end130 ], [ %selected_dbid.0, %if.end154 ], [ %selected_dbid.0, %if.then166 ], [ %selected_dbid.0, %if.end221 ], [ %selected_dbid.0, %if.end12.i60 ]
-  br label %while.body
+78:                                               ; preds = %.preheader
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %79 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %80 = icmp eq i64 %79, -1
+  br i1 %80, label %rioRead.exit.thread, label %81
 
-if.then87:                                        ; preds = %while.body
-  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call88 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp89 = icmp eq i64 %call88, -1
-  br i1 %cmp89, label %eoferr, label %if.end92
+81:                                               ; preds = %78
+  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.51, i64 noundef %79)
+  %82 = trunc i64 %79 to i32
+  br label %.preheader.backedge
 
-if.end92:                                         ; preds = %if.then87
-  %call93 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp94 = icmp eq i64 %call93, -1
-  br i1 %cmp94, label %eoferr, label %while.body.backedge
+83:                                               ; preds = %.preheader
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %84 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %85 = icmp eq i64 %84, -1
+  br i1 %85, label %rioRead.exit.thread, label %86
 
-if.then101:                                       ; preds = %while.body
-  %call102 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp103 = icmp eq i64 %call102, -1
-  br i1 %cmp103, label %eoferr, label %if.end106
+86:                                               ; preds = %83
+  %87 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %88 = icmp eq i64 %87, -1
+  br i1 %88, label %rioRead.exit.thread, label %.preheader.backedge
 
-if.end106:                                        ; preds = %if.then101
-  %call107 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp108 = icmp eq i64 %call107, -1
-  br i1 %cmp108, label %eoferr, label %if.end111
+89:                                               ; preds = %.preheader
+  %90 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %91 = icmp eq i64 %90, -1
+  br i1 %91, label %rioRead.exit.thread, label %92
 
-if.end111:                                        ; preds = %if.end106
-  %call112 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp113 = icmp eq i64 %call112, -1
-  br i1 %cmp113, label %eoferr, label %while.body.backedge
+92:                                               ; preds = %89
+  %93 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %94 = icmp eq i64 %93, -1
+  br i1 %94, label %rioRead.exit.thread, label %95
 
-if.then120:                                       ; preds = %while.body
-  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call121 = call ptr @rdbLoadStringObject(ptr noundef nonnull @redis_check_rdb.rdb) #15
-  %cmp122 = icmp eq ptr %call121, null
-  br i1 %cmp122, label %eoferr, label %if.end125
+95:                                               ; preds = %92
+  %96 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %97 = icmp eq i64 %96, -1
+  br i1 %97, label %rioRead.exit.thread, label %.preheader.backedge
 
-if.end125:                                        ; preds = %if.then120
-  %call126 = call ptr @rdbLoadStringObject(ptr noundef nonnull @redis_check_rdb.rdb) #15
-  %cmp127 = icmp eq ptr %call126, null
-  br i1 %cmp127, label %if.then129, label %if.end130
+98:                                               ; preds = %.preheader
+  store i32 7, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %99 = call ptr @rdbLoadStringObject(ptr noundef nonnull @redis_check_rdb.rdb) #15
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %rioRead.exit.thread, label %101
 
-if.then129:                                       ; preds = %if.end125
-  call void @decrRefCount(ptr noundef nonnull %call121) #15
-  br label %eoferr
+101:                                              ; preds = %98
+  %102 = call ptr @rdbLoadStringObject(ptr noundef nonnull @redis_check_rdb.rdb) #15
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %104, label %105
 
-if.end130:                                        ; preds = %if.end125
-  %ptr = getelementptr inbounds nuw i8, ptr %call121, i64 8
-  %18 = load ptr, ptr %ptr, align 8
-  %ptr131 = getelementptr inbounds nuw i8, ptr %call126, i64 8
-  %19 = load ptr, ptr %ptr131, align 8
-  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.45, ptr noundef %18, ptr noundef %19)
-  call void @decrRefCount(ptr noundef nonnull %call121) #15
-  call void @decrRefCount(ptr noundef nonnull %call126) #15
-  br label %while.body.backedge
+104:                                              ; preds = %101
+  call void @decrRefCount(ptr noundef nonnull %99) #15
+  br label %rioRead.exit.thread
 
-if.then135:                                       ; preds = %while.body
-  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call136 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp137 = icmp eq i64 %call136, -1
-  br i1 %cmp137, label %eoferr, label %if.end140
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %107 = load ptr, ptr %106, align 8, !tbaa !24
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %109 = load ptr, ptr %108, align 8, !tbaa !24
+  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.52, ptr noundef %107, ptr noundef %109)
+  call void @decrRefCount(ptr noundef nonnull %99) #15
+  call void @decrRefCount(ptr noundef nonnull %102) #15
+  br label %.preheader.backedge
 
-if.end140:                                        ; preds = %if.then135
-  %call141 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp142 = icmp eq i64 %call141, -1
-  br i1 %cmp142, label %eoferr, label %if.end145
+110:                                              ; preds = %.preheader
+  store i32 8, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %111 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %112 = icmp eq i64 %111, -1
+  br i1 %112, label %rioRead.exit.thread, label %113
 
-if.end145:                                        ; preds = %if.end140
-  %call146 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
-  %cmp147 = icmp eq i64 %call146, -1
-  br i1 %cmp147, label %eoferr, label %if.end150
+113:                                              ; preds = %110
+  %114 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %115 = icmp eq i64 %114, -1
+  br i1 %115, label %rioRead.exit.thread, label %116
 
-if.end150:                                        ; preds = %if.end145
-  %cmp151.not = icmp eq i64 %call141, 2
-  br i1 %cmp151.not, label %if.end154, label %if.then153
+116:                                              ; preds = %113
+  %117 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
+  %118 = icmp eq i64 %117, -1
+  br i1 %118, label %rioRead.exit.thread, label %119
 
-if.then153:                                       ; preds = %if.end150
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.46)
-  br label %err251
+119:                                              ; preds = %116
+  %.not89 = icmp eq i64 %114, 2
+  br i1 %.not89, label %121, label %120
 
-if.end154:                                        ; preds = %if.end150
-  call void @moduleTypeNameByID(ptr noundef nonnull %name, i64 noundef %call136) #15
-  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.47, ptr noundef nonnull %name)
-  %call158 = call ptr @rdbLoadCheckModuleValue(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef nonnull %name) #15
-  call void @decrRefCount(ptr noundef %call158) #15
-  br label %while.body.backedge
+120:                                              ; preds = %119
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.53)
+  br label %.thread122
 
-if.then162:                                       ; preds = %while.body
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.48, i32 noundef %call25)
-  br label %err251
+121:                                              ; preds = %119
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #15
+  call void @moduleTypeNameByID(ptr noundef nonnull %6, i64 noundef %111) #15
+  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.54, ptr noundef nonnull %6)
+  %122 = call ptr @rdbLoadCheckModuleValue(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef nonnull %6) #15
+  call void @decrRefCount(ptr noundef %122) #15
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
+  br label %.preheader.backedge
 
-if.then166:                                       ; preds = %while.body
-  store ptr null, ptr %err, align 8
-  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call167 = call i32 @rdbFunctionLoad(ptr noundef nonnull @redis_check_rdb.rdb, i32 noundef %call25, ptr noundef null, i32 noundef 0, ptr noundef nonnull %err) #15
-  %cmp168.not = icmp eq i32 %call167, 0
-  br i1 %cmp168.not, label %while.body.backedge, label %if.then170
+123:                                              ; preds = %.preheader
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.55, i32 noundef %42)
+  br label %.thread122
 
-if.then170:                                       ; preds = %if.then166
-  %20 = load ptr, ptr %err, align 8
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.49, ptr noundef %20)
-  %21 = load ptr, ptr %err, align 8
-  call void @sdsfree(ptr noundef %21) #15
-  br label %err251
+124:                                              ; preds = %.preheader
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  store ptr null, ptr %7, align 8, !tbaa !21
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %125 = call i32 @rdbFunctionLoad(ptr noundef nonnull @redis_check_rdb.rdb, i32 noundef %42, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7) #15
+  %.not88 = icmp eq i32 %125, 0
+  br i1 %.not88, label %129, label %126
 
-if.else172:                                       ; preds = %while.body
-  %or.cond1 = icmp ult i32 %call32, 8
-  %22 = add i32 %call32, -9
-  %or.cond2 = icmp ult i32 %22, 13
-  %or.cond43 = or i1 %or.cond1, %or.cond2
-  br i1 %or.cond43, label %if.end185, label %if.then184
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %7, align 8, !tbaa !21
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.56, ptr noundef %127)
+  %128 = load ptr, ptr %7, align 8, !tbaa !21
+  call void @sdsfree(ptr noundef %128) #15
+  br label %129
 
-if.then184:                                       ; preds = %if.else172
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.50, i32 noundef %call32)
-  br label %err251
+129:                                              ; preds = %124, %126
+  %.6 = phi i32 [ 3, %126 ], [ 4, %124 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  br label %select.unfold
 
-if.end185:                                        ; preds = %if.else172
-  store i32 %call32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 16), align 8
-  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call198 = call ptr @rdbLoadStringObject(ptr noundef nonnull @redis_check_rdb.rdb) #15
-  %cmp199 = icmp eq ptr %call198, null
-  br i1 %cmp199, label %eoferr, label %if.end202
+130:                                              ; preds = %.preheader
+  %or.cond3 = icmp ult i32 %45, 8
+  %131 = add i32 %45, -9
+  %or.cond5 = icmp ult i32 %131, 17
+  %or.cond99 = or i1 %or.cond3, %or.cond5
+  br i1 %or.cond99, label %133, label %132
 
-if.end202:                                        ; preds = %if.end185
-  store ptr %call198, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 8), align 8
-  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8
-  %inc = add i64 %23, 1
-  store i64 %inc, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8
-  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %ptr203 = getelementptr inbounds nuw i8, ptr %call198, i64 8
-  %24 = load ptr, ptr %ptr203, align 8
-  %call204 = call ptr @rdbLoadObject(i32 noundef %call32, ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %24, i32 noundef %selected_dbid.0, ptr noundef null) #15
-  %cmp205 = icmp eq ptr %call204, null
-  br i1 %cmp205, label %eoferr, label %if.end208
+132:                                              ; preds = %130
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.57, i32 noundef %45)
+  br label %.thread122
 
-if.end208:                                        ; preds = %if.end202
-  %cmp209.not = icmp ne i64 %expiretime.0, -1
-  %cmp212 = icmp slt i64 %expiretime.0, %call
-  %or.cond44 = select i1 %cmp209.not, i1 %cmp212, i1 false
-  br i1 %or.cond44, label %if.end216.thread, label %if.end216
+133:                                              ; preds = %130
+  store i32 %45, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 16), align 8, !tbaa !26
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %134 = call ptr @rdbLoadStringObject(ptr noundef nonnull @redis_check_rdb.rdb) #15
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %rioRead.exit.thread, label %136
 
-if.end216.thread:                                 ; preds = %if.end208
-  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8
-  %inc215 = add i64 %25, 1
-  store i64 %inc215, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8
-  br label %if.then219
+136:                                              ; preds = %133
+  store ptr %134, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 8), align 8, !tbaa !23
+  %137 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8, !tbaa !5
+  %138 = add i64 %137, 1
+  store i64 %138, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8, !tbaa !5
+  store i32 4, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %140 = load ptr, ptr %139, align 8, !tbaa !24
+  %141 = call ptr @rdbLoadObject(i32 noundef %45, ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %140, i32 noundef %.069, ptr noundef null) #15
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %rioRead.exit.thread, label %143
 
-if.end216:                                        ; preds = %if.end208
-  br i1 %cmp209.not, label %if.then219, label %if.end221
+143:                                              ; preds = %136
+  %.not86 = icmp ne i64 %.070, -1
+  %144 = icmp slt i64 %.070, %9
+  %or.cond100 = select i1 %.not86, i1 %144, i1 false
+  br i1 %or.cond100, label %.thread, label %147
 
-if.then219:                                       ; preds = %if.end216.thread, %if.end216
-  %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8
-  %inc220 = add i64 %26, 1
-  store i64 %inc220, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8
-  br label %if.end221
+.thread:                                          ; preds = %143
+  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8, !tbaa !15
+  %146 = add i64 %145, 1
+  store i64 %146, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8, !tbaa !15
+  br label %148
 
-if.end221:                                        ; preds = %if.then219, %if.end216
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 8), align 8
-  call void @decrRefCount(ptr noundef nonnull %call198) #15
-  call void @decrRefCount(ptr noundef nonnull %call204) #15
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 16), align 8
-  br label %while.body.backedge
+147:                                              ; preds = %143
+  br i1 %.not86, label %148, label %151
 
-while.end:                                        ; preds = %while.body
-  %cmp222 = icmp slt i32 %call25, 5
-  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4164), align 4
-  %tobool225.not = icmp eq i32 %27, 0
-  %or.cond45 = select i1 %cmp222, i1 true, i1 %tobool225.not
-  br i1 %or.cond45, label %if.end242, label %if.then226
+148:                                              ; preds = %.thread, %147
+  %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8, !tbaa !14
+  %150 = add i64 %149, 1
+  store i64 %150, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8, !tbaa !14
+  br label %151
 
-if.then226:                                       ; preds = %while.end
-  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 40), align 8
-  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8
-  %call227 = call fastcc i64 @rioRead(ptr noundef %cksum, i64 noundef 8)
-  %cmp228 = icmp eq i64 %call227, 0
-  br i1 %cmp228, label %eoferr, label %if.end231
+151:                                              ; preds = %148, %147
+  %152 = load i32, ptr %141, align 8
+  %153 = and i32 %152, 15
+  %154 = icmp eq i32 %153, 4
+  br i1 %154, label %155, label %160
 
-if.end231:                                        ; preds = %if.then226
-  %29 = load i64, ptr %cksum, align 8
-  %cmp232 = icmp eq i64 %29, 0
-  br i1 %cmp232, label %if.end242.sink.split, label %if.else235
+155:                                              ; preds = %151
+  %156 = call i64 @hashTypeGetMinExpire(ptr noundef nonnull %141, i32 noundef 1) #15
+  %.not87 = icmp eq i64 %156, 281474976710656
+  br i1 %.not87, label %160, label %157
 
-if.else235:                                       ; preds = %if.end231
-  %cmp236.not = icmp eq i64 %29, %28
-  br i1 %cmp236.not, label %if.end242.sink.split, label %if.then238
+157:                                              ; preds = %155
+  %158 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8, !tbaa !16
+  %159 = add i64 %158, 1
+  store i64 %159, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8, !tbaa !16
+  br label %160
 
-if.then238:                                       ; preds = %if.else235
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.52)
-  br label %err251
+160:                                              ; preds = %157, %155, %151
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 8), align 8, !tbaa !23
+  call void @decrRefCount(ptr noundef nonnull %134) #15
+  call void @decrRefCount(ptr noundef nonnull %141) #15
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 16), align 8, !tbaa !26
+  br label %.preheader.backedge
 
-if.end242.sink.split:                             ; preds = %if.else235, %if.end231
-  %.str.51.sink = phi ptr [ @.str.51, %if.end231 ], [ @.str.53, %if.else235 ]
-  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull %.str.51.sink)
-  br label %if.end242
+select.unfold:                                    ; preds = %129, %rioRead.exit110
+  %.072 = phi i32 [ %74, %rioRead.exit110 ], [ %.6, %129 ]
+  switch i32 %.072, label %default.unreachable [
+    i32 2, label %rioRead.exit.thread
+    i32 4, label %.preheader.backedge
+    i32 3, label %.thread122
+  ]
 
-if.end242:                                        ; preds = %if.end242.sink.split, %while.end
-  br i1 %cmp, label %return.sink.split.sink.split, label %return.sink.split
+.thread126:                                       ; preds = %.preheader
+  %161 = icmp sgt i32 %42, 4
+  %162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6788), align 4
+  %163 = icmp ne i32 %162, 0
+  %or.cond7 = select i1 %161, i1 %163, i1 false
+  br i1 %or.cond7, label %164, label %173
 
-eoferr:                                           ; preds = %if.then55, %if.end202, %if.end185, %if.end145, %if.end140, %if.then135, %if.then120, %if.end111, %if.end106, %if.then101, %if.end92, %if.then87, %if.then77, %if.then64, %if.then46, %if.then39, %while.body, %if.then6.i65, %if.end, %if.then6.i, %if.then226, %if.then129
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 52), align 4
-  %tobool247.not = icmp eq i32 %30, 0
-  br i1 %tobool247.not, label %if.else249, label %if.then248
+164:                                              ; preds = %.thread126
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  %165 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 40), align 8, !tbaa !36
+  store i32 5, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56), align 8, !tbaa !20
+  %166 = call fastcc i64 @rioRead(ptr noundef %8, i64 noundef 8)
+  %167 = icmp eq i64 %166, 0
+  br i1 %167, label %.thread133, label %168
 
-if.then248:                                       ; preds = %eoferr
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rdbstate, i64 56))
-  br label %err251
+.thread133:                                       ; preds = %164
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  br label %rioRead.exit.thread
 
-if.else249:                                       ; preds = %eoferr
-  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.54)
-  br label %err251
+168:                                              ; preds = %164
+  %169 = load i64, ptr %8, align 8, !tbaa !37
+  %170 = icmp eq i64 %169, 0
+  br i1 %170, label %.thread131, label %171
 
-err251:                                           ; preds = %if.then248, %if.else249, %if.then238, %if.then184, %if.then170, %if.then162, %if.then153, %if.then30, %if.then22
-  br i1 %cmp, label %return.sink.split.sink.split, label %return.sink.split
+171:                                              ; preds = %168
+  %.not92 = icmp eq i64 %169, %165
+  br i1 %.not92, label %.thread131, label %172
 
-return.sink.split.sink.split:                     ; preds = %err251, %if.end242
-  %.sink.ph = phi i32 [ 1, %if.end242 ], [ 0, %err251 ]
-  %retval.0.ph.ph = phi i32 [ 0, %if.end242 ], [ 1, %err251 ]
-  %call254 = call i32 @fclose(ptr noundef nonnull %fp.addr.0)
-  br label %return.sink.split
+.thread131:                                       ; preds = %171, %168
+  %.str.60.sink = phi ptr [ @.str.58, %168 ], [ @.str.60, %171 ]
+  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull %.str.60.sink)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  br label %173
 
-return.sink.split:                                ; preds = %return.sink.split.sink.split, %err251, %if.end242
-  %.sink = phi i32 [ 1, %if.end242 ], [ 0, %err251 ], [ %.sink.ph, %return.sink.split.sink.split ]
-  %retval.0.ph = phi i32 [ 0, %if.end242 ], [ 1, %err251 ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
+172:                                              ; preds = %171
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.59)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  br label %.thread122
+
+173:                                              ; preds = %.thread131, %.thread126
+  br i1 %10, label %.loopexit.sink.split.sink.split, label %.loopexit.sink.split
+
+rioRead.exit.thread:                              ; preds = %select.unfold, %95, %86, %75, %136, %133, %116, %113, %110, %98, %92, %89, %83, %78, %51, %46, %.preheader, %104, %.thread.i, %14, %.thread133
+  %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 60), align 4, !tbaa !27
+  %.not93 = icmp eq i32 %174, 0
+  br i1 %.not93, label %176, label %175
+
+175:                                              ; preds = %rioRead.exit.thread
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rdbstate, i64 64))
+  br label %.thread122
+
+176:                                              ; preds = %rioRead.exit.thread
+  call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.61)
+  br label %.thread122
+
+.thread122:                                       ; preds = %select.unfold, %120, %132, %123, %172, %175, %176, %44, %38
+  br i1 %10, label %.loopexit.sink.split.sink.split, label %.loopexit.sink.split
+
+default.unreachable:                              ; preds = %select.unfold
+  unreachable
+
+.loopexit.sink.split.sink.split:                  ; preds = %.thread122, %173
+  %.sink.ph = phi i32 [ 1, %173 ], [ 0, %.thread122 ]
+  %.0.ph.ph = phi i32 [ 0, %173 ], [ 1, %.thread122 ]
+  %177 = call i32 @fclose(ptr noundef nonnull %.068)
+  br label %.loopexit.sink.split
+
+.loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %.thread122, %173
+  %.sink = phi i32 [ 1, %173 ], [ 0, %.thread122 ], [ %.sink.ph, %.loopexit.sink.split.sink.split ]
+  %.0.ph = phi i32 [ 0, %173 ], [ 1, %.thread122 ], [ %.0.ph.ph, %.loopexit.sink.split.sink.split ]
   call void @stopLoading(i32 noundef %.sink) #15
-  br label %return
+  br label %.loopexit
 
-return:                                           ; preds = %return.sink.split, %land.lhs.true
-  %retval.0 = phi i32 [ 1, %land.lhs.true ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %.loopexit.sink.split, %11
+  %.0 = phi i32 [ 1, %11 ], [ %.0.ph, %.loopexit.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #15
+  ret i32 %.0
 }
 
-declare i64 @mstime() local_unnamed_addr #7
+declare i64 @mstime() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
@@ -689,200 +761,201 @@ declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unna
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @startLoadingFile(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare void @startLoadingFile(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @rioInitWithFile(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @rioInitWithFile(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @rdbLoadProgressCallback(ptr noundef, ptr noundef, i64 noundef) #7
+declare void @rdbLoadProgressCallback(ptr noundef, ptr noundef, i64 noundef) #8
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef nonnull %buf, i64 noundef range(i64 1, 10) %len) unnamed_addr #5 {
-entry:
-  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %and = and i64 %0, 1
-  %tobool.not = icmp eq i64 %and, 0
-  br i1 %tobool.not, label %while.body, label %return
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef nonnull %0, i64 noundef range(i64 1, 10) %1) unnamed_addr #9 {
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  %4 = and i64 %3, 5
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-while.body:                                       ; preds = %entry, %if.end12
-  %len.addr.02 = phi i64 [ %sub, %if.end12 ], [ %len, %entry ]
-  %buf.addr.01 = phi ptr [ %add.ptr, %if.end12 ], [ %buf, %entry ]
-  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 64), align 8
-  %tobool2.not.not = icmp eq i64 %1, 0
-  %2 = tail call i64 @llvm.umin.i64(i64 %1, i64 %len.addr.02)
-  %cond = select i1 %tobool2.not.not, i64 %len.addr.02, i64 %2
-  %3 = load ptr, ptr @redis_check_rdb.rdb, align 8
-  %call = tail call i64 %3(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01, i64 noundef %cond) #15
-  %cmp5 = icmp eq i64 %call, 0
-  br i1 %cmp5, label %if.then6, label %if.end8
+.preheader:                                       ; preds = %2, %16
+  %.0255 = phi i64 [ %18, %16 ], [ %1, %2 ]
+  %.0274 = phi ptr [ %17, %16 ], [ %0, %2 ]
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 64), align 8, !tbaa !34
+  %.not32.not = icmp eq i64 %5, 0
+  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %.0255)
+  %7 = select i1 %.not32.not, i64 %.0255, i64 %6
+  %8 = load ptr, ptr @redis_check_rdb.rdb, align 8, !tbaa !35
+  %9 = tail call i64 %8(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274, i64 noundef %7) #15
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %.thread, label %13
 
-if.then6:                                         ; preds = %while.body
-  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %or = or i64 %4, 1
-  store i64 %or, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  br label %return
+.thread:                                          ; preds = %.preheader
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  %12 = or i64 %11, 1
+  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 48), align 8, !tbaa !33
+  br label %.loopexit
 
-if.end8:                                          ; preds = %while.body
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 32), align 8
-  %tobool9.not = icmp eq ptr %5, null
-  br i1 %tobool9.not, label %if.end12, label %if.then10
+13:                                               ; preds = %.preheader
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 32), align 8, !tbaa !32
+  %.not33 = icmp eq ptr %14, null
+  br i1 %.not33, label %16, label %15
 
-if.then10:                                        ; preds = %if.end8
-  tail call void %5(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01, i64 noundef %cond) #15
-  br label %if.end12
+15:                                               ; preds = %13
+  tail call void %14(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274, i64 noundef %7) #15
+  br label %16
 
-if.end12:                                         ; preds = %if.then10, %if.end8
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.01, i64 %cond
-  %sub = sub i64 %len.addr.02, %cond
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
-  %add = add i64 %6, %cond
-  store i64 %add, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
-  %tobool1.not = icmp eq i64 %sub, 0
-  br i1 %tobool1.not, label %return, label %while.body, !llvm.loop !5
+16:                                               ; preds = %13, %15
+  %17 = getelementptr inbounds nuw i8, ptr %.0274, i64 %7
+  %18 = sub i64 %.0255, %7
+  %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
+  %20 = add i64 %19, %7
+  store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
+  %.not31 = icmp eq i64 %18, 0
+  br i1 %.not31, label %.loopexit, label %.preheader
 
-return:                                           ; preds = %if.end12, %entry, %if.then6
-  %retval.0 = phi i64 [ 0, %if.then6 ], [ 0, %entry ], [ 1, %if.end12 ]
-  ret i64 %retval.0
+.loopexit:                                        ; preds = %16, %.thread, %2
+  %.024 = phi i64 [ 0, %2 ], [ 0, %.thread ], [ 1, %16 ]
+  ret i64 %.024
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @rdbLoadType(ptr noundef) local_unnamed_addr #8
 
-declare i32 @rdbLoadType(ptr noundef) local_unnamed_addr #7
+declare i64 @rdbLoadTime(ptr noundef) local_unnamed_addr #8
 
-declare i64 @rdbLoadTime(ptr noundef) local_unnamed_addr #7
+declare i64 @rdbLoadMillisecondTime(ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare i64 @rdbLoadMillisecondTime(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @rdbLoadLen(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare i64 @rdbLoadLen(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @rdbLoadStringObject(ptr noundef) local_unnamed_addr #8
 
-declare ptr @rdbLoadStringObject(ptr noundef) local_unnamed_addr #7
+declare void @decrRefCount(ptr noundef) local_unnamed_addr #8
 
-declare void @decrRefCount(ptr noundef) local_unnamed_addr #7
+declare void @moduleTypeNameByID(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @moduleTypeNameByID(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @rdbLoadCheckModuleValue(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare ptr @rdbLoadCheckModuleValue(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @rdbFunctionLoad(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare i32 @rdbFunctionLoad(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare void @sdsfree(ptr noundef) local_unnamed_addr #8
 
-declare void @sdsfree(ptr noundef) local_unnamed_addr #7
+declare ptr @rdbLoadObject(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare ptr @rdbLoadObject(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare i64 @hashTypeGetMinExpire(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @stopLoading(i32 noundef) local_unnamed_addr #7
+declare void @stopLoading(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @redis_check_rdb_main(i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef %fp) local_unnamed_addr #5 {
-entry:
-  %act.i = alloca %struct.sigaction, align 8
-  %tv = alloca %struct.timeval, align 8
-  %cmp = icmp ne i32 %argc, 2
-  %cmp1 = icmp eq ptr %fp, null
-  %or.cond = and i1 %cmp, %cmp1
-  br i1 %or.cond, label %if.then, label %if.else
+define dso_local range(i32 -1, 1) i32 @redis_check_rdb_main(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #6 {
+  %4 = alloca %struct.sigaction, align 8
+  %5 = alloca %struct.timeval, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  %6 = icmp ne i32 %0, 2
+  %7 = icmp eq ptr %2, null
+  %or.cond = and i1 %6, %7
+  br i1 %or.cond, label %8, label %sub_0
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %1 = load ptr, ptr %argv, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, ptr noundef %1) #18
+8:                                                ; preds = %3
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !38
+  %10 = load ptr, ptr %1, align 8, !tbaa !21
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.62, ptr noundef %10) #17
   tail call void @exit(i32 noundef 1) #16
   unreachable
 
-if.else:                                          ; preds = %entry
-  %arrayidx2 = getelementptr inbounds nuw i8, ptr %argv, i64 8
-  %2 = load ptr, ptr %arrayidx2, align 8
-  %3 = load i8, ptr %2, align 1
-  %.not = icmp eq i8 %3, 45
-  br i1 %.not, label %sub_1, label %lor.lhs.false
+sub_0:                                            ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
+  %14 = load i8, ptr %13, align 1
+  %.not16 = icmp eq i8 %14, 45
+  br i1 %.not16, label %sub_1, label %.tail.thread
 
-sub_1:                                            ; preds = %if.else
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %5 = load i8, ptr %4, align 1
-  %.not13 = icmp eq i8 %5, 118
-  br i1 %.not13, label %if.else.tail, label %lor.lhs.false
+sub_1:                                            ; preds = %sub_0
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %16 = load i8, ptr %15, align 1
+  %.not17 = icmp eq i8 %16, 118
+  br i1 %.not17, label %.tail, label %.tail.thread
 
-if.else.tail:                                     ; preds = %sub_1
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %7 = load i8, ptr %6, align 1
-  %8 = icmp eq i8 %7, 0
-  br i1 %8, label %if.then7, label %lor.lhs.false
+.tail:                                            ; preds = %sub_1
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %21, label %.tail.thread
 
-lor.lhs.false:                                    ; preds = %sub_1, %if.else, %if.else.tail
-  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.57) #17
-  %tobool6.not = icmp eq i32 %call5, 0
-  br i1 %tobool6.not, label %if.then7, label %if.end10
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.64) #18
+  %.not14 = icmp eq i32 %20, 0
+  br i1 %.not14, label %21, label %24
 
-if.then7:                                         ; preds = %lor.lhs.false, %if.else.tail
-  %call8 = tail call fastcc ptr @checkRdbVersion()
-  %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, ptr noundef %call8)
-  tail call void @sdsfree(ptr noundef %call8) #15
+21:                                               ; preds = %.tail.thread, %.tail
+  %22 = tail call ptr @getVersion() #15
+  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, ptr noundef %22)
+  tail call void @sdsfree(ptr noundef %22) #15
   tail call void @exit(i32 noundef 0) #19
   unreachable
 
-if.end10:                                         ; preds = %lor.lhs.false
-  %call11 = call i32 @gettimeofday(ptr noundef nonnull %tv, ptr noundef null) #15
-  %9 = load i64, ptr %tv, align 8
-  %mul = mul nsw i64 %9, 1000000
-  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
-  %10 = load i64, ptr %tv_usec, align 8
-  %add = add nsw i64 %mul, %10
-  %call12 = tail call i32 @getpid() #15
-  %conv = sext i32 %call12 to i64
-  %xor = xor i64 %add, %conv
-  tail call void @init_genrand64(i64 noundef %xor) #15
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 856), align 8
-  %cmp13 = icmp eq ptr %11, null
-  br i1 %cmp13, label %if.then15, label %if.end16
+24:                                               ; preds = %.tail.thread
+  %25 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #15
+  %26 = load i64, ptr %5, align 8, !tbaa !40
+  %27 = mul nsw i64 %26, 1000000
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %29 = load i64, ptr %28, align 8, !tbaa !42
+  %30 = add nsw i64 %27, %29
+  %31 = tail call i32 @getpid() #15
+  %32 = sext i32 %31 to i64
+  %33 = xor i64 %30, %32
+  tail call void @init_genrand64(i64 noundef %33) #15
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 880), align 8, !tbaa !43
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %37
 
-if.then15:                                        ; preds = %if.end10
+36:                                               ; preds = %24
   tail call void @createSharedObjects() #15
-  br label %if.end16
+  br label %37
 
-if.end16:                                         ; preds = %if.then15, %if.end10
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1944), align 8
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 3724), align 4
-  store i32 1, ptr @rdbCheckMode, align 4
-  %12 = load ptr, ptr %arrayidx2, align 8
-  tail call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.59, ptr noundef %12)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i)
-  %sa_mask.i = getelementptr inbounds nuw i8, ptr %act.i, i64 8
-  %call.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #15
-  %sa_flags.i = getelementptr inbounds nuw i8, ptr %act.i, i64 136
-  store i32 -1073741820, ptr %sa_flags.i, align 8
-  store ptr @rdbCheckHandleCrash, ptr %act.i, align 8
-  %call1.i = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %act.i, ptr noundef null) #15
-  %call2.i = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %act.i, ptr noundef null) #15
-  %call3.i = call i32 @sigaction(i32 noundef 8, ptr noundef nonnull %act.i, ptr noundef null) #15
-  %call4.i = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %act.i, ptr noundef null) #15
-  %call5.i = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %act.i, ptr noundef null) #15
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %act.i)
-  %13 = load ptr, ptr %arrayidx2, align 8
-  %call20 = call i32 @redis_check_rdb(ptr noundef %13, ptr noundef %fp)
-  %cmp21 = icmp ne i32 %call20, 0
-  br i1 %cmp21, label %if.end24, label %if.then23
+37:                                               ; preds = %36, %24
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2456), align 8, !tbaa !44
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6320), align 8, !tbaa !71
+  store i32 1, ptr @rdbCheckMode, align 4, !tbaa !72
+  %38 = load ptr, ptr %12, align 8, !tbaa !21
+  tail call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.66, ptr noundef %38)
+  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #15
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %40 = call i32 @sigemptyset(ptr noundef nonnull %39) #15
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  store i32 -1073741820, ptr %41, align 8, !tbaa !28
+  store ptr @rdbCheckHandleCrash, ptr %4, align 8, !tbaa !31
+  %42 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %4, ptr noundef null) #15
+  %43 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %4, ptr noundef null) #15
+  %44 = call i32 @sigaction(i32 noundef 8, ptr noundef nonnull %4, ptr noundef null) #15
+  %45 = call i32 @sigaction(i32 noundef 4, ptr noundef nonnull %4, ptr noundef null) #15
+  %46 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %4, ptr noundef null) #15
+  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #15
+  %47 = load ptr, ptr %12, align 8, !tbaa !21
+  %48 = call i32 @redis_check_rdb(ptr noundef %47, ptr noundef %2)
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %59, label %50
 
-if.then23:                                        ; preds = %if.end16
-  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.60)
-  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8
-  %call.i10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %14)
-  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8
-  %call1.i11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %15)
-  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8
-  %call2.i12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %16)
-  br label %if.end24
+50:                                               ; preds = %37
+  call void (ptr, ...) @rdbCheckInfo(ptr noundef nonnull @.str.67)
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 24), align 8, !tbaa !5
+  %52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %51)
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 32), align 8, !tbaa !14
+  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %53)
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 40), align 8, !tbaa !15
+  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %55)
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @rdbstate, i64 48), align 8, !tbaa !16
+  %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %57)
+  br label %59
 
-if.end24:                                         ; preds = %if.then23, %if.end16
-  br i1 %cmp1, label %if.end29, label %if.then26
+59:                                               ; preds = %50, %37
+  br i1 %7, label %62, label %60
 
-if.then26:                                        ; preds = %if.end24
-  %cond = sext i1 %cmp21 to i32
-  ret i32 %cond
+60:                                               ; preds = %59
+  %61 = sext i1 %49 to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  ret i32 %61
 
-if.end29:                                         ; preds = %if.end24
-  call void @exit(i32 noundef %call20) #19
+62:                                               ; preds = %59
+  call void @exit(i32 noundef %48) #19
   unreachable
 }
 
@@ -890,97 +963,51 @@ if.end29:                                         ; preds = %if.end24
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @checkRdbVersion() unnamed_addr #5 {
-entry:
-  %call = tail call ptr @sdsempty() #15
-  %call1 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62) #15
-  %call2 = tail call ptr @redisGitSHA1() #15
-  %call3 = tail call i64 @strtoll(ptr noundef captures(none) %call2, ptr noundef null, i32 noundef 16) #15
-  %tobool.not = icmp eq i64 %call3, 0
-  br i1 %tobool.not, label %if.end12, label %if.then
-
-if.then:                                          ; preds = %entry
-  %call4 = tail call ptr @redisGitSHA1() #15
-  %call5 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1, ptr noundef nonnull @.str.63, ptr noundef %call4) #15
-  %call6 = tail call ptr @redisGitDirty() #15
-  %call7 = tail call i64 @strtoll(ptr noundef captures(none) %call6, ptr noundef null, i32 noundef 10) #15
-  %tobool8.not = icmp eq i64 %call7, 0
-  br i1 %tobool8.not, label %if.end, label %if.then9
-
-if.then9:                                         ; preds = %if.then
-  %call10 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call5, ptr noundef nonnull @.str.64) #15
-  br label %if.end
-
-if.end:                                           ; preds = %if.then9, %if.then
-  %version.1 = phi ptr [ %call10, %if.then9 ], [ %call5, %if.then ]
-  %call11 = tail call ptr @sdscat(ptr noundef %version.1, ptr noundef nonnull @.str.65) #15
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end, %entry
-  %version.0 = phi ptr [ %call11, %if.end ], [ %call1, %entry ]
-  ret ptr %version.0
-}
+declare ptr @getVersion() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @init_genrand64(i64 noundef) local_unnamed_addr #7
+declare void @init_genrand64(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #6
+declare i32 @getpid() local_unnamed_addr #7
 
-declare void @createSharedObjects() local_unnamed_addr #7
-
-declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
-
-declare ptr @sdsempty() local_unnamed_addr #7
+declare void @createSharedObjects() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
-
-declare ptr @redisGitSHA1() local_unnamed_addr #7
-
-declare ptr @redisGitDirty() local_unnamed_addr #7
-
-declare ptr @sdscat(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #4 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind }
+attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { cold noreturn nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { cold nounwind }
+attributes #17 = { cold nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
@@ -990,5 +1017,71 @@ attributes #19 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !13, i64 24}
+!6 = !{!"", !7, i64 0, !11, i64 8, !12, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !12, i64 56, !12, i64 60, !9, i64 64}
+!7 = !{!"p1 _ZTS4_rio", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 _ZTS11redisObject", !8, i64 0}
+!12 = !{!"int", !9, i64 0}
+!13 = !{!"long", !9, i64 0}
+!14 = !{!6, !13, i64 32}
+!15 = !{!6, !13, i64 40}
+!16 = !{!6, !13, i64 48}
+!17 = !{!6, !7, i64 0}
+!18 = !{!19, !13, i64 56}
+!19 = !{!"_rio", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !9, i64 72}
+!20 = !{!6, !12, i64 56}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 omnipotent char", !8, i64 0}
+!23 = !{!6, !11, i64 8}
+!24 = !{!25, !8, i64 8}
+!25 = !{!"redisObject", !12, i64 0, !12, i64 0, !12, i64 1, !12, i64 4, !8, i64 8}
+!26 = !{!6, !12, i64 16}
+!27 = !{!6, !12, i64 60}
+!28 = !{!29, !12, i64 136}
+!29 = !{!"sigaction", !9, i64 0, !30, i64 8, !12, i64 136, !8, i64 144}
+!30 = !{!"", !9, i64 0}
+!31 = !{!9, !9, i64 0}
+!32 = !{!19, !8, i64 32}
+!33 = !{!19, !13, i64 48}
+!34 = !{!19, !13, i64 64}
+!35 = !{!19, !8, i64 0}
+!36 = !{!19, !13, i64 40}
+!37 = !{!13, !13, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!40 = !{!41, !13, i64 0}
+!41 = !{!"timeval", !13, i64 0, !13, i64 8}
+!42 = !{!41, !13, i64 8}
+!43 = !{!11, !11, i64 0}
+!44 = !{!45, !13, i64 2456}
+!45 = !{!"redisServer", !12, i64 0, !13, i64 8, !22, i64 16, !22, i64 24, !46, i64 32, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !47, i64 64, !48, i64 72, !48, i64 80, !49, i64 88, !50, i64 96, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !51, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !22, i64 144, !12, i64 152, !12, i64 156, !9, i64 160, !12, i64 204, !13, i64 208, !12, i64 216, !12, i64 220, !12, i64 224, !22, i64 232, !22, i64 240, !12, i64 248, !12, i64 252, !13, i64 256, !48, i64 264, !48, i64 272, !48, i64 280, !52, i64 288, !9, i64 296, !12, i64 304, !12, i64 308, !9, i64 312, !12, i64 316, !12, i64 320, !12, i64 324, !9, i64 328, !12, i64 456, !22, i64 464, !22, i64 472, !12, i64 480, !9, i64 488, !12, i64 1320, !53, i64 1328, !52, i64 1432, !52, i64 1440, !52, i64 1448, !52, i64 1456, !52, i64 1464, !52, i64 1472, !55, i64 1480, !55, i64 1488, !8, i64 1496, !50, i64 1504, !12, i64 1512, !50, i64 1520, !12, i64 1528, !52, i64 1536, !9, i64 1544, !9, i64 1592, !48, i64 1848, !9, i64 1856, !12, i64 1864, !12, i64 1868, !9, i64 1872, !12, i64 2384, !12, i64 2388, !51, i64 2392, !12, i64 2400, !12, i64 2404, !12, i64 2408, !12, i64 2412, !12, i64 2416, !13, i64 2424, !13, i64 2432, !13, i64 2440, !13, i64 2448, !13, i64 2456, !13, i64 2464, !51, i64 2472, !51, i64 2480, !51, i64 2488, !51, i64 2496, !56, i64 2504, !51, i64 2512, !51, i64 2520, !51, i64 2528, !51, i64 2536, !51, i64 2544, !51, i64 2552, !13, i64 2560, !51, i64 2568, !51, i64 2576, !51, i64 2584, !51, i64 2592, !51, i64 2600, !51, i64 2608, !51, i64 2616, !51, i64 2624, !13, i64 2632, !13, i64 2640, !51, i64 2648, !51, i64 2656, !51, i64 2664, !51, i64 2672, !56, i64 2680, !51, i64 2688, !51, i64 2696, !51, i64 2704, !51, i64 2712, !51, i64 2720, !52, i64 2728, !51, i64 2736, !51, i64 2744, !13, i64 2752, !57, i64 2760, !9, i64 2848, !9, i64 2856, !9, i64 2864, !9, i64 2872, !13, i64 2880, !13, i64 2888, !13, i64 2896, !13, i64 2904, !13, i64 2912, !13, i64 2920, !13, i64 2928, !13, i64 2936, !56, i64 2944, !9, i64 2952, !13, i64 2984, !51, i64 2992, !51, i64 3000, !51, i64 3008, !9, i64 3016, !9, i64 4040, !9, i64 5064, !51, i64 5072, !9, i64 5080, !51, i64 6144, !51, i64 6152, !13, i64 6160, !51, i64 6168, !51, i64 6176, !13, i64 6184, !9, i64 6192, !12, i64 6288, !12, i64 6292, !12, i64 6296, !12, i64 6300, !12, i64 6304, !12, i64 6308, !12, i64 6312, !12, i64 6316, !12, i64 6320, !12, i64 6324, !12, i64 6328, !12, i64 6332, !13, i64 6336, !12, i64 6344, !12, i64 6348, !12, i64 6352, !12, i64 6356, !13, i64 6360, !13, i64 6368, !12, i64 6376, !12, i64 6380, !12, i64 6384, !12, i64 6388, !12, i64 6392, !22, i64 6400, !9, i64 6408, !12, i64 6480, !12, i64 6484, !12, i64 6488, !58, i64 6496, !12, i64 6504, !12, i64 6508, !12, i64 6512, !12, i64 6516, !12, i64 6520, !12, i64 6524, !22, i64 6528, !22, i64 6536, !12, i64 6544, !12, i64 6548, !13, i64 6552, !13, i64 6560, !13, i64 6568, !13, i64 6576, !13, i64 6584, !12, i64 6592, !12, i64 6596, !22, i64 6600, !12, i64 6608, !12, i64 6612, !51, i64 6616, !51, i64 6624, !13, i64 6632, !13, i64 6640, !13, i64 6648, !12, i64 6656, !12, i64 6660, !13, i64 6664, !12, i64 6672, !12, i64 6676, !12, i64 6680, !12, i64 6684, !12, i64 6688, !12, i64 6692, !9, i64 6696, !9, i64 6700, !8, i64 6704, !12, i64 6712, !51, i64 6720, !51, i64 6728, !51, i64 6736, !51, i64 6744, !12, i64 6752, !59, i64 6760, !12, i64 6768, !22, i64 6776, !12, i64 6784, !12, i64 6788, !12, i64 6792, !13, i64 6800, !13, i64 6808, !13, i64 6816, !13, i64 6824, !12, i64 6832, !12, i64 6836, !12, i64 6840, !12, i64 6844, !12, i64 6848, !12, i64 6852, !60, i64 6856, !12, i64 6864, !12, i64 6868, !22, i64 6872, !12, i64 6880, !12, i64 6884, !12, i64 6888, !9, i64 6892, !12, i64 6900, !61, i64 6904, !12, i64 6920, !22, i64 6928, !12, i64 6936, !22, i64 6944, !12, i64 6952, !12, i64 6956, !12, i64 6960, !12, i64 6964, !12, i64 6968, !12, i64 6972, !12, i64 6976, !9, i64 6980, !9, i64 7021, !51, i64 7064, !51, i64 7072, !9, i64 7080, !51, i64 7088, !12, i64 7096, !12, i64 7100, !63, i64 7104, !51, i64 7112, !51, i64 7120, !64, i64 7128, !13, i64 7168, !13, i64 7176, !12, i64 7184, !12, i64 7188, !12, i64 7192, !12, i64 7196, !12, i64 7200, !12, i64 7204, !12, i64 7208, !12, i64 7212, !12, i64 7216, !13, i64 7224, !52, i64 7232, !13, i64 7240, !22, i64 7248, !22, i64 7256, !22, i64 7264, !12, i64 7272, !12, i64 7276, !55, i64 7280, !55, i64 7288, !12, i64 7296, !12, i64 7300, !12, i64 7304, !13, i64 7312, !13, i64 7320, !13, i64 7328, !13, i64 7336, !65, i64 7344, !65, i64 7352, !12, i64 7360, !22, i64 7368, !13, i64 7376, !12, i64 7384, !12, i64 7388, !12, i64 7392, !13, i64 7400, !12, i64 7408, !12, i64 7412, !12, i64 7416, !12, i64 7420, !22, i64 7424, !12, i64 7432, !12, i64 7436, !9, i64 7440, !51, i64 7488, !12, i64 7496, !52, i64 7504, !12, i64 7512, !12, i64 7516, !51, i64 7520, !13, i64 7528, !12, i64 7536, !12, i64 7540, !12, i64 7544, !12, i64 7548, !12, i64 7552, !51, i64 7560, !9, i64 7568, !12, i64 7580, !12, i64 7584, !12, i64 7588, !9, i64 7592, !52, i64 7632, !52, i64 7640, !12, i64 7648, !13, i64 7656, !52, i64 7664, !52, i64 7672, !12, i64 7680, !12, i64 7684, !12, i64 7688, !12, i64 7692, !13, i64 7696, !13, i64 7704, !13, i64 7712, !13, i64 7720, !13, i64 7728, !13, i64 7736, !13, i64 7744, !13, i64 7752, !13, i64 7760, !51, i64 7768, !12, i64 7776, !12, i64 7780, !9, i64 7784, !13, i64 7792, !9, i64 7800, !51, i64 7808, !51, i64 7816, !51, i64 7824, !13, i64 7832, !51, i64 7840, !66, i64 7848, !48, i64 7856, !12, i64 7864, !66, i64 7872, !12, i64 7880, !12, i64 7884, !12, i64 7888, !12, i64 7892, !51, i64 7896, !51, i64 7904, !22, i64 7912, !67, i64 7920, !12, i64 7928, !12, i64 7932, !12, i64 7936, !12, i64 7940, !12, i64 7944, !22, i64 7952, !22, i64 7960, !22, i64 7968, !12, i64 7976, !12, i64 7980, !12, i64 7984, !12, i64 7988, !12, i64 7992, !12, i64 7996, !12, i64 8000, !51, i64 8008, !12, i64 8016, !12, i64 8020, !51, i64 8024, !12, i64 8032, !12, i64 8036, !12, i64 8040, !12, i64 8044, !12, i64 8048, !12, i64 8052, !12, i64 8056, !51, i64 8064, !48, i64 8072, !22, i64 8080, !13, i64 8088, !22, i64 8096, !12, i64 8104, !68, i64 8112, !12, i64 8144, !13, i64 8152, !12, i64 8160, !12, i64 8164, !12, i64 8168, !69, i64 8176, !22, i64 8288, !22, i64 8296, !22, i64 8304, !22, i64 8312, !70, i64 8320, !51, i64 8328, !12, i64 8336, !22, i64 8344, !12, i64 8352, !12, i64 8356, !12, i64 8360, !13, i64 8368, !12, i64 8376, !22, i64 8384}
+!46 = !{!"p2 omnipotent char", !8, i64 0}
+!47 = !{!"p1 _ZTS7redisDb", !8, i64 0}
+!48 = !{!"p1 _ZTS4dict", !8, i64 0}
+!49 = !{!"p1 _ZTS11aeEventLoop", !8, i64 0}
+!50 = !{!"p1 _ZTS3rax", !8, i64 0}
+!51 = !{!"long long", !9, i64 0}
+!52 = !{!"p1 _ZTS4list", !8, i64 0}
+!53 = !{!"connListener", !9, i64 0, !12, i64 64, !46, i64 72, !12, i64 80, !12, i64 84, !54, i64 88, !8, i64 96}
+!54 = !{!"p1 _ZTS14ConnectionType", !8, i64 0}
+!55 = !{!"p1 _ZTS6client", !8, i64 0}
+!56 = !{!"double", !9, i64 0}
+!57 = !{!"malloc_stats", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80}
+!58 = !{!"p1 double", !8, i64 0}
+!59 = !{!"p1 _ZTS9saveparam", !8, i64 0}
+!60 = !{!"p2 _ZTS10connection", !8, i64 0}
+!61 = !{!"redisOpArray", !62, i64 0, !12, i64 8, !12, i64 12}
+!62 = !{!"p1 _ZTS7redisOp", !8, i64 0}
+!63 = !{!"p1 _ZTS11replBacklog", !8, i64 0}
+!64 = !{!"replDataBuf", !52, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32}
+!65 = !{!"p1 _ZTS10connection", !8, i64 0}
+!66 = !{!"p1 _ZTS8_kvstore", !8, i64 0}
+!67 = !{!"p1 _ZTS12clusterState", !8, i64 0}
+!68 = !{!"aclInfo", !51, i64 0, !51, i64 8, !51, i64 16, !51, i64 24}
+!69 = !{!"redisTLSContextConfig", !22, i64 0, !22, i64 8, !22, i64 16, !22, i64 24, !22, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !22, i64 64, !22, i64 72, !22, i64 80, !22, i64 88, !12, i64 96, !12, i64 100, !12, i64 104, !12, i64 108}
+!70 = !{!"p1 _ZTS14sentinelConfig", !8, i64 0}
+!71 = !{!45, !12, i64 6320}
+!72 = !{!12, !12, i64 0}

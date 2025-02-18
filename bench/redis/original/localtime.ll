@@ -1,227 +1,266 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
 @__const.nolocks_localtime.mdays = private unnamed_addr constant [12 x i32] [i32 31, i32 28, i32 31, i32 30, i32 31, i32 30, i32 31, i32 31, i32 30, i32 31, i32 30, i32 31], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nolocks_localtime(ptr noundef %tmp, i64 noundef %t, i64 noundef %tz, i32 noundef %dst) #0 {
-entry:
-  %tmp.addr = alloca ptr, align 8
-  %t.addr = alloca i64, align 8
-  %tz.addr = alloca i64, align 8
-  %dst.addr = alloca i32, align 4
-  %secs_min = alloca i64, align 8
-  %secs_hour = alloca i64, align 8
-  %secs_day = alloca i64, align 8
-  %days = alloca i64, align 8
-  %seconds = alloca i64, align 8
-  %days_this_year = alloca i64, align 8
-  %mdays = alloca [12 x i32], align 16
-  store ptr %tmp, ptr %tmp.addr, align 8
-  store i64 %t, ptr %t.addr, align 8
-  store i64 %tz, ptr %tz.addr, align 8
-  store i32 %dst, ptr %dst.addr, align 4
-  store i64 60, ptr %secs_min, align 8
-  store i64 3600, ptr %secs_hour, align 8
-  store i64 86400, ptr %secs_day, align 8
-  %0 = load i64, ptr %tz.addr, align 8
-  %1 = load i64, ptr %t.addr, align 8
-  %sub = sub nsw i64 %1, %0
-  store i64 %sub, ptr %t.addr, align 8
-  %2 = load i32, ptr %dst.addr, align 4
-  %mul = mul nsw i32 3600, %2
-  %conv = sext i32 %mul to i64
-  %3 = load i64, ptr %t.addr, align 8
-  %add = add nsw i64 %3, %conv
-  store i64 %add, ptr %t.addr, align 8
-  %4 = load i64, ptr %t.addr, align 8
-  %div = sdiv i64 %4, 86400
-  store i64 %div, ptr %days, align 8
-  %5 = load i64, ptr %t.addr, align 8
-  %rem = srem i64 %5, 86400
-  store i64 %rem, ptr %seconds, align 8
-  %6 = load i32, ptr %dst.addr, align 4
-  %7 = load ptr, ptr %tmp.addr, align 8
-  %tm_isdst = getelementptr inbounds %struct.tm, ptr %7, i32 0, i32 8
-  store i32 %6, ptr %tm_isdst, align 8
-  %8 = load i64, ptr %seconds, align 8
-  %div1 = sdiv i64 %8, 3600
-  %conv2 = trunc i64 %div1 to i32
-  %9 = load ptr, ptr %tmp.addr, align 8
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %9, i32 0, i32 2
-  store i32 %conv2, ptr %tm_hour, align 8
-  %10 = load i64, ptr %seconds, align 8
-  %rem3 = srem i64 %10, 3600
-  %div4 = sdiv i64 %rem3, 60
-  %conv5 = trunc i64 %div4 to i32
-  %11 = load ptr, ptr %tmp.addr, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %11, i32 0, i32 1
-  store i32 %conv5, ptr %tm_min, align 4
-  %12 = load i64, ptr %seconds, align 8
-  %rem6 = srem i64 %12, 3600
-  %rem7 = srem i64 %rem6, 60
-  %conv8 = trunc i64 %rem7 to i32
-  %13 = load ptr, ptr %tmp.addr, align 8
-  %tm_sec = getelementptr inbounds %struct.tm, ptr %13, i32 0, i32 0
-  store i32 %conv8, ptr %tm_sec, align 8
-  %14 = load i64, ptr %days, align 8
-  %add9 = add nsw i64 %14, 4
-  %rem10 = srem i64 %add9, 7
-  %conv11 = trunc i64 %rem10 to i32
-  %15 = load ptr, ptr %tmp.addr, align 8
-  %tm_wday = getelementptr inbounds %struct.tm, ptr %15, i32 0, i32 6
-  store i32 %conv11, ptr %tm_wday, align 8
-  %16 = load ptr, ptr %tmp.addr, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %16, i32 0, i32 5
-  store i32 1970, ptr %tm_year, align 4
-  br label %while.body
+define dso_local void @nolocks_localtime(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca [12 x i32], align 16
+  store ptr %0, ptr %5, align 8, !tbaa !5
+  store i64 %1, ptr %6, align 8, !tbaa !10
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  store i64 60, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  store i64 3600, ptr %10, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  store i64 86400, ptr %11, align 8, !tbaa !10
+  %17 = load i64, ptr %7, align 8, !tbaa !10
+  %18 = load i64, ptr %6, align 8, !tbaa !10
+  %19 = sub nsw i64 %18, %17
+  store i64 %19, ptr %6, align 8, !tbaa !10
+  %20 = load i32, ptr %8, align 4, !tbaa !12
+  %21 = mul nsw i32 3600, %20
+  %22 = sext i32 %21 to i64
+  %23 = load i64, ptr %6, align 8, !tbaa !10
+  %24 = add nsw i64 %23, %22
+  store i64 %24, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %25 = load i64, ptr %6, align 8, !tbaa !10
+  %26 = sdiv i64 %25, 86400
+  store i64 %26, ptr %12, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = srem i64 %27, 86400
+  store i64 %28, ptr %13, align 8, !tbaa !10
+  %29 = load i32, ptr %8, align 4, !tbaa !12
+  %30 = load ptr, ptr %5, align 8, !tbaa !5
+  %31 = getelementptr inbounds nuw %struct.tm, ptr %30, i32 0, i32 8
+  store i32 %29, ptr %31, align 8, !tbaa !14
+  %32 = load i64, ptr %13, align 8, !tbaa !10
+  %33 = sdiv i64 %32, 3600
+  %34 = trunc i64 %33 to i32
+  %35 = load ptr, ptr %5, align 8, !tbaa !5
+  %36 = getelementptr inbounds nuw %struct.tm, ptr %35, i32 0, i32 2
+  store i32 %34, ptr %36, align 8, !tbaa !17
+  %37 = load i64, ptr %13, align 8, !tbaa !10
+  %38 = srem i64 %37, 3600
+  %39 = sdiv i64 %38, 60
+  %40 = trunc i64 %39 to i32
+  %41 = load ptr, ptr %5, align 8, !tbaa !5
+  %42 = getelementptr inbounds nuw %struct.tm, ptr %41, i32 0, i32 1
+  store i32 %40, ptr %42, align 4, !tbaa !18
+  %43 = load i64, ptr %13, align 8, !tbaa !10
+  %44 = srem i64 %43, 3600
+  %45 = srem i64 %44, 60
+  %46 = trunc i64 %45 to i32
+  %47 = load ptr, ptr %5, align 8, !tbaa !5
+  %48 = getelementptr inbounds nuw %struct.tm, ptr %47, i32 0, i32 0
+  store i32 %46, ptr %48, align 8, !tbaa !19
+  %49 = load i64, ptr %12, align 8, !tbaa !10
+  %50 = add nsw i64 %49, 4
+  %51 = srem i64 %50, 7
+  %52 = trunc i64 %51 to i32
+  %53 = load ptr, ptr %5, align 8, !tbaa !5
+  %54 = getelementptr inbounds nuw %struct.tm, ptr %53, i32 0, i32 6
+  store i32 %52, ptr %54, align 8, !tbaa !20
+  %55 = load ptr, ptr %5, align 8, !tbaa !5
+  %56 = getelementptr inbounds nuw %struct.tm, ptr %55, i32 0, i32 5
+  store i32 1970, ptr %56, align 4, !tbaa !21
+  br label %57
 
-while.body:                                       ; preds = %if.end, %entry
-  %17 = load ptr, ptr %tmp.addr, align 8
-  %tm_year12 = getelementptr inbounds %struct.tm, ptr %17, i32 0, i32 5
-  %18 = load i32, ptr %tm_year12, align 4
-  %conv13 = sext i32 %18 to i64
-  %call = call i32 @is_leap_year(i64 noundef %conv13)
-  %add14 = add nsw i32 365, %call
-  %conv15 = sext i32 %add14 to i64
-  store i64 %conv15, ptr %days_this_year, align 8
-  %19 = load i64, ptr %days_this_year, align 8
-  %20 = load i64, ptr %days, align 8
-  %cmp = icmp sgt i64 %19, %20
-  br i1 %cmp, label %if.then, label %if.end
+57:                                               ; preds = %80, %4
+  br label %58
 
-if.then:                                          ; preds = %while.body
-  br label %while.end
+58:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %59 = load ptr, ptr %5, align 8, !tbaa !5
+  %60 = getelementptr inbounds nuw %struct.tm, ptr %59, i32 0, i32 5
+  %61 = load i32, ptr %60, align 4, !tbaa !21
+  %62 = sext i32 %61 to i64
+  %63 = call i32 @is_leap_year(i64 noundef %62)
+  %64 = add nsw i32 365, %63
+  %65 = sext i32 %64 to i64
+  store i64 %65, ptr %14, align 8, !tbaa !10
+  %66 = load i64, ptr %14, align 8, !tbaa !10
+  %67 = load i64, ptr %12, align 8, !tbaa !10
+  %68 = icmp sgt i64 %66, %67
+  br i1 %68, label %69, label %70
 
-if.end:                                           ; preds = %while.body
-  %21 = load i64, ptr %days_this_year, align 8
-  %22 = load i64, ptr %days, align 8
-  %sub17 = sub nsw i64 %22, %21
-  store i64 %sub17, ptr %days, align 8
-  %23 = load ptr, ptr %tmp.addr, align 8
-  %tm_year18 = getelementptr inbounds %struct.tm, ptr %23, i32 0, i32 5
-  %24 = load i32, ptr %tm_year18, align 4
-  %inc = add nsw i32 %24, 1
-  store i32 %inc, ptr %tm_year18, align 4
-  br label %while.body
+69:                                               ; preds = %58
+  store i32 3, ptr %15, align 4
+  br label %78
 
-while.end:                                        ; preds = %if.then
-  %25 = load i64, ptr %days, align 8
-  %conv19 = trunc i64 %25 to i32
-  %26 = load ptr, ptr %tmp.addr, align 8
-  %tm_yday = getelementptr inbounds %struct.tm, ptr %26, i32 0, i32 7
-  store i32 %conv19, ptr %tm_yday, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %mdays, ptr align 16 @__const.nolocks_localtime.mdays, i64 48, i1 false)
-  %27 = load ptr, ptr %tmp.addr, align 8
-  %tm_year20 = getelementptr inbounds %struct.tm, ptr %27, i32 0, i32 5
-  %28 = load i32, ptr %tm_year20, align 4
-  %conv21 = sext i32 %28 to i64
-  %call22 = call i32 @is_leap_year(i64 noundef %conv21)
-  %arrayidx = getelementptr inbounds [12 x i32], ptr %mdays, i64 0, i64 1
-  %29 = load i32, ptr %arrayidx, align 4
-  %add23 = add nsw i32 %29, %call22
-  store i32 %add23, ptr %arrayidx, align 4
-  %30 = load ptr, ptr %tmp.addr, align 8
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %30, i32 0, i32 4
-  store i32 0, ptr %tm_mon, align 8
-  br label %while.cond
+70:                                               ; preds = %58
+  %71 = load i64, ptr %14, align 8, !tbaa !10
+  %72 = load i64, ptr %12, align 8, !tbaa !10
+  %73 = sub nsw i64 %72, %71
+  store i64 %73, ptr %12, align 8, !tbaa !10
+  %74 = load ptr, ptr %5, align 8, !tbaa !5
+  %75 = getelementptr inbounds nuw %struct.tm, ptr %74, i32 0, i32 5
+  %76 = load i32, ptr %75, align 4, !tbaa !21
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %75, align 4, !tbaa !21
+  store i32 0, ptr %15, align 4
+  br label %78
 
-while.cond:                                       ; preds = %while.body29, %while.end
-  %31 = load i64, ptr %days, align 8
-  %32 = load ptr, ptr %tmp.addr, align 8
-  %tm_mon24 = getelementptr inbounds %struct.tm, ptr %32, i32 0, i32 4
-  %33 = load i32, ptr %tm_mon24, align 8
-  %idxprom = sext i32 %33 to i64
-  %arrayidx25 = getelementptr inbounds [12 x i32], ptr %mdays, i64 0, i64 %idxprom
-  %34 = load i32, ptr %arrayidx25, align 4
-  %conv26 = sext i32 %34 to i64
-  %cmp27 = icmp sge i64 %31, %conv26
-  br i1 %cmp27, label %while.body29, label %while.end37
+78:                                               ; preds = %70, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  %79 = load i32, ptr %15, align 4
+  switch i32 %79, label %130 [
+    i32 0, label %80
+    i32 3, label %81
+  ]
 
-while.body29:                                     ; preds = %while.cond
-  %35 = load ptr, ptr %tmp.addr, align 8
-  %tm_mon30 = getelementptr inbounds %struct.tm, ptr %35, i32 0, i32 4
-  %36 = load i32, ptr %tm_mon30, align 8
-  %idxprom31 = sext i32 %36 to i64
-  %arrayidx32 = getelementptr inbounds [12 x i32], ptr %mdays, i64 0, i64 %idxprom31
-  %37 = load i32, ptr %arrayidx32, align 4
-  %conv33 = sext i32 %37 to i64
-  %38 = load i64, ptr %days, align 8
-  %sub34 = sub nsw i64 %38, %conv33
-  store i64 %sub34, ptr %days, align 8
-  %39 = load ptr, ptr %tmp.addr, align 8
-  %tm_mon35 = getelementptr inbounds %struct.tm, ptr %39, i32 0, i32 4
-  %40 = load i32, ptr %tm_mon35, align 8
-  %inc36 = add nsw i32 %40, 1
-  store i32 %inc36, ptr %tm_mon35, align 8
-  br label %while.cond, !llvm.loop !5
+80:                                               ; preds = %78
+  br label %57
 
-while.end37:                                      ; preds = %while.cond
-  %41 = load i64, ptr %days, align 8
-  %add38 = add nsw i64 %41, 1
-  %conv39 = trunc i64 %add38 to i32
-  %42 = load ptr, ptr %tmp.addr, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %42, i32 0, i32 3
-  store i32 %conv39, ptr %tm_mday, align 4
-  %43 = load ptr, ptr %tmp.addr, align 8
-  %tm_year40 = getelementptr inbounds %struct.tm, ptr %43, i32 0, i32 5
-  %44 = load i32, ptr %tm_year40, align 4
-  %sub41 = sub nsw i32 %44, 1900
-  store i32 %sub41, ptr %tm_year40, align 4
+81:                                               ; preds = %78
+  %82 = load i64, ptr %12, align 8, !tbaa !10
+  %83 = trunc i64 %82 to i32
+  %84 = load ptr, ptr %5, align 8, !tbaa !5
+  %85 = getelementptr inbounds nuw %struct.tm, ptr %84, i32 0, i32 7
+  store i32 %83, ptr %85, align 4, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 48, ptr %16) #3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %16, ptr align 16 @__const.nolocks_localtime.mdays, i64 48, i1 false)
+  %86 = load ptr, ptr %5, align 8, !tbaa !5
+  %87 = getelementptr inbounds nuw %struct.tm, ptr %86, i32 0, i32 5
+  %88 = load i32, ptr %87, align 4, !tbaa !21
+  %89 = sext i32 %88 to i64
+  %90 = call i32 @is_leap_year(i64 noundef %89)
+  %91 = getelementptr inbounds [12 x i32], ptr %16, i64 0, i64 1
+  %92 = load i32, ptr %91, align 4, !tbaa !12
+  %93 = add nsw i32 %92, %90
+  store i32 %93, ptr %91, align 4, !tbaa !12
+  %94 = load ptr, ptr %5, align 8, !tbaa !5
+  %95 = getelementptr inbounds nuw %struct.tm, ptr %94, i32 0, i32 4
+  store i32 0, ptr %95, align 8, !tbaa !23
+  br label %96
+
+96:                                               ; preds = %106, %81
+  %97 = load i64, ptr %12, align 8, !tbaa !10
+  %98 = load ptr, ptr %5, align 8, !tbaa !5
+  %99 = getelementptr inbounds nuw %struct.tm, ptr %98, i32 0, i32 4
+  %100 = load i32, ptr %99, align 8, !tbaa !23
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds [12 x i32], ptr %16, i64 0, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !12
+  %104 = sext i32 %103 to i64
+  %105 = icmp sge i64 %97, %104
+  br i1 %105, label %106, label %120
+
+106:                                              ; preds = %96
+  %107 = load ptr, ptr %5, align 8, !tbaa !5
+  %108 = getelementptr inbounds nuw %struct.tm, ptr %107, i32 0, i32 4
+  %109 = load i32, ptr %108, align 8, !tbaa !23
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds [12 x i32], ptr %16, i64 0, i64 %110
+  %112 = load i32, ptr %111, align 4, !tbaa !12
+  %113 = sext i32 %112 to i64
+  %114 = load i64, ptr %12, align 8, !tbaa !10
+  %115 = sub nsw i64 %114, %113
+  store i64 %115, ptr %12, align 8, !tbaa !10
+  %116 = load ptr, ptr %5, align 8, !tbaa !5
+  %117 = getelementptr inbounds nuw %struct.tm, ptr %116, i32 0, i32 4
+  %118 = load i32, ptr %117, align 8, !tbaa !23
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %117, align 8, !tbaa !23
+  br label %96, !llvm.loop !24
+
+120:                                              ; preds = %96
+  %121 = load i64, ptr %12, align 8, !tbaa !10
+  %122 = add nsw i64 %121, 1
+  %123 = trunc i64 %122 to i32
+  %124 = load ptr, ptr %5, align 8, !tbaa !5
+  %125 = getelementptr inbounds nuw %struct.tm, ptr %124, i32 0, i32 3
+  store i32 %123, ptr %125, align 4, !tbaa !26
+  %126 = load ptr, ptr %5, align 8, !tbaa !5
+  %127 = getelementptr inbounds nuw %struct.tm, ptr %126, i32 0, i32 5
+  %128 = load i32, ptr %127, align 4, !tbaa !21
+  %129 = sub nsw i32 %128, 1900
+  store i32 %129, ptr %127, align 4, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 48, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
+
+130:                                              ; preds = %78
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @is_leap_year(i64 noundef %year) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %year.addr = alloca i64, align 8
-  store i64 %year, ptr %year.addr, align 8
-  %0 = load i64, ptr %year.addr, align 8
-  %rem = srem i64 %0, 4
-  %tobool = icmp ne i64 %rem, 0
-  br i1 %tobool, label %if.then, label %if.else
+define internal i32 @is_leap_year(i64 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !10
+  %4 = load i64, ptr %3, align 8, !tbaa !10
+  %5 = srem i64 %4, 4
+  %6 = icmp ne i64 %5, 0
+  br i1 %6, label %7, label %8
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %19
 
-if.else:                                          ; preds = %entry
-  %1 = load i64, ptr %year.addr, align 8
-  %rem1 = srem i64 %1, 100
-  %tobool2 = icmp ne i64 %rem1, 0
-  br i1 %tobool2, label %if.then3, label %if.else4
+8:                                                ; preds = %1
+  %9 = load i64, ptr %3, align 8, !tbaa !10
+  %10 = srem i64 %9, 100
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then3:                                         ; preds = %if.else
-  store i32 1, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %8
+  store i32 1, ptr %2, align 4
+  br label %19
 
-if.else4:                                         ; preds = %if.else
-  %2 = load i64, ptr %year.addr, align 8
-  %rem5 = srem i64 %2, 400
-  %tobool6 = icmp ne i64 %rem5, 0
-  br i1 %tobool6, label %if.then7, label %if.else8
+13:                                               ; preds = %8
+  %14 = load i64, ptr %3, align 8, !tbaa !10
+  %15 = srem i64 %14, 400
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %18
 
-if.then7:                                         ; preds = %if.else4
-  store i32 0, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %13
+  store i32 0, ptr %2, align 4
+  br label %19
 
-if.else8:                                         ; preds = %if.else4
-  store i32 1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %13
+  store i32 1, ptr %2, align 4
+  br label %19
 
-return:                                           ; preds = %if.else8, %if.then7, %if.then3, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+19:                                               ; preds = %18, %17, %12, %7
+  %20 = load i32, ptr %2, align 4
+  ret i32 %20
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -230,5 +269,25 @@ attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"p1 _ZTS2tm", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !8, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !8, i64 0}
+!14 = !{!15, !13, i64 32}
+!15 = !{!"tm", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !11, i64 40, !16, i64 48}
+!16 = !{!"p1 omnipotent char", !7, i64 0}
+!17 = !{!15, !13, i64 8}
+!18 = !{!15, !13, i64 4}
+!19 = !{!15, !13, i64 0}
+!20 = !{!15, !13, i64 24}
+!21 = !{!15, !13, i64 20}
+!22 = !{!15, !13, i64 28}
+!23 = !{!15, !13, i64 16}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!15, !13, i64 12}

@@ -1,8 +1,9 @@
 ; ModuleID = 'bench/redis/original/lua_cjson.ll'
 source_filename = "bench/redis/original/lua_cjson.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
+%struct.luaL_Reg = type { ptr, ptr }
 %struct.strbuf_t = type { ptr, i64, i64, i32, i32, i32 }
 %struct.json_parse_t = type { ptr, ptr, ptr, ptr, i32 }
 %struct.json_token_t = type { i32, i64, %union.anon, i64 }
@@ -19,6 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [23 x i8] c"encode_invalid_numbers\00", align 1
 @.str.9 = private unnamed_addr constant [23 x i8] c"decode_invalid_numbers\00", align 1
 @.str.10 = private unnamed_addr constant [4 x i8] c"new\00", align 1
+@__const.lua_cjson_new.reg = private unnamed_addr constant [11 x %struct.luaL_Reg] [%struct.luaL_Reg { ptr @.str.1, ptr @json_encode }, %struct.luaL_Reg { ptr @.str.2, ptr @json_decode }, %struct.luaL_Reg { ptr @.str.3, ptr @json_cfg_encode_sparse_array }, %struct.luaL_Reg { ptr @.str.4, ptr @json_cfg_encode_max_depth }, %struct.luaL_Reg { ptr @.str.5, ptr @json_cfg_decode_max_depth }, %struct.luaL_Reg { ptr @.str.6, ptr @json_cfg_encode_number_precision }, %struct.luaL_Reg { ptr @.str.7, ptr @json_cfg_encode_keep_buffer }, %struct.luaL_Reg { ptr @.str.8, ptr @json_cfg_encode_invalid_numbers }, %struct.luaL_Reg { ptr @.str.9, ptr @json_cfg_decode_invalid_numbers }, %struct.luaL_Reg { ptr @.str.10, ptr @lua_cjson_new }, %struct.luaL_Reg zeroinitializer], align 16
 @.str.11 = private unnamed_addr constant [5 x i8] c"null\00", align 1
 @.str.12 = private unnamed_addr constant [6 x i8] c"_NAME\00", align 1
 @.str.13 = private unnamed_addr constant [6 x i8] c"2.1.0\00", align 1
@@ -109,259 +111,152 @@ target triple = "x86_64-unknown-linux-gnu"
 @json_cfg_encode_invalid_numbers.options = internal global [4 x ptr] [ptr @.str.94, ptr @.str.95, ptr @.str.11, ptr null], align 16
 @.str.97 = private unnamed_addr constant [5 x i8] c"__gc\00", align 1
 @.str.98 = private unnamed_addr constant [18 x i8] c"too many upvalues\00", align 1
+@__const.lua_cjson_safe_new.func = private unnamed_addr constant [3 x ptr] [ptr @.str.2, ptr @.str.1, ptr null], align 16
 @.str.99 = private unnamed_addr constant [48 x i8] c"Memory allocation error in CJSON protected call\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaopen_cjson(ptr noundef %l) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @lua_cjson_new(ptr noundef %l)
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -10002, ptr noundef nonnull @.str) #12
+define dso_local noundef i32 @luaopen_cjson(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @lua_cjson_new(ptr noundef %0)
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -1) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lua_cjson_new(ptr noundef %l) #0 {
-entry:
+define internal noundef i32 @lua_cjson_new(ptr noundef %0) #0 {
   tail call void (...) @fpconv_init() #12
-  tail call void @lua_createtable(ptr noundef %l, i32 noundef 0, i32 noundef 0) #12
-  %call.i = tail call ptr @lua_newuserdata(ptr noundef %l, i64 noundef 1360) #12
-  tail call void @lua_createtable(ptr noundef %l, i32 noundef 0, i32 noundef 0) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_destroy_config, i32 noundef 0) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.97) #12
-  %call1.i = tail call i32 @lua_setmetatable(ptr noundef %l, i32 noundef -2) #12
-  %encode_sparse_convert.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1320
-  store <4 x i32> <i32 0, i32 2, i32 10, i32 1000>, ptr %encode_sparse_convert.i, align 8, !tbaa !4
-  %decode_max_depth.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1352
-  store i32 1000, ptr %decode_max_depth.i, align 8, !tbaa !8
-  %encode_invalid_numbers.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1336
-  store <4 x i32> <i32 0, i32 14, i32 1, i32 1>, ptr %encode_invalid_numbers.i, align 8, !tbaa !4
-  %encode_buf.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1280
-  tail call void @strbuf_init(ptr noundef nonnull %encode_buf.i, i64 noundef 0) #12
-  %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store <4 x i32> splat (i32 12), ptr %call.i, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %0, align 4, !tbaa !4
-  %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  %2 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
-  store <4 x i32> splat (i32 12), ptr %1, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %2, align 4, !tbaa !4
-  %3 = getelementptr inbounds nuw i8, ptr %call.i, i64 64
-  %4 = getelementptr inbounds nuw i8, ptr %call.i, i64 80
-  store <4 x i32> splat (i32 12), ptr %3, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %4, align 4, !tbaa !4
-  %5 = getelementptr inbounds nuw i8, ptr %call.i, i64 96
-  %6 = getelementptr inbounds nuw i8, ptr %call.i, i64 112
-  store <4 x i32> splat (i32 12), ptr %5, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %6, align 4, !tbaa !4
-  %7 = getelementptr inbounds nuw i8, ptr %call.i, i64 128
-  %8 = getelementptr inbounds nuw i8, ptr %call.i, i64 144
-  store <4 x i32> splat (i32 12), ptr %7, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %8, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw i8, ptr %call.i, i64 160
-  %10 = getelementptr inbounds nuw i8, ptr %call.i, i64 176
-  store <4 x i32> splat (i32 12), ptr %9, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %10, align 4, !tbaa !4
-  %11 = getelementptr inbounds nuw i8, ptr %call.i, i64 192
-  %12 = getelementptr inbounds nuw i8, ptr %call.i, i64 208
-  %13 = getelementptr inbounds nuw i8, ptr %call.i, i64 224
-  %14 = getelementptr inbounds nuw i8, ptr %call.i, i64 240
-  store <4 x i32> splat (i32 12), ptr %13, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %14, align 4, !tbaa !4
-  %15 = getelementptr inbounds nuw i8, ptr %call.i, i64 256
-  %16 = getelementptr inbounds nuw i8, ptr %call.i, i64 272
-  store <4 x i32> splat (i32 12), ptr %15, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %16, align 4, !tbaa !4
-  %17 = getelementptr inbounds nuw i8, ptr %call.i, i64 288
-  %18 = getelementptr inbounds nuw i8, ptr %call.i, i64 304
-  store <4 x i32> splat (i32 12), ptr %17, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %18, align 4, !tbaa !4
-  %19 = getelementptr inbounds nuw i8, ptr %call.i, i64 320
-  %20 = getelementptr inbounds nuw i8, ptr %call.i, i64 336
-  store <4 x i32> splat (i32 12), ptr %19, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %20, align 4, !tbaa !4
-  %21 = getelementptr inbounds nuw i8, ptr %call.i, i64 352
-  %22 = getelementptr inbounds nuw i8, ptr %call.i, i64 368
-  store <4 x i32> splat (i32 12), ptr %21, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %22, align 4, !tbaa !4
-  %23 = getelementptr inbounds nuw i8, ptr %call.i, i64 384
-  %24 = getelementptr inbounds nuw i8, ptr %call.i, i64 400
-  store <4 x i32> splat (i32 12), ptr %23, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %24, align 4, !tbaa !4
-  %25 = getelementptr inbounds nuw i8, ptr %call.i, i64 416
-  %26 = getelementptr inbounds nuw i8, ptr %call.i, i64 432
-  store <4 x i32> splat (i32 12), ptr %25, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %26, align 4, !tbaa !4
-  %27 = getelementptr inbounds nuw i8, ptr %call.i, i64 448
-  %28 = getelementptr inbounds nuw i8, ptr %call.i, i64 464
-  store <4 x i32> splat (i32 12), ptr %27, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %28, align 4, !tbaa !4
-  %29 = getelementptr inbounds nuw i8, ptr %call.i, i64 480
-  %30 = getelementptr inbounds nuw i8, ptr %call.i, i64 496
-  store <4 x i32> splat (i32 12), ptr %29, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %30, align 4, !tbaa !4
-  %31 = getelementptr inbounds nuw i8, ptr %call.i, i64 512
-  %32 = getelementptr inbounds nuw i8, ptr %call.i, i64 528
-  store <4 x i32> splat (i32 12), ptr %31, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %32, align 4, !tbaa !4
-  %33 = getelementptr inbounds nuw i8, ptr %call.i, i64 544
-  %34 = getelementptr inbounds nuw i8, ptr %call.i, i64 560
-  store <4 x i32> splat (i32 12), ptr %33, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %34, align 4, !tbaa !4
-  %35 = getelementptr inbounds nuw i8, ptr %call.i, i64 576
-  %36 = getelementptr inbounds nuw i8, ptr %call.i, i64 592
-  store <4 x i32> splat (i32 12), ptr %35, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %36, align 4, !tbaa !4
-  %37 = getelementptr inbounds nuw i8, ptr %call.i, i64 608
-  %38 = getelementptr inbounds nuw i8, ptr %call.i, i64 624
-  store <4 x i32> splat (i32 12), ptr %37, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %38, align 4, !tbaa !4
-  %39 = getelementptr inbounds nuw i8, ptr %call.i, i64 640
-  %40 = getelementptr inbounds nuw i8, ptr %call.i, i64 656
-  store <4 x i32> splat (i32 12), ptr %39, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %40, align 4, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %call.i, i64 672
-  %42 = getelementptr inbounds nuw i8, ptr %call.i, i64 688
-  store <4 x i32> splat (i32 12), ptr %41, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %42, align 4, !tbaa !4
-  %43 = getelementptr inbounds nuw i8, ptr %call.i, i64 704
-  %44 = getelementptr inbounds nuw i8, ptr %call.i, i64 720
-  store <4 x i32> splat (i32 12), ptr %43, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %44, align 4, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %call.i, i64 736
-  %46 = getelementptr inbounds nuw i8, ptr %call.i, i64 752
-  store <4 x i32> splat (i32 12), ptr %45, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %46, align 4, !tbaa !4
-  %47 = getelementptr inbounds nuw i8, ptr %call.i, i64 768
-  %48 = getelementptr inbounds nuw i8, ptr %call.i, i64 784
-  store <4 x i32> splat (i32 12), ptr %47, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %48, align 4, !tbaa !4
-  %49 = getelementptr inbounds nuw i8, ptr %call.i, i64 800
-  %50 = getelementptr inbounds nuw i8, ptr %call.i, i64 816
-  store <4 x i32> splat (i32 12), ptr %49, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %50, align 4, !tbaa !4
-  %51 = getelementptr inbounds nuw i8, ptr %call.i, i64 832
-  %52 = getelementptr inbounds nuw i8, ptr %call.i, i64 848
-  store <4 x i32> splat (i32 12), ptr %51, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %52, align 4, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %call.i, i64 864
-  %54 = getelementptr inbounds nuw i8, ptr %call.i, i64 880
-  store <4 x i32> splat (i32 12), ptr %53, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %54, align 4, !tbaa !4
-  %55 = getelementptr inbounds nuw i8, ptr %call.i, i64 896
-  %56 = getelementptr inbounds nuw i8, ptr %call.i, i64 912
-  store <4 x i32> splat (i32 12), ptr %55, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %56, align 4, !tbaa !4
-  %57 = getelementptr inbounds nuw i8, ptr %call.i, i64 928
-  %58 = getelementptr inbounds nuw i8, ptr %call.i, i64 944
-  store <4 x i32> splat (i32 12), ptr %57, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %58, align 4, !tbaa !4
-  %59 = getelementptr inbounds nuw i8, ptr %call.i, i64 960
-  %60 = getelementptr inbounds nuw i8, ptr %call.i, i64 976
-  store <4 x i32> splat (i32 12), ptr %59, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %60, align 4, !tbaa !4
-  %61 = getelementptr inbounds nuw i8, ptr %call.i, i64 992
-  %62 = getelementptr inbounds nuw i8, ptr %call.i, i64 1008
-  store <4 x i32> splat (i32 12), ptr %61, align 4, !tbaa !4
-  store <4 x i32> splat (i32 12), ptr %62, align 4, !tbaa !4
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 492
-  store i32 0, ptr %arrayidx3.i, align 4, !tbaa !4
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 500
-  store i32 1, ptr %arrayidx5.i, align 4, !tbaa !4
-  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call.i, i64 364
-  store i32 2, ptr %arrayidx7.i, align 4, !tbaa !4
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %call.i, i64 372
-  store i32 3, ptr %arrayidx9.i, align 4, !tbaa !4
-  store i32 9, ptr %10, align 8, !tbaa !4
-  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %call.i, i64 232
-  store i32 8, ptr %arrayidx13.i, align 8, !tbaa !4
-  store i32 10, ptr %call.i, align 8, !tbaa !4
-  store i32 11, ptr %7, align 8, !tbaa !4
-  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %call.i, i64 36
-  store i32 11, ptr %arrayidx19.i, align 4, !tbaa !4
-  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  store i32 11, ptr %arrayidx21.i, align 8, !tbaa !4
-  %arrayidx23.i = getelementptr inbounds nuw i8, ptr %call.i, i64 52
-  store i32 11, ptr %arrayidx23.i, align 4, !tbaa !4
-  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %call.i, i64 408
-  store i32 13, ptr %arrayidx25.i, align 8, !tbaa !4
-  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %call.i, i64 420
-  store i32 13, ptr %arrayidx27.i, align 4, !tbaa !4
-  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %call.i, i64 292
-  store i32 13, ptr %arrayidx29.i, align 4, !tbaa !4
-  %arrayidx31.i = getelementptr inbounds nuw i8, ptr %call.i, i64 440
-  store i32 13, ptr %arrayidx31.i, align 8, !tbaa !4
-  %arrayidx33.i = getelementptr inbounds nuw i8, ptr %call.i, i64 312
-  store i32 13, ptr %arrayidx33.i, align 8, !tbaa !4
-  store i32 13, ptr %28, align 8, !tbaa !4
-  %arrayidx37.i = getelementptr inbounds nuw i8, ptr %call.i, i64 136
-  store i32 13, ptr %arrayidx37.i, align 8, !tbaa !4
-  %arrayidx39.i = getelementptr inbounds nuw i8, ptr %call.i, i64 172
-  store i32 13, ptr %arrayidx39.i, align 4, !tbaa !4
-  %arrayidx41.i = getelementptr inbounds nuw i8, ptr %call.i, i64 180
-  store i32 13, ptr %arrayidx41.i, align 4, !tbaa !4
-  store <4 x i32> splat (i32 13), ptr %11, align 4, !tbaa !4
-  store <4 x i32> splat (i32 13), ptr %12, align 4, !tbaa !4
-  store i32 13, ptr %13, align 4, !tbaa !4
-  %arrayidx47.9.i = getelementptr inbounds nuw i8, ptr %call.i, i64 228
-  store i32 13, ptr %arrayidx47.9.i, align 4, !tbaa !4
-  %escape2char.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1024
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %escape2char.i, i8 0, i64 256, i1 false), !tbaa !13
-  %arrayidx60.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1058
-  store i8 34, ptr %arrayidx60.i, align 2, !tbaa !13
-  %arrayidx62.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1116
-  store i8 92, ptr %arrayidx62.i, align 4, !tbaa !13
-  %arrayidx64.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1071
-  store i8 47, ptr %arrayidx64.i, align 1, !tbaa !13
-  %arrayidx66.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1122
-  store i8 8, ptr %arrayidx66.i, align 2, !tbaa !13
-  %arrayidx68.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1140
-  store i8 9, ptr %arrayidx68.i, align 4, !tbaa !13
-  %arrayidx70.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1134
-  store i8 10, ptr %arrayidx70.i, align 2, !tbaa !13
-  %arrayidx72.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1126
-  store i8 12, ptr %arrayidx72.i, align 2, !tbaa !13
-  %arrayidx74.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1138
-  store i8 13, ptr %arrayidx74.i, align 2, !tbaa !13
-  %arrayidx76.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1141
-  store i8 117, ptr %arrayidx76.i, align 1, !tbaa !13
-  tail call void @luaL_checkstack(ptr noundef %l, i32 noundef 1, ptr noundef nonnull @.str.98) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_encode, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.1) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_decode, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.2) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_cfg_encode_sparse_array, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.3) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_cfg_encode_max_depth, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.4) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_cfg_decode_max_depth, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.5) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_cfg_encode_number_precision, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.6) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_cfg_encode_keep_buffer, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.7) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_cfg_encode_invalid_numbers, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.8) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_cfg_decode_invalid_numbers, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.9) #12
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @lua_cjson_new, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -3, ptr noundef nonnull @.str.10) #12
-  tail call void @lua_settop(ptr noundef %l, i32 noundef -2) #12
-  tail call void @lua_pushlightuserdata(ptr noundef %l, ptr noundef null) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.11) #12
-  tail call void @lua_pushlstring(ptr noundef %l, ptr noundef nonnull @.str, i64 noundef 5) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.12) #12
-  tail call void @lua_pushlstring(ptr noundef %l, ptr noundef nonnull @.str.13, i64 noundef 5) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.14) #12
+  tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
+  %2 = tail call ptr @lua_newuserdata(ptr noundef %0, i64 noundef 1360) #12
+  tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @json_destroy_config, i32 noundef 0) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.97) #12
+  %3 = tail call i32 @lua_setmetatable(ptr noundef %0, i32 noundef -2) #12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1320
+  store i32 0, ptr %4, align 8, !tbaa !4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1324
+  store i32 2, ptr %5, align 4, !tbaa !13
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1328
+  store i32 10, ptr %6, align 8, !tbaa !14
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1332
+  store i32 1000, ptr %7, align 4, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1352
+  store i32 1000, ptr %8, align 8, !tbaa !16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1336
+  store i32 0, ptr %9, align 8, !tbaa !17
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1348
+  store i32 1, ptr %10, align 4, !tbaa !18
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 1344
+  store i32 1, ptr %11, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 1340
+  store i32 14, ptr %12, align 4, !tbaa !20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 1280
+  tail call void @strbuf_init(ptr noundef nonnull %13, i64 noundef 0) #12
+  br label %14
+
+14:                                               ; preds = %14, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %14 ]
+  %15 = getelementptr inbounds nuw [256 x i32], ptr %2, i64 0, i64 %indvars.iv.i
+  store i32 12, ptr %15, align 4, !tbaa !21
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
+  br i1 %exitcond.not.i, label %16, label %14, !llvm.loop !22
+
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 492
+  store i32 0, ptr %17, align 4, !tbaa !21
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 500
+  store i32 1, ptr %18, align 4, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 364
+  store i32 2, ptr %19, align 4, !tbaa !21
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 372
+  store i32 3, ptr %20, align 4, !tbaa !21
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store i32 9, ptr %21, align 8, !tbaa !21
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  store i32 8, ptr %22, align 8, !tbaa !21
+  store i32 10, ptr %2, align 8, !tbaa !21
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  store i32 11, ptr %23, align 8, !tbaa !21
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  store i32 11, ptr %24, align 4, !tbaa !21
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 11, ptr %25, align 8, !tbaa !21
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  store i32 11, ptr %26, align 4, !tbaa !21
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  store i32 13, ptr %27, align 8, !tbaa !21
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 420
+  store i32 13, ptr %28, align 4, !tbaa !21
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 292
+  store i32 13, ptr %29, align 4, !tbaa !21
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 440
+  store i32 13, ptr %30, align 8, !tbaa !21
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 312
+  store i32 13, ptr %31, align 8, !tbaa !21
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 464
+  store i32 13, ptr %32, align 8, !tbaa !21
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  store i32 13, ptr %33, align 8, !tbaa !21
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 172
+  store i32 13, ptr %34, align 4, !tbaa !21
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 180
+  store i32 13, ptr %35, align 4, !tbaa !21
+  br label %36
+
+36:                                               ; preds = %36, %16
+  %indvars.iv59.i = phi i64 [ 0, %16 ], [ %indvars.iv.next60.i, %36 ]
+  %37 = or disjoint i64 %indvars.iv59.i, 48
+  %38 = getelementptr inbounds nuw [256 x i32], ptr %2, i64 0, i64 %37
+  store i32 13, ptr %38, align 4, !tbaa !21
+  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 10
+  br i1 %exitcond62.not.i, label %json_create_config.exit, label %36, !llvm.loop !24
+
+json_create_config.exit:                          ; preds = %36
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1024
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %39, i8 0, i64 256, i1 false), !tbaa !25
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 1058
+  store i8 34, ptr %40, align 2, !tbaa !25
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 1116
+  store i8 92, ptr %41, align 4, !tbaa !25
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 1071
+  store i8 47, ptr %42, align 1, !tbaa !25
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 1122
+  store i8 8, ptr %43, align 2, !tbaa !25
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 1140
+  store i8 9, ptr %44, align 4, !tbaa !25
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 1134
+  store i8 10, ptr %45, align 2, !tbaa !25
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 1126
+  store i8 12, ptr %46, align 2, !tbaa !25
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 1138
+  store i8 13, ptr %47, align 2, !tbaa !25
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 1141
+  store i8 117, ptr %48, align 1, !tbaa !25
+  tail call void @luaL_checkstack(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.98) #12
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %json_create_config.exit, %.critedge.i
+  %.01619.i = phi ptr [ %52, %.critedge.i ], [ @__const.lua_cjson_new.reg, %json_create_config.exit ]
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -1) #12
+  %49 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !26
+  tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef %50, i32 noundef 1) #12
+  %51 = load ptr, ptr %.01619.i, align 8, !tbaa !28
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -3, ptr noundef %51) #12
+  %52 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !28
+  %.not.i = icmp eq ptr %53, null
+  br i1 %.not.i, label %luaL_setfuncs.exit, label %.critedge.i, !llvm.loop !29
+
+luaL_setfuncs.exit:                               ; preds = %.critedge.i
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #12
+  tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef null) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.11) #12
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 5) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.12) #12
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef 5) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.14) #12
   ret i32 1
 }
 
@@ -370,32 +265,46 @@ declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaopen_cjson_safe(ptr noundef %l) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call i32 @lua_cjson_new(ptr noundef %l)
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @lua_cjson_safe_new, i32 noundef 0) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.10) #12
-  tail call void @lua_getfield(ptr noundef %l, i32 noundef -1, ptr noundef nonnull @.str.2) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_protect_conversion, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.2) #12
-  tail call void @lua_getfield(ptr noundef %l, i32 noundef -1, ptr noundef nonnull @.str.1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_protect_conversion, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.1) #12
+define dso_local noundef i32 @luaopen_cjson_safe(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @lua_cjson_new(ptr noundef %0)
+  tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @lua_cjson_safe_new, i32 noundef 0) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.10) #12
+  br label %3
+
+3:                                                ; preds = %3, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
+  %4 = getelementptr inbounds nuw [3 x ptr], ptr @__const.lua_cjson_safe_new.func, i64 0, i64 %indvars.iv.i
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  tail call void @lua_getfield(ptr noundef %0, i32 noundef -1, ptr noundef %5) #12
+  tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @json_protect_conversion, i32 noundef 1) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef %5) #12
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %.not.i = icmp eq i64 %indvars.iv.next.i, 2
+  br i1 %.not.i, label %lua_cjson_safe_new.exit, label %3, !llvm.loop !31
+
+lua_cjson_safe_new.exit:                          ; preds = %3
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lua_cjson_safe_new(ptr noundef %l) #0 {
-entry:
-  %call = tail call i32 @lua_cjson_new(ptr noundef %l)
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @lua_cjson_safe_new, i32 noundef 0) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.10) #12
-  tail call void @lua_getfield(ptr noundef %l, i32 noundef -1, ptr noundef nonnull @.str.2) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_protect_conversion, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.2) #12
-  tail call void @lua_getfield(ptr noundef %l, i32 noundef -1, ptr noundef nonnull @.str.1) #12
-  tail call void @lua_pushcclosure(ptr noundef %l, ptr noundef nonnull @json_protect_conversion, i32 noundef 1) #12
-  tail call void @lua_setfield(ptr noundef %l, i32 noundef -2, ptr noundef nonnull @.str.1) #12
+define internal noundef i32 @lua_cjson_safe_new(ptr noundef %0) #0 {
+  %2 = tail call i32 @lua_cjson_new(ptr noundef %0)
+  tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @lua_cjson_safe_new, i32 noundef 0) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.10) #12
+  br label %3
+
+3:                                                ; preds = %1, %3
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
+  %4 = getelementptr inbounds nuw [3 x ptr], ptr @__const.lua_cjson_safe_new.func, i64 0, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  tail call void @lua_getfield(ptr noundef %0, i32 noundef -1, ptr noundef %5) #12
+  tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @json_protect_conversion, i32 noundef 1) #12
+  tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef %5) #12
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %.not = icmp eq i64 %indvars.iv.next, 2
+  br i1 %.not, label %6, label %3, !llvm.loop !31
+
+6:                                                ; preds = %3
   ret i32 1
 }
 
@@ -403,383 +312,374 @@ entry:
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_encode(ptr noundef %l) #0 {
-entry:
-  %local_encode_buf = alloca %struct.strbuf_t, align 8
-  %call.i = tail call ptr @lua_touserdata(ptr noundef %l, i32 noundef -10003) #12
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.then.i, label %json_fetch_config.exit
+define internal noundef i32 @json_encode(ptr noundef %0) #0 {
+  %2 = alloca %struct.strbuf_t, align 8
+  %3 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -10003) #12
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %4, label %json_fetch_config.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.16) #12
+4:                                                ; preds = %1
+  %5 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.16) #12
   br label %json_fetch_config.exit
 
-json_fetch_config.exit:                           ; preds = %if.then.i, %entry
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %local_encode_buf) #12
-  %call1 = tail call i32 @lua_gettop(ptr noundef %l) #12
-  %cmp = icmp eq i32 %call1, 1
-  br i1 %cmp, label %lor.end, label %lor.rhs
+json_fetch_config.exit:                           ; preds = %1, %4
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  %6 = tail call i32 @lua_gettop(ptr noundef %0) #12
+  %7 = icmp eq i32 %6, 1
+  br i1 %7, label %10, label %8
 
-lor.rhs:                                          ; preds = %json_fetch_config.exit
-  %call2 = tail call i32 @luaL_argerror(ptr noundef %l, i32 noundef 1, ptr noundef nonnull @.str.15) #12
-  br label %lor.end
+8:                                                ; preds = %json_fetch_config.exit
+  %9 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.15) #12
+  br label %10
 
-lor.end:                                          ; preds = %lor.rhs, %json_fetch_config.exit
-  %encode_keep_buffer = getelementptr inbounds nuw i8, ptr %call.i, i64 1344
-  %0 = load i32, ptr %encode_keep_buffer, align 8, !tbaa !14
-  %tobool3.not = icmp eq i32 %0, 0
-  br i1 %tobool3.not, label %if.then, label %if.else
+10:                                               ; preds = %8, %json_fetch_config.exit
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1344
+  %12 = load i32, ptr %11, align 8, !tbaa !19
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %13, label %14
 
-if.then:                                          ; preds = %lor.end
-  call void @strbuf_init(ptr noundef nonnull %local_encode_buf, i64 noundef 0) #12
-  br label %if.end
+13:                                               ; preds = %10
+  call void @strbuf_init(ptr noundef nonnull %2, i64 noundef 0) #12
+  br label %17
 
-if.else:                                          ; preds = %lor.end
-  %encode_buf4 = getelementptr inbounds nuw i8, ptr %call.i, i64 1280
-  %length.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1296
-  store i64 0, ptr %length.i, align 8, !tbaa !15
-  br label %if.end
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 1280
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1296
+  store i64 0, ptr %16, align 8, !tbaa !32
+  br label %17
 
-if.end:                                           ; preds = %if.else, %if.then
-  %encode_buf.0 = phi ptr [ %encode_buf4, %if.else ], [ %local_encode_buf, %if.then ]
-  call fastcc void @json_append_data(ptr noundef %l, ptr noundef nonnull %call.i, i32 noundef 0, ptr noundef nonnull %encode_buf.0)
-  %length.i22 = getelementptr inbounds nuw i8, ptr %encode_buf.0, i64 16
-  %1 = load i64, ptr %length.i22, align 8, !tbaa !15
-  %2 = load ptr, ptr %encode_buf.0, align 8, !tbaa !16
-  call void @lua_pushlstring(ptr noundef %l, ptr noundef %2, i64 noundef %1) #12
-  %3 = load i32, ptr %encode_keep_buffer, align 8, !tbaa !14
-  %tobool7.not = icmp eq i32 %3, 0
-  br i1 %tobool7.not, label %if.then8, label %if.end9
+17:                                               ; preds = %14, %13
+  %.0 = phi ptr [ %15, %14 ], [ %2, %13 ]
+  call fastcc void @json_append_data(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %.0)
+  %.0.val = load ptr, ptr %.0, align 8, !tbaa !33
+  %18 = getelementptr i8, ptr %.0, i64 16
+  %.0.val16 = load i64, ptr %18, align 8, !tbaa !32
+  call void @lua_pushlstring(ptr noundef %0, ptr noundef %.0.val, i64 noundef %.0.val16) #12
+  %19 = load i32, ptr %11, align 8, !tbaa !19
+  %.not15 = icmp eq i32 %19, 0
+  br i1 %.not15, label %20, label %21
 
-if.then8:                                         ; preds = %if.end
-  call void @strbuf_free(ptr noundef nonnull %encode_buf.0) #12
-  br label %if.end9
+20:                                               ; preds = %17
+  call void @strbuf_free(ptr noundef nonnull %.0) #12
+  br label %21
 
-if.end9:                                          ; preds = %if.then8, %if.end
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %local_encode_buf) #12
+21:                                               ; preds = %20, %17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_decode(ptr noundef %l) #0 {
-entry:
-  %json = alloca %struct.json_parse_t, align 8
-  %token = alloca %struct.json_token_t, align 8
-  %json_len = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %json) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %token) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %json_len) #12
-  %call = tail call i32 @lua_gettop(ptr noundef %l) #12
-  %cmp = icmp eq i32 %call, 1
-  br i1 %cmp, label %lor.end, label %lor.rhs
+define internal noundef i32 @json_decode(ptr noundef %0) #0 {
+  %2 = alloca %struct.json_parse_t, align 8
+  %3 = alloca %struct.json_token_t, align 8
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  %5 = tail call i32 @lua_gettop(ptr noundef %0) #12
+  %6 = icmp eq i32 %5, 1
+  br i1 %6, label %9, label %7
 
-lor.rhs:                                          ; preds = %entry
-  %call1 = tail call i32 @luaL_argerror(ptr noundef %l, i32 noundef 1, ptr noundef nonnull @.str.15) #12
-  br label %lor.end
+7:                                                ; preds = %1
+  %8 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.15) #12
+  br label %9
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %call.i = tail call ptr @lua_touserdata(ptr noundef %l, i32 noundef -10003) #12
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.then.i, label %json_fetch_config.exit
+9:                                                ; preds = %7, %1
+  %10 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -10003) #12
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %11, label %json_fetch_config.exit
 
-if.then.i:                                        ; preds = %lor.end
-  %call1.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.16) #12
+11:                                               ; preds = %9
+  %12 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.16) #12
   br label %json_fetch_config.exit
 
-json_fetch_config.exit:                           ; preds = %if.then.i, %lor.end
-  %cfg = getelementptr inbounds nuw i8, ptr %json, i64 24
-  store ptr %call.i, ptr %cfg, align 8, !tbaa !17
-  %call3 = call ptr @luaL_checklstring(ptr noundef %l, i32 noundef 1, ptr noundef nonnull %json_len) #12
-  store ptr %call3, ptr %json, align 8, !tbaa !19
-  %current_depth = getelementptr inbounds nuw i8, ptr %json, i64 32
-  store i32 0, ptr %current_depth, align 8, !tbaa !20
-  %ptr = getelementptr inbounds nuw i8, ptr %json, i64 8
-  store ptr %call3, ptr %ptr, align 8, !tbaa !21
-  %0 = load i64, ptr %json_len, align 8, !tbaa !22
-  %cmp5 = icmp ugt i64 %0, 1
-  br i1 %cmp5, label %land.lhs.true, label %if.end
+json_fetch_config.exit:                           ; preds = %9, %11
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %10, ptr %13, align 8, !tbaa !34
+  %14 = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #12
+  store ptr %14, ptr %2, align 8, !tbaa !36
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 0, ptr %15, align 8, !tbaa !37
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %14, ptr %16, align 8, !tbaa !38
+  %17 = load i64, ptr %4, align 8, !tbaa !39
+  %18 = icmp ugt i64 %17, 1
+  br i1 %18, label %19, label %26
 
-land.lhs.true:                                    ; preds = %json_fetch_config.exit
-  %1 = load i8, ptr %call3, align 1, !tbaa !13
-  %tobool7.not = icmp eq i8 %1, 0
-  br i1 %tobool7.not, label %if.then, label %lor.lhs.false
+19:                                               ; preds = %json_fetch_config.exit
+  %20 = load i8, ptr %14, align 1, !tbaa !25
+  %.not = icmp eq i8 %20, 0
+  br i1 %.not, label %24, label %21
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %arrayidx9 = getelementptr inbounds nuw i8, ptr %call3, i64 1
-  %2 = load i8, ptr %arrayidx9, align 1, !tbaa !13
-  %tobool10.not = icmp eq i8 %2, 0
-  br i1 %tobool10.not, label %if.then, label %if.end
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %23 = load i8, ptr %22, align 1, !tbaa !25
+  %.not7 = icmp eq i8 %23, 0
+  br i1 %.not7, label %24, label %26
 
-if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
-  %call11 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.64) #12
-  %.pre = load i64, ptr %json_len, align 8, !tbaa !22
-  br label %if.end
+24:                                               ; preds = %21, %19
+  %25 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.64) #12
+  %.pre = load i64, ptr %4, align 8, !tbaa !39
+  br label %26
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false, %json_fetch_config.exit
-  %3 = phi i64 [ %.pre, %if.then ], [ %0, %lor.lhs.false ], [ %0, %json_fetch_config.exit ]
-  %call12 = call ptr @strbuf_new(i64 noundef %3) #12
-  %tmp = getelementptr inbounds nuw i8, ptr %json, i64 16
-  store ptr %call12, ptr %tmp, align 8, !tbaa !23
-  call fastcc void @json_next_token(ptr noundef nonnull %json, ptr noundef nonnull %token)
-  call fastcc void @json_process_value(ptr noundef %l, ptr noundef nonnull %json, ptr noundef nonnull %token)
-  call fastcc void @json_next_token(ptr noundef nonnull %json, ptr noundef nonnull %token)
-  %4 = load i32, ptr %token, align 8, !tbaa !24
-  %cmp13.not = icmp eq i32 %4, 10
-  br i1 %cmp13.not, label %if.end15, label %if.then14
+26:                                               ; preds = %24, %21, %json_fetch_config.exit
+  %27 = phi i64 [ %.pre, %24 ], [ %17, %21 ], [ %17, %json_fetch_config.exit ]
+  %28 = call ptr @strbuf_new(i64 noundef %27) #12
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %28, ptr %29, align 8, !tbaa !40
+  call fastcc void @json_next_token(ptr noundef %2, ptr noundef %3)
+  call fastcc void @json_process_value(ptr noundef %0, ptr noundef %2, ptr noundef %3)
+  call fastcc void @json_next_token(ptr noundef %2, ptr noundef %3)
+  %30 = load i32, ptr %3, align 8, !tbaa !41
+  %.not8 = icmp eq i32 %30, 10
+  br i1 %.not8, label %40, label %31
 
-if.then14:                                        ; preds = %if.end
-  %5 = load ptr, ptr %tmp, align 8, !tbaa !23
-  call void @strbuf_free(ptr noundef %5) #12
-  %cmp.i = icmp eq i32 %4, 12
-  %value.i = getelementptr inbounds nuw i8, ptr %token, i64 16
-  %idxprom.i = zext i32 %4 to i64
-  %arrayidx.i = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %idxprom.i
-  %found.0.in.i = select i1 %cmp.i, ptr %value.i, ptr %arrayidx.i
-  %found.0.i = load ptr, ptr %found.0.in.i, align 8, !tbaa !13
-  %index.i = getelementptr inbounds nuw i8, ptr %token, i64 8
-  %6 = load i64, ptr %index.i, align 8, !tbaa !26
-  %add.i = add i64 %6, 1
-  %call.i23 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.65, ptr noundef %found.0.i, i64 noundef %add.i) #12
-  br label %if.end15
+31:                                               ; preds = %26
+  %.val = load ptr, ptr %29, align 8, !tbaa !40
+  call void @strbuf_free(ptr noundef %.val) #12
+  %32 = icmp eq i32 %30, 12
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %34 = zext i32 %30 to i64
+  %35 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %34
+  %.0.in.i = select i1 %32, ptr %33, ptr %35
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !25
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !43
+  %38 = add i64 %37, 1
+  %39 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.65, ptr noundef %.0.i, i64 noundef %38) #12
+  br label %40
 
-if.end15:                                         ; preds = %if.then14, %if.end
-  %7 = load ptr, ptr %tmp, align 8, !tbaa !23
-  call void @strbuf_free(ptr noundef %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %json_len) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %token) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %json) #12
+40:                                               ; preds = %31, %26
+  %41 = load ptr, ptr %29, align 8, !tbaa !40
+  call void @strbuf_free(ptr noundef %41) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_cfg_encode_sparse_array(ptr noundef %l) #0 {
-entry:
-  %errmsg.i9 = alloca [64 x i8], align 16
-  %errmsg.i = alloca [64 x i8], align 16
-  %call = tail call fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef 3)
-  %encode_sparse_convert = getelementptr inbounds nuw i8, ptr %call, i64 1320
-  tail call fastcc void @json_enum_option(ptr noundef %l, ptr noundef nonnull %encode_sparse_convert, ptr noundef null)
-  %encode_sparse_ratio = getelementptr inbounds nuw i8, ptr %call, i64 1324
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %errmsg.i) #12
-  %call.i = tail call i32 @lua_type(ptr noundef %l, i32 noundef 2) #12
-  %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %entry.if.end_crit_edge.i, label %if.then.i
+define internal noundef i32 @json_cfg_encode_sparse_array(ptr noundef %0) #0 {
+  %2 = alloca [64 x i8], align 16
+  %3 = alloca [64 x i8], align 16
+  %4 = tail call fastcc ptr @json_arg_init(ptr noundef %0, i32 noundef 3)
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1320
+  tail call fastcc void @json_enum_option(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1324
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #12
+  %7 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #12
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %._crit_edge.i, label %9
 
-entry.if.end_crit_edge.i:                         ; preds = %entry
-  %.pre.i = load i32, ptr %encode_sparse_ratio, align 4, !tbaa !4
+._crit_edge.i:                                    ; preds = %1
+  %.pre.i = load i32, ptr %6, align 4, !tbaa !21
   br label %json_integer_option.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call i64 @luaL_checkinteger(ptr noundef %l, i32 noundef 2) #12
-  %conv.i = trunc i64 %call1.i to i32
-  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %errmsg.i, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 0, i32 noundef 2147483647) #12
-  %cmp3.not.i = icmp slt i32 %conv.i, 0
-  br i1 %cmp3.not.i, label %lor.rhs.i, label %lor.end.i
+9:                                                ; preds = %1
+  %10 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #12
+  %11 = trunc i64 %10 to i32
+  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 0, i32 noundef 2147483647) #12
+  %.not.i = icmp slt i32 %11, 0
+  br i1 %.not.i, label %13, label %15
 
-lor.rhs.i:                                        ; preds = %if.then.i
-  %call8.i = call i32 @luaL_argerror(ptr noundef %l, i32 noundef 1, ptr noundef nonnull %errmsg.i) #12
-  br label %lor.end.i
+13:                                               ; preds = %9
+  %14 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %3) #12
+  br label %15
 
-lor.end.i:                                        ; preds = %lor.rhs.i, %if.then.i
-  store i32 %conv.i, ptr %encode_sparse_ratio, align 4, !tbaa !4
+15:                                               ; preds = %13, %9
+  store i32 %11, ptr %6, align 4, !tbaa !21
   br label %json_integer_option.exit
 
-json_integer_option.exit:                         ; preds = %lor.end.i, %entry.if.end_crit_edge.i
-  %0 = phi i32 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %conv.i, %lor.end.i ]
-  %conv9.i = sext i32 %0 to i64
-  call void @lua_pushinteger(ptr noundef %l, i64 noundef %conv9.i) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %errmsg.i) #12
-  %encode_sparse_safe = getelementptr inbounds nuw i8, ptr %call, i64 1328
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %errmsg.i9) #12
-  %call.i10 = call i32 @lua_type(ptr noundef %l, i32 noundef 3) #12
-  %cmp.i11 = icmp eq i32 %call.i10, 0
-  br i1 %cmp.i11, label %entry.if.end_crit_edge.i21, label %if.then.i12
+json_integer_option.exit:                         ; preds = %._crit_edge.i, %15
+  %16 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %11, %15 ]
+  %17 = sext i32 %16 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %17) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #12
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1328
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #12
+  %19 = call i32 @lua_type(ptr noundef %0, i32 noundef 3) #12
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %._crit_edge.i8, label %21
 
-entry.if.end_crit_edge.i21:                       ; preds = %json_integer_option.exit
-  %.pre.i22 = load i32, ptr %encode_sparse_safe, align 4, !tbaa !4
-  br label %json_integer_option.exit23
+._crit_edge.i8:                                   ; preds = %json_integer_option.exit
+  %.pre.i9 = load i32, ptr %18, align 4, !tbaa !21
+  br label %json_integer_option.exit10
 
-if.then.i12:                                      ; preds = %json_integer_option.exit
-  %call1.i13 = call i64 @luaL_checkinteger(ptr noundef %l, i32 noundef 3) #12
-  %conv.i14 = trunc i64 %call1.i13 to i32
-  %call2.i15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %errmsg.i9, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 0, i32 noundef 2147483647) #12
-  %cmp3.not.i16 = icmp slt i32 %conv.i14, 0
-  br i1 %cmp3.not.i16, label %lor.rhs.i19, label %lor.end.i17
+21:                                               ; preds = %json_integer_option.exit
+  %22 = call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 3) #12
+  %23 = trunc i64 %22 to i32
+  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 0, i32 noundef 2147483647) #12
+  %.not.i7 = icmp slt i32 %23, 0
+  br i1 %.not.i7, label %25, label %27
 
-lor.rhs.i19:                                      ; preds = %if.then.i12
-  %call8.i20 = call i32 @luaL_argerror(ptr noundef %l, i32 noundef 1, ptr noundef nonnull %errmsg.i9) #12
-  br label %lor.end.i17
+25:                                               ; preds = %21
+  %26 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #12
+  br label %27
 
-lor.end.i17:                                      ; preds = %lor.rhs.i19, %if.then.i12
-  store i32 %conv.i14, ptr %encode_sparse_safe, align 4, !tbaa !4
-  br label %json_integer_option.exit23
+27:                                               ; preds = %25, %21
+  store i32 %23, ptr %18, align 4, !tbaa !21
+  br label %json_integer_option.exit10
 
-json_integer_option.exit23:                       ; preds = %lor.end.i17, %entry.if.end_crit_edge.i21
-  %1 = phi i32 [ %.pre.i22, %entry.if.end_crit_edge.i21 ], [ %conv.i14, %lor.end.i17 ]
-  %conv9.i18 = sext i32 %1 to i64
-  call void @lua_pushinteger(ptr noundef %l, i64 noundef %conv9.i18) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %errmsg.i9) #12
+json_integer_option.exit10:                       ; preds = %._crit_edge.i8, %27
+  %28 = phi i32 [ %.pre.i9, %._crit_edge.i8 ], [ %23, %27 ]
+  %29 = sext i32 %28 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %29) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #12
   ret i32 3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_cfg_encode_max_depth(ptr noundef %l) #0 {
-entry:
-  %errmsg.i = alloca [64 x i8], align 16
-  %call = tail call fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef 1)
-  %encode_max_depth = getelementptr inbounds nuw i8, ptr %call, i64 1332
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %errmsg.i) #12
-  %call.i = tail call i32 @lua_type(ptr noundef %l, i32 noundef 1) #12
-  %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %entry.if.end_crit_edge.i, label %if.then.i
+define internal noundef i32 @json_cfg_encode_max_depth(ptr noundef %0) #0 {
+  %2 = alloca [64 x i8], align 16
+  %3 = tail call fastcc ptr @json_arg_init(ptr noundef %0, i32 noundef 1)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1332
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #12
+  %5 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #12
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %._crit_edge.i, label %7
 
-entry.if.end_crit_edge.i:                         ; preds = %entry
-  %.pre.i = load i32, ptr %encode_max_depth, align 4, !tbaa !4
+._crit_edge.i:                                    ; preds = %1
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !21
   br label %json_integer_option.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call i64 @luaL_checkinteger(ptr noundef %l, i32 noundef 1) #12
-  %conv.i = trunc i64 %call1.i to i32
-  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %errmsg.i, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 1, i32 noundef 2147483647) #12
-  %cmp3.not.i = icmp slt i32 %conv.i, 1
-  br i1 %cmp3.not.i, label %lor.rhs.i, label %lor.end.i
+7:                                                ; preds = %1
+  %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #12
+  %9 = trunc i64 %8 to i32
+  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 1, i32 noundef 2147483647) #12
+  %.not.i = icmp slt i32 %9, 1
+  br i1 %.not.i, label %11, label %13
 
-lor.rhs.i:                                        ; preds = %if.then.i
-  %call8.i = call i32 @luaL_argerror(ptr noundef %l, i32 noundef 1, ptr noundef nonnull %errmsg.i) #12
-  br label %lor.end.i
+11:                                               ; preds = %7
+  %12 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #12
+  br label %13
 
-lor.end.i:                                        ; preds = %lor.rhs.i, %if.then.i
-  store i32 %conv.i, ptr %encode_max_depth, align 4, !tbaa !4
+13:                                               ; preds = %11, %7
+  store i32 %9, ptr %4, align 4, !tbaa !21
   br label %json_integer_option.exit
 
-json_integer_option.exit:                         ; preds = %lor.end.i, %entry.if.end_crit_edge.i
-  %0 = phi i32 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %conv.i, %lor.end.i ]
-  %conv9.i = sext i32 %0 to i64
-  call void @lua_pushinteger(ptr noundef %l, i64 noundef %conv9.i) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %errmsg.i) #12
+json_integer_option.exit:                         ; preds = %._crit_edge.i, %13
+  %14 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %9, %13 ]
+  %15 = sext i32 %14 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %15) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_cfg_decode_max_depth(ptr noundef %l) #0 {
-entry:
-  %errmsg.i = alloca [64 x i8], align 16
-  %call = tail call fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef 1)
-  %decode_max_depth = getelementptr inbounds nuw i8, ptr %call, i64 1352
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %errmsg.i) #12
-  %call.i = tail call i32 @lua_type(ptr noundef %l, i32 noundef 1) #12
-  %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %entry.if.end_crit_edge.i, label %if.then.i
+define internal noundef i32 @json_cfg_decode_max_depth(ptr noundef %0) #0 {
+  %2 = alloca [64 x i8], align 16
+  %3 = tail call fastcc ptr @json_arg_init(ptr noundef %0, i32 noundef 1)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1352
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #12
+  %5 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #12
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %._crit_edge.i, label %7
 
-entry.if.end_crit_edge.i:                         ; preds = %entry
-  %.pre.i = load i32, ptr %decode_max_depth, align 4, !tbaa !4
+._crit_edge.i:                                    ; preds = %1
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !21
   br label %json_integer_option.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call i64 @luaL_checkinteger(ptr noundef %l, i32 noundef 1) #12
-  %conv.i = trunc i64 %call1.i to i32
-  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %errmsg.i, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 1, i32 noundef 2147483647) #12
-  %cmp3.not.i = icmp slt i32 %conv.i, 1
-  br i1 %cmp3.not.i, label %lor.rhs.i, label %lor.end.i
+7:                                                ; preds = %1
+  %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #12
+  %9 = trunc i64 %8 to i32
+  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 1, i32 noundef 2147483647) #12
+  %.not.i = icmp slt i32 %9, 1
+  br i1 %.not.i, label %11, label %13
 
-lor.rhs.i:                                        ; preds = %if.then.i
-  %call8.i = call i32 @luaL_argerror(ptr noundef %l, i32 noundef 1, ptr noundef nonnull %errmsg.i) #12
-  br label %lor.end.i
+11:                                               ; preds = %7
+  %12 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #12
+  br label %13
 
-lor.end.i:                                        ; preds = %lor.rhs.i, %if.then.i
-  store i32 %conv.i, ptr %decode_max_depth, align 4, !tbaa !4
+13:                                               ; preds = %11, %7
+  store i32 %9, ptr %4, align 4, !tbaa !21
   br label %json_integer_option.exit
 
-json_integer_option.exit:                         ; preds = %lor.end.i, %entry.if.end_crit_edge.i
-  %0 = phi i32 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %conv.i, %lor.end.i ]
-  %conv9.i = sext i32 %0 to i64
-  call void @lua_pushinteger(ptr noundef %l, i64 noundef %conv9.i) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %errmsg.i) #12
+json_integer_option.exit:                         ; preds = %._crit_edge.i, %13
+  %14 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %9, %13 ]
+  %15 = sext i32 %14 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %15) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_cfg_encode_number_precision(ptr noundef %l) #0 {
-entry:
-  %errmsg.i = alloca [64 x i8], align 16
-  %call = tail call fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef 1)
-  %encode_number_precision = getelementptr inbounds nuw i8, ptr %call, i64 1340
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %errmsg.i) #12
-  %call.i = tail call i32 @lua_type(ptr noundef %l, i32 noundef 1) #12
-  %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %entry.if.end_crit_edge.i, label %if.then.i
+define internal noundef i32 @json_cfg_encode_number_precision(ptr noundef %0) #0 {
+  %2 = alloca [64 x i8], align 16
+  %3 = tail call fastcc ptr @json_arg_init(ptr noundef %0, i32 noundef 1)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1340
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #12
+  %5 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #12
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %._crit_edge.i, label %7
 
-entry.if.end_crit_edge.i:                         ; preds = %entry
-  %.pre.i = load i32, ptr %encode_number_precision, align 4, !tbaa !4
+._crit_edge.i:                                    ; preds = %1
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !21
   br label %json_integer_option.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call i64 @luaL_checkinteger(ptr noundef %l, i32 noundef 1) #12
-  %conv.i = trunc i64 %call1.i to i32
-  %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %errmsg.i, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 1, i32 noundef 14) #12
-  %0 = add i32 %conv.i, -15
-  %or.cond.i = icmp ult i32 %0, -14
-  br i1 %or.cond.i, label %lor.rhs.i, label %lor.end.i
+7:                                                ; preds = %1
+  %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #12
+  %9 = trunc i64 %8 to i32
+  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.96, i32 noundef 1, i32 noundef 14) #12
+  %11 = add i32 %9, -15
+  %or.cond.i = icmp ult i32 %11, -14
+  br i1 %or.cond.i, label %12, label %14
 
-lor.rhs.i:                                        ; preds = %if.then.i
-  %call8.i = call i32 @luaL_argerror(ptr noundef %l, i32 noundef 1, ptr noundef nonnull %errmsg.i) #12
-  br label %lor.end.i
+12:                                               ; preds = %7
+  %13 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #12
+  br label %14
 
-lor.end.i:                                        ; preds = %lor.rhs.i, %if.then.i
-  store i32 %conv.i, ptr %encode_number_precision, align 4, !tbaa !4
+14:                                               ; preds = %12, %7
+  store i32 %9, ptr %4, align 4, !tbaa !21
   br label %json_integer_option.exit
 
-json_integer_option.exit:                         ; preds = %lor.end.i, %entry.if.end_crit_edge.i
-  %1 = phi i32 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %conv.i, %lor.end.i ]
-  %conv9.i = sext i32 %1 to i64
-  call void @lua_pushinteger(ptr noundef %l, i64 noundef %conv9.i) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %errmsg.i) #12
+json_integer_option.exit:                         ; preds = %._crit_edge.i, %14
+  %15 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %9, %14 ]
+  %16 = sext i32 %15 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %16) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_cfg_encode_keep_buffer(ptr noundef %l) #0 {
-entry:
-  %call = tail call fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef 1)
-  %encode_keep_buffer = getelementptr inbounds nuw i8, ptr %call, i64 1344
-  %0 = load i32, ptr %encode_keep_buffer, align 8, !tbaa !14
-  tail call fastcc void @json_enum_option(ptr noundef %l, ptr noundef nonnull %encode_keep_buffer, ptr noundef null)
-  %1 = load i32, ptr %encode_keep_buffer, align 8, !tbaa !14
-  %tobool.not = icmp eq i32 %0, %1
-  br i1 %tobool.not, label %if.end8, label %if.then
+define internal noundef i32 @json_cfg_encode_keep_buffer(ptr noundef %0) #0 {
+  %2 = tail call fastcc ptr @json_arg_init(ptr noundef %0, i32 noundef 1)
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1344
+  %4 = load i32, ptr %3, align 8, !tbaa !19
+  tail call fastcc void @json_enum_option(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null)
+  %5 = load i32, ptr %3, align 8, !tbaa !19
+  %.not = icmp eq i32 %4, %5
+  br i1 %.not, label %10, label %6
 
-if.then:                                          ; preds = %entry
-  %tobool5.not = icmp eq i32 %1, 0
-  %encode_buf7 = getelementptr inbounds nuw i8, ptr %call, i64 1280
-  br i1 %tobool5.not, label %if.else, label %if.then6
+6:                                                ; preds = %1
+  %.not8 = icmp eq i32 %5, 0
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1280
+  br i1 %.not8, label %9, label %8
 
-if.then6:                                         ; preds = %if.then
-  tail call void @strbuf_init(ptr noundef nonnull %encode_buf7, i64 noundef 0) #12
-  br label %if.end8
+8:                                                ; preds = %6
+  tail call void @strbuf_init(ptr noundef nonnull %7, i64 noundef 0) #12
+  br label %10
 
-if.else:                                          ; preds = %if.then
-  tail call void @strbuf_free(ptr noundef nonnull %encode_buf7) #12
-  br label %if.end8
+9:                                                ; preds = %6
+  tail call void @strbuf_free(ptr noundef nonnull %7) #12
+  br label %10
 
-if.end8:                                          ; preds = %if.else, %if.then6, %entry
+10:                                               ; preds = %8, %9, %1
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_cfg_encode_invalid_numbers(ptr noundef %l) #0 {
-entry:
-  %call = tail call fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef 1)
-  %encode_invalid_numbers = getelementptr inbounds nuw i8, ptr %call, i64 1336
-  tail call fastcc void @json_enum_option(ptr noundef %l, ptr noundef nonnull %encode_invalid_numbers, ptr noundef nonnull @json_cfg_encode_invalid_numbers.options)
+define internal noundef i32 @json_cfg_encode_invalid_numbers(ptr noundef %0) #0 {
+  %2 = tail call fastcc ptr @json_arg_init(ptr noundef %0, i32 noundef 1)
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1336
+  tail call fastcc void @json_enum_option(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @json_cfg_encode_invalid_numbers.options)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_cfg_decode_invalid_numbers(ptr noundef %l) #0 {
-entry:
-  %call = tail call fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef 1)
-  %decode_invalid_numbers = getelementptr inbounds nuw i8, ptr %call, i64 1348
-  tail call fastcc void @json_enum_option(ptr noundef %l, ptr noundef nonnull %decode_invalid_numbers, ptr noundef null)
+define internal noundef i32 @json_cfg_decode_invalid_numbers(ptr noundef %0) #0 {
+  %2 = tail call fastcc ptr @json_arg_init(ptr noundef %0, i32 noundef 1)
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1348
+  tail call fastcc void @json_enum_option(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null)
   ret i32 1
 }
 
@@ -804,505 +704,507 @@ declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_append_data(ptr noundef %l, ptr noundef %cfg, i32 noundef %current_depth, ptr noundef %json) unnamed_addr #0 {
-entry:
-  %call = tail call i32 @lua_type(ptr noundef %l, i32 noundef -1) #12
-  switch i32 %call, label %sw.default [
-    i32 4, label %sw.bb
-    i32 3, label %sw.bb1
-    i32 1, label %sw.bb2
-    i32 5, label %sw.bb4
-    i32 0, label %sw.bb9
-    i32 2, label %sw.bb10
+define internal fastcc void @json_append_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #12
+  switch i32 %5, label %177 [
+    i32 4, label %6
+    i32 3, label %7
+    i32 1, label %8
+    i32 5, label %31
+    i32 0, label %150
+    i32 2, label %162
   ]
 
-sw.bb:                                            ; preds = %entry
-  tail call fastcc void @json_append_string(ptr noundef %l, ptr noundef %json, i32 noundef -1)
-  br label %sw.epilog
+6:                                                ; preds = %4
+  tail call fastcc void @json_append_string(ptr noundef %0, ptr noundef %3, i32 noundef -1)
+  br label %183
 
-sw.bb1:                                           ; preds = %entry
-  tail call fastcc void @json_append_number(ptr noundef %l, ptr noundef %cfg, ptr noundef %json, i32 noundef -1)
-  br label %sw.epilog
+7:                                                ; preds = %4
+  tail call fastcc void @json_append_number(ptr noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef -1)
+  br label %183
 
-sw.bb2:                                           ; preds = %entry
-  %call3 = tail call i32 @lua_toboolean(ptr noundef %l, i32 noundef -1) #12
-  %tobool.not = icmp eq i32 %call3, 0
-  %size.i.i.i43 = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %0 = load i64, ptr %size.i.i.i43, align 8, !tbaa !27
-  %length.i.i.i44 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %1 = load i64, ptr %length.i.i.i44, align 8, !tbaa !15
-  %2 = sub i64 %1, %0
-  br i1 %tobool.not, label %if.else, label %if.then
+8:                                                ; preds = %4
+  %9 = tail call i32 @lua_toboolean(ptr noundef %0, i32 noundef -1) #12
+  %.not = icmp eq i32 %9, 0
+  %10 = getelementptr i8, ptr %3, i64 8
+  %.val.i.i32 = load i64, ptr %10, align 8, !tbaa !44
+  %11 = getelementptr i8, ptr %3, i64 16
+  %.val4.i.i33 = load i64, ptr %11, align 8, !tbaa !32
+  %12 = sub i64 %.val4.i.i33, %.val.i.i32
+  br i1 %.not, label %22, label %13
 
-if.then:                                          ; preds = %sw.bb2
-  %cmp.i.i = icmp ugt i64 %2, -5
-  br i1 %cmp.i.i, label %if.then.i.i, label %strbuf_append_mem.exit
+13:                                               ; preds = %8
+  %14 = icmp ugt i64 %12, -5
+  br i1 %14, label %15, label %strbuf_append_mem.exit
 
-if.then.i.i:                                      ; preds = %if.then
-  %add.i.i = add i64 %1, 4
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %add.i.i) #12
-  %.pre.i = load i64, ptr %length.i.i.i44, align 8, !tbaa !15
+15:                                               ; preds = %13
+  %16 = add i64 %.val4.i.i33, 4
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %16) #12
+  %.pre.i = load i64, ptr %11, align 8, !tbaa !32
   br label %strbuf_append_mem.exit
 
-strbuf_append_mem.exit:                           ; preds = %if.then.i.i, %if.then
-  %3 = phi i64 [ %1, %if.then ], [ %.pre.i, %if.then.i.i ]
-  %4 = load ptr, ptr %json, align 8, !tbaa !16
-  %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %3
-  store i32 1702195828, ptr %add.ptr.i, align 1
-  %5 = load i64, ptr %length.i.i.i44, align 8, !tbaa !15
-  %add.i = add i64 %5, 4
-  store i64 %add.i, ptr %length.i.i.i44, align 8, !tbaa !15
-  br label %sw.epilog
+strbuf_append_mem.exit:                           ; preds = %13, %15
+  %17 = phi i64 [ %.val4.i.i33, %13 ], [ %.pre.i, %15 ]
+  %18 = load ptr, ptr %3, align 8, !tbaa !33
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
+  store i32 1702195828, ptr %19, align 1
+  %20 = load i64, ptr %11, align 8, !tbaa !32
+  %21 = add i64 %20, 4
+  store i64 %21, ptr %11, align 8, !tbaa !32
+  br label %183
 
-if.else:                                          ; preds = %sw.bb2
-  %cmp.i.i46 = icmp ugt i64 %2, -6
-  br i1 %cmp.i.i46, label %if.then.i.i49, label %strbuf_append_mem.exit52
+22:                                               ; preds = %8
+  %23 = icmp ugt i64 %12, -6
+  br i1 %23, label %24, label %strbuf_append_mem.exit35
 
-if.then.i.i49:                                    ; preds = %if.else
-  %add.i.i50 = add i64 %1, 5
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %add.i.i50) #12
-  %.pre.i51 = load i64, ptr %length.i.i.i44, align 8, !tbaa !15
-  br label %strbuf_append_mem.exit52
+24:                                               ; preds = %22
+  %25 = add i64 %.val4.i.i33, 5
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %25) #12
+  %.pre.i34 = load i64, ptr %11, align 8, !tbaa !32
+  br label %strbuf_append_mem.exit35
 
-strbuf_append_mem.exit52:                         ; preds = %if.then.i.i49, %if.else
-  %6 = phi i64 [ %1, %if.else ], [ %.pre.i51, %if.then.i.i49 ]
-  %7 = load ptr, ptr %json, align 8, !tbaa !16
-  %add.ptr.i47 = getelementptr inbounds i8, ptr %7, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i47, ptr noundef nonnull align 1 dereferenceable(5) @.str.18, i64 5, i1 false)
-  %8 = load i64, ptr %length.i.i.i44, align 8, !tbaa !15
-  %add.i48 = add i64 %8, 5
-  store i64 %add.i48, ptr %length.i.i.i44, align 8, !tbaa !15
-  br label %sw.epilog
+strbuf_append_mem.exit35:                         ; preds = %22, %24
+  %26 = phi i64 [ %.val4.i.i33, %22 ], [ %.pre.i34, %24 ]
+  %27 = load ptr, ptr %3, align 8, !tbaa !33
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %28, ptr noundef nonnull align 1 dereferenceable(5) @.str.18, i64 5, i1 false)
+  %29 = load i64, ptr %11, align 8, !tbaa !32
+  %30 = add i64 %29, 5
+  store i64 %30, ptr %11, align 8, !tbaa !32
+  br label %183
 
-sw.bb4:                                           ; preds = %entry
-  %inc = add nsw i32 %current_depth, 1
-  %encode_max_depth.i = getelementptr inbounds nuw i8, ptr %cfg, i64 1332
-  %9 = load i32, ptr %encode_max_depth.i, align 4, !tbaa !28
-  %cmp.not.i.not = icmp sgt i32 %9, %current_depth
-  br i1 %cmp.not.i.not, label %land.lhs.true.i, label %if.end.i
+31:                                               ; preds = %4
+  %32 = add nsw i32 %2, 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1332
+  %34 = load i32, ptr %33, align 4, !tbaa !15
+  %.not.i.not = icmp slt i32 %2, %34
+  br i1 %.not.i.not, label %35, label %37
 
-land.lhs.true.i:                                  ; preds = %sw.bb4
-  %call.i = tail call i32 @lua_checkstack(ptr noundef %l, i32 noundef 3) #12
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %json_check_encode_depth.exit
+35:                                               ; preds = %31
+  %36 = tail call i32 @lua_checkstack(ptr noundef %0, i32 noundef 3) #12
+  %.not6.i = icmp eq i32 %36, 0
+  br i1 %.not6.i, label %37, label %json_check_encode_depth.exit
 
-if.end.i:                                         ; preds = %land.lhs.true.i, %sw.bb4
-  %encode_keep_buffer.i = getelementptr inbounds nuw i8, ptr %cfg, i64 1344
-  %10 = load i32, ptr %encode_keep_buffer.i, align 8, !tbaa !14
-  %tobool1.not.i = icmp eq i32 %10, 0
-  br i1 %tobool1.not.i, label %if.then2.i, label %if.end3.i
+37:                                               ; preds = %35, %31
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1344
+  %39 = load i32, ptr %38, align 8, !tbaa !19
+  %.not7.i = icmp eq i32 %39, 0
+  br i1 %.not7.i, label %40, label %41
 
-if.then2.i:                                       ; preds = %if.end.i
-  tail call void @strbuf_free(ptr noundef %json) #12
-  br label %if.end3.i
+40:                                               ; preds = %37
+  tail call void @strbuf_free(ptr noundef %3) #12
+  br label %41
 
-if.end3.i:                                        ; preds = %if.then2.i, %if.end.i
-  %call4.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.59, i32 noundef %inc) #12
+41:                                               ; preds = %40, %37
+  %42 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.59, i32 noundef %32) #12
   br label %json_check_encode_depth.exit
 
-json_check_encode_depth.exit:                     ; preds = %if.end3.i, %land.lhs.true.i
-  tail call void @lua_pushnil(ptr noundef %l) #12
-  %call51.i = tail call i32 @lua_next(ptr noundef %l, i32 noundef -2) #12
-  %cmp.not52.i = icmp eq i32 %call51.i, 0
-  br i1 %cmp.not52.i, label %while.end.i, label %while.body.i
+json_check_encode_depth.exit:                     ; preds = %35, %41
+  tail call void @lua_pushnil(ptr noundef %0) #12
+  %43 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
+  %.not34.i = icmp eq i32 %43, 0
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i
 
-while.body.i:                                     ; preds = %json_check_encode_depth.exit, %if.then7.i
-  %items.054.i = phi i32 [ %inc.i, %if.then7.i ], [ 0, %json_check_encode_depth.exit ]
-  %max.053.i = phi i32 [ %max.1.i, %if.then7.i ], [ 0, %json_check_encode_depth.exit ]
-  %call1.i = tail call i32 @lua_type(ptr noundef %l, i32 noundef -2) #12
-  %cmp2.i = icmp eq i32 %call1.i, 3
-  br i1 %cmp2.i, label %land.lhs.true.i53, label %if.end13.i
+.lr.ph.i:                                         ; preds = %json_check_encode_depth.exit, %53
+  %.036.i = phi i32 [ %57, %53 ], [ 0, %json_check_encode_depth.exit ]
+  %.02535.i = phi i32 [ %.1.i, %53 ], [ 0, %json_check_encode_depth.exit ]
+  %44 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -2) #12
+  %45 = icmp eq i32 %44, 3
+  br i1 %45, label %46, label %59
 
-land.lhs.true.i53:                                ; preds = %while.body.i
-  %call3.i = tail call double @lua_tonumber(ptr noundef %l, i32 noundef -2) #12
-  %tobool.i = fcmp une double %call3.i, 0.000000e+00
-  br i1 %tobool.i, label %if.then.i, label %if.end13.i
+46:                                               ; preds = %.lr.ph.i
+  %47 = tail call double @lua_tonumber(ptr noundef %0, i32 noundef -2) #12
+  %48 = fcmp une double %47, 0.000000e+00
+  br i1 %48, label %49, label %59
 
-if.then.i:                                        ; preds = %land.lhs.true.i53
-  %11 = tail call double @llvm.floor.f64(double %call3.i)
-  %cmp4.i = fcmp oeq double %11, %call3.i
-  %cmp6.i = fcmp oge double %call3.i, 1.000000e+00
-  %or.cond.i = and i1 %cmp6.i, %cmp4.i
-  br i1 %or.cond.i, label %if.then7.i, label %if.end13.i
+49:                                               ; preds = %46
+  %50 = tail call double @llvm.floor.f64(double %47)
+  %51 = fcmp oeq double %50, %47
+  %52 = fcmp oge double %47, 1.000000e+00
+  %or.cond.i = and i1 %52, %51
+  br i1 %or.cond.i, label %53, label %59
 
-if.then7.i:                                       ; preds = %if.then.i
-  %conv.i = sitofp i32 %max.053.i to double
-  %cmp8.i = fcmp ogt double %call3.i, %conv.i
-  %conv11.i = fptosi double %call3.i to i32
-  %max.1.i = select i1 %cmp8.i, i32 %conv11.i, i32 %max.053.i
-  %inc.i = add nuw nsw i32 %items.054.i, 1
-  tail call void @lua_settop(ptr noundef %l, i32 noundef -2) #12
-  %call.i54 = tail call i32 @lua_next(ptr noundef %l, i32 noundef -2) #12
-  %cmp.not.i55 = icmp eq i32 %call.i54, 0
-  br i1 %cmp.not.i55, label %while.end.i, label %while.body.i, !llvm.loop !29
+53:                                               ; preds = %49
+  %54 = sitofp i32 %.02535.i to double
+  %55 = fcmp ogt double %47, %54
+  %56 = fptosi double %47 to i32
+  %.1.i = select i1 %55, i32 %56, i32 %.02535.i
+  %57 = add nuw nsw i32 %.036.i, 1
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #12
+  %58 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
+  %.not.i36 = icmp eq i32 %58, 0
+  br i1 %.not.i36, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
 
-if.end13.i:                                       ; preds = %if.then.i, %land.lhs.true.i53, %while.body.i
-  tail call void @lua_settop(ptr noundef %l, i32 noundef -3) #12
-  br label %if.else7
+59:                                               ; preds = %49, %46, %.lr.ph.i
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -3) #12
+  br label %lua_array_length.exit.thread
 
-while.end.i:                                      ; preds = %if.then7.i, %json_check_encode_depth.exit
-  %max.0.lcssa.i = phi i32 [ 0, %json_check_encode_depth.exit ], [ %max.1.i, %if.then7.i ]
-  %items.0.lcssa.i = phi i32 [ 0, %json_check_encode_depth.exit ], [ %inc.i, %if.then7.i ]
-  %encode_sparse_ratio.i = getelementptr inbounds nuw i8, ptr %cfg, i64 1324
-  %12 = load i32, ptr %encode_sparse_ratio.i, align 4, !tbaa !31
-  %cmp14.i = icmp sgt i32 %12, 0
-  %mul.i = mul nsw i32 %12, %items.0.lcssa.i
-  %cmp18.i = icmp sgt i32 %max.0.lcssa.i, %mul.i
-  %or.cond48.i = select i1 %cmp14.i, i1 %cmp18.i, i1 false
-  br i1 %or.cond48.i, label %land.lhs.true20.i, label %lua_array_length.exit
+._crit_edge.i:                                    ; preds = %53, %json_check_encode_depth.exit
+  %.025.lcssa.i = phi i32 [ 0, %json_check_encode_depth.exit ], [ %.1.i, %53 ]
+  %.0.lcssa.i = phi i32 [ 0, %json_check_encode_depth.exit ], [ %57, %53 ]
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 1324
+  %61 = load i32, ptr %60, align 4, !tbaa !13
+  %62 = icmp sgt i32 %61, 0
+  %63 = mul nuw nsw i32 %61, %.0.lcssa.i
+  %64 = icmp sgt i32 %.025.lcssa.i, %63
+  %or.cond31.i = select i1 %62, i1 %64, i1 false
+  br i1 %or.cond31.i, label %65, label %lua_array_length.exit
 
-land.lhs.true20.i:                                ; preds = %while.end.i
-  %encode_sparse_safe.i = getelementptr inbounds nuw i8, ptr %cfg, i64 1328
-  %13 = load i32, ptr %encode_sparse_safe.i, align 8, !tbaa !32
-  %cmp21.i = icmp sgt i32 %max.0.lcssa.i, %13
-  br i1 %cmp21.i, label %if.then23.i, label %lua_array_length.exit
+65:                                               ; preds = %._crit_edge.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 1328
+  %67 = load i32, ptr %66, align 8, !tbaa !14
+  %68 = icmp sgt i32 %.025.lcssa.i, %67
+  br i1 %68, label %69, label %lua_array_length.exit
 
-if.then23.i:                                      ; preds = %land.lhs.true20.i
-  %encode_sparse_convert.i = getelementptr inbounds nuw i8, ptr %cfg, i64 1320
-  %14 = load i32, ptr %encode_sparse_convert.i, align 8, !tbaa !33
-  %tobool24.not.i = icmp eq i32 %14, 0
-  br i1 %tobool24.not.i, label %if.then25.i, label %if.else7
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 1320
+  %71 = load i32, ptr %70, align 8, !tbaa !4
+  %.not29.i = icmp eq i32 %71, 0
+  br i1 %.not29.i, label %72, label %lua_array_length.exit.thread
 
-if.then25.i:                                      ; preds = %if.then23.i
-  %encode_keep_buffer.i.i = getelementptr inbounds nuw i8, ptr %cfg, i64 1344
-  %15 = load i32, ptr %encode_keep_buffer.i.i, align 8, !tbaa !14
-  %tobool.not.i.i = icmp eq i32 %15, 0
-  br i1 %tobool.not.i.i, label %if.then.i.i56, label %json_encode_exception.exit.i
+72:                                               ; preds = %69
+  %73 = getelementptr i8, ptr %1, i64 1344
+  %.val.i = load i32, ptr %73, align 8, !tbaa !19
+  %.not.i.i = icmp eq i32 %.val.i, 0
+  br i1 %.not.i.i, label %74, label %json_encode_exception.exit.i
 
-if.then.i.i56:                                    ; preds = %if.then25.i
-  tail call void @strbuf_free(ptr noundef %json) #12
+74:                                               ; preds = %72
+  tail call void @strbuf_free(ptr noundef %3) #12
   br label %json_encode_exception.exit.i
 
-json_encode_exception.exit.i:                     ; preds = %if.then.i.i56, %if.then25.i
-  %call.i.i = tail call i32 @lua_type(ptr noundef %l, i32 noundef -1) #12
-  %call1.i.i = tail call ptr @lua_typename(ptr noundef %l, i32 noundef %call.i.i) #12
-  %call2.i.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.63, ptr noundef %call1.i.i, ptr noundef nonnull @.str.60) #12
-  br label %if.else7
+json_encode_exception.exit.i:                     ; preds = %74, %72
+  %75 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #12
+  %76 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %75) #12
+  %77 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %76, ptr noundef nonnull @.str.60) #12
+  br label %lua_array_length.exit.thread
 
-lua_array_length.exit:                            ; preds = %land.lhs.true20.i, %while.end.i
-  %cmp = icmp sgt i32 %max.0.lcssa.i, 0
-  br i1 %cmp, label %if.then6, label %if.else7
+lua_array_length.exit:                            ; preds = %._crit_edge.i, %65
+  %78 = icmp sgt i32 %.025.lcssa.i, 0
+  br i1 %78, label %79, label %lua_array_length.exit.thread
 
-if.then6:                                         ; preds = %lua_array_length.exit
-  %size.i.i.i111 = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %16 = load i64, ptr %size.i.i.i111, align 8, !tbaa !27
-  %length.i.i.i112 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %17 = load i64, ptr %length.i.i.i112, align 8, !tbaa !15
-  %.neg.i113 = add i64 %17, 1
-  %cmp.i.i114 = icmp eq i64 %16, %.neg.i113
-  br i1 %cmp.i.i114, label %if.then.i.i117, label %if.end.i60.peel
+79:                                               ; preds = %lua_array_length.exit
+  %80 = getelementptr i8, ptr %3, i64 8
+  %.val.i.i59 = load i64, ptr %80, align 8, !tbaa !44
+  %81 = getelementptr i8, ptr %3, i64 16
+  %.val4.i.i60 = load i64, ptr %81, align 8, !tbaa !32
+  %.neg.i61 = add i64 %.val4.i.i60, 1
+  %82 = icmp eq i64 %.val.i.i59, %.neg.i61
+  br i1 %82, label %83, label %.lr.ph.preheader
 
-if.then.i.i117:                                   ; preds = %if.then6
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %16) #12
-  %.pre.i118 = load i64, ptr %length.i.i.i112, align 8, !tbaa !15
-  %.pre3.i119 = add i64 %.pre.i118, 1
-  br label %if.end.i60.peel
+83:                                               ; preds = %79
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i59) #12
+  %.pre.i63 = load i64, ptr %81, align 8, !tbaa !32
+  %.pre3.i64 = add i64 %.pre.i63, 1
+  br label %.lr.ph.preheader
 
-if.end.i60.peel:                                  ; preds = %if.then.i.i117, %if.then6
-  %inc.pre-phi.i115 = phi i64 [ %.neg.i113, %if.then6 ], [ %.pre3.i119, %if.then.i.i117 ]
-  %18 = phi i64 [ %17, %if.then6 ], [ %.pre.i118, %if.then.i.i117 ]
-  %19 = load ptr, ptr %json, align 8, !tbaa !16
-  store i64 %inc.pre-phi.i115, ptr %length.i.i.i112, align 8, !tbaa !15
-  %arrayidx.i116 = getelementptr inbounds i8, ptr %19, i64 %18
-  store i8 91, ptr %arrayidx.i116, align 1, !tbaa !13
-  tail call void @lua_rawgeti(ptr noundef %l, i32 noundef -1, i32 noundef 1) #12
-  tail call fastcc void @json_append_data(ptr noundef %l, ptr noundef nonnull %cfg, i32 noundef %inc, ptr noundef nonnull %json)
-  tail call void @lua_settop(ptr noundef %l, i32 noundef -2) #12
-  %exitcond.peel.not = icmp eq i32 %max.0.lcssa.i, 1
-  br i1 %exitcond.peel.not, label %json_append_array.exit, label %if.then.i59
+.lr.ph.preheader:                                 ; preds = %83, %79
+  %.pre-phi.i62 = phi i64 [ %.neg.i61, %79 ], [ %.pre3.i64, %83 ]
+  %84 = phi i64 [ %.val4.i.i60, %79 ], [ %.pre.i63, %83 ]
+  %85 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i62, ptr %81, align 8, !tbaa !32
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %84
+  store i8 91, ptr %86, align 1, !tbaa !25
+  br label %.lr.ph
 
-if.then.i59:                                      ; preds = %if.end.i60.peel, %if.end.i60
-  %i.0.i193 = phi i32 [ %inc.i61, %if.end.i60 ], [ 2, %if.end.i60.peel ]
-  %20 = load i64, ptr %size.i.i.i111, align 8, !tbaa !27
-  %21 = load i64, ptr %length.i.i.i112, align 8, !tbaa !15
-  %.neg.i103 = add i64 %21, 1
-  %cmp.i.i104 = icmp eq i64 %20, %.neg.i103
-  br i1 %cmp.i.i104, label %if.then.i.i107, label %if.end.i60
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %93
+  %.0.i110 = phi i32 [ %94, %93 ], [ 1, %.lr.ph.preheader ]
+  %.not14.i109 = phi i1 [ false, %93 ], [ true, %.lr.ph.preheader ]
+  br i1 %.not14.i109, label %93, label %87
 
-if.then.i.i107:                                   ; preds = %if.then.i59
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %20) #12
-  %.pre.i108 = load i64, ptr %length.i.i.i112, align 8, !tbaa !15
-  %.pre3.i109 = add i64 %.pre.i108, 1
-  br label %if.end.i60
+87:                                               ; preds = %.lr.ph
+  %.val.i.i52 = load i64, ptr %80, align 8, !tbaa !44
+  %.val4.i.i53 = load i64, ptr %81, align 8, !tbaa !32
+  %.neg.i54 = add i64 %.val4.i.i53, 1
+  %88 = icmp eq i64 %.val.i.i52, %.neg.i54
+  br i1 %88, label %89, label %strbuf_append_char.exit58
 
-if.end.i60:                                       ; preds = %if.then.i.i107, %if.then.i59
-  %inc.pre-phi.i105 = phi i64 [ %.neg.i103, %if.then.i59 ], [ %.pre3.i109, %if.then.i.i107 ]
-  %22 = phi i64 [ %21, %if.then.i59 ], [ %.pre.i108, %if.then.i.i107 ]
-  %23 = load ptr, ptr %json, align 8, !tbaa !16
-  store i64 %inc.pre-phi.i105, ptr %length.i.i.i112, align 8, !tbaa !15
-  %arrayidx.i106 = getelementptr inbounds i8, ptr %23, i64 %22
-  store i8 44, ptr %arrayidx.i106, align 1, !tbaa !13
-  tail call void @lua_rawgeti(ptr noundef %l, i32 noundef -1, i32 noundef %i.0.i193) #12
-  tail call fastcc void @json_append_data(ptr noundef %l, ptr noundef nonnull %cfg, i32 noundef %inc, ptr noundef nonnull %json)
-  tail call void @lua_settop(ptr noundef %l, i32 noundef -2) #12
-  %inc.i61 = add nuw i32 %i.0.i193, 1
-  %exitcond.not = icmp eq i32 %i.0.i193, %max.0.lcssa.i
-  br i1 %exitcond.not, label %json_append_array.exit, label %if.then.i59, !llvm.loop !34
+89:                                               ; preds = %87
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i52) #12
+  %.pre.i56 = load i64, ptr %81, align 8, !tbaa !32
+  %.pre3.i57 = add i64 %.pre.i56, 1
+  br label %strbuf_append_char.exit58
 
-json_append_array.exit:                           ; preds = %if.end.i60, %if.end.i60.peel
-  %24 = load i64, ptr %size.i.i.i111, align 8, !tbaa !27
-  %25 = load i64, ptr %length.i.i.i112, align 8, !tbaa !15
-  %.neg.i = add i64 %25, 1
-  %cmp.i.i98 = icmp eq i64 %24, %.neg.i
-  br i1 %cmp.i.i98, label %if.then.i.i99, label %strbuf_append_char.exit
+strbuf_append_char.exit58:                        ; preds = %87, %89
+  %.pre-phi.i55 = phi i64 [ %.neg.i54, %87 ], [ %.pre3.i57, %89 ]
+  %90 = phi i64 [ %.val4.i.i53, %87 ], [ %.pre.i56, %89 ]
+  %91 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i55, ptr %81, align 8, !tbaa !32
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
+  store i8 44, ptr %92, align 1, !tbaa !25
+  br label %93
 
-if.then.i.i99:                                    ; preds = %json_append_array.exit
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %24) #12
-  %.pre.i100 = load i64, ptr %length.i.i.i112, align 8, !tbaa !15
-  %.pre3.i = add i64 %.pre.i100, 1
+93:                                               ; preds = %strbuf_append_char.exit58, %.lr.ph
+  tail call void @lua_rawgeti(ptr noundef %0, i32 noundef -1, i32 noundef %.0.i110) #12
+  tail call fastcc void @json_append_data(ptr noundef %0, ptr noundef %1, i32 noundef %32, ptr noundef nonnull %3)
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #12
+  %94 = add nuw i32 %.0.i110, 1
+  %exitcond.not = icmp eq i32 %.0.i110, %.025.lcssa.i
+  br i1 %exitcond.not, label %json_append_array.exit, label %.lr.ph, !llvm.loop !46
+
+json_append_array.exit:                           ; preds = %93
+  %.val.i.i49 = load i64, ptr %80, align 8, !tbaa !44
+  %.val4.i.i50 = load i64, ptr %81, align 8, !tbaa !32
+  %.neg.i = add i64 %.val4.i.i50, 1
+  %95 = icmp eq i64 %.val.i.i49, %.neg.i
+  br i1 %95, label %96, label %strbuf_append_char.exit
+
+96:                                               ; preds = %json_append_array.exit
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i49) #12
+  %.pre.i51 = load i64, ptr %81, align 8, !tbaa !32
+  %.pre3.i = add i64 %.pre.i51, 1
   br label %strbuf_append_char.exit
 
-strbuf_append_char.exit:                          ; preds = %if.then.i.i99, %json_append_array.exit
-  %inc.pre-phi.i = phi i64 [ %.neg.i, %json_append_array.exit ], [ %.pre3.i, %if.then.i.i99 ]
-  %26 = phi i64 [ %25, %json_append_array.exit ], [ %.pre.i100, %if.then.i.i99 ]
-  %27 = load ptr, ptr %json, align 8, !tbaa !16
-  store i64 %inc.pre-phi.i, ptr %length.i.i.i112, align 8, !tbaa !15
-  %arrayidx.i = getelementptr inbounds i8, ptr %27, i64 %26
-  store i8 93, ptr %arrayidx.i, align 1, !tbaa !13
-  br label %sw.epilog
+strbuf_append_char.exit:                          ; preds = %json_append_array.exit, %96
+  %.pre-phi.i = phi i64 [ %.neg.i, %json_append_array.exit ], [ %.pre3.i, %96 ]
+  %97 = phi i64 [ %.val4.i.i50, %json_append_array.exit ], [ %.pre.i51, %96 ]
+  %98 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i, ptr %81, align 8, !tbaa !32
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %97
+  store i8 93, ptr %99, align 1, !tbaa !25
+  br label %183
 
-if.else7:                                         ; preds = %lua_array_length.exit, %json_encode_exception.exit.i, %if.then23.i, %if.end13.i
-  %size.i.i.i179 = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %28 = load i64, ptr %size.i.i.i179, align 8, !tbaa !27
-  %length.i.i.i180 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %29 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.neg.i181 = add i64 %29, 1
-  %cmp.i.i182 = icmp eq i64 %28, %.neg.i181
-  br i1 %cmp.i.i182, label %if.then.i.i185, label %strbuf_append_char.exit188
+lua_array_length.exit.thread:                     ; preds = %69, %json_encode_exception.exit.i, %59, %lua_array_length.exit
+  %100 = getelementptr i8, ptr %3, i64 8
+  %.val.i.i100 = load i64, ptr %100, align 8, !tbaa !44
+  %101 = getelementptr i8, ptr %3, i64 16
+  %.val4.i.i101 = load i64, ptr %101, align 8, !tbaa !32
+  %.neg.i102 = add i64 %.val4.i.i101, 1
+  %102 = icmp eq i64 %.val.i.i100, %.neg.i102
+  br i1 %102, label %103, label %strbuf_append_char.exit106
 
-if.then.i.i185:                                   ; preds = %if.else7
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %28) #12
-  %.pre.i186 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.pre3.i187 = add i64 %.pre.i186, 1
-  br label %strbuf_append_char.exit188
+103:                                              ; preds = %lua_array_length.exit.thread
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i100) #12
+  %.pre.i104 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre3.i105 = add i64 %.pre.i104, 1
+  br label %strbuf_append_char.exit106
 
-strbuf_append_char.exit188:                       ; preds = %if.then.i.i185, %if.else7
-  %inc.pre-phi.i183 = phi i64 [ %.neg.i181, %if.else7 ], [ %.pre3.i187, %if.then.i.i185 ]
-  %30 = phi i64 [ %29, %if.else7 ], [ %.pre.i186, %if.then.i.i185 ]
-  %31 = load ptr, ptr %json, align 8, !tbaa !16
-  store i64 %inc.pre-phi.i183, ptr %length.i.i.i180, align 8, !tbaa !15
-  %arrayidx.i184 = getelementptr inbounds i8, ptr %31, i64 %30
-  store i8 123, ptr %arrayidx.i184, align 1, !tbaa !13
-  tail call void @lua_pushnil(ptr noundef %l) #12
-  %call.i63194 = tail call i32 @lua_next(ptr noundef %l, i32 noundef -2) #12
-  %cmp.not.i64195 = icmp eq i32 %call.i63194, 0
-  br i1 %cmp.not.i64195, label %json_append_object.exit, label %while.body.i65.lr.ph
+strbuf_append_char.exit106:                       ; preds = %lua_array_length.exit.thread, %103
+  %.pre-phi.i103 = phi i64 [ %.neg.i102, %lua_array_length.exit.thread ], [ %.pre3.i105, %103 ]
+  %104 = phi i64 [ %.val4.i.i101, %lua_array_length.exit.thread ], [ %.pre.i104, %103 ]
+  %105 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i103, ptr %101, align 8, !tbaa !32
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %104
+  store i8 123, ptr %106, align 1, !tbaa !25
+  tail call void @lua_pushnil(ptr noundef %0) #12
+  %107 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
+  %.not.i38111 = icmp eq i32 %107, 0
+  br i1 %.not.i38111, label %json_append_object.exit, label %.lr.ph113
 
-while.body.i65.lr.ph:                             ; preds = %strbuf_append_char.exit188
-  %encode_keep_buffer.i131 = getelementptr inbounds nuw i8, ptr %cfg, i64 1344
-  br label %if.end.i67
+.lr.ph113:                                        ; preds = %strbuf_append_char.exit106
+  %108 = getelementptr i8, ptr %1, i64 1344
+  br label %115
 
-if.then.i66:                                      ; preds = %if.end9.i
-  %32 = load i64, ptr %size.i.i.i179, align 8, !tbaa !27
-  %33 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.neg.i171 = add i64 %33, 1
-  %cmp.i.i172 = icmp eq i64 %32, %.neg.i171
-  br i1 %cmp.i.i172, label %if.then.i.i175, label %strbuf_append_char.exit178
+109:                                              ; preds = %143
+  %.val.i.i93 = load i64, ptr %100, align 8, !tbaa !44
+  %.val4.i.i94 = load i64, ptr %101, align 8, !tbaa !32
+  %.neg.i95 = add i64 %.val4.i.i94, 1
+  %110 = icmp eq i64 %.val.i.i93, %.neg.i95
+  br i1 %110, label %111, label %strbuf_append_char.exit99
 
-if.then.i.i175:                                   ; preds = %if.then.i66
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %32) #12
-  %.pre.i176 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.pre3.i177 = add i64 %.pre.i176, 1
-  br label %strbuf_append_char.exit178
+111:                                              ; preds = %109
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i93) #12
+  %.pre.i97 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre3.i98 = add i64 %.pre.i97, 1
+  br label %strbuf_append_char.exit99
 
-strbuf_append_char.exit178:                       ; preds = %if.then.i.i175, %if.then.i66
-  %inc.pre-phi.i173 = phi i64 [ %.neg.i171, %if.then.i66 ], [ %.pre3.i177, %if.then.i.i175 ]
-  %34 = phi i64 [ %33, %if.then.i66 ], [ %.pre.i176, %if.then.i.i175 ]
-  %35 = load ptr, ptr %json, align 8, !tbaa !16
-  store i64 %inc.pre-phi.i173, ptr %length.i.i.i180, align 8, !tbaa !15
-  %arrayidx.i174 = getelementptr inbounds i8, ptr %35, i64 %34
-  store i8 44, ptr %arrayidx.i174, align 1, !tbaa !13
-  br label %if.end.i67
+strbuf_append_char.exit99:                        ; preds = %109, %111
+  %.pre-phi.i96 = phi i64 [ %.neg.i95, %109 ], [ %.pre3.i98, %111 ]
+  %112 = phi i64 [ %.val4.i.i94, %109 ], [ %.pre.i97, %111 ]
+  %113 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i96, ptr %101, align 8, !tbaa !32
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %112
+  store i8 44, ptr %114, align 1, !tbaa !25
+  br label %115
 
-if.end.i67:                                       ; preds = %strbuf_append_char.exit178, %while.body.i65.lr.ph
-  %call1.i68 = tail call i32 @lua_type(ptr noundef %l, i32 noundef -2) #12
-  switch i32 %call1.i68, label %if.else7.i [
-    i32 3, label %if.then3.i
-    i32 4, label %if.then6.i
+115:                                              ; preds = %.lr.ph113, %strbuf_append_char.exit99
+  %116 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -2) #12
+  switch i32 %116, label %138 [
+    i32 3, label %117
+    i32 4, label %132
   ]
 
-if.then3.i:                                       ; preds = %if.end.i67
-  %36 = load i64, ptr %size.i.i.i179, align 8, !tbaa !27
-  %37 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.neg.i161 = add i64 %37, 1
-  %cmp.i.i162 = icmp eq i64 %36, %.neg.i161
-  br i1 %cmp.i.i162, label %if.then.i.i165, label %strbuf_append_char.exit168
+117:                                              ; preds = %115
+  %.val.i.i86 = load i64, ptr %100, align 8, !tbaa !44
+  %.val4.i.i87 = load i64, ptr %101, align 8, !tbaa !32
+  %.neg.i88 = add i64 %.val4.i.i87, 1
+  %118 = icmp eq i64 %.val.i.i86, %.neg.i88
+  br i1 %118, label %119, label %strbuf_append_char.exit92
 
-if.then.i.i165:                                   ; preds = %if.then3.i
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %36) #12
-  %.pre.i166 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.pre3.i167 = add i64 %.pre.i166, 1
-  br label %strbuf_append_char.exit168
+119:                                              ; preds = %117
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i86) #12
+  %.pre.i90 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre3.i91 = add i64 %.pre.i90, 1
+  br label %strbuf_append_char.exit92
 
-strbuf_append_char.exit168:                       ; preds = %if.then.i.i165, %if.then3.i
-  %inc.pre-phi.i163 = phi i64 [ %.neg.i161, %if.then3.i ], [ %.pre3.i167, %if.then.i.i165 ]
-  %38 = phi i64 [ %37, %if.then3.i ], [ %.pre.i166, %if.then.i.i165 ]
-  %39 = load ptr, ptr %json, align 8, !tbaa !16
-  store i64 %inc.pre-phi.i163, ptr %length.i.i.i180, align 8, !tbaa !15
-  %arrayidx.i164 = getelementptr inbounds i8, ptr %39, i64 %38
-  store i8 34, ptr %arrayidx.i164, align 1, !tbaa !13
-  tail call fastcc void @json_append_number(ptr noundef %l, ptr noundef %cfg, ptr noundef nonnull %json, i32 noundef -2)
-  %40 = load i64, ptr %size.i.i.i179, align 8, !tbaa !27
-  %41 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %42 = sub i64 %41, %40
-  %cmp.i.i152 = icmp ugt i64 %42, -3
-  br i1 %cmp.i.i152, label %if.then.i.i155, label %strbuf_append_mem.exit158
+strbuf_append_char.exit92:                        ; preds = %117, %119
+  %.pre-phi.i89 = phi i64 [ %.neg.i88, %117 ], [ %.pre3.i91, %119 ]
+  %120 = phi i64 [ %.val4.i.i87, %117 ], [ %.pre.i90, %119 ]
+  %121 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i89, ptr %101, align 8, !tbaa !32
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %120
+  store i8 34, ptr %122, align 1, !tbaa !25
+  tail call fastcc void @json_append_number(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef -2)
+  %.val.i.i82 = load i64, ptr %100, align 8, !tbaa !44
+  %.val4.i.i83 = load i64, ptr %101, align 8, !tbaa !32
+  %123 = sub i64 %.val4.i.i83, %.val.i.i82
+  %124 = icmp ugt i64 %123, -3
+  br i1 %124, label %125, label %strbuf_append_mem.exit85
 
-if.then.i.i155:                                   ; preds = %strbuf_append_char.exit168
-  %add.i.i156 = add i64 %41, 2
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %add.i.i156) #12
-  %.pre.i157 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  br label %strbuf_append_mem.exit158
+125:                                              ; preds = %strbuf_append_char.exit92
+  %126 = add i64 %.val4.i.i83, 2
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %126) #12
+  %.pre.i84 = load i64, ptr %101, align 8, !tbaa !32
+  br label %strbuf_append_mem.exit85
 
-strbuf_append_mem.exit158:                        ; preds = %if.then.i.i155, %strbuf_append_char.exit168
-  %43 = phi i64 [ %41, %strbuf_append_char.exit168 ], [ %.pre.i157, %if.then.i.i155 ]
-  %44 = load ptr, ptr %json, align 8, !tbaa !16
-  %add.ptr.i153 = getelementptr inbounds i8, ptr %44, i64 %43
-  store i16 14882, ptr %add.ptr.i153, align 1
-  %45 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %add.i154 = add i64 %45, 2
-  store i64 %add.i154, ptr %length.i.i.i180, align 8, !tbaa !15
-  br label %if.end9.i
+strbuf_append_mem.exit85:                         ; preds = %strbuf_append_char.exit92, %125
+  %127 = phi i64 [ %.val4.i.i83, %strbuf_append_char.exit92 ], [ %.pre.i84, %125 ]
+  %128 = load ptr, ptr %3, align 8, !tbaa !33
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %127
+  store i16 14882, ptr %129, align 1
+  %130 = load i64, ptr %101, align 8, !tbaa !32
+  %131 = add i64 %130, 2
+  store i64 %131, ptr %101, align 8, !tbaa !32
+  br label %143
 
-if.then6.i:                                       ; preds = %if.end.i67
-  tail call fastcc void @json_append_string(ptr noundef %l, ptr noundef nonnull %json, i32 noundef -2)
-  %46 = load i64, ptr %size.i.i.i179, align 8, !tbaa !27
-  %47 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.neg.i141 = add i64 %47, 1
-  %cmp.i.i142 = icmp eq i64 %46, %.neg.i141
-  br i1 %cmp.i.i142, label %if.then.i.i145, label %strbuf_append_char.exit148
+132:                                              ; preds = %115
+  tail call fastcc void @json_append_string(ptr noundef %0, ptr noundef nonnull %3, i32 noundef -2)
+  %.val.i.i75 = load i64, ptr %100, align 8, !tbaa !44
+  %.val4.i.i76 = load i64, ptr %101, align 8, !tbaa !32
+  %.neg.i77 = add i64 %.val4.i.i76, 1
+  %133 = icmp eq i64 %.val.i.i75, %.neg.i77
+  br i1 %133, label %134, label %strbuf_append_char.exit81
 
-if.then.i.i145:                                   ; preds = %if.then6.i
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %46) #12
-  %.pre.i146 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.pre3.i147 = add i64 %.pre.i146, 1
-  br label %strbuf_append_char.exit148
+134:                                              ; preds = %132
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i75) #12
+  %.pre.i79 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre3.i80 = add i64 %.pre.i79, 1
+  br label %strbuf_append_char.exit81
 
-strbuf_append_char.exit148:                       ; preds = %if.then.i.i145, %if.then6.i
-  %inc.pre-phi.i143 = phi i64 [ %.neg.i141, %if.then6.i ], [ %.pre3.i147, %if.then.i.i145 ]
-  %48 = phi i64 [ %47, %if.then6.i ], [ %.pre.i146, %if.then.i.i145 ]
-  %49 = load ptr, ptr %json, align 8, !tbaa !16
-  store i64 %inc.pre-phi.i143, ptr %length.i.i.i180, align 8, !tbaa !15
-  %arrayidx.i144 = getelementptr inbounds i8, ptr %49, i64 %48
-  store i8 58, ptr %arrayidx.i144, align 1, !tbaa !13
-  br label %if.end9.i
+strbuf_append_char.exit81:                        ; preds = %132, %134
+  %.pre-phi.i78 = phi i64 [ %.neg.i77, %132 ], [ %.pre3.i80, %134 ]
+  %135 = phi i64 [ %.val4.i.i76, %132 ], [ %.pre.i79, %134 ]
+  %136 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i78, ptr %101, align 8, !tbaa !32
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %135
+  store i8 58, ptr %137, align 1, !tbaa !25
+  br label %143
 
-if.else7.i:                                       ; preds = %if.end.i67
-  %50 = load i32, ptr %encode_keep_buffer.i131, align 8, !tbaa !14
-  %tobool.not.i132 = icmp eq i32 %50, 0
-  br i1 %tobool.not.i132, label %if.then.i137, label %json_encode_exception.exit138
+138:                                              ; preds = %115
+  %.val.i39 = load i32, ptr %108, align 8, !tbaa !19
+  %.not.i73 = icmp eq i32 %.val.i39, 0
+  br i1 %.not.i73, label %139, label %json_encode_exception.exit74
 
-if.then.i137:                                     ; preds = %if.else7.i
-  tail call void @strbuf_free(ptr noundef nonnull %json) #12
-  br label %json_encode_exception.exit138
+139:                                              ; preds = %138
+  tail call void @strbuf_free(ptr noundef nonnull %3) #12
+  br label %json_encode_exception.exit74
 
-json_encode_exception.exit138:                    ; preds = %if.then.i137, %if.else7.i
-  %call.i134 = tail call i32 @lua_type(ptr noundef %l, i32 noundef -2) #12
-  %call1.i135 = tail call ptr @lua_typename(ptr noundef %l, i32 noundef %call.i134) #12
-  %call2.i136 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.63, ptr noundef %call1.i135, ptr noundef nonnull @.str.62) #12
-  br label %if.end9.i
+json_encode_exception.exit74:                     ; preds = %138, %139
+  %140 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -2) #12
+  %141 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %140) #12
+  %142 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %141, ptr noundef nonnull @.str.62) #12
+  br label %143
 
-if.end9.i:                                        ; preds = %json_encode_exception.exit138, %strbuf_append_char.exit148, %strbuf_append_mem.exit158
-  tail call fastcc void @json_append_data(ptr noundef %l, ptr noundef %cfg, i32 noundef %inc, ptr noundef nonnull %json)
-  tail call void @lua_settop(ptr noundef %l, i32 noundef -2) #12
-  %call.i63 = tail call i32 @lua_next(ptr noundef %l, i32 noundef -2) #12
-  %cmp.not.i64 = icmp eq i32 %call.i63, 0
-  br i1 %cmp.not.i64, label %json_append_object.exit, label %if.then.i66, !llvm.loop !36
+143:                                              ; preds = %json_encode_exception.exit74, %strbuf_append_char.exit81, %strbuf_append_mem.exit85
+  tail call fastcc void @json_append_data(ptr noundef %0, ptr noundef %1, i32 noundef %32, ptr noundef nonnull %3)
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #12
+  %144 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
+  %.not.i38 = icmp eq i32 %144, 0
+  br i1 %.not.i38, label %json_append_object.exit, label %109, !llvm.loop !47
 
-json_append_object.exit:                          ; preds = %if.end9.i, %strbuf_append_char.exit188
-  %51 = load i64, ptr %size.i.i.i179, align 8, !tbaa !27
-  %52 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.neg.i123 = add i64 %52, 1
-  %cmp.i.i124 = icmp eq i64 %51, %.neg.i123
-  br i1 %cmp.i.i124, label %if.then.i.i127, label %strbuf_append_char.exit130
+json_append_object.exit:                          ; preds = %143, %strbuf_append_char.exit106
+  %.val.i.i66 = load i64, ptr %100, align 8, !tbaa !44
+  %.val4.i.i67 = load i64, ptr %101, align 8, !tbaa !32
+  %.neg.i68 = add i64 %.val4.i.i67, 1
+  %145 = icmp eq i64 %.val.i.i66, %.neg.i68
+  br i1 %145, label %146, label %strbuf_append_char.exit72
 
-if.then.i.i127:                                   ; preds = %json_append_object.exit
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %51) #12
-  %.pre.i128 = load i64, ptr %length.i.i.i180, align 8, !tbaa !15
-  %.pre3.i129 = add i64 %.pre.i128, 1
-  br label %strbuf_append_char.exit130
+146:                                              ; preds = %json_append_object.exit
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %.val.i.i66) #12
+  %.pre.i70 = load i64, ptr %101, align 8, !tbaa !32
+  %.pre3.i71 = add i64 %.pre.i70, 1
+  br label %strbuf_append_char.exit72
 
-strbuf_append_char.exit130:                       ; preds = %if.then.i.i127, %json_append_object.exit
-  %inc.pre-phi.i125 = phi i64 [ %.neg.i123, %json_append_object.exit ], [ %.pre3.i129, %if.then.i.i127 ]
-  %53 = phi i64 [ %52, %json_append_object.exit ], [ %.pre.i128, %if.then.i.i127 ]
-  %54 = load ptr, ptr %json, align 8, !tbaa !16
-  store i64 %inc.pre-phi.i125, ptr %length.i.i.i180, align 8, !tbaa !15
-  %arrayidx.i126 = getelementptr inbounds i8, ptr %54, i64 %53
-  store i8 125, ptr %arrayidx.i126, align 1, !tbaa !13
-  br label %sw.epilog
+strbuf_append_char.exit72:                        ; preds = %json_append_object.exit, %146
+  %.pre-phi.i69 = phi i64 [ %.neg.i68, %json_append_object.exit ], [ %.pre3.i71, %146 ]
+  %147 = phi i64 [ %.val4.i.i67, %json_append_object.exit ], [ %.pre.i70, %146 ]
+  %148 = load ptr, ptr %3, align 8, !tbaa !33
+  store i64 %.pre-phi.i69, ptr %101, align 8, !tbaa !32
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %147
+  store i8 125, ptr %149, align 1, !tbaa !25
+  br label %183
 
-sw.bb9:                                           ; preds = %entry
-  %size.i.i.i70 = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %55 = load i64, ptr %size.i.i.i70, align 8, !tbaa !27
-  %length.i.i.i71 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %56 = load i64, ptr %length.i.i.i71, align 8, !tbaa !15
-  %57 = sub i64 %56, %55
-  %cmp.i.i73 = icmp ugt i64 %57, -5
-  br i1 %cmp.i.i73, label %if.then.i.i76, label %strbuf_append_mem.exit79
+150:                                              ; preds = %4
+  %151 = getelementptr i8, ptr %3, i64 8
+  %.val.i.i40 = load i64, ptr %151, align 8, !tbaa !44
+  %152 = getelementptr i8, ptr %3, i64 16
+  %.val4.i.i41 = load i64, ptr %152, align 8, !tbaa !32
+  %153 = sub i64 %.val4.i.i41, %.val.i.i40
+  %154 = icmp ugt i64 %153, -5
+  br i1 %154, label %155, label %strbuf_append_mem.exit43
 
-if.then.i.i76:                                    ; preds = %sw.bb9
-  %add.i.i77 = add i64 %56, 4
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %add.i.i77) #12
-  %.pre.i78 = load i64, ptr %length.i.i.i71, align 8, !tbaa !15
-  br label %strbuf_append_mem.exit79
+155:                                              ; preds = %150
+  %156 = add i64 %.val4.i.i41, 4
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %156) #12
+  %.pre.i42 = load i64, ptr %152, align 8, !tbaa !32
+  br label %strbuf_append_mem.exit43
 
-strbuf_append_mem.exit79:                         ; preds = %if.then.i.i76, %sw.bb9
-  %58 = phi i64 [ %56, %sw.bb9 ], [ %.pre.i78, %if.then.i.i76 ]
-  %59 = load ptr, ptr %json, align 8, !tbaa !16
-  %add.ptr.i74 = getelementptr inbounds i8, ptr %59, i64 %58
-  store i32 1819047278, ptr %add.ptr.i74, align 1
-  %60 = load i64, ptr %length.i.i.i71, align 8, !tbaa !15
-  %add.i75 = add i64 %60, 4
-  store i64 %add.i75, ptr %length.i.i.i71, align 8, !tbaa !15
-  br label %sw.epilog
+strbuf_append_mem.exit43:                         ; preds = %150, %155
+  %157 = phi i64 [ %.val4.i.i41, %150 ], [ %.pre.i42, %155 ]
+  %158 = load ptr, ptr %3, align 8, !tbaa !33
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 %157
+  store i32 1819047278, ptr %159, align 1
+  %160 = load i64, ptr %152, align 8, !tbaa !32
+  %161 = add i64 %160, 4
+  store i64 %161, ptr %152, align 8, !tbaa !32
+  br label %183
 
-sw.bb10:                                          ; preds = %entry
-  %call11 = tail call ptr @lua_touserdata(ptr noundef %l, i32 noundef -1) #12
-  %cmp12 = icmp eq ptr %call11, null
-  br i1 %cmp12, label %if.then13, label %sw.default
+162:                                              ; preds = %4
+  %163 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1) #12
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %165, label %177
 
-if.then13:                                        ; preds = %sw.bb10
-  %size.i.i.i80 = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %61 = load i64, ptr %size.i.i.i80, align 8, !tbaa !27
-  %length.i.i.i81 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %62 = load i64, ptr %length.i.i.i81, align 8, !tbaa !15
-  %63 = sub i64 %62, %61
-  %cmp.i.i83 = icmp ugt i64 %63, -5
-  br i1 %cmp.i.i83, label %if.then.i.i86, label %strbuf_append_mem.exit89
+165:                                              ; preds = %162
+  %166 = getelementptr i8, ptr %3, i64 8
+  %.val.i.i44 = load i64, ptr %166, align 8, !tbaa !44
+  %167 = getelementptr i8, ptr %3, i64 16
+  %.val4.i.i45 = load i64, ptr %167, align 8, !tbaa !32
+  %168 = sub i64 %.val4.i.i45, %.val.i.i44
+  %169 = icmp ugt i64 %168, -5
+  br i1 %169, label %170, label %strbuf_append_mem.exit47
 
-if.then.i.i86:                                    ; preds = %if.then13
-  %add.i.i87 = add i64 %62, 4
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %add.i.i87) #12
-  %.pre.i88 = load i64, ptr %length.i.i.i81, align 8, !tbaa !15
-  br label %strbuf_append_mem.exit89
+170:                                              ; preds = %165
+  %171 = add i64 %.val4.i.i45, 4
+  tail call void @strbuf_resize(ptr noundef nonnull %3, i64 noundef %171) #12
+  %.pre.i46 = load i64, ptr %167, align 8, !tbaa !32
+  br label %strbuf_append_mem.exit47
 
-strbuf_append_mem.exit89:                         ; preds = %if.then.i.i86, %if.then13
-  %64 = phi i64 [ %62, %if.then13 ], [ %.pre.i88, %if.then.i.i86 ]
-  %65 = load ptr, ptr %json, align 8, !tbaa !16
-  %add.ptr.i84 = getelementptr inbounds i8, ptr %65, i64 %64
-  store i32 1819047278, ptr %add.ptr.i84, align 1
-  %66 = load i64, ptr %length.i.i.i81, align 8, !tbaa !15
-  %add.i85 = add i64 %66, 4
-  store i64 %add.i85, ptr %length.i.i.i81, align 8, !tbaa !15
-  br label %sw.epilog
+strbuf_append_mem.exit47:                         ; preds = %165, %170
+  %172 = phi i64 [ %.val4.i.i45, %165 ], [ %.pre.i46, %170 ]
+  %173 = load ptr, ptr %3, align 8, !tbaa !33
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 %172
+  store i32 1819047278, ptr %174, align 1
+  %175 = load i64, ptr %167, align 8, !tbaa !32
+  %176 = add i64 %175, 4
+  store i64 %176, ptr %167, align 8, !tbaa !32
+  br label %183
 
-sw.default:                                       ; preds = %sw.bb10, %entry
-  %encode_keep_buffer.i90 = getelementptr inbounds nuw i8, ptr %cfg, i64 1344
-  %67 = load i32, ptr %encode_keep_buffer.i90, align 8, !tbaa !14
-  %tobool.not.i91 = icmp eq i32 %67, 0
-  br i1 %tobool.not.i91, label %if.then.i95, label %json_encode_exception.exit
+177:                                              ; preds = %162, %4
+  %178 = getelementptr i8, ptr %1, i64 1344
+  %.val = load i32, ptr %178, align 8, !tbaa !19
+  %.not.i48 = icmp eq i32 %.val, 0
+  br i1 %.not.i48, label %179, label %json_encode_exception.exit
 
-if.then.i95:                                      ; preds = %sw.default
-  tail call void @strbuf_free(ptr noundef %json) #12
+179:                                              ; preds = %177
+  tail call void @strbuf_free(ptr noundef %3) #12
   br label %json_encode_exception.exit
 
-json_encode_exception.exit:                       ; preds = %if.then.i95, %sw.default
-  %call.i93 = tail call i32 @lua_type(ptr noundef %l, i32 noundef -1) #12
-  %call1.i94 = tail call ptr @lua_typename(ptr noundef %l, i32 noundef %call.i93) #12
-  %call2.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.63, ptr noundef %call1.i94, ptr noundef nonnull @.str.19) #12
-  br label %sw.epilog
+json_encode_exception.exit:                       ; preds = %177, %179
+  %180 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #12
+  %181 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %180) #12
+  %182 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %181, ptr noundef nonnull @.str.19) #12
+  br label %183
 
-sw.epilog:                                        ; preds = %json_encode_exception.exit, %strbuf_append_mem.exit89, %strbuf_append_mem.exit79, %strbuf_append_char.exit130, %strbuf_append_char.exit, %strbuf_append_mem.exit52, %strbuf_append_mem.exit, %sw.bb1, %sw.bb
+183:                                              ; preds = %strbuf_append_char.exit, %strbuf_append_char.exit72, %strbuf_append_mem.exit, %strbuf_append_mem.exit35, %json_encode_exception.exit, %strbuf_append_mem.exit47, %strbuf_append_mem.exit43, %7, %6
   ret void
 }
 
@@ -1315,217 +1217,215 @@ declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_append_string(ptr noundef %l, ptr noundef %json, i32 noundef range(i32 -2, 0) %lindex) unnamed_addr #0 {
-entry:
-  %len = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len) #12
-  %call = call ptr @lua_tolstring(ptr noundef %l, i32 noundef %lindex, ptr noundef nonnull %len) #12
-  %0 = load i64, ptr %len, align 8, !tbaa !22
-  %cmp = icmp ugt i64 %0, 3074457345618258599
-  br i1 %cmp, label %if.then, label %if.end
+define internal fastcc void @json_append_string(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2, 0) %2) unnamed_addr #0 {
+  %4 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  %5 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4) #12
+  %6 = load i64, ptr %4, align 8, !tbaa !39
+  %7 = icmp ugt i64 %6, 3074457345618258599
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
+8:                                                ; preds = %3
   call void @abort() #13
   unreachable
 
-if.end:                                           ; preds = %entry
-  %mul = mul nuw i64 %0, 6
-  %add = add nuw i64 %mul, 2
-  %size.i.i = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %1 = load i64, ptr %size.i.i, align 8, !tbaa !27
-  %length.i.i = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %2 = load i64, ptr %length.i.i, align 8, !tbaa !15
-  %3 = xor i64 %2, -1
-  %sub1.i.i = add i64 %1, %3
-  %cmp.i = icmp ult i64 %sub1.i.i, %add
-  br i1 %cmp.i, label %if.then.i, label %strbuf_ensure_empty_length.exit
+9:                                                ; preds = %3
+  %10 = mul nuw i64 %6, 6
+  %11 = add nuw i64 %10, 2
+  %12 = getelementptr i8, ptr %1, i64 8
+  %.val.i = load i64, ptr %12, align 8, !tbaa !44
+  %13 = getelementptr i8, ptr %1, i64 16
+  %.val4.i = load i64, ptr %13, align 8, !tbaa !32
+  %14 = xor i64 %.val4.i, -1
+  %15 = add i64 %.val.i, %14
+  %16 = icmp ugt i64 %11, %15
+  br i1 %16, label %17, label %strbuf_ensure_empty_length.exit
 
-if.then.i:                                        ; preds = %if.end
-  %add.i = add i64 %2, %add
-  call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %add.i) #12
-  %.pre = load i64, ptr %length.i.i, align 8, !tbaa !15
+17:                                               ; preds = %9
+  %18 = add i64 %.val4.i, %11
+  call void @strbuf_resize(ptr noundef nonnull %1, i64 noundef %18) #12
+  %.pre = load i64, ptr %13, align 8, !tbaa !32
   br label %strbuf_ensure_empty_length.exit
 
-strbuf_ensure_empty_length.exit:                  ; preds = %if.then.i, %if.end
-  %4 = phi i64 [ %2, %if.end ], [ %.pre, %if.then.i ]
-  %5 = load ptr, ptr %json, align 8, !tbaa !16
-  %inc.i = add i64 %4, 1
-  store i64 %inc.i, ptr %length.i.i, align 8, !tbaa !15
-  %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %4
-  store i8 34, ptr %arrayidx.i, align 1, !tbaa !13
-  %6 = load i64, ptr %len, align 8, !tbaa !22
-  %cmp122.not = icmp eq i64 %6, 0
-  br i1 %cmp122.not, label %for.end, label %for.body
+strbuf_ensure_empty_length.exit:                  ; preds = %9, %17
+  %19 = phi i64 [ %.val4.i, %9 ], [ %.pre, %17 ]
+  %20 = load ptr, ptr %1, align 8, !tbaa !33
+  %21 = add i64 %19, 1
+  store i64 %21, ptr %13, align 8, !tbaa !32
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %19
+  store i8 34, ptr %22, align 1, !tbaa !25
+  %23 = load i64, ptr %4, align 8, !tbaa !39
+  %.not17 = icmp eq i64 %23, 0
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %strbuf_ensure_empty_length.exit, %for.inc
-  %i.023 = phi i64 [ %inc, %for.inc ], [ 0, %strbuf_ensure_empty_length.exit ]
-  %arrayidx = getelementptr inbounds i8, ptr %call, i64 %i.023
-  %7 = load i8, ptr %arrayidx, align 1, !tbaa !13
-  %idxprom = zext i8 %7 to i64
-  %arrayidx2 = getelementptr inbounds nuw [256 x ptr], ptr @char2escape, i64 0, i64 %idxprom
-  %8 = load ptr, ptr %arrayidx2, align 8, !tbaa !37
-  %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %if.else, label %if.then3
+.lr.ph:                                           ; preds = %strbuf_ensure_empty_length.exit, %35
+  %.016 = phi i64 [ %36, %35 ], [ 0, %strbuf_ensure_empty_length.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 %.016
+  %25 = load i8, ptr %24, align 1, !tbaa !25
+  %26 = zext i8 %25 to i64
+  %27 = getelementptr inbounds nuw [256 x ptr], ptr @char2escape, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %30, label %29
 
-if.then3:                                         ; preds = %for.body
-  call void @strbuf_append_string(ptr noundef nonnull %json, ptr noundef nonnull %8) #12
-  br label %for.inc
+29:                                               ; preds = %.lr.ph
+  call void @strbuf_append_string(ptr noundef nonnull %1, ptr noundef nonnull %28) #12
+  br label %35
 
-if.else:                                          ; preds = %for.body
-  %9 = load ptr, ptr %json, align 8, !tbaa !16
-  %10 = load i64, ptr %length.i.i, align 8, !tbaa !15
-  %inc.i17 = add i64 %10, 1
-  store i64 %inc.i17, ptr %length.i.i, align 8, !tbaa !15
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %9, i64 %10
-  store i8 %7, ptr %arrayidx.i18, align 1, !tbaa !13
-  br label %for.inc
+30:                                               ; preds = %.lr.ph
+  %31 = load ptr, ptr %1, align 8, !tbaa !33
+  %32 = load i64, ptr %13, align 8, !tbaa !32
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %13, align 8, !tbaa !32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %32
+  store i8 %25, ptr %34, align 1, !tbaa !25
+  br label %35
 
-for.inc:                                          ; preds = %if.else, %if.then3
-  %inc = add nuw i64 %i.023, 1
-  %11 = load i64, ptr %len, align 8, !tbaa !22
-  %cmp1 = icmp ult i64 %inc, %11
-  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !38
+35:                                               ; preds = %29, %30
+  %36 = add nuw i64 %.016, 1
+  %37 = load i64, ptr %4, align 8, !tbaa !39
+  %38 = icmp ult i64 %36, %37
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
-for.end:                                          ; preds = %for.inc, %strbuf_ensure_empty_length.exit
-  %12 = load ptr, ptr %json, align 8, !tbaa !16
-  %13 = load i64, ptr %length.i.i, align 8, !tbaa !15
-  %inc.i20 = add i64 %13, 1
-  store i64 %inc.i20, ptr %length.i.i, align 8, !tbaa !15
-  %arrayidx.i21 = getelementptr inbounds i8, ptr %12, i64 %13
-  store i8 34, ptr %arrayidx.i21, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len) #12
+._crit_edge:                                      ; preds = %35, %strbuf_ensure_empty_length.exit
+  %39 = load ptr, ptr %1, align 8, !tbaa !33
+  %40 = load i64, ptr %13, align 8, !tbaa !32
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %13, align 8, !tbaa !32
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %40
+  store i8 34, ptr %42, align 1, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_append_number(ptr noundef %l, ptr noundef readonly captures(none) %cfg, ptr noundef %json, i32 noundef range(i32 -2, 0) %lindex) unnamed_addr #0 {
-entry:
-  %call = tail call double @lua_tonumber(ptr noundef %l, i32 noundef %lindex) #12
-  %encode_invalid_numbers = getelementptr inbounds nuw i8, ptr %cfg, i64 1336
-  %0 = load i32, ptr %encode_invalid_numbers, align 8, !tbaa !39
-  switch i32 %0, label %if.else7 [
-    i32 0, label %if.then
-    i32 1, label %if.then4
+define internal fastcc void @json_append_number(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 -2, 0) %3) unnamed_addr #0 {
+  %5 = tail call double @lua_tonumber(ptr noundef %0, i32 noundef %3) #12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1336
+  %7 = load i32, ptr %6, align 8, !tbaa !17
+  switch i32 %7, label %19 [
+    i32 0, label %8
+    i32 1, label %16
   ]
 
-if.then:                                          ; preds = %entry
-  %1 = tail call double @llvm.fabs.f64(double %call)
-  %or.cond = fcmp ueq double %1, 0x7FF0000000000000
-  br i1 %or.cond, label %if.then1, label %if.end14
+8:                                                ; preds = %4
+  %9 = tail call double @llvm.fabs.f64(double %5)
+  %or.cond = fcmp ueq double %9, 0x7FF0000000000000
+  br i1 %or.cond, label %10, label %33
 
-if.then1:                                         ; preds = %if.then
-  %encode_keep_buffer.i = getelementptr inbounds nuw i8, ptr %cfg, i64 1344
-  %2 = load i32, ptr %encode_keep_buffer.i, align 8, !tbaa !14
-  %tobool.not.i = icmp eq i32 %2, 0
-  br i1 %tobool.not.i, label %if.then.i, label %json_encode_exception.exit
+10:                                               ; preds = %8
+  %11 = getelementptr i8, ptr %1, i64 1344
+  %.val = load i32, ptr %11, align 8, !tbaa !19
+  %.not.i = icmp eq i32 %.val, 0
+  br i1 %.not.i, label %12, label %json_encode_exception.exit
 
-if.then.i:                                        ; preds = %if.then1
-  tail call void @strbuf_free(ptr noundef %json) #12
+12:                                               ; preds = %10
+  tail call void @strbuf_free(ptr noundef %2) #12
   br label %json_encode_exception.exit
 
-json_encode_exception.exit:                       ; preds = %if.then.i, %if.then1
-  %call.i = tail call i32 @lua_type(ptr noundef %l, i32 noundef %lindex) #12
-  %call1.i = tail call ptr @lua_typename(ptr noundef %l, i32 noundef %call.i) #12
-  %call2.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.63, ptr noundef %call1.i, ptr noundef nonnull @.str.57) #12
-  br label %if.end14
+json_encode_exception.exit:                       ; preds = %10, %12
+  %13 = tail call i32 @lua_type(ptr noundef %0, i32 noundef range(i32 -2, 0) %3) #12
+  %14 = tail call ptr @lua_typename(ptr noundef %0, i32 noundef %13) #12
+  %15 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %14, ptr noundef nonnull @.str.57) #12
+  br label %33
 
-if.then4:                                         ; preds = %entry
-  %3 = fcmp uno double %call, 0.000000e+00
-  br i1 %3, label %if.then5, label %if.end14
+16:                                               ; preds = %4
+  %17 = fcmp uno double %5, 0.000000e+00
+  br i1 %17, label %18, label %33
 
-if.then5:                                         ; preds = %if.then4
-  tail call fastcc void @strbuf_append_mem(ptr noundef %json)
-  br label %cleanup
+18:                                               ; preds = %16
+  tail call fastcc void @strbuf_append_mem(ptr noundef %2, ptr noundef nonnull @.str.58, i64 noundef 3)
+  br label %47
 
-if.else7:                                         ; preds = %entry
-  %4 = tail call double @llvm.fabs.f64(double %call)
-  %or.cond33 = fcmp ueq double %4, 0x7FF0000000000000
-  br i1 %or.cond33, label %if.then11, label %if.end14
+19:                                               ; preds = %4
+  %20 = tail call double @llvm.fabs.f64(double %5)
+  %or.cond20 = fcmp ueq double %20, 0x7FF0000000000000
+  br i1 %or.cond20, label %21, label %33
 
-if.then11:                                        ; preds = %if.else7
-  %size.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %5 = load i64, ptr %size.i.i.i, align 8, !tbaa !27
-  %length.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %6 = load i64, ptr %length.i.i.i, align 8, !tbaa !15
-  %7 = sub i64 %6, %5
-  %cmp.i.i = icmp ugt i64 %7, -5
-  br i1 %cmp.i.i, label %if.then.i.i, label %strbuf_append_mem.exit
+21:                                               ; preds = %19
+  %22 = getelementptr i8, ptr %2, i64 8
+  %.val.i.i = load i64, ptr %22, align 8, !tbaa !44
+  %23 = getelementptr i8, ptr %2, i64 16
+  %.val4.i.i = load i64, ptr %23, align 8, !tbaa !32
+  %24 = sub i64 %.val4.i.i, %.val.i.i
+  %25 = icmp ugt i64 %24, -5
+  br i1 %25, label %26, label %strbuf_append_mem.exit
 
-if.then.i.i:                                      ; preds = %if.then11
-  %add.i.i = add i64 %6, 4
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %add.i.i) #12
-  %.pre.i = load i64, ptr %length.i.i.i, align 8, !tbaa !15
+26:                                               ; preds = %21
+  %27 = add i64 %.val4.i.i, 4
+  tail call void @strbuf_resize(ptr noundef nonnull %2, i64 noundef %27) #12
+  %.pre.i = load i64, ptr %23, align 8, !tbaa !32
   br label %strbuf_append_mem.exit
 
-strbuf_append_mem.exit:                           ; preds = %if.then.i.i, %if.then11
-  %8 = phi i64 [ %6, %if.then11 ], [ %.pre.i, %if.then.i.i ]
-  %9 = load ptr, ptr %json, align 8, !tbaa !16
-  %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %8
-  store i32 1819047278, ptr %add.ptr.i, align 1
-  %10 = load i64, ptr %length.i.i.i, align 8, !tbaa !15
-  %add.i = add i64 %10, 4
-  store i64 %add.i, ptr %length.i.i.i, align 8, !tbaa !15
-  br label %cleanup
+strbuf_append_mem.exit:                           ; preds = %21, %26
+  %28 = phi i64 [ %.val4.i.i, %21 ], [ %.pre.i, %26 ]
+  %29 = load ptr, ptr %2, align 8, !tbaa !33
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %28
+  store i32 1819047278, ptr %30, align 1
+  %31 = load i64, ptr %23, align 8, !tbaa !32
+  %32 = add i64 %31, 4
+  store i64 %32, ptr %23, align 8, !tbaa !32
+  br label %47
 
-if.end14:                                         ; preds = %if.else7, %if.then4, %json_encode_exception.exit, %if.then
-  %size.i.i = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %11 = load i64, ptr %size.i.i, align 8, !tbaa !27
-  %length.i.i = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %12 = load i64, ptr %length.i.i, align 8, !tbaa !15
-  %13 = sub i64 %12, %11
-  %cmp.i = icmp ugt i64 %13, -33
-  br i1 %cmp.i, label %if.then.i34, label %strbuf_ensure_empty_length.exit
+33:                                               ; preds = %19, %8, %16, %json_encode_exception.exit
+  %34 = getelementptr i8, ptr %2, i64 8
+  %.val.i = load i64, ptr %34, align 8, !tbaa !44
+  %35 = getelementptr i8, ptr %2, i64 16
+  %.val4.i = load i64, ptr %35, align 8, !tbaa !32
+  %36 = sub i64 %.val4.i, %.val.i
+  %37 = icmp ugt i64 %36, -33
+  br i1 %37, label %38, label %strbuf_ensure_empty_length.exit
 
-if.then.i34:                                      ; preds = %if.end14
-  %add.i35 = add i64 %12, 32
-  tail call void @strbuf_resize(ptr noundef nonnull %json, i64 noundef %add.i35) #12
-  %.pre = load i64, ptr %length.i.i, align 8, !tbaa !15
+38:                                               ; preds = %33
+  %39 = add i64 %.val4.i, 32
+  tail call void @strbuf_resize(ptr noundef nonnull %2, i64 noundef %39) #12
+  %.val22.pre = load i64, ptr %35, align 8, !tbaa !32
   br label %strbuf_ensure_empty_length.exit
 
-strbuf_ensure_empty_length.exit:                  ; preds = %if.then.i34, %if.end14
-  %14 = phi i64 [ %12, %if.end14 ], [ %.pre, %if.then.i34 ]
-  %15 = load ptr, ptr %json, align 8, !tbaa !16
-  %add.ptr.i36 = getelementptr inbounds i8, ptr %15, i64 %14
-  %encode_number_precision = getelementptr inbounds nuw i8, ptr %cfg, i64 1340
-  %16 = load i32, ptr %encode_number_precision, align 4, !tbaa !40
-  %call16 = tail call i32 @fpconv_g_fmt(ptr noundef %add.ptr.i36, double noundef %call, i32 noundef %16) #12
-  %conv = sext i32 %call16 to i64
-  %17 = load i64, ptr %length.i.i, align 8, !tbaa !15
-  %add.i38 = add i64 %17, %conv
-  store i64 %add.i38, ptr %length.i.i, align 8, !tbaa !15
-  br label %cleanup
+strbuf_ensure_empty_length.exit:                  ; preds = %33, %38
+  %.val22 = phi i64 [ %.val4.i, %33 ], [ %.val22.pre, %38 ]
+  %.val21 = load ptr, ptr %2, align 8, !tbaa !33
+  %40 = getelementptr inbounds nuw i8, ptr %.val21, i64 %.val22
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1340
+  %42 = load i32, ptr %41, align 4, !tbaa !20
+  %43 = tail call i32 @fpconv_g_fmt(ptr noundef %40, double noundef %5, i32 noundef %42) #12
+  %44 = sext i32 %43 to i64
+  %45 = load i64, ptr %35, align 8, !tbaa !32
+  %46 = add i64 %45, %44
+  store i64 %46, ptr %35, align 8, !tbaa !32
+  br label %47
 
-cleanup:                                          ; preds = %strbuf_ensure_empty_length.exit, %strbuf_append_mem.exit, %if.then5
+47:                                               ; preds = %strbuf_ensure_empty_length.exit, %strbuf_append_mem.exit, %18
   ret void
 }
 
 declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @strbuf_append_mem(ptr noundef %s) unnamed_addr #4 {
-entry:
-  %size.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
-  %0 = load i64, ptr %size.i.i, align 8, !tbaa !27
-  %length.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
-  %1 = load i64, ptr %length.i.i, align 8, !tbaa !15
-  %2 = sub i64 %1, %0
-  %cmp.i = icmp ugt i64 %2, -4
-  br i1 %cmp.i, label %if.then.i, label %strbuf_ensure_empty_length.exit
+define internal fastcc void @strbuf_append_mem(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 2, 6) %2) unnamed_addr #4 {
+  %4 = getelementptr i8, ptr %0, i64 8
+  %.val.i = load i64, ptr %4, align 8, !tbaa !44
+  %5 = getelementptr i8, ptr %0, i64 16
+  %.val4.i = load i64, ptr %5, align 8, !tbaa !32
+  %6 = xor i64 %.val4.i, -1
+  %7 = add i64 %.val.i, %6
+  %8 = icmp ugt i64 %2, %7
+  br i1 %8, label %9, label %strbuf_ensure_empty_length.exit
 
-if.then.i:                                        ; preds = %entry
-  %add.i = add i64 %1, 3
-  tail call void @strbuf_resize(ptr noundef nonnull %s, i64 noundef %add.i) #12
-  %.pre = load i64, ptr %length.i.i, align 8, !tbaa !15
+9:                                                ; preds = %3
+  %10 = add i64 %.val4.i, %2
+  tail call void @strbuf_resize(ptr noundef nonnull %0, i64 noundef %10) #12
+  %.pre = load i64, ptr %5, align 8, !tbaa !32
   br label %strbuf_ensure_empty_length.exit
 
-strbuf_ensure_empty_length.exit:                  ; preds = %if.then.i, %entry
-  %3 = phi i64 [ %1, %entry ], [ %.pre, %if.then.i ]
-  %4 = load ptr, ptr %s, align 8, !tbaa !16
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr, ptr noundef nonnull align 1 dereferenceable(3) @.str.58, i64 3, i1 false)
-  %5 = load i64, ptr %length.i.i, align 8, !tbaa !15
-  %add = add i64 %5, 3
-  store i64 %add, ptr %length.i.i, align 8, !tbaa !15
+strbuf_ensure_empty_length.exit:                  ; preds = %3, %9
+  %11 = phi i64 [ %.val4.i, %3 ], [ %.pre, %9 ]
+  %12 = load ptr, ptr %0, align 8, !tbaa !33
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %2, i1 false)
+  %14 = load i64, ptr %5, align 8, !tbaa !32
+  %15 = add i64 %14, %2
+  store i64 %15, ptr %5, align 8, !tbaa !32
   ret void
 }
 
@@ -1565,994 +1465,902 @@ declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare ptr @strbuf_new(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_next_token(ptr noundef nonnull captures(none) %json, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %token) unnamed_addr #0 {
-entry:
-  %endptr.i = alloca ptr, align 8
-  %digit.sroa.0.i66.i.i = alloca i32, align 16
-  %digit.sroa.5.i67.i.i = alloca i32, align 4
-  %digit.sroa.8.i68.i.i = alloca i32, align 8
-  %digit.sroa.11.i69.i.i = alloca i32, align 4
-  %digit.sroa.0.i.i.i = alloca i32, align 16
-  %digit.sroa.5.i.i.i = alloca i32, align 4
-  %digit.sroa.8.i.i.i = alloca i32, align 8
-  %digit.sroa.11.i.i.i = alloca i32, align 4
-  %utf8.sroa.0.i.i = alloca i32, align 4
-  %cfg = getelementptr inbounds nuw i8, ptr %json, i64 24
-  %0 = load ptr, ptr %cfg, align 8, !tbaa !17
-  %ptr = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %ptr.promoted = load ptr, ptr %ptr, align 8, !tbaa !21
-  %1 = load i8, ptr %ptr.promoted, align 1, !tbaa !13
-  %idxprom159 = zext i8 %1 to i64
-  %arrayidx160 = getelementptr inbounds nuw i32, ptr %0, i64 %idxprom159
-  %2 = load i32, ptr %arrayidx160, align 4, !tbaa !4
-  store i32 %2, ptr %token, align 8, !tbaa !24
-  %cmp.not161 = icmp eq i32 %2, 11
-  br i1 %cmp.not161, label %if.end, label %while.end
+define internal fastcc void @json_next_token(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca [4 x i32], align 16
+  %5 = alloca [4 x i32], align 16
+  %.sroa.0.i.i = alloca i32, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted = load ptr, ptr %8, align 8, !tbaa !38
+  %9 = load i8, ptr %.promoted, align 1, !tbaa !25
+  %10 = zext i8 %9 to i64
+  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
+  %12 = load i32, ptr %11, align 4, !tbaa !21
+  store i32 %12, ptr %1, align 8, !tbaa !41
+  %.not82 = icmp eq i32 %12, 11
+  br i1 %.not82, label %.lr.ph, label %._crit_edge
 
-if.end:                                           ; preds = %entry, %if.end
-  %3 = phi ptr [ %incdec.ptr, %if.end ], [ %ptr.promoted, %entry ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %incdec.ptr, ptr %ptr, align 8, !tbaa !21
-  %4 = load i8, ptr %incdec.ptr, align 1, !tbaa !13
-  %idxprom = zext i8 %4 to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4, !tbaa !4
-  store i32 %5, ptr %token, align 8, !tbaa !24
-  %cmp.not = icmp eq i32 %5, 11
-  br i1 %cmp.not, label %if.end, label %while.end
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %13 = phi ptr [ %14, %.lr.ph ], [ %.promoted, %2 ]
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  store ptr %14, ptr %8, align 8, !tbaa !38
+  %15 = load i8, ptr %14, align 1, !tbaa !25
+  %16 = zext i8 %15 to i64
+  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !21
+  store i32 %18, ptr %1, align 8, !tbaa !41
+  %.not = icmp eq i32 %18, 11
+  br i1 %.not, label %.lr.ph, label %._crit_edge
 
-while.end:                                        ; preds = %if.end, %entry
-  %json.val = phi ptr [ %ptr.promoted, %entry ], [ %incdec.ptr, %if.end ]
-  %.lcssa157 = phi i8 [ %1, %entry ], [ %4, %if.end ]
-  %.lcssa156 = phi i32 [ %2, %entry ], [ %5, %if.end ]
-  %6 = load ptr, ptr %json, align 8, !tbaa !19
-  %sub.ptr.lhs.cast = ptrtoint ptr %json.val to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %index = getelementptr inbounds nuw i8, ptr %token, i64 8
-  store i64 %sub.ptr.sub, ptr %index, align 8, !tbaa !26
-  switch i32 %.lcssa156, label %if.then19 [
-    i32 12, label %if.then9
-    i32 10, label %cleanup
-    i32 13, label %if.end22
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.lcssa80 = phi ptr [ %.promoted, %2 ], [ %14, %.lr.ph ]
+  %.lcssa79 = phi i8 [ %9, %2 ], [ %15, %.lr.ph ]
+  %.lcssa = phi i32 [ %12, %2 ], [ %18, %.lr.ph ]
+  %19 = load ptr, ptr %0, align 8, !tbaa !36
+  %20 = ptrtoint ptr %.lcssa80 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %22, ptr %23, align 8, !tbaa !43
+  switch i32 %.lcssa, label %26 [
+    i32 12, label %24
+    i32 10, label %252
+    i32 13, label %28
   ]
 
-if.then9:                                         ; preds = %while.end
-  store i32 12, ptr %token, align 8, !tbaa !24
-  store i64 %sub.ptr.sub, ptr %index, align 8, !tbaa !26
-  %value.i = getelementptr inbounds nuw i8, ptr %token, i64 16
-  store ptr @.str.66, ptr %value.i, align 8, !tbaa !13
-  br label %cleanup
+24:                                               ; preds = %._crit_edge
+  store i32 12, ptr %1, align 8, !tbaa !41
+  store i64 %22, ptr %23, align 8, !tbaa !43
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr @.str.66, ptr %25, align 8, !tbaa !25
+  br label %252
 
-if.then19:                                        ; preds = %while.end
-  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %json.val, i64 1
-  store ptr %incdec.ptr21, ptr %ptr, align 8, !tbaa !21
-  br label %cleanup
+26:                                               ; preds = %._crit_edge
+  %27 = getelementptr inbounds nuw i8, ptr %.lcssa80, i64 1
+  store ptr %27, ptr %8, align 8, !tbaa !38
+  br label %252
 
-if.end22:                                         ; preds = %while.end
-  switch i8 %.lcssa157, label %lor.lhs.false [
-    i8 34, label %if.then25
-    i8 45, label %if.then32
+28:                                               ; preds = %._crit_edge
+  switch i8 %.lcssa79, label %194 [
+    i8 34, label %29
+    i8 45, label %196
   ]
 
-if.then25:                                        ; preds = %if.end22
-  %escape2char1.i = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %json.val, i64 1
-  store ptr %incdec.ptr.i, ptr %ptr, align 8, !tbaa !21
-  %tmp.i = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %7 = load ptr, ptr %tmp.i, align 8, !tbaa !23
-  %length.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %length.i.i, align 8, !tbaa !15
-  %utf8.sroa.0.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.1.i.1.arrayidx21.i.sroa_idx = getelementptr inbounds nuw i8, ptr %utf8.sroa.0.i.i, i64 1
-  %utf8.sroa.0.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.2.i.2.arrayidx25.i.sroa_idx = getelementptr inbounds nuw i8, ptr %utf8.sroa.0.i.i, i64 2
-  %utf8.sroa.0.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.1.i.1.arrayidx8.i.sroa_idx = getelementptr inbounds nuw i8, ptr %utf8.sroa.0.i.i, i64 1
-  %utf8.sroa.0.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.1.i.1.arrayidx38.i.sroa_idx = getelementptr inbounds nuw i8, ptr %utf8.sroa.0.i.i, i64 1
-  %utf8.sroa.0.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.2.i.2.arrayidx43.i.sroa_idx = getelementptr inbounds nuw i8, ptr %utf8.sroa.0.i.i, i64 2
-  %utf8.sroa.0.i.i.3.i.i.3.i.i.3.i.i.3.i.i.3.i.i.3.i.i.3.i.3.i.3.arrayidx47.i.sroa_idx = getelementptr inbounds nuw i8, ptr %utf8.sroa.0.i.i, i64 3
-  br label %while.cond.i
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 1024
+  %31 = getelementptr inbounds nuw i8, ptr %.lcssa80, i64 1
+  store ptr %31, ptr %8, align 8, !tbaa !38
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !40
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i64 0, ptr %34, align 8, !tbaa !32
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx125 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx126 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx127 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
+  %.sroa.0.i.i.3.i.i.3.i.i.3.i.3.i.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 3
+  br label %.backedge.i
 
-while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.then25
-  %8 = phi ptr [ %incdec.ptr.i, %if.then25 ], [ %.be, %while.cond.i.backedge ]
-  %9 = load i8, ptr %8, align 1, !tbaa !13
-  switch i8 %9, label %if.end23.i [
-    i8 34, label %while.end.i
-    i8 0, label %if.then.i
-    i8 92, label %if.then7.i
+.backedge.i:                                      ; preds = %.backedge.i.backedge, %29
+  %.val34.i = phi ptr [ %31, %29 ], [ %.val34.i.be, %.backedge.i.backedge ]
+  %41 = load i8, ptr %.val34.i, align 1, !tbaa !25
+  switch i8 %41, label %176 [
+    i8 34, label %185
+    i8 0, label %42
+    i8 92, label %46
   ]
 
-if.then.i:                                        ; preds = %while.cond.i
-  store i32 12, ptr %token, align 8, !tbaa !24
-  %10 = load ptr, ptr %json, align 8, !tbaa !19
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  store i64 %sub.ptr.sub.i.i, ptr %index, align 8, !tbaa !26
+42:                                               ; preds = %.backedge.i
+  %.val35.i = load ptr, ptr %0, align 8, !tbaa !36
+  store i32 12, ptr %1, align 8, !tbaa !41
+  %43 = ptrtoint ptr %.val34.i to i64
+  %44 = ptrtoint ptr %.val35.i to i64
+  %45 = sub i64 %43, %44
+  store i64 %45, ptr %23, align 8, !tbaa !43
   br label %json_next_string_token.exit
 
-if.then7.i:                                       ; preds = %while.cond.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %11 = load i8, ptr %add.ptr.i, align 1, !tbaa !13
-  %idxprom.i = zext i8 %11 to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %escape2char1.i, i64 %idxprom.i
-  %12 = load i8, ptr %arrayidx.i, align 1, !tbaa !13
-  switch i8 %12, label %if.end20.i [
-    i8 117, label %if.then12.i
-    i8 0, label %if.then19.i
+46:                                               ; preds = %.backedge.i
+  %47 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 1
+  %48 = load i8, ptr %47, align 1, !tbaa !25
+  %49 = zext i8 %48 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !25
+  switch i8 %51, label %175 [
+    i8 117, label %52
+    i8 0, label %171
   ]
 
-if.then12.i:                                      ; preds = %if.then7.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %utf8.sroa.0.i.i)
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digit.sroa.0.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digit.sroa.5.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digit.sroa.8.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digit.sroa.11.i.i.i)
-  %13 = load i8, ptr %add.ptr.i.i, align 1, !tbaa !13
-  %14 = add i8 %13, -48
-  %or.cond.i.i.i.i = icmp ult i8 %14, 10
-  br i1 %or.cond.i.i.i.i, label %for.inc.i.i.i, label %if.end.i.i.i.i
+52:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i)
+  %53 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  br label %54
 
-if.end.i.i.i.i:                                   ; preds = %if.then12.i
-  %or.i.i.i.i = or i8 %13, 32
-  %15 = add i8 %or.i.i.i.i, -97
-  %or.cond19.i.i.i.i = icmp ult i8 %15, 6
-  br i1 %or.cond19.i.i.i.i, label %for.inc.i.i.i, label %decode_hex4.exit.thread.i.i
+54:                                               ; preds = %61, %52
+  %indvars.iv.i.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i.i, %61 ]
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv.i.i.i
+  %56 = load i8, ptr %55, align 1, !tbaa !25
+  %57 = add i8 %56, -48
+  %or.cond.i.i.i.i = icmp ult i8 %57, 10
+  br i1 %or.cond.i.i.i.i, label %61, label %58
 
-decode_hex4.exit.thread.i.i:                      ; preds = %if.end.i.3.i.i.i, %if.end.i.2.i.i.i, %if.end.i.1.i.i.i, %if.end.i.i.i.i
-  %idxprom.lcssa.sroa.phi.i.i.i = phi ptr [ %digit.sroa.0.i.i.i, %if.end.i.i.i.i ], [ %digit.sroa.5.i.i.i, %if.end.i.1.i.i.i ], [ %digit.sroa.8.i.i.i, %if.end.i.2.i.i.i ], [ %digit.sroa.11.i.i.i, %if.end.i.3.i.i.i ]
-  store i32 -1, ptr %idxprom.lcssa.sroa.phi.i.i.i, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.0.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.5.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.8.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.11.i.i.i)
-  br label %if.end16.i
+58:                                               ; preds = %54
+  %59 = or i8 %56, 32
+  %60 = add i8 %59, -97
+  %or.cond5.i.i.i.i = icmp ult i8 %60, 6
+  br i1 %or.cond5.i.i.i.i, label %61, label %decode_hex4.exit.thread.i.i
 
-for.inc.i.i.i:                                    ; preds = %if.end.i.i.i.i, %if.then12.i
-  %.sink28.i.i.i = phi i8 [ %13, %if.then12.i ], [ %or.i.i.i.i, %if.end.i.i.i.i ]
-  %.sink.i.i.i = phi i32 [ -48, %if.then12.i ], [ -87, %if.end.i.i.i.i ]
-  %conv.i.i.i.i = zext nneg i8 %.sink28.i.i.i to i32
-  %sub.i.i.i.i = add nsw i32 %.sink.i.i.i, %conv.i.i.i.i
-  %arrayidx.1.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %16 = load i8, ptr %arrayidx.1.i.i.i, align 1, !tbaa !13
-  %17 = add i8 %16, -48
-  %or.cond.i.1.i.i.i = icmp ult i8 %17, 10
-  br i1 %or.cond.i.1.i.i.i, label %for.inc.1.i.i.i, label %if.end.i.1.i.i.i
+decode_hex4.exit.thread.i.i:                      ; preds = %58
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  br label %.loopexit.i
 
-if.end.i.1.i.i.i:                                 ; preds = %for.inc.i.i.i
-  %or.i.1.i.i.i = or i8 %16, 32
-  %18 = add i8 %or.i.1.i.i.i, -97
-  %or.cond19.i.1.i.i.i = icmp ult i8 %18, 6
-  br i1 %or.cond19.i.1.i.i.i, label %for.inc.1.i.i.i, label %decode_hex4.exit.thread.i.i
+61:                                               ; preds = %58, %54
+  %.sink12.i.i.i = phi i8 [ %56, %54 ], [ %59, %58 ]
+  %.sink11.i.i.i = phi i32 [ -48, %54 ], [ -87, %58 ]
+  %62 = zext nneg i8 %.sink12.i.i.i to i32
+  %63 = add nsw i32 %.sink11.i.i.i, %62
+  %64 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  store i32 %63, ptr %64, align 4, !tbaa !21
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
+  br i1 %exitcond.not.i.i.i, label %decode_hex4.exit.i.i, label %54, !llvm.loop !49
 
-for.inc.1.i.i.i:                                  ; preds = %if.end.i.1.i.i.i, %for.inc.i.i.i
-  %.sink30.i.i.i = phi i8 [ %or.i.1.i.i.i, %if.end.i.1.i.i.i ], [ %16, %for.inc.i.i.i ]
-  %.sink29.i.i.i = phi i32 [ -87, %if.end.i.1.i.i.i ], [ -48, %for.inc.i.i.i ]
-  %conv.i.1.i.i.i = zext nneg i8 %.sink30.i.i.i to i32
-  %sub.i.1.i.i.i = add nsw i32 %.sink29.i.i.i, %conv.i.1.i.i.i
-  %arrayidx.2.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %19 = load i8, ptr %arrayidx.2.i.i.i, align 1, !tbaa !13
-  %20 = add i8 %19, -48
-  %or.cond.i.2.i.i.i = icmp ult i8 %20, 10
-  br i1 %or.cond.i.2.i.i.i, label %for.inc.2.i.i.i, label %if.end.i.2.i.i.i
+decode_hex4.exit.i.i:                             ; preds = %61
+  %65 = load i32, ptr %5, align 16, !tbaa !21
+  %66 = shl i32 %65, 12
+  %67 = load i32, ptr %35, align 4, !tbaa !21
+  %68 = shl i32 %67, 8
+  %69 = add nsw i32 %68, %66
+  %70 = load i32, ptr %36, align 8, !tbaa !21
+  %71 = shl i32 %70, 4
+  %72 = add nsw i32 %69, %71
+  %73 = load i32, ptr %37, align 4, !tbaa !21
+  %74 = add nsw i32 %72, %73
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %.loopexit.i, label %76
 
-if.end.i.2.i.i.i:                                 ; preds = %for.inc.1.i.i.i
-  %or.i.2.i.i.i = or i8 %19, 32
-  %21 = add i8 %or.i.2.i.i.i, -97
-  %or.cond19.i.2.i.i.i = icmp ult i8 %21, 6
-  br i1 %or.cond19.i.2.i.i.i, label %for.inc.2.i.i.i, label %decode_hex4.exit.thread.i.i
+76:                                               ; preds = %decode_hex4.exit.i.i
+  %77 = and i32 %74, 63488
+  %78 = icmp eq i32 %77, 55296
+  br i1 %78, label %79, label %116
 
-for.inc.2.i.i.i:                                  ; preds = %if.end.i.2.i.i.i, %for.inc.1.i.i.i
-  %.sink32.i.i.i = phi i8 [ %or.i.2.i.i.i, %if.end.i.2.i.i.i ], [ %19, %for.inc.1.i.i.i ]
-  %.sink31.i.i.i = phi i32 [ -87, %if.end.i.2.i.i.i ], [ -48, %for.inc.1.i.i.i ]
-  %conv.i.2.i.i.i = zext nneg i8 %.sink32.i.i.i to i32
-  %sub.i.2.i.i.i = add nsw i32 %.sink31.i.i.i, %conv.i.2.i.i.i
-  %arrayidx.3.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %22 = load i8, ptr %arrayidx.3.i.i.i, align 1, !tbaa !13
-  %23 = add i8 %22, -48
-  %or.cond.i.3.i.i.i = icmp ult i8 %23, 10
-  br i1 %or.cond.i.3.i.i.i, label %decode_hex4.exit.i.i, label %if.end.i.3.i.i.i
+79:                                               ; preds = %76
+  %80 = and i32 %74, 1024
+  %.not.i.i = icmp eq i32 %80, 0
+  br i1 %.not.i.i, label %81, label %.loopexit.i
 
-if.end.i.3.i.i.i:                                 ; preds = %for.inc.2.i.i.i
-  %or.i.3.i.i.i = or i8 %22, 32
-  %24 = add i8 %or.i.3.i.i.i, -97
-  %or.cond19.i.3.i.i.i = icmp ult i8 %24, 6
-  br i1 %or.cond19.i.3.i.i.i, label %decode_hex4.exit.i.i, label %decode_hex4.exit.thread.i.i
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 6
+  %83 = load i8, ptr %82, align 1, !tbaa !25
+  %.not27.i.i = icmp eq i8 %83, 92
+  br i1 %.not27.i.i, label %84, label %.loopexit.i
 
-decode_hex4.exit.i.i:                             ; preds = %if.end.i.3.i.i.i, %for.inc.2.i.i.i
-  %.sink34.i.i.i = phi i8 [ %or.i.3.i.i.i, %if.end.i.3.i.i.i ], [ %22, %for.inc.2.i.i.i ]
-  %.sink33.i.i.i = phi i32 [ -87, %if.end.i.3.i.i.i ], [ -48, %for.inc.2.i.i.i ]
-  %conv.i.3.i.i.i = zext nneg i8 %.sink34.i.i.i to i32
-  %shl.i.i.i = shl nuw nsw i32 %sub.i.i.i.i, 12
-  %shl8.i.i.i = shl nuw nsw i32 %sub.i.1.i.i.i, 8
-  %shl10.i.i.i = shl nuw nsw i32 %sub.i.2.i.i.i, 4
-  %sub.i.3.i.i.i = add nuw nsw i32 %shl8.i.i.i, %shl.i.i.i
-  %add.i.i.i = add nuw nsw i32 %sub.i.3.i.i.i, %shl10.i.i.i
-  %add11.i.i.i = add nuw nsw i32 %add.i.i.i, %conv.i.3.i.i.i
-  %add13.i.i.i = add nsw i32 %add11.i.i.i, %.sink33.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.0.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.5.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.8.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.11.i.i.i)
-  %cmp.i.i = icmp slt i32 %add13.i.i.i, 0
-  br i1 %cmp.i.i, label %if.end16.i, label %if.end.i.i
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 7
+  %86 = load i8, ptr %85, align 1, !tbaa !25
+  %.not28.i.i = icmp eq i8 %86, 117
+  br i1 %.not28.i.i, label %87, label %.loopexit.i
 
-if.end.i.i:                                       ; preds = %decode_hex4.exit.i.i
-  %and.i.i = and i32 %add13.i.i.i, 63488
-  %cmp1.i.i = icmp eq i32 %and.i.i, 55296
-  br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end35.i.i
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  br label %89
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
-  %and3.i.i = and i32 %add13.i.i.i, 1024
-  %tobool.not.i.i = icmp eq i32 %and3.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end5.i.i, label %if.end16.i
+89:                                               ; preds = %96, %87
+  %indvars.iv.i31.i.i = phi i64 [ 0, %87 ], [ %indvars.iv.next.i37.i.i, %96 ]
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i31.i.i
+  %91 = load i8, ptr %90, align 1, !tbaa !25
+  %92 = add i8 %91, -48
+  %or.cond.i.i32.i.i = icmp ult i8 %92, 10
+  br i1 %or.cond.i.i32.i.i, label %96, label %93
 
-if.end5.i.i:                                      ; preds = %if.then2.i.i
-  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %8, i64 6
-  %25 = load i8, ptr %add.ptr7.i.i, align 1, !tbaa !13
-  %cmp8.not.i.i = icmp eq i8 %25, 92
-  br i1 %cmp8.not.i.i, label %lor.lhs.false.i.i, label %if.end16.i
+93:                                               ; preds = %89
+  %94 = or i8 %91, 32
+  %95 = add i8 %94, -97
+  %or.cond5.i.i33.i.i = icmp ult i8 %95, 6
+  br i1 %or.cond5.i.i33.i.i, label %96, label %decode_hex4.exit39.thread.i.i
 
-lor.lhs.false.i.i:                                ; preds = %if.end5.i.i
-  %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %8, i64 7
-  %26 = load i8, ptr %add.ptr13.i.i, align 1, !tbaa !13
-  %cmp15.not.i.i = icmp eq i8 %26, 117
-  br i1 %cmp15.not.i.i, label %if.end18.i.i, label %if.end16.i
+decode_hex4.exit39.thread.i.i:                    ; preds = %93
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  br label %.loopexit.i
 
-if.end18.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %add.ptr22.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digit.sroa.0.i66.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digit.sroa.5.i67.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digit.sroa.8.i68.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digit.sroa.11.i69.i.i)
-  %27 = load i8, ptr %add.ptr22.i.i, align 1, !tbaa !13
-  %28 = add i8 %27, -48
-  %or.cond.i.i70.i.i = icmp ult i8 %28, 10
-  br i1 %or.cond.i.i70.i.i, label %for.inc.i77.i.i, label %if.end.i.i71.i.i
+96:                                               ; preds = %93, %89
+  %.sink12.i35.i.i = phi i8 [ %91, %89 ], [ %94, %93 ]
+  %.sink11.i36.i.i = phi i32 [ -48, %89 ], [ -87, %93 ]
+  %97 = zext nneg i8 %.sink12.i35.i.i to i32
+  %98 = add nsw i32 %.sink11.i36.i.i, %97
+  %99 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv.i31.i.i
+  store i32 %98, ptr %99, align 4, !tbaa !21
+  %indvars.iv.next.i37.i.i = add nuw nsw i64 %indvars.iv.i31.i.i, 1
+  %exitcond.not.i38.i.i = icmp eq i64 %indvars.iv.next.i37.i.i, 4
+  br i1 %exitcond.not.i38.i.i, label %decode_hex4.exit39.i.i, label %89, !llvm.loop !49
 
-if.end.i.i71.i.i:                                 ; preds = %if.end18.i.i
-  %or.i.i72.i.i = or i8 %27, 32
-  %29 = add i8 %or.i.i72.i.i, -97
-  %or.cond19.i.i73.i.i = icmp ult i8 %29, 6
-  br i1 %or.cond19.i.i73.i.i, label %for.inc.i77.i.i, label %decode_hex4.exit118.thread.i.i
+decode_hex4.exit39.i.i:                           ; preds = %96
+  %100 = load i32, ptr %4, align 16, !tbaa !21
+  %101 = shl i32 %100, 12
+  %102 = load i32, ptr %38, align 4, !tbaa !21
+  %103 = shl i32 %102, 8
+  %104 = add nsw i32 %103, %101
+  %105 = load i32, ptr %39, align 8, !tbaa !21
+  %106 = shl i32 %105, 4
+  %107 = add nsw i32 %104, %106
+  %108 = load i32, ptr %40, align 4, !tbaa !21
+  %109 = add nsw i32 %107, %108
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  %110 = and i32 %109, -2147419136
+  %or.cond.i.i = icmp eq i32 %110, 56320
+  br i1 %or.cond.i.i, label %.thread68.i.i, label %.loopexit.i
 
-decode_hex4.exit118.thread.i.i:                   ; preds = %if.end.i.3.i104.i.i, %if.end.i.2.i94.i.i, %if.end.i.1.i84.i.i, %if.end.i.i71.i.i
-  %idxprom.lcssa.sroa.phi.i75.i.i = phi ptr [ %digit.sroa.0.i66.i.i, %if.end.i.i71.i.i ], [ %digit.sroa.5.i67.i.i, %if.end.i.1.i84.i.i ], [ %digit.sroa.8.i68.i.i, %if.end.i.2.i94.i.i ], [ %digit.sroa.11.i69.i.i, %if.end.i.3.i104.i.i ]
-  store i32 -1, ptr %idxprom.lcssa.sroa.phi.i75.i.i, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.0.i66.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.5.i67.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.8.i68.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.11.i69.i.i)
-  br label %if.end16.i
+.thread68.i.i:                                    ; preds = %decode_hex4.exit39.i.i
+  %111 = shl i32 %74, 10
+  %112 = and i32 %111, 1047552
+  %113 = and i32 %109, 1023
+  %114 = add nuw nsw i32 %112, 65536
+  %115 = or disjoint i32 %113, %114
+  br label %144
 
-for.inc.i77.i.i:                                  ; preds = %if.end.i.i71.i.i, %if.end18.i.i
-  %.sink28.i78.i.i = phi i8 [ %27, %if.end18.i.i ], [ %or.i.i72.i.i, %if.end.i.i71.i.i ]
-  %.sink.i79.i.i = phi i32 [ -48, %if.end18.i.i ], [ -87, %if.end.i.i71.i.i ]
-  %conv.i.i80.i.i = zext nneg i8 %.sink28.i78.i.i to i32
-  %sub.i.i81.i.i = add nsw i32 %.sink.i79.i.i, %conv.i.i80.i.i
-  %arrayidx.1.i82.i.i = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %30 = load i8, ptr %arrayidx.1.i82.i.i, align 1, !tbaa !13
-  %31 = add i8 %30, -48
-  %or.cond.i.1.i83.i.i = icmp ult i8 %31, 10
-  br i1 %or.cond.i.1.i83.i.i, label %for.inc.1.i87.i.i, label %if.end.i.1.i84.i.i
+116:                                              ; preds = %76
+  %117 = icmp samesign ult i32 %74, 128
+  br i1 %117, label %118, label %120
 
-if.end.i.1.i84.i.i:                               ; preds = %for.inc.i77.i.i
-  %or.i.1.i85.i.i = or i8 %30, 32
-  %32 = add i8 %or.i.1.i85.i.i, -97
-  %or.cond19.i.1.i86.i.i = icmp ult i8 %32, 6
-  br i1 %or.cond19.i.1.i86.i.i, label %for.inc.1.i87.i.i, label %decode_hex4.exit118.thread.i.i
-
-for.inc.1.i87.i.i:                                ; preds = %if.end.i.1.i84.i.i, %for.inc.i77.i.i
-  %.sink30.i88.i.i = phi i8 [ %or.i.1.i85.i.i, %if.end.i.1.i84.i.i ], [ %30, %for.inc.i77.i.i ]
-  %.sink29.i89.i.i = phi i32 [ -87, %if.end.i.1.i84.i.i ], [ -48, %for.inc.i77.i.i ]
-  %conv.i.1.i90.i.i = zext nneg i8 %.sink30.i88.i.i to i32
-  %sub.i.1.i91.i.i = add nsw i32 %.sink29.i89.i.i, %conv.i.1.i90.i.i
-  %arrayidx.2.i92.i.i = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %33 = load i8, ptr %arrayidx.2.i92.i.i, align 1, !tbaa !13
-  %34 = add i8 %33, -48
-  %or.cond.i.2.i93.i.i = icmp ult i8 %34, 10
-  br i1 %or.cond.i.2.i93.i.i, label %for.inc.2.i97.i.i, label %if.end.i.2.i94.i.i
-
-if.end.i.2.i94.i.i:                               ; preds = %for.inc.1.i87.i.i
-  %or.i.2.i95.i.i = or i8 %33, 32
-  %35 = add i8 %or.i.2.i95.i.i, -97
-  %or.cond19.i.2.i96.i.i = icmp ult i8 %35, 6
-  br i1 %or.cond19.i.2.i96.i.i, label %for.inc.2.i97.i.i, label %decode_hex4.exit118.thread.i.i
-
-for.inc.2.i97.i.i:                                ; preds = %if.end.i.2.i94.i.i, %for.inc.1.i87.i.i
-  %.sink32.i98.i.i = phi i8 [ %or.i.2.i95.i.i, %if.end.i.2.i94.i.i ], [ %33, %for.inc.1.i87.i.i ]
-  %.sink31.i99.i.i = phi i32 [ -87, %if.end.i.2.i94.i.i ], [ -48, %for.inc.1.i87.i.i ]
-  %conv.i.2.i100.i.i = zext nneg i8 %.sink32.i98.i.i to i32
-  %sub.i.2.i101.i.i = add nsw i32 %.sink31.i99.i.i, %conv.i.2.i100.i.i
-  %arrayidx.3.i102.i.i = getelementptr inbounds nuw i8, ptr %8, i64 11
-  %36 = load i8, ptr %arrayidx.3.i102.i.i, align 1, !tbaa !13
-  %37 = add i8 %36, -48
-  %or.cond.i.3.i103.i.i = icmp ult i8 %37, 10
-  br i1 %or.cond.i.3.i103.i.i, label %decode_hex4.exit118.i.i, label %if.end.i.3.i104.i.i
-
-if.end.i.3.i104.i.i:                              ; preds = %for.inc.2.i97.i.i
-  %or.i.3.i105.i.i = or i8 %36, 32
-  %38 = add i8 %or.i.3.i105.i.i, -97
-  %or.cond19.i.3.i106.i.i = icmp ult i8 %38, 6
-  br i1 %or.cond19.i.3.i106.i.i, label %decode_hex4.exit118.i.i, label %decode_hex4.exit118.thread.i.i
-
-decode_hex4.exit118.i.i:                          ; preds = %if.end.i.3.i104.i.i, %for.inc.2.i97.i.i
-  %.sink34.i108.i.i = phi i8 [ %or.i.3.i105.i.i, %if.end.i.3.i104.i.i ], [ %36, %for.inc.2.i97.i.i ]
-  %.sink33.i109.i.i = phi i32 [ -87, %if.end.i.3.i104.i.i ], [ -48, %for.inc.2.i97.i.i ]
-  %conv.i.3.i110.i.i = zext nneg i8 %.sink34.i108.i.i to i32
-  %shl.i112.i.i = shl nuw nsw i32 %sub.i.i81.i.i, 12
-  %shl8.i113.i.i = shl nuw nsw i32 %sub.i.1.i91.i.i, 8
-  %shl10.i115.i.i = shl nuw nsw i32 %sub.i.2.i101.i.i, 4
-  %sub.i.3.i111.i.i = add nuw nsw i32 %shl8.i113.i.i, %shl.i112.i.i
-  %add.i114.i.i = add nuw nsw i32 %sub.i.3.i111.i.i, %shl10.i115.i.i
-  %add11.i116.i.i = add nuw nsw i32 %add.i114.i.i, %conv.i.3.i110.i.i
-  %add13.i117.i.i = add nsw i32 %add11.i116.i.i, %.sink33.i109.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.0.i66.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.5.i67.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.8.i68.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %digit.sroa.11.i69.i.i)
-  %39 = and i32 %add13.i117.i.i, -2147419136
-  %or.cond.i.i = icmp eq i32 %39, 56320
-  br i1 %or.cond.i.i, label %if.end26.i.thread.i.i, label %if.end16.i
-
-if.end26.i.thread.i.i:                            ; preds = %decode_hex4.exit118.i.i
-  %and33.i.i = shl nuw nsw i32 %add13.i.i.i, 10
-  %shl.i.i = and i32 %and33.i.i, 1047552
-  %and34.i.i = and i32 %add13.i117.i.i, 1023
-  %or.i.i = add nuw nsw i32 %shl.i.i, 65536
-  %add.i.i = or disjoint i32 %and34.i.i, %or.i.i
-  br label %if.then29.i.i.i
-
-if.end35.i.i:                                     ; preds = %if.end.i.i
-  %cmp.i.i.i = icmp samesign ult i32 %add13.i.i.i, 128
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
-
-if.then.i.i.i:                                    ; preds = %if.end35.i.i
-  %conv.i.i.i = trunc nuw nsw i32 %add13.i.i.i to i8
-  store i8 %conv.i.i.i, ptr %utf8.sroa.0.i.i, align 4, !tbaa !13
+118:                                              ; preds = %116
+  %119 = trunc nuw nsw i32 %74 to i8
+  store i8 %119, ptr %.sroa.0.i.i, align 4, !tbaa !25
   br label %json_append_unicode_escape.exit.i
 
-if.end.i.i.i:                                     ; preds = %if.end35.i.i
-  %cmp1.i.i.i = icmp samesign ult i32 %add13.i.i.i, 2048
-  br i1 %cmp1.i.i.i, label %if.then3.i.i.i, label %if.end9.i.i.i
+120:                                              ; preds = %116
+  %121 = icmp samesign ult i32 %74, 2048
+  br i1 %121, label %122, label %129
 
-if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %shr.i.i.i = lshr i32 %add13.i.i.i, 6
-  %40 = trunc nuw nsw i32 %shr.i.i.i to i8
-  %conv4.i.i.i = or disjoint i8 %40, -64
-  store i8 %conv4.i.i.i, ptr %utf8.sroa.0.i.i, align 4, !tbaa !13
-  %41 = trunc i32 %add13.i.i.i to i8
-  %42 = and i8 %41, 63
-  %conv7.i.i.i = or disjoint i8 %42, -128
-  store i8 %conv7.i.i.i, ptr %utf8.sroa.0.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.1.i.1.arrayidx8.i.sroa_idx, align 1, !tbaa !13
+122:                                              ; preds = %120
+  %123 = lshr i32 %74, 6
+  %124 = trunc nuw i32 %123 to i8
+  %125 = or disjoint i8 %124, -64
+  store i8 %125, ptr %.sroa.0.i.i, align 4, !tbaa !25
+  %126 = trunc i32 %74 to i8
+  %127 = and i8 %126, 63
+  %128 = or disjoint i8 %127, -128
+  store i8 %128, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx125, align 1, !tbaa !25
   br label %json_append_unicode_escape.exit.i
 
-if.end9.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp10.i.i.i = icmp samesign ult i32 %add13.i.i.i, 65536
-  br i1 %cmp10.i.i.i, label %if.then12.i.i.i, label %if.then29.i.i.i
+129:                                              ; preds = %120
+  %130 = icmp samesign ult i32 %74, 65536
+  br i1 %130, label %131, label %142
 
-if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
-  %shr13.i.i.i = lshr i32 %add13.i.i.i, 12
-  %43 = trunc nuw nsw i32 %shr13.i.i.i to i8
-  %conv15.i.i.i = or disjoint i8 %43, -32
-  store i8 %conv15.i.i.i, ptr %utf8.sroa.0.i.i, align 4, !tbaa !13
-  %shr17.i.i.i = lshr i32 %add13.i.i.i, 6
-  %44 = trunc i32 %shr17.i.i.i to i8
-  %45 = and i8 %44, 63
-  %conv20.i.i.i = or disjoint i8 %45, -128
-  store i8 %conv20.i.i.i, ptr %utf8.sroa.0.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.1.i.1.arrayidx21.i.sroa_idx, align 1, !tbaa !13
-  %46 = trunc i32 %add13.i.i.i to i8
-  %47 = and i8 %46, 63
-  %conv24.i.i.i = or disjoint i8 %47, -128
-  store i8 %conv24.i.i.i, ptr %utf8.sroa.0.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.2.i.2.arrayidx25.i.sroa_idx, align 2, !tbaa !13
+131:                                              ; preds = %129
+  %132 = lshr i32 %74, 12
+  %133 = trunc nuw i32 %132 to i8
+  %134 = or disjoint i8 %133, -32
+  store i8 %134, ptr %.sroa.0.i.i, align 4, !tbaa !25
+  %135 = lshr i32 %74, 6
+  %136 = trunc i32 %135 to i8
+  %137 = and i8 %136, 63
+  %138 = or disjoint i8 %137, -128
+  store i8 %138, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx, align 1, !tbaa !25
+  %139 = trunc i32 %74 to i8
+  %140 = and i8 %139, 63
+  %141 = or disjoint i8 %140, -128
+  store i8 %141, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx, align 2, !tbaa !25
   br label %json_append_unicode_escape.exit.i
 
-if.then29.i.i.i:                                  ; preds = %if.end9.i.i.i, %if.end26.i.thread.i.i
-  %codepoint.0137144148154.i.i = phi i32 [ %add.i.i, %if.end26.i.thread.i.i ], [ %add13.i.i.i, %if.end9.i.i.i ]
-  %escape_len.0139143149153.i.i = phi i64 [ 12, %if.end26.i.thread.i.i ], [ 6, %if.end9.i.i.i ]
-  %shr30.i.i.i = lshr i32 %codepoint.0137144148154.i.i, 18
-  %48 = trunc nuw nsw i32 %shr30.i.i.i to i8
-  %conv32.i.i.i = or disjoint i8 %48, -16
-  store i8 %conv32.i.i.i, ptr %utf8.sroa.0.i.i, align 4, !tbaa !13
-  %shr34.i.i.i = lshr i32 %codepoint.0137144148154.i.i, 12
-  %49 = trunc i32 %shr34.i.i.i to i8
-  %50 = and i8 %49, 63
-  %conv37.i.i.i = or disjoint i8 %50, -128
-  store i8 %conv37.i.i.i, ptr %utf8.sroa.0.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.i.1.i.1.i.1.arrayidx38.i.sroa_idx, align 1, !tbaa !13
-  %shr39.i.i.i = lshr i32 %codepoint.0137144148154.i.i, 6
-  %51 = trunc i32 %shr39.i.i.i to i8
-  %52 = and i8 %51, 63
-  %conv42.i.i.i = or disjoint i8 %52, -128
-  store i8 %conv42.i.i.i, ptr %utf8.sroa.0.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.i.2.i.2.i.2.arrayidx43.i.sroa_idx, align 2, !tbaa !13
-  %53 = trunc i32 %codepoint.0137144148154.i.i to i8
-  %54 = and i8 %53, 63
-  %conv46.i.i.i = or disjoint i8 %54, -128
-  store i8 %conv46.i.i.i, ptr %utf8.sroa.0.i.i.3.i.i.3.i.i.3.i.i.3.i.i.3.i.i.3.i.i.3.i.3.i.3.arrayidx47.i.sroa_idx, align 1, !tbaa !13
+142:                                              ; preds = %129
+  %143 = icmp samesign ult i32 %74, 2097152
+  br i1 %143, label %144, label %.loopexit.i
+
+144:                                              ; preds = %142, %.thread68.i.i
+  %.02355626672.i.i = phi i32 [ %115, %.thread68.i.i ], [ %74, %142 ]
+  %.057616771.i.i = phi i64 [ 12, %.thread68.i.i ], [ 6, %142 ]
+  %145 = lshr i32 %.02355626672.i.i, 18
+  %146 = trunc nuw i32 %145 to i8
+  %147 = or disjoint i8 %146, -16
+  store i8 %147, ptr %.sroa.0.i.i, align 4, !tbaa !25
+  %148 = lshr i32 %.02355626672.i.i, 12
+  %149 = trunc i32 %148 to i8
+  %150 = and i8 %149, 63
+  %151 = or disjoint i8 %150, -128
+  store i8 %151, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx126, align 1, !tbaa !25
+  %152 = lshr i32 %.02355626672.i.i, 6
+  %153 = trunc i32 %152 to i8
+  %154 = and i8 %153, 63
+  %155 = or disjoint i8 %154, -128
+  store i8 %155, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx127, align 2, !tbaa !25
+  %156 = trunc i32 %.02355626672.i.i to i8
+  %157 = and i8 %156, 63
+  %158 = or disjoint i8 %157, -128
+  store i8 %158, ptr %.sroa.0.i.i.3.i.i.3.i.i.3.i.3.i.3..sroa_idx, align 1, !tbaa !25
   br label %json_append_unicode_escape.exit.i
 
-json_append_unicode_escape.exit.i:                ; preds = %if.then29.i.i.i, %if.then12.i.i.i, %if.then3.i.i.i, %if.then.i.i.i
-  %escape_len.0138.ph.i.i = phi i64 [ %escape_len.0139143149153.i.i, %if.then29.i.i.i ], [ 6, %if.then12.i.i.i ], [ 6, %if.then3.i.i.i ], [ 6, %if.then.i.i.i ]
-  %retval.0.i119.ph.i.i = phi i64 [ 4, %if.then29.i.i.i ], [ 3, %if.then12.i.i.i ], [ 2, %if.then3.i.i.i ], [ 1, %if.then.i.i.i ]
-  %55 = load ptr, ptr %tmp.i, align 8, !tbaa !23
-  %56 = load ptr, ptr %55, align 8, !tbaa !16
-  %length.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load i64, ptr %length.i.i.i, align 8, !tbaa !15
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %56, i64 %57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %utf8.sroa.0.i.i, i64 %retval.0.i119.ph.i.i, i1 false)
-  %58 = load i64, ptr %length.i.i.i, align 8, !tbaa !15
-  %add.i120.i.i = add i64 %58, %retval.0.i119.ph.i.i
-  store i64 %add.i120.i.i, ptr %length.i.i.i, align 8, !tbaa !15
-  %59 = load ptr, ptr %ptr, align 8, !tbaa !21
-  %add.ptr44.i.i = getelementptr inbounds nuw i8, ptr %59, i64 %escape_len.0138.ph.i.i
-  store ptr %add.ptr44.i.i, ptr %ptr, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %utf8.sroa.0.i.i)
-  br label %while.cond.i.backedge
+json_append_unicode_escape.exit.i:                ; preds = %144, %131, %122, %118
+  %.056.ph.i.i = phi i64 [ %.057616771.i.i, %144 ], [ 6, %131 ], [ 6, %122 ], [ 6, %118 ]
+  %.0.i.ph.i.i = phi i64 [ 4, %144 ], [ 3, %131 ], [ 2, %122 ], [ 1, %118 ]
+  %159 = load ptr, ptr %32, align 8, !tbaa !40
+  %160 = load ptr, ptr %159, align 8, !tbaa !33
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %162 = load i64, ptr %161, align 8, !tbaa !32
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 %162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %163, ptr noundef nonnull readonly align 4 dereferenceable(1) %.sroa.0.i.i, i64 range(i64 -2147483648, 2147483648) %.0.i.ph.i.i, i1 false)
+  %164 = load i64, ptr %161, align 8, !tbaa !32
+  %165 = add i64 %164, %.0.i.ph.i.i
+  store i64 %165, ptr %161, align 8, !tbaa !32
+  %166 = load ptr, ptr %8, align 8, !tbaa !38
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 %.056.ph.i.i
+  store ptr %167, ptr %8, align 8, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i.i)
+  br label %.backedge.i.backedge
 
-if.end16.i:                                       ; preds = %decode_hex4.exit118.i.i, %lor.lhs.false.i.i, %if.end5.i.i, %if.then2.i.i, %decode_hex4.exit.i.i, %decode_hex4.exit118.thread.i.i, %decode_hex4.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %utf8.sroa.0.i.i)
-  store i32 12, ptr %token, align 8, !tbaa !24
-  %60 = load ptr, ptr %json, align 8, !tbaa !19
-  %sub.ptr.lhs.cast.i60.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i61.i = ptrtoint ptr %60 to i64
-  %sub.ptr.sub.i62.i = sub i64 %sub.ptr.lhs.cast.i60.i, %sub.ptr.rhs.cast.i61.i
-  store i64 %sub.ptr.sub.i62.i, ptr %index, align 8, !tbaa !26
+.loopexit.i:                                      ; preds = %142, %decode_hex4.exit39.i.i, %84, %81, %79, %decode_hex4.exit.i.i, %decode_hex4.exit39.thread.i.i, %decode_hex4.exit.thread.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i.i)
+  %.val33.i = load ptr, ptr %0, align 8, !tbaa !36
+  store i32 12, ptr %1, align 8, !tbaa !41
+  %168 = ptrtoint ptr %.val34.i to i64
+  %169 = ptrtoint ptr %.val33.i to i64
+  %170 = sub i64 %168, %169
+  store i64 %170, ptr %23, align 8, !tbaa !43
   br label %json_next_string_token.exit
 
-if.then19.i:                                      ; preds = %if.then7.i
-  store i32 12, ptr %token, align 8, !tbaa !24
-  %61 = load ptr, ptr %json, align 8, !tbaa !19
-  %sub.ptr.lhs.cast.i66.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i67.i = ptrtoint ptr %61 to i64
-  %sub.ptr.sub.i68.i = sub i64 %sub.ptr.lhs.cast.i66.i, %sub.ptr.rhs.cast.i67.i
-  store i64 %sub.ptr.sub.i68.i, ptr %index, align 8, !tbaa !26
+171:                                              ; preds = %46
+  %.val.i = load ptr, ptr %0, align 8, !tbaa !36
+  store i32 12, ptr %1, align 8, !tbaa !41
+  %172 = ptrtoint ptr %.val34.i to i64
+  %173 = ptrtoint ptr %.val.i to i64
+  %174 = sub i64 %172, %173
+  store i64 %174, ptr %23, align 8, !tbaa !43
   br label %json_next_string_token.exit
 
-if.end20.i:                                       ; preds = %if.then7.i
-  store ptr %add.ptr.i, ptr %ptr, align 8, !tbaa !21
-  br label %if.end23.i
+175:                                              ; preds = %46
+  store ptr %47, ptr %8, align 8, !tbaa !38
+  br label %176
 
-if.end23.i:                                       ; preds = %if.end20.i, %while.cond.i
-  %ch.0.i = phi i8 [ %12, %if.end20.i ], [ %9, %while.cond.i ]
-  %62 = load ptr, ptr %tmp.i, align 8, !tbaa !23
-  %63 = load ptr, ptr %62, align 8, !tbaa !16
-  %length.i71.i = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load i64, ptr %length.i71.i, align 8, !tbaa !15
-  %inc.i.i = add i64 %64, 1
-  store i64 %inc.i.i, ptr %length.i71.i, align 8, !tbaa !15
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %63, i64 %64
-  store i8 %ch.0.i, ptr %arrayidx.i.i, align 1, !tbaa !13
-  %65 = load ptr, ptr %ptr, align 8, !tbaa !21
-  %incdec.ptr26.i = getelementptr inbounds nuw i8, ptr %65, i64 1
-  store ptr %incdec.ptr26.i, ptr %ptr, align 8, !tbaa !21
-  br label %while.cond.i.backedge
+176:                                              ; preds = %175, %.backedge.i
+  %.0.i = phi i8 [ %51, %175 ], [ %41, %.backedge.i ]
+  %177 = load ptr, ptr %32, align 8, !tbaa !40
+  %178 = load ptr, ptr %177, align 8, !tbaa !33
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %180 = load i64, ptr %179, align 8, !tbaa !32
+  %181 = add i64 %180, 1
+  store i64 %181, ptr %179, align 8, !tbaa !32
+  %182 = getelementptr inbounds nuw i8, ptr %178, i64 %180
+  store i8 %.0.i, ptr %182, align 1, !tbaa !25
+  %183 = load ptr, ptr %8, align 8, !tbaa !38
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 1
+  store ptr %184, ptr %8, align 8, !tbaa !38
+  br label %.backedge.i.backedge
 
-while.cond.i.backedge:                            ; preds = %if.end23.i, %json_append_unicode_escape.exit.i
-  %.be = phi ptr [ %incdec.ptr26.i, %if.end23.i ], [ %add.ptr44.i.i, %json_append_unicode_escape.exit.i ]
-  br label %while.cond.i, !llvm.loop !41
+.backedge.i.backedge:                             ; preds = %176, %json_append_unicode_escape.exit.i
+  %.val34.i.be = phi ptr [ %184, %176 ], [ %167, %json_append_unicode_escape.exit.i ]
+  br label %.backedge.i, !llvm.loop !50
 
-while.end.i:                                      ; preds = %while.cond.i
-  %incdec.ptr28.i = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store ptr %incdec.ptr28.i, ptr %ptr, align 8, !tbaa !21
-  %66 = load ptr, ptr %tmp.i, align 8, !tbaa !23
-  %67 = load ptr, ptr %66, align 8, !tbaa !16
-  %length.i72.i = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = load i64, ptr %length.i72.i, align 8, !tbaa !15
-  %arrayidx.i73.i = getelementptr inbounds i8, ptr %67, i64 %68
-  store i8 0, ptr %arrayidx.i73.i, align 1, !tbaa !13
-  store i32 4, ptr %token, align 8, !tbaa !24
-  %69 = load ptr, ptr %tmp.i, align 8, !tbaa !23
-  %string_len.i = getelementptr inbounds nuw i8, ptr %token, i64 24
-  %length.i74.i = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %70 = load i64, ptr %length.i74.i, align 8, !tbaa !15
-  store i64 %70, ptr %string_len.i, align 8, !tbaa !22
-  %71 = load ptr, ptr %69, align 8, !tbaa !16
+185:                                              ; preds = %.backedge.i
+  %186 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 1
+  store ptr %186, ptr %8, align 8, !tbaa !38
+  %187 = load ptr, ptr %32, align 8, !tbaa !40
+  %.val37.i = load ptr, ptr %187, align 8, !tbaa !33
+  %188 = getelementptr i8, ptr %187, i64 16
+  %.val38.i = load i64, ptr %188, align 8, !tbaa !32
+  %189 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 %.val38.i
+  store i8 0, ptr %189, align 1, !tbaa !25
+  store i32 4, ptr %1, align 8, !tbaa !41
+  %190 = load ptr, ptr %32, align 8, !tbaa !40
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val39.i = load ptr, ptr %190, align 8, !tbaa !33
+  %192 = getelementptr i8, ptr %190, i64 16
+  %.val40.i = load i64, ptr %192, align 8, !tbaa !32
+  store i64 %.val40.i, ptr %191, align 8, !tbaa !39
   br label %json_next_string_token.exit
 
-json_next_string_token.exit:                      ; preds = %while.end.i, %if.then19.i, %if.end16.i, %if.then.i
-  %.sink.i = phi ptr [ %71, %while.end.i ], [ @.str.70, %if.then19.i ], [ @.str.69, %if.end16.i ], [ @.str.68, %if.then.i ]
-  %value.i119 = getelementptr inbounds nuw i8, ptr %token, i64 16
-  store ptr %.sink.i, ptr %value.i119, align 8, !tbaa !13
-  br label %cleanup
+json_next_string_token.exit:                      ; preds = %42, %.loopexit.i, %171, %185
+  %.val39.sink.i = phi ptr [ %.val39.i, %185 ], [ @.str.70, %171 ], [ @.str.69, %.loopexit.i ], [ @.str.68, %42 ]
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.val39.sink.i, ptr %193, align 8, !tbaa !25
+  br label %252
 
-lor.lhs.false:                                    ; preds = %if.end22
-  %72 = add i8 %.lcssa157, -48
-  %or.cond = icmp ult i8 %72, 10
-  br i1 %or.cond, label %if.then32, label %if.else38
+194:                                              ; preds = %28
+  %195 = add i8 %.lcssa79, -48
+  %or.cond = icmp ult i8 %195, 10
+  br i1 %or.cond, label %196, label %228
 
-if.then32:                                        ; preds = %lor.lhs.false, %if.end22
-  %decode_invalid_numbers = getelementptr inbounds nuw i8, ptr %0, i64 1348
-  %73 = load i32, ptr %decode_invalid_numbers, align 4, !tbaa !42
-  %tobool.not = icmp eq i32 %73, 0
-  br i1 %tobool.not, label %land.lhs.true34, label %if.end37
+196:                                              ; preds = %28, %194
+  %197 = getelementptr inbounds nuw i8, ptr %7, i64 1348
+  %198 = load i32, ptr %197, align 4, !tbaa !18
+  %.not52 = icmp eq i32 %198, 0
+  br i1 %.not52, label %199, label %json_is_invalid_number.exit.thread69
 
-land.lhs.true34:                                  ; preds = %if.then32
-  %74 = load i8, ptr %json.val, align 1, !tbaa !13
-  switch i8 %74, label %if.end6.i [
-    i8 43, label %if.then36
-    i8 45, label %if.then5.i
+199:                                              ; preds = %196
+  %200 = load i8, ptr %.lcssa80, align 1, !tbaa !25
+  switch i8 %200, label %203 [
+    i8 43, label %json_is_invalid_number.exit.thread
+    i8 45, label %201
   ]
 
-if.then5.i:                                       ; preds = %land.lhs.true34
-  %incdec.ptr.i121 = getelementptr inbounds nuw i8, ptr %json.val, i64 1
-  %.pr.i = load i8, ptr %incdec.ptr.i121, align 1, !tbaa !13
-  br label %if.end6.i
+201:                                              ; preds = %199
+  %202 = getelementptr inbounds nuw i8, ptr %.lcssa80, i64 1
+  %.pr.i = load i8, ptr %202, align 1, !tbaa !25
+  br label %203
 
-if.end6.i:                                        ; preds = %if.then5.i, %land.lhs.true34
-  %75 = phi i8 [ %74, %land.lhs.true34 ], [ %.pr.i, %if.then5.i ]
-  %p.0.i = phi ptr [ %json.val, %land.lhs.true34 ], [ %incdec.ptr.i121, %if.then5.i ]
-  %cmp8.i = icmp eq i8 %75, 48
-  br i1 %cmp8.i, label %if.then10.i, label %if.else.i
+203:                                              ; preds = %201, %199
+  %204 = phi i8 [ %200, %199 ], [ %.pr.i, %201 ]
+  %.013.i = phi ptr [ %.lcssa80, %199 ], [ %202, %201 ]
+  %205 = icmp eq i8 %204, 48
+  br i1 %205, label %206, label %212
 
-if.then10.i:                                      ; preds = %if.end6.i
-  %add.ptr.i122 = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1
-  %76 = load i8, ptr %add.ptr.i122, align 1, !tbaa !13
-  %77 = and i8 %76, -33
-  %cmp12.i = icmp eq i8 %77, 88
-  %78 = add i8 %76, -48
-  %or.cond.i = icmp ult i8 %78, 10
-  %or.cond42.i = or i1 %cmp12.i, %or.cond.i
-  br i1 %or.cond42.i, label %if.then36, label %if.end37
+206:                                              ; preds = %203
+  %207 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
+  %208 = load i8, ptr %207, align 1, !tbaa !25
+  %209 = and i8 %208, -33
+  %210 = icmp eq i8 %209, 88
+  %211 = add i8 %208, -48
+  %or.cond.i = icmp ult i8 %211, 10
+  %or.cond17.i = or i1 %210, %or.cond.i
+  br i1 %or.cond17.i, label %json_is_invalid_number.exit.thread, label %json_is_invalid_number.exit.thread69
 
-if.else.i:                                        ; preds = %if.end6.i
-  %cmp21.i = icmp slt i8 %75, 58
-  br i1 %cmp21.i, label %if.end37, label %if.end25.i
+212:                                              ; preds = %203
+  %213 = icmp slt i8 %204, 58
+  br i1 %213, label %json_is_invalid_number.exit.thread69, label %214
 
-if.end25.i:                                       ; preds = %if.else.i
-  %call.i = tail call i32 @strncasecmp(ptr noundef nonnull %p.0.i, ptr noundef nonnull @.str.71, i64 noundef 3) #14
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then36, label %json_is_invalid_number.exit
+214:                                              ; preds = %212
+  %215 = tail call i32 @strncasecmp(ptr noundef nonnull %.013.i, ptr noundef nonnull @.str.71, i64 noundef 3) #14
+  %.not.i = icmp eq i32 %215, 0
+  br i1 %.not.i, label %json_is_invalid_number.exit.thread, label %json_is_invalid_number.exit
 
-json_is_invalid_number.exit:                      ; preds = %if.end25.i
-  %call28.i = tail call i32 @strncasecmp(ptr noundef nonnull %p.0.i, ptr noundef nonnull @.str.58, i64 noundef 3) #14
-  %tobool29.not.i = icmp eq i32 %call28.i, 0
-  br i1 %tobool29.not.i, label %if.then36, label %if.end37
+json_is_invalid_number.exit:                      ; preds = %214
+  %216 = tail call i32 @strncasecmp(ptr noundef nonnull %.013.i, ptr noundef nonnull @.str.58, i64 noundef 3) #14
+  %.not16.i = icmp eq i32 %216, 0
+  br i1 %.not16.i, label %json_is_invalid_number.exit.thread, label %json_is_invalid_number.exit.thread69
 
-if.then36:                                        ; preds = %json_is_invalid_number.exit, %if.end25.i, %if.then10.i, %land.lhs.true34
-  store i32 12, ptr %token, align 8, !tbaa !24
-  store i64 %sub.ptr.sub, ptr %index, align 8, !tbaa !26
-  %value.i128 = getelementptr inbounds nuw i8, ptr %token, i64 16
-  store ptr @.str.67, ptr %value.i128, align 8, !tbaa !13
-  br label %cleanup
+json_is_invalid_number.exit.thread:               ; preds = %206, %214, %199, %json_is_invalid_number.exit
+  store i32 12, ptr %1, align 8, !tbaa !41
+  store i64 %22, ptr %23, align 8, !tbaa !43
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr @.str.67, ptr %217, align 8, !tbaa !25
+  br label %252
 
-if.end37:                                         ; preds = %json_is_invalid_number.exit, %if.else.i, %if.then10.i, %if.then32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i) #12
-  store i32 5, ptr %token, align 8, !tbaa !24
-  %call.i130 = call double @fpconv_strtod(ptr noundef nonnull %json.val, ptr noundef nonnull %endptr.i) #12
-  %value.i131 = getelementptr inbounds nuw i8, ptr %token, i64 16
-  store double %call.i130, ptr %value.i131, align 8, !tbaa !13
-  %79 = load ptr, ptr %ptr, align 8, !tbaa !21
-  %80 = load ptr, ptr %endptr.i, align 8, !tbaa !37
-  %cmp.i = icmp eq ptr %79, %80
-  br i1 %cmp.i, label %if.then.i133, label %if.else.i132
+json_is_invalid_number.exit.thread69:             ; preds = %206, %212, %json_is_invalid_number.exit, %196
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  store i32 5, ptr %1, align 8, !tbaa !41
+  %218 = call double @fpconv_strtod(ptr noundef nonnull %.lcssa80, ptr noundef nonnull %3) #12
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double %218, ptr %219, align 8, !tbaa !25
+  %220 = load ptr, ptr %8, align 8, !tbaa !38
+  %221 = load ptr, ptr %3, align 8, !tbaa !30
+  %222 = icmp eq ptr %220, %221
+  br i1 %222, label %223, label %227
 
-if.then.i133:                                     ; preds = %if.end37
-  store i32 12, ptr %token, align 8, !tbaa !24
-  %81 = load ptr, ptr %json, align 8, !tbaa !19
-  %sub.ptr.lhs.cast.i.i134 = ptrtoint ptr %79 to i64
-  %sub.ptr.rhs.cast.i.i135 = ptrtoint ptr %81 to i64
-  %sub.ptr.sub.i.i136 = sub i64 %sub.ptr.lhs.cast.i.i134, %sub.ptr.rhs.cast.i.i135
-  store i64 %sub.ptr.sub.i.i136, ptr %index, align 8, !tbaa !26
-  store ptr @.str.67, ptr %value.i131, align 8, !tbaa !13
+223:                                              ; preds = %json_is_invalid_number.exit.thread69
+  %.val.i62 = load ptr, ptr %0, align 8, !tbaa !36
+  store i32 12, ptr %1, align 8, !tbaa !41
+  %224 = ptrtoint ptr %220 to i64
+  %225 = ptrtoint ptr %.val.i62 to i64
+  %226 = sub i64 %224, %225
+  store i64 %226, ptr %23, align 8, !tbaa !43
+  store ptr @.str.67, ptr %219, align 8, !tbaa !25
   br label %json_next_number_token.exit
 
-if.else.i132:                                     ; preds = %if.end37
-  store ptr %80, ptr %ptr, align 8, !tbaa !21
+227:                                              ; preds = %json_is_invalid_number.exit.thread69
+  store ptr %221, ptr %8, align 8, !tbaa !38
   br label %json_next_number_token.exit
 
-json_next_number_token.exit:                      ; preds = %if.else.i132, %if.then.i133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i) #12
-  br label %cleanup
+json_next_number_token.exit:                      ; preds = %223, %227
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  br label %252
 
-if.else38:                                        ; preds = %lor.lhs.false
-  %call40 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %json.val, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #14
-  %tobool41.not = icmp eq i32 %call40, 0
-  br i1 %tobool41.not, label %if.then42, label %if.else45
+228:                                              ; preds = %194
+  %229 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.lcssa80, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #14
+  %.not47 = icmp eq i32 %229, 0
+  br i1 %.not47, label %230, label %234
 
-if.then42:                                        ; preds = %if.else38
-  store i32 6, ptr %token, align 8, !tbaa !24
-  %value = getelementptr inbounds nuw i8, ptr %token, i64 16
-  store i32 1, ptr %value, align 8, !tbaa !13
-  %82 = load ptr, ptr %ptr, align 8, !tbaa !21
-  %add.ptr = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store ptr %add.ptr, ptr %ptr, align 8, !tbaa !21
-  br label %cleanup
+230:                                              ; preds = %228
+  store i32 6, ptr %1, align 8, !tbaa !41
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 1, ptr %231, align 8, !tbaa !25
+  %232 = load ptr, ptr %8, align 8, !tbaa !38
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
+  store ptr %233, ptr %8, align 8, !tbaa !38
+  br label %252
 
-if.else45:                                        ; preds = %if.else38
-  %call47 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %json.val, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #14
-  %tobool48.not = icmp eq i32 %call47, 0
-  br i1 %tobool48.not, label %if.then49, label %if.else54
+234:                                              ; preds = %228
+  %235 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.lcssa80, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #14
+  %.not48 = icmp eq i32 %235, 0
+  br i1 %.not48, label %236, label %240
 
-if.then49:                                        ; preds = %if.else45
-  store i32 6, ptr %token, align 8, !tbaa !24
-  %value51 = getelementptr inbounds nuw i8, ptr %token, i64 16
-  store i32 0, ptr %value51, align 8, !tbaa !13
-  %83 = load ptr, ptr %ptr, align 8, !tbaa !21
-  %add.ptr53 = getelementptr inbounds nuw i8, ptr %83, i64 5
-  store ptr %add.ptr53, ptr %ptr, align 8, !tbaa !21
-  br label %cleanup
+236:                                              ; preds = %234
+  store i32 6, ptr %1, align 8, !tbaa !41
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 0, ptr %237, align 8, !tbaa !25
+  %238 = load ptr, ptr %8, align 8, !tbaa !38
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 5
+  store ptr %239, ptr %8, align 8, !tbaa !38
+  br label %252
 
-if.else54:                                        ; preds = %if.else45
-  %call56 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %json.val, ptr noundef nonnull dereferenceable(5) @.str.11, i64 noundef 4) #14
-  %tobool57.not = icmp eq i32 %call56, 0
-  br i1 %tobool57.not, label %if.then58, label %if.else62
+240:                                              ; preds = %234
+  %241 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.lcssa80, ptr noundef nonnull dereferenceable(5) @.str.11, i64 noundef 4) #14
+  %.not49 = icmp eq i32 %241, 0
+  br i1 %.not49, label %242, label %244
 
-if.then58:                                        ; preds = %if.else54
-  store i32 7, ptr %token, align 8, !tbaa !24
-  %add.ptr61 = getelementptr inbounds nuw i8, ptr %json.val, i64 4
-  store ptr %add.ptr61, ptr %ptr, align 8, !tbaa !21
-  br label %cleanup
+242:                                              ; preds = %240
+  store i32 7, ptr %1, align 8, !tbaa !41
+  %243 = getelementptr inbounds nuw i8, ptr %.lcssa80, i64 4
+  store ptr %243, ptr %8, align 8, !tbaa !38
+  br label %252
 
-if.else62:                                        ; preds = %if.else54
-  %decode_invalid_numbers64 = getelementptr inbounds nuw i8, ptr %0, i64 1348
-  %84 = load i32, ptr %decode_invalid_numbers64, align 4, !tbaa !42
-  %tobool65.not = icmp eq i32 %84, 0
-  br i1 %tobool65.not, label %if.end75, label %land.lhs.true66
+244:                                              ; preds = %240
+  %245 = getelementptr inbounds nuw i8, ptr %7, i64 1348
+  %246 = load i32, ptr %245, align 4, !tbaa !18
+  %.not50 = icmp eq i32 %246, 0
+  br i1 %.not50, label %250, label %247
 
-land.lhs.true66:                                  ; preds = %if.else62
-  %call67 = tail call fastcc i32 @json_is_invalid_number(ptr nonnull %json.val)
-  %tobool68.not = icmp eq i32 %call67, 0
-  br i1 %tobool68.not, label %if.end75, label %if.then69
+247:                                              ; preds = %244
+  %248 = tail call fastcc i32 @json_is_invalid_number(ptr nonnull %.lcssa80)
+  %.not51 = icmp eq i32 %248, 0
+  br i1 %.not51, label %250, label %249
 
-if.then69:                                        ; preds = %land.lhs.true66
-  tail call fastcc void @json_next_number_token(ptr noundef nonnull %json, ptr noundef nonnull %token)
-  br label %cleanup
+249:                                              ; preds = %247
+  tail call fastcc void @json_next_number_token(ptr noundef %0, ptr noundef %1)
+  br label %252
 
-if.end75:                                         ; preds = %land.lhs.true66, %if.else62
-  store i32 12, ptr %token, align 8, !tbaa !24
-  store i64 %sub.ptr.sub, ptr %index, align 8, !tbaa !26
-  %value.i143 = getelementptr inbounds nuw i8, ptr %token, i64 16
-  store ptr @.str.66, ptr %value.i143, align 8, !tbaa !13
-  br label %cleanup
+250:                                              ; preds = %244, %247
+  store i32 12, ptr %1, align 8, !tbaa !41
+  store i64 %22, ptr %23, align 8, !tbaa !43
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr @.str.66, ptr %251, align 8, !tbaa !25
+  br label %252
 
-cleanup:                                          ; preds = %if.end75, %if.then69, %if.then58, %if.then49, %if.then42, %json_next_number_token.exit, %if.then36, %json_next_string_token.exit, %if.then19, %if.then9, %while.end
+252:                                              ; preds = %._crit_edge, %250, %249, %242, %236, %230, %json_next_number_token.exit, %json_is_invalid_number.exit.thread, %json_next_string_token.exit, %26, %24
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_process_value(ptr noundef %l, ptr noundef nonnull %json, ptr noundef nonnull readonly captures(none) %token) unnamed_addr #0 {
-entry:
-  %token.i21 = alloca %struct.json_token_t, align 8
-  %token.i = alloca %struct.json_token_t, align 8
-  %0 = load i32, ptr %token, align 8, !tbaa !24
-  switch i32 %0, label %sw.default [
-    i32 4, label %sw.bb
-    i32 5, label %sw.bb1
-    i32 6, label %sw.bb3
-    i32 0, label %sw.bb5
-    i32 2, label %sw.bb6
-    i32 7, label %sw.bb7
+define internal fastcc void @json_process_value(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
+  %4 = alloca %struct.json_token_t, align 8
+  %5 = alloca %struct.json_token_t, align 8
+  %6 = load i32, ptr %2, align 8, !tbaa !41
+  switch i32 %6, label %113 [
+    i32 4, label %7
+    i32 5, label %12
+    i32 6, label %15
+    i32 0, label %18
+    i32 2, label %75
+    i32 7, label %112
   ]
 
-sw.bb:                                            ; preds = %entry
-  %value = getelementptr inbounds nuw i8, ptr %token, i64 16
-  %1 = load ptr, ptr %value, align 8, !tbaa !13
-  %string_len = getelementptr inbounds nuw i8, ptr %token, i64 24
-  %2 = load i64, ptr %string_len, align 8, !tbaa !43
-  tail call void @lua_pushlstring(ptr noundef %l, ptr noundef %1, i64 noundef %2) #12
-  br label %sw.epilog
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %11 = load i64, ptr %10, align 8, !tbaa !51
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef %9, i64 noundef %11) #12
+  br label %124
 
-sw.bb1:                                           ; preds = %entry
-  %value2 = getelementptr inbounds nuw i8, ptr %token, i64 16
-  %3 = load double, ptr %value2, align 8, !tbaa !13
-  tail call void @lua_pushnumber(ptr noundef %l, double noundef %3) #12
-  br label %sw.epilog
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = load double, ptr %13, align 8, !tbaa !25
+  tail call void @lua_pushnumber(ptr noundef %0, double noundef %14) #12
+  br label %124
 
-sw.bb3:                                           ; preds = %entry
-  %value4 = getelementptr inbounds nuw i8, ptr %token, i64 16
-  %4 = load i32, ptr %value4, align 8, !tbaa !13
-  tail call void @lua_pushboolean(ptr noundef %l, i32 noundef %4) #12
-  br label %sw.epilog
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %17 = load i32, ptr %16, align 8, !tbaa !25
+  tail call void @lua_pushboolean(ptr noundef %0, i32 noundef %17) #12
+  br label %124
 
-sw.bb5:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %token.i) #12
-  %current_depth.i61 = getelementptr inbounds nuw i8, ptr %json, i64 32
-  %5 = load i32, ptr %current_depth.i61, align 8, !tbaa !20
-  %inc.i62 = add nsw i32 %5, 1
-  store i32 %inc.i62, ptr %current_depth.i61, align 8, !tbaa !20
-  %cfg.i = getelementptr inbounds nuw i8, ptr %json, i64 24
-  %6 = load ptr, ptr %cfg.i, align 8, !tbaa !17
-  %decode_max_depth.i = getelementptr inbounds nuw i8, ptr %6, i64 1352
-  %7 = load i32, ptr %decode_max_depth.i, align 8, !tbaa !8
-  %cmp.not.not.i = icmp slt i32 %5, %7
-  br i1 %cmp.not.not.i, label %land.lhs.true.i, label %if.end.i
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %20 = load i32, ptr %19, align 8, !tbaa !37
+  %21 = add nsw i32 %20, 1
+  store i32 %21, ptr %19, align 8, !tbaa !37
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = load ptr, ptr %22, align 8, !tbaa !34
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1352
+  %25 = load i32, ptr %24, align 8, !tbaa !16
+  %.not.not.i = icmp slt i32 %20, %25
+  br i1 %.not.not.i, label %26, label %28
 
-land.lhs.true.i:                                  ; preds = %sw.bb5
-  %call.i64 = tail call i32 @lua_checkstack(ptr noundef %l, i32 noundef 3) #12
-  %tobool.not.i = icmp eq i32 %call.i64, 0
-  br i1 %tobool.not.i, label %if.end.i, label %json_decode_descend.exit
+26:                                               ; preds = %18
+  %27 = tail call i32 @lua_checkstack(ptr noundef %0, i32 noundef 3) #12
+  %.not.i24 = icmp eq i32 %27, 0
+  br i1 %.not.i24, label %28, label %json_decode_descend.exit
 
-if.end.i:                                         ; preds = %land.lhs.true.i, %sw.bb5
-  %tmp.i63 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %8 = load ptr, ptr %tmp.i63, align 8, !tbaa !23
-  tail call void @strbuf_free(ptr noundef %8) #12
-  %9 = load i32, ptr %current_depth.i61, align 8, !tbaa !20
-  %ptr.i = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %10 = load ptr, ptr %ptr.i, align 8, !tbaa !21
-  %11 = load ptr, ptr %json, align 8, !tbaa !19
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %call3.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.76, i32 noundef %9, i64 noundef %sub.ptr.sub.i) #12
+28:                                               ; preds = %26, %18
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !40
+  tail call void @strbuf_free(ptr noundef %30) #12
+  %31 = load i32, ptr %19, align 8, !tbaa !37
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !38
+  %34 = load ptr, ptr %1, align 8, !tbaa !36
+  %35 = ptrtoint ptr %33 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %38 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef %31, i64 noundef %37) #12
   br label %json_decode_descend.exit
 
-json_decode_descend.exit:                         ; preds = %if.end.i, %land.lhs.true.i
-  tail call void @lua_createtable(ptr noundef %l, i32 noundef 0, i32 noundef 0) #12
-  call fastcc void @json_next_token(ptr noundef nonnull %json, ptr noundef nonnull %token.i)
-  %12 = load i32, ptr %token.i, align 8, !tbaa !24
-  %cmp.i = icmp eq i32 %12, 1
-  br i1 %cmp.i, label %json_parse_object_context.exit, label %while.cond.i.preheader
+json_decode_descend.exit:                         ; preds = %26, %28
+  tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
+  call fastcc void @json_next_token(ptr noundef nonnull %1, ptr noundef %5)
+  %39 = load i32, ptr %5, align 8, !tbaa !41
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %json_parse_object_context.exit, label %.preheader
 
-while.cond.i.preheader:                           ; preds = %json_decode_descend.exit
-  %tmp.i49 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %value.i51 = getelementptr inbounds nuw i8, ptr %token.i, i64 16
-  %index.i56 = getelementptr inbounds nuw i8, ptr %token.i, i64 8
-  %string_len.i = getelementptr inbounds nuw i8, ptr %token.i, i64 24
-  br label %while.cond.i
+.preheader:                                       ; preds = %json_decode_descend.exit
+  %41 = getelementptr i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %45
 
-while.cond.i:                                     ; preds = %if.end16.i, %while.cond.i.preheader
-  %13 = phi i32 [ %.pr, %if.end16.i ], [ %12, %while.cond.i.preheader ]
-  %cmp2.not.i = icmp eq i32 %13, 4
-  br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
+45:                                               ; preds = %.preheader, %74
+  %46 = phi i32 [ %.pr, %74 ], [ %39, %.preheader ]
+  %.not.i = icmp eq i32 %46, 4
+  br i1 %.not.i, label %54, label %47
 
-if.then3.i:                                       ; preds = %while.cond.i
-  %14 = load ptr, ptr %tmp.i49, align 8, !tbaa !23
-  tail call void @strbuf_free(ptr noundef %14) #12
-  %cmp.i50 = icmp eq i32 %13, 12
-  %idxprom.i52 = zext i32 %13 to i64
-  %arrayidx.i53 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %idxprom.i52
-  %found.0.in.i54 = select i1 %cmp.i50, ptr %value.i51, ptr %arrayidx.i53
-  %found.0.i55 = load ptr, ptr %found.0.in.i54, align 8, !tbaa !13
-  %15 = load i64, ptr %index.i56, align 8, !tbaa !26
-  %add.i57 = add i64 %15, 1
-  %call.i58 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.73, ptr noundef %found.0.i55, i64 noundef %add.i57) #12
-  br label %if.end4.i
+47:                                               ; preds = %45
+  %.val23.i = load ptr, ptr %41, align 8, !tbaa !40
+  tail call void @strbuf_free(ptr noundef %.val23.i) #12
+  %48 = icmp eq i32 %46, 12
+  %49 = zext i32 %46 to i64
+  %50 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %49
+  %.0.in.i22 = select i1 %48, ptr %42, ptr %50
+  %.0.i23 = load ptr, ptr %.0.in.i22, align 8, !tbaa !25
+  %51 = load i64, ptr %43, align 8, !tbaa !43
+  %52 = add i64 %51, 1
+  %53 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.73, ptr noundef %.0.i23, i64 noundef %52) #12
+  br label %54
 
-if.end4.i:                                        ; preds = %if.then3.i, %while.cond.i
-  %16 = load ptr, ptr %value.i51, align 8, !tbaa !13
-  %17 = load i64, ptr %string_len.i, align 8, !tbaa !43
-  tail call void @lua_pushlstring(ptr noundef %l, ptr noundef %16, i64 noundef %17) #12
-  call fastcc void @json_next_token(ptr noundef %json, ptr noundef nonnull %token.i)
-  %18 = load i32, ptr %token.i, align 8, !tbaa !24
-  %cmp6.not.i = icmp eq i32 %18, 8
-  br i1 %cmp6.not.i, label %if.end8.i, label %if.then7.i
+54:                                               ; preds = %47, %45
+  %55 = load ptr, ptr %42, align 8, !tbaa !25
+  %56 = load i64, ptr %44, align 8, !tbaa !51
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef %55, i64 noundef %56) #12
+  call fastcc void @json_next_token(ptr noundef nonnull %1, ptr noundef %5)
+  %57 = load i32, ptr %5, align 8, !tbaa !41
+  %.not20.i = icmp eq i32 %57, 8
+  br i1 %.not20.i, label %65, label %58
 
-if.then7.i:                                       ; preds = %if.end4.i
-  %19 = load ptr, ptr %tmp.i49, align 8, !tbaa !23
-  tail call void @strbuf_free(ptr noundef %19) #12
-  %cmp.i40 = icmp eq i32 %18, 12
-  %idxprom.i42 = zext i32 %18 to i64
-  %arrayidx.i43 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %idxprom.i42
-  %found.0.in.i44 = select i1 %cmp.i40, ptr %value.i51, ptr %arrayidx.i43
-  %found.0.i45 = load ptr, ptr %found.0.in.i44, align 8, !tbaa !13
-  %20 = load i64, ptr %index.i56, align 8, !tbaa !26
-  %add.i47 = add i64 %20, 1
-  %call.i48 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.74, ptr noundef %found.0.i45, i64 noundef %add.i47) #12
-  br label %if.end8.i
+58:                                               ; preds = %54
+  %.val22.i = load ptr, ptr %41, align 8, !tbaa !40
+  tail call void @strbuf_free(ptr noundef %.val22.i) #12
+  %59 = icmp eq i32 %57, 12
+  %60 = zext i32 %57 to i64
+  %61 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %60
+  %.0.in.i20 = select i1 %59, ptr %42, ptr %61
+  %.0.i21 = load ptr, ptr %.0.in.i20, align 8, !tbaa !25
+  %62 = load i64, ptr %43, align 8, !tbaa !43
+  %63 = add i64 %62, 1
+  %64 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.74, ptr noundef %.0.i21, i64 noundef %63) #12
+  br label %65
 
-if.end8.i:                                        ; preds = %if.then7.i, %if.end4.i
-  call fastcc void @json_next_token(ptr noundef %json, ptr noundef nonnull %token.i)
-  call fastcc void @json_process_value(ptr noundef %l, ptr noundef %json, ptr noundef nonnull %token.i)
-  tail call void @lua_rawset(ptr noundef %l, i32 noundef -3) #12
-  call fastcc void @json_next_token(ptr noundef %json, ptr noundef nonnull %token.i)
-  %21 = load i32, ptr %token.i, align 8, !tbaa !24
-  switch i32 %21, label %if.then15.i [
+65:                                               ; preds = %58, %54
+  call fastcc void @json_next_token(ptr noundef nonnull %1, ptr noundef %5)
+  call fastcc void @json_process_value(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %5)
+  tail call void @lua_rawset(ptr noundef %0, i32 noundef -3) #12
+  call fastcc void @json_next_token(ptr noundef nonnull %1, ptr noundef %5)
+  %66 = load i32, ptr %5, align 8, !tbaa !41
+  switch i32 %66, label %67 [
     i32 1, label %json_parse_object_context.exit
-    i32 9, label %if.end16.i
+    i32 9, label %74
   ]
 
-if.then15.i:                                      ; preds = %if.end8.i
-  %22 = load ptr, ptr %tmp.i49, align 8, !tbaa !23
-  tail call void @strbuf_free(ptr noundef %22) #12
-  %cmp.i30 = icmp eq i32 %21, 12
-  %idxprom.i32 = zext i32 %21 to i64
-  %arrayidx.i33 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %idxprom.i32
-  %found.0.in.i34 = select i1 %cmp.i30, ptr %value.i51, ptr %arrayidx.i33
-  %found.0.i35 = load ptr, ptr %found.0.in.i34, align 8, !tbaa !13
-  %23 = load i64, ptr %index.i56, align 8, !tbaa !26
-  %add.i37 = add i64 %23, 1
-  %call.i38 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.75, ptr noundef %found.0.i35, i64 noundef %add.i37) #12
-  br label %if.end16.i
+67:                                               ; preds = %65
+  %.val.i = load ptr, ptr %41, align 8, !tbaa !40
+  tail call void @strbuf_free(ptr noundef %.val.i) #12
+  %68 = icmp eq i32 %66, 12
+  %69 = zext i32 %66 to i64
+  %70 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %69
+  %.0.in.i18 = select i1 %68, ptr %42, ptr %70
+  %.0.i19 = load ptr, ptr %.0.in.i18, align 8, !tbaa !25
+  %71 = load i64, ptr %43, align 8, !tbaa !43
+  %72 = add i64 %71, 1
+  %73 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.75, ptr noundef %.0.i19, i64 noundef %72) #12
+  br label %74
 
-if.end16.i:                                       ; preds = %if.then15.i, %if.end8.i
-  call fastcc void @json_next_token(ptr noundef %json, ptr noundef nonnull %token.i)
-  %.pr = load i32, ptr %token.i, align 8, !tbaa !24
-  br label %while.cond.i
+74:                                               ; preds = %67, %65
+  call fastcc void @json_next_token(ptr noundef nonnull %1, ptr noundef %5)
+  %.pr = load i32, ptr %5, align 8, !tbaa !41
+  br label %45
 
-json_parse_object_context.exit:                   ; preds = %if.end8.i, %json_decode_descend.exit
-  %storemerge95.in = load i32, ptr %current_depth.i61, align 8, !tbaa !20
-  %storemerge95 = add nsw i32 %storemerge95.in, -1
-  store i32 %storemerge95, ptr %current_depth.i61, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %token.i) #12
-  br label %sw.epilog
+json_parse_object_context.exit:                   ; preds = %65, %json_decode_descend.exit
+  %storemerge30.in = load i32, ptr %19, align 8, !tbaa !37
+  %storemerge30 = add nsw i32 %storemerge30.in, -1
+  store i32 %storemerge30, ptr %19, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  br label %124
 
-sw.bb6:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %token.i21) #12
-  %current_depth.i79 = getelementptr inbounds nuw i8, ptr %json, i64 32
-  %24 = load i32, ptr %current_depth.i79, align 8, !tbaa !20
-  %inc.i80 = add nsw i32 %24, 1
-  store i32 %inc.i80, ptr %current_depth.i79, align 8, !tbaa !20
-  %cfg.i81 = getelementptr inbounds nuw i8, ptr %json, i64 24
-  %25 = load ptr, ptr %cfg.i81, align 8, !tbaa !17
-  %decode_max_depth.i82 = getelementptr inbounds nuw i8, ptr %25, i64 1352
-  %26 = load i32, ptr %decode_max_depth.i82, align 8, !tbaa !8
-  %cmp.not.not.i83 = icmp slt i32 %24, %26
-  br i1 %cmp.not.not.i83, label %land.lhs.true.i91, label %if.end.i84
+75:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %77 = load i32, ptr %76, align 8, !tbaa !37
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %76, align 8, !tbaa !37
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %80 = load ptr, ptr %79, align 8, !tbaa !34
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1352
+  %82 = load i32, ptr %81, align 8, !tbaa !16
+  %.not.not.i27 = icmp slt i32 %77, %82
+  br i1 %.not.not.i27, label %83, label %85
 
-land.lhs.true.i91:                                ; preds = %sw.bb6
-  %call.i92 = tail call i32 @lua_checkstack(ptr noundef %l, i32 noundef 2) #12
-  %tobool.not.i93 = icmp eq i32 %call.i92, 0
-  br i1 %tobool.not.i93, label %if.end.i84, label %json_decode_descend.exit94
+83:                                               ; preds = %75
+  %84 = tail call i32 @lua_checkstack(ptr noundef %0, i32 noundef 2) #12
+  %.not.i28 = icmp eq i32 %84, 0
+  br i1 %.not.i28, label %85, label %json_decode_descend.exit29
 
-if.end.i84:                                       ; preds = %land.lhs.true.i91, %sw.bb6
-  %tmp.i85 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %27 = load ptr, ptr %tmp.i85, align 8, !tbaa !23
-  tail call void @strbuf_free(ptr noundef %27) #12
-  %28 = load i32, ptr %current_depth.i79, align 8, !tbaa !20
-  %ptr.i86 = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %29 = load ptr, ptr %ptr.i86, align 8, !tbaa !21
-  %30 = load ptr, ptr %json, align 8, !tbaa !19
-  %sub.ptr.lhs.cast.i87 = ptrtoint ptr %29 to i64
-  %sub.ptr.rhs.cast.i88 = ptrtoint ptr %30 to i64
-  %sub.ptr.sub.i89 = sub i64 %sub.ptr.lhs.cast.i87, %sub.ptr.rhs.cast.i88
-  %call3.i90 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.76, i32 noundef %28, i64 noundef %sub.ptr.sub.i89) #12
-  br label %json_decode_descend.exit94
+85:                                               ; preds = %83, %75
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %87 = load ptr, ptr %86, align 8, !tbaa !40
+  tail call void @strbuf_free(ptr noundef %87) #12
+  %88 = load i32, ptr %76, align 8, !tbaa !37
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %90 = load ptr, ptr %89, align 8, !tbaa !38
+  %91 = load ptr, ptr %1, align 8, !tbaa !36
+  %92 = ptrtoint ptr %90 to i64
+  %93 = ptrtoint ptr %91 to i64
+  %94 = sub i64 %92, %93
+  %95 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef %88, i64 noundef %94) #12
+  br label %json_decode_descend.exit29
 
-json_decode_descend.exit94:                       ; preds = %if.end.i84, %land.lhs.true.i91
-  tail call void @lua_createtable(ptr noundef %l, i32 noundef 0, i32 noundef 0) #12
-  call fastcc void @json_next_token(ptr noundef nonnull %json, ptr noundef nonnull %token.i21)
-  %31 = load i32, ptr %token.i21, align 8, !tbaa !24
-  %cmp.i22 = icmp eq i32 %31, 3
-  br i1 %cmp.i22, label %json_parse_array_context.exit, label %for.cond.i.preheader
+json_decode_descend.exit29:                       ; preds = %83, %85
+  tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
+  call fastcc void @json_next_token(ptr noundef nonnull %1, ptr noundef %4)
+  %96 = load i32, ptr %4, align 8, !tbaa !41
+  %97 = icmp eq i32 %96, 3
+  br i1 %97, label %json_parse_array_context.exit, label %.preheader31
 
-for.cond.i.preheader:                             ; preds = %json_decode_descend.exit94
-  %tmp.i65 = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %value.i67 = getelementptr inbounds nuw i8, ptr %token.i21, i64 16
-  %index.i72 = getelementptr inbounds nuw i8, ptr %token.i21, i64 8
-  br label %for.cond.i
+.preheader31:                                     ; preds = %json_decode_descend.exit29
+  %98 = getelementptr i8, ptr %1, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %101
 
-for.cond.i:                                       ; preds = %if.end8.i23, %for.cond.i.preheader
-  %i.0.i = phi i32 [ %inc.i, %if.end8.i23 ], [ 1, %for.cond.i.preheader ]
-  call fastcc void @json_process_value(ptr noundef %l, ptr noundef %json, ptr noundef nonnull %token.i21)
-  tail call void @lua_rawseti(ptr noundef %l, i32 noundef -2, i32 noundef %i.0.i) #12
-  call fastcc void @json_next_token(ptr noundef %json, ptr noundef nonnull %token.i21)
-  %32 = load i32, ptr %token.i21, align 8, !tbaa !24
-  switch i32 %32, label %if.then7.i25 [
+101:                                              ; preds = %.preheader31, %110
+  %.0.i = phi i32 [ %111, %110 ], [ 1, %.preheader31 ]
+  call fastcc void @json_process_value(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4)
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i32 noundef %.0.i) #12
+  call fastcc void @json_next_token(ptr noundef nonnull %1, ptr noundef %4)
+  %102 = load i32, ptr %4, align 8, !tbaa !41
+  switch i32 %102, label %103 [
     i32 3, label %json_parse_array_context.exit
-    i32 9, label %if.end8.i23
+    i32 9, label %110
   ]
 
-if.then7.i25:                                     ; preds = %for.cond.i
-  %33 = load ptr, ptr %tmp.i65, align 8, !tbaa !23
-  tail call void @strbuf_free(ptr noundef %33) #12
-  %cmp.i66 = icmp eq i32 %32, 12
-  %idxprom.i68 = zext i32 %32 to i64
-  %arrayidx.i69 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %idxprom.i68
-  %found.0.in.i70 = select i1 %cmp.i66, ptr %value.i67, ptr %arrayidx.i69
-  %found.0.i71 = load ptr, ptr %found.0.in.i70, align 8, !tbaa !13
-  %34 = load i64, ptr %index.i72, align 8, !tbaa !26
-  %add.i73 = add i64 %34, 1
-  %call.i74 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.77, ptr noundef %found.0.i71, i64 noundef %add.i73) #12
-  br label %if.end8.i23
+103:                                              ; preds = %101
+  %.val.i16 = load ptr, ptr %98, align 8, !tbaa !40
+  tail call void @strbuf_free(ptr noundef %.val.i16) #12
+  %104 = icmp eq i32 %102, 12
+  %105 = zext i32 %102 to i64
+  %106 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %105
+  %.0.in.i25 = select i1 %104, ptr %99, ptr %106
+  %.0.i26 = load ptr, ptr %.0.in.i25, align 8, !tbaa !25
+  %107 = load i64, ptr %100, align 8, !tbaa !43
+  %108 = add i64 %107, 1
+  %109 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.77, ptr noundef %.0.i26, i64 noundef %108) #12
+  br label %110
 
-if.end8.i23:                                      ; preds = %if.then7.i25, %for.cond.i
-  call fastcc void @json_next_token(ptr noundef %json, ptr noundef nonnull %token.i21)
-  %inc.i = add nuw nsw i32 %i.0.i, 1
-  br label %for.cond.i
+110:                                              ; preds = %103, %101
+  call fastcc void @json_next_token(ptr noundef nonnull %1, ptr noundef %4)
+  %111 = add nuw nsw i32 %.0.i, 1
+  br label %101
 
-json_parse_array_context.exit:                    ; preds = %for.cond.i, %json_decode_descend.exit94
-  %storemerge.in = load i32, ptr %current_depth.i79, align 8, !tbaa !20
+json_parse_array_context.exit:                    ; preds = %101, %json_decode_descend.exit29
+  %storemerge.in = load i32, ptr %76, align 8, !tbaa !37
   %storemerge = add nsw i32 %storemerge.in, -1
-  store i32 %storemerge, ptr %current_depth.i79, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %token.i21) #12
-  br label %sw.epilog
+  store i32 %storemerge, ptr %76, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  br label %124
 
-sw.bb7:                                           ; preds = %entry
-  tail call void @lua_pushlightuserdata(ptr noundef %l, ptr noundef null) #12
-  br label %sw.epilog
+112:                                              ; preds = %3
+  tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef null) #12
+  br label %124
 
-sw.default:                                       ; preds = %entry
-  %tmp.i = getelementptr inbounds nuw i8, ptr %json, i64 16
-  %35 = load ptr, ptr %tmp.i, align 8, !tbaa !23
-  tail call void @strbuf_free(ptr noundef %35) #12
-  %36 = load i32, ptr %token, align 8, !tbaa !24
-  %cmp.i27 = icmp eq i32 %36, 12
-  %value.i28 = getelementptr inbounds nuw i8, ptr %token, i64 16
-  %idxprom.i = zext i32 %36 to i64
-  %arrayidx.i = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %idxprom.i
-  %found.0.in.i = select i1 %cmp.i27, ptr %value.i28, ptr %arrayidx.i
-  %found.0.i = load ptr, ptr %found.0.in.i, align 8, !tbaa !13
-  %index.i = getelementptr inbounds nuw i8, ptr %token, i64 8
-  %37 = load i64, ptr %index.i, align 8, !tbaa !26
-  %add.i = add i64 %37, 1
-  %call.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.72, ptr noundef %found.0.i, i64 noundef %add.i) #12
-  br label %sw.epilog
+113:                                              ; preds = %3
+  %114 = getelementptr i8, ptr %1, i64 16
+  %.val = load ptr, ptr %114, align 8, !tbaa !40
+  tail call void @strbuf_free(ptr noundef %.val) #12
+  %115 = load i32, ptr %2, align 8, !tbaa !41
+  %116 = icmp eq i32 %115, 12
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %118 = zext i32 %115 to i64
+  %119 = getelementptr inbounds nuw [15 x ptr], ptr @json_token_type_name, i64 0, i64 %118
+  %.0.in.i = select i1 %116, ptr %117, ptr %119
+  %.0.i17 = load ptr, ptr %.0.in.i, align 8, !tbaa !25
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %121 = load i64, ptr %120, align 8, !tbaa !43
+  %122 = add i64 %121, 1
+  %123 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.72, ptr noundef %.0.i17, i64 noundef %122) #12
+  br label %124
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb7, %json_parse_array_context.exit, %json_parse_object_context.exit, %sw.bb3, %sw.bb1, %sw.bb
+124:                                              ; preds = %113, %112, %json_parse_array_context.exit, %json_parse_object_context.exit, %15, %12, %7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @json_is_invalid_number(ptr readonly captures(none) %json.8.val) unnamed_addr #7 {
-entry:
-  %0 = load i8, ptr %json.8.val, align 1, !tbaa !13
-  switch i8 %0, label %if.end6 [
-    i8 43, label %cleanup32
-    i8 45, label %if.then5
+define internal fastcc range(i32 0, 2) i32 @json_is_invalid_number(ptr readonly captures(none) %.8.val) unnamed_addr #7 {
+  %1 = load i8, ptr %.8.val, align 1, !tbaa !25
+  switch i8 %1, label %4 [
+    i8 43, label %19
+    i8 45, label %2
   ]
 
-if.then5:                                         ; preds = %entry
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %json.8.val, i64 1
-  %.pr = load i8, ptr %incdec.ptr, align 1, !tbaa !13
-  br label %if.end6
+2:                                                ; preds = %0
+  %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 1
+  %.pr = load i8, ptr %3, align 1, !tbaa !25
+  br label %4
 
-if.end6:                                          ; preds = %if.then5, %entry
-  %1 = phi i8 [ %0, %entry ], [ %.pr, %if.then5 ]
-  %p.0 = phi ptr [ %json.8.val, %entry ], [ %incdec.ptr, %if.then5 ]
-  %cmp8 = icmp eq i8 %1, 48
-  br i1 %cmp8, label %if.then10, label %if.else
+4:                                                ; preds = %0, %2
+  %5 = phi i8 [ %1, %0 ], [ %.pr, %2 ]
+  %.013 = phi ptr [ %.8.val, %0 ], [ %3, %2 ]
+  %6 = icmp eq i8 %5, 48
+  br i1 %6, label %7, label %13
 
-if.then10:                                        ; preds = %if.end6
-  %add.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 1
-  %2 = load i8, ptr %add.ptr, align 1, !tbaa !13
-  %3 = and i8 %2, -33
-  %cmp12 = icmp eq i8 %3, 88
-  %4 = add i8 %2, -48
-  %or.cond = icmp ult i8 %4, 10
-  %or.cond42 = or i1 %cmp12, %or.cond
-  br label %cleanup32
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %.013, i64 1
+  %9 = load i8, ptr %8, align 1, !tbaa !25
+  %10 = and i8 %9, -33
+  %11 = icmp eq i8 %10, 88
+  %12 = add i8 %9, -48
+  %or.cond = icmp ult i8 %12, 10
+  %or.cond17 = or i1 %11, %or.cond
+  br label %19
 
-if.else:                                          ; preds = %if.end6
-  %cmp21 = icmp slt i8 %1, 58
-  br i1 %cmp21, label %cleanup32, label %if.end25
+13:                                               ; preds = %4
+  %14 = icmp slt i8 %5, 58
+  br i1 %14, label %19, label %15
 
-if.end25:                                         ; preds = %if.else
-  %call = tail call i32 @strncasecmp(ptr noundef nonnull %p.0, ptr noundef nonnull @.str.71, i64 noundef 3) #14
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %cleanup32, label %if.end27
+15:                                               ; preds = %13
+  %16 = tail call i32 @strncasecmp(ptr noundef nonnull %.013, ptr noundef nonnull @.str.71, i64 noundef 3) #14
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %19, label %17
 
-if.end27:                                         ; preds = %if.end25
-  %call28 = tail call i32 @strncasecmp(ptr noundef nonnull %p.0, ptr noundef nonnull @.str.58, i64 noundef 3) #14
-  %tobool29.not = icmp eq i32 %call28, 0
-  br label %cleanup32
+17:                                               ; preds = %15
+  %18 = tail call i32 @strncasecmp(ptr noundef nonnull %.013, ptr noundef nonnull @.str.58, i64 noundef 3) #14
+  %.not16 = icmp eq i32 %18, 0
+  br label %19
 
-cleanup32:                                        ; preds = %if.end27, %if.end25, %if.else, %if.then10, %entry
-  %retval.1.shrunk = phi i1 [ %or.cond42, %if.then10 ], [ true, %entry ], [ false, %if.else ], [ true, %if.end25 ], [ %tobool29.not, %if.end27 ]
-  %retval.1 = zext i1 %retval.1.shrunk to i32
-  ret i32 %retval.1
+19:                                               ; preds = %17, %15, %13, %0, %7
+  %.0.shrunk = phi i1 [ %or.cond17, %7 ], [ true, %0 ], [ false, %13 ], [ true, %15 ], [ %.not16, %17 ]
+  %.0 = zext i1 %.0.shrunk to i32
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_next_number_token(ptr noundef nonnull captures(none) %json, ptr noundef nonnull writeonly captures(none) initializes((0, 4), (16, 24)) %token) unnamed_addr #0 {
-entry:
-  %endptr = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr) #12
-  store i32 5, ptr %token, align 8, !tbaa !24
-  %ptr = getelementptr inbounds nuw i8, ptr %json, i64 8
-  %0 = load ptr, ptr %ptr, align 8, !tbaa !21
-  %call = call double @fpconv_strtod(ptr noundef %0, ptr noundef nonnull %endptr) #12
-  %value = getelementptr inbounds nuw i8, ptr %token, i64 16
-  store double %call, ptr %value, align 8, !tbaa !13
-  %1 = load ptr, ptr %ptr, align 8, !tbaa !21
-  %2 = load ptr, ptr %endptr, align 8, !tbaa !37
-  %cmp = icmp eq ptr %1, %2
-  br i1 %cmp, label %if.then, label %if.else
+define internal fastcc void @json_next_number_token(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4), (16, 24)) %1) unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  store i32 5, ptr %1, align 8, !tbaa !41
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %6 = call double @fpconv_strtod(ptr noundef %5, ptr noundef nonnull %3) #12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double %6, ptr %7, align 8, !tbaa !25
+  %8 = load ptr, ptr %4, align 8, !tbaa !38
+  %9 = load ptr, ptr %3, align 8, !tbaa !30
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %11, label %16
 
-if.then:                                          ; preds = %entry
-  store i32 12, ptr %token, align 8, !tbaa !24
-  %3 = load ptr, ptr %json, align 8, !tbaa !19
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %index.i = getelementptr inbounds nuw i8, ptr %token, i64 8
-  store i64 %sub.ptr.sub.i, ptr %index.i, align 8, !tbaa !26
-  store ptr @.str.67, ptr %value, align 8, !tbaa !13
-  br label %if.end
+11:                                               ; preds = %2
+  %.val = load ptr, ptr %0, align 8, !tbaa !36
+  store i32 12, ptr %1, align 8, !tbaa !41
+  %12 = ptrtoint ptr %8 to i64
+  %13 = ptrtoint ptr %.val to i64
+  %14 = sub i64 %12, %13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %14, ptr %15, align 8, !tbaa !43
+  store ptr @.str.67, ptr %7, align 8, !tbaa !25
+  br label %17
 
-if.else:                                          ; preds = %entry
-  store ptr %2, ptr %ptr, align 8, !tbaa !21
-  br label %if.end
+16:                                               ; preds = %2
+  store ptr %9, ptr %4, align 8, !tbaa !38
+  br label %17
 
-if.end:                                           ; preds = %if.else, %if.then
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr) #12
+17:                                               ; preds = %16, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret void
 }
 
@@ -2573,86 +2381,84 @@ declare void @lua_rawset(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lua_rawseti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @json_arg_init(ptr noundef %l, i32 noundef range(i32 1, 4) %args) unnamed_addr #0 {
-entry:
-  %call = tail call i32 @lua_gettop(ptr noundef %l) #12
-  %cmp.not = icmp sgt i32 %call, %args
-  br i1 %cmp.not, label %lor.rhs, label %lor.end
+define internal fastcc ptr @json_arg_init(ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #0 {
+  %3 = tail call i32 @lua_gettop(ptr noundef %0) #12
+  %.not = icmp sgt i32 %3, %1
+  br i1 %.not, label %4, label %7
 
-lor.rhs:                                          ; preds = %entry
-  %add = add nuw nsw i32 %args, 1
-  %call1 = tail call i32 @luaL_argerror(ptr noundef %l, i32 noundef %add, ptr noundef nonnull @.str.93) #12
-  br label %lor.end
+4:                                                ; preds = %2
+  %5 = add nuw nsw i32 %1, 1
+  %6 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef %5, ptr noundef nonnull @.str.93) #12
+  br label %7
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %call211 = tail call i32 @lua_gettop(ptr noundef %l) #12
-  %cmp312 = icmp slt i32 %call211, %args
-  br i1 %cmp312, label %while.body, label %while.end
+7:                                                ; preds = %4, %2
+  %8 = tail call i32 @lua_gettop(ptr noundef %0) #12
+  %9 = icmp slt i32 %8, %1
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
-while.body:                                       ; preds = %lor.end, %while.body
-  tail call void @lua_pushnil(ptr noundef %l) #12
-  %call2 = tail call i32 @lua_gettop(ptr noundef %l) #12
-  %cmp3 = icmp slt i32 %call2, %args
-  br i1 %cmp3, label %while.body, label %while.end, !llvm.loop !44
+.lr.ph:                                           ; preds = %7, %.lr.ph
+  tail call void @lua_pushnil(ptr noundef %0) #12
+  %10 = tail call i32 @lua_gettop(ptr noundef %0) #12
+  %11 = icmp slt i32 %10, %1
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
-while.end:                                        ; preds = %while.body, %lor.end
-  %call.i = tail call ptr @lua_touserdata(ptr noundef %l, i32 noundef -10003) #12
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.then.i, label %json_fetch_config.exit
+._crit_edge:                                      ; preds = %.lr.ph, %7
+  %12 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef -10003) #12
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %13, label %json_fetch_config.exit
 
-if.then.i:                                        ; preds = %while.end
-  %call1.i = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.16) #12
+13:                                               ; preds = %._crit_edge
+  %14 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.16) #12
   br label %json_fetch_config.exit
 
-json_fetch_config.exit:                           ; preds = %if.then.i, %while.end
-  ret ptr %call.i
+json_fetch_config.exit:                           ; preds = %._crit_edge, %13
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_enum_option(ptr noundef %l, ptr noundef captures(none) %setting, ptr noundef %options) unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %options, null
-  %spec.select = select i1 %tobool.not, ptr @json_enum_option.bool_options, ptr %options
-  %call = tail call i32 @lua_type(ptr noundef %l, i32 noundef 1) #12
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %land.lhs.true11thread-pre-split, label %land.lhs.true
+define internal fastcc void @json_enum_option(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
+  %.not = icmp eq ptr %2, null
+  %spec.select = select i1 %.not, ptr @json_enum_option.bool_options, ptr %2
+  %4 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #12
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %thread-pre-split, label %6
 
-land.lhs.true:                                    ; preds = %entry
-  %call3 = tail call i32 @lua_type(ptr noundef %l, i32 noundef 1) #12
-  %cmp4 = icmp eq i32 %call3, 1
-  br i1 %cmp4, label %if.then5, label %if.else
+6:                                                ; preds = %3
+  %7 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #12
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %9, label %11
 
-if.then5:                                         ; preds = %land.lhs.true
-  %call6 = tail call i32 @lua_toboolean(ptr noundef %l, i32 noundef 1) #12
-  store i32 %call6, ptr %setting, align 4, !tbaa !4
-  br label %land.lhs.true11
+9:                                                ; preds = %6
+  %10 = tail call i32 @lua_toboolean(ptr noundef %0, i32 noundef 1) #12
+  store i32 %10, ptr %1, align 4, !tbaa !21
+  br label %13
 
-if.else:                                          ; preds = %land.lhs.true
-  %call7 = tail call i32 @luaL_checkoption(ptr noundef %l, i32 noundef 1, ptr noundef null, ptr noundef nonnull %spec.select) #12
-  store i32 %call7, ptr %setting, align 4, !tbaa !4
-  br label %land.lhs.true11
+11:                                               ; preds = %6
+  %12 = tail call i32 @luaL_checkoption(ptr noundef %0, i32 noundef 1, ptr noundef null, ptr noundef nonnull %spec.select) #12
+  store i32 %12, ptr %1, align 4, !tbaa !21
+  br label %13
 
-land.lhs.true11thread-pre-split:                  ; preds = %entry
-  %.pr = load i32, ptr %setting, align 4, !tbaa !4
-  br label %land.lhs.true11
+thread-pre-split:                                 ; preds = %3
+  %.pr = load i32, ptr %1, align 4, !tbaa !21
+  br label %13
 
-land.lhs.true11:                                  ; preds = %land.lhs.true11thread-pre-split, %if.else, %if.then5
-  %0 = phi i32 [ %.pr, %land.lhs.true11thread-pre-split ], [ %call7, %if.else ], [ %call6, %if.then5 ]
-  %switch = icmp ult i32 %0, 2
-  br i1 %switch, label %if.then14, label %if.else15
+13:                                               ; preds = %thread-pre-split, %11, %9
+  %14 = phi i32 [ %.pr, %thread-pre-split ], [ %12, %11 ], [ %10, %9 ]
+  %switch = icmp ult i32 %14, 2
+  br i1 %switch, label %15, label %16
 
-if.then14:                                        ; preds = %land.lhs.true11
-  tail call void @lua_pushboolean(ptr noundef %l, i32 noundef %0) #12
-  br label %if.end16
+15:                                               ; preds = %13
+  tail call void @lua_pushboolean(ptr noundef %0, i32 noundef %14) #12
+  br label %20
 
-if.else15:                                        ; preds = %land.lhs.true11
-  %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %spec.select, i64 %idxprom
-  %1 = load ptr, ptr %arrayidx, align 8, !tbaa !37
-  tail call void @lua_pushstring(ptr noundef %l, ptr noundef %1) #12
-  br label %if.end16
+16:                                               ; preds = %13
+  %17 = sext i32 %14 to i64
+  %18 = getelementptr inbounds ptr, ptr %spec.select, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  tail call void @lua_pushstring(ptr noundef %0, ptr noundef %19) #12
+  br label %20
 
-if.end16:                                         ; preds = %if.else15, %if.then14
+20:                                               ; preds = %16, %15
   ret void
 }
 
@@ -2672,18 +2478,17 @@ declare ptr @lua_newuserdata(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @json_destroy_config(ptr noundef %l) #0 {
-entry:
-  %call = tail call ptr @lua_touserdata(ptr noundef %l, i32 noundef 1) #12
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.end, label %if.then
+define internal noundef i32 @json_destroy_config(ptr noundef %0) #0 {
+  %2 = tail call ptr @lua_touserdata(ptr noundef %0, i32 noundef 1) #12
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %5, label %3
 
-if.then:                                          ; preds = %entry
-  %encode_buf = getelementptr inbounds nuw i8, ptr %call, i64 1280
-  tail call void @strbuf_free(ptr noundef nonnull %encode_buf) #12
-  br label %if.end
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1280
+  tail call void @strbuf_free(ptr noundef nonnull %4) #12
+  br label %5
 
-if.end:                                           ; preds = %if.then, %entry
+5:                                                ; preds = %3, %1
   ret i32 0
 }
 
@@ -2694,44 +2499,43 @@ declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @json_protect_conversion(ptr noundef %l) #0 {
-entry:
-  %call = tail call i32 @lua_gettop(ptr noundef %l) #12
-  %cmp = icmp eq i32 %call, 1
-  br i1 %cmp, label %lor.end, label %lor.rhs
+define internal i32 @json_protect_conversion(ptr noundef %0) #0 {
+  %2 = tail call i32 @lua_gettop(ptr noundef %0) #12
+  %3 = icmp eq i32 %2, 1
+  br i1 %3, label %6, label %4
 
-lor.rhs:                                          ; preds = %entry
-  %call1 = tail call i32 @luaL_argerror(ptr noundef %l, i32 noundef 1, ptr noundef nonnull @.str.15) #12
-  br label %lor.end
+4:                                                ; preds = %1
+  %5 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.15) #12
+  br label %6
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  tail call void @lua_pushvalue(ptr noundef %l, i32 noundef -10003) #12
-  tail call void @lua_insert(ptr noundef %l, i32 noundef 1) #12
-  %call2 = tail call i32 @lua_pcall(ptr noundef %l, i32 noundef 1, i32 noundef 1, i32 noundef 0) #12
-  switch i32 %call2, label %if.end6 [
-    i32 0, label %cleanup
-    i32 2, label %if.then5
+6:                                                ; preds = %4, %1
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -10003) #12
+  tail call void @lua_insert(ptr noundef %0, i32 noundef 1) #12
+  %7 = tail call i32 @lua_pcall(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #12
+  switch i32 %7, label %9 [
+    i32 0, label %11
+    i32 2, label %8
   ]
 
-if.then5:                                         ; preds = %lor.end
-  tail call void @lua_pushnil(ptr noundef %l) #12
-  tail call void @lua_insert(ptr noundef %l, i32 noundef -2) #12
-  br label %cleanup
+8:                                                ; preds = %6
+  tail call void @lua_pushnil(ptr noundef %0) #12
+  tail call void @lua_insert(ptr noundef %0, i32 noundef -2) #12
+  br label %11
 
-if.end6:                                          ; preds = %lor.end
-  %call7 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %l, ptr noundef nonnull @.str.99) #12
-  br label %cleanup
+9:                                                ; preds = %6
+  %10 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.99) #12
+  br label %11
 
-cleanup:                                          ; preds = %if.end6, %if.then5, %lor.end
-  %retval.0 = phi i32 [ 2, %if.then5 ], [ %call7, %if.end6 ], [ 1, %lor.end ]
-  ret i32 %retval.0
+11:                                               ; preds = %6, %9, %8
+  %.0 = phi i32 [ 2, %8 ], [ %10, %9 ], [ 1, %6 ]
+  ret i32 %.0
 }
 
 declare void @lua_insert(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2745,7 +2549,7 @@ attributes #7 = { mustprogress nofree nounwind willreturn memory(read) uwtable "
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
@@ -2756,44 +2560,52 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!5, !5, i64 0}
-!5 = !{!"int", !6, i64 0}
+!4 = !{!5, !12, i64 1320}
+!5 = !{!"", !6, i64 0, !6, i64 1024, !8, i64 1280, !12, i64 1320, !12, i64 1324, !12, i64 1328, !12, i64 1332, !12, i64 1336, !12, i64 1340, !12, i64 1344, !12, i64 1348, !12, i64 1352}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !5, i64 1352}
-!9 = !{!"", !6, i64 0, !6, i64 1024, !10, i64 1280, !5, i64 1320, !5, i64 1324, !5, i64 1328, !5, i64 1332, !5, i64 1336, !5, i64 1340, !5, i64 1344, !5, i64 1348, !5, i64 1352}
-!10 = !{!"", !11, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32}
-!11 = !{!"any pointer", !6, i64 0}
-!12 = !{!"long", !6, i64 0}
-!13 = !{!6, !6, i64 0}
-!14 = !{!9, !5, i64 1344}
-!15 = !{!10, !12, i64 16}
-!16 = !{!10, !11, i64 0}
-!17 = !{!18, !11, i64 24}
-!18 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !5, i64 32}
-!19 = !{!18, !11, i64 0}
-!20 = !{!18, !5, i64 32}
-!21 = !{!18, !11, i64 8}
-!22 = !{!12, !12, i64 0}
-!23 = !{!18, !11, i64 16}
-!24 = !{!25, !5, i64 0}
-!25 = !{!"", !5, i64 0, !12, i64 8, !6, i64 16, !12, i64 24}
-!26 = !{!25, !12, i64 8}
-!27 = !{!10, !12, i64 8}
-!28 = !{!9, !5, i64 1332}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!9, !5, i64 1324}
-!32 = !{!9, !5, i64 1328}
-!33 = !{!9, !5, i64 1320}
-!34 = distinct !{!34, !30, !35}
-!35 = !{!"llvm.loop.peeled.count", i32 1}
-!36 = distinct !{!36, !30}
-!37 = !{!11, !11, i64 0}
-!38 = distinct !{!38, !30}
-!39 = !{!9, !5, i64 1336}
-!40 = !{!9, !5, i64 1340}
-!41 = distinct !{!41, !30}
-!42 = !{!9, !5, i64 1348}
-!43 = !{!25, !12, i64 24}
-!44 = distinct !{!44, !30}
+!8 = !{!"", !9, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !12, i64 28, !12, i64 32}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!5, !12, i64 1324}
+!14 = !{!5, !12, i64 1328}
+!15 = !{!5, !12, i64 1332}
+!16 = !{!5, !12, i64 1352}
+!17 = !{!5, !12, i64 1336}
+!18 = !{!5, !12, i64 1348}
+!19 = !{!5, !12, i64 1344}
+!20 = !{!5, !12, i64 1340}
+!21 = !{!12, !12, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = distinct !{!24, !23}
+!25 = !{!6, !6, i64 0}
+!26 = !{!27, !10, i64 8}
+!27 = !{!"luaL_Reg", !9, i64 0, !10, i64 8}
+!28 = !{!27, !9, i64 0}
+!29 = distinct !{!29, !23}
+!30 = !{!9, !9, i64 0}
+!31 = distinct !{!31, !23}
+!32 = !{!8, !11, i64 16}
+!33 = !{!8, !9, i64 0}
+!34 = !{!35, !10, i64 24}
+!35 = !{!"", !9, i64 0, !9, i64 8, !10, i64 16, !10, i64 24, !12, i64 32}
+!36 = !{!35, !9, i64 0}
+!37 = !{!35, !12, i64 32}
+!38 = !{!35, !9, i64 8}
+!39 = !{!11, !11, i64 0}
+!40 = !{!35, !10, i64 16}
+!41 = !{!42, !12, i64 0}
+!42 = !{!"", !12, i64 0, !11, i64 8, !6, i64 16, !11, i64 24}
+!43 = !{!42, !11, i64 8}
+!44 = !{!8, !11, i64 8}
+!45 = distinct !{!45, !23}
+!46 = distinct !{!46, !23}
+!47 = distinct !{!47, !23}
+!48 = distinct !{!48, !23}
+!49 = distinct !{!49, !23}
+!50 = distinct !{!50, !23}
+!51 = !{!42, !11, i64 24}
+!52 = distinct !{!52, !23}

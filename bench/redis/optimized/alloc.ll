@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/redis/original/alloc.ll'
 source_filename = "bench/redis/original/alloc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.hiredisAllocFuncs = type { ptr, ptr, ptr, ptr, ptr }
 
@@ -23,10 +23,9 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) #3
 declare void @free(ptr allocptr noundef captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @hiredisSetAllocators(ptr dead_on_unwind noalias writable writeonly sret(%struct.hiredisAllocFuncs) align 8 captures(none) initializes((0, 40)) %agg.result, ptr noundef readonly captures(none) %override) local_unnamed_addr #5 {
-entry:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) @hiredisAllocFns, i64 40, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @hiredisAllocFns, ptr noundef nonnull align 8 dereferenceable(40) %override, i64 40, i1 false)
+define void @hiredisSetAllocators(ptr dead_on_unwind noalias writable writeonly sret(%struct.hiredisAllocFuncs) align 8 captures(none) initializes((0, 40)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) @hiredisAllocFns, i64 40, i1 false), !tbaa.struct !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @hiredisAllocFns, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !4
   ret void
 }
 
@@ -35,12 +34,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @hiredisResetAllocators() local_unnamed_addr #7 {
-entry:
-  store ptr @malloc, ptr @hiredisAllocFns, align 8
-  store ptr @calloc, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8
-  store ptr @realloc, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 16), align 8
-  store ptr @strdup, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 24), align 8
-  store ptr @free, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8
+  store ptr @malloc, ptr @hiredisAllocFns, align 8, !tbaa !5
+  store ptr @calloc, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8, !tbaa !5
+  store ptr @realloc, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 16), align 8, !tbaa !5
+  store ptr @strdup, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 24), align 8, !tbaa !5
+  store ptr @free, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !5
   ret void
 }
 
@@ -59,3 +57,8 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i64 0, i64 8, !5, i64 8, i64 8, !5, i64 16, i64 8, !5, i64 24, i64 8, !5, i64 32, i64 8, !5}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}

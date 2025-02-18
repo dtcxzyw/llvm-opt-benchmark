@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/redis/original/ldblib.ll'
 source_filename = "bench/redis/original/ldblib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.luaL_Reg = type { ptr, ptr }
 %struct.lua_Debug = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [60 x i8], i32 }
@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [17 x i8] c"=(debug command)\00", align 1
 @.str.17 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.18 = private unnamed_addr constant [14 x i8] c"external hook\00", align 1
-@reltable.hookf = internal unnamed_addr constant [5 x i32] [i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.19 to i64), i64 ptrtoint (ptr @reltable.hookf to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.20 to i64), i64 ptrtoint (ptr @reltable.hookf to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.21 to i64), i64 ptrtoint (ptr @reltable.hookf to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.22 to i64), i64 ptrtoint (ptr @reltable.hookf to i64)) to i32), i32 trunc (i64 sub (i64 ptrtoint (ptr @.str.23 to i64), i64 ptrtoint (ptr @reltable.hookf to i64)) to i32)], align 4
+@hookf.hooknames = internal unnamed_addr constant [5 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23], align 16
 @.str.19 = private unnamed_addr constant [5 x i8] c"call\00", align 1
 @.str.20 = private unnamed_addr constant [7 x i8] c"return\00", align 1
 @.str.21 = private unnamed_addr constant [5 x i8] c"line\00", align 1
@@ -66,767 +66,752 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.52 = private unnamed_addr constant [21 x i8] c" in function <%s:%d>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @luaopen_debug(ptr noundef %L) local_unnamed_addr #0 {
-entry:
-  tail call void @luaL_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @dblib) #9
+define dso_local noundef i32 @luaopen_debug(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @luaL_register(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @dblib) #8
   ret i32 1
 }
 
 declare void @luaL_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind uwtable
-define internal noundef i32 @db_debug(ptr noundef %L) #2 {
-entry:
-  %buffer = alloca [250 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %buffer) #9
-  %0 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 11, i64 1, ptr %0) #10
-  %2 = load ptr, ptr @stdin, align 8, !tbaa !4
-  %call122 = call ptr @fgets(ptr noundef nonnull %buffer, i32 noundef 250, ptr noundef %2)
-  %cmp23 = icmp eq ptr %call122, null
-  br i1 %cmp23, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry, %cleanup
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buffer, ptr noundef nonnull dereferenceable(6) @.str.15, i64 6)
-  %cmp4 = icmp eq i32 %bcmp, 0
-  br i1 %cmp4, label %return, label %if.end
-
-if.end:                                           ; preds = %lor.lhs.false
-  %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #11
-  %call8 = call i32 @luaL_loadbuffer(ptr noundef %L, ptr noundef nonnull %buffer, i64 noundef %call7, ptr noundef nonnull @.str.16) #9
-  %tobool.not = icmp eq i32 %call8, 0
-  br i1 %tobool.not, label %lor.lhs.false9, label %if.then12
-
-lor.lhs.false9:                                   ; preds = %if.end
-  %call10 = call i32 @lua_pcall(ptr noundef %L, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
-  %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %cleanup, label %if.then12
-
-if.then12:                                        ; preds = %lor.lhs.false9, %if.end
-  %call13 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #9
+define internal noundef i32 @db_debug(ptr noundef %0) #2 {
+  %2 = alloca [250 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %2) #8
   %3 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %call14 = call i32 @fputs(ptr noundef %call13, ptr noundef %3) #10
-  %4 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %fputc = call i32 @fputc(i32 10, ptr %4)
-  br label %cleanup
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 11, i64 1, ptr %3) #9
+  %5 = load ptr, ptr @stdin, align 8, !tbaa !4
+  %6 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 250, ptr noundef %5)
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %._crit_edge, label %.lr.ph
 
-cleanup:                                          ; preds = %if.then12, %lor.lhs.false9
-  call void @lua_settop(ptr noundef %L, i32 noundef 0) #9
-  call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %buffer) #9
-  call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %buffer) #9
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %6 = call i64 @fwrite(ptr nonnull @.str.14, i64 11, i64 1, ptr %5) #10
-  %7 = load ptr, ptr @stdin, align 8, !tbaa !4
-  %call1 = call ptr @fgets(ptr noundef nonnull %buffer, i32 noundef 250, ptr noundef %7)
-  %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+.lr.ph:                                           ; preds = %1, %19
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @.str.15, i64 6)
+  %8 = icmp eq i32 %bcmp, 0
+  br i1 %8, label %._crit_edge, label %9
 
-return:                                           ; preds = %cleanup, %lor.lhs.false, %entry
-  call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %buffer) #9
+9:                                                ; preds = %.lr.ph
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
+  %11 = call i32 @luaL_loadbuffer(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %10, ptr noundef nonnull @.str.16) #8
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %12, label %14
+
+12:                                               ; preds = %9
+  %13 = call i32 @lua_pcall(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
+  %.not5 = icmp eq i32 %13, 0
+  br i1 %.not5, label %19, label %14
+
+14:                                               ; preds = %12, %9
+  %15 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #8
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %17 = call i32 @fputs(ptr noundef %15, ptr noundef %16) #9
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %fputc = call i32 @fputc(i32 10, ptr %18)
+  br label %19
+
+19:                                               ; preds = %12, %14
+  call void @lua_settop(ptr noundef %0, i32 noundef 0) #8
+  call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %2) #8
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %21 = call i64 @fwrite(ptr nonnull @.str.14, i64 11, i64 1, ptr %20) #9
+  %22 = load ptr, ptr @stdin, align 8, !tbaa !4
+  %23 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 250, ptr noundef %22)
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %19, %.lr.ph, %1
+  call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %2) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_getfenv(ptr noundef %L) #0 {
-entry:
-  tail call void @luaL_checkany(ptr noundef %L, i32 noundef 1) #9
-  tail call void @lua_getfenv(ptr noundef %L, i32 noundef 1) #9
+define internal noundef i32 @db_getfenv(ptr noundef %0) #0 {
+  tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #8
+  tail call void @lua_getfenv(ptr noundef %0, i32 noundef 1) #8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_gethook(ptr noundef %L) #0 {
-entry:
-  %buff = alloca [5 x i8], align 1
-  %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #9
-  %cmp.i = icmp eq i32 %call.i, 8
-  br i1 %cmp.i, label %if.then.i, label %getthread.exit
+define internal noundef i32 @db_gethook(ptr noundef %0) #0 {
+  %2 = alloca [5 x i8], align 1
+  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #8
+  %4 = icmp eq i32 %3, 8
+  br i1 %4, label %5, label %getthread.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #9
+5:                                                ; preds = %1
+  %6 = tail call ptr @lua_tothread(ptr noundef %0, i32 noundef 1) #8
   br label %getthread.exit
 
-getthread.exit:                                   ; preds = %if.then.i, %entry
-  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %L, %entry ]
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buff) #9
-  %call1 = tail call i32 @lua_gethookmask(ptr noundef %retval.0.i) #9
-  %call2 = tail call ptr @lua_gethook(ptr noundef %retval.0.i) #9
-  %cmp = icmp ne ptr %call2, null
-  %cmp3 = icmp ne ptr %call2, @hookf
-  %or.cond = and i1 %cmp, %cmp3
-  br i1 %or.cond, label %if.then, label %if.else
+getthread.exit:                                   ; preds = %1, %5
+  %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #8
+  %7 = tail call i32 @lua_gethookmask(ptr noundef %.0.i) #8
+  %8 = tail call ptr @lua_gethook(ptr noundef %.0.i) #8
+  %9 = icmp ne ptr %8, null
+  %10 = icmp ne ptr %8, @hookf
+  %or.cond = and i1 %9, %10
+  br i1 %or.cond, label %11, label %12
 
-if.then:                                          ; preds = %getthread.exit
-  tail call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.18, i64 noundef 13) #9
-  br label %if.end
+11:                                               ; preds = %getthread.exit
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 13) #8
+  br label %13
 
-if.else:                                          ; preds = %getthread.exit
-  tail call fastcc void @gethooktable(ptr noundef %L)
-  tail call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef %retval.0.i) #9
-  tail call void @lua_rawget(ptr noundef %L, i32 noundef -2) #9
-  tail call void @lua_remove(ptr noundef %L, i32 noundef -2) #9
-  br label %if.end
+12:                                               ; preds = %getthread.exit
+  tail call fastcc void @gethooktable(ptr noundef %0)
+  tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef %.0.i) #8
+  tail call void @lua_rawget(ptr noundef %0, i32 noundef -2) #8
+  tail call void @lua_remove(ptr noundef %0, i32 noundef -2) #8
+  br label %13
 
-if.end:                                           ; preds = %if.else, %if.then
-  %and.i = and i32 %call1, 1
-  %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i17
+13:                                               ; preds = %12, %11
+  %14 = and i32 %7, 1
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %16, label %15
 
-if.then.i17:                                      ; preds = %if.end
-  store i8 99, ptr %buff, align 1, !tbaa !8
-  br label %if.end.i
+15:                                               ; preds = %13
+  store i8 99, ptr %2, align 1, !tbaa !9
+  br label %16
 
-if.end.i:                                         ; preds = %if.then.i17, %if.end
-  %i.0.i = phi i32 [ 1, %if.then.i17 ], [ 0, %if.end ]
-  %and1.i = and i32 %call1, 2
-  %tobool2.not.i = icmp eq i32 %and1.i, 0
-  br i1 %tobool2.not.i, label %if.end7.i, label %if.then3.i
+16:                                               ; preds = %15, %13
+  %.0.i15 = phi i32 [ 1, %15 ], [ 0, %13 ]
+  %17 = and i32 %7, 2
+  %.not11.i = icmp eq i32 %17, 0
+  br i1 %.not11.i, label %22, label %18
 
-if.then3.i:                                       ; preds = %if.end.i
-  %inc4.i = add nuw nsw i32 %i.0.i, 1
-  %idxprom5.i = zext nneg i32 %i.0.i to i64
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %buff, i64 %idxprom5.i
-  store i8 114, ptr %arrayidx6.i, align 1, !tbaa !8
-  br label %if.end7.i
+18:                                               ; preds = %16
+  %19 = add nuw nsw i32 %.0.i15, 1
+  %20 = zext nneg i32 %.0.i15 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %20
+  store i8 114, ptr %21, align 1, !tbaa !9
+  br label %22
 
-if.end7.i:                                        ; preds = %if.then3.i, %if.end.i
-  %i.1.i = phi i32 [ %inc4.i, %if.then3.i ], [ %i.0.i, %if.end.i ]
-  %and8.i = and i32 %call1, 4
-  %tobool9.not.i = icmp eq i32 %and8.i, 0
-  br i1 %tobool9.not.i, label %unmakemask.exit, label %if.then10.i
+22:                                               ; preds = %18, %16
+  %.1.i = phi i32 [ %19, %18 ], [ %.0.i15, %16 ]
+  %23 = and i32 %7, 4
+  %.not12.i = icmp eq i32 %23, 0
+  br i1 %.not12.i, label %unmakemask.exit, label %24
 
-if.then10.i:                                      ; preds = %if.end7.i
-  %inc11.i = add nuw nsw i32 %i.1.i, 1
-  %idxprom12.i = zext nneg i32 %i.1.i to i64
-  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %buff, i64 %idxprom12.i
-  store i8 108, ptr %arrayidx13.i, align 1, !tbaa !8
+24:                                               ; preds = %22
+  %25 = add nuw nsw i32 %.1.i, 1
+  %26 = zext nneg i32 %.1.i to i64
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %26
+  store i8 108, ptr %27, align 1, !tbaa !9
   br label %unmakemask.exit
 
-unmakemask.exit:                                  ; preds = %if.then10.i, %if.end7.i
-  %i.2.i = phi i32 [ %inc11.i, %if.then10.i ], [ %i.1.i, %if.end7.i ]
-  %idxprom15.i = zext nneg i32 %i.2.i to i64
-  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %buff, i64 %idxprom15.i
-  store i8 0, ptr %arrayidx16.i, align 1, !tbaa !8
-  call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %buff) #9
-  %call5 = call i32 @lua_gethookcount(ptr noundef %retval.0.i) #9
-  %conv = sext i32 %call5 to i64
-  call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv) #9
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buff) #9
+unmakemask.exit:                                  ; preds = %22, %24
+  %.2.i = phi i32 [ %25, %24 ], [ %.1.i, %22 ]
+  %28 = zext nneg i32 %.2.i to i64
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
+  store i8 0, ptr %29, align 1, !tbaa !9
+  call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %2) #8
+  %30 = call i32 @lua_gethookcount(ptr noundef %.0.i) #8
+  %31 = sext i32 %30 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %31) #8
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #8
   ret i32 3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @db_getinfo(ptr noundef %L) #0 {
-entry:
-  %ar = alloca %struct.lua_Debug, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar) #9
-  %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #9
-  %cmp.i = icmp eq i32 %call.i, 8
-  br i1 %cmp.i, label %if.then.i, label %getthread.exit
+define internal i32 @db_getinfo(ptr noundef %0) #0 {
+  %2 = alloca %struct.lua_Debug, align 8
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
+  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #8
+  %4 = icmp eq i32 %3, 8
+  br i1 %4, label %5, label %getthread.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #9
+5:                                                ; preds = %1
+  %6 = tail call ptr @lua_tothread(ptr noundef %0, i32 noundef 1) #8
   br label %getthread.exit
 
-getthread.exit:                                   ; preds = %if.then.i, %entry
-  %arg.0 = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %L, %entry ]
-  %add = or disjoint i32 %arg.0, 2
-  %call1 = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef %add, ptr noundef nonnull @.str.24, ptr noundef null) #9
-  %add2 = add nuw nsw i32 %arg.0, 1
-  %call3 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef %add2) #9
-  %tobool.not = icmp eq i32 %call3, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+getthread.exit:                                   ; preds = %1, %5
+  %.053 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
+  %7 = or disjoint i32 %.053, 2
+  %8 = tail call ptr @luaL_optlstring(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @.str.24, ptr noundef null) #8
+  %9 = add nuw nsw i32 %.053, 1
+  %10 = tail call i32 @lua_isnumber(ptr noundef %0, i32 noundef %9) #8
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %16, label %11
 
-if.then:                                          ; preds = %getthread.exit
-  %call5 = tail call i64 @lua_tointeger(ptr noundef %L, i32 noundef %add2) #9
-  %conv = trunc i64 %call5 to i32
-  %call6 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %conv, ptr noundef nonnull %ar) #9
-  %tobool7.not = icmp eq i32 %call6, 0
-  br i1 %tobool7.not, label %if.then8, label %if.end20
+11:                                               ; preds = %getthread.exit
+  %12 = tail call i64 @lua_tointeger(ptr noundef %0, i32 noundef %9) #8
+  %13 = trunc i64 %12 to i32
+  %14 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %13, ptr noundef nonnull %2) #8
+  %.not38 = icmp eq i32 %14, 0
+  br i1 %.not38, label %15, label %24
 
-if.then8:                                         ; preds = %if.then
-  call void @lua_pushnil(ptr noundef %L) #9
-  br label %cleanup
+15:                                               ; preds = %11
+  call void @lua_pushnil(ptr noundef %0) #8
+  br label %73
 
-if.else:                                          ; preds = %getthread.exit
-  %call10 = tail call i32 @lua_type(ptr noundef %L, i32 noundef %add2) #9
-  %cmp = icmp eq i32 %call10, 6
-  br i1 %cmp, label %if.then12, label %if.else16
+16:                                               ; preds = %getthread.exit
+  %17 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %9) #8
+  %18 = icmp eq i32 %17, 6
+  br i1 %18, label %19, label %22
 
-if.then12:                                        ; preds = %if.else
-  %call13 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.25, ptr noundef %call1) #9
-  %call14 = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null) #9
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef %add2) #9
-  tail call void @lua_xmove(ptr noundef %L, ptr noundef %retval.0.i, i32 noundef 1) #9
-  br label %if.end20
+19:                                               ; preds = %16
+  %20 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %8) #8
+  %21 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #8
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %9) #8
+  tail call void @lua_xmove(ptr noundef %0, ptr noundef %.0.i, i32 noundef 1) #8
+  br label %24
 
-if.else16:                                        ; preds = %if.else
-  %call18 = tail call i32 @luaL_argerror(ptr noundef %L, i32 noundef %add2, ptr noundef nonnull @.str.26) #9
-  br label %cleanup
+22:                                               ; preds = %16
+  %23 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef %9, ptr noundef nonnull @.str.26) #8
+  br label %73
 
-if.end20:                                         ; preds = %if.then12, %if.then
-  %options.0 = phi ptr [ %call1, %if.then ], [ %call14, %if.then12 ]
-  %call21 = call i32 @lua_getinfo(ptr noundef %retval.0.i, ptr noundef %options.0, ptr noundef nonnull %ar) #9
-  %tobool22.not = icmp eq i32 %call21, 0
-  br i1 %tobool22.not, label %if.then23, label %if.end26
+24:                                               ; preds = %11, %19
+  %.0 = phi ptr [ %8, %11 ], [ %21, %19 ]
+  %25 = call i32 @lua_getinfo(ptr noundef %.0.i, ptr noundef %.0, ptr noundef nonnull %2) #8
+  %.not39 = icmp eq i32 %25, 0
+  br i1 %.not39, label %26, label %28
 
-if.then23:                                        ; preds = %if.end20
-  %call25 = call i32 @luaL_argerror(ptr noundef %L, i32 noundef %add, ptr noundef nonnull @.str.27) #9
-  br label %cleanup
+26:                                               ; preds = %24
+  %27 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @.str.27) #8
+  br label %73
 
-if.end26:                                         ; preds = %if.end20
-  call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 2) #9
-  %call27 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %options.0, i32 noundef 83) #11
-  %tobool28.not = icmp eq ptr %call27, null
-  br i1 %tobool28.not, label %if.end30, label %if.then29
+28:                                               ; preds = %24
+  call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 2) #8
+  %29 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 83) #10
+  %.not40 = icmp eq ptr %29, null
+  br i1 %.not40, label %42, label %30
 
-if.then29:                                        ; preds = %if.end26
-  %source = getelementptr inbounds nuw i8, ptr %ar, i64 32
-  %0 = load ptr, ptr %source, align 8, !tbaa !9
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %0) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.28) #9
-  %short_src = getelementptr inbounds nuw i8, ptr %ar, i64 56
-  call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %short_src) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.29) #9
-  %linedefined = getelementptr inbounds nuw i8, ptr %ar, i64 48
-  %1 = load i32, ptr %linedefined, align 8, !tbaa !12
-  %conv.i = sext i32 %1 to i64
-  call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.30) #9
-  %lastlinedefined = getelementptr inbounds nuw i8, ptr %ar, i64 52
-  %2 = load i32, ptr %lastlinedefined, align 4, !tbaa !13
-  %conv.i88 = sext i32 %2 to i64
-  call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i88) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.31) #9
-  %what = getelementptr inbounds nuw i8, ptr %ar, i64 24
-  %3 = load ptr, ptr %what, align 8, !tbaa !14
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %3) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.32) #9
-  br label %if.end30
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %32 = load ptr, ptr %31, align 8, !tbaa !10
+  call void @lua_pushstring(ptr noundef %0, ptr noundef %32) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.28) #8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %33) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.29) #8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %35 = load i32, ptr %34, align 8, !tbaa !14
+  %36 = sext i32 %35 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %36) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.30) #8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %38 = load i32, ptr %37, align 4, !tbaa !15
+  %39 = sext i32 %38 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %39) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.31) #8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %41 = load ptr, ptr %40, align 8, !tbaa !16
+  call void @lua_pushstring(ptr noundef %0, ptr noundef %41) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.32) #8
+  br label %42
 
-if.end30:                                         ; preds = %if.then29, %if.end26
-  %call31 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %options.0, i32 noundef 108) #11
-  %tobool32.not = icmp eq ptr %call31, null
-  br i1 %tobool32.not, label %if.end34, label %if.then33
+42:                                               ; preds = %30, %28
+  %43 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 108) #10
+  %.not41 = icmp eq ptr %43, null
+  br i1 %.not41, label %48, label %44
 
-if.then33:                                        ; preds = %if.end30
-  %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 40
-  %4 = load i32, ptr %currentline, align 8, !tbaa !15
-  %conv.i89 = sext i32 %4 to i64
-  call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i89) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.33) #9
-  br label %if.end34
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %46 = load i32, ptr %45, align 8, !tbaa !17
+  %47 = sext i32 %46 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %47) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.33) #8
+  br label %48
 
-if.end34:                                         ; preds = %if.then33, %if.end30
-  %call35 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %options.0, i32 noundef 117) #11
-  %tobool36.not = icmp eq ptr %call35, null
-  br i1 %tobool36.not, label %if.end38, label %if.then37
+48:                                               ; preds = %44, %42
+  %49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 117) #10
+  %.not42 = icmp eq ptr %49, null
+  br i1 %.not42, label %54, label %50
 
-if.then37:                                        ; preds = %if.end34
-  %nups = getelementptr inbounds nuw i8, ptr %ar, i64 44
-  %5 = load i32, ptr %nups, align 4, !tbaa !16
-  %conv.i90 = sext i32 %5 to i64
-  call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i90) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.34) #9
-  br label %if.end38
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %52 = load i32, ptr %51, align 4, !tbaa !18
+  %53 = sext i32 %52 to i64
+  call void @lua_pushinteger(ptr noundef %0, i64 noundef %53) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.34) #8
+  br label %54
 
-if.end38:                                         ; preds = %if.then37, %if.end34
-  %call39 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %options.0, i32 noundef 110) #11
-  %tobool40.not = icmp eq ptr %call39, null
-  br i1 %tobool40.not, label %if.end42, label %if.then41
+54:                                               ; preds = %50, %48
+  %55 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 110) #10
+  %.not43 = icmp eq ptr %55, null
+  br i1 %.not43, label %61, label %56
 
-if.then41:                                        ; preds = %if.end38
-  %name = getelementptr inbounds nuw i8, ptr %ar, i64 8
-  %6 = load ptr, ptr %name, align 8, !tbaa !17
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %6) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.35) #9
-  %namewhat = getelementptr inbounds nuw i8, ptr %ar, i64 16
-  %7 = load ptr, ptr %namewhat, align 8, !tbaa !18
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %7) #9
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.36) #9
-  br label %if.end42
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !19
+  call void @lua_pushstring(ptr noundef %0, ptr noundef %58) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.35) #8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %60 = load ptr, ptr %59, align 8, !tbaa !20
+  call void @lua_pushstring(ptr noundef %0, ptr noundef %60) #8
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.36) #8
+  br label %61
 
-if.end42:                                         ; preds = %if.then41, %if.end38
-  %call43 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %options.0, i32 noundef 76) #11
-  %tobool44.not = icmp eq ptr %call43, null
-  br i1 %tobool44.not, label %if.end46, label %if.then45
+61:                                               ; preds = %56, %54
+  %62 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 76) #10
+  %.not44 = icmp eq ptr %62, null
+  br i1 %.not44, label %67, label %63
 
-if.then45:                                        ; preds = %if.end42
-  %cmp.i91 = icmp eq ptr %retval.0.i, %L
-  br i1 %cmp.i91, label %if.then.i93, label %if.else.i92
+63:                                               ; preds = %61
+  %64 = icmp eq ptr %0, %.0.i
+  br i1 %64, label %65, label %66
 
-if.then.i93:                                      ; preds = %if.then45
-  call void @lua_pushvalue(ptr noundef %L, i32 noundef -2) #9
-  call void @lua_remove(ptr noundef %L, i32 noundef -3) #9
+65:                                               ; preds = %63
+  call void @lua_pushvalue(ptr noundef %0, i32 noundef -2) #8
+  call void @lua_remove(ptr noundef %0, i32 noundef -3) #8
   br label %treatstackoption.exit
 
-if.else.i92:                                      ; preds = %if.then45
-  call void @lua_xmove(ptr noundef %retval.0.i, ptr noundef %L, i32 noundef 1) #9
+66:                                               ; preds = %63
+  call void @lua_xmove(ptr noundef %.0.i, ptr noundef %0, i32 noundef 1) #8
   br label %treatstackoption.exit
 
-treatstackoption.exit:                            ; preds = %if.else.i92, %if.then.i93
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.37) #9
-  br label %if.end46
+treatstackoption.exit:                            ; preds = %65, %66
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.37) #8
+  br label %67
 
-if.end46:                                         ; preds = %treatstackoption.exit, %if.end42
-  %call47 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %options.0, i32 noundef 102) #11
-  %tobool48.not = icmp eq ptr %call47, null
-  br i1 %tobool48.not, label %cleanup, label %if.then49
+67:                                               ; preds = %treatstackoption.exit, %61
+  %68 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 102) #10
+  %.not45 = icmp eq ptr %68, null
+  br i1 %.not45, label %73, label %69
 
-if.then49:                                        ; preds = %if.end46
-  %cmp.i94 = icmp eq ptr %retval.0.i, %L
-  br i1 %cmp.i94, label %if.then.i96, label %if.else.i95
+69:                                               ; preds = %67
+  %70 = icmp eq ptr %0, %.0.i
+  br i1 %70, label %71, label %72
 
-if.then.i96:                                      ; preds = %if.then49
-  call void @lua_pushvalue(ptr noundef %L, i32 noundef -2) #9
-  call void @lua_remove(ptr noundef %L, i32 noundef -3) #9
-  br label %treatstackoption.exit97
+71:                                               ; preds = %69
+  call void @lua_pushvalue(ptr noundef %0, i32 noundef -2) #8
+  call void @lua_remove(ptr noundef %0, i32 noundef -3) #8
+  br label %treatstackoption.exit46
 
-if.else.i95:                                      ; preds = %if.then49
-  call void @lua_xmove(ptr noundef %retval.0.i, ptr noundef %L, i32 noundef 1) #9
-  br label %treatstackoption.exit97
+72:                                               ; preds = %69
+  call void @lua_xmove(ptr noundef %.0.i, ptr noundef %0, i32 noundef 1) #8
+  br label %treatstackoption.exit46
 
-treatstackoption.exit97:                          ; preds = %if.else.i95, %if.then.i96
-  call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.38) #9
-  br label %cleanup
+treatstackoption.exit46:                          ; preds = %71, %72
+  call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.38) #8
+  br label %73
 
-cleanup:                                          ; preds = %treatstackoption.exit97, %if.end46, %if.then23, %if.else16, %if.then8
-  %retval.0 = phi i32 [ %call25, %if.then23 ], [ 1, %if.then8 ], [ %call18, %if.else16 ], [ 1, %treatstackoption.exit97 ], [ 1, %if.end46 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar) #9
-  ret i32 %retval.0
+73:                                               ; preds = %67, %treatstackoption.exit46, %26, %22, %15
+  %.037 = phi i32 [ %27, %26 ], [ 1, %15 ], [ %23, %22 ], [ 1, %treatstackoption.exit46 ], [ 1, %67 ]
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #8
+  ret i32 %.037
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @db_getlocal(ptr noundef %L) #0 {
-entry:
-  %ar = alloca %struct.lua_Debug, align 8
-  %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #9
-  %cmp.i = icmp eq i32 %call.i, 8
-  br i1 %cmp.i, label %if.then.i, label %getthread.exit
+define internal i32 @db_getlocal(ptr noundef %0) #0 {
+  %2 = alloca %struct.lua_Debug, align 8
+  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #8
+  %4 = icmp eq i32 %3, 8
+  br i1 %4, label %5, label %getthread.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #9
+5:                                                ; preds = %1
+  %6 = tail call ptr @lua_tothread(ptr noundef %0, i32 noundef 1) #8
   br label %getthread.exit
 
-getthread.exit:                                   ; preds = %if.then.i, %entry
-  %arg.0 = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %L, %entry ]
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar) #9
-  %add = add nuw nsw i32 %arg.0, 1
-  %call1 = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %add) #9
-  %conv = trunc i64 %call1 to i32
-  %call2 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %conv, ptr noundef nonnull %ar) #9
-  %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+getthread.exit:                                   ; preds = %1, %5
+  %.017 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
+  %7 = add nuw nsw i32 %.017, 1
+  %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %7) #8
+  %9 = trunc i64 %8 to i32
+  %10 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %9, ptr noundef nonnull %2) #8
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %13
 
-if.then:                                          ; preds = %getthread.exit
-  %call4 = call i32 @luaL_argerror(ptr noundef %L, i32 noundef %add, ptr noundef nonnull @.str.39) #9
-  br label %cleanup
+11:                                               ; preds = %getthread.exit
+  %12 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @.str.39) #8
+  br label %20
 
-if.end:                                           ; preds = %getthread.exit
-  %add5 = or disjoint i32 %arg.0, 2
-  %call6 = call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %add5) #9
-  %conv7 = trunc i64 %call6 to i32
-  %call8 = call ptr @lua_getlocal(ptr noundef %retval.0.i, ptr noundef nonnull %ar, i32 noundef %conv7) #9
-  %tobool9.not = icmp eq ptr %call8, null
-  br i1 %tobool9.not, label %if.else, label %if.then10
+13:                                               ; preds = %getthread.exit
+  %14 = or disjoint i32 %.017, 2
+  %15 = call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %14) #8
+  %16 = trunc i64 %15 to i32
+  %17 = call ptr @lua_getlocal(ptr noundef %.0.i, ptr noundef nonnull %2, i32 noundef %16) #8
+  %.not14 = icmp eq ptr %17, null
+  br i1 %.not14, label %19, label %18
 
-if.then10:                                        ; preds = %if.end
-  call void @lua_xmove(ptr noundef %retval.0.i, ptr noundef %L, i32 noundef 1) #9
-  call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %call8) #9
-  call void @lua_pushvalue(ptr noundef %L, i32 noundef -2) #9
-  br label %cleanup
+18:                                               ; preds = %13
+  call void @lua_xmove(ptr noundef %.0.i, ptr noundef %0, i32 noundef 1) #8
+  call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %17) #8
+  call void @lua_pushvalue(ptr noundef %0, i32 noundef -2) #8
+  br label %20
 
-if.else:                                          ; preds = %if.end
-  call void @lua_pushnil(ptr noundef %L) #9
-  br label %cleanup
+19:                                               ; preds = %13
+  call void @lua_pushnil(ptr noundef %0) #8
+  br label %20
 
-cleanup:                                          ; preds = %if.else, %if.then10, %if.then
-  %retval.0 = phi i32 [ 2, %if.then10 ], [ 1, %if.else ], [ %call4, %if.then ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar) #9
-  ret i32 %retval.0
+20:                                               ; preds = %19, %18, %11
+  %.0 = phi i32 [ 2, %18 ], [ 1, %19 ], [ %12, %11 ]
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #8
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_getregistry(ptr noundef %L) #0 {
-entry:
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -10000) #9
+define internal noundef i32 @db_getregistry(ptr noundef %0) #0 {
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -10000) #8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_getmetatable(ptr noundef %L) #0 {
-entry:
-  tail call void @luaL_checkany(ptr noundef %L, i32 noundef 1) #9
-  %call = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef 1) #9
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+define internal noundef i32 @db_getmetatable(ptr noundef %0) #0 {
+  tail call void @luaL_checkany(ptr noundef %0, i32 noundef 1) #8
+  %2 = tail call i32 @lua_getmetatable(ptr noundef %0, i32 noundef 1) #8
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %3, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @lua_pushnil(ptr noundef %L) #9
-  br label %if.end
+3:                                                ; preds = %1
+  tail call void @lua_pushnil(ptr noundef %0) #8
+  br label %4
 
-if.end:                                           ; preds = %if.then, %entry
+4:                                                ; preds = %3, %1
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @db_getupvalue(ptr noundef %L) #0 {
-entry:
-  %call.i = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #9
-  tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 6) #9
-  %call1.i = tail call i32 @lua_iscfunction(ptr noundef %L, i32 noundef 1) #9
-  %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %auxupvalue.exit
+define internal range(i32 0, 3) i32 @db_getupvalue(ptr noundef %0) #0 {
+  %2 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #8
+  tail call void @luaL_checktype(ptr noundef %0, i32 noundef 1, i32 noundef 6) #8
+  %3 = tail call i32 @lua_iscfunction(ptr noundef %0, i32 noundef 1) #8
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %4, label %auxupvalue.exit
 
-if.end.i:                                         ; preds = %entry
-  %conv.i = trunc i64 %call.i to i32
-  %call3.i = tail call ptr @lua_getupvalue(ptr noundef %L, i32 noundef 1, i32 noundef %conv.i) #9
-  %cmp.i = icmp eq ptr %call3.i, null
-  br i1 %cmp.i, label %auxupvalue.exit, label %if.end7.i
+4:                                                ; preds = %1
+  %5 = trunc i64 %2 to i32
+  %6 = tail call ptr @lua_getupvalue(ptr noundef %0, i32 noundef 1, i32 noundef %5) #8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %auxupvalue.exit, label %8
 
-if.end7.i:                                        ; preds = %if.end.i
-  tail call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %call3.i) #9
-  tail call void @lua_insert(ptr noundef %L, i32 noundef -2) #9
+8:                                                ; preds = %4
+  tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %6) #8
+  tail call void @lua_insert(ptr noundef %0, i32 noundef -2) #8
   br label %auxupvalue.exit
 
-auxupvalue.exit:                                  ; preds = %entry, %if.end.i, %if.end7.i
-  %retval.0.i = phi i32 [ 2, %if.end7.i ], [ 0, %entry ], [ 0, %if.end.i ]
-  ret i32 %retval.0.i
+auxupvalue.exit:                                  ; preds = %1, %4, %8
+  %.0.i = phi i32 [ 2, %8 ], [ 0, %1 ], [ 0, %4 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_setfenv(ptr noundef %L) #0 {
-entry:
-  tail call void @luaL_checktype(ptr noundef %L, i32 noundef 2, i32 noundef 5) #9
-  tail call void @lua_settop(ptr noundef %L, i32 noundef 2) #9
-  %call = tail call i32 @lua_setfenv(ptr noundef %L, i32 noundef 1) #9
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef i32 @db_setfenv(ptr noundef %0) #0 {
+  tail call void @luaL_checktype(ptr noundef %0, i32 noundef 2, i32 noundef 5) #8
+  tail call void @lua_settop(ptr noundef %0, i32 noundef 2) #8
+  %2 = tail call i32 @lua_setfenv(ptr noundef %0, i32 noundef 1) #8
+  %3 = icmp eq i32 %2, 0
+  br i1 %3, label %4, label %6
 
-if.then:                                          ; preds = %entry
-  %call1 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.40) #9
-  br label %if.end
+4:                                                ; preds = %1
+  %5 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.40) #8
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
+6:                                                ; preds = %4, %1
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_sethook(ptr noundef %L) #0 {
-entry:
-  %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #9
-  %cmp.i = icmp eq i32 %call.i, 8
-  br i1 %cmp.i, label %if.then.i, label %getthread.exit
+define internal noundef i32 @db_sethook(ptr noundef %0) #0 {
+  %2 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #8
+  %3 = icmp eq i32 %2, 8
+  br i1 %3, label %4, label %getthread.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #9
+4:                                                ; preds = %1
+  %5 = tail call ptr @lua_tothread(ptr noundef %0, i32 noundef 1) #8
   br label %getthread.exit
 
-getthread.exit:                                   ; preds = %if.then.i, %entry
-  %arg.0 = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %L, %entry ]
-  %add = add nuw nsw i32 %arg.0, 1
-  %call1 = tail call i32 @lua_type(ptr noundef %L, i32 noundef %add) #9
-  %cmp = icmp slt i32 %call1, 1
-  br i1 %cmp, label %if.then, label %if.else
+getthread.exit:                                   ; preds = %1, %4
+  %.024 = phi i32 [ 1, %4 ], [ 0, %1 ]
+  %.0.i = phi ptr [ %5, %4 ], [ %0, %1 ]
+  %6 = add nuw nsw i32 %.024, 1
+  %7 = tail call i32 @lua_type(ptr noundef %0, i32 noundef %6) #8
+  %8 = icmp slt i32 %7, 1
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %getthread.exit
-  tail call void @lua_settop(ptr noundef %L, i32 noundef %add) #9
-  br label %if.end
+9:                                                ; preds = %getthread.exit
+  tail call void @lua_settop(ptr noundef %0, i32 noundef %6) #8
+  br label %23
 
-if.else:                                          ; preds = %getthread.exit
-  %add3 = or disjoint i32 %arg.0, 2
-  %call4 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef %add3, ptr noundef null) #9
-  tail call void @luaL_checktype(ptr noundef %L, i32 noundef %add, i32 noundef 6) #9
-  %add6 = add nuw nsw i32 %arg.0, 3
-  %call7 = tail call i64 @luaL_optinteger(ptr noundef %L, i32 noundef %add6, i64 noundef 0) #9
-  %conv = trunc i64 %call7 to i32
-  %call.i23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 99) #11
-  %tobool.not.i = icmp ne ptr %call.i23, null
-  %spec.select.i = zext i1 %tobool.not.i to i32
-  %call1.i24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 114) #11
-  %tobool2.not.i = icmp eq ptr %call1.i24, null
-  %or4.i = or disjoint i32 %spec.select.i, 2
-  %mask.1.i = select i1 %tobool2.not.i, i32 %spec.select.i, i32 %or4.i
-  %call6.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4, i32 noundef 108) #11
-  %tobool7.not.i = icmp eq ptr %call6.i, null
-  %or9.i = or disjoint i32 %mask.1.i, 4
-  %mask.2.i = select i1 %tobool7.not.i, i32 %mask.1.i, i32 %or9.i
-  %cmp.i25 = icmp sgt i32 %conv, 0
-  %or12.i = or disjoint i32 %mask.2.i, 8
-  %mask.3.i = select i1 %cmp.i25, i32 %or12.i, i32 %mask.2.i
-  br label %if.end
+10:                                               ; preds = %getthread.exit
+  %11 = or disjoint i32 %.024, 2
+  %12 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef %11, ptr noundef null) #8
+  tail call void @luaL_checktype(ptr noundef %0, i32 noundef %6, i32 noundef 6) #8
+  %13 = add nuw nsw i32 %.024, 3
+  %14 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef %13, i64 noundef 0) #8
+  %15 = trunc i64 %14 to i32
+  %16 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 99) #10
+  %.not.i = icmp ne ptr %16, null
+  %spec.select.i = zext i1 %.not.i to i32
+  %17 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 114) #10
+  %.not8.i = icmp eq ptr %17, null
+  %18 = or disjoint i32 %spec.select.i, 2
+  %.1.i = select i1 %.not8.i, i32 %spec.select.i, i32 %18
+  %19 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 108) #10
+  %.not9.i = icmp eq ptr %19, null
+  %20 = or disjoint i32 %.1.i, 4
+  %.2.i = select i1 %.not9.i, i32 %.1.i, i32 %20
+  %21 = icmp sgt i32 %15, 0
+  %22 = or disjoint i32 %.2.i, 8
+  %.3.i = select i1 %21, i32 %22, i32 %.2.i
+  br label %23
 
-if.end:                                           ; preds = %if.else, %if.then
-  %func.0 = phi ptr [ null, %if.then ], [ @hookf, %if.else ]
-  %count.0 = phi i32 [ 0, %if.then ], [ %conv, %if.else ]
-  %mask.0 = phi i32 [ 0, %if.then ], [ %mask.3.i, %if.else ]
-  tail call fastcc void @gethooktable(ptr noundef %L)
-  tail call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef %retval.0.i) #9
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef %add) #9
-  tail call void @lua_rawset(ptr noundef %L, i32 noundef -3) #9
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #9
-  %call10 = tail call i32 @lua_sethook(ptr noundef %retval.0.i, ptr noundef %func.0, i32 noundef %mask.0, i32 noundef %count.0) #9
+23:                                               ; preds = %10, %9
+  %.018 = phi ptr [ null, %9 ], [ @hookf, %10 ]
+  %.017 = phi i32 [ 0, %9 ], [ %15, %10 ]
+  %.0 = phi i32 [ 0, %9 ], [ %.3.i, %10 ]
+  tail call fastcc void @gethooktable(ptr noundef %0)
+  tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef %.0.i) #8
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %6) #8
+  tail call void @lua_rawset(ptr noundef %0, i32 noundef -3) #8
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #8
+  %24 = tail call i32 @lua_sethook(ptr noundef %.0.i, ptr noundef %.018, i32 noundef %.0, i32 noundef %.017) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @db_setlocal(ptr noundef %L) #0 {
-entry:
-  %ar = alloca %struct.lua_Debug, align 8
-  %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #9
-  %cmp.i = icmp eq i32 %call.i, 8
-  br i1 %cmp.i, label %if.then.i, label %getthread.exit
+define internal i32 @db_setlocal(ptr noundef %0) #0 {
+  %2 = alloca %struct.lua_Debug, align 8
+  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #8
+  %4 = icmp eq i32 %3, 8
+  br i1 %4, label %5, label %getthread.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #9
+5:                                                ; preds = %1
+  %6 = tail call ptr @lua_tothread(ptr noundef %0, i32 noundef 1) #8
   br label %getthread.exit
 
-getthread.exit:                                   ; preds = %if.then.i, %entry
-  %arg.0 = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %L, %entry ]
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar) #9
-  %add = add nuw nsw i32 %arg.0, 1
-  %call1 = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %add) #9
-  %conv = trunc i64 %call1 to i32
-  %call2 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %conv, ptr noundef nonnull %ar) #9
-  %tobool.not = icmp eq i32 %call2, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+getthread.exit:                                   ; preds = %1, %5
+  %.015 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
+  %7 = add nuw nsw i32 %.015, 1
+  %8 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %7) #8
+  %9 = trunc i64 %8 to i32
+  %10 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %9, ptr noundef nonnull %2) #8
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %13
 
-if.then:                                          ; preds = %getthread.exit
-  %call4 = call i32 @luaL_argerror(ptr noundef %L, i32 noundef %add, ptr noundef nonnull @.str.39) #9
-  br label %cleanup
+11:                                               ; preds = %getthread.exit
+  %12 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @.str.39) #8
+  br label %19
 
-if.end:                                           ; preds = %getthread.exit
-  %add5 = add nuw nsw i32 %arg.0, 3
-  call void @luaL_checkany(ptr noundef %L, i32 noundef %add5) #9
-  call void @lua_settop(ptr noundef %L, i32 noundef %add5) #9
-  call void @lua_xmove(ptr noundef %L, ptr noundef %retval.0.i, i32 noundef 1) #9
-  %add7 = or disjoint i32 %arg.0, 2
-  %call8 = call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef %add7) #9
-  %conv9 = trunc i64 %call8 to i32
-  %call10 = call ptr @lua_setlocal(ptr noundef %retval.0.i, ptr noundef nonnull %ar, i32 noundef %conv9) #9
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %call10) #9
-  br label %cleanup
+13:                                               ; preds = %getthread.exit
+  %14 = add nuw nsw i32 %.015, 3
+  call void @luaL_checkany(ptr noundef %0, i32 noundef %14) #8
+  call void @lua_settop(ptr noundef %0, i32 noundef %14) #8
+  call void @lua_xmove(ptr noundef %0, ptr noundef %.0.i, i32 noundef 1) #8
+  %15 = or disjoint i32 %.015, 2
+  %16 = call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef %15) #8
+  %17 = trunc i64 %16 to i32
+  %18 = call ptr @lua_setlocal(ptr noundef %.0.i, ptr noundef nonnull %2, i32 noundef %17) #8
+  call void @lua_pushstring(ptr noundef %0, ptr noundef %18) #8
+  br label %19
 
-cleanup:                                          ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ 1, %if.end ], [ %call4, %if.then ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar) #9
-  ret i32 %retval.0
+19:                                               ; preds = %13, %11
+  %.0 = phi i32 [ 1, %13 ], [ %12, %11 ]
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #8
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_setmetatable(ptr noundef %L) #0 {
-entry:
-  %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #9
-  switch i32 %call, label %lor.rhs [
-    i32 5, label %lor.end
-    i32 0, label %lor.end
+define internal noundef i32 @db_setmetatable(ptr noundef %0) #0 {
+  %2 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #8
+  switch i32 %2, label %3 [
+    i32 5, label %5
+    i32 0, label %5
   ]
 
-lor.rhs:                                          ; preds = %entry
-  %call2 = tail call i32 @luaL_argerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.41) #9
-  br label %lor.end
+3:                                                ; preds = %1
+  %4 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.41) #8
+  br label %5
 
-lor.end:                                          ; preds = %lor.rhs, %entry, %entry
-  tail call void @lua_settop(ptr noundef %L, i32 noundef 2) #9
-  %call3 = tail call i32 @lua_setmetatable(ptr noundef %L, i32 noundef 1) #9
-  tail call void @lua_pushboolean(ptr noundef %L, i32 noundef %call3) #9
+5:                                                ; preds = %1, %1, %3
+  tail call void @lua_settop(ptr noundef %0, i32 noundef 2) #8
+  %6 = tail call i32 @lua_setmetatable(ptr noundef %0, i32 noundef 1) #8
+  tail call void @lua_pushboolean(ptr noundef %0, i32 noundef %6) #8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @db_setupvalue(ptr noundef %L) #0 {
-entry:
-  tail call void @luaL_checkany(ptr noundef %L, i32 noundef 3) #9
-  %call.i = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #9
-  tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 6) #9
-  %call1.i = tail call i32 @lua_iscfunction(ptr noundef %L, i32 noundef 1) #9
-  %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %auxupvalue.exit
+define internal range(i32 0, 2) i32 @db_setupvalue(ptr noundef %0) #0 {
+  tail call void @luaL_checkany(ptr noundef %0, i32 noundef 3) #8
+  %2 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #8
+  tail call void @luaL_checktype(ptr noundef %0, i32 noundef 1, i32 noundef 6) #8
+  %3 = tail call i32 @lua_iscfunction(ptr noundef %0, i32 noundef 1) #8
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %4, label %auxupvalue.exit
 
-if.end.i:                                         ; preds = %entry
-  %conv.i = trunc i64 %call.i to i32
-  %call4.i = tail call ptr @lua_setupvalue(ptr noundef %L, i32 noundef 1, i32 noundef %conv.i) #9
-  %cmp.i = icmp eq ptr %call4.i, null
-  br i1 %cmp.i, label %auxupvalue.exit, label %if.end7.i
+4:                                                ; preds = %1
+  %5 = trunc i64 %2 to i32
+  %6 = tail call ptr @lua_setupvalue(ptr noundef %0, i32 noundef 1, i32 noundef %5) #8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %auxupvalue.exit, label %8
 
-if.end7.i:                                        ; preds = %if.end.i
-  tail call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %call4.i) #9
-  tail call void @lua_insert(ptr noundef %L, i32 noundef -1) #9
+8:                                                ; preds = %4
+  tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %6) #8
+  tail call void @lua_insert(ptr noundef %0, i32 noundef -1) #8
   br label %auxupvalue.exit
 
-auxupvalue.exit:                                  ; preds = %entry, %if.end.i, %if.end7.i
-  %retval.0.i = phi i32 [ 1, %if.end7.i ], [ 0, %entry ], [ 0, %if.end.i ]
-  ret i32 %retval.0.i
+auxupvalue.exit:                                  ; preds = %1, %4, %8
+  %.0.i = phi i32 [ 1, %8 ], [ 0, %1 ], [ 0, %4 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @db_errorfb(ptr noundef %L) #0 {
-entry:
-  %ar = alloca %struct.lua_Debug, align 8
-  %call.i = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #9
-  %cmp.i = icmp eq i32 %call.i, 8
-  br i1 %cmp.i, label %if.then.i, label %getthread.exit
+define internal noundef i32 @db_errorfb(ptr noundef %0) #0 {
+  %2 = alloca %struct.lua_Debug, align 8
+  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 1) #8
+  %4 = icmp eq i32 %3, 8
+  br i1 %4, label %5, label %getthread.exit
 
-if.then.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @lua_tothread(ptr noundef %L, i32 noundef 1) #9
+5:                                                ; preds = %1
+  %6 = tail call ptr @lua_tothread(ptr noundef %0, i32 noundef 1) #8
   br label %getthread.exit
 
-getthread.exit:                                   ; preds = %if.then.i, %entry
-  %arg.0 = phi i32 [ 1, %if.then.i ], [ 0, %entry ]
-  %retval.0.i = phi ptr [ %call1.i, %if.then.i ], [ %L, %entry ]
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar) #9
-  %add = or disjoint i32 %arg.0, 2
-  %call1 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef %add) #9
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+getthread.exit:                                   ; preds = %1, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0.i = phi ptr [ %6, %5 ], [ %0, %1 ]
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #8
+  %7 = or disjoint i32 %.0, 2
+  %8 = tail call i32 @lua_isnumber(ptr noundef %0, i32 noundef %7) #8
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %12, label %9
 
-if.then:                                          ; preds = %getthread.exit
-  %call3 = tail call i64 @lua_tointeger(ptr noundef %L, i32 noundef %add) #9
-  %conv = trunc i64 %call3 to i32
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #9
-  br label %if.end
+9:                                                ; preds = %getthread.exit
+  %10 = tail call i64 @lua_tointeger(ptr noundef %0, i32 noundef %7) #8
+  %11 = trunc i64 %10 to i32
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #8
+  br label %15
 
-if.else:                                          ; preds = %getthread.exit
-  %cmp = icmp eq ptr %retval.0.i, %L
-  %cond = zext i1 %cmp to i32
-  br label %if.end
+12:                                               ; preds = %getthread.exit
+  %13 = icmp eq ptr %0, %.0.i
+  %14 = zext i1 %13 to i32
+  br label %15
 
-if.end:                                           ; preds = %if.else, %if.then
-  %level.0 = phi i32 [ %conv, %if.then ], [ %cond, %if.else ]
-  %call5 = tail call i32 @lua_gettop(ptr noundef %L) #9
-  %cmp6 = icmp eq i32 %call5, %arg.0
-  br i1 %cmp6, label %if.then8, label %if.else9
+15:                                               ; preds = %12, %9
+  %.036 = phi i32 [ %11, %9 ], [ %14, %12 ]
+  %16 = tail call i32 @lua_gettop(ptr noundef %0) #8
+  %17 = icmp eq i32 %16, %.0
+  br i1 %17, label %18, label %19
 
-if.then8:                                         ; preds = %if.end
-  tail call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.42, i64 noundef 0) #9
-  br label %if.end16
+18:                                               ; preds = %15
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.42, i64 noundef 0) #8
+  br label %23
 
-if.else9:                                         ; preds = %if.end
-  %add10 = add nuw nsw i32 %arg.0, 1
-  %call11 = tail call i32 @lua_isstring(ptr noundef %L, i32 noundef %add10) #9
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %cleanup, label %if.else14
+19:                                               ; preds = %15
+  %20 = add nuw nsw i32 %.0, 1
+  %21 = tail call i32 @lua_isstring(ptr noundef %0, i32 noundef %20) #8
+  %.not40 = icmp eq i32 %21, 0
+  br i1 %.not40, label %72, label %22
 
-if.else14:                                        ; preds = %if.else9
-  tail call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.17, i64 noundef 1) #9
-  br label %if.end16
+22:                                               ; preds = %19
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.17, i64 noundef 1) #8
+  br label %23
 
-if.end16:                                         ; preds = %if.else14, %if.then8
-  tail call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.43, i64 noundef 16) #9
-  %call17118123 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %level.0, ptr noundef nonnull %ar) #9
-  %tobool18.not119124 = icmp eq i32 %call17118123, 0
-  br i1 %tobool18.not119124, label %while.end73, label %while.body.lr.ph.lr.ph
+23:                                               ; preds = %22, %18
+  tail call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.43, i64 noundef 16) #8
+  %24 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %.036, ptr noundef nonnull %2) #8
+  %.not415153 = icmp eq i32 %24, 0
+  br i1 %.not415153, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
-while.body.lr.ph.lr.ph:                           ; preds = %if.end16
-  %short_src = getelementptr inbounds nuw i8, ptr %ar, i64 56
-  %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 40
-  %namewhat = getelementptr inbounds nuw i8, ptr %ar, i64 16
-  %name = getelementptr inbounds nuw i8, ptr %ar, i64 8
-  %what = getelementptr inbounds nuw i8, ptr %ar, i64 24
-  %linedefined = getelementptr inbounds nuw i8, ptr %ar, i64 48
-  br label %while.body.lr.ph
+.lr.ph.lr.ph:                                     ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  br label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %if.end34, %while.body.lr.ph.lr.ph
-  %tobool21 = phi i1 [ true, %while.body.lr.ph.lr.ph ], [ false, %if.end34 ]
-  %level.1.ph125 = phi i32 [ %level.0, %while.body.lr.ph.lr.ph ], [ %level.3, %if.end34 ]
-  br label %while.body
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
+  %31 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %.outer ]
+  %.1.ph54 = phi i32 [ %.036, %.lr.ph.lr.ph ], [ %.2, %.outer ]
+  br label %32
 
-while.body:                                       ; preds = %if.end71, %while.body.lr.ph
-  %level.1120 = phi i32 [ %level.1.ph125, %while.body.lr.ph ], [ %inc121, %if.end71 ]
-  %inc121 = add nsw i32 %level.1120, 1
-  %cmp19 = icmp sgt i32 %level.1120, 11
-  %or.cond = and i1 %tobool21, %cmp19
-  br i1 %or.cond, label %if.then22, label %if.end35
+32:                                               ; preds = %.lr.ph, %66
+  %.152 = phi i32 [ %.1.ph54, %.lr.ph ], [ %33, %66 ]
+  %33 = add nsw i32 %.152, 1
+  %34 = icmp sgt i32 %.152, 11
+  %or.cond = and i1 %34, %31
+  br i1 %or.cond, label %35, label %44
 
-if.then22:                                        ; preds = %while.body
-  %add23 = add nuw nsw i32 %level.1120, 11
-  %call24 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %add23, ptr noundef nonnull %ar) #9
-  %tobool25.not = icmp eq i32 %call24, 0
-  br i1 %tobool25.not, label %if.end34, label %if.else27
+35:                                               ; preds = %32
+  %36 = add nuw nsw i32 %.152, 11
+  %37 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %36, ptr noundef nonnull %2) #8
+  %.not43 = icmp eq i32 %37, 0
+  br i1 %.not43, label %.outer, label %38
 
-if.else27:                                        ; preds = %if.then22
-  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.44, i64 noundef 5) #9
-  br label %while.cond28
+38:                                               ; preds = %35
+  call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.44, i64 noundef 5) #8
+  br label %39
 
-while.cond28:                                     ; preds = %while.cond28, %if.else27
-  %level.2 = phi i32 [ %inc121, %if.else27 ], [ %inc33, %while.cond28 ]
-  %add29 = add nuw nsw i32 %level.2, 10
-  %call30 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %add29, ptr noundef nonnull %ar) #9
-  %tobool31.not = icmp eq i32 %call30, 0
-  %inc33 = add nuw nsw i32 %level.2, 1
-  br i1 %tobool31.not, label %if.end34, label %while.cond28, !llvm.loop !19
+39:                                               ; preds = %39, %38
+  %.3 = phi i32 [ %33, %38 ], [ %42, %39 ]
+  %40 = add nuw nsw i32 %.3, 10
+  %41 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %40, ptr noundef nonnull %2) #8
+  %.not44 = icmp eq i32 %41, 0
+  %42 = add nuw nsw i32 %.3, 1
+  br i1 %.not44, label %.outer, label %39, !llvm.loop !21
 
-if.end34:                                         ; preds = %while.cond28, %if.then22
-  %level.3 = phi i32 [ %level.1120, %if.then22 ], [ %level.2, %while.cond28 ]
-  %call17118 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %level.3, ptr noundef nonnull %ar) #9
-  %tobool18.not119 = icmp eq i32 %call17118, 0
-  br i1 %tobool18.not119, label %while.end73, label %while.body.lr.ph, !llvm.loop !21
+.outer:                                           ; preds = %39, %35
+  %.2 = phi i32 [ %.152, %35 ], [ %.3, %39 ]
+  %43 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %.2, ptr noundef nonnull %2) #8
+  %.not4151 = icmp eq i32 %43, 0
+  br i1 %.not4151, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !23
 
-if.end35:                                         ; preds = %while.body
-  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.45, i64 noundef 2) #9
-  %call36 = call i32 @lua_getinfo(ptr noundef %retval.0.i, ptr noundef nonnull @.str.46, ptr noundef nonnull %ar) #9
-  %call37 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.47, ptr noundef nonnull %short_src) #9
-  %0 = load i32, ptr %currentline, align 8, !tbaa !15
-  %cmp38 = icmp sgt i32 %0, 0
-  br i1 %cmp38, label %if.then40, label %if.end43
+44:                                               ; preds = %32
+  call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 2) #8
+  %45 = call i32 @lua_getinfo(ptr noundef %.0.i, ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #8
+  %46 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef nonnull %25) #8
+  %47 = load i32, ptr %26, align 8, !tbaa !17
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %51
 
-if.then40:                                        ; preds = %if.end35
-  %call42 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.48, i32 noundef %0) #9
-  br label %if.end43
+49:                                               ; preds = %44
+  %50 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.48, i32 noundef %47) #8
+  br label %51
 
-if.end43:                                         ; preds = %if.then40, %if.end35
-  %1 = load ptr, ptr %namewhat, align 8, !tbaa !18
-  %2 = load i8, ptr %1, align 1, !tbaa !8
-  %cmp45.not = icmp eq i8 %2, 0
-  br i1 %cmp45.not, label %if.else49, label %if.then47
+51:                                               ; preds = %49, %44
+  %52 = load ptr, ptr %27, align 8, !tbaa !20
+  %53 = load i8, ptr %52, align 1, !tbaa !9
+  %.not42 = icmp eq i8 %53, 0
+  br i1 %.not42, label %57, label %54
 
-if.then47:                                        ; preds = %if.end43
-  %3 = load ptr, ptr %name, align 8, !tbaa !17
-  %call48 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.49, ptr noundef %3) #9
-  br label %if.end71
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %28, align 8, !tbaa !19
+  %56 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %55) #8
+  br label %66
 
-if.else49:                                        ; preds = %if.end43
-  %4 = load ptr, ptr %what, align 8, !tbaa !14
-  %5 = load i8, ptr %4, align 1, !tbaa !8
-  switch i8 %5, label %if.else65 [
-    i8 109, label %if.then53
-    i8 67, label %if.then64
-    i8 116, label %if.then64
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %29, align 8, !tbaa !16
+  %59 = load i8, ptr %58, align 1, !tbaa !9
+  switch i8 %59, label %63 [
+    i8 109, label %60
+    i8 67, label %62
+    i8 116, label %62
   ]
 
-if.then53:                                        ; preds = %if.else49
-  %call54 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.50) #9
-  br label %if.end71
+60:                                               ; preds = %57
+  %61 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.50) #8
+  br label %66
 
-if.then64:                                        ; preds = %if.else49, %if.else49
-  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.51, i64 noundef 2) #9
-  br label %if.end71
+62:                                               ; preds = %57, %57
+  call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 2) #8
+  br label %66
 
-if.else65:                                        ; preds = %if.else49
-  %6 = load i32, ptr %linedefined, align 8, !tbaa !12
-  %call68 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.52, ptr noundef nonnull %short_src, i32 noundef %6) #9
-  br label %if.end71
+63:                                               ; preds = %57
+  %64 = load i32, ptr %30, align 8, !tbaa !14
+  %65 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef nonnull %25, i32 noundef %64) #8
+  br label %66
 
-if.end71:                                         ; preds = %if.else65, %if.then64, %if.then53, %if.then47
-  %call72 = call i32 @lua_gettop(ptr noundef %L) #9
-  %sub = sub nsw i32 %call72, %arg.0
-  call void @lua_concat(ptr noundef %L, i32 noundef %sub) #9
-  %call17 = call i32 @lua_getstack(ptr noundef %retval.0.i, i32 noundef %inc121, ptr noundef nonnull %ar) #9
-  %tobool18.not = icmp eq i32 %call17, 0
-  br i1 %tobool18.not, label %while.end73, label %while.body, !llvm.loop !21
+66:                                               ; preds = %60, %63, %62, %54
+  %67 = call i32 @lua_gettop(ptr noundef %0) #8
+  %68 = sub nsw i32 %67, %.0
+  call void @lua_concat(ptr noundef %0, i32 noundef %68) #8
+  %69 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %33, ptr noundef nonnull %2) #8
+  %.not41 = icmp eq i32 %69, 0
+  br i1 %.not41, label %.outer._crit_edge, label %32, !llvm.loop !23
 
-while.end73:                                      ; preds = %if.end34, %if.end71, %if.end16
-  %call74 = call i32 @lua_gettop(ptr noundef %L) #9
-  %sub75 = sub nsw i32 %call74, %arg.0
-  call void @lua_concat(ptr noundef %L, i32 noundef %sub75) #9
-  br label %cleanup
+.outer._crit_edge:                                ; preds = %.outer, %66, %23
+  %70 = call i32 @lua_gettop(ptr noundef %0) #8
+  %71 = sub nsw i32 %70, %.0
+  call void @lua_concat(ptr noundef %0, i32 noundef %71) #8
+  br label %72
 
-cleanup:                                          ; preds = %while.end73, %if.else9
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar) #9
+72:                                               ; preds = %19, %.outer._crit_edge
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #8
   ret i32 1
 }
 
@@ -862,64 +847,62 @@ declare i32 @lua_gethookmask(ptr noundef) local_unnamed_addr #1
 declare ptr @lua_gethook(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @hookf(ptr noundef %L, ptr noundef readonly captures(none) %ar) #0 {
-entry:
-  tail call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef nonnull @KEY_HOOK) #9
-  tail call void @lua_rawget(ptr noundef %L, i32 noundef -10000) #9
-  tail call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef %L) #9
-  tail call void @lua_rawget(ptr noundef %L, i32 noundef -2) #9
-  %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1) #9
-  %cmp = icmp eq i32 %call, 6
-  br i1 %cmp, label %if.then, label %if.end4
+define internal void @hookf(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
+  tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef nonnull @KEY_HOOK) #8
+  tail call void @lua_rawget(ptr noundef %0, i32 noundef -10000) #8
+  tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef %0) #8
+  tail call void @lua_rawget(ptr noundef %0, i32 noundef -2) #8
+  %3 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #8
+  %4 = icmp eq i32 %3, 6
+  br i1 %4, label %5, label %17
 
-if.then:                                          ; preds = %entry
-  %0 = load i32, ptr %ar, align 8, !tbaa !22
-  %idxprom = sext i32 %0 to i64
-  %reltable.shift = shl nsw i64 %idxprom, 2
-  %reltable.intrinsic = tail call ptr @llvm.load.relative.i64(ptr nonnull @reltable.hookf, i64 %reltable.shift)
-  tail call void @lua_pushstring(ptr noundef %L, ptr noundef %reltable.intrinsic) #9
-  %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 40
-  %1 = load i32, ptr %currentline, align 8, !tbaa !15
-  %cmp1 = icmp sgt i32 %1, -1
-  br i1 %cmp1, label %if.then2, label %if.else
+5:                                                ; preds = %2
+  %6 = load i32, ptr %1, align 8, !tbaa !24
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr inbounds [5 x ptr], ptr @hookf.hooknames, i64 0, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  tail call void @lua_pushstring(ptr noundef %0, ptr noundef %9) #8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load i32, ptr %10, align 8, !tbaa !17
+  %12 = icmp sgt i32 %11, -1
+  br i1 %12, label %13, label %15
 
-if.then2:                                         ; preds = %if.then
-  %conv = zext nneg i32 %1 to i64
-  tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv) #9
-  br label %if.end
+13:                                               ; preds = %5
+  %14 = zext nneg i32 %11 to i64
+  tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %14) #8
+  br label %16
 
-if.else:                                          ; preds = %if.then
-  tail call void @lua_pushnil(ptr noundef %L) #9
-  br label %if.end
+15:                                               ; preds = %5
+  tail call void @lua_pushnil(ptr noundef %0) #8
+  br label %16
 
-if.end:                                           ; preds = %if.else, %if.then2
-  tail call void @lua_call(ptr noundef %L, i32 noundef 2, i32 noundef 0) #9
-  br label %if.end4
+16:                                               ; preds = %15, %13
+  tail call void @lua_call(ptr noundef %0, i32 noundef 2, i32 noundef 0) #8
+  br label %17
 
-if.end4:                                          ; preds = %if.end, %entry
+17:                                               ; preds = %16, %2
   ret void
 }
 
 declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gethooktable(ptr noundef %L) unnamed_addr #0 {
-entry:
-  tail call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef nonnull @KEY_HOOK) #9
-  tail call void @lua_rawget(ptr noundef %L, i32 noundef -10000) #9
-  %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef -1) #9
-  %cmp = icmp eq i32 %call, 5
-  br i1 %cmp, label %if.end, label %if.then
+define internal fastcc void @gethooktable(ptr noundef %0) unnamed_addr #0 {
+  tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef nonnull @KEY_HOOK) #8
+  tail call void @lua_rawget(ptr noundef %0, i32 noundef -10000) #8
+  %2 = tail call i32 @lua_type(ptr noundef %0, i32 noundef -1) #8
+  %3 = icmp eq i32 %2, 5
+  br i1 %3, label %5, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #9
-  tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 1) #9
-  tail call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef nonnull @KEY_HOOK) #9
-  tail call void @lua_pushvalue(ptr noundef %L, i32 noundef -2) #9
-  tail call void @lua_rawset(ptr noundef %L, i32 noundef -10000) #9
-  br label %if.end
+4:                                                ; preds = %1
+  tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #8
+  tail call void @lua_createtable(ptr noundef %0, i32 noundef 0, i32 noundef 1) #8
+  tail call void @lua_pushlightuserdata(ptr noundef %0, ptr noundef nonnull @KEY_HOOK) #8
+  tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -2) #8
+  tail call void @lua_rawset(ptr noundef %0, i32 noundef -10000) #8
+  br label %5
 
-if.end:                                           ; preds = %if.then, %entry
+5:                                                ; preds = %4, %1
   ret void
 }
 
@@ -1011,14 +994,11 @@ declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare ptr @llvm.load.relative.i64(ptr, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1027,11 +1007,10 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
-attributes #9 = { nounwind }
-attributes #10 = { cold }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nounwind }
+attributes #9 = { cold }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -1040,21 +1019,24 @@ attributes #11 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!5, !5, i64 0}
-!5 = !{!"any pointer", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!6, !6, i64 0}
-!9 = !{!10, !5, i64 32}
-!10 = !{!"lua_Debug", !11, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !6, i64 56, !11, i64 116}
-!11 = !{!"int", !6, i64 0}
-!12 = !{!10, !11, i64 48}
-!13 = !{!10, !11, i64 52}
-!14 = !{!10, !5, i64 24}
-!15 = !{!10, !11, i64 40}
-!16 = !{!10, !11, i64 44}
-!17 = !{!10, !5, i64 8}
-!18 = !{!10, !5, i64 16}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = !{!10, !11, i64 0}
+!5 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!7, !7, i64 0}
+!10 = !{!11, !13, i64 32}
+!11 = !{!"lua_Debug", !12, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !7, i64 56, !12, i64 116}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!"p1 omnipotent char", !6, i64 0}
+!14 = !{!11, !12, i64 48}
+!15 = !{!11, !12, i64 52}
+!16 = !{!11, !13, i64 24}
+!17 = !{!11, !12, i64 40}
+!18 = !{!11, !12, i64 44}
+!19 = !{!11, !13, i64 8}
+!20 = !{!11, !13, i64 16}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !22}
+!24 = !{!11, !12, i64 0}
+!25 = !{!13, !13, i64 0}

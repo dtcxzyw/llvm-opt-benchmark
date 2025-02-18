@@ -1,539 +1,549 @@
 ; ModuleID = 'bench/redis/original/thread_event.ll'
 source_filename = "bench/redis/original/thread_event.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-@opt_tcache_gc_incr_bytes = external local_unnamed_addr global i64, align 8
-@opt_stats_interval = external local_unnamed_addr global i64, align 8
+@je_opt_tcache_gc_incr_bytes = external local_unnamed_addr global i64, align 8
+@je_opt_stats_interval = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @te_assert_invariants_debug(ptr noundef captures(none) %tsd) local_unnamed_addr #0 {
-entry:
+define hidden void @je_te_assert_invariants_debug(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @te_recompute_fast_threshold(ptr noundef captures(none) initializes((848, 856), (864, 872)) %tsd) local_unnamed_addr #1 {
-entry:
-  %state.i35 = getelementptr inbounds nuw i8, ptr %tsd, i64 832
-  %0 = load i8, ptr %state.i35, align 8
-  %cmp.not = icmp eq i8 %0, 0
-  br i1 %cmp.not, label %if.end, label %if.then
+define hidden void @je_te_recompute_fast_threshold(ptr noundef captures(none) initializes((848, 856), (864, 872)) %0) local_unnamed_addr #1 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %3 = load i8, ptr %2, align 8, !tbaa !4
+  %.not = icmp eq i8 %3, 0
+  br i1 %.not, label %7, label %4
 
-if.then:                                          ; preds = %entry
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i133 = getelementptr inbounds nuw i8, ptr %tsd, i64 848
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i133, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149 = getelementptr inbounds nuw i8, ptr %tsd, i64 864
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149, align 8
-  br label %if.end7
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  store i64 0, ptr %5, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  store i64 0, ptr %6, align 8, !tbaa !7
+  br label %18
 
-if.end:                                           ; preds = %entry
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i128 = getelementptr inbounds nuw i8, ptr %tsd, i64 16
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131 = getelementptr inbounds nuw i8, ptr %tsd, i64 848
-  %ctx.val.val = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i128, align 8
-  %cmp.i = icmp ult i64 %ctx.val.val, -4095
-  %cond.i = select i1 %cmp.i, i64 %ctx.val.val, i64 0
-  store i64 %cond.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i = getelementptr inbounds nuw i8, ptr %tsd, i64 32
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i = getelementptr inbounds nuw i8, ptr %tsd, i64 864
-  %ctx.val57.val = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i, align 8
-  %cmp.i59 = icmp ult i64 %ctx.val57.val, -4095
-  %cond.i60 = select i1 %cmp.i59, i64 %ctx.val57.val, i64 0
-  store i64 %cond.i60, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %.val.val = load i64, ptr %8, align 8, !tbaa !7
+  %10 = icmp ult i64 %.val.val, -4095
+  %11 = select i1 %10, i64 %.val.val, i64 0
+  store i64 %11, ptr %9, align 8, !tbaa !7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %.val8.val = load i64, ptr %12, align 8, !tbaa !7
+  %14 = icmp ult i64 %.val8.val, -4095
+  %15 = select i1 %14, i64 %.val8.val, i64 0
+  store i64 %15, ptr %13, align 8, !tbaa !7
   fence seq_cst
-  %1 = load i8, ptr %state.i35, align 8
-  %cmp4.not = icmp eq i8 %1, 0
-  br i1 %cmp4.not, label %if.end7, label %if.then6
+  %16 = load i8, ptr %2, align 8, !tbaa !4
+  %.not6 = icmp eq i8 %16, 0
+  br i1 %.not6, label %18, label %17
 
-if.then6:                                         ; preds = %if.end
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131, align 8
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i, align 8
-  br label %if.end7
+17:                                               ; preds = %7
+  store i64 0, ptr %9, align 8, !tbaa !7
+  store i64 0, ptr %13, align 8, !tbaa !7
+  br label %18
 
-if.end7:                                          ; preds = %if.then6, %if.end, %if.then
+18:                                               ; preds = %7, %17, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @te_event_trigger(ptr noundef %tsd, ptr noundef readonly captures(none) %ctx) local_unnamed_addr #2 {
-entry:
-  %current.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
-  %0 = load ptr, ptr %current.i, align 8
-  %1 = load i64, ptr %0, align 8
-  %last_event.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
-  %2 = load ptr, ptr %last_event.i, align 8
-  %3 = load i64, ptr %2, align 8
-  %sub = sub i64 %1, %3
-  store i64 %1, ptr %2, align 8
-  %4 = getelementptr i8, ptr %tsd, i64 832
-  %tsd.val = load i8, ptr %4, align 8
-  %cmp.i = icmp ult i8 %tsd.val, 3
-  br i1 %cmp.i, label %land.rhs, label %land.end
+define hidden void @je_te_event_trigger(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = load i64, ptr %4, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load i64, ptr %7, align 8, !tbaa !7
+  %9 = sub i64 %5, %8
+  store i64 %5, ptr %7, align 8, !tbaa !7
+  %10 = getelementptr i8, ptr %0, i64 832
+  %.val = load i8, ptr %10, align 8, !tbaa !4
+  %11 = icmp ult i8 %.val, 3
+  br i1 %11, label %12, label %16
 
-land.rhs:                                         ; preds = %entry
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i = getelementptr inbounds nuw i8, ptr %tsd, i64 1
-  %5 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
-  %cmp = icmp eq i8 %5, 0
-  br label %land.end
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %14 = load i8, ptr %13, align 1, !tbaa !4
+  %15 = icmp eq i8 %14, 0
+  br label %16
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %6 = phi i1 [ false, %entry ], [ %cmp, %land.rhs ]
-  %7 = load i8, ptr %ctx, align 8
-  %tobool = trunc i8 %7 to i1
-  %tobool.mask = and i8 %7, 1
-  %8 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp11 = icmp ne i64 %8, 0
-  %or.cond = select i1 %tobool, i1 %cmp11, i1 false
-  br i1 %or.cond, label %if.then, label %if.end29
+16:                                               ; preds = %12, %2
+  %17 = phi i1 [ false, %2 ], [ %15, %12 ]
+  %18 = load i8, ptr %1, align 8, !tbaa !15, !range !16, !noundef !17
+  %19 = trunc nuw i8 %18 to i1
+  %20 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
+  %21 = icmp ne i64 %20, 0
+  %or.cond = select i1 %19, i1 %21, i1 false
+  br i1 %or.cond, label %22, label %35
 
-if.then:                                          ; preds = %land.end
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316 = getelementptr inbounds nuw i8, ptr %tsd, i64 40
-  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316, align 8
-  %cmp14 = icmp ugt i64 %9, %sub
-  br i1 %cmp14, label %if.then16, label %if.else
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = load i64, ptr %23, align 8, !tbaa !7
+  %25 = icmp ugt i64 %24, %9
+  br i1 %25, label %26, label %28
 
-if.then16:                                        ; preds = %if.then
-  %sub17 = sub nuw i64 %9, %sub
-  br label %if.end23
+26:                                               ; preds = %22
+  %27 = sub nuw i64 %24, %9
+  br label %33
 
-if.else:                                          ; preds = %if.then
-  br i1 %6, label %if.else21, label %if.then19
+28:                                               ; preds = %22
+  br i1 %17, label %31, label %29
 
-if.then19:                                        ; preds = %if.else
-  %call20 = tail call i64 @tcache_gc_postponed_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end23
+29:                                               ; preds = %28
+  %30 = tail call i64 @je_tcache_gc_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %33
 
-if.else21:                                        ; preds = %if.else
-  %call22 = tail call i64 @tcache_gc_new_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end23
+31:                                               ; preds = %28
+  %32 = tail call i64 @je_tcache_gc_new_event_wait(ptr noundef nonnull %0) #5
+  br label %33
 
-if.end23:                                         ; preds = %if.then19, %if.else21, %if.then16
-  %event_wait.0 = phi i64 [ %sub17, %if.then16 ], [ %call22, %if.else21 ], [ %call20, %if.then19 ]
-  %10 = phi i1 [ true, %if.then16 ], [ false, %if.else21 ], [ true, %if.then19 ]
-  store i64 %event_wait.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i316, align 8
-  br label %if.end29
+33:                                               ; preds = %29, %31, %26
+  %.0127 = phi i64 [ %27, %26 ], [ %32, %31 ], [ %30, %29 ]
+  %34 = phi i1 [ true, %26 ], [ false, %31 ], [ true, %29 ]
+  store i64 %.0127, ptr %23, align 8, !tbaa !7
+  br label %35
 
-if.end29:                                         ; preds = %if.end23, %land.end
-  %is_tcache_gc_triggered.0 = phi i1 [ true, %land.end ], [ %10, %if.end23 ]
-  %wait.0 = phi i64 [ -1, %land.end ], [ %event_wait.0, %if.end23 ]
-  %11 = load i64, ptr @opt_stats_interval, align 8
-  %cmp66 = icmp sgt i64 %11, -1
-  %or.cond1 = select i1 %tobool, i1 %cmp66, i1 false
-  br i1 %or.cond1, label %if.then68, label %if.end90
+35:                                               ; preds = %33, %16
+  %.0125 = phi i1 [ %34, %33 ], [ true, %16 ]
+  %.0 = phi i64 [ %.0127, %33 ], [ -1, %16 ]
+  %36 = load i64, ptr @je_opt_stats_interval, align 8
+  %37 = icmp sgt i64 %36, -1
+  %or.cond3 = select i1 %19, i1 %37, i1 false
+  br i1 %or.cond3, label %38, label %49
 
-if.then68:                                        ; preds = %if.end29
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342 = getelementptr inbounds nuw i8, ptr %tsd, i64 72
-  %12 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342, align 8
-  %cmp73 = icmp ugt i64 %12, %sub
-  br i1 %cmp73, label %if.then75, label %if.else77
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %40 = load i64, ptr %39, align 8, !tbaa !7
+  %41 = icmp ugt i64 %40, %9
+  br i1 %41, label %42, label %44
 
-if.then75:                                        ; preds = %if.then68
-  %sub76 = sub nuw i64 %12, %sub
-  br label %if.end84
+42:                                               ; preds = %38
+  %43 = sub nuw i64 %40, %9
+  br label %.thread171
 
-if.else77:                                        ; preds = %if.then68
-  br i1 %6, label %if.else81, label %if.then79
+44:                                               ; preds = %38
+  br i1 %17, label %47, label %45
 
-if.then79:                                        ; preds = %if.else77
-  %call80 = tail call i64 @stats_interval_postponed_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end84
+45:                                               ; preds = %44
+  %46 = tail call i64 @je_stats_interval_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %.thread171
 
-if.else81:                                        ; preds = %if.else77
-  %call82 = tail call i64 @stats_interval_new_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end84
+47:                                               ; preds = %44
+  %48 = tail call i64 @je_stats_interval_new_event_wait(ptr noundef nonnull %0) #5
+  br label %.thread171
 
-if.end84:                                         ; preds = %if.then79, %if.else81, %if.then75
-  %event_wait69.0 = phi i64 [ %sub76, %if.then75 ], [ %call82, %if.else81 ], [ %call80, %if.then79 ]
-  %13 = phi i1 [ true, %if.then75 ], [ false, %if.else81 ], [ true, %if.then79 ]
-  store i64 %event_wait69.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342, align 8
-  %spec.select114 = tail call i64 @llvm.umin.i64(i64 %event_wait69.0, i64 %wait.0)
-  br label %if.end90
+.thread171:                                       ; preds = %45, %47, %42
+  %.0130 = phi i64 [ %43, %42 ], [ %48, %47 ], [ %46, %45 ]
+  %.1129 = phi i1 [ false, %42 ], [ true, %47 ], [ false, %45 ]
+  store i64 %.0130, ptr %39, align 8, !tbaa !7
+  %spec.select155 = tail call i64 @llvm.umin.i64(i64 %.0130, i64 %.0)
+  br label %66
 
-if.end90:                                         ; preds = %if.end84, %if.end29
-  %is_stats_interval_triggered.0 = phi i1 [ true, %if.end29 ], [ %13, %if.end84 ]
-  %wait.1 = phi i64 [ %wait.0, %if.end29 ], [ %spec.select114, %if.end84 ]
-  %cmp93 = icmp eq i8 %tobool.mask, 0
-  %14 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp96 = icmp ne i64 %14, 0
-  %or.cond2 = select i1 %cmp93, i1 %cmp96, i1 false
-  br i1 %or.cond2, label %if.then98, label %if.end120
+49:                                               ; preds = %35
+  %50 = icmp eq i8 %18, 0
+  %51 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
+  %52 = icmp ne i64 %51, 0
+  %or.cond5 = select i1 %50, i1 %52, i1 false
+  br i1 %or.cond5, label %53, label %65
 
-if.then98:                                        ; preds = %if.end90
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355 = getelementptr inbounds nuw i8, ptr %tsd, i64 48
-  %15 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355, align 8
-  %cmp103 = icmp ugt i64 %15, %sub
-  br i1 %cmp103, label %if.then105, label %if.else107
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %55 = load i64, ptr %54, align 8, !tbaa !7
+  %56 = icmp ugt i64 %55, %9
+  br i1 %56, label %57, label %59
 
-if.then105:                                       ; preds = %if.then98
-  %sub106 = sub nuw i64 %15, %sub
-  br label %if.end114
+57:                                               ; preds = %53
+  %58 = sub nuw i64 %55, %9
+  br label %.thread180
 
-if.else107:                                       ; preds = %if.then98
-  br i1 %6, label %if.else111, label %if.then109
+59:                                               ; preds = %53
+  br i1 %17, label %62, label %60
 
-if.then109:                                       ; preds = %if.else107
-  %call110 = tail call i64 @tcache_gc_dalloc_postponed_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end114
+60:                                               ; preds = %59
+  %61 = tail call i64 @je_tcache_gc_dalloc_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %.thread180
 
-if.else111:                                       ; preds = %if.else107
-  %call112 = tail call i64 @tcache_gc_dalloc_new_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end114
+62:                                               ; preds = %59
+  %63 = tail call i64 @je_tcache_gc_dalloc_new_event_wait(ptr noundef nonnull %0) #5
+  br label %.thread180
 
-if.end114:                                        ; preds = %if.then109, %if.else111, %if.then105
-  %16 = phi i1 [ true, %if.then105 ], [ false, %if.else111 ], [ true, %if.then109 ]
-  %event_wait99.0 = phi i64 [ %sub106, %if.then105 ], [ %call112, %if.else111 ], [ %call110, %if.then109 ]
-  store i64 %event_wait99.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i355, align 8
-  %spec.select115 = tail call i64 @llvm.umin.i64(i64 %event_wait99.0, i64 %wait.1)
-  br label %if.end120
+.thread180:                                       ; preds = %57, %62, %60
+  %64 = phi i1 [ true, %57 ], [ false, %62 ], [ true, %60 ]
+  %.0137 = phi i64 [ %58, %57 ], [ %63, %62 ], [ %61, %60 ]
+  store i64 %.0137, ptr %54, align 8, !tbaa !7
+  %spec.select156 = tail call i64 @llvm.umin.i64(i64 %.0137, i64 %.0)
+  br label %79
 
-if.end120:                                        ; preds = %if.end114, %if.end90
-  %is_tcache_gc_dalloc_triggered.0 = phi i1 [ true, %if.end90 ], [ %16, %if.end114 ]
-  %wait.2 = phi i64 [ %wait.1, %if.end90 ], [ %spec.select115, %if.end114 ]
-  br i1 %tobool, label %if.then125, label %if.end147
+65:                                               ; preds = %49
+  br i1 %19, label %66, label %79
 
-if.then125:                                       ; preds = %if.end120
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368 = getelementptr inbounds nuw i8, ptr %tsd, i64 88
-  %17 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368, align 8
-  %cmp130 = icmp ugt i64 %17, %sub
-  br i1 %cmp130, label %if.then132, label %if.else134
+66:                                               ; preds = %.thread171, %65
+  %.4179 = phi i64 [ %spec.select155, %.thread171 ], [ %.0, %65 ]
+  %.0128170176 = phi i1 [ %.1129, %.thread171 ], [ false, %65 ]
+  %67 = phi i1 [ false, %.thread171 ], [ %50, %65 ]
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %69 = load i64, ptr %68, align 8, !tbaa !7
+  %70 = icmp ugt i64 %69, %9
+  br i1 %70, label %71, label %73
 
-if.then132:                                       ; preds = %if.then125
-  %sub133 = sub nuw i64 %17, %sub
-  br label %if.end141
+71:                                               ; preds = %66
+  %72 = sub nuw i64 %69, %9
+  br label %78
 
-if.else134:                                       ; preds = %if.then125
-  br i1 %6, label %if.else138, label %if.then136
+73:                                               ; preds = %66
+  br i1 %17, label %76, label %74
 
-if.then136:                                       ; preds = %if.else134
-  %call137 = tail call i64 @peak_alloc_postponed_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end141
+74:                                               ; preds = %73
+  %75 = tail call i64 @je_peak_alloc_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %78
 
-if.else138:                                       ; preds = %if.else134
-  %call139 = tail call i64 @peak_alloc_new_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end141
+76:                                               ; preds = %73
+  %77 = tail call i64 @je_peak_alloc_new_event_wait(ptr noundef nonnull %0) #5
+  br label %78
 
-if.end141:                                        ; preds = %if.then136, %if.else138, %if.then132
-  %18 = phi i1 [ true, %if.then132 ], [ false, %if.else138 ], [ true, %if.then136 ]
-  %event_wait126.0 = phi i64 [ %sub133, %if.then132 ], [ %call139, %if.else138 ], [ %call137, %if.then136 ]
-  store i64 %event_wait126.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i368, align 8
-  %spec.select116 = tail call i64 @llvm.umin.i64(i64 %event_wait126.0, i64 %wait.2)
-  br label %if.end147
+78:                                               ; preds = %74, %76, %71
+  %.1136 = phi i1 [ false, %71 ], [ true, %76 ], [ false, %74 ]
+  %.0134 = phi i64 [ %72, %71 ], [ %77, %76 ], [ %75, %74 ]
+  store i64 %.0134, ptr %68, align 8, !tbaa !7
+  %spec.select157 = tail call i64 @llvm.umin.i64(i64 %.0134, i64 %.4179)
+  br i1 %67, label %79, label %92
 
-if.end147:                                        ; preds = %if.end141, %if.end120
-  %is_peak_alloc_triggered.0 = phi i1 [ true, %if.end120 ], [ %18, %if.end141 ]
-  %wait.3 = phi i64 [ %wait.2, %if.end120 ], [ %spec.select116, %if.end141 ]
-  br i1 %cmp93, label %if.then152, label %do.end176
+79:                                               ; preds = %65, %.thread180, %78
+  %.6190 = phi i64 [ %spec.select157, %78 ], [ %spec.select156, %.thread180 ], [ %.0, %65 ]
+  %.0135189 = phi i1 [ %.1136, %78 ], [ false, %.thread180 ], [ false, %65 ]
+  %.0128170175187 = phi i1 [ %.0128170176, %78 ], [ false, %.thread180 ], [ false, %65 ]
+  %.0138177185 = phi i1 [ true, %78 ], [ %64, %.thread180 ], [ true, %65 ]
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %81 = load i64, ptr %80, align 8, !tbaa !7
+  %82 = icmp ugt i64 %81, %9
+  br i1 %82, label %83, label %85
 
-if.then152:                                       ; preds = %if.end147
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i381 = getelementptr inbounds nuw i8, ptr %tsd, i64 96
-  %19 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i381, align 8
-  %cmp157 = icmp ugt i64 %19, %sub
-  br i1 %cmp157, label %if.then159, label %if.else161
+83:                                               ; preds = %79
+  %84 = sub nuw i64 %81, %9
+  br label %90
 
-if.then159:                                       ; preds = %if.then152
-  %sub160 = sub nuw i64 %19, %sub
-  br label %if.end168
+85:                                               ; preds = %79
+  br i1 %17, label %88, label %86
 
-if.else161:                                       ; preds = %if.then152
-  br i1 %6, label %if.else165, label %if.then163
+86:                                               ; preds = %85
+  %87 = tail call i64 @je_peak_dalloc_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %90
 
-if.then163:                                       ; preds = %if.else161
-  %call164 = tail call i64 @peak_dalloc_postponed_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end168
+88:                                               ; preds = %85
+  %89 = tail call i64 @je_peak_dalloc_new_event_wait(ptr noundef nonnull %0) #5
+  br label %90
 
-if.else165:                                       ; preds = %if.else161
-  %call166 = tail call i64 @peak_dalloc_new_event_wait(ptr noundef nonnull %tsd) #5
-  br label %if.end168
+90:                                               ; preds = %86, %88, %83
+  %91 = phi i1 [ true, %83 ], [ false, %88 ], [ true, %86 ]
+  %.0131 = phi i64 [ %84, %83 ], [ %89, %88 ], [ %87, %86 ]
+  store i64 %.0131, ptr %80, align 8, !tbaa !7
+  %spec.select158 = tail call i64 @llvm.umin.i64(i64 %.0131, i64 %.6190)
+  br label %92
 
-if.end168:                                        ; preds = %if.then163, %if.else165, %if.then159
-  %20 = phi i1 [ true, %if.then159 ], [ false, %if.else165 ], [ true, %if.then163 ]
-  %event_wait153.0 = phi i64 [ %sub160, %if.then159 ], [ %call166, %if.else165 ], [ %call164, %if.then163 ]
-  store i64 %event_wait153.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i381, align 8
-  %spec.select117 = tail call i64 @llvm.umin.i64(i64 %event_wait153.0, i64 %wait.3)
-  br label %do.end176
+92:                                               ; preds = %78, %90
+  %.0135188 = phi i1 [ %.0135189, %90 ], [ %.1136, %78 ]
+  %.not = phi i1 [ false, %90 ], [ true, %78 ]
+  %.0128170175186 = phi i1 [ %.0128170175187, %90 ], [ %.0128170176, %78 ]
+  %.0138177184 = phi i1 [ %.0138177185, %90 ], [ true, %78 ]
+  %.1133 = phi i1 [ %91, %90 ], [ true, %78 ]
+  %.9 = phi i64 [ %spec.select158, %90 ], [ %spec.select157, %78 ]
+  %.val165 = load ptr, ptr %6, align 8, !tbaa !14
+  %93 = getelementptr i8, ptr %1, i64 24
+  %.val166 = load ptr, ptr %93, align 8, !tbaa !18
+  %.val165.val = load i64, ptr %.val165, align 8, !tbaa !7
+  %94 = tail call i64 @llvm.umin.i64(i64 %.9, i64 4194304)
+  %95 = add i64 %.val165.val, %94
+  store i64 %95, ptr %.val166, align 8, !tbaa !7
+  %96 = load i8, ptr %10, align 8, !tbaa !4
+  %.not.i.i = icmp eq i8 %96, 0
+  br i1 %.not.i.i, label %100, label %97
 
-do.end176:                                        ; preds = %if.end168, %if.end147
-  %is_peak_dalloc_triggered.1 = phi i1 [ true, %if.end147 ], [ %20, %if.end168 ]
-  %wait.4 = phi i64 [ %wait.3, %if.end147 ], [ %spec.select117, %if.end168 ]
-  %ctx.val = load ptr, ptr %last_event.i, align 8
-  %21 = getelementptr i8, ptr %ctx, i64 24
-  %ctx.val118 = load ptr, ptr %21, align 8
-  %ctx.val.val = load i64, ptr %ctx.val, align 8
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %wait.4, i64 4194304)
-  %add.i = add i64 %ctx.val.val, %cond.i
-  store i64 %add.i, ptr %ctx.val118, align 8
-  %22 = load i8, ptr %4, align 8
-  %cmp.not.i.i = icmp eq i8 %22, 0
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %do.end176
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i133.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 848
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i133.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 864
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149.i.i, align 8
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  store i64 0, ptr %98, align 8, !tbaa !7
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  store i64 0, ptr %99, align 8, !tbaa !7
   br label %te_adjust_thresholds_helper.exit
 
-if.end.i.i:                                       ; preds = %do.end176
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i128.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 16
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 848
-  %ctx.val.val.i.i = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i128.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %ctx.val.val.i.i, -4095
-  %cond.i.i.i = select i1 %cmp.i.i.i, i64 %ctx.val.val.i.i, i64 0
-  store i64 %cond.i.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 32
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 864
-  %ctx.val57.val.i.i = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i.i.i, align 8
-  %cmp.i59.i.i = icmp ult i64 %ctx.val57.val.i.i, -4095
-  %cond.i60.i.i = select i1 %cmp.i59.i.i, i64 %ctx.val57.val.i.i, i64 0
-  store i64 %cond.i60.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i, align 8
+100:                                              ; preds = %92
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %.val.val.i.i = load i64, ptr %101, align 8, !tbaa !7
+  %103 = icmp ult i64 %.val.val.i.i, -4095
+  %104 = select i1 %103, i64 %.val.val.i.i, i64 0
+  store i64 %104, ptr %102, align 8, !tbaa !7
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %.val8.val.i.i = load i64, ptr %105, align 8, !tbaa !7
+  %107 = icmp ult i64 %.val8.val.i.i, -4095
+  %108 = select i1 %107, i64 %.val8.val.i.i, i64 0
+  store i64 %108, ptr %106, align 8, !tbaa !7
   fence seq_cst
-  %23 = load i8, ptr %4, align 8
-  %cmp4.not.i.i = icmp eq i8 %23, 0
-  br i1 %cmp4.not.i.i, label %te_adjust_thresholds_helper.exit, label %if.then6.i.i
+  %109 = load i8, ptr %10, align 8, !tbaa !4
+  %.not6.i.i = icmp eq i8 %109, 0
+  br i1 %.not6.i.i, label %te_adjust_thresholds_helper.exit, label %110
 
-if.then6.i.i:                                     ; preds = %if.end.i.i
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i, align 8
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i, align 8
+110:                                              ; preds = %100
+  store i64 0, ptr %102, align 8, !tbaa !7
+  store i64 0, ptr %106, align 8, !tbaa !7
   br label %te_adjust_thresholds_helper.exit
 
-te_adjust_thresholds_helper.exit:                 ; preds = %if.then.i.i, %if.end.i.i, %if.then6.i.i
-  %24 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp182 = icmp eq i64 %24, 0
-  %not.tobool = xor i1 %tobool, true
-  %or.cond3 = select i1 %not.tobool, i1 true, i1 %cmp182
-  %brmerge = or i1 %is_tcache_gc_triggered.0, %or.cond3
-  br i1 %brmerge, label %if.end191, label %do.end189
+te_adjust_thresholds_helper.exit:                 ; preds = %97, %100, %110
+  %111 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
+  %112 = icmp eq i64 %111, 0
+  %not. = xor i1 %19, true
+  %or.cond7 = select i1 %not., i1 true, i1 %112
+  %brmerge = or i1 %.0125, %or.cond7
+  br i1 %brmerge, label %114, label %113
 
-do.end189:                                        ; preds = %te_adjust_thresholds_helper.exit
-  tail call void @tcache_gc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
-  br label %if.end191
+113:                                              ; preds = %te_adjust_thresholds_helper.exit
+  tail call void @je_tcache_gc_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
+  br label %114
 
-if.end191:                                        ; preds = %te_adjust_thresholds_helper.exit, %do.end189
-  %25 = load i64, ptr @opt_stats_interval, align 8
-  %cmp214 = icmp slt i64 %25, 0
-  %or.cond4 = select i1 %not.tobool, i1 true, i1 %cmp214
-  %brmerge119 = or i1 %is_stats_interval_triggered.0, %or.cond4
-  br i1 %brmerge119, label %if.end224, label %do.end221
+114:                                              ; preds = %te_adjust_thresholds_helper.exit, %113
+  %115 = load i64, ptr @je_opt_stats_interval, align 8
+  %116 = icmp sgt i64 %115, -1
+  %or.cond9.not = select i1 %19, i1 %116, i1 false
+  %brmerge159.not = and i1 %.0128170175186, %or.cond9.not
+  br i1 %brmerge159.not, label %117, label %123
 
-do.end221:                                        ; preds = %if.end191
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 8
-  %26 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_last_event.i18.i = getelementptr inbounds nuw i8, ptr %tsd, i64 80
-  %27 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_last_event.i18.i, align 8
-  store i64 %26, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_last_event.i18.i, align 8
-  %sub.i = sub i64 %26, %27
-  tail call void @stats_interval_event_handler(ptr noundef nonnull %tsd, i64 noundef %sub.i) #5
-  br label %if.end224
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %119 = load i64, ptr %118, align 8, !tbaa !7
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %121 = load i64, ptr %120, align 8, !tbaa !7
+  store i64 %119, ptr %120, align 8, !tbaa !7
+  %122 = sub i64 %119, %121
+  tail call void @je_stats_interval_event_handler(ptr noundef nonnull %0, i64 noundef %122) #5
+  br label %123
 
-if.end224:                                        ; preds = %if.end191, %do.end221
-  %28 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp230 = icmp eq i64 %28, 0
-  %not.cmp93 = xor i1 %cmp93, true
-  %or.cond5 = select i1 %not.cmp93, i1 true, i1 %cmp230
-  %brmerge120 = or i1 %is_tcache_gc_dalloc_triggered.0, %or.cond5
-  br i1 %brmerge120, label %if.end240, label %do.end237
+123:                                              ; preds = %114, %117
+  %124 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
+  %125 = icmp eq i64 %124, 0
+  %or.cond11.not193 = select i1 %.not, i1 true, i1 %125
+  %brmerge160 = or i1 %.0138177184, %or.cond11.not193
+  br i1 %brmerge160, label %127, label %126
 
-do.end237:                                        ; preds = %if.end224
-  tail call void @tcache_gc_dalloc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
-  br label %if.end240
+126:                                              ; preds = %123
+  tail call void @je_tcache_gc_dalloc_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
+  br label %127
 
-if.end240:                                        ; preds = %if.end224, %do.end237
-  %brmerge121 = or i1 %is_peak_alloc_triggered.0, %not.tobool
-  br i1 %brmerge121, label %if.end253, label %do.end250
+127:                                              ; preds = %123, %126
+  %brmerge162.demorgan = and i1 %.0135188, %19
+  br i1 %brmerge162.demorgan, label %128, label %129
 
-do.end250:                                        ; preds = %if.end240
-  tail call void @peak_alloc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
-  br label %if.end253
+128:                                              ; preds = %127
+  tail call void @je_peak_alloc_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
+  br label %129
 
-if.end253:                                        ; preds = %if.end240, %do.end250
-  %brmerge122 = or i1 %is_peak_dalloc_triggered.1, %not.cmp93
-  br i1 %brmerge122, label %if.end266, label %do.end263
+129:                                              ; preds = %127, %128
+  %brmerge164 = or i1 %.not, %.1133
+  br i1 %brmerge164, label %131, label %130
 
-do.end263:                                        ; preds = %if.end253
-  tail call void @peak_dalloc_event_handler(ptr noundef nonnull %tsd, i64 noundef -1) #5
-  br label %if.end266
+130:                                              ; preds = %129
+  tail call void @je_peak_dalloc_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
+  br label %131
 
-if.end266:                                        ; preds = %if.end253, %do.end263
+131:                                              ; preds = %129, %130
   ret void
 }
 
-declare i64 @tcache_gc_postponed_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_tcache_gc_postponed_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @tcache_gc_new_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_tcache_gc_new_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @stats_interval_postponed_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_stats_interval_postponed_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @stats_interval_new_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_stats_interval_new_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @tcache_gc_dalloc_postponed_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_tcache_gc_dalloc_postponed_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @tcache_gc_dalloc_new_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_tcache_gc_dalloc_new_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @peak_alloc_postponed_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_peak_alloc_postponed_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @peak_alloc_new_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_peak_alloc_new_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @peak_dalloc_postponed_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_peak_dalloc_postponed_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare i64 @peak_dalloc_new_event_wait(ptr noundef) local_unnamed_addr #3
+declare i64 @je_peak_dalloc_new_event_wait(ptr noundef) local_unnamed_addr #3
 
-declare void @tcache_gc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_tcache_gc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @stats_interval_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_stats_interval_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @tcache_gc_dalloc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_tcache_gc_dalloc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @peak_alloc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_peak_alloc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @peak_dalloc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @je_peak_dalloc_event_handler(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tsd_te_init(ptr noundef initializes((8, 16)) %tsd) local_unnamed_addr #2 {
-entry:
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 840
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 16
-  %0 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i, align 8
-  store i64 %0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i, align 8
-  %1 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp3.not.i = icmp eq i64 %1, 0
-  br i1 %cmp3.not.i, label %if.end10.i, label %if.then.i
+define hidden void @je_tsd_te_init(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i64, ptr %2, align 8, !tbaa !7
+  store i64 %5, ptr %3, align 8, !tbaa !7
+  %6 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
+  %.not.i = icmp eq i64 %6, 0
+  br i1 %.not.i, label %10, label %7
 
-if.then.i:                                        ; preds = %entry
-  %call5.i = tail call i64 @tcache_gc_new_event_wait(ptr noundef nonnull %tsd) #5
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 40
-  store i64 %call5.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_event_wait.i.i, align 8
-  br label %if.end10.i
+7:                                                ; preds = %1
+  %8 = tail call i64 @je_tcache_gc_new_event_wait(ptr noundef nonnull %0) #5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %8, ptr %9, align 8, !tbaa !7
+  br label %10
 
-if.end10.i:                                       ; preds = %if.then.i, %entry
-  %wait.0.i = phi i64 [ -1, %entry ], [ %call5.i, %if.then.i ]
-  %2 = load i64, ptr @opt_stats_interval, align 8
-  %cmp33.i = icmp sgt i64 %2, -1
-  br i1 %cmp33.i, label %if.then35.i, label %if.end72.thread.i
+10:                                               ; preds = %7, %1
+  %.0.i = phi i64 [ %8, %7 ], [ -1, %1 ]
+  %11 = load i64, ptr @je_opt_stats_interval, align 8
+  %12 = icmp sgt i64 %11, -1
+  br i1 %12, label %13, label %.thread87.i
 
-if.then35.i:                                      ; preds = %if.end10.i
-  %call37.i = tail call i64 @stats_interval_new_event_wait(ptr noundef nonnull %tsd) #5
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 72
-  store i64 %call37.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i.i, align 8
-  %spec.select69.i = tail call i64 @llvm.umin.i64(i64 %call37.i, i64 %wait.0.i)
-  br label %if.end72.thread.i
+13:                                               ; preds = %10
+  %14 = tail call i64 @je_stats_interval_new_event_wait(ptr noundef nonnull %0) #5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %14, ptr %15, align 8, !tbaa !7
+  %spec.select55.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %.0.i)
+  br label %.thread87.i
 
-if.end72.thread.i:                                ; preds = %if.then35.i, %if.end10.i
-  %wait.1.ph.i = phi i64 [ %spec.select69.i, %if.then35.i ], [ %wait.0.i, %if.end10.i ]
-  %call66.i = tail call i64 @peak_alloc_new_event_wait(ptr noundef nonnull %tsd) #5
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 88
-  store i64 %call66.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_alloc_event_wait.i.i, align 8
-  %spec.select71.i = tail call i64 @llvm.umin.i64(i64 %call66.i, i64 %wait.1.ph.i)
-  %ctx.val.val.i = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i.i, align 8
-  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %spec.select71.i, i64 4194304)
-  %add.i.i = add i64 %cond.i.i, %ctx.val.val.i
-  store i64 %add.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i.i, align 8
-  %state.i35.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 832
-  %3 = load i8, ptr %state.i35.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq i8 %3, 0
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 848
-  br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
+.thread87.i:                                      ; preds = %13, %10
+  %.2.ph.i = phi i64 [ %.0.i, %10 ], [ %spec.select55.i, %13 ]
+  %16 = tail call i64 @je_peak_alloc_new_event_wait(ptr noundef nonnull %0) #5
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %16, ptr %17, align 8, !tbaa !7
+  %spec.select57.i = tail call i64 @llvm.umin.i64(i64 %16, i64 %.2.ph.i)
+  %.val.val.i = load i64, ptr %3, align 8, !tbaa !7
+  %18 = tail call i64 @llvm.umin.i64(i64 %spec.select57.i, i64 4194304)
+  %19 = add i64 %18, %.val.val.i
+  store i64 %19, ptr %4, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %21 = load i8, ptr %20, align 8, !tbaa !4
+  %.not.i.i.i = icmp eq i8 %21, 0
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  br i1 %.not.i.i.i, label %25, label %23
 
-if.then.i.i.i:                                    ; preds = %if.end72.thread.i
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 864
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149.i.i.i, align 8
+23:                                               ; preds = %.thread87.i
+  store i64 0, ptr %22, align 8, !tbaa !7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  store i64 0, ptr %24, align 8, !tbaa !7
   br label %te_init.exit
 
-if.end.i.i.i:                                     ; preds = %if.end72.thread.i
-  %cmp.i.i.i.i = icmp ult i64 %add.i.i, -4095
-  %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 %add.i.i, i64 0
-  store i64 %cond.i.i.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 32
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 864
-  %ctx.val57.val.i.i.i = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i.i.i.i, align 8
-  %cmp.i59.i.i.i = icmp ult i64 %ctx.val57.val.i.i.i, -4095
-  %cond.i60.i.i.i = select i1 %cmp.i59.i.i.i, i64 %ctx.val57.val.i.i.i, i64 0
-  store i64 %cond.i60.i.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i.i, align 8
+25:                                               ; preds = %.thread87.i
+  %26 = icmp ult i64 %19, -4095
+  %27 = select i1 %26, i64 %19, i64 0
+  store i64 %27, ptr %22, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %.val8.val.i.i.i = load i64, ptr %28, align 8, !tbaa !7
+  %30 = icmp ult i64 %.val8.val.i.i.i, -4095
+  %31 = select i1 %30, i64 %.val8.val.i.i.i, i64 0
+  store i64 %31, ptr %29, align 8, !tbaa !7
   fence seq_cst
-  %4 = load i8, ptr %state.i35.i.i.i, align 8
-  %cmp4.not.i.i.i = icmp eq i8 %4, 0
-  br i1 %cmp4.not.i.i.i, label %te_init.exit, label %if.then6.i.i.i
+  %32 = load i8, ptr %20, align 8, !tbaa !4
+  %.not6.i.i.i = icmp eq i8 %32, 0
+  br i1 %.not6.i.i.i, label %te_init.exit, label %33
 
-if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i.i, align 8
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i.i, align 8
+33:                                               ; preds = %25
+  store i64 0, ptr %22, align 8, !tbaa !7
+  store i64 0, ptr %29, align 8, !tbaa !7
   br label %te_init.exit
 
-te_init.exit:                                     ; preds = %if.then.i.i.i, %if.end.i.i.i, %if.then6.i.i.i
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 856
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 24
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 32
-  %5 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
-  store i64 %5, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i.i, align 8
-  %6 = load i64, ptr @opt_tcache_gc_incr_bytes, align 8
-  %cmp49.i = icmp eq i64 %6, 0
-  br i1 %cmp49.i, label %if.then77.i, label %if.then51.i
+te_init.exit:                                     ; preds = %23, %25, %33
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %37 = load i64, ptr %34, align 8, !tbaa !7
+  store i64 %37, ptr %35, align 8, !tbaa !7
+  %38 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %43, label %40
 
-if.then51.i:                                      ; preds = %te_init.exit
-  %call53.i = tail call i64 @tcache_gc_dalloc_new_event_wait(ptr noundef nonnull %tsd) #5
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 48
-  store i64 %call53.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_gc_dalloc_event_wait.i.i, align 8
-  br label %if.then77.i
+40:                                               ; preds = %te_init.exit
+  %41 = tail call i64 @je_tcache_gc_dalloc_new_event_wait(ptr noundef nonnull %0) #5
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %41, ptr %42, align 8, !tbaa !7
+  br label %43
 
-if.then77.i:                                      ; preds = %if.then51.i, %te_init.exit
-  %wait.2.ph.i = phi i64 [ %call53.i, %if.then51.i ], [ -1, %te_init.exit ]
-  %call79.i = tail call i64 @peak_dalloc_new_event_wait(ptr noundef nonnull %tsd) #5
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 96
-  store i64 %call79.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_peak_dalloc_event_wait.i.i, align 8
-  %spec.select72.i = tail call i64 @llvm.umin.i64(i64 %call79.i, i64 %wait.2.ph.i)
-  %ctx.val.val.i3 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_last_event.i.i, align 8
-  %cond.i.i4 = tail call i64 @llvm.umin.i64(i64 %spec.select72.i, i64 4194304)
-  %add.i.i5 = add i64 %cond.i.i4, %ctx.val.val.i3
-  store i64 %add.i.i5, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i.i, align 8
-  %7 = load i8, ptr %state.i35.i.i.i, align 8
-  %cmp.not.i.i.i7 = icmp eq i8 %7, 0
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i.i13 = getelementptr inbounds nuw i8, ptr %tsd, i64 848
-  br i1 %cmp.not.i.i.i7, label %if.end.i.i.i11, label %if.then.i.i.i8
+43:                                               ; preds = %40, %te_init.exit
+  %.4.ph.i = phi i64 [ -1, %te_init.exit ], [ %41, %40 ]
+  %44 = tail call i64 @je_peak_dalloc_new_event_wait(ptr noundef nonnull %0) #5
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 %44, ptr %45, align 8, !tbaa !7
+  %spec.select58.i = tail call i64 @llvm.umin.i64(i64 %44, i64 %.4.ph.i)
+  %.val.val.i3 = load i64, ptr %35, align 8, !tbaa !7
+  %46 = tail call i64 @llvm.umin.i64(i64 %spec.select58.i, i64 4194304)
+  %47 = add i64 %46, %.val.val.i3
+  store i64 %47, ptr %36, align 8, !tbaa !7
+  %48 = load i8, ptr %20, align 8, !tbaa !4
+  %.not.i.i.i4 = icmp eq i8 %48, 0
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  br i1 %.not.i.i.i4, label %52, label %50
 
-if.then.i.i.i8:                                   ; preds = %if.then77.i
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i.i13, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149.i.i.i10 = getelementptr inbounds nuw i8, ptr %tsd, i64 864
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i149.i.i.i10, align 8
-  br label %te_init.exit24
+50:                                               ; preds = %43
+  store i64 0, ptr %49, align 8, !tbaa !7
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  store i64 0, ptr %51, align 8, !tbaa !7
+  br label %te_init.exit8
 
-if.end.i.i.i11:                                   ; preds = %if.then77.i
-  %ctx.val.val.i.i.i14 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i.i, align 8
-  %cmp.i.i.i.i15 = icmp ult i64 %ctx.val.val.i.i.i14, -4095
-  %cond.i.i.i.i16 = select i1 %cmp.i.i.i.i15, i64 %ctx.val.val.i.i.i14, i64 0
-  store i64 %cond.i.i.i.i16, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i.i13, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %tsd, i64 864
-  %cmp.i59.i.i.i20 = icmp ult i64 %add.i.i5, -4095
-  %cond.i60.i.i.i21 = select i1 %cmp.i59.i.i.i20, i64 %add.i.i5, i64 0
-  store i64 %cond.i60.i.i.i21, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i.i18, align 8
+52:                                               ; preds = %43
+  %.val.val.i.i.i5 = load i64, ptr %4, align 8, !tbaa !7
+  %53 = icmp ult i64 %.val.val.i.i.i5, -4095
+  %54 = select i1 %53, i64 %.val.val.i.i.i5, i64 0
+  store i64 %54, ptr %49, align 8, !tbaa !7
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %56 = icmp ult i64 %47, -4095
+  %57 = select i1 %56, i64 %47, i64 0
+  store i64 %57, ptr %55, align 8, !tbaa !7
   fence seq_cst
-  %8 = load i8, ptr %state.i35.i.i.i, align 8
-  %cmp4.not.i.i.i22 = icmp eq i8 %8, 0
-  br i1 %cmp4.not.i.i.i22, label %te_init.exit24, label %if.then6.i.i.i23
+  %58 = load i8, ptr %20, align 8, !tbaa !4
+  %.not6.i.i.i7 = icmp eq i8 %58, 0
+  br i1 %.not6.i.i.i7, label %te_init.exit8, label %59
 
-if.then6.i.i.i23:                                 ; preds = %if.end.i.i.i11
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i131.i.i.i13, align 8
-  store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i.i.i18, align 8
-  br label %te_init.exit24
+59:                                               ; preds = %52
+  store i64 0, ptr %49, align 8, !tbaa !7
+  store i64 0, ptr %55, align 8, !tbaa !7
+  br label %te_init.exit8
 
-te_init.exit24:                                   ; preds = %if.then.i.i.i8, %if.end.i.i.i11, %if.then6.i.i.i23
+te_init.exit8:                                    ; preds = %50, %52, %59
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = !{!10, !12, i64 8}
+!10 = !{!"te_ctx_s", !11, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
+!11 = !{!"_Bool", !5, i64 0}
+!12 = !{!"p1 long", !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!10, !12, i64 16}
+!15 = !{!10, !11, i64 0}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = !{!10, !12, i64 24}

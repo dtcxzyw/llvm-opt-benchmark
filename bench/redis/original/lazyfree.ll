@@ -1,1013 +1,1113 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.redisServer = type { i32, i64, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, i32, i32, i32, i32, ptr, i32, i32, [41 x i8], i32, i64, i32, i32, i32, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, ptr, [2 x i32], i32, i32, i32, i32, i32, [16 x ptr], i32, ptr, ptr, i32, [8 x %struct.connListener], i32, %struct.connListener, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, [3 x %struct.pause_event], [256 x i8], ptr, i64, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, ptr, i64, i64, i64, %struct.malloc_stats, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, [4 x i64], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [7 x %struct.anon], i64, i64, i64, i64, i64, i64, [4 x %struct.durationStats], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, ptr, [3 x %struct.clientBufferLimitsConfig], i32, i32, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i64, i64, i64, i64, i64, i32, i32, ptr, i32, i32, i64, i64, i64, i64, i64, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i64, i64, i64, i64, ptr, i32, ptr, i32, i32, i32, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, i32, [2 x i32], i32, %struct.redisOpArray, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, [41 x i8], [41 x i8], i64, i64, i64, i64, i32, i32, ptr, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i64, i64, i64, ptr, i32, ptr, i64, i32, i32, i32, i64, i32, i32, i32, i32, ptr, i32, i32, [41 x i8], i64, i32, ptr, i32, i32, i64, i64, i32, i32, i32, i32, i32, i64, [3 x i32], i32, i32, i32, [9 x i32], ptr, ptr, i32, i64, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i64, i64, i64, i64, i64, ptr, ptr, i32, ptr, i32, i32, i32, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i64, i32, i64, i32, i32, i32, i32, i32, i32, i32, i64, ptr, ptr, i64, ptr, i32, %struct.aclInfo, i32, i64, i32, i32, i32, %struct.redisTLSContextConfig, ptr, ptr, ptr, ptr, ptr, i64, i32, ptr, i32, i32, i32, i64, i32, ptr }
+%struct.EbucketsType = type { ptr, ptr, i32 }
+%struct.redisServer = type { i32, i64, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i32, i32, i32, i32, ptr, i32, i32, [41 x i8], i32, i64, i32, i32, i32, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, ptr, [2 x i32], i32, i32, i32, i32, i32, i32, [16 x ptr], i32, ptr, ptr, i32, [8 x %struct.connListener], i32, %struct.connListener, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, [3 x %struct.pause_event], [256 x i8], ptr, i64, i32, i32, [128 x i32], i32, i32, i64, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, i64, i64, i64, i64, i64, ptr, i64, i64, i64, %struct.malloc_stats, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, double, [4 x i64], i64, i64, i64, i64, [128 x i64], [128 x i64], i64, i64, [7 x %struct.anon], i64, i64, i64, i64, i64, i64, [4 x %struct.durationStats], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, ptr, [3 x %struct.clientBufferLimitsConfig], i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i64, i64, i64, i64, i64, i32, i32, ptr, i32, i32, i64, i64, i64, i64, i64, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i64, i64, i64, i64, i32, ptr, i32, ptr, i32, i32, i32, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, i32, [2 x i32], i32, %struct.redisOpArray, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, [41 x i8], [41 x i8], i64, i64, i64, i64, i32, i32, ptr, i64, i64, %struct.replDataBuf, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr, i64, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i32, i64, i64, i64, i64, ptr, ptr, i32, ptr, i64, i32, i32, i32, i64, i32, i32, i32, i32, ptr, i32, i32, [41 x i8], i64, i32, ptr, i32, i32, i64, i64, i32, i32, i32, i32, i32, i64, [3 x i32], i32, i32, i32, [10 x i32], ptr, ptr, i32, i64, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i64, i64, i64, i64, i64, ptr, ptr, i32, ptr, i32, i32, i32, i32, i64, i64, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, i64, ptr, ptr, i64, ptr, i32, %struct.aclInfo, i32, i64, i32, i32, i32, %struct.redisTLSContextConfig, ptr, ptr, ptr, ptr, ptr, i64, i32, ptr, i32, i32, i32, i64, i32, ptr }
 %struct.connListener = type { [16 x i32], i32, ptr, i32, i32, ptr, ptr }
 %struct.pause_event = type { i32, i64 }
-%struct.malloc_stats = type { i64, i64, i64, i64, i64 }
+%struct.malloc_stats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.anon = type { i64, i64, [16 x i64], i32 }
 %struct.durationStats = type { i64, i64, i64 }
 %struct.clientBufferLimitsConfig = type { i64, i64, i64 }
 %struct.redisOpArray = type { ptr, i32, i32 }
+%struct.replDataBuf = type { ptr, i64, i64, i64, i64 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.dictType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.dict = type { ptr, [2 x ptr], [2 x i64], i64, i16, [2 x i8], [0 x ptr] }
-%struct.rax = type { ptr, i64, i64 }
+%struct.dictType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr }
+%struct.rax = type { ptr, i64, i64, [0 x ptr] }
+%struct.dict = type { ptr, [2 x ptr], [2 x i64], i64, i16, [2 x i8], i16, [0 x ptr] }
 %struct.list = type { ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.raxIterator = type { i32, ptr, ptr, ptr, i64, i64, [128 x i8], ptr, %struct.raxStack, ptr }
 %struct.raxStack = type { ptr, i64, i64, [32 x ptr], i32 }
 %struct.redisObject = type { i32, i32, ptr }
-%struct.quicklist = type { ptr, ptr, i64, i64, i40, [0 x %struct.quicklistBookmark] }
+%struct.quicklist = type { ptr, ptr, i64, i64, i64, [0 x %struct.quicklistBookmark] }
 %struct.quicklistBookmark = type { ptr, ptr }
 %struct.zset = type { ptr, ptr }
 %struct.zskiplist = type { ptr, ptr, i64, i32 }
 %struct.stream = type { ptr, i64, %struct.streamID, %struct.streamID, %struct.streamID, i64, ptr }
 %struct.streamID = type { i64, i64 }
 %struct.streamCG = type { %struct.streamID, i64, ptr, ptr }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr, i32, [2 x %struct.dbDictState] }
-%struct.dbDictState = type { i32, i32, i64, i64, ptr }
-%struct.dbDictMetadata = type { ptr }
+%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
 
 @lazyfree_objects = internal global i64 0, align 8
 @lazyfreed_objects = internal global i64 0, align 8
-@.str = private unnamed_addr constant [2 x i8] c"^\00", align 1
-@.str.1 = private unnamed_addr constant [13 x i8] c"raxNext(&ri)\00", align 1
-@.str.2 = private unnamed_addr constant [11 x i8] c"lazyfree.c\00", align 1
+@hashExpireBucketsType = external global %struct.EbucketsType, align 8
+@.str = private unnamed_addr constant [20 x i8] c"thread.tcache.flush\00", align 1
+@.str.1 = private unnamed_addr constant [2 x i8] c"^\00", align 1
+@.str.2 = private unnamed_addr constant [13 x i8] c"raxNext(&ri)\00", align 1
+@.str.3 = private unnamed_addr constant [11 x i8] c"lazyfree.c\00", align 1
 @server = external global %struct.redisServer, align 8
 @dbDictType = external global %struct.dictType, align 8
 @dbExpiresDictType = external global %struct.dictType, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lazyfreeFreeObject(ptr noundef %args) #0 {
-entry:
-  %args.addr = alloca ptr, align 8
-  %o = alloca ptr, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %.atomictmp1 = alloca i64, align 8
-  %atomic-temp2 = alloca i64, align 8
-  store ptr %args, ptr %args.addr, align 8
-  %0 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %o, align 8
-  %2 = load ptr, ptr %o, align 8
-  call void @decrRefCount(ptr noundef %2)
-  store i64 1, ptr %.atomictmp, align 8
-  %3 = load i64, ptr %.atomictmp, align 8
-  %4 = atomicrmw sub ptr @lazyfree_objects, i64 %3 monotonic, align 8
-  store i64 %4, ptr %atomic-temp, align 8
-  store i64 1, ptr %.atomictmp1, align 8
-  %5 = load i64, ptr %.atomictmp1, align 8
-  %6 = atomicrmw add ptr @lazyfreed_objects, i64 %5 monotonic, align 8
-  store i64 %6, ptr %atomic-temp2, align 8
-  ret void
-}
-
-declare void @decrRefCount(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local void @lazyfreeFreeDatabase(ptr noundef %args) #0 {
-entry:
-  %args.addr = alloca ptr, align 8
-  %ht1 = alloca ptr, align 8
-  %ht2 = alloca ptr, align 8
-  %dictCount = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %numkeys = alloca i64, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %.atomictmp13 = alloca i64, align 8
-  %atomic-temp14 = alloca i64, align 8
-  store ptr %args, ptr %args.addr, align 8
-  %0 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %ht1, align 8
-  %2 = load ptr, ptr %args.addr, align 8
-  %arrayidx1 = getelementptr inbounds ptr, ptr %2, i64 1
-  %3 = load ptr, ptr %arrayidx1, align 8
-  store ptr %3, ptr %ht2, align 8
-  %4 = load ptr, ptr %args.addr, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %4, i64 2
-  %5 = load ptr, ptr %arrayidx2, align 8
-  store ptr %5, ptr %dictCount, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %6 = load i32, ptr %i, align 4
-  %7 = load ptr, ptr %dictCount, align 8
-  %8 = load i32, ptr %7, align 4
-  %cmp = icmp slt i32 %6, %8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %9 = load ptr, ptr %ht1, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx3, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %11, i32 0, i32 2
-  %arrayidx4 = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %12 = load i64, ptr %arrayidx4, align 8
-  %13 = load ptr, ptr %ht1, align 8
-  %14 = load i32, ptr %i, align 4
-  %idxprom5 = sext i32 %14 to i64
-  %arrayidx6 = getelementptr inbounds ptr, ptr %13, i64 %idxprom5
-  %15 = load ptr, ptr %arrayidx6, align 8
-  %ht_used7 = getelementptr inbounds %struct.dict, ptr %15, i32 0, i32 2
-  %arrayidx8 = getelementptr inbounds [2 x i64], ptr %ht_used7, i64 0, i64 1
-  %16 = load i64, ptr %arrayidx8, align 8
-  %add = add i64 %12, %16
-  store i64 %add, ptr %numkeys, align 8
-  %17 = load ptr, ptr %ht1, align 8
-  %18 = load i32, ptr %i, align 4
-  %idxprom9 = sext i32 %18 to i64
-  %arrayidx10 = getelementptr inbounds ptr, ptr %17, i64 %idxprom9
-  %19 = load ptr, ptr %arrayidx10, align 8
-  call void @dictRelease(ptr noundef %19)
-  %20 = load ptr, ptr %ht2, align 8
-  %21 = load i32, ptr %i, align 4
-  %idxprom11 = sext i32 %21 to i64
-  %arrayidx12 = getelementptr inbounds ptr, ptr %20, i64 %idxprom11
-  %22 = load ptr, ptr %arrayidx12, align 8
-  call void @dictRelease(ptr noundef %22)
-  %23 = load i64, ptr %numkeys, align 8
-  store i64 %23, ptr %.atomictmp, align 8
-  %24 = load i64, ptr %.atomictmp, align 8
-  %25 = atomicrmw sub ptr @lazyfree_objects, i64 %24 monotonic, align 8
-  store i64 %25, ptr %atomic-temp, align 8
-  %26 = load i64, ptr %numkeys, align 8
-  store i64 %26, ptr %.atomictmp13, align 8
-  %27 = load i64, ptr %.atomictmp13, align 8
-  %28 = atomicrmw add ptr @lazyfreed_objects, i64 %27 monotonic, align 8
-  store i64 %28, ptr %atomic-temp14, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %29 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %29, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond
-  %30 = load ptr, ptr %ht1, align 8
-  call void @zfree(ptr noundef %30)
-  %31 = load ptr, ptr %ht2, align 8
-  call void @zfree(ptr noundef %31)
-  %32 = load ptr, ptr %dictCount, align 8
-  call void @zfree(ptr noundef %32)
-  ret void
-}
-
-declare void @dictRelease(ptr noundef) #1
-
-declare void @zfree(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local void @lazyFreeTrackingTable(ptr noundef %args) #0 {
-entry:
-  %args.addr = alloca ptr, align 8
-  %rt = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %.atomictmp1 = alloca i64, align 8
-  %atomic-temp2 = alloca i64, align 8
-  store ptr %args, ptr %args.addr, align 8
-  %0 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %rt, align 8
-  %2 = load ptr, ptr %rt, align 8
-  %numele = getelementptr inbounds %struct.rax, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %numele, align 8
-  store i64 %3, ptr %len, align 8
-  %4 = load ptr, ptr %rt, align 8
-  call void @freeTrackingRadixTree(ptr noundef %4)
-  %5 = load i64, ptr %len, align 8
-  store i64 %5, ptr %.atomictmp, align 8
-  %6 = load i64, ptr %.atomictmp, align 8
-  %7 = atomicrmw sub ptr @lazyfree_objects, i64 %6 monotonic, align 8
-  store i64 %7, ptr %atomic-temp, align 8
-  %8 = load i64, ptr %len, align 8
-  store i64 %8, ptr %.atomictmp1, align 8
-  %9 = load i64, ptr %.atomictmp1, align 8
-  %10 = atomicrmw add ptr @lazyfreed_objects, i64 %9 monotonic, align 8
-  store i64 %10, ptr %atomic-temp2, align 8
-  ret void
-}
-
-declare void @freeTrackingRadixTree(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local void @lazyFreeLuaScripts(ptr noundef %args) #0 {
-entry:
-  %args.addr = alloca ptr, align 8
-  %lua_scripts = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %.atomictmp4 = alloca i64, align 8
-  %atomic-temp5 = alloca i64, align 8
-  store ptr %args, ptr %args.addr, align 8
-  %0 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %lua_scripts, align 8
-  %2 = load ptr, ptr %lua_scripts, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %2, i32 0, i32 2
-  %arrayidx1 = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %3 = load i64, ptr %arrayidx1, align 8
-  %4 = load ptr, ptr %lua_scripts, align 8
-  %ht_used2 = getelementptr inbounds %struct.dict, ptr %4, i32 0, i32 2
-  %arrayidx3 = getelementptr inbounds [2 x i64], ptr %ht_used2, i64 0, i64 1
-  %5 = load i64, ptr %arrayidx3, align 8
-  %add = add i64 %3, %5
-  store i64 %add, ptr %len, align 8
-  %6 = load ptr, ptr %lua_scripts, align 8
-  call void @dictRelease(ptr noundef %6)
-  %7 = load i64, ptr %len, align 8
-  store i64 %7, ptr %.atomictmp, align 8
-  %8 = load i64, ptr %.atomictmp, align 8
-  %9 = atomicrmw sub ptr @lazyfree_objects, i64 %8 monotonic, align 8
-  store i64 %9, ptr %atomic-temp, align 8
-  %10 = load i64, ptr %len, align 8
-  store i64 %10, ptr %.atomictmp4, align 8
-  %11 = load i64, ptr %.atomictmp4, align 8
-  %12 = atomicrmw add ptr @lazyfreed_objects, i64 %11 monotonic, align 8
-  store i64 %12, ptr %atomic-temp5, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define dso_local void @lazyFreeFunctionsCtx(ptr noundef %args) #0 {
-entry:
-  %args.addr = alloca ptr, align 8
-  %functions_lib_ctx = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %.atomictmp1 = alloca i64, align 8
-  %atomic-temp2 = alloca i64, align 8
-  store ptr %args, ptr %args.addr, align 8
-  %0 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %functions_lib_ctx, align 8
-  %2 = load ptr, ptr %functions_lib_ctx, align 8
-  %call = call i64 @functionsLibCtxfunctionsLen(ptr noundef %2)
-  store i64 %call, ptr %len, align 8
-  %3 = load ptr, ptr %functions_lib_ctx, align 8
-  call void @functionsLibCtxFree(ptr noundef %3)
-  %4 = load i64, ptr %len, align 8
-  store i64 %4, ptr %.atomictmp, align 8
-  %5 = load i64, ptr %.atomictmp, align 8
-  %6 = atomicrmw sub ptr @lazyfree_objects, i64 %5 monotonic, align 8
-  store i64 %6, ptr %atomic-temp, align 8
-  %7 = load i64, ptr %len, align 8
-  store i64 %7, ptr %.atomictmp1, align 8
-  %8 = load i64, ptr %.atomictmp1, align 8
-  %9 = atomicrmw add ptr @lazyfreed_objects, i64 %8 monotonic, align 8
-  store i64 %9, ptr %atomic-temp2, align 8
-  ret void
-}
-
-declare i64 @functionsLibCtxfunctionsLen(ptr noundef) #1
-
-declare void @functionsLibCtxFree(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define dso_local void @lazyFreeReplicationBacklogRefMem(ptr noundef %args) #0 {
-entry:
-  %args.addr = alloca ptr, align 8
-  %blocks = alloca ptr, align 8
-  %index = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %.atomictmp3 = alloca i64, align 8
-  %atomic-temp4 = alloca i64, align 8
-  store ptr %args, ptr %args.addr, align 8
-  %0 = load ptr, ptr %args.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 0
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %blocks, align 8
-  %2 = load ptr, ptr %args.addr, align 8
-  %arrayidx1 = getelementptr inbounds ptr, ptr %2, i64 1
-  %3 = load ptr, ptr %arrayidx1, align 8
-  store ptr %3, ptr %index, align 8
-  %4 = load ptr, ptr %blocks, align 8
-  %len2 = getelementptr inbounds %struct.list, ptr %4, i32 0, i32 5
-  %5 = load i64, ptr %len2, align 8
-  store i64 %5, ptr %len, align 8
-  %6 = load ptr, ptr %index, align 8
-  %call = call i64 @raxSize(ptr noundef %6)
-  %7 = load i64, ptr %len, align 8
-  %add = add i64 %7, %call
-  store i64 %add, ptr %len, align 8
-  %8 = load ptr, ptr %blocks, align 8
-  call void @listRelease(ptr noundef %8)
-  %9 = load ptr, ptr %index, align 8
-  call void @raxFree(ptr noundef %9)
-  %10 = load i64, ptr %len, align 8
-  store i64 %10, ptr %.atomictmp, align 8
-  %11 = load i64, ptr %.atomictmp, align 8
-  %12 = atomicrmw sub ptr @lazyfree_objects, i64 %11 monotonic, align 8
-  store i64 %12, ptr %atomic-temp, align 8
-  %13 = load i64, ptr %len, align 8
-  store i64 %13, ptr %.atomictmp3, align 8
-  %14 = load i64, ptr %.atomictmp3, align 8
+define dso_local void @lazyfreeFreeObject(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %8 = load ptr, ptr %2, align 8, !tbaa !5
+  %9 = getelementptr inbounds ptr, ptr %8, i64 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !5
+  store ptr %10, ptr %3, align 8, !tbaa !9
+  %11 = load ptr, ptr %3, align 8, !tbaa !9
+  call void @decrRefCount(ptr noundef %11)
+  store i64 1, ptr %4, align 8, !tbaa !11
+  %12 = load i64, ptr %4, align 8
+  %13 = atomicrmw sub ptr @lazyfree_objects, i64 %12 monotonic, align 8
+  store i64 %13, ptr %5, align 8
+  store i64 1, ptr %6, align 8, !tbaa !11
+  %14 = load i64, ptr %6, align 8
   %15 = atomicrmw add ptr @lazyfreed_objects, i64 %14 monotonic, align 8
-  store i64 %15, ptr %atomic-temp4, align 8
+  store i64 %15, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret void
 }
 
-declare i64 @raxSize(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @listRelease(ptr noundef) #1
+declare void @decrRefCount(ptr noundef) #2
 
-declare void @raxFree(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @lazyfreeFreeDatabase(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %11 = load ptr, ptr %2, align 8, !tbaa !5
+  %12 = getelementptr inbounds ptr, ptr %11, i64 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !5
+  store ptr %13, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %14 = load ptr, ptr %2, align 8, !tbaa !5
+  %15 = getelementptr inbounds ptr, ptr %14, i64 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !5
+  store ptr %16, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %17 = load ptr, ptr %2, align 8, !tbaa !5
+  %18 = getelementptr inbounds ptr, ptr %17, i64 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !5
+  store ptr %19, ptr %5, align 8, !tbaa !5
+  call void @ebDestroy(ptr noundef %5, ptr noundef @hashExpireBucketsType, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %20 = load ptr, ptr %3, align 8, !tbaa !13
+  %21 = call i64 @kvstoreSize(ptr noundef %20)
+  store i64 %21, ptr %6, align 8, !tbaa !11
+  %22 = load ptr, ptr %3, align 8, !tbaa !13
+  call void @kvstoreRelease(ptr noundef %22)
+  %23 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @kvstoreRelease(ptr noundef %23)
+  %24 = load i64, ptr %6, align 8, !tbaa !11
+  store i64 %24, ptr %7, align 8, !tbaa !11
+  %25 = load i64, ptr %7, align 8
+  %26 = atomicrmw sub ptr @lazyfree_objects, i64 %25 monotonic, align 8
+  store i64 %26, ptr %8, align 8
+  %27 = load i64, ptr %6, align 8, !tbaa !11
+  store i64 %27, ptr %9, align 8, !tbaa !11
+  %28 = load i64, ptr %9, align 8
+  %29 = atomicrmw add ptr @lazyfreed_objects, i64 %28 monotonic, align 8
+  store i64 %29, ptr %10, align 8
+  %30 = call i32 @je_mallctl(ptr noundef @.str, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #7
+  %31 = call i32 @jemalloc_purge()
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare void @ebDestroy(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare i64 @kvstoreSize(ptr noundef) #2
+
+declare void @kvstoreRelease(ptr noundef) #2
+
+; Function Attrs: nounwind
+declare i32 @je_mallctl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
+
+declare i32 @jemalloc_purge() #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @lazyFreeTrackingTable(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %9 = load ptr, ptr %2, align 8, !tbaa !5
+  %10 = getelementptr inbounds ptr, ptr %9, i64 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !5
+  store ptr %11, ptr %3, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %12 = load ptr, ptr %3, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw %struct.rax, ptr %12, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8, !tbaa !11
+  store i64 %14, ptr %4, align 8, !tbaa !11
+  %15 = load ptr, ptr %3, align 8, !tbaa !15
+  call void @freeTrackingRadixTree(ptr noundef %15)
+  %16 = load i64, ptr %4, align 8, !tbaa !11
+  store i64 %16, ptr %5, align 8, !tbaa !11
+  %17 = load i64, ptr %5, align 8
+  %18 = atomicrmw sub ptr @lazyfree_objects, i64 %17 monotonic, align 8
+  store i64 %18, ptr %6, align 8
+  %19 = load i64, ptr %4, align 8, !tbaa !11
+  store i64 %19, ptr %7, align 8, !tbaa !11
+  %20 = load i64, ptr %7, align 8
+  %21 = atomicrmw add ptr @lazyfreed_objects, i64 %20 monotonic, align 8
+  store i64 %21, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare void @freeTrackingRadixTree(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @lazyFreeErrors(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %9 = load ptr, ptr %2, align 8, !tbaa !5
+  %10 = getelementptr inbounds ptr, ptr %9, i64 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !5
+  store ptr %11, ptr %3, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %12 = load ptr, ptr %3, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw %struct.rax, ptr %12, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8, !tbaa !11
+  store i64 %14, ptr %4, align 8, !tbaa !11
+  %15 = load ptr, ptr %3, align 8, !tbaa !15
+  call void @raxFreeWithCallback(ptr noundef %15, ptr noundef @zfree)
+  %16 = load i64, ptr %4, align 8, !tbaa !11
+  store i64 %16, ptr %5, align 8, !tbaa !11
+  %17 = load i64, ptr %5, align 8
+  %18 = atomicrmw sub ptr @lazyfree_objects, i64 %17 monotonic, align 8
+  store i64 %18, ptr %6, align 8
+  %19 = load i64, ptr %4, align 8, !tbaa !11
+  store i64 %19, ptr %7, align 8, !tbaa !11
+  %20 = load i64, ptr %7, align 8
+  %21 = atomicrmw add ptr @lazyfreed_objects, i64 %20 monotonic, align 8
+  store i64 %21, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare void @raxFreeWithCallback(ptr noundef, ptr noundef) #2
+
+declare void @zfree(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @lazyFreeLuaScripts(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %11 = load ptr, ptr %2, align 8, !tbaa !5
+  %12 = getelementptr inbounds ptr, ptr %11, i64 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !5
+  store ptr %13, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %14 = load ptr, ptr %2, align 8, !tbaa !5
+  %15 = getelementptr inbounds ptr, ptr %14, i64 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !5
+  store ptr %16, ptr %4, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %17 = load ptr, ptr %2, align 8, !tbaa !5
+  %18 = getelementptr inbounds ptr, ptr %17, i64 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !5
+  store ptr %19, ptr %5, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %20 = load ptr, ptr %3, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw %struct.dict, ptr %20, i32 0, i32 2
+  %22 = getelementptr inbounds [2 x i64], ptr %21, i64 0, i64 0
+  %23 = load i64, ptr %22, align 8, !tbaa !11
+  %24 = load ptr, ptr %3, align 8, !tbaa !17
+  %25 = getelementptr inbounds nuw %struct.dict, ptr %24, i32 0, i32 2
+  %26 = getelementptr inbounds [2 x i64], ptr %25, i64 0, i64 1
+  %27 = load i64, ptr %26, align 8, !tbaa !11
+  %28 = add i64 %23, %27
+  store i64 %28, ptr %6, align 8, !tbaa !23
+  %29 = load ptr, ptr %3, align 8, !tbaa !17
+  %30 = load ptr, ptr %4, align 8, !tbaa !19
+  %31 = load ptr, ptr %5, align 8, !tbaa !21
+  call void @freeLuaScriptsSync(ptr noundef %29, ptr noundef %30, ptr noundef %31)
+  %32 = load i64, ptr %6, align 8, !tbaa !23
+  store i64 %32, ptr %7, align 8, !tbaa !11
+  %33 = load i64, ptr %7, align 8
+  %34 = atomicrmw sub ptr @lazyfree_objects, i64 %33 monotonic, align 8
+  store i64 %34, ptr %8, align 8
+  %35 = load i64, ptr %6, align 8, !tbaa !23
+  store i64 %35, ptr %9, align 8, !tbaa !11
+  %36 = load i64, ptr %9, align 8
+  %37 = atomicrmw add ptr @lazyfreed_objects, i64 %36 monotonic, align 8
+  store i64 %37, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare void @freeLuaScriptsSync(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @lazyFreeFunctionsCtx(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %10 = load ptr, ptr %2, align 8, !tbaa !5
+  %11 = getelementptr inbounds ptr, ptr %10, i64 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !5
+  store ptr %12, ptr %3, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %13 = load ptr, ptr %2, align 8, !tbaa !5
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !5
+  store ptr %15, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %16 = load ptr, ptr %3, align 8, !tbaa !25
+  %17 = call i64 @functionsLibCtxFunctionsLen(ptr noundef %16)
+  store i64 %17, ptr %5, align 8, !tbaa !11
+  %18 = load ptr, ptr %3, align 8, !tbaa !25
+  call void @functionsLibCtxFree(ptr noundef %18)
+  %19 = load ptr, ptr %4, align 8, !tbaa !17
+  %20 = getelementptr inbounds nuw %struct.dict, ptr %19, i32 0, i32 2
+  %21 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 0
+  %22 = load i64, ptr %21, align 8, !tbaa !11
+  %23 = load ptr, ptr %4, align 8, !tbaa !17
+  %24 = getelementptr inbounds nuw %struct.dict, ptr %23, i32 0, i32 2
+  %25 = getelementptr inbounds [2 x i64], ptr %24, i64 0, i64 1
+  %26 = load i64, ptr %25, align 8, !tbaa !11
+  %27 = add i64 %22, %26
+  %28 = load i64, ptr %5, align 8, !tbaa !11
+  %29 = add i64 %28, %27
+  store i64 %29, ptr %5, align 8, !tbaa !11
+  %30 = load ptr, ptr %4, align 8, !tbaa !17
+  call void @dictRelease(ptr noundef %30)
+  %31 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %31, ptr %6, align 8, !tbaa !11
+  %32 = load i64, ptr %6, align 8
+  %33 = atomicrmw sub ptr @lazyfree_objects, i64 %32 monotonic, align 8
+  store i64 %33, ptr %7, align 8
+  %34 = load i64, ptr %5, align 8, !tbaa !11
+  store i64 %34, ptr %8, align 8, !tbaa !11
+  %35 = load i64, ptr %8, align 8
+  %36 = atomicrmw add ptr @lazyfreed_objects, i64 %35 monotonic, align 8
+  store i64 %36, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare i64 @functionsLibCtxFunctionsLen(ptr noundef) #2
+
+declare void @functionsLibCtxFree(ptr noundef) #2
+
+declare void @dictRelease(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @lazyFreeReplicationBacklogRefMem(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %10 = load ptr, ptr %2, align 8, !tbaa !5
+  %11 = getelementptr inbounds ptr, ptr %10, i64 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !5
+  store ptr %12, ptr %3, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %13 = load ptr, ptr %2, align 8, !tbaa !5
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !5
+  store ptr %15, ptr %4, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %16 = load ptr, ptr %3, align 8, !tbaa !19
+  %17 = getelementptr inbounds nuw %struct.list, ptr %16, i32 0, i32 5
+  %18 = load i64, ptr %17, align 8, !tbaa !27
+  store i64 %18, ptr %5, align 8, !tbaa !23
+  %19 = load ptr, ptr %4, align 8, !tbaa !15
+  %20 = call i64 @raxSize(ptr noundef %19)
+  %21 = load i64, ptr %5, align 8, !tbaa !23
+  %22 = add i64 %21, %20
+  store i64 %22, ptr %5, align 8, !tbaa !23
+  %23 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @listRelease(ptr noundef %23)
+  %24 = load ptr, ptr %4, align 8, !tbaa !15
+  call void @raxFree(ptr noundef %24)
+  %25 = load i64, ptr %5, align 8, !tbaa !23
+  store i64 %25, ptr %6, align 8, !tbaa !11
+  %26 = load i64, ptr %6, align 8
+  %27 = atomicrmw sub ptr @lazyfree_objects, i64 %26 monotonic, align 8
+  store i64 %27, ptr %7, align 8
+  %28 = load i64, ptr %5, align 8, !tbaa !23
+  store i64 %28, ptr %8, align 8, !tbaa !11
+  %29 = load i64, ptr %8, align 8
+  %30 = atomicrmw add ptr @lazyfreed_objects, i64 %29 monotonic, align 8
+  store i64 %30, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare i64 @raxSize(ptr noundef) #2
+
+declare void @listRelease(ptr noundef) #2
+
+declare void @raxFree(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @lazyfreeGetPendingObjectsCount() #0 {
-entry:
-  %aux = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  br label %do.body
+  %1 = alloca i64, align 8
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  br label %3
 
-do.body:                                          ; preds = %entry
-  %0 = load atomic i64, ptr @lazyfree_objects monotonic, align 8
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load i64, ptr %atomic-temp, align 8
-  store i64 %1, ptr %aux, align 8
-  br label %do.end
+3:                                                ; preds = %0
+  %4 = load atomic i64, ptr @lazyfree_objects monotonic, align 8
+  store i64 %4, ptr %2, align 8
+  %5 = load i64, ptr %2, align 8, !tbaa !11
+  store i64 %5, ptr %1, align 8, !tbaa !11
+  br label %6
 
-do.end:                                           ; preds = %do.body
-  %2 = load i64, ptr %aux, align 8
-  ret i64 %2
+6:                                                ; preds = %3
+  br label %7
+
+7:                                                ; preds = %6
+  %8 = load i64, ptr %1, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @lazyfreeGetFreedObjectsCount() #0 {
-entry:
-  %aux = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  br label %do.body
+  %1 = alloca i64, align 8
+  %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  br label %3
 
-do.body:                                          ; preds = %entry
-  %0 = load atomic i64, ptr @lazyfreed_objects monotonic, align 8
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load i64, ptr %atomic-temp, align 8
-  store i64 %1, ptr %aux, align 8
-  br label %do.end
+3:                                                ; preds = %0
+  %4 = load atomic i64, ptr @lazyfreed_objects monotonic, align 8
+  store i64 %4, ptr %2, align 8
+  %5 = load i64, ptr %2, align 8, !tbaa !11
+  store i64 %5, ptr %1, align 8, !tbaa !11
+  br label %6
 
-do.end:                                           ; preds = %do.body
-  %2 = load i64, ptr %aux, align 8
-  ret i64 %2
+6:                                                ; preds = %3
+  br label %7
+
+7:                                                ; preds = %6
+  %8 = load i64, ptr %1, align 8, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lazyfreeResetStats() #0 {
-entry:
-  %.atomictmp = alloca i64, align 8
-  store i64 0, ptr %.atomictmp, align 8
-  %0 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %0, ptr @lazyfreed_objects monotonic, align 8
+  %1 = alloca i64, align 8
+  store i64 0, ptr %1, align 8, !tbaa !11
+  %2 = load i64, ptr %1, align 8
+  store atomic i64 %2, ptr @lazyfreed_objects monotonic, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lazyfreeGetFreeEffort(ptr noundef %key, ptr noundef %obj, i32 noundef %dbid) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %key.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  %dbid.addr = alloca i32, align 4
-  %ql = alloca ptr, align 8
-  %ht = alloca ptr, align 8
-  %zs = alloca ptr, align 8
-  %ht37 = alloca ptr, align 8
-  %effort = alloca i64, align 8
-  %s = alloca ptr, align 8
-  %ri = alloca %struct.raxIterator, align 8
-  %cg = alloca ptr, align 8
-  %effort72 = alloca i64, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  store i32 %dbid, ptr %dbid.addr, align 4
-  %0 = load ptr, ptr %obj.addr, align 8
-  %bf.load = load i32, ptr %0, align 8
-  %bf.clear = and i32 %bf.load, 15
-  %cmp = icmp eq i32 %bf.clear, 1
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define dso_local i64 @lazyfreeGetFreeEffort(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca %struct.raxIterator, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !30
+  %17 = load ptr, ptr %6, align 8, !tbaa !9
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 15
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %21, label %34
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %obj.addr, align 8
-  %bf.load1 = load i32, ptr %1, align 8
-  %bf.lshr = lshr i32 %bf.load1, 4
-  %bf.clear2 = and i32 %bf.lshr, 15
-  %cmp3 = icmp eq i32 %bf.clear2, 9
-  br i1 %cmp3, label %if.then, label %if.else
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %6, align 8, !tbaa !9
+  %23 = load i32, ptr %22, align 8
+  %24 = lshr i32 %23, 4
+  %25 = and i32 %24, 15
+  %26 = icmp eq i32 %25, 9
+  br i1 %26, label %27, label %34
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %obj.addr, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %ptr, align 8
-  store ptr %3, ptr %ql, align 8
-  %4 = load ptr, ptr %ql, align 8
-  %len = getelementptr inbounds %struct.quicklist, ptr %4, i32 0, i32 3
-  %5 = load i64, ptr %len, align 8
-  store i64 %5, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %28 = load ptr, ptr %6, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.redisObject, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  store ptr %30, ptr %8, align 8, !tbaa !34
+  %31 = load ptr, ptr %8, align 8, !tbaa !34
+  %32 = getelementptr inbounds nuw %struct.quicklist, ptr %31, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8, !tbaa !11
+  store i64 %33, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %179
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %6 = load ptr, ptr %obj.addr, align 8
-  %bf.load4 = load i32, ptr %6, align 8
-  %bf.clear5 = and i32 %bf.load4, 15
-  %cmp6 = icmp eq i32 %bf.clear5, 2
-  br i1 %cmp6, label %land.lhs.true7, label %if.else16
+34:                                               ; preds = %21, %3
+  %35 = load ptr, ptr %6, align 8, !tbaa !9
+  %36 = load i32, ptr %35, align 8
+  %37 = and i32 %36, 15
+  %38 = icmp eq i32 %37, 2
+  br i1 %38, label %39, label %58
 
-land.lhs.true7:                                   ; preds = %if.else
-  %7 = load ptr, ptr %obj.addr, align 8
-  %bf.load8 = load i32, ptr %7, align 8
-  %bf.lshr9 = lshr i32 %bf.load8, 4
-  %bf.clear10 = and i32 %bf.lshr9, 15
-  %cmp11 = icmp eq i32 %bf.clear10, 2
-  br i1 %cmp11, label %if.then12, label %if.else16
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %6, align 8, !tbaa !9
+  %41 = load i32, ptr %40, align 8
+  %42 = lshr i32 %41, 4
+  %43 = and i32 %42, 15
+  %44 = icmp eq i32 %43, 2
+  br i1 %44, label %45, label %58
 
-if.then12:                                        ; preds = %land.lhs.true7
-  %8 = load ptr, ptr %obj.addr, align 8
-  %ptr13 = getelementptr inbounds %struct.redisObject, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %ptr13, align 8
-  store ptr %9, ptr %ht, align 8
-  %10 = load ptr, ptr %ht, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %10, i32 0, i32 2
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %11 = load i64, ptr %arrayidx, align 8
-  %12 = load ptr, ptr %ht, align 8
-  %ht_used14 = getelementptr inbounds %struct.dict, ptr %12, i32 0, i32 2
-  %arrayidx15 = getelementptr inbounds [2 x i64], ptr %ht_used14, i64 0, i64 1
-  %13 = load i64, ptr %arrayidx15, align 8
-  %add = add i64 %11, %13
-  store i64 %add, ptr %retval, align 8
-  br label %return
+45:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %46 = load ptr, ptr %6, align 8, !tbaa !9
+  %47 = getelementptr inbounds nuw %struct.redisObject, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !32
+  store ptr %48, ptr %9, align 8, !tbaa !17
+  %49 = load ptr, ptr %9, align 8, !tbaa !17
+  %50 = getelementptr inbounds nuw %struct.dict, ptr %49, i32 0, i32 2
+  %51 = getelementptr inbounds [2 x i64], ptr %50, i64 0, i64 0
+  %52 = load i64, ptr %51, align 8, !tbaa !11
+  %53 = load ptr, ptr %9, align 8, !tbaa !17
+  %54 = getelementptr inbounds nuw %struct.dict, ptr %53, i32 0, i32 2
+  %55 = getelementptr inbounds [2 x i64], ptr %54, i64 0, i64 1
+  %56 = load i64, ptr %55, align 8, !tbaa !11
+  %57 = add i64 %52, %56
+  store i64 %57, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %179
 
-if.else16:                                        ; preds = %land.lhs.true7, %if.else
-  %14 = load ptr, ptr %obj.addr, align 8
-  %bf.load17 = load i32, ptr %14, align 8
-  %bf.clear18 = and i32 %bf.load17, 15
-  %cmp19 = icmp eq i32 %bf.clear18, 3
-  br i1 %cmp19, label %land.lhs.true20, label %if.else27
+58:                                               ; preds = %39, %34
+  %59 = load ptr, ptr %6, align 8, !tbaa !9
+  %60 = load i32, ptr %59, align 8
+  %61 = and i32 %60, 15
+  %62 = icmp eq i32 %61, 3
+  br i1 %62, label %63, label %78
 
-land.lhs.true20:                                  ; preds = %if.else16
-  %15 = load ptr, ptr %obj.addr, align 8
-  %bf.load21 = load i32, ptr %15, align 8
-  %bf.lshr22 = lshr i32 %bf.load21, 4
-  %bf.clear23 = and i32 %bf.lshr22, 15
-  %cmp24 = icmp eq i32 %bf.clear23, 7
-  br i1 %cmp24, label %if.then25, label %if.else27
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %6, align 8, !tbaa !9
+  %65 = load i32, ptr %64, align 8
+  %66 = lshr i32 %65, 4
+  %67 = and i32 %66, 15
+  %68 = icmp eq i32 %67, 7
+  br i1 %68, label %69, label %78
 
-if.then25:                                        ; preds = %land.lhs.true20
-  %16 = load ptr, ptr %obj.addr, align 8
-  %ptr26 = getelementptr inbounds %struct.redisObject, ptr %16, i32 0, i32 2
-  %17 = load ptr, ptr %ptr26, align 8
-  store ptr %17, ptr %zs, align 8
-  %18 = load ptr, ptr %zs, align 8
-  %zsl = getelementptr inbounds %struct.zset, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %zsl, align 8
-  %length = getelementptr inbounds %struct.zskiplist, ptr %19, i32 0, i32 2
-  %20 = load i64, ptr %length, align 8
-  store i64 %20, ptr %retval, align 8
-  br label %return
+69:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %70 = load ptr, ptr %6, align 8, !tbaa !9
+  %71 = getelementptr inbounds nuw %struct.redisObject, ptr %70, i32 0, i32 2
+  %72 = load ptr, ptr %71, align 8, !tbaa !32
+  store ptr %72, ptr %10, align 8, !tbaa !36
+  %73 = load ptr, ptr %10, align 8, !tbaa !36
+  %74 = getelementptr inbounds nuw %struct.zset, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !38
+  %76 = getelementptr inbounds nuw %struct.zskiplist, ptr %75, i32 0, i32 2
+  %77 = load i64, ptr %76, align 8, !tbaa !41
+  store i64 %77, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %179
 
-if.else27:                                        ; preds = %land.lhs.true20, %if.else16
-  %21 = load ptr, ptr %obj.addr, align 8
-  %bf.load28 = load i32, ptr %21, align 8
-  %bf.clear29 = and i32 %bf.load28, 15
-  %cmp30 = icmp eq i32 %bf.clear29, 4
-  br i1 %cmp30, label %land.lhs.true31, label %if.else44
+78:                                               ; preds = %63, %58
+  %79 = load ptr, ptr %6, align 8, !tbaa !9
+  %80 = load i32, ptr %79, align 8
+  %81 = and i32 %80, 15
+  %82 = icmp eq i32 %81, 4
+  br i1 %82, label %83, label %102
 
-land.lhs.true31:                                  ; preds = %if.else27
-  %22 = load ptr, ptr %obj.addr, align 8
-  %bf.load32 = load i32, ptr %22, align 8
-  %bf.lshr33 = lshr i32 %bf.load32, 4
-  %bf.clear34 = and i32 %bf.lshr33, 15
-  %cmp35 = icmp eq i32 %bf.clear34, 2
-  br i1 %cmp35, label %if.then36, label %if.else44
+83:                                               ; preds = %78
+  %84 = load ptr, ptr %6, align 8, !tbaa !9
+  %85 = load i32, ptr %84, align 8
+  %86 = lshr i32 %85, 4
+  %87 = and i32 %86, 15
+  %88 = icmp eq i32 %87, 2
+  br i1 %88, label %89, label %102
 
-if.then36:                                        ; preds = %land.lhs.true31
-  %23 = load ptr, ptr %obj.addr, align 8
-  %ptr38 = getelementptr inbounds %struct.redisObject, ptr %23, i32 0, i32 2
-  %24 = load ptr, ptr %ptr38, align 8
-  store ptr %24, ptr %ht37, align 8
-  %25 = load ptr, ptr %ht37, align 8
-  %ht_used39 = getelementptr inbounds %struct.dict, ptr %25, i32 0, i32 2
-  %arrayidx40 = getelementptr inbounds [2 x i64], ptr %ht_used39, i64 0, i64 0
-  %26 = load i64, ptr %arrayidx40, align 8
-  %27 = load ptr, ptr %ht37, align 8
-  %ht_used41 = getelementptr inbounds %struct.dict, ptr %27, i32 0, i32 2
-  %arrayidx42 = getelementptr inbounds [2 x i64], ptr %ht_used41, i64 0, i64 1
-  %28 = load i64, ptr %arrayidx42, align 8
-  %add43 = add i64 %26, %28
-  store i64 %add43, ptr %retval, align 8
-  br label %return
+89:                                               ; preds = %83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %90 = load ptr, ptr %6, align 8, !tbaa !9
+  %91 = getelementptr inbounds nuw %struct.redisObject, ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8, !tbaa !32
+  store ptr %92, ptr %11, align 8, !tbaa !17
+  %93 = load ptr, ptr %11, align 8, !tbaa !17
+  %94 = getelementptr inbounds nuw %struct.dict, ptr %93, i32 0, i32 2
+  %95 = getelementptr inbounds [2 x i64], ptr %94, i64 0, i64 0
+  %96 = load i64, ptr %95, align 8, !tbaa !11
+  %97 = load ptr, ptr %11, align 8, !tbaa !17
+  %98 = getelementptr inbounds nuw %struct.dict, ptr %97, i32 0, i32 2
+  %99 = getelementptr inbounds [2 x i64], ptr %98, i64 0, i64 1
+  %100 = load i64, ptr %99, align 8, !tbaa !11
+  %101 = add i64 %96, %100
+  store i64 %101, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %179
 
-if.else44:                                        ; preds = %land.lhs.true31, %if.else27
-  %29 = load ptr, ptr %obj.addr, align 8
-  %bf.load45 = load i32, ptr %29, align 8
-  %bf.clear46 = and i32 %bf.load45, 15
-  %cmp47 = icmp eq i32 %bf.clear46, 6
-  br i1 %cmp47, label %if.then48, label %if.else66
+102:                                              ; preds = %83, %78
+  %103 = load ptr, ptr %6, align 8, !tbaa !9
+  %104 = load i32, ptr %103, align 8
+  %105 = and i32 %104, 15
+  %106 = icmp eq i32 %105, 6
+  br i1 %106, label %107, label %161
 
-if.then48:                                        ; preds = %if.else44
-  store i64 0, ptr %effort, align 8
-  %30 = load ptr, ptr %obj.addr, align 8
-  %ptr49 = getelementptr inbounds %struct.redisObject, ptr %30, i32 0, i32 2
-  %31 = load ptr, ptr %ptr49, align 8
-  store ptr %31, ptr %s, align 8
-  %32 = load ptr, ptr %s, align 8
-  %rax = getelementptr inbounds %struct.stream, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %rax, align 8
-  %numnodes = getelementptr inbounds %struct.rax, ptr %33, i32 0, i32 2
-  %34 = load i64, ptr %numnodes, align 8
-  %35 = load i64, ptr %effort, align 8
-  %add50 = add i64 %35, %34
-  store i64 %add50, ptr %effort, align 8
-  %36 = load ptr, ptr %s, align 8
-  %cgroups = getelementptr inbounds %struct.stream, ptr %36, i32 0, i32 6
-  %37 = load ptr, ptr %cgroups, align 8
-  %tobool = icmp ne ptr %37, null
-  br i1 %tobool, label %land.lhs.true51, label %if.end
+107:                                              ; preds = %102
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store i64 0, ptr %12, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %108 = load ptr, ptr %6, align 8, !tbaa !9
+  %109 = getelementptr inbounds nuw %struct.redisObject, ptr %108, i32 0, i32 2
+  %110 = load ptr, ptr %109, align 8, !tbaa !32
+  store ptr %110, ptr %13, align 8, !tbaa !44
+  %111 = load ptr, ptr %13, align 8, !tbaa !44
+  %112 = getelementptr inbounds nuw %struct.stream, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8, !tbaa !46
+  %114 = getelementptr inbounds nuw %struct.rax, ptr %113, i32 0, i32 2
+  %115 = load i64, ptr %114, align 8, !tbaa !11
+  %116 = load i64, ptr %12, align 8, !tbaa !11
+  %117 = add i64 %116, %115
+  store i64 %117, ptr %12, align 8, !tbaa !11
+  %118 = load ptr, ptr %13, align 8, !tbaa !44
+  %119 = getelementptr inbounds nuw %struct.stream, ptr %118, i32 0, i32 6
+  %120 = load ptr, ptr %119, align 8, !tbaa !49
+  %121 = icmp ne ptr %120, null
+  br i1 %121, label %122, label %159
 
-land.lhs.true51:                                  ; preds = %if.then48
-  %38 = load ptr, ptr %s, align 8
-  %cgroups52 = getelementptr inbounds %struct.stream, ptr %38, i32 0, i32 6
-  %39 = load ptr, ptr %cgroups52, align 8
-  %call = call i64 @raxSize(ptr noundef %39)
-  %tobool53 = icmp ne i64 %call, 0
-  br i1 %tobool53, label %if.then54, label %if.end
+122:                                              ; preds = %107
+  %123 = load ptr, ptr %13, align 8, !tbaa !44
+  %124 = getelementptr inbounds nuw %struct.stream, ptr %123, i32 0, i32 6
+  %125 = load ptr, ptr %124, align 8, !tbaa !49
+  %126 = call i64 @raxSize(ptr noundef %125)
+  %127 = icmp ne i64 %126, 0
+  br i1 %127, label %128, label %159
 
-if.then54:                                        ; preds = %land.lhs.true51
-  %40 = load ptr, ptr %s, align 8
-  %cgroups55 = getelementptr inbounds %struct.stream, ptr %40, i32 0, i32 6
-  %41 = load ptr, ptr %cgroups55, align 8
-  call void @raxStart(ptr noundef %ri, ptr noundef %41)
-  %call56 = call i32 @raxSeek(ptr noundef %ri, ptr noundef @.str, ptr noundef null, i64 noundef 0)
-  %call57 = call i32 @raxNext(ptr noundef %ri)
-  %tobool58 = icmp ne i32 %call57, 0
-  %lnot = xor i1 %tobool58, true
-  %lnot59 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot59 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool60 = icmp ne i64 %conv, 0
-  br i1 %tobool60, label %cond.true, label %cond.false
+128:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 480, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %129 = load ptr, ptr %13, align 8, !tbaa !44
+  %130 = getelementptr inbounds nuw %struct.stream, ptr %129, i32 0, i32 6
+  %131 = load ptr, ptr %130, align 8, !tbaa !49
+  call void @raxStart(ptr noundef %14, ptr noundef %131)
+  %132 = call i32 @raxSeek(ptr noundef %14, ptr noundef @.str.1, ptr noundef null, i64 noundef 0)
+  %133 = call i32 @raxNext(ptr noundef %14)
+  %134 = icmp ne i32 %133, 0
+  %135 = xor i1 %134, true
+  %136 = xor i1 %135, true
+  %137 = zext i1 %136 to i32
+  %138 = sext i32 %137 to i64
+  %139 = call i64 @llvm.expect.i64(i64 %138, i64 1)
+  %140 = icmp ne i64 %139, 0
+  br i1 %140, label %141, label %142
 
-cond.true:                                        ; preds = %if.then54
-  br label %cond.end
+141:                                              ; preds = %128
+  br label %144
 
-cond.false:                                       ; preds = %if.then54
-  call void @_serverAssert(ptr noundef @.str.1, ptr noundef @.str.2, i32 noundef 140)
-  call void @abort() #4
+142:                                              ; preds = %128
+  call void @_serverAssert(ptr noundef @.str.2, ptr noundef @.str.3, i32 noundef 160)
+  call void @abort() #8
   unreachable
 
-42:                                               ; No predecessors!
-  br label %cond.end
+143:                                              ; No predecessors!
+  br label %144
 
-cond.end:                                         ; preds = %42, %cond.true
-  %data = getelementptr inbounds %struct.raxIterator, ptr %ri, i32 0, i32 3
-  %43 = load ptr, ptr %data, align 8
-  store ptr %43, ptr %cg, align 8
-  %44 = load ptr, ptr %s, align 8
-  %cgroups61 = getelementptr inbounds %struct.stream, ptr %44, i32 0, i32 6
-  %45 = load ptr, ptr %cgroups61, align 8
-  %call62 = call i64 @raxSize(ptr noundef %45)
-  %46 = load ptr, ptr %cg, align 8
-  %pel = getelementptr inbounds %struct.streamCG, ptr %46, i32 0, i32 2
-  %47 = load ptr, ptr %pel, align 8
-  %call63 = call i64 @raxSize(ptr noundef %47)
-  %add64 = add i64 1, %call63
-  %mul = mul i64 %call62, %add64
-  %48 = load i64, ptr %effort, align 8
-  %add65 = add i64 %48, %mul
-  store i64 %add65, ptr %effort, align 8
-  call void @raxStop(ptr noundef %ri)
-  br label %if.end
+144:                                              ; preds = %143, %141
+  %145 = getelementptr inbounds nuw %struct.raxIterator, ptr %14, i32 0, i32 3
+  %146 = load ptr, ptr %145, align 8, !tbaa !50
+  store ptr %146, ptr %15, align 8, !tbaa !55
+  %147 = load ptr, ptr %13, align 8, !tbaa !44
+  %148 = getelementptr inbounds nuw %struct.stream, ptr %147, i32 0, i32 6
+  %149 = load ptr, ptr %148, align 8, !tbaa !49
+  %150 = call i64 @raxSize(ptr noundef %149)
+  %151 = load ptr, ptr %15, align 8, !tbaa !55
+  %152 = getelementptr inbounds nuw %struct.streamCG, ptr %151, i32 0, i32 2
+  %153 = load ptr, ptr %152, align 8, !tbaa !57
+  %154 = call i64 @raxSize(ptr noundef %153)
+  %155 = add i64 1, %154
+  %156 = mul i64 %150, %155
+  %157 = load i64, ptr %12, align 8, !tbaa !11
+  %158 = add i64 %157, %156
+  store i64 %158, ptr %12, align 8, !tbaa !11
+  call void @raxStop(ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 480, ptr %14) #7
+  br label %159
 
-if.end:                                           ; preds = %cond.end, %land.lhs.true51, %if.then48
-  %49 = load i64, ptr %effort, align 8
-  store i64 %49, ptr %retval, align 8
-  br label %return
+159:                                              ; preds = %144, %122, %107
+  %160 = load i64, ptr %12, align 8, !tbaa !11
+  store i64 %160, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %179
 
-if.else66:                                        ; preds = %if.else44
-  %50 = load ptr, ptr %obj.addr, align 8
-  %bf.load67 = load i32, ptr %50, align 8
-  %bf.clear68 = and i32 %bf.load67, 15
-  %cmp69 = icmp eq i32 %bf.clear68, 5
-  br i1 %cmp69, label %if.then71, label %if.else79
+161:                                              ; preds = %102
+  %162 = load ptr, ptr %6, align 8, !tbaa !9
+  %163 = load i32, ptr %162, align 8
+  %164 = and i32 %163, 15
+  %165 = icmp eq i32 %164, 5
+  br i1 %165, label %166, label %178
 
-if.then71:                                        ; preds = %if.else66
-  %51 = load ptr, ptr %key.addr, align 8
-  %52 = load ptr, ptr %obj.addr, align 8
-  %53 = load i32, ptr %dbid.addr, align 4
-  %call73 = call i64 @moduleGetFreeEffort(ptr noundef %51, ptr noundef %52, i32 noundef %53)
-  store i64 %call73, ptr %effort72, align 8
-  %54 = load i64, ptr %effort72, align 8
-  %cmp74 = icmp eq i64 %54, 0
-  br i1 %cmp74, label %cond.true76, label %cond.false77
+166:                                              ; preds = %161
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %167 = load ptr, ptr %5, align 8, !tbaa !9
+  %168 = load ptr, ptr %6, align 8, !tbaa !9
+  %169 = load i32, ptr %7, align 4, !tbaa !30
+  %170 = call i64 @moduleGetFreeEffort(ptr noundef %167, ptr noundef %168, i32 noundef %169)
+  store i64 %170, ptr %16, align 8, !tbaa !11
+  %171 = load i64, ptr %16, align 8, !tbaa !11
+  %172 = icmp eq i64 %171, 0
+  br i1 %172, label %173, label %174
 
-cond.true76:                                      ; preds = %if.then71
-  br label %cond.end78
+173:                                              ; preds = %166
+  br label %176
 
-cond.false77:                                     ; preds = %if.then71
-  %55 = load i64, ptr %effort72, align 8
-  br label %cond.end78
+174:                                              ; preds = %166
+  %175 = load i64, ptr %16, align 8, !tbaa !11
+  br label %176
 
-cond.end78:                                       ; preds = %cond.false77, %cond.true76
-  %cond = phi i64 [ -1, %cond.true76 ], [ %55, %cond.false77 ]
-  store i64 %cond, ptr %retval, align 8
-  br label %return
+176:                                              ; preds = %174, %173
+  %177 = phi i64 [ -1, %173 ], [ %175, %174 ]
+  store i64 %177, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  br label %179
 
-if.else79:                                        ; preds = %if.else66
-  store i64 1, ptr %retval, align 8
-  br label %return
+178:                                              ; preds = %161
+  store i64 1, ptr %4, align 8
+  br label %179
 
-return:                                           ; preds = %if.else79, %cond.end78, %if.end, %if.then36, %if.then25, %if.then12, %if.then
-  %56 = load i64, ptr %retval, align 8
-  ret i64 %56
+179:                                              ; preds = %178, %176, %159, %89, %69, %45, %27
+  %180 = load i64, ptr %4, align 8
+  ret i64 %180
 }
 
-declare void @raxStart(ptr noundef, ptr noundef) #1
+declare void @raxStart(ptr noundef, ptr noundef) #2
 
-declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @raxNext(ptr noundef) #1
+declare i32 @raxNext(ptr noundef) #2
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #4
+
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #2
+declare void @abort() #5
 
-declare void @raxStop(ptr noundef) #1
+declare void @raxStop(ptr noundef) #2
 
-declare i64 @moduleGetFreeEffort(ptr noundef, ptr noundef, i32 noundef) #1
+declare i64 @moduleGetFreeEffort(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeObjAsync(ptr noundef %key, ptr noundef %obj, i32 noundef %dbid) #0 {
-entry:
-  %key.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  %dbid.addr = alloca i32, align 4
-  %free_effort = alloca i64, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  store i32 %dbid, ptr %dbid.addr, align 4
-  %0 = load ptr, ptr %key.addr, align 8
-  %1 = load ptr, ptr %obj.addr, align 8
-  %2 = load i32, ptr %dbid.addr, align 4
-  %call = call i64 @lazyfreeGetFreeEffort(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  store i64 %call, ptr %free_effort, align 8
-  %3 = load i64, ptr %free_effort, align 8
-  %cmp = icmp ugt i64 %3, 64
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define dso_local void @freeObjAsync(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %10 = load ptr, ptr %4, align 8, !tbaa !9
+  %11 = load ptr, ptr %5, align 8, !tbaa !9
+  %12 = load i32, ptr %6, align 4, !tbaa !30
+  %13 = call i64 @lazyfreeGetFreeEffort(ptr noundef %10, ptr noundef %11, i32 noundef %12)
+  store i64 %13, ptr %7, align 8, !tbaa !11
+  %14 = load i64, ptr %7, align 8, !tbaa !11
+  %15 = icmp ugt i64 %14, 64
+  br i1 %15, label %16, label %25
 
-land.lhs.true:                                    ; preds = %entry
-  %4 = load ptr, ptr %obj.addr, align 8
-  %refcount = getelementptr inbounds %struct.redisObject, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %refcount, align 4
-  %cmp1 = icmp eq i32 %5, 1
-  br i1 %cmp1, label %if.then, label %if.else
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw %struct.redisObject, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4, !tbaa !59
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %21, label %25
 
-if.then:                                          ; preds = %land.lhs.true
-  store i64 1, ptr %.atomictmp, align 8
-  %6 = load i64, ptr %.atomictmp, align 8
-  %7 = atomicrmw add ptr @lazyfree_objects, i64 %6 monotonic, align 8
-  store i64 %7, ptr %atomic-temp, align 8
-  %8 = load ptr, ptr %obj.addr, align 8
-  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyfreeFreeObject, i32 noundef 1, ptr noundef %8)
-  br label %if.end
+21:                                               ; preds = %16
+  store i64 1, ptr %8, align 8, !tbaa !11
+  %22 = load i64, ptr %8, align 8
+  %23 = atomicrmw add ptr @lazyfree_objects, i64 %22 monotonic, align 8
+  store i64 %23, ptr %9, align 8
+  %24 = load ptr, ptr %5, align 8, !tbaa !9
+  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyfreeFreeObject, i32 noundef 1, ptr noundef %24)
+  br label %27
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %9 = load ptr, ptr %obj.addr, align 8
-  call void @decrRefCount(ptr noundef %9)
-  br label %if.end
+25:                                               ; preds = %16, %3
+  %26 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @decrRefCount(ptr noundef %26)
+  br label %27
 
-if.end:                                           ; preds = %if.else, %if.then
+27:                                               ; preds = %25, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
-declare void @bioCreateLazyFreeJob(ptr noundef, i32 noundef, ...) #1
+declare void @bioCreateLazyFreeJob(ptr noundef, i32 noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @emptyDbAsync(ptr noundef %db) #0 {
-entry:
-  %db.addr = alloca ptr, align 8
-  %metadata = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %oldDict = alloca ptr, align 8
-  %oldExpires = alloca ptr, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %count = alloca ptr, align 8
-  store ptr %db, ptr %db.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define dso_local void @emptyDbAsync(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  store i32 0, ptr %3, align 4, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 1, ptr %4, align 4, !tbaa !30
+  %10 = load i32, ptr getelementptr inbounds nuw (%struct.redisServer, ptr @server, i32 0, i32 380), align 8, !tbaa !62
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %15
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %1 = load ptr, ptr %db.addr, align 8
-  %dict_count = getelementptr inbounds %struct.redisDb, ptr %1, i32 0, i32 10
-  %2 = load i32, ptr %dict_count, align 8
-  %cmp = icmp slt i32 %0, %2
-  br i1 %cmp, label %for.body, label %for.end
+12:                                               ; preds = %1
+  store i32 14, ptr %3, align 4, !tbaa !30
+  %13 = load i32, ptr %4, align 4, !tbaa !30
+  %14 = or i32 %13, 2
+  store i32 %14, ptr %4, align 4, !tbaa !30
+  br label %15
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %db.addr, align 8
-  %dict = getelementptr inbounds %struct.redisDb, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %dict, align 8
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  %metadata1 = getelementptr inbounds %struct.dict, ptr %6, i32 0, i32 6
-  store ptr %metadata1, ptr %metadata, align 8
-  %7 = load ptr, ptr %metadata, align 8
-  %rehashing_node = getelementptr inbounds %struct.dbDictMetadata, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %rehashing_node, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %9 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 11
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %metadata, align 8
-  %rehashing_node2 = getelementptr inbounds %struct.dbDictMetadata, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %rehashing_node2, align 8
-  call void @listDelNode(ptr noundef %10, ptr noundef %12)
-  %13 = load ptr, ptr %metadata, align 8
-  %rehashing_node3 = getelementptr inbounds %struct.dbDictMetadata, ptr %13, i32 0, i32 0
-  store ptr null, ptr %rehashing_node3, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body
-  %14 = load ptr, ptr %db.addr, align 8
-  %expires = getelementptr inbounds %struct.redisDb, ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %expires, align 8
-  %16 = load i32, ptr %i, align 4
-  %idxprom4 = sext i32 %16 to i64
-  %arrayidx5 = getelementptr inbounds ptr, ptr %15, i64 %idxprom4
-  %17 = load ptr, ptr %arrayidx5, align 8
-  %metadata6 = getelementptr inbounds %struct.dict, ptr %17, i32 0, i32 6
-  store ptr %metadata6, ptr %metadata, align 8
-  %18 = load ptr, ptr %metadata, align 8
-  %rehashing_node7 = getelementptr inbounds %struct.dbDictMetadata, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %rehashing_node7, align 8
-  %tobool8 = icmp ne ptr %19, null
-  br i1 %tobool8, label %if.then9, label %if.end12
-
-if.then9:                                         ; preds = %if.end
-  %20 = getelementptr inbounds %struct.redisServer, ptr @server, i32 0, i32 11
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %metadata, align 8
-  %rehashing_node10 = getelementptr inbounds %struct.dbDictMetadata, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %rehashing_node10, align 8
-  call void @listDelNode(ptr noundef %21, ptr noundef %23)
-  %24 = load ptr, ptr %metadata, align 8
-  %rehashing_node11 = getelementptr inbounds %struct.dbDictMetadata, ptr %24, i32 0, i32 0
-  store ptr null, ptr %rehashing_node11, align 8
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then9, %if.end
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end12
-  %25 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %25, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %for.cond
-  %26 = load ptr, ptr %db.addr, align 8
-  %dict13 = getelementptr inbounds %struct.redisDb, ptr %26, i32 0, i32 0
-  %27 = load ptr, ptr %dict13, align 8
-  store ptr %27, ptr %oldDict, align 8
-  %28 = load ptr, ptr %db.addr, align 8
-  %expires14 = getelementptr inbounds %struct.redisDb, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %expires14, align 8
-  store ptr %29, ptr %oldExpires, align 8
-  %30 = load ptr, ptr %db.addr, align 8
-  %call = call i64 @dbSize(ptr noundef %30, i32 noundef 0)
-  store i64 %call, ptr %.atomictmp, align 8
-  %31 = load i64, ptr %.atomictmp, align 8
-  %32 = atomicrmw add ptr @lazyfree_objects, i64 %31 monotonic, align 8
-  store i64 %32, ptr %atomic-temp, align 8
-  %33 = load ptr, ptr %db.addr, align 8
-  %dict_count15 = getelementptr inbounds %struct.redisDb, ptr %33, i32 0, i32 10
-  %34 = load i32, ptr %dict_count15, align 8
-  %call16 = call ptr @dictCreateMultiple(ptr noundef @dbDictType, i32 noundef %34)
-  %35 = load ptr, ptr %db.addr, align 8
-  %dict17 = getelementptr inbounds %struct.redisDb, ptr %35, i32 0, i32 0
-  store ptr %call16, ptr %dict17, align 8
-  %36 = load ptr, ptr %db.addr, align 8
-  %dict_count18 = getelementptr inbounds %struct.redisDb, ptr %36, i32 0, i32 10
-  %37 = load i32, ptr %dict_count18, align 8
-  %call19 = call ptr @dictCreateMultiple(ptr noundef @dbExpiresDictType, i32 noundef %37)
-  %38 = load ptr, ptr %db.addr, align 8
-  %expires20 = getelementptr inbounds %struct.redisDb, ptr %38, i32 0, i32 1
-  store ptr %call19, ptr %expires20, align 8
-  %call21 = call noalias ptr @zmalloc(i64 noundef 4) #5
-  store ptr %call21, ptr %count, align 8
-  %39 = load ptr, ptr %db.addr, align 8
-  %dict_count22 = getelementptr inbounds %struct.redisDb, ptr %39, i32 0, i32 10
-  %40 = load i32, ptr %dict_count22, align 8
-  %41 = load ptr, ptr %count, align 8
-  store i32 %40, ptr %41, align 4
-  %42 = load ptr, ptr %oldDict, align 8
-  %43 = load ptr, ptr %oldExpires, align 8
-  %44 = load ptr, ptr %count, align 8
-  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyfreeFreeDatabase, i32 noundef 3, ptr noundef %42, ptr noundef %43, ptr noundef %44)
+15:                                               ; preds = %12, %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %16 = load ptr, ptr %2, align 8, !tbaa !60
+  %17 = getelementptr inbounds nuw %struct.redisDb, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !83
+  store ptr %18, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %19 = load ptr, ptr %2, align 8, !tbaa !60
+  %20 = getelementptr inbounds nuw %struct.redisDb, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !85
+  store ptr %21, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %22 = load ptr, ptr %2, align 8, !tbaa !60
+  %23 = getelementptr inbounds nuw %struct.redisDb, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !86
+  store ptr %24, ptr %7, align 8, !tbaa !5
+  %25 = load i32, ptr %3, align 4, !tbaa !30
+  %26 = load i32, ptr %4, align 4, !tbaa !30
+  %27 = or i32 %26, 4
+  %28 = call ptr @kvstoreCreate(ptr noundef @dbDictType, i32 noundef %25, i32 noundef %27)
+  %29 = load ptr, ptr %2, align 8, !tbaa !60
+  %30 = getelementptr inbounds nuw %struct.redisDb, ptr %29, i32 0, i32 0
+  store ptr %28, ptr %30, align 8, !tbaa !83
+  %31 = load i32, ptr %3, align 4, !tbaa !30
+  %32 = load i32, ptr %4, align 4, !tbaa !30
+  %33 = call ptr @kvstoreCreate(ptr noundef @dbExpiresDictType, i32 noundef %31, i32 noundef %32)
+  %34 = load ptr, ptr %2, align 8, !tbaa !60
+  %35 = getelementptr inbounds nuw %struct.redisDb, ptr %34, i32 0, i32 1
+  store ptr %33, ptr %35, align 8, !tbaa !85
+  %36 = call ptr @ebCreate()
+  %37 = load ptr, ptr %2, align 8, !tbaa !60
+  %38 = getelementptr inbounds nuw %struct.redisDb, ptr %37, i32 0, i32 2
+  store ptr %36, ptr %38, align 8, !tbaa !86
+  %39 = load ptr, ptr %5, align 8, !tbaa !13
+  %40 = call i64 @kvstoreSize(ptr noundef %39)
+  store i64 %40, ptr %8, align 8, !tbaa !11
+  %41 = load i64, ptr %8, align 8
+  %42 = atomicrmw add ptr @lazyfree_objects, i64 %41 monotonic, align 8
+  store i64 %42, ptr %9, align 8
+  %43 = load ptr, ptr %5, align 8, !tbaa !13
+  %44 = load ptr, ptr %6, align 8, !tbaa !13
+  %45 = load ptr, ptr %7, align 8, !tbaa !5
+  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyfreeFreeDatabase, i32 noundef 3, ptr noundef %43, ptr noundef %44, ptr noundef %45)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret void
 }
 
-declare void @listDelNode(ptr noundef, ptr noundef) #1
+declare ptr @kvstoreCreate(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i64 @dbSize(ptr noundef, i32 noundef) #1
-
-declare ptr @dictCreateMultiple(ptr noundef, i32 noundef) #1
-
-; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) #3
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @ebCreate() #6 {
+  ret ptr null
+}
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeTrackingRadixTreeAsync(ptr noundef %tracking) #0 {
-entry:
-  %tracking.addr = alloca ptr, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  store ptr %tracking, ptr %tracking.addr, align 8
-  %0 = load ptr, ptr %tracking.addr, align 8
-  %numnodes = getelementptr inbounds %struct.rax, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %numnodes, align 8
-  %cmp = icmp ugt i64 %1, 64
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local void @freeTrackingRadixTreeAsync(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  %5 = load ptr, ptr %2, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw %struct.rax, ptr %5, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !11
+  %8 = icmp ugt i64 %7, 64
+  br i1 %8, label %9, label %16
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %tracking.addr, align 8
-  %numele = getelementptr inbounds %struct.rax, ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %numele, align 8
-  store i64 %3, ptr %.atomictmp, align 8
-  %4 = load i64, ptr %.atomictmp, align 8
-  %5 = atomicrmw add ptr @lazyfree_objects, i64 %4 monotonic, align 8
-  store i64 %5, ptr %atomic-temp, align 8
-  %6 = load ptr, ptr %tracking.addr, align 8
-  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeTrackingTable, i32 noundef 1, ptr noundef %6)
-  br label %if.end
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw %struct.rax, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !11
+  store i64 %12, ptr %3, align 8, !tbaa !11
+  %13 = load i64, ptr %3, align 8
+  %14 = atomicrmw add ptr @lazyfree_objects, i64 %13 monotonic, align 8
+  store i64 %14, ptr %4, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !15
+  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeTrackingTable, i32 noundef 1, ptr noundef %15)
+  br label %18
 
-if.else:                                          ; preds = %entry
-  %7 = load ptr, ptr %tracking.addr, align 8
-  call void @freeTrackingRadixTree(ptr noundef %7)
-  br label %if.end
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %2, align 8, !tbaa !15
+  call void @freeTrackingRadixTree(ptr noundef %17)
+  br label %18
 
-if.end:                                           ; preds = %if.else, %if.then
+18:                                               ; preds = %16, %9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeLuaScriptsAsync(ptr noundef %lua_scripts) #0 {
-entry:
-  %lua_scripts.addr = alloca ptr, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  store ptr %lua_scripts, ptr %lua_scripts.addr, align 8
-  %0 = load ptr, ptr %lua_scripts.addr, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i32 0, i32 2
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %ht_used, i64 0, i64 0
-  %1 = load i64, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %lua_scripts.addr, align 8
-  %ht_used1 = getelementptr inbounds %struct.dict, ptr %2, i32 0, i32 2
-  %arrayidx2 = getelementptr inbounds [2 x i64], ptr %ht_used1, i64 0, i64 1
-  %3 = load i64, ptr %arrayidx2, align 8
-  %add = add i64 %1, %3
-  %cmp = icmp ugt i64 %add, 64
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local void @freeErrorsRadixTreeAsync(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  %5 = load ptr, ptr %2, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw %struct.rax, ptr %5, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !11
+  %8 = icmp ugt i64 %7, 64
+  br i1 %8, label %9, label %16
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %lua_scripts.addr, align 8
-  %ht_used3 = getelementptr inbounds %struct.dict, ptr %4, i32 0, i32 2
-  %arrayidx4 = getelementptr inbounds [2 x i64], ptr %ht_used3, i64 0, i64 0
-  %5 = load i64, ptr %arrayidx4, align 8
-  %6 = load ptr, ptr %lua_scripts.addr, align 8
-  %ht_used5 = getelementptr inbounds %struct.dict, ptr %6, i32 0, i32 2
-  %arrayidx6 = getelementptr inbounds [2 x i64], ptr %ht_used5, i64 0, i64 1
-  %7 = load i64, ptr %arrayidx6, align 8
-  %add7 = add i64 %5, %7
-  store i64 %add7, ptr %.atomictmp, align 8
-  %8 = load i64, ptr %.atomictmp, align 8
-  %9 = atomicrmw add ptr @lazyfree_objects, i64 %8 monotonic, align 8
-  store i64 %9, ptr %atomic-temp, align 8
-  %10 = load ptr, ptr %lua_scripts.addr, align 8
-  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeLuaScripts, i32 noundef 1, ptr noundef %10)
-  br label %if.end
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw %struct.rax, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !11
+  store i64 %12, ptr %3, align 8, !tbaa !11
+  %13 = load i64, ptr %3, align 8
+  %14 = atomicrmw add ptr @lazyfree_objects, i64 %13 monotonic, align 8
+  store i64 %14, ptr %4, align 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !15
+  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeErrors, i32 noundef 1, ptr noundef %15)
+  br label %18
 
-if.else:                                          ; preds = %entry
-  %11 = load ptr, ptr %lua_scripts.addr, align 8
-  call void @dictRelease(ptr noundef %11)
-  br label %if.end
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %2, align 8, !tbaa !15
+  call void @raxFreeWithCallback(ptr noundef %17, ptr noundef @zfree)
+  br label %18
 
-if.end:                                           ; preds = %if.else, %if.then
+18:                                               ; preds = %16, %9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeFunctionsAsync(ptr noundef %functions_lib_ctx) #0 {
-entry:
-  %functions_lib_ctx.addr = alloca ptr, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  store ptr %functions_lib_ctx, ptr %functions_lib_ctx.addr, align 8
-  %0 = load ptr, ptr %functions_lib_ctx.addr, align 8
-  %call = call i64 @functionsLibCtxfunctionsLen(ptr noundef %0)
-  %cmp = icmp ugt i64 %call, 64
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local void @freeLuaScriptsAsync(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  store ptr %2, ptr %6, align 8, !tbaa !21
+  %9 = load ptr, ptr %4, align 8, !tbaa !17
+  %10 = getelementptr inbounds nuw %struct.dict, ptr %9, i32 0, i32 2
+  %11 = getelementptr inbounds [2 x i64], ptr %10, i64 0, i64 0
+  %12 = load i64, ptr %11, align 8, !tbaa !11
+  %13 = load ptr, ptr %4, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw %struct.dict, ptr %13, i32 0, i32 2
+  %15 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 1
+  %16 = load i64, ptr %15, align 8, !tbaa !11
+  %17 = add i64 %12, %16
+  %18 = icmp ugt i64 %17, 64
+  br i1 %18, label %19, label %34
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %functions_lib_ctx.addr, align 8
-  %call1 = call i64 @functionsLibCtxfunctionsLen(ptr noundef %1)
-  store i64 %call1, ptr %.atomictmp, align 8
-  %2 = load i64, ptr %.atomictmp, align 8
-  %3 = atomicrmw add ptr @lazyfree_objects, i64 %2 monotonic, align 8
-  store i64 %3, ptr %atomic-temp, align 8
-  %4 = load ptr, ptr %functions_lib_ctx.addr, align 8
-  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeFunctionsCtx, i32 noundef 1, ptr noundef %4)
-  br label %if.end
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw %struct.dict, ptr %20, i32 0, i32 2
+  %22 = getelementptr inbounds [2 x i64], ptr %21, i64 0, i64 0
+  %23 = load i64, ptr %22, align 8, !tbaa !11
+  %24 = load ptr, ptr %4, align 8, !tbaa !17
+  %25 = getelementptr inbounds nuw %struct.dict, ptr %24, i32 0, i32 2
+  %26 = getelementptr inbounds [2 x i64], ptr %25, i64 0, i64 1
+  %27 = load i64, ptr %26, align 8, !tbaa !11
+  %28 = add i64 %23, %27
+  store i64 %28, ptr %7, align 8, !tbaa !11
+  %29 = load i64, ptr %7, align 8
+  %30 = atomicrmw add ptr @lazyfree_objects, i64 %29 monotonic, align 8
+  store i64 %30, ptr %8, align 8
+  %31 = load ptr, ptr %4, align 8, !tbaa !17
+  %32 = load ptr, ptr %5, align 8, !tbaa !19
+  %33 = load ptr, ptr %6, align 8, !tbaa !21
+  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeLuaScripts, i32 noundef 3, ptr noundef %31, ptr noundef %32, ptr noundef %33)
+  br label %38
 
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %functions_lib_ctx.addr, align 8
-  call void @functionsLibCtxFree(ptr noundef %5)
-  br label %if.end
+34:                                               ; preds = %3
+  %35 = load ptr, ptr %4, align 8, !tbaa !17
+  %36 = load ptr, ptr %5, align 8, !tbaa !19
+  %37 = load ptr, ptr %6, align 8, !tbaa !21
+  call void @freeLuaScriptsSync(ptr noundef %35, ptr noundef %36, ptr noundef %37)
+  br label %38
 
-if.end:                                           ; preds = %if.else, %if.then
+38:                                               ; preds = %34, %19
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeReplicationBacklogRefMemAsync(ptr noundef %blocks, ptr noundef %index) #0 {
-entry:
-  %blocks.addr = alloca ptr, align 8
-  %index.addr = alloca ptr, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  store ptr %blocks, ptr %blocks.addr, align 8
-  store ptr %index, ptr %index.addr, align 8
-  %0 = load ptr, ptr %blocks.addr, align 8
-  %len = getelementptr inbounds %struct.list, ptr %0, i32 0, i32 5
-  %1 = load i64, ptr %len, align 8
-  %cmp = icmp ugt i64 %1, 64
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define dso_local void @freeFunctionsAsync(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %7 = load ptr, ptr %3, align 8, !tbaa !25
+  %8 = call i64 @functionsLibCtxFunctionsLen(ptr noundef %7)
+  %9 = icmp ugt i64 %8, 64
+  br i1 %9, label %10, label %27
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %index.addr, align 8
-  %call = call i64 @raxSize(ptr noundef %2)
-  %cmp1 = icmp ugt i64 %call, 64
-  br i1 %cmp1, label %if.then, label %if.else
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
+  %12 = call i64 @functionsLibCtxFunctionsLen(ptr noundef %11)
+  %13 = load ptr, ptr %4, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw %struct.dict, ptr %13, i32 0, i32 2
+  %15 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 0
+  %16 = load i64, ptr %15, align 8, !tbaa !11
+  %17 = load ptr, ptr %4, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw %struct.dict, ptr %17, i32 0, i32 2
+  %19 = getelementptr inbounds [2 x i64], ptr %18, i64 0, i64 1
+  %20 = load i64, ptr %19, align 8, !tbaa !11
+  %21 = add i64 %16, %20
+  %22 = add i64 %12, %21
+  store i64 %22, ptr %5, align 8, !tbaa !11
+  %23 = load i64, ptr %5, align 8
+  %24 = atomicrmw add ptr @lazyfree_objects, i64 %23 monotonic, align 8
+  store i64 %24, ptr %6, align 8
+  %25 = load ptr, ptr %3, align 8, !tbaa !25
+  %26 = load ptr, ptr %4, align 8, !tbaa !17
+  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeFunctionsCtx, i32 noundef 2, ptr noundef %25, ptr noundef %26)
+  br label %30
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %3 = load ptr, ptr %blocks.addr, align 8
-  %len2 = getelementptr inbounds %struct.list, ptr %3, i32 0, i32 5
-  %4 = load i64, ptr %len2, align 8
-  %5 = load ptr, ptr %index.addr, align 8
-  %call3 = call i64 @raxSize(ptr noundef %5)
-  %add = add i64 %4, %call3
-  store i64 %add, ptr %.atomictmp, align 8
-  %6 = load i64, ptr %.atomictmp, align 8
-  %7 = atomicrmw add ptr @lazyfree_objects, i64 %6 monotonic, align 8
-  store i64 %7, ptr %atomic-temp, align 8
-  %8 = load ptr, ptr %blocks.addr, align 8
-  %9 = load ptr, ptr %index.addr, align 8
-  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeReplicationBacklogRefMem, i32 noundef 2, ptr noundef %8, ptr noundef %9)
-  br label %if.end
+27:                                               ; preds = %2
+  %28 = load ptr, ptr %3, align 8, !tbaa !25
+  call void @functionsLibCtxFree(ptr noundef %28)
+  %29 = load ptr, ptr %4, align 8, !tbaa !17
+  call void @dictRelease(ptr noundef %29)
+  br label %30
 
-if.else:                                          ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %blocks.addr, align 8
-  call void @listRelease(ptr noundef %10)
-  %11 = load ptr, ptr %index.addr, align 8
-  call void @raxFree(ptr noundef %11)
-  br label %if.end
+30:                                               ; preds = %27, %10
+  ret void
+}
 
-if.end:                                           ; preds = %if.else, %if.then
+; Function Attrs: nounwind uwtable
+define dso_local void @freeReplicationBacklogRefMemAsync(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !15
+  %7 = load ptr, ptr %3, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw %struct.list, ptr %7, i32 0, i32 5
+  %9 = load i64, ptr %8, align 8, !tbaa !27
+  %10 = icmp ugt i64 %9, 64
+  br i1 %10, label %15, label %11
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !15
+  %13 = call i64 @raxSize(ptr noundef %12)
+  %14 = icmp ugt i64 %13, 64
+  br i1 %14, label %15, label %26
+
+15:                                               ; preds = %11, %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !19
+  %17 = getelementptr inbounds nuw %struct.list, ptr %16, i32 0, i32 5
+  %18 = load i64, ptr %17, align 8, !tbaa !27
+  %19 = load ptr, ptr %4, align 8, !tbaa !15
+  %20 = call i64 @raxSize(ptr noundef %19)
+  %21 = add i64 %18, %20
+  store i64 %21, ptr %5, align 8, !tbaa !11
+  %22 = load i64, ptr %5, align 8
+  %23 = atomicrmw add ptr @lazyfree_objects, i64 %22 monotonic, align 8
+  store i64 %23, ptr %6, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !19
+  %25 = load ptr, ptr %4, align 8, !tbaa !15
+  call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef @lazyFreeReplicationBacklogRefMem, i32 noundef 2, ptr noundef %24, ptr noundef %25)
+  br label %29
+
+26:                                               ; preds = %11
+  %27 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @listRelease(ptr noundef %27)
+  %28 = load ptr, ptr %4, align 8, !tbaa !15
+  call void @raxFree(ptr noundef %28)
+  br label %29
+
+29:                                               ; preds = %26, %15
   ret void
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind }
-attributes #5 = { allocsize(0) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -1016,6 +1116,85 @@ attributes #5 = { allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS11redisObject", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_kvstore", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS3rax", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS4dict", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS4list", !6, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS9lua_State", !6, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long long", !7, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS15functionsLibCtx", !6, i64 0}
+!27 = !{!28, !12, i64 40}
+!28 = !{!"list", !29, i64 0, !29, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !12, i64 40}
+!29 = !{!"p1 _ZTS8listNode", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"int", !7, i64 0}
+!32 = !{!33, !6, i64 8}
+!33 = !{!"redisObject", !31, i64 0, !31, i64 0, !31, i64 1, !31, i64 4, !6, i64 8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS9quicklist", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS4zset", !6, i64 0}
+!38 = !{!39, !40, i64 8}
+!39 = !{!"zset", !18, i64 0, !40, i64 8}
+!40 = !{!"p1 _ZTS9zskiplist", !6, i64 0}
+!41 = !{!42, !12, i64 16}
+!42 = !{!"zskiplist", !43, i64 0, !43, i64 8, !12, i64 16, !31, i64 24}
+!43 = !{!"p1 _ZTS13zskiplistNode", !6, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS6stream", !6, i64 0}
+!46 = !{!47, !16, i64 0}
+!47 = !{!"stream", !16, i64 0, !12, i64 8, !48, i64 16, !48, i64 32, !48, i64 48, !12, i64 64, !16, i64 72}
+!48 = !{!"streamID", !12, i64 0, !12, i64 8}
+!49 = !{!47, !16, i64 72}
+!50 = !{!51, !6, i64 24}
+!51 = !{!"raxIterator", !31, i64 0, !16, i64 8, !52, i64 16, !6, i64 24, !12, i64 32, !12, i64 40, !7, i64 48, !53, i64 176, !54, i64 184, !6, i64 472}
+!52 = !{!"p1 omnipotent char", !6, i64 0}
+!53 = !{!"p1 _ZTS7raxNode", !6, i64 0}
+!54 = !{!"raxStack", !6, i64 0, !12, i64 8, !12, i64 16, !7, i64 24, !31, i64 280}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS8streamCG", !6, i64 0}
+!57 = !{!58, !16, i64 24}
+!58 = !{!"streamCG", !48, i64 0, !24, i64 16, !16, i64 24, !16, i64 32}
+!59 = !{!33, !31, i64 4}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTS7redisDb", !6, i64 0}
+!62 = !{!63, !31, i64 7888}
+!63 = !{!"redisServer", !31, i64 0, !12, i64 8, !52, i64 16, !52, i64 24, !64, i64 32, !31, i64 40, !31, i64 44, !31, i64 48, !31, i64 52, !31, i64 56, !61, i64 64, !18, i64 72, !18, i64 80, !65, i64 88, !16, i64 96, !31, i64 104, !31, i64 108, !31, i64 112, !31, i64 116, !24, i64 120, !31, i64 128, !31, i64 132, !31, i64 136, !31, i64 140, !52, i64 144, !31, i64 152, !31, i64 156, !7, i64 160, !31, i64 204, !12, i64 208, !31, i64 216, !31, i64 220, !31, i64 224, !52, i64 232, !52, i64 240, !31, i64 248, !31, i64 252, !12, i64 256, !18, i64 264, !18, i64 272, !18, i64 280, !20, i64 288, !7, i64 296, !31, i64 304, !31, i64 308, !7, i64 312, !31, i64 316, !31, i64 320, !31, i64 324, !7, i64 328, !31, i64 456, !52, i64 464, !52, i64 472, !31, i64 480, !7, i64 488, !31, i64 1320, !66, i64 1328, !20, i64 1432, !20, i64 1440, !20, i64 1448, !20, i64 1456, !20, i64 1464, !20, i64 1472, !68, i64 1480, !68, i64 1488, !6, i64 1496, !16, i64 1504, !31, i64 1512, !16, i64 1520, !31, i64 1528, !20, i64 1536, !7, i64 1544, !7, i64 1592, !18, i64 1848, !7, i64 1856, !31, i64 1864, !31, i64 1868, !7, i64 1872, !31, i64 2384, !31, i64 2388, !24, i64 2392, !31, i64 2400, !31, i64 2404, !31, i64 2408, !31, i64 2412, !31, i64 2416, !12, i64 2424, !12, i64 2432, !12, i64 2440, !12, i64 2448, !12, i64 2456, !12, i64 2464, !24, i64 2472, !24, i64 2480, !24, i64 2488, !24, i64 2496, !69, i64 2504, !24, i64 2512, !24, i64 2520, !24, i64 2528, !24, i64 2536, !24, i64 2544, !24, i64 2552, !12, i64 2560, !24, i64 2568, !24, i64 2576, !24, i64 2584, !24, i64 2592, !24, i64 2600, !24, i64 2608, !24, i64 2616, !24, i64 2624, !12, i64 2632, !12, i64 2640, !24, i64 2648, !24, i64 2656, !24, i64 2664, !24, i64 2672, !69, i64 2680, !24, i64 2688, !24, i64 2696, !24, i64 2704, !24, i64 2712, !24, i64 2720, !20, i64 2728, !24, i64 2736, !24, i64 2744, !12, i64 2752, !70, i64 2760, !7, i64 2848, !7, i64 2856, !7, i64 2864, !7, i64 2872, !12, i64 2880, !12, i64 2888, !12, i64 2896, !12, i64 2904, !12, i64 2912, !12, i64 2920, !12, i64 2928, !12, i64 2936, !69, i64 2944, !7, i64 2952, !12, i64 2984, !24, i64 2992, !24, i64 3000, !24, i64 3008, !7, i64 3016, !7, i64 4040, !7, i64 5064, !24, i64 5072, !7, i64 5080, !24, i64 6144, !24, i64 6152, !12, i64 6160, !24, i64 6168, !24, i64 6176, !12, i64 6184, !7, i64 6192, !31, i64 6288, !31, i64 6292, !31, i64 6296, !31, i64 6300, !31, i64 6304, !31, i64 6308, !31, i64 6312, !31, i64 6316, !31, i64 6320, !31, i64 6324, !31, i64 6328, !31, i64 6332, !12, i64 6336, !31, i64 6344, !31, i64 6348, !31, i64 6352, !31, i64 6356, !12, i64 6360, !12, i64 6368, !31, i64 6376, !31, i64 6380, !31, i64 6384, !31, i64 6388, !31, i64 6392, !52, i64 6400, !7, i64 6408, !31, i64 6480, !31, i64 6484, !31, i64 6488, !71, i64 6496, !31, i64 6504, !31, i64 6508, !31, i64 6512, !31, i64 6516, !31, i64 6520, !31, i64 6524, !52, i64 6528, !52, i64 6536, !31, i64 6544, !31, i64 6548, !12, i64 6552, !12, i64 6560, !12, i64 6568, !12, i64 6576, !12, i64 6584, !31, i64 6592, !31, i64 6596, !52, i64 6600, !31, i64 6608, !31, i64 6612, !24, i64 6616, !24, i64 6624, !12, i64 6632, !12, i64 6640, !12, i64 6648, !31, i64 6656, !31, i64 6660, !12, i64 6664, !31, i64 6672, !31, i64 6676, !31, i64 6680, !31, i64 6684, !31, i64 6688, !31, i64 6692, !7, i64 6696, !7, i64 6700, !6, i64 6704, !31, i64 6712, !24, i64 6720, !24, i64 6728, !24, i64 6736, !24, i64 6744, !31, i64 6752, !72, i64 6760, !31, i64 6768, !52, i64 6776, !31, i64 6784, !31, i64 6788, !31, i64 6792, !12, i64 6800, !12, i64 6808, !12, i64 6816, !12, i64 6824, !31, i64 6832, !31, i64 6836, !31, i64 6840, !31, i64 6844, !31, i64 6848, !31, i64 6852, !73, i64 6856, !31, i64 6864, !31, i64 6868, !52, i64 6872, !31, i64 6880, !31, i64 6884, !31, i64 6888, !7, i64 6892, !31, i64 6900, !74, i64 6904, !31, i64 6920, !52, i64 6928, !31, i64 6936, !52, i64 6944, !31, i64 6952, !31, i64 6956, !31, i64 6960, !31, i64 6964, !31, i64 6968, !31, i64 6972, !31, i64 6976, !7, i64 6980, !7, i64 7021, !24, i64 7064, !24, i64 7072, !7, i64 7080, !24, i64 7088, !31, i64 7096, !31, i64 7100, !76, i64 7104, !24, i64 7112, !24, i64 7120, !77, i64 7128, !12, i64 7168, !12, i64 7176, !31, i64 7184, !31, i64 7188, !31, i64 7192, !31, i64 7196, !31, i64 7200, !31, i64 7204, !31, i64 7208, !31, i64 7212, !31, i64 7216, !12, i64 7224, !20, i64 7232, !12, i64 7240, !52, i64 7248, !52, i64 7256, !52, i64 7264, !31, i64 7272, !31, i64 7276, !68, i64 7280, !68, i64 7288, !31, i64 7296, !31, i64 7300, !31, i64 7304, !12, i64 7312, !12, i64 7320, !12, i64 7328, !12, i64 7336, !78, i64 7344, !78, i64 7352, !31, i64 7360, !52, i64 7368, !12, i64 7376, !31, i64 7384, !31, i64 7388, !31, i64 7392, !12, i64 7400, !31, i64 7408, !31, i64 7412, !31, i64 7416, !31, i64 7420, !52, i64 7424, !31, i64 7432, !31, i64 7436, !7, i64 7440, !24, i64 7488, !31, i64 7496, !20, i64 7504, !31, i64 7512, !31, i64 7516, !24, i64 7520, !12, i64 7528, !31, i64 7536, !31, i64 7540, !31, i64 7544, !31, i64 7548, !31, i64 7552, !24, i64 7560, !7, i64 7568, !31, i64 7580, !31, i64 7584, !31, i64 7588, !7, i64 7592, !20, i64 7632, !20, i64 7640, !31, i64 7648, !12, i64 7656, !20, i64 7664, !20, i64 7672, !31, i64 7680, !31, i64 7684, !31, i64 7688, !31, i64 7692, !12, i64 7696, !12, i64 7704, !12, i64 7712, !12, i64 7720, !12, i64 7728, !12, i64 7736, !12, i64 7744, !12, i64 7752, !12, i64 7760, !24, i64 7768, !31, i64 7776, !31, i64 7780, !7, i64 7784, !12, i64 7792, !7, i64 7800, !24, i64 7808, !24, i64 7816, !24, i64 7824, !12, i64 7832, !24, i64 7840, !14, i64 7848, !18, i64 7856, !31, i64 7864, !14, i64 7872, !31, i64 7880, !31, i64 7884, !31, i64 7888, !31, i64 7892, !24, i64 7896, !24, i64 7904, !52, i64 7912, !79, i64 7920, !31, i64 7928, !31, i64 7932, !31, i64 7936, !31, i64 7940, !31, i64 7944, !52, i64 7952, !52, i64 7960, !52, i64 7968, !31, i64 7976, !31, i64 7980, !31, i64 7984, !31, i64 7988, !31, i64 7992, !31, i64 7996, !31, i64 8000, !24, i64 8008, !31, i64 8016, !31, i64 8020, !24, i64 8024, !31, i64 8032, !31, i64 8036, !31, i64 8040, !31, i64 8044, !31, i64 8048, !31, i64 8052, !31, i64 8056, !24, i64 8064, !18, i64 8072, !52, i64 8080, !12, i64 8088, !52, i64 8096, !31, i64 8104, !80, i64 8112, !31, i64 8144, !12, i64 8152, !31, i64 8160, !31, i64 8164, !31, i64 8168, !81, i64 8176, !52, i64 8288, !52, i64 8296, !52, i64 8304, !52, i64 8312, !82, i64 8320, !24, i64 8328, !31, i64 8336, !52, i64 8344, !31, i64 8352, !31, i64 8356, !31, i64 8360, !12, i64 8368, !31, i64 8376, !52, i64 8384}
+!64 = !{!"p2 omnipotent char", !6, i64 0}
+!65 = !{!"p1 _ZTS11aeEventLoop", !6, i64 0}
+!66 = !{!"connListener", !7, i64 0, !31, i64 64, !64, i64 72, !31, i64 80, !31, i64 84, !67, i64 88, !6, i64 96}
+!67 = !{!"p1 _ZTS14ConnectionType", !6, i64 0}
+!68 = !{!"p1 _ZTS6client", !6, i64 0}
+!69 = !{!"double", !7, i64 0}
+!70 = !{!"malloc_stats", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80}
+!71 = !{!"p1 double", !6, i64 0}
+!72 = !{!"p1 _ZTS9saveparam", !6, i64 0}
+!73 = !{!"p2 _ZTS10connection", !6, i64 0}
+!74 = !{!"redisOpArray", !75, i64 0, !31, i64 8, !31, i64 12}
+!75 = !{!"p1 _ZTS7redisOp", !6, i64 0}
+!76 = !{!"p1 _ZTS11replBacklog", !6, i64 0}
+!77 = !{!"replDataBuf", !20, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32}
+!78 = !{!"p1 _ZTS10connection", !6, i64 0}
+!79 = !{!"p1 _ZTS12clusterState", !6, i64 0}
+!80 = !{!"aclInfo", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24}
+!81 = !{!"redisTLSContextConfig", !52, i64 0, !52, i64 8, !52, i64 16, !52, i64 24, !52, i64 32, !52, i64 40, !52, i64 48, !52, i64 56, !52, i64 64, !52, i64 72, !52, i64 80, !52, i64 88, !31, i64 96, !31, i64 100, !31, i64 104, !31, i64 108}
+!82 = !{!"p1 _ZTS14sentinelConfig", !6, i64 0}
+!83 = !{!84, !14, i64 0}
+!84 = !{!"redisDb", !14, i64 0, !14, i64 8, !6, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !31, i64 56, !24, i64 64, !12, i64 72, !20, i64 80}
+!85 = !{!84, !14, i64 8}
+!86 = !{!84, !6, i64 16}

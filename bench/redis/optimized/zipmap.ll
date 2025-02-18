@@ -1,366 +1,364 @@
 ; ModuleID = 'bench/redis/original/zipmap.ll'
 source_filename = "bench/redis/original/zipmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @zipmapNew() local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias dereferenceable_or_null(2) ptr @zmalloc(i64 noundef 2) #11
-  store i8 0, ptr %call, align 1
-  %arrayidx1 = getelementptr inbounds nuw i8, ptr %call, i64 1
-  store i8 -1, ptr %arrayidx1, align 1
-  ret ptr %call
+  %1 = tail call noalias dereferenceable_or_null(2) ptr @zmalloc(i64 noundef 2) #11
+  store i8 0, ptr %1, align 1, !tbaa !5
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 -1, ptr %2, align 1, !tbaa !5
+  ret ptr %1
 }
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zipmapSet(ptr noundef %zm, ptr noundef readonly captures(address_is_null) %key, i32 noundef %klen, ptr noundef readonly captures(none) %val, i32 noundef %vlen, ptr noundef writeonly captures(address_is_null) %update) local_unnamed_addr #0 {
-entry:
-  %add.i = add i32 %vlen, %klen
-  %cmp.i = icmp ugt i32 %klen, 253
-  %spec.select.v.i = select i1 %cmp.i, i32 7, i32 3
-  %spec.select.i = add i32 %add.i, %spec.select.v.i
-  %cmp3.i = icmp ugt i32 %vlen, 253
-  %add5.i = add i32 %spec.select.i, 4
-  %l.1.i = select i1 %cmp3.i, i32 %add5.i, i32 %spec.select.i
-  %conv.i = zext i32 %l.1.i to i64
-  %tobool.not = icmp eq ptr %update, null
-  br i1 %tobool.not, label %if.end, label %if.then
+define dso_local ptr @zipmapSet(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+  %7 = add i32 %4, %2
+  %8 = icmp ugt i32 %2, 253
+  %spec.select.v.i = select i1 %8, i32 7, i32 3
+  %spec.select.i = add i32 %7, %spec.select.v.i
+  %9 = icmp ugt i32 %4, 253
+  %10 = add i32 %spec.select.i, 4
+  %.1.i = select i1 %9, i32 %10, i32 %spec.select.i
+  %11 = zext i32 %.1.i to i64
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %13, label %12
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %update, align 4
-  br label %if.end
+12:                                               ; preds = %6
+  store i32 0, ptr %5, align 4, !tbaa !8
+  br label %13
 
-if.end:                                           ; preds = %if.then, %entry
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  %cmp3.not.i = icmp eq ptr %key, null
-  br i1 %cmp3.not.i, label %while.cond.us.i, label %entry.split.i
+13:                                               ; preds = %12, %6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %.split.us.i, label %.split.i
 
-while.cond.us.i:                                  ; preds = %if.end, %zipmapDecodeLength.exit32.us.i
-  %p.0.us.i = phi ptr [ %add.ptr28.us.i, %zipmapDecodeLength.exit32.us.i ], [ %add.ptr.i, %if.end ]
-  %0 = load i8, ptr %p.0.us.i, align 1
-  switch i8 %0, label %if.then.i.us.i [
+.split.us.i:                                      ; preds = %13, %36
+  %.033.us.i = phi ptr [ %45, %36 ], [ %14, %13 ]
+  %15 = load i8, ptr %.033.us.i, align 1, !tbaa !5
+  switch i8 %15, label %23 [
     i8 -1, label %zipmapLookupRaw.exit.thread
-    i8 -2, label %if.end.i.us.i
+    i8 -2, label %21
   ]
 
-zipmapLookupRaw.exit.thread:                      ; preds = %while.cond.us.i
-  %sub.ptr.lhs.cast.i97 = ptrtoint ptr %p.0.us.i to i64
-  %sub.ptr.rhs.cast.i98 = ptrtoint ptr %zm to i64
-  %sub.ptr.sub.i99 = sub i64 %sub.ptr.lhs.cast.i97, %sub.ptr.rhs.cast.i98
-  %conv32.i100 = trunc i64 %sub.ptr.sub.i99 to i32
-  %add33.i101 = add i32 %conv32.i100, 1
-  br label %if.then3
+zipmapLookupRaw.exit.thread:                      ; preds = %.split.us.i
+  %16 = ptrtoint ptr %.033.us.i to i64
+  %17 = ptrtoint ptr %0 to i64
+  %18 = sub i64 %16, %17
+  %19 = trunc i64 %18 to i32
+  %20 = add i32 %19, 1
+  br label %86
 
-if.end.i.us.i:                                    ; preds = %while.cond.us.i
-  %add.ptr.i.us.i = getelementptr inbounds nuw i8, ptr %p.0.us.i, i64 1
-  %len.0.copyload.i.us.i = load i32, ptr %add.ptr.i.us.i, align 1
+21:                                               ; preds = %.split.us.i
+  %22 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 1
+  %.0.copyload.i.us.i = load i32, ptr %22, align 1
   br label %zipmapDecodeLength.exit.us.i
 
-if.then.i.us.i:                                   ; preds = %while.cond.us.i
-  %conv.i.us.i = zext i8 %0 to i32
+23:                                               ; preds = %.split.us.i
+  %24 = zext i8 %15 to i32
   br label %zipmapDecodeLength.exit.us.i
 
-zipmapDecodeLength.exit.us.i:                     ; preds = %if.then.i.us.i, %if.end.i.us.i
-  %retval.0.i.us.i = phi i32 [ %conv.i.us.i, %if.then.i.us.i ], [ %len.0.copyload.i.us.i, %if.end.i.us.i ]
-  %cmp1.i.us.i = icmp ult i32 %retval.0.i.us.i, 254
-  %conv.i23.us.i = select i1 %cmp1.i.us.i, i32 1, i32 5
-  %add.us.i = add i32 %conv.i23.us.i, %retval.0.i.us.i
-  %idx.ext18.us.i = zext i32 %add.us.i to i64
-  %add.ptr19.us.i = getelementptr inbounds nuw i8, ptr %p.0.us.i, i64 %idx.ext18.us.i
-  %1 = load i8, ptr %add.ptr19.us.i, align 1
-  %cmp.i25.us.i = icmp ult i8 %1, -2
-  br i1 %cmp.i25.us.i, label %if.then.i30.us.i, label %if.end.i26.us.i
+zipmapDecodeLength.exit.us.i:                     ; preds = %23, %21
+  %.0.i.us.i = phi i32 [ %24, %23 ], [ %.0.copyload.i.us.i, %21 ]
+  %25 = icmp ult i32 %.0.i.us.i, 254
+  %26 = select i1 %25, i32 1, i32 5
+  %27 = add i32 %26, %.0.i.us.i
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 %28
+  %30 = load i8, ptr %29, align 1, !tbaa !5
+  %31 = icmp ult i8 %30, -2
+  br i1 %31, label %34, label %32
 
-if.end.i26.us.i:                                  ; preds = %zipmapDecodeLength.exit.us.i
-  %add.ptr.i27.us.i = getelementptr inbounds nuw i8, ptr %add.ptr19.us.i, i64 1
-  %len.0.copyload.i28.us.i = load i32, ptr %add.ptr.i27.us.i, align 1
-  br label %zipmapDecodeLength.exit32.us.i
+32:                                               ; preds = %zipmapDecodeLength.exit.us.i
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %.0.copyload.i45.us.i = load i32, ptr %33, align 1
+  br label %36
 
-if.then.i30.us.i:                                 ; preds = %zipmapDecodeLength.exit.us.i
-  %conv.i31.us.i = zext i8 %1 to i32
-  br label %zipmapDecodeLength.exit32.us.i
+34:                                               ; preds = %zipmapDecodeLength.exit.us.i
+  %35 = zext i8 %30 to i32
+  br label %36
 
-zipmapDecodeLength.exit32.us.i:                   ; preds = %if.then.i30.us.i, %if.end.i26.us.i
-  %retval.0.i29.us.i = phi i32 [ %conv.i31.us.i, %if.then.i30.us.i ], [ %len.0.copyload.i28.us.i, %if.end.i26.us.i ]
-  %cmp1.i33.us.i = icmp ult i32 %retval.0.i29.us.i, 254
-  %conv.i35.us.i = select i1 %cmp1.i33.us.i, i64 1, i64 5
-  %add.ptr23.us.i = getelementptr inbounds nuw i8, ptr %add.ptr19.us.i, i64 %conv.i35.us.i
-  %2 = load i8, ptr %add.ptr23.us.i, align 1
-  %add24.us.i = add i32 %retval.0.i29.us.i, 1
-  %conv25.us.i = zext i8 %2 to i32
-  %add26.us.i = add i32 %add24.us.i, %conv25.us.i
-  %idx.ext27.us.i = zext i32 %add26.us.i to i64
-  %add.ptr28.us.i = getelementptr inbounds nuw i8, ptr %add.ptr23.us.i, i64 %idx.ext27.us.i
-  br label %while.cond.us.i, !llvm.loop !5
+36:                                               ; preds = %34, %32
+  %.0.i46.us.i = phi i32 [ %35, %34 ], [ %.0.copyload.i45.us.i, %32 ]
+  %37 = icmp ult i32 %.0.i46.us.i, 254
+  %38 = select i1 %37, i64 1, i64 5
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !5
+  %41 = add i32 %.0.i46.us.i, 1
+  %42 = zext i8 %40 to i32
+  %43 = add i32 %41, %42
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 %44
+  br label %.split.us.i, !llvm.loop !10
 
-entry.split.i:                                    ; preds = %if.end
-  %conv12.us.i = zext i32 %klen to i64
-  br label %while.cond.i
+.split.i:                                         ; preds = %13
+  %46 = zext i32 %2 to i64
+  br label %.split.split.i
 
-while.cond.i:                                     ; preds = %entry.split.i, %zipmapDecodeLength.exit32.i
-  %k.0.i = phi ptr [ %k.1.i, %zipmapDecodeLength.exit32.i ], [ null, %entry.split.i ]
-  %p.0.i = phi ptr [ %add.ptr28.i, %zipmapDecodeLength.exit32.i ], [ %add.ptr.i, %entry.split.i ]
-  %3 = load i8, ptr %p.0.i, align 1
-  switch i8 %3, label %if.then.i.i [
+.split.split.i:                                   ; preds = %.split.i, %70
+  %.035.i = phi ptr [ %.136.i, %70 ], [ null, %.split.i ]
+  %.033.i = phi ptr [ %79, %70 ], [ %14, %.split.i ]
+  %47 = load i8, ptr %.033.i, align 1, !tbaa !5
+  switch i8 %47, label %48 [
     i8 -1, label %zipmapLookupRaw.exit
-    i8 -2, label %if.end.i.i
+    i8 -2, label %50
   ]
 
-if.then.i.i:                                      ; preds = %while.cond.i
-  %conv.i.i = zext i8 %3 to i32
+48:                                               ; preds = %.split.split.i
+  %49 = zext i8 %47 to i32
   br label %zipmapDecodeLength.exit.i
 
-if.end.i.i:                                       ; preds = %while.cond.i
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1
-  %len.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
+50:                                               ; preds = %.split.split.i
+  %51 = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
+  %.0.copyload.i.i = load i32, ptr %51, align 1
   br label %zipmapDecodeLength.exit.i
 
-zipmapDecodeLength.exit.i:                        ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %len.0.copyload.i.i, %if.end.i.i ]
-  %cmp1.i.i = icmp ult i32 %retval.0.i.i, 254
-  %conv.i23.i = select i1 %cmp1.i.i, i32 1, i32 5
-  %cmp5.i = icmp eq ptr %k.0.i, null
-  br i1 %cmp5.i, label %land.lhs.true7.i, label %if.end17.i
+zipmapDecodeLength.exit.i:                        ; preds = %50, %48
+  %.0.i.i = phi i32 [ %49, %48 ], [ %.0.copyload.i.i, %50 ]
+  %52 = icmp ult i32 %.0.i.i, 254
+  %53 = select i1 %52, i32 1, i32 5
+  %54 = icmp eq ptr %.035.i, null
+  br i1 %54, label %55, label %60
 
-land.lhs.true7.i:                                 ; preds = %zipmapDecodeLength.exit.i
-  %cmp8.i = icmp eq i32 %retval.0.i.i, %klen
-  br i1 %cmp8.i, label %land.lhs.true10.i, label %if.end17.i
+55:                                               ; preds = %zipmapDecodeLength.exit.i
+  %56 = icmp eq i32 %.0.i.i, %2
+  br i1 %56, label %57, label %60
 
-land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %idx.ext.i = zext nneg i32 %conv.i23.i to i64
-  %add.ptr11.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 %idx.ext.i
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.i, ptr nonnull readonly %key, i64 %conv12.us.i)
-  %tobool.not.i = icmp eq i32 %bcmp.i, 0
-  %spec.select.i59 = select i1 %tobool.not.i, ptr %p.0.i, ptr null
-  br label %if.end17.i
+57:                                               ; preds = %55
+  %58 = zext nneg i32 %53 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %.033.i, i64 %58
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %59, ptr nonnull readonly %1, i64 %46)
+  %.not42.i = icmp eq i32 %bcmp.i, 0
+  %spec.select.i81 = select i1 %.not42.i, ptr %.033.i, ptr null
+  br label %60
 
-if.end17.i:                                       ; preds = %land.lhs.true10.i, %land.lhs.true7.i, %zipmapDecodeLength.exit.i
-  %k.1.i = phi ptr [ null, %land.lhs.true7.i ], [ %k.0.i, %zipmapDecodeLength.exit.i ], [ %spec.select.i59, %land.lhs.true10.i ]
-  %add.i58 = add i32 %conv.i23.i, %retval.0.i.i
-  %idx.ext18.i = zext i32 %add.i58 to i64
-  %add.ptr19.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 %idx.ext18.i
-  %4 = load i8, ptr %add.ptr19.i, align 1
-  %cmp.i25.i = icmp ult i8 %4, -2
-  br i1 %cmp.i25.i, label %if.then.i30.i, label %if.end.i26.i
+60:                                               ; preds = %57, %55, %zipmapDecodeLength.exit.i
+  %.136.i = phi ptr [ null, %55 ], [ %.035.i, %zipmapDecodeLength.exit.i ], [ %spec.select.i81, %57 ]
+  %61 = add i32 %53, %.0.i.i
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw i8, ptr %.033.i, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !5
+  %65 = icmp ult i8 %64, -2
+  br i1 %65, label %66, label %68
 
-if.then.i30.i:                                    ; preds = %if.end17.i
-  %conv.i31.i = zext i8 %4 to i32
-  br label %zipmapDecodeLength.exit32.i
+66:                                               ; preds = %60
+  %67 = zext i8 %64 to i32
+  br label %70
 
-if.end.i26.i:                                     ; preds = %if.end17.i
-  %add.ptr.i27.i = getelementptr inbounds nuw i8, ptr %add.ptr19.i, i64 1
-  %len.0.copyload.i28.i = load i32, ptr %add.ptr.i27.i, align 1
-  br label %zipmapDecodeLength.exit32.i
+68:                                               ; preds = %60
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 1
+  %.0.copyload.i45.i = load i32, ptr %69, align 1
+  br label %70
 
-zipmapDecodeLength.exit32.i:                      ; preds = %if.end.i26.i, %if.then.i30.i
-  %retval.0.i29.i = phi i32 [ %conv.i31.i, %if.then.i30.i ], [ %len.0.copyload.i28.i, %if.end.i26.i ]
-  %cmp1.i33.i = icmp ult i32 %retval.0.i29.i, 254
-  %conv.i35.i = select i1 %cmp1.i33.i, i64 1, i64 5
-  %add.ptr23.i = getelementptr inbounds nuw i8, ptr %add.ptr19.i, i64 %conv.i35.i
-  %5 = load i8, ptr %add.ptr23.i, align 1
-  %add24.i = add i32 %retval.0.i29.i, 1
-  %conv25.i = zext i8 %5 to i32
-  %add26.i = add i32 %add24.i, %conv25.i
-  %idx.ext27.i = zext i32 %add26.i to i64
-  %add.ptr28.i = getelementptr inbounds nuw i8, ptr %add.ptr23.i, i64 %idx.ext27.i
-  br label %while.cond.i, !llvm.loop !5
+70:                                               ; preds = %68, %66
+  %.0.i46.i = phi i32 [ %67, %66 ], [ %.0.copyload.i45.i, %68 ]
+  %71 = icmp ult i32 %.0.i46.i, 254
+  %72 = select i1 %71, i64 1, i64 5
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !5
+  %75 = add i32 %.0.i46.i, 1
+  %76 = zext i8 %74 to i32
+  %77 = add i32 %75, %76
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 %78
+  br label %.split.split.i, !llvm.loop !10
 
-zipmapLookupRaw.exit:                             ; preds = %while.cond.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.0.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %zm to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv32.i = trunc i64 %sub.ptr.sub.i to i32
-  %add33.i = add i32 %conv32.i, 1
-  %cmp = icmp eq ptr %k.0.i, null
-  br i1 %cmp, label %if.then3, label %if.else
+zipmapLookupRaw.exit:                             ; preds = %.split.split.i
+  %80 = ptrtoint ptr %.033.i to i64
+  %81 = ptrtoint ptr %0 to i64
+  %82 = sub i64 %80, %81
+  %83 = trunc i64 %82 to i32
+  %84 = add i32 %83, 1
+  %85 = icmp eq ptr %.035.i, null
+  br i1 %85, label %86, label %101
 
-if.then3:                                         ; preds = %zipmapLookupRaw.exit.thread, %zipmapLookupRaw.exit
-  %add33.i103 = phi i32 [ %add33.i101, %zipmapLookupRaw.exit.thread ], [ %add33.i, %zipmapLookupRaw.exit ]
-  %add = add i32 %add33.i103, %l.1.i
-  %conv.i60 = zext i32 %add to i64
-  %call.i = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i60) #12
-  %sub.i = add i32 %add, -1
-  %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %idxprom.i
-  store i8 -1, ptr %arrayidx.i, align 1
-  %idx.ext = zext i32 %add33.i103 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %call.i, i64 %idx.ext
-  %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %6 = load i8, ptr %call.i, align 1
-  %cmp8 = icmp ult i8 %6, -2
-  br i1 %cmp8, label %if.then10, label %if.end36
+86:                                               ; preds = %zipmapLookupRaw.exit.thread, %zipmapLookupRaw.exit
+  %87 = phi i32 [ %20, %zipmapLookupRaw.exit.thread ], [ %84, %zipmapLookupRaw.exit ]
+  %88 = add i32 %87, %.1.i
+  %89 = zext i32 %88 to i64
+  %90 = tail call ptr @zrealloc(ptr noundef %0, i64 noundef %89) #12
+  %91 = add i32 %88, -1
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %92
+  store i8 -1, ptr %93, align 1, !tbaa !5
+  %94 = zext i32 %87 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 %94
+  %96 = getelementptr inbounds i8, ptr %95, i64 -1
+  %97 = load i8, ptr %90, align 1, !tbaa !5
+  %98 = icmp ult i8 %97, -2
+  br i1 %98, label %99, label %151
 
-if.then10:                                        ; preds = %if.then3
-  %inc = add nuw i8 %6, 1
-  store i8 %inc, ptr %call.i, align 1
-  br label %if.end36
+99:                                               ; preds = %86
+  %100 = add nuw i8 %97, 1
+  store i8 %100, ptr %90, align 1, !tbaa !5
+  br label %151
 
-if.else:                                          ; preds = %zipmapLookupRaw.exit
-  br i1 %tobool.not, label %if.end15, label %if.then14
+101:                                              ; preds = %zipmapLookupRaw.exit
+  br i1 %.not, label %103, label %102
 
-if.then14:                                        ; preds = %if.else
-  store i32 1, ptr %update, align 4
-  br label %if.end15
+102:                                              ; preds = %101
+  store i32 1, ptr %5, align 4, !tbaa !8
+  br label %103
 
-if.end15:                                         ; preds = %if.then14, %if.else
-  %7 = load i8, ptr %k.0.i, align 1
-  %cmp.i.i.i = icmp ult i8 %7, -2
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
+103:                                              ; preds = %102, %101
+  %104 = load i8, ptr %.035.i, align 1, !tbaa !5
+  %105 = icmp ult i8 %104, -2
+  br i1 %105, label %106, label %108
 
-if.then.i.i.i:                                    ; preds = %if.end15
-  %conv.i.i.i = zext i8 %7 to i32
+106:                                              ; preds = %103
+  %107 = zext i8 %104 to i32
   br label %zipmapRawKeyLength.exit.i
 
-if.end.i.i.i:                                     ; preds = %if.end15
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %k.0.i, i64 1
-  %len.0.copyload.i.i.i = load i32, ptr %add.ptr.i.i.i, align 1
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds nuw i8, ptr %.035.i, i64 1
+  %.0.copyload.i.i.i = load i32, ptr %109, align 1
   br label %zipmapRawKeyLength.exit.i
 
-zipmapRawKeyLength.exit.i:                        ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi i32 [ %conv.i.i.i, %if.then.i.i.i ], [ %len.0.copyload.i.i.i, %if.end.i.i.i ]
-  %cmp1.i.i.i = icmp ult i32 %retval.0.i.i.i, 254
-  %conv.i3.i.i = select i1 %cmp1.i.i.i, i32 1, i32 5
-  %add.i.i = add i32 %conv.i3.i.i, %retval.0.i.i.i
-  %idx.ext.i61 = zext i32 %add.i.i to i64
-  %add.ptr.i62 = getelementptr inbounds nuw i8, ptr %k.0.i, i64 %idx.ext.i61
-  %8 = load i8, ptr %add.ptr.i62, align 1
-  %cmp.i.i3.i = icmp ult i8 %8, -2
-  br i1 %cmp.i.i3.i, label %if.then.i.i10.i, label %if.end.i.i4.i
+zipmapRawKeyLength.exit.i:                        ; preds = %108, %106
+  %.0.i.i.i = phi i32 [ %107, %106 ], [ %.0.copyload.i.i.i, %108 ]
+  %110 = icmp ult i32 %.0.i.i.i, 254
+  %111 = select i1 %110, i32 1, i32 5
+  %112 = add i32 %111, %.0.i.i.i
+  %113 = zext i32 %112 to i64
+  %114 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %113
+  %115 = load i8, ptr %114, align 1, !tbaa !5
+  %116 = icmp ult i8 %115, -2
+  br i1 %116, label %117, label %119
 
-if.then.i.i10.i:                                  ; preds = %zipmapRawKeyLength.exit.i
-  %conv.i.i11.i = zext i8 %8 to i32
+117:                                              ; preds = %zipmapRawKeyLength.exit.i
+  %118 = zext i8 %115 to i32
   br label %zipmapRawEntryLength.exit
 
-if.end.i.i4.i:                                    ; preds = %zipmapRawKeyLength.exit.i
-  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i62, i64 1
-  %len.0.copyload.i.i6.i = load i32, ptr %add.ptr.i.i5.i, align 1
+119:                                              ; preds = %zipmapRawKeyLength.exit.i
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 1
+  %.0.copyload.i.i3.i = load i32, ptr %120, align 1
   br label %zipmapRawEntryLength.exit
 
-zipmapRawEntryLength.exit:                        ; preds = %if.then.i.i10.i, %if.end.i.i4.i
-  %retval.0.i.i7.i = phi i32 [ %conv.i.i11.i, %if.then.i.i10.i ], [ %len.0.copyload.i.i6.i, %if.end.i.i4.i ]
-  %cmp1.i.i8.i = icmp ult i32 %retval.0.i.i7.i, 254
-  %conv.i6.i.i = select i1 %cmp1.i.i8.i, i32 1, i32 5
-  %idxprom.i.i = zext nneg i32 %conv.i6.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i62, i64 %idxprom.i.i
-  %9 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i63 = zext i8 %9 to i32
-  %add.i9.i = add i32 %add.i.i, 1
-  %add2.i.i = add i32 %add.i9.i, %retval.0.i.i7.i
-  %add3.i.i = add i32 %add2.i.i, %conv.i.i63
-  %add.i64 = add i32 %add3.i.i, %conv.i6.i.i
-  %cmp17 = icmp ult i32 %add.i64, %l.1.i
-  br i1 %cmp17, label %if.then19, label %if.end36
+zipmapRawEntryLength.exit:                        ; preds = %117, %119
+  %.0.i.i4.i = phi i32 [ %118, %117 ], [ %.0.copyload.i.i3.i, %119 ]
+  %121 = icmp ult i32 %.0.i.i4.i, 254
+  %122 = select i1 %121, i32 1, i32 5
+  %123 = zext nneg i32 %122 to i64
+  %124 = getelementptr inbounds nuw i8, ptr %114, i64 %123
+  %125 = load i8, ptr %124, align 1, !tbaa !5
+  %126 = zext i8 %125 to i32
+  %127 = add i32 %112, 1
+  %128 = add i32 %127, %.0.i.i4.i
+  %129 = add i32 %128, %126
+  %130 = add i32 %129, %122
+  %131 = icmp ult i32 %130, %.1.i
+  br i1 %131, label %132, label %151
 
-if.then19:                                        ; preds = %zipmapRawEntryLength.exit
-  %sub.ptr.lhs.cast = ptrtoint ptr %k.0.i to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i
-  %conv20 = trunc i64 %sub.ptr.sub to i32
-  %sub = sub i32 %add33.i, %add.i64
-  %add21 = add i32 %sub, %l.1.i
-  %conv.i65 = zext i32 %add21 to i64
-  %call.i66 = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i65) #12
-  %sub.i67 = add i32 %add21, -1
-  %idxprom.i68 = zext i32 %sub.i67 to i64
-  %arrayidx.i69 = getelementptr inbounds nuw i8, ptr %call.i66, i64 %idxprom.i68
-  store i8 -1, ptr %arrayidx.i69, align 1
-  %idx.ext23 = and i64 %sub.ptr.sub, 4294967295
-  %add.ptr24 = getelementptr inbounds nuw i8, ptr %call.i66, i64 %idx.ext23
-  %add.ptr26 = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 %conv.i
-  %idx.ext27 = zext i32 %add.i64 to i64
-  %add.ptr28 = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 %idx.ext27
-  %10 = add i32 %add.i64, %conv20
-  %sub31 = sub i32 %conv32.i, %10
-  %conv32 = zext i32 %sub31 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr26, ptr align 1 %add.ptr28, i64 %conv32, i1 false)
-  br label %if.end36
+132:                                              ; preds = %zipmapRawEntryLength.exit
+  %133 = ptrtoint ptr %.035.i to i64
+  %134 = sub i64 %133, %81
+  %135 = trunc i64 %134 to i32
+  %136 = sub i32 %84, %130
+  %137 = add i32 %136, %.1.i
+  %138 = zext i32 %137 to i64
+  %139 = tail call ptr @zrealloc(ptr noundef %0, i64 noundef %138) #12
+  %140 = add i32 %137, -1
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 %141
+  store i8 -1, ptr %142, align 1, !tbaa !5
+  %143 = and i64 %134, 4294967295
+  %144 = getelementptr inbounds nuw i8, ptr %139, i64 %143
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %11
+  %146 = zext i32 %130 to i64
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 %146
+  %148 = add i32 %130, %135
+  %149 = sub i32 %83, %148
+  %150 = zext i32 %149 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %145, ptr align 1 %147, i64 %150, i1 false)
+  br label %151
 
-if.end36:                                         ; preds = %zipmapRawEntryLength.exit, %if.then19, %if.then3, %if.then10
-  %zmlen.0 = phi i32 [ %add, %if.then10 ], [ %add, %if.then3 ], [ %add21, %if.then19 ], [ %add33.i, %zipmapRawEntryLength.exit ]
-  %freelen.0 = phi i32 [ %l.1.i, %if.then10 ], [ %l.1.i, %if.then3 ], [ %l.1.i, %if.then19 ], [ %add.i64, %zipmapRawEntryLength.exit ]
-  %zm.addr.0 = phi ptr [ %call.i, %if.then10 ], [ %call.i, %if.then3 ], [ %call.i66, %if.then19 ], [ %zm, %zipmapRawEntryLength.exit ]
-  %p.0 = phi ptr [ %add.ptr5, %if.then10 ], [ %add.ptr5, %if.then3 ], [ %add.ptr24, %if.then19 ], [ %k.0.i, %zipmapRawEntryLength.exit ]
-  %sub37 = sub i32 %freelen.0, %l.1.i
-  %cmp38 = icmp ugt i32 %sub37, 3
-  br i1 %cmp38, label %if.then40, label %if.else57
+151:                                              ; preds = %zipmapRawEntryLength.exit, %132, %86, %99
+  %.090 = phi i32 [ %88, %99 ], [ %88, %86 ], [ %137, %132 ], [ %84, %zipmapRawEntryLength.exit ]
+  %.071 = phi i32 [ %.1.i, %99 ], [ %.1.i, %86 ], [ %.1.i, %132 ], [ %130, %zipmapRawEntryLength.exit ]
+  %.069 = phi ptr [ %90, %99 ], [ %90, %86 ], [ %139, %132 ], [ %0, %zipmapRawEntryLength.exit ]
+  %.0 = phi ptr [ %96, %99 ], [ %96, %86 ], [ %144, %132 ], [ %.035.i, %zipmapRawEntryLength.exit ]
+  %152 = sub i32 %.071, %.1.i
+  %153 = icmp ugt i32 %152, 3
+  br i1 %153, label %154, label %173
 
-if.then40:                                        ; preds = %if.end36
-  %sub.ptr.lhs.cast41 = ptrtoint ptr %p.0 to i64
-  %sub.ptr.rhs.cast42 = ptrtoint ptr %zm.addr.0 to i64
-  %sub.ptr.sub43 = sub i64 %sub.ptr.lhs.cast41, %sub.ptr.rhs.cast42
-  %conv44 = trunc i64 %sub.ptr.sub43 to i32
-  %add.ptr46 = getelementptr inbounds nuw i8, ptr %p.0, i64 %conv.i
-  %idx.ext47 = zext i32 %freelen.0 to i64
-  %add.ptr48 = getelementptr inbounds nuw i8, ptr %p.0, i64 %idx.ext47
-  %add49 = add i32 %freelen.0, %conv44
-  %add50.neg = xor i32 %add49, -1
-  %sub51 = add i32 %zmlen.0, %add50.neg
-  %conv52 = zext i32 %sub51 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr46, ptr align 1 %add.ptr48, i64 %conv52, i1 false)
-  %sub53 = sub i32 %zmlen.0, %sub37
-  %conv.i70 = zext i32 %sub53 to i64
-  %call.i71 = tail call ptr @zrealloc(ptr noundef %zm.addr.0, i64 noundef %conv.i70) #12
-  %sub.i72 = add i32 %sub53, -1
-  %idxprom.i73 = zext i32 %sub.i72 to i64
-  %arrayidx.i74 = getelementptr inbounds nuw i8, ptr %call.i71, i64 %idxprom.i73
-  store i8 -1, ptr %arrayidx.i74, align 1
-  %idx.ext55 = and i64 %sub.ptr.sub43, 4294967295
-  %add.ptr56 = getelementptr inbounds nuw i8, ptr %call.i71, i64 %idx.ext55
-  br label %if.else.i
+154:                                              ; preds = %151
+  %155 = ptrtoint ptr %.0 to i64
+  %156 = ptrtoint ptr %.069 to i64
+  %157 = sub i64 %155, %156
+  %158 = trunc i64 %157 to i32
+  %159 = getelementptr inbounds nuw i8, ptr %.0, i64 %11
+  %160 = zext i32 %.071 to i64
+  %161 = getelementptr inbounds nuw i8, ptr %.0, i64 %160
+  %162 = add i32 %.071, %158
+  %.neg80 = xor i32 %162, -1
+  %163 = add i32 %.090, %.neg80
+  %164 = zext i32 %163 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %159, ptr align 1 %161, i64 %164, i1 false)
+  %165 = sub i32 %.090, %152
+  %166 = zext i32 %165 to i64
+  %167 = tail call ptr @zrealloc(ptr noundef %.069, i64 noundef %166) #12
+  %168 = add i32 %165, -1
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 %169
+  store i8 -1, ptr %170, align 1, !tbaa !5
+  %171 = and i64 %157, 4294967295
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 %171
+  br label %175
 
-if.else57:                                        ; preds = %if.end36
-  %11 = trunc nuw nsw i32 %sub37 to i8
-  br label %if.else.i
+173:                                              ; preds = %151
+  %174 = trunc nuw nsw i32 %152 to i8
+  br label %175
 
-if.else.i:                                        ; preds = %if.then40, %if.else57
-  %zm.addr.1 = phi ptr [ %call.i71, %if.then40 ], [ %zm.addr.0, %if.else57 ]
-  %vempty.0 = phi i8 [ 0, %if.then40 ], [ %11, %if.else57 ]
-  %p.1 = phi ptr [ %add.ptr56, %if.then40 ], [ %p.0, %if.else57 ]
-  %cmp1.i = icmp ult i32 %klen, 254
-  br i1 %cmp1.i, label %if.then4.i, label %if.else6.i
+175:                                              ; preds = %154, %173
+  %.170 = phi ptr [ %167, %154 ], [ %.069, %173 ]
+  %.068 = phi i8 [ 0, %154 ], [ %174, %173 ]
+  %.1 = phi ptr [ %172, %154 ], [ %.0, %173 ]
+  %176 = icmp ult i32 %2, 254
+  br i1 %176, label %177, label %179
 
-if.then4.i:                                       ; preds = %if.else.i
-  %conv5.i = trunc nuw i32 %klen to i8
+177:                                              ; preds = %175
+  %178 = trunc nuw i32 %2 to i8
   br label %zipmapEncodeLength.exit
 
-if.else6.i:                                       ; preds = %if.else.i
-  %add.ptr.i76 = getelementptr inbounds nuw i8, ptr %p.1, i64 1
-  store i32 %klen, ptr %add.ptr.i76, align 1
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  store i32 %2, ptr %180, align 1
   br label %zipmapEncodeLength.exit
 
-zipmapEncodeLength.exit:                          ; preds = %if.then4.i, %if.else6.i
-  %.sink = phi i8 [ %conv5.i, %if.then4.i ], [ -2, %if.else6.i ]
-  %retval.0.i = phi i64 [ 1, %if.then4.i ], [ 5, %if.else6.i ]
-  store i8 %.sink, ptr %p.1, align 1
-  %add.ptr61 = getelementptr inbounds nuw i8, ptr %p.1, i64 %retval.0.i
-  %conv62 = zext i32 %klen to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr61, ptr align 1 %key, i64 %conv62, i1 false)
-  %add.ptr64 = getelementptr inbounds nuw i8, ptr %add.ptr61, i64 %conv62
-  %cmp1.i79 = icmp ult i32 %vlen, 254
-  br i1 %cmp1.i79, label %if.then4.i84, label %if.else6.i81
+zipmapEncodeLength.exit:                          ; preds = %177, %179
+  %.sink = phi i8 [ %178, %177 ], [ -2, %179 ]
+  %.0.i = phi i64 [ 1, %177 ], [ 5, %179 ]
+  store i8 %.sink, ptr %.1, align 1, !tbaa !5
+  %181 = getelementptr inbounds nuw i8, ptr %.1, i64 %.0.i
+  %182 = zext i32 %2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr align 1 %1, i64 %182, i1 false)
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 %182
+  %184 = icmp ult i32 %4, 254
+  br i1 %184, label %185, label %187
 
-if.then4.i84:                                     ; preds = %zipmapEncodeLength.exit
-  %conv5.i85 = trunc nuw i32 %vlen to i8
-  br label %zipmapEncodeLength.exit88
+185:                                              ; preds = %zipmapEncodeLength.exit
+  %186 = trunc nuw i32 %4 to i8
+  br label %zipmapEncodeLength.exit83
 
-if.else6.i81:                                     ; preds = %zipmapEncodeLength.exit
-  %add.ptr.i82 = getelementptr inbounds nuw i8, ptr %add.ptr64, i64 1
-  store i32 %vlen, ptr %add.ptr.i82, align 1
-  br label %zipmapEncodeLength.exit88
+187:                                              ; preds = %zipmapEncodeLength.exit
+  %188 = getelementptr inbounds nuw i8, ptr %183, i64 1
+  store i32 %4, ptr %188, align 1
+  br label %zipmapEncodeLength.exit83
 
-zipmapEncodeLength.exit88:                        ; preds = %if.then4.i84, %if.else6.i81
-  %.sink104 = phi i8 [ %conv5.i85, %if.then4.i84 ], [ -2, %if.else6.i81 ]
-  %retval.0.i83 = phi i64 [ 1, %if.then4.i84 ], [ 5, %if.else6.i81 ]
-  store i8 %.sink104, ptr %add.ptr64, align 1
-  %add.ptr67 = getelementptr inbounds nuw i8, ptr %add.ptr64, i64 %retval.0.i83
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %add.ptr67, i64 1
-  store i8 %vempty.0, ptr %add.ptr67, align 1
-  %conv69 = zext i32 %vlen to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr, ptr align 1 %val, i64 %conv69, i1 false)
-  ret ptr %zm.addr.1
+zipmapEncodeLength.exit83:                        ; preds = %185, %187
+  %.sink95 = phi i8 [ %186, %185 ], [ -2, %187 ]
+  %.0.i82 = phi i64 [ 1, %185 ], [ 5, %187 ]
+  store i8 %.sink95, ptr %183, align 1, !tbaa !5
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 %.0.i82
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 1
+  store i8 %.068, ptr %189, align 1, !tbaa !5
+  %191 = zext i32 %4 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %190, ptr align 1 %3, i64 %191, i1 false)
+  ret ptr %.170
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -370,760 +368,750 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zipmapDel(ptr noundef %zm, ptr noundef readonly captures(address_is_null) %key, i32 noundef %klen, ptr noundef writeonly captures(address_is_null) %deleted) local_unnamed_addr #0 {
-entry:
-  %cmp3.not.i = icmp eq ptr %key, null
-  br i1 %cmp3.not.i, label %if.else, label %entry.split.i
+define dso_local noundef ptr @zipmapDel(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %zipmapLookupRaw.exit.thread, label %.split.i
 
-entry.split.i:                                    ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  %conv12.us.i = zext i32 %klen to i64
-  br label %while.cond.i
+.split.i:                                         ; preds = %4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %6 = zext i32 %2 to i64
+  br label %.split.split.i
 
-while.cond.i:                                     ; preds = %entry.split.i, %zipmapDecodeLength.exit32.i
-  %k.0.i = phi ptr [ %k.1.i, %zipmapDecodeLength.exit32.i ], [ null, %entry.split.i ]
-  %p.0.i = phi ptr [ %add.ptr28.i, %zipmapDecodeLength.exit32.i ], [ %add.ptr.i, %entry.split.i ]
-  %0 = load i8, ptr %p.0.i, align 1
-  switch i8 %0, label %if.then.i.i [
+.split.split.i:                                   ; preds = %.split.i, %30
+  %.035.i = phi ptr [ %.136.i, %30 ], [ null, %.split.i ]
+  %.033.i = phi ptr [ %39, %30 ], [ %5, %.split.i ]
+  %7 = load i8, ptr %.033.i, align 1, !tbaa !5
+  switch i8 %7, label %8 [
     i8 -1, label %zipmapLookupRaw.exit
-    i8 -2, label %if.end.i.i
+    i8 -2, label %10
   ]
 
-if.then.i.i:                                      ; preds = %while.cond.i
-  %conv.i.i = zext i8 %0 to i32
+8:                                                ; preds = %.split.split.i
+  %9 = zext i8 %7 to i32
   br label %zipmapDecodeLength.exit.i
 
-if.end.i.i:                                       ; preds = %while.cond.i
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1
-  %len.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
+10:                                               ; preds = %.split.split.i
+  %11 = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
+  %.0.copyload.i.i = load i32, ptr %11, align 1
   br label %zipmapDecodeLength.exit.i
 
-zipmapDecodeLength.exit.i:                        ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %len.0.copyload.i.i, %if.end.i.i ]
-  %cmp1.i.i = icmp ult i32 %retval.0.i.i, 254
-  %conv.i23.i = select i1 %cmp1.i.i, i32 1, i32 5
-  %cmp5.i = icmp eq ptr %k.0.i, null
-  br i1 %cmp5.i, label %land.lhs.true7.i, label %if.end17.i
+zipmapDecodeLength.exit.i:                        ; preds = %10, %8
+  %.0.i.i = phi i32 [ %9, %8 ], [ %.0.copyload.i.i, %10 ]
+  %12 = icmp ult i32 %.0.i.i, 254
+  %13 = select i1 %12, i32 1, i32 5
+  %14 = icmp eq ptr %.035.i, null
+  br i1 %14, label %15, label %20
 
-land.lhs.true7.i:                                 ; preds = %zipmapDecodeLength.exit.i
-  %cmp8.i = icmp eq i32 %retval.0.i.i, %klen
-  br i1 %cmp8.i, label %land.lhs.true10.i, label %if.end17.i
+15:                                               ; preds = %zipmapDecodeLength.exit.i
+  %16 = icmp eq i32 %.0.i.i, %2
+  br i1 %16, label %17, label %20
 
-land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %idx.ext.i = zext nneg i32 %conv.i23.i to i64
-  %add.ptr11.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 %idx.ext.i
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.i, ptr nonnull readonly %key, i64 %conv12.us.i)
-  %tobool.not.i = icmp eq i32 %bcmp.i, 0
-  %spec.select.i = select i1 %tobool.not.i, ptr %p.0.i, ptr null
-  br label %if.end17.i
+17:                                               ; preds = %15
+  %18 = zext nneg i32 %13 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %.033.i, i64 %18
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %19, ptr nonnull readonly %1, i64 %6)
+  %.not42.i = icmp eq i32 %bcmp.i, 0
+  %spec.select.i = select i1 %.not42.i, ptr %.033.i, ptr null
+  br label %20
 
-if.end17.i:                                       ; preds = %land.lhs.true10.i, %land.lhs.true7.i, %zipmapDecodeLength.exit.i
-  %k.1.i = phi ptr [ null, %land.lhs.true7.i ], [ %k.0.i, %zipmapDecodeLength.exit.i ], [ %spec.select.i, %land.lhs.true10.i ]
-  %add.i = add i32 %conv.i23.i, %retval.0.i.i
-  %idx.ext18.i = zext i32 %add.i to i64
-  %add.ptr19.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 %idx.ext18.i
-  %1 = load i8, ptr %add.ptr19.i, align 1
-  %cmp.i25.i = icmp ult i8 %1, -2
-  br i1 %cmp.i25.i, label %if.then.i30.i, label %if.end.i26.i
+20:                                               ; preds = %17, %15, %zipmapDecodeLength.exit.i
+  %.136.i = phi ptr [ null, %15 ], [ %.035.i, %zipmapDecodeLength.exit.i ], [ %spec.select.i, %17 ]
+  %21 = add i32 %13, %.0.i.i
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %.033.i, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !5
+  %25 = icmp ult i8 %24, -2
+  br i1 %25, label %26, label %28
 
-if.then.i30.i:                                    ; preds = %if.end17.i
-  %conv.i31.i = zext i8 %1 to i32
-  br label %zipmapDecodeLength.exit32.i
+26:                                               ; preds = %20
+  %27 = zext i8 %24 to i32
+  br label %30
 
-if.end.i26.i:                                     ; preds = %if.end17.i
-  %add.ptr.i27.i = getelementptr inbounds nuw i8, ptr %add.ptr19.i, i64 1
-  %len.0.copyload.i28.i = load i32, ptr %add.ptr.i27.i, align 1
-  br label %zipmapDecodeLength.exit32.i
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %.0.copyload.i45.i = load i32, ptr %29, align 1
+  br label %30
 
-zipmapDecodeLength.exit32.i:                      ; preds = %if.end.i26.i, %if.then.i30.i
-  %retval.0.i29.i = phi i32 [ %conv.i31.i, %if.then.i30.i ], [ %len.0.copyload.i28.i, %if.end.i26.i ]
-  %cmp1.i33.i = icmp ult i32 %retval.0.i29.i, 254
-  %conv.i35.i = select i1 %cmp1.i33.i, i64 1, i64 5
-  %add.ptr23.i = getelementptr inbounds nuw i8, ptr %add.ptr19.i, i64 %conv.i35.i
-  %2 = load i8, ptr %add.ptr23.i, align 1
-  %add24.i = add i32 %retval.0.i29.i, 1
-  %conv25.i = zext i8 %2 to i32
-  %add26.i = add i32 %add24.i, %conv25.i
-  %idx.ext27.i = zext i32 %add26.i to i64
-  %add.ptr28.i = getelementptr inbounds nuw i8, ptr %add.ptr23.i, i64 %idx.ext27.i
-  br label %while.cond.i, !llvm.loop !5
+30:                                               ; preds = %28, %26
+  %.0.i46.i = phi i32 [ %27, %26 ], [ %.0.copyload.i45.i, %28 ]
+  %31 = icmp ult i32 %.0.i46.i, 254
+  %32 = select i1 %31, i64 1, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !5
+  %35 = add i32 %.0.i46.i, 1
+  %36 = zext i8 %34 to i32
+  %37 = add i32 %35, %36
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %38
+  br label %.split.split.i, !llvm.loop !10
 
-zipmapLookupRaw.exit:                             ; preds = %while.cond.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.0.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %zm to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv32.i = trunc i64 %sub.ptr.sub.i to i32
-  %add33.i = add i32 %conv32.i, 1
-  %tobool.not = icmp eq ptr %k.0.i, null
-  br i1 %tobool.not, label %if.else, label %if.then
+zipmapLookupRaw.exit:                             ; preds = %.split.split.i
+  %40 = ptrtoint ptr %.033.i to i64
+  %41 = ptrtoint ptr %0 to i64
+  %42 = sub i64 %40, %41
+  %43 = trunc i64 %42 to i32
+  %44 = add i32 %43, 1
+  %.not = icmp eq ptr %.035.i, null
+  br i1 %.not, label %zipmapLookupRaw.exit.thread, label %45
 
-if.then:                                          ; preds = %zipmapLookupRaw.exit
-  %3 = load i8, ptr %k.0.i, align 1
-  %cmp.i.i.i = icmp ult i8 %3, -2
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
+45:                                               ; preds = %zipmapLookupRaw.exit
+  %46 = load i8, ptr %.035.i, align 1, !tbaa !5
+  %47 = icmp ult i8 %46, -2
+  br i1 %47, label %48, label %50
 
-if.then.i.i.i:                                    ; preds = %if.then
-  %conv.i.i.i = zext i8 %3 to i32
+48:                                               ; preds = %45
+  %49 = zext i8 %46 to i32
   br label %zipmapRawKeyLength.exit.i
 
-if.end.i.i.i:                                     ; preds = %if.then
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %k.0.i, i64 1
-  %len.0.copyload.i.i.i = load i32, ptr %add.ptr.i.i.i, align 1
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds nuw i8, ptr %.035.i, i64 1
+  %.0.copyload.i.i.i = load i32, ptr %51, align 1
   br label %zipmapRawKeyLength.exit.i
 
-zipmapRawKeyLength.exit.i:                        ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi i32 [ %conv.i.i.i, %if.then.i.i.i ], [ %len.0.copyload.i.i.i, %if.end.i.i.i ]
-  %cmp1.i.i.i = icmp ult i32 %retval.0.i.i.i, 254
-  %conv.i3.i.i = select i1 %cmp1.i.i.i, i32 1, i32 5
-  %add.i.i = add i32 %conv.i3.i.i, %retval.0.i.i.i
-  %idx.ext.i15 = zext i32 %add.i.i to i64
-  %add.ptr.i16 = getelementptr inbounds nuw i8, ptr %k.0.i, i64 %idx.ext.i15
-  %4 = load i8, ptr %add.ptr.i16, align 1
-  %cmp.i.i3.i = icmp ult i8 %4, -2
-  br i1 %cmp.i.i3.i, label %if.then.i.i10.i, label %if.end.i.i4.i
+zipmapRawKeyLength.exit.i:                        ; preds = %50, %48
+  %.0.i.i.i = phi i32 [ %49, %48 ], [ %.0.copyload.i.i.i, %50 ]
+  %52 = icmp ult i32 %.0.i.i.i, 254
+  %53 = select i1 %52, i32 1, i32 5
+  %54 = add i32 %53, %.0.i.i.i
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %55
+  %57 = load i8, ptr %56, align 1, !tbaa !5
+  %58 = icmp ult i8 %57, -2
+  br i1 %58, label %59, label %61
 
-if.then.i.i10.i:                                  ; preds = %zipmapRawKeyLength.exit.i
-  %conv.i.i11.i = zext i8 %4 to i32
+59:                                               ; preds = %zipmapRawKeyLength.exit.i
+  %60 = zext i8 %57 to i32
   br label %zipmapRawEntryLength.exit
 
-if.end.i.i4.i:                                    ; preds = %zipmapRawKeyLength.exit.i
-  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i16, i64 1
-  %len.0.copyload.i.i6.i = load i32, ptr %add.ptr.i.i5.i, align 1
+61:                                               ; preds = %zipmapRawKeyLength.exit.i
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  %.0.copyload.i.i3.i = load i32, ptr %62, align 1
   br label %zipmapRawEntryLength.exit
 
-zipmapRawEntryLength.exit:                        ; preds = %if.then.i.i10.i, %if.end.i.i4.i
-  %retval.0.i.i7.i = phi i32 [ %conv.i.i11.i, %if.then.i.i10.i ], [ %len.0.copyload.i.i6.i, %if.end.i.i4.i ]
-  %cmp1.i.i8.i = icmp ult i32 %retval.0.i.i7.i, 254
-  %conv.i6.i.i = select i1 %cmp1.i.i8.i, i32 1, i32 5
-  %idxprom.i.i = zext nneg i32 %conv.i6.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i16, i64 %idxprom.i.i
-  %5 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i17 = zext i8 %5 to i32
-  %add.i9.i = add i32 %add.i.i, 1
-  %add2.i.i = add i32 %add.i9.i, %retval.0.i.i7.i
-  %add3.i.i = add i32 %add2.i.i, %conv.i.i17
-  %add.i18 = add i32 %add3.i.i, %conv.i6.i.i
-  %idx.ext = zext i32 %add.i18 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %k.0.i, i64 %idx.ext
-  %conv = zext i32 %add33.i to i64
-  %sub.ptr.lhs.cast = ptrtoint ptr %k.0.i to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i
-  %add = add nsw i64 %sub.ptr.sub, %idx.ext
-  %add3.neg = xor i64 %add, -1
-  %sub = add i64 %add3.neg, %conv
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %k.0.i, ptr nonnull align 1 %add.ptr, i64 %sub, i1 false)
-  %sub4 = sub i32 %add33.i, %add.i18
-  %conv.i = zext i32 %sub4 to i64
-  %call.i = tail call ptr @zrealloc(ptr noundef %zm, i64 noundef %conv.i) #12
-  %sub.i = add i32 %sub4, -1
-  %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %idxprom.i
-  store i8 -1, ptr %arrayidx.i, align 1
-  %6 = load i8, ptr %call.i, align 1
-  %cmp = icmp ult i8 %6, -2
-  br i1 %cmp, label %if.then8, label %if.end
+zipmapRawEntryLength.exit:                        ; preds = %59, %61
+  %.0.i.i4.i = phi i32 [ %60, %59 ], [ %.0.copyload.i.i3.i, %61 ]
+  %63 = icmp ult i32 %.0.i.i4.i, 254
+  %64 = select i1 %63, i32 1, i32 5
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !5
+  %68 = zext i8 %67 to i32
+  %69 = add i32 %54, 1
+  %70 = add i32 %69, %.0.i.i4.i
+  %71 = add i32 %70, %68
+  %72 = add i32 %71, %64
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %73
+  %75 = zext i32 %44 to i64
+  %76 = ptrtoint ptr %.035.i to i64
+  %77 = sub i64 %76, %41
+  %78 = add nsw i64 %77, %73
+  %.neg = xor i64 %78, -1
+  %79 = add i64 %.neg, %75
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.035.i, ptr nonnull align 1 %74, i64 %79, i1 false)
+  %80 = sub i32 %44, %72
+  %81 = zext i32 %80 to i64
+  %82 = tail call ptr @zrealloc(ptr noundef %0, i64 noundef %81) #12
+  %83 = add i32 %80, -1
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %84
+  store i8 -1, ptr %85, align 1, !tbaa !5
+  %86 = load i8, ptr %82, align 1, !tbaa !5
+  %87 = icmp ult i8 %86, -2
+  br i1 %87, label %88, label %90
 
-if.then8:                                         ; preds = %zipmapRawEntryLength.exit
-  %dec = add i8 %6, -1
-  store i8 %dec, ptr %call.i, align 1
-  br label %if.end
+88:                                               ; preds = %zipmapRawEntryLength.exit
+  %89 = add i8 %86, -1
+  store i8 %89, ptr %82, align 1, !tbaa !5
+  br label %90
 
-if.end:                                           ; preds = %if.then8, %zipmapRawEntryLength.exit
-  %tobool10.not = icmp eq ptr %deleted, null
-  br i1 %tobool10.not, label %if.end16, label %if.end16.sink.split
+90:                                               ; preds = %88, %zipmapRawEntryLength.exit
+  %.not22 = icmp eq ptr %3, null
+  br i1 %.not22, label %91, label %.sink.split
 
-if.else:                                          ; preds = %entry, %zipmapLookupRaw.exit
-  %tobool13.not = icmp eq ptr %deleted, null
-  br i1 %tobool13.not, label %if.end16, label %if.end16.sink.split
+zipmapLookupRaw.exit.thread:                      ; preds = %4, %zipmapLookupRaw.exit
+  %.not21 = icmp eq ptr %3, null
+  br i1 %.not21, label %91, label %.sink.split
 
-if.end16.sink.split:                              ; preds = %if.else, %if.end
-  %.sink = phi i32 [ 1, %if.end ], [ 0, %if.else ]
-  %zm.addr.0.ph = phi ptr [ %call.i, %if.end ], [ %zm, %if.else ]
-  store i32 %.sink, ptr %deleted, align 4
-  br label %if.end16
+.sink.split:                                      ; preds = %zipmapLookupRaw.exit.thread, %90
+  %.sink = phi i32 [ 1, %90 ], [ 0, %zipmapLookupRaw.exit.thread ]
+  %.0.ph = phi ptr [ %82, %90 ], [ %0, %zipmapLookupRaw.exit.thread ]
+  store i32 %.sink, ptr %3, align 4, !tbaa !8
+  br label %91
 
-if.end16:                                         ; preds = %if.end16.sink.split, %if.else, %if.end
-  %zm.addr.0 = phi ptr [ %call.i, %if.end ], [ %zm, %if.else ], [ %zm.addr.0.ph, %if.end16.sink.split ]
-  ret ptr %zm.addr.0
+91:                                               ; preds = %.sink.split, %zipmapLookupRaw.exit.thread, %90
+  %.0 = phi ptr [ %82, %90 ], [ %0, %zipmapLookupRaw.exit.thread ], [ %.0.ph, %.sink.split ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @zipmapRewind(ptr noundef readnone captures(ret: address, provenance) %zm) local_unnamed_addr #3 {
-entry:
-  %add.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  ret ptr %add.ptr
+define dso_local nonnull ptr @zipmapRewind(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #3 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @zipmapNext(ptr noundef %zm, ptr noundef captures(address_is_null) %key, ptr noundef writeonly captures(none) %klen, ptr noundef captures(address_is_null) %value, ptr noundef writeonly captures(none) %vlen) local_unnamed_addr #4 {
-entry:
-  %0 = load i8, ptr %zm, align 1
-  %cmp = icmp eq i8 %0, -1
-  br i1 %cmp, label %return, label %if.end
+define dso_local ptr @zipmapNext(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
+  %6 = load i8, ptr %0, align 1, !tbaa !5
+  %7 = icmp eq i8 %6, -1
+  br i1 %7, label %59, label %8
 
-if.end:                                           ; preds = %entry
-  %tobool.not = icmp eq ptr %key, null
-  br i1 %tobool.not, label %if.end5, label %if.then2
+8:                                                ; preds = %5
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %19, label %9
 
-if.then2:                                         ; preds = %if.end
-  store ptr %zm, ptr %key, align 8
-  %1 = load i8, ptr %zm, align 1
-  %cmp.i = icmp ult i8 %1, -2
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+9:                                                ; preds = %8
+  store ptr %0, ptr %1, align 8, !tbaa !12
+  %10 = load i8, ptr %0, align 1, !tbaa !5
+  %11 = icmp ult i8 %10, -2
+  br i1 %11, label %12, label %14
 
-if.then.i:                                        ; preds = %if.then2
-  %conv.i = zext i8 %1 to i32
+12:                                               ; preds = %9
+  %13 = zext i8 %10 to i32
   br label %zipmapDecodeLength.exit
 
-if.end.i:                                         ; preds = %if.then2
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  %len.0.copyload.i = load i32, ptr %add.ptr.i, align 1
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.0.copyload.i = load i32, ptr %15, align 1
   br label %zipmapDecodeLength.exit
 
-zipmapDecodeLength.exit:                          ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi i32 [ %conv.i, %if.then.i ], [ %len.0.copyload.i, %if.end.i ]
-  store i32 %retval.0.i, ptr %klen, align 4
-  %cmp3 = icmp ult i32 %retval.0.i, 254
-  %cond = select i1 %cmp3, i64 1, i64 5
-  %2 = load ptr, ptr %key, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %cond
-  store ptr %add.ptr, ptr %key, align 8
-  %.pr = load i8, ptr %zm, align 1
-  br label %if.end5
+zipmapDecodeLength.exit:                          ; preds = %12, %14
+  %.0.i = phi i32 [ %13, %12 ], [ %.0.copyload.i, %14 ]
+  store i32 %.0.i, ptr %2, align 4, !tbaa !8
+  %16 = icmp ult i32 %.0.i, 254
+  %17 = select i1 %16, i64 1, i64 5
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
+  store ptr %18, ptr %1, align 8, !tbaa !12
+  %.pr = load i8, ptr %0, align 1, !tbaa !5
+  br label %19
 
-if.end5:                                          ; preds = %zipmapDecodeLength.exit, %if.end
-  %3 = phi i8 [ %.pr, %zipmapDecodeLength.exit ], [ %0, %if.end ]
-  %cmp.i.i = icmp ult i8 %3, -2
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
+19:                                               ; preds = %zipmapDecodeLength.exit, %8
+  %20 = phi i8 [ %.pr, %zipmapDecodeLength.exit ], [ %6, %8 ]
+  %21 = icmp ult i8 %20, -2
+  br i1 %21, label %22, label %24
 
-if.then.i.i:                                      ; preds = %if.end5
-  %conv.i.i = zext i8 %3 to i32
+22:                                               ; preds = %19
+  %23 = zext i8 %20 to i32
   br label %zipmapRawKeyLength.exit
 
-if.end.i.i:                                       ; preds = %if.end5
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  %len.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.0.copyload.i.i = load i32, ptr %25, align 1
   br label %zipmapRawKeyLength.exit
 
-zipmapRawKeyLength.exit:                          ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %len.0.copyload.i.i, %if.end.i.i ]
-  %cmp1.i.i = icmp ult i32 %retval.0.i.i, 254
-  %conv.i3.i = select i1 %cmp1.i.i, i32 1, i32 5
-  %add.i = add i32 %conv.i3.i, %retval.0.i.i
-  %idx.ext = zext i32 %add.i to i64
-  %add.ptr7 = getelementptr inbounds nuw i8, ptr %zm, i64 %idx.ext
-  %tobool8.not = icmp eq ptr %value, null
-  br i1 %tobool8.not, label %if.end16, label %if.then9
+zipmapRawKeyLength.exit:                          ; preds = %22, %24
+  %.0.i.i = phi i32 [ %23, %22 ], [ %.0.copyload.i.i, %24 ]
+  %26 = icmp ult i32 %.0.i.i, 254
+  %27 = select i1 %26, i32 1, i32 5
+  %28 = add i32 %27, %.0.i.i
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
+  %.not23 = icmp eq ptr %3, null
+  br i1 %.not23, label %41, label %31
 
-if.then9:                                         ; preds = %zipmapRawKeyLength.exit
-  %add.ptr10 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 1
-  store ptr %add.ptr10, ptr %value, align 8
-  %4 = load i8, ptr %add.ptr7, align 1
-  %cmp.i16 = icmp ult i8 %4, -2
-  br i1 %cmp.i16, label %if.then.i21, label %if.end.i17
+31:                                               ; preds = %zipmapRawKeyLength.exit
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store ptr %32, ptr %3, align 8, !tbaa !12
+  %33 = load i8, ptr %30, align 1, !tbaa !5
+  %34 = icmp ult i8 %33, -2
+  br i1 %34, label %35, label %37
 
-if.then.i21:                                      ; preds = %if.then9
-  %conv.i22 = zext i8 %4 to i32
-  br label %zipmapDecodeLength.exit23
+35:                                               ; preds = %31
+  %36 = zext i8 %33 to i32
+  br label %zipmapDecodeLength.exit26
 
-if.end.i17:                                       ; preds = %if.then9
-  %len.0.copyload.i19 = load i32, ptr %add.ptr10, align 1
-  br label %zipmapDecodeLength.exit23
+37:                                               ; preds = %31
+  %.0.copyload.i24 = load i32, ptr %32, align 1
+  br label %zipmapDecodeLength.exit26
 
-zipmapDecodeLength.exit23:                        ; preds = %if.then.i21, %if.end.i17
-  %retval.0.i20 = phi i32 [ %conv.i22, %if.then.i21 ], [ %len.0.copyload.i19, %if.end.i17 ]
-  store i32 %retval.0.i20, ptr %vlen, align 4
-  %cmp12 = icmp ult i32 %retval.0.i20, 254
-  %cond14 = select i1 %cmp12, i64 1, i64 5
-  %5 = load ptr, ptr %value, align 8
-  %add.ptr15 = getelementptr inbounds nuw i8, ptr %5, i64 %cond14
-  store ptr %add.ptr15, ptr %value, align 8
-  br label %if.end16
+zipmapDecodeLength.exit26:                        ; preds = %35, %37
+  %.0.i25 = phi i32 [ %36, %35 ], [ %.0.copyload.i24, %37 ]
+  store i32 %.0.i25, ptr %4, align 4, !tbaa !8
+  %38 = icmp ult i32 %.0.i25, 254
+  %39 = select i1 %38, i64 1, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %39
+  store ptr %40, ptr %3, align 8, !tbaa !12
+  br label %41
 
-if.end16:                                         ; preds = %zipmapDecodeLength.exit23, %zipmapRawKeyLength.exit
-  %6 = load i8, ptr %add.ptr7, align 1
-  %cmp.i.i24 = icmp ult i8 %6, -2
-  br i1 %cmp.i.i24, label %if.then.i.i32, label %if.end.i.i25
+41:                                               ; preds = %zipmapDecodeLength.exit26, %zipmapRawKeyLength.exit
+  %42 = load i8, ptr %30, align 1, !tbaa !5
+  %43 = icmp ult i8 %42, -2
+  br i1 %43, label %44, label %46
 
-if.then.i.i32:                                    ; preds = %if.end16
-  %conv.i.i33 = zext i8 %6 to i32
+44:                                               ; preds = %41
+  %45 = zext i8 %42 to i32
   br label %zipmapRawValueLength.exit
 
-if.end.i.i25:                                     ; preds = %if.end16
-  %add.ptr.i.i26 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 1
-  %len.0.copyload.i.i27 = load i32, ptr %add.ptr.i.i26, align 1
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %.0.copyload.i.i27 = load i32, ptr %47, align 1
   br label %zipmapRawValueLength.exit
 
-zipmapRawValueLength.exit:                        ; preds = %if.then.i.i32, %if.end.i.i25
-  %retval.0.i.i28 = phi i32 [ %conv.i.i33, %if.then.i.i32 ], [ %len.0.copyload.i.i27, %if.end.i.i25 ]
-  %cmp1.i.i29 = icmp ult i32 %retval.0.i.i28, 254
-  %conv.i6.i = select i1 %cmp1.i.i29, i32 1, i32 5
-  %idxprom.i = zext nneg i32 %conv.i6.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 %idxprom.i
-  %7 = load i8, ptr %arrayidx.i, align 1
-  %conv.i30 = zext i8 %7 to i32
-  %add.i31 = add i32 %retval.0.i.i28, 1
-  %add2.i = add i32 %add.i31, %conv.i30
-  %add3.i = add i32 %add2.i, %conv.i6.i
-  %idx.ext18 = zext i32 %add3.i to i64
-  %add.ptr19 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 %idx.ext18
-  br label %return
+zipmapRawValueLength.exit:                        ; preds = %44, %46
+  %.0.i.i28 = phi i32 [ %45, %44 ], [ %.0.copyload.i.i27, %46 ]
+  %48 = icmp ult i32 %.0.i.i28, 254
+  %49 = select i1 %48, i32 1, i32 5
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 %50
+  %52 = load i8, ptr %51, align 1, !tbaa !5
+  %53 = zext i8 %52 to i32
+  %54 = add i32 %.0.i.i28, 1
+  %55 = add i32 %54, %53
+  %56 = add i32 %55, %49
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %30, i64 %57
+  br label %59
 
-return:                                           ; preds = %entry, %zipmapRawValueLength.exit
-  %retval.0 = phi ptr [ %add.ptr19, %zipmapRawValueLength.exit ], [ null, %entry ]
-  ret ptr %retval.0
+59:                                               ; preds = %5, %zipmapRawValueLength.exit
+  %.0 = phi ptr [ %58, %zipmapRawValueLength.exit ], [ null, %5 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapGet(ptr noundef %zm, ptr noundef readonly captures(address_is_null) %key, i32 noundef %klen, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %vlen) local_unnamed_addr #5 {
-entry:
-  %cmp3.not.i = icmp eq ptr %key, null
-  br i1 %cmp3.not.i, label %return, label %entry.split.i
+define dso_local range(i32 0, 2) i32 @zipmapGet(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 {
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %zipmapLookupRaw.exit.thread, label %.split.i
 
-entry.split.i:                                    ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  %conv12.us.i = zext i32 %klen to i64
-  br label %while.cond.us40.i
+.split.i:                                         ; preds = %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %7 = zext i32 %2 to i64
+  br label %.split.split.us.i
 
-while.cond.us40.i:                                ; preds = %zipmapDecodeLength.exit32.us63.i, %entry.split.i
-  %p.0.us42.i = phi ptr [ %add.ptr28.us72.i, %zipmapDecodeLength.exit32.us63.i ], [ %add.ptr.i, %entry.split.i ]
-  %0 = load i8, ptr %p.0.us42.i, align 1
-  switch i8 %0, label %if.then.i.us46.i [
-    i8 -1, label %return
-    i8 -2, label %if.end.i.us43.i
+.split.split.us.i:                                ; preds = %30, %.split.i
+  %.033.us60.i = phi ptr [ %39, %30 ], [ %6, %.split.i ]
+  %8 = load i8, ptr %.033.us60.i, align 1, !tbaa !5
+  switch i8 %8, label %11 [
+    i8 -1, label %zipmapLookupRaw.exit.thread
+    i8 -2, label %9
   ]
 
-if.end.i.us43.i:                                  ; preds = %while.cond.us40.i
-  %add.ptr.i.us44.i = getelementptr inbounds nuw i8, ptr %p.0.us42.i, i64 1
-  %len.0.copyload.i.us45.i = load i32, ptr %add.ptr.i.us44.i, align 1
-  br label %land.lhs.true7.us.i
+9:                                                ; preds = %.split.split.us.i
+  %10 = getelementptr inbounds nuw i8, ptr %.033.us60.i, i64 1
+  %.0.copyload.i.us61.i = load i32, ptr %10, align 1
+  br label %13
 
-if.then.i.us46.i:                                 ; preds = %while.cond.us40.i
-  %conv.i.us47.i = zext i8 %0 to i32
-  br label %land.lhs.true7.us.i
+11:                                               ; preds = %.split.split.us.i
+  %12 = zext i8 %8 to i32
+  br label %13
 
-land.lhs.true7.us.i:                              ; preds = %if.then.i.us46.i, %if.end.i.us43.i
-  %retval.0.i.us49.i = phi i32 [ %conv.i.us47.i, %if.then.i.us46.i ], [ %len.0.copyload.i.us45.i, %if.end.i.us43.i ]
-  %cmp1.i.us50.i = icmp ult i32 %retval.0.i.us49.i, 254
-  %conv.i23.us51.i = select i1 %cmp1.i.us50.i, i32 1, i32 5
-  %cmp8.us.i = icmp eq i32 %retval.0.i.us49.i, %klen
-  br i1 %cmp8.us.i, label %land.lhs.true10.us.i, label %if.end17.us52.i
+13:                                               ; preds = %11, %9
+  %.0.i.us63.i = phi i32 [ %12, %11 ], [ %.0.copyload.i.us61.i, %9 ]
+  %14 = icmp ult i32 %.0.i.us63.i, 254
+  %15 = select i1 %14, i32 1, i32 5
+  %16 = icmp eq i32 %.0.i.us63.i, %2
+  br i1 %16, label %17, label %20
 
-land.lhs.true10.us.i:                             ; preds = %land.lhs.true7.us.i
-  %idx.ext.us.i = zext nneg i32 %conv.i23.us51.i to i64
-  %add.ptr11.us.i = getelementptr inbounds nuw i8, ptr %p.0.us42.i, i64 %idx.ext.us.i
-  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.us.i, ptr nonnull readonly %key, i64 %conv12.us.i)
-  %tobool.not.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %tobool.not.us.i, label %if.end, label %if.end17.us52.i
+17:                                               ; preds = %13
+  %18 = zext nneg i32 %15 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %.033.us60.i, i64 %18
+  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %19, ptr nonnull readonly %1, i64 %7)
+  %.not42.us.i = icmp eq i32 %bcmp.us.i, 0
+  br i1 %.not42.us.i, label %zipmapLookupRaw.exit, label %20
 
-if.end17.us52.i:                                  ; preds = %land.lhs.true10.us.i, %land.lhs.true7.us.i
-  %add.us54.i = add i32 %conv.i23.us51.i, %retval.0.i.us49.i
-  %idx.ext18.us55.i = zext i32 %add.us54.i to i64
-  %add.ptr19.us56.i = getelementptr inbounds nuw i8, ptr %p.0.us42.i, i64 %idx.ext18.us55.i
-  %1 = load i8, ptr %add.ptr19.us56.i, align 1
-  %cmp.i25.us57.i = icmp ult i8 %1, -2
-  br i1 %cmp.i25.us57.i, label %if.then.i30.us61.i, label %if.end.i26.us58.i
+20:                                               ; preds = %17, %13
+  %21 = add i32 %15, %.0.i.us63.i
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %.033.us60.i, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !5
+  %25 = icmp ult i8 %24, -2
+  br i1 %25, label %28, label %26
 
-if.end.i26.us58.i:                                ; preds = %if.end17.us52.i
-  %add.ptr.i27.us59.i = getelementptr inbounds nuw i8, ptr %add.ptr19.us56.i, i64 1
-  %len.0.copyload.i28.us60.i = load i32, ptr %add.ptr.i27.us59.i, align 1
-  br label %zipmapDecodeLength.exit32.us63.i
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %.0.copyload.i45.us65.i = load i32, ptr %27, align 1
+  br label %30
 
-if.then.i30.us61.i:                               ; preds = %if.end17.us52.i
-  %conv.i31.us62.i = zext i8 %1 to i32
-  br label %zipmapDecodeLength.exit32.us63.i
+28:                                               ; preds = %20
+  %29 = zext i8 %24 to i32
+  br label %30
 
-zipmapDecodeLength.exit32.us63.i:                 ; preds = %if.then.i30.us61.i, %if.end.i26.us58.i
-  %retval.0.i29.us64.i = phi i32 [ %conv.i31.us62.i, %if.then.i30.us61.i ], [ %len.0.copyload.i28.us60.i, %if.end.i26.us58.i ]
-  %cmp1.i33.us65.i = icmp ult i32 %retval.0.i29.us64.i, 254
-  %conv.i35.us66.i = select i1 %cmp1.i33.us65.i, i64 1, i64 5
-  %add.ptr23.us67.i = getelementptr inbounds nuw i8, ptr %add.ptr19.us56.i, i64 %conv.i35.us66.i
-  %2 = load i8, ptr %add.ptr23.us67.i, align 1
-  %add24.us68.i = add i32 %retval.0.i29.us64.i, 1
-  %conv25.us69.i = zext i8 %2 to i32
-  %add26.us70.i = add i32 %add24.us68.i, %conv25.us69.i
-  %idx.ext27.us71.i = zext i32 %add26.us70.i to i64
-  %add.ptr28.us72.i = getelementptr inbounds nuw i8, ptr %add.ptr23.us67.i, i64 %idx.ext27.us71.i
-  br label %while.cond.us40.i, !llvm.loop !5
+30:                                               ; preds = %28, %26
+  %.0.i46.us66.i = phi i32 [ %29, %28 ], [ %.0.copyload.i45.us65.i, %26 ]
+  %31 = icmp ult i32 %.0.i46.us66.i, 254
+  %32 = select i1 %31, i64 1, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !5
+  %35 = add i32 %.0.i46.us66.i, 1
+  %36 = zext i8 %34 to i32
+  %37 = add i32 %35, %36
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %38
+  br label %.split.split.us.i, !llvm.loop !10
 
-if.end:                                           ; preds = %land.lhs.true10.us.i
-  %cmp.i.i = icmp ult i8 %0, -2
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
+zipmapLookupRaw.exit:                             ; preds = %17
+  %40 = icmp ult i8 %8, -2
+  br i1 %40, label %41, label %43
 
-if.then.i.i:                                      ; preds = %if.end
-  %conv.i.i = zext i8 %0 to i32
+41:                                               ; preds = %zipmapLookupRaw.exit
+  %42 = zext i8 %8 to i32
   br label %zipmapRawKeyLength.exit
 
-if.end.i.i:                                       ; preds = %if.end
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.0.us42.i, i64 1
-  %len.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
+43:                                               ; preds = %zipmapLookupRaw.exit
+  %44 = getelementptr inbounds nuw i8, ptr %.033.us60.i, i64 1
+  %.0.copyload.i.i = load i32, ptr %44, align 1
   br label %zipmapRawKeyLength.exit
 
-zipmapRawKeyLength.exit:                          ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %len.0.copyload.i.i, %if.end.i.i ]
-  %cmp1.i.i = icmp ult i32 %retval.0.i.i, 254
-  %conv.i3.i = select i1 %cmp1.i.i, i32 1, i32 5
-  %add.i = add i32 %conv.i3.i, %retval.0.i.i
-  %idx.ext = zext i32 %add.i to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %p.0.us42.i, i64 %idx.ext
-  %3 = load i8, ptr %add.ptr, align 1
-  %cmp.i = icmp ult i8 %3, -2
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+zipmapRawKeyLength.exit:                          ; preds = %41, %43
+  %.0.i.i = phi i32 [ %42, %41 ], [ %.0.copyload.i.i, %43 ]
+  %45 = icmp ult i32 %.0.i.i, 254
+  %46 = select i1 %45, i32 1, i32 5
+  %47 = add i32 %46, %.0.i.i
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %.033.us60.i, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !5
+  %51 = icmp ult i8 %50, -2
+  br i1 %51, label %52, label %54
 
-if.then.i:                                        ; preds = %zipmapRawKeyLength.exit
-  %conv.i = zext i8 %3 to i32
+52:                                               ; preds = %zipmapRawKeyLength.exit
+  %53 = zext i8 %50 to i32
   br label %zipmapDecodeLength.exit
 
-if.end.i:                                         ; preds = %zipmapRawKeyLength.exit
-  %add.ptr.i5 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
-  %len.0.copyload.i = load i32, ptr %add.ptr.i5, align 1
+54:                                               ; preds = %zipmapRawKeyLength.exit
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %.0.copyload.i = load i32, ptr %55, align 1
   br label %zipmapDecodeLength.exit
 
-zipmapDecodeLength.exit:                          ; preds = %if.then.i, %if.end.i
-  %retval.0.i6 = phi i32 [ %conv.i, %if.then.i ], [ %len.0.copyload.i, %if.end.i ]
-  store i32 %retval.0.i6, ptr %vlen, align 4
-  %cmp3 = icmp ult i32 %retval.0.i6, 254
-  %cond = select i1 %cmp3, i64 1, i64 5
-  %add.ptr4 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %cond
-  %add.ptr5 = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 1
-  store ptr %add.ptr5, ptr %value, align 8
-  br label %return
+zipmapDecodeLength.exit:                          ; preds = %52, %54
+  %.0.i = phi i32 [ %53, %52 ], [ %.0.copyload.i, %54 ]
+  store i32 %.0.i, ptr %4, align 4, !tbaa !8
+  %56 = icmp ult i32 %.0.i, 254
+  %57 = select i1 %56, i64 1, i64 5
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  store ptr %59, ptr %3, align 8, !tbaa !12
+  br label %zipmapLookupRaw.exit.thread
 
-return:                                           ; preds = %while.cond.us40.i, %entry, %zipmapDecodeLength.exit
-  %retval.0 = phi i32 [ 1, %zipmapDecodeLength.exit ], [ 0, %entry ], [ 0, %while.cond.us40.i ]
-  ret i32 %retval.0
+zipmapLookupRaw.exit.thread:                      ; preds = %.split.split.us.i, %5, %zipmapDecodeLength.exit
+  %.0 = phi i32 [ 1, %zipmapDecodeLength.exit ], [ 0, %5 ], [ 0, %.split.split.us.i ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapExists(ptr noundef readonly captures(none) %zm, ptr noundef readonly captures(address_is_null) %key, i32 noundef %klen) local_unnamed_addr #6 {
-entry:
-  %cmp3.not.i = icmp eq ptr %key, null
-  br i1 %cmp3.not.i, label %zipmapLookupRaw.exit, label %entry.split.i
+define dso_local range(i32 0, 2) i32 @zipmapExists(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #6 {
+  %.not.i = icmp eq ptr %1, null
+  br i1 %.not.i, label %zipmapLookupRaw.exit, label %.split.i
 
-entry.split.i:                                    ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  %conv12.us.i = zext i32 %klen to i64
-  br label %while.cond.us40.i
+.split.i:                                         ; preds = %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %5 = zext i32 %2 to i64
+  br label %.split.split.us.i
 
-while.cond.us40.i:                                ; preds = %zipmapDecodeLength.exit32.us63.i, %entry.split.i
-  %p.0.us42.i = phi ptr [ %add.ptr28.us72.i, %zipmapDecodeLength.exit32.us63.i ], [ %add.ptr.i, %entry.split.i ]
-  %0 = load i8, ptr %p.0.us42.i, align 1
-  switch i8 %0, label %if.then.i.us46.i [
+.split.split.us.i:                                ; preds = %28, %.split.i
+  %.033.us60.i = phi ptr [ %37, %28 ], [ %4, %.split.i ]
+  %6 = load i8, ptr %.033.us60.i, align 1, !tbaa !5
+  switch i8 %6, label %9 [
     i8 -1, label %zipmapLookupRaw.exit
-    i8 -2, label %if.end.i.us43.i
+    i8 -2, label %7
   ]
 
-if.end.i.us43.i:                                  ; preds = %while.cond.us40.i
-  %add.ptr.i.us44.i = getelementptr inbounds nuw i8, ptr %p.0.us42.i, i64 1
-  %len.0.copyload.i.us45.i = load i32, ptr %add.ptr.i.us44.i, align 1
-  br label %land.lhs.true7.us.i
+7:                                                ; preds = %.split.split.us.i
+  %8 = getelementptr inbounds nuw i8, ptr %.033.us60.i, i64 1
+  %.0.copyload.i.us61.i = load i32, ptr %8, align 1
+  br label %11
 
-if.then.i.us46.i:                                 ; preds = %while.cond.us40.i
-  %conv.i.us47.i = zext i8 %0 to i32
-  br label %land.lhs.true7.us.i
+9:                                                ; preds = %.split.split.us.i
+  %10 = zext i8 %6 to i32
+  br label %11
 
-land.lhs.true7.us.i:                              ; preds = %if.then.i.us46.i, %if.end.i.us43.i
-  %retval.0.i.us49.i = phi i32 [ %conv.i.us47.i, %if.then.i.us46.i ], [ %len.0.copyload.i.us45.i, %if.end.i.us43.i ]
-  %cmp1.i.us50.i = icmp ult i32 %retval.0.i.us49.i, 254
-  %conv.i23.us51.i = select i1 %cmp1.i.us50.i, i32 1, i32 5
-  %cmp8.us.i = icmp eq i32 %retval.0.i.us49.i, %klen
-  br i1 %cmp8.us.i, label %land.lhs.true10.us.i, label %if.end17.us52.i
+11:                                               ; preds = %9, %7
+  %.0.i.us63.i = phi i32 [ %10, %9 ], [ %.0.copyload.i.us61.i, %7 ]
+  %12 = icmp ult i32 %.0.i.us63.i, 254
+  %13 = select i1 %12, i32 1, i32 5
+  %14 = icmp eq i32 %.0.i.us63.i, %2
+  br i1 %14, label %15, label %18
 
-land.lhs.true10.us.i:                             ; preds = %land.lhs.true7.us.i
-  %idx.ext.us.i = zext nneg i32 %conv.i23.us51.i to i64
-  %add.ptr11.us.i = getelementptr inbounds nuw i8, ptr %p.0.us42.i, i64 %idx.ext.us.i
-  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.us.i, ptr nonnull readonly %key, i64 %conv12.us.i)
-  %tobool.not.us.i = icmp eq i32 %bcmp.us.i, 0
-  br i1 %tobool.not.us.i, label %zipmapLookupRaw.exit, label %if.end17.us52.i
+15:                                               ; preds = %11
+  %16 = zext nneg i32 %13 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %.033.us60.i, i64 %16
+  %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %17, ptr nonnull readonly %1, i64 %5)
+  %.not42.us.i = icmp eq i32 %bcmp.us.i, 0
+  br i1 %.not42.us.i, label %zipmapLookupRaw.exit, label %18
 
-if.end17.us52.i:                                  ; preds = %land.lhs.true10.us.i, %land.lhs.true7.us.i
-  %add.us54.i = add i32 %conv.i23.us51.i, %retval.0.i.us49.i
-  %idx.ext18.us55.i = zext i32 %add.us54.i to i64
-  %add.ptr19.us56.i = getelementptr inbounds nuw i8, ptr %p.0.us42.i, i64 %idx.ext18.us55.i
-  %1 = load i8, ptr %add.ptr19.us56.i, align 1
-  %cmp.i25.us57.i = icmp ult i8 %1, -2
-  br i1 %cmp.i25.us57.i, label %if.then.i30.us61.i, label %if.end.i26.us58.i
+18:                                               ; preds = %15, %11
+  %19 = add i32 %13, %.0.i.us63.i
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %.033.us60.i, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !5
+  %23 = icmp ult i8 %22, -2
+  br i1 %23, label %26, label %24
 
-if.end.i26.us58.i:                                ; preds = %if.end17.us52.i
-  %add.ptr.i27.us59.i = getelementptr inbounds nuw i8, ptr %add.ptr19.us56.i, i64 1
-  %len.0.copyload.i28.us60.i = load i32, ptr %add.ptr.i27.us59.i, align 1
-  br label %zipmapDecodeLength.exit32.us63.i
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %.0.copyload.i45.us65.i = load i32, ptr %25, align 1
+  br label %28
 
-if.then.i30.us61.i:                               ; preds = %if.end17.us52.i
-  %conv.i31.us62.i = zext i8 %1 to i32
-  br label %zipmapDecodeLength.exit32.us63.i
+26:                                               ; preds = %18
+  %27 = zext i8 %22 to i32
+  br label %28
 
-zipmapDecodeLength.exit32.us63.i:                 ; preds = %if.then.i30.us61.i, %if.end.i26.us58.i
-  %retval.0.i29.us64.i = phi i32 [ %conv.i31.us62.i, %if.then.i30.us61.i ], [ %len.0.copyload.i28.us60.i, %if.end.i26.us58.i ]
-  %cmp1.i33.us65.i = icmp ult i32 %retval.0.i29.us64.i, 254
-  %conv.i35.us66.i = select i1 %cmp1.i33.us65.i, i64 1, i64 5
-  %add.ptr23.us67.i = getelementptr inbounds nuw i8, ptr %add.ptr19.us56.i, i64 %conv.i35.us66.i
-  %2 = load i8, ptr %add.ptr23.us67.i, align 1
-  %add24.us68.i = add i32 %retval.0.i29.us64.i, 1
-  %conv25.us69.i = zext i8 %2 to i32
-  %add26.us70.i = add i32 %add24.us68.i, %conv25.us69.i
-  %idx.ext27.us71.i = zext i32 %add26.us70.i to i64
-  %add.ptr28.us72.i = getelementptr inbounds nuw i8, ptr %add.ptr23.us67.i, i64 %idx.ext27.us71.i
-  br label %while.cond.us40.i, !llvm.loop !5
+28:                                               ; preds = %26, %24
+  %.0.i46.us66.i = phi i32 [ %27, %26 ], [ %.0.copyload.i45.us65.i, %24 ]
+  %29 = icmp ult i32 %.0.i46.us66.i, 254
+  %30 = select i1 %29, i64 1, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !5
+  %33 = add i32 %.0.i46.us66.i, 1
+  %34 = zext i8 %32 to i32
+  %35 = add i32 %33, %34
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 %36
+  br label %.split.split.us.i, !llvm.loop !10
 
-zipmapLookupRaw.exit:                             ; preds = %while.cond.us40.i, %land.lhs.true10.us.i, %entry
-  %retval.0.i = phi i32 [ 0, %entry ], [ 0, %while.cond.us40.i ], [ 1, %land.lhs.true10.us.i ]
-  ret i32 %retval.0.i
+zipmapLookupRaw.exit:                             ; preds = %.split.split.us.i, %15, %3
+  %.2.i = phi i32 [ 0, %3 ], [ 0, %.split.split.us.i ], [ 1, %15 ]
+  ret i32 %.2.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @zipmapLen(ptr noundef captures(none) %zm) local_unnamed_addr #7 {
-entry:
-  %0 = load i8, ptr %zm, align 1
-  %cmp = icmp ult i8 %0, -2
-  br i1 %cmp, label %if.then, label %if.else
+define dso_local i32 @zipmapLen(ptr noundef captures(none) %0) local_unnamed_addr #7 {
+  %2 = load i8, ptr %0, align 1, !tbaa !5
+  %3 = icmp ult i8 %2, -2
+  br i1 %3, label %4, label %6
 
-if.then:                                          ; preds = %entry
-  %conv = zext i8 %0 to i32
-  br label %if.end12
+4:                                                ; preds = %1
+  %5 = zext i8 %2 to i32
+  br label %40
 
-if.else:                                          ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  br label %while.cond
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  br label %8
 
-while.cond:                                       ; preds = %while.body, %if.else
-  %len.1 = phi i32 [ 0, %if.else ], [ %inc, %while.body ]
-  %p.0 = phi ptr [ %add.ptr.i, %if.else ], [ %add.ptr19.i, %while.body ]
-  %1 = load i8, ptr %p.0, align 1
-  switch i8 %1, label %if.then.i.i.i [
-    i8 -1, label %while.end
-    i8 -2, label %if.end.i.i.i
+8:                                                ; preds = %zipmapNext.exit, %6
+  %.1 = phi i32 [ 0, %6 ], [ %36, %zipmapNext.exit ]
+  %.0 = phi ptr [ %7, %6 ], [ %35, %zipmapNext.exit ]
+  %9 = load i8, ptr %.0, align 1, !tbaa !5
+  switch i8 %9, label %10 [
+    i8 -1, label %zipmapNext.exit.thread
+    i8 -2, label %12
   ]
 
-if.then.i.i.i:                                    ; preds = %while.cond
-  %conv.i.i.i = zext i8 %1 to i32
+10:                                               ; preds = %8
+  %11 = zext i8 %9 to i32
   br label %zipmapRawKeyLength.exit.i
 
-if.end.i.i.i:                                     ; preds = %while.cond
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %p.0, i64 1
-  %len.0.copyload.i.i.i = load i32, ptr %add.ptr.i.i.i, align 1
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %.0.copyload.i.i.i = load i32, ptr %13, align 1
   br label %zipmapRawKeyLength.exit.i
 
-zipmapRawKeyLength.exit.i:                        ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi i32 [ %conv.i.i.i, %if.then.i.i.i ], [ %len.0.copyload.i.i.i, %if.end.i.i.i ]
-  %cmp1.i.i.i = icmp ult i32 %retval.0.i.i.i, 254
-  %conv.i3.i.i = select i1 %cmp1.i.i.i, i32 1, i32 5
-  %add.i.i = add i32 %conv.i3.i.i, %retval.0.i.i.i
-  %idx.ext.i = zext i32 %add.i.i to i64
-  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %p.0, i64 %idx.ext.i
-  %2 = load i8, ptr %add.ptr7.i, align 1
-  %cmp.i.i24.i = icmp ult i8 %2, -2
-  br i1 %cmp.i.i24.i, label %if.then.i.i32.i, label %if.end.i.i25.i
+zipmapRawKeyLength.exit.i:                        ; preds = %12, %10
+  %.0.i.i.i = phi i32 [ %11, %10 ], [ %.0.copyload.i.i.i, %12 ]
+  %14 = icmp ult i32 %.0.i.i.i, 254
+  %15 = select i1 %14, i32 1, i32 5
+  %16 = add i32 %15, %.0.i.i.i
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !5
+  %20 = icmp ult i8 %19, -2
+  br i1 %20, label %21, label %23
 
-if.then.i.i32.i:                                  ; preds = %zipmapRawKeyLength.exit.i
-  %conv.i.i33.i = zext i8 %2 to i32
-  br label %while.body
+21:                                               ; preds = %zipmapRawKeyLength.exit.i
+  %22 = zext i8 %19 to i32
+  br label %zipmapNext.exit
 
-if.end.i.i25.i:                                   ; preds = %zipmapRawKeyLength.exit.i
-  %add.ptr.i.i26.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 1
-  %len.0.copyload.i.i27.i = load i32, ptr %add.ptr.i.i26.i, align 1
-  br label %while.body
+23:                                               ; preds = %zipmapRawKeyLength.exit.i
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %.0.copyload.i.i27.i = load i32, ptr %24, align 1
+  br label %zipmapNext.exit
 
-while.body:                                       ; preds = %if.end.i.i25.i, %if.then.i.i32.i
-  %retval.0.i.i28.i = phi i32 [ %conv.i.i33.i, %if.then.i.i32.i ], [ %len.0.copyload.i.i27.i, %if.end.i.i25.i ]
-  %add.i31.i = add i32 %retval.0.i.i28.i, 1
-  %cmp1.i.i29.i = icmp ult i32 %retval.0.i.i28.i, 254
-  %conv.i6.i.i = select i1 %cmp1.i.i29.i, i32 1, i32 5
-  %idxprom.i.i = zext nneg i32 %conv.i6.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 %idxprom.i.i
-  %3 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i30.i = zext i8 %3 to i32
-  %add2.i.i = add i32 %add.i31.i, %conv.i30.i
-  %add3.i.i = add i32 %add2.i.i, %conv.i6.i.i
-  %idx.ext18.i = zext i32 %add3.i.i to i64
-  %add.ptr19.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 %idx.ext18.i
-  %inc = add i32 %len.1, 1
-  br label %while.cond, !llvm.loop !7
+zipmapNext.exit:                                  ; preds = %23, %21
+  %.0.i.i28.i = phi i32 [ %22, %21 ], [ %.0.copyload.i.i27.i, %23 ]
+  %25 = add i32 %.0.i.i28.i, 1
+  %26 = icmp ult i32 %.0.i.i28.i, 254
+  %27 = select i1 %26, i32 1, i32 5
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %28
+  %30 = load i8, ptr %29, align 1, !tbaa !5
+  %31 = zext i8 %30 to i32
+  %32 = add i32 %25, %31
+  %33 = add i32 %32, %27
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 %34
+  %36 = add i32 %.1, 1
+  br label %8, !llvm.loop !15
 
-while.end:                                        ; preds = %while.cond
-  %cmp7 = icmp ult i32 %len.1, 254
-  br i1 %cmp7, label %if.then9, label %if.end12
+zipmapNext.exit.thread:                           ; preds = %8
+  %37 = icmp ult i32 %.1, 254
+  br i1 %37, label %38, label %40
 
-if.then9:                                         ; preds = %while.end
-  %conv10 = trunc nuw i32 %len.1 to i8
-  store i8 %conv10, ptr %zm, align 1
-  br label %if.end12
+38:                                               ; preds = %zipmapNext.exit.thread
+  %39 = trunc nuw i32 %.1 to i8
+  store i8 %39, ptr %0, align 1, !tbaa !5
+  br label %40
 
-if.end12:                                         ; preds = %while.end, %if.then9, %if.then
-  %len.0 = phi i32 [ %conv, %if.then ], [ %len.1, %if.then9 ], [ %len.1, %while.end ]
-  ret i32 %len.0
+40:                                               ; preds = %zipmapNext.exit.thread, %38, %4
+  %.08 = phi i32 [ %5, %4 ], [ %.1, %38 ], [ %.1, %zipmapNext.exit.thread ]
+  ret i32 %.08
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef range(i64 0, 4294967296) i64 @zipmapBlobLen(ptr noundef %zm) local_unnamed_addr #8 {
-entry:
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %zm, i64 1
-  br label %while.cond.us.i
+define dso_local noundef range(i64 0, 4294967296) i64 @zipmapBlobLen(ptr noundef %0) local_unnamed_addr #8 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  br label %.split.us.i
 
-while.cond.us.i:                                  ; preds = %zipmapDecodeLength.exit32.us.i, %entry
-  %p.0.us.i = phi ptr [ %add.ptr28.us.i, %zipmapDecodeLength.exit32.us.i ], [ %add.ptr.i, %entry ]
-  %0 = load i8, ptr %p.0.us.i, align 1
-  switch i8 %0, label %if.then.i.us.i [
+.split.us.i:                                      ; preds = %19, %1
+  %.033.us.i = phi ptr [ %28, %19 ], [ %2, %1 ]
+  %3 = load i8, ptr %.033.us.i, align 1, !tbaa !5
+  switch i8 %3, label %6 [
     i8 -1, label %zipmapLookupRaw.exit
-    i8 -2, label %if.end.i.us.i
+    i8 -2, label %4
   ]
 
-if.end.i.us.i:                                    ; preds = %while.cond.us.i
-  %add.ptr.i.us.i = getelementptr inbounds nuw i8, ptr %p.0.us.i, i64 1
-  %len.0.copyload.i.us.i = load i32, ptr %add.ptr.i.us.i, align 1
+4:                                                ; preds = %.split.us.i
+  %5 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 1
+  %.0.copyload.i.us.i = load i32, ptr %5, align 1
   br label %zipmapDecodeLength.exit.us.i
 
-if.then.i.us.i:                                   ; preds = %while.cond.us.i
-  %conv.i.us.i = zext i8 %0 to i32
+6:                                                ; preds = %.split.us.i
+  %7 = zext i8 %3 to i32
   br label %zipmapDecodeLength.exit.us.i
 
-zipmapDecodeLength.exit.us.i:                     ; preds = %if.then.i.us.i, %if.end.i.us.i
-  %retval.0.i.us.i = phi i32 [ %conv.i.us.i, %if.then.i.us.i ], [ %len.0.copyload.i.us.i, %if.end.i.us.i ]
-  %cmp1.i.us.i = icmp ult i32 %retval.0.i.us.i, 254
-  %conv.i23.us.i = select i1 %cmp1.i.us.i, i32 1, i32 5
-  %add.us.i = add i32 %conv.i23.us.i, %retval.0.i.us.i
-  %idx.ext18.us.i = zext i32 %add.us.i to i64
-  %add.ptr19.us.i = getelementptr inbounds nuw i8, ptr %p.0.us.i, i64 %idx.ext18.us.i
-  %1 = load i8, ptr %add.ptr19.us.i, align 1
-  %cmp.i25.us.i = icmp ult i8 %1, -2
-  br i1 %cmp.i25.us.i, label %if.then.i30.us.i, label %if.end.i26.us.i
+zipmapDecodeLength.exit.us.i:                     ; preds = %6, %4
+  %.0.i.us.i = phi i32 [ %7, %6 ], [ %.0.copyload.i.us.i, %4 ]
+  %8 = icmp ult i32 %.0.i.us.i, 254
+  %9 = select i1 %8, i32 1, i32 5
+  %10 = add i32 %9, %.0.i.us.i
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !5
+  %14 = icmp ult i8 %13, -2
+  br i1 %14, label %17, label %15
 
-if.end.i26.us.i:                                  ; preds = %zipmapDecodeLength.exit.us.i
-  %add.ptr.i27.us.i = getelementptr inbounds nuw i8, ptr %add.ptr19.us.i, i64 1
-  %len.0.copyload.i28.us.i = load i32, ptr %add.ptr.i27.us.i, align 1
-  br label %zipmapDecodeLength.exit32.us.i
+15:                                               ; preds = %zipmapDecodeLength.exit.us.i
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %.0.copyload.i45.us.i = load i32, ptr %16, align 1
+  br label %19
 
-if.then.i30.us.i:                                 ; preds = %zipmapDecodeLength.exit.us.i
-  %conv.i31.us.i = zext i8 %1 to i32
-  br label %zipmapDecodeLength.exit32.us.i
+17:                                               ; preds = %zipmapDecodeLength.exit.us.i
+  %18 = zext i8 %13 to i32
+  br label %19
 
-zipmapDecodeLength.exit32.us.i:                   ; preds = %if.then.i30.us.i, %if.end.i26.us.i
-  %retval.0.i29.us.i = phi i32 [ %conv.i31.us.i, %if.then.i30.us.i ], [ %len.0.copyload.i28.us.i, %if.end.i26.us.i ]
-  %cmp1.i33.us.i = icmp ult i32 %retval.0.i29.us.i, 254
-  %conv.i35.us.i = select i1 %cmp1.i33.us.i, i64 1, i64 5
-  %add.ptr23.us.i = getelementptr inbounds nuw i8, ptr %add.ptr19.us.i, i64 %conv.i35.us.i
-  %2 = load i8, ptr %add.ptr23.us.i, align 1
-  %add24.us.i = add i32 %retval.0.i29.us.i, 1
-  %conv25.us.i = zext i8 %2 to i32
-  %add26.us.i = add i32 %add24.us.i, %conv25.us.i
-  %idx.ext27.us.i = zext i32 %add26.us.i to i64
-  %add.ptr28.us.i = getelementptr inbounds nuw i8, ptr %add.ptr23.us.i, i64 %idx.ext27.us.i
-  br label %while.cond.us.i, !llvm.loop !5
+19:                                               ; preds = %17, %15
+  %.0.i46.us.i = phi i32 [ %18, %17 ], [ %.0.copyload.i45.us.i, %15 ]
+  %20 = icmp ult i32 %.0.i46.us.i, 254
+  %21 = select i1 %20, i64 1, i64 5
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !5
+  %24 = add i32 %.0.i46.us.i, 1
+  %25 = zext i8 %23 to i32
+  %26 = add i32 %24, %25
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %27
+  br label %.split.us.i, !llvm.loop !10
 
-zipmapLookupRaw.exit:                             ; preds = %while.cond.us.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.0.us.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %zm to i64
-  %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %add33.i = add i64 %reass.sub, 1
-  %conv = and i64 %add33.i, 4294967295
-  ret i64 %conv
+zipmapLookupRaw.exit:                             ; preds = %.split.us.i
+  %29 = ptrtoint ptr %.033.us.i to i64
+  %30 = ptrtoint ptr %0 to i64
+  %reass.sub = sub i64 %29, %30
+  %31 = add i64 %reass.sub, 1
+  %32 = and i64 %31, 4294967295
+  ret i64 %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapValidateIntegrity(ptr noundef readonly captures(address) %zm, i64 noundef %size, i32 noundef %deep) local_unnamed_addr #8 {
-entry:
-  %cmp = icmp ult i64 %size, 2
-  br i1 %cmp, label %return, label %if.end
+define dso_local range(i32 0, 2) i32 @zipmapValidateIntegrity(ptr noundef readonly captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+  %4 = icmp ult i64 %1, 2
+  br i1 %4, label %.loopexit, label %5
 
-if.end:                                           ; preds = %entry
-  %0 = getelementptr i8, ptr %zm, i64 %size
-  %arrayidx = getelementptr i8, ptr %0, i64 -1
-  %1 = load i8, ptr %arrayidx, align 1
-  %cmp1.not = icmp eq i8 %1, -1
-  br i1 %cmp1.not, label %if.end4, label %return
+5:                                                ; preds = %3
+  %6 = getelementptr i8, ptr %0, i64 %1
+  %7 = getelementptr i8, ptr %6, i64 -1
+  %8 = load i8, ptr %7, align 1, !tbaa !5
+  %.not = icmp eq i8 %8, -1
+  br i1 %.not, label %9, label %.loopexit
 
-if.end4:                                          ; preds = %if.end
-  %tobool.not = icmp eq i32 %deep, 0
-  br i1 %tobool.not, label %return, label %while.cond
+9:                                                ; preds = %5
+  %.not59 = icmp eq i32 %2, 0
+  br i1 %.not59, label %.loopexit, label %.preheader
 
-while.cond:                                       ; preds = %if.end4, %zipmapDecodeLength.exit55
-  %count.0 = phi i32 [ %inc, %zipmapDecodeLength.exit55 ], [ 0, %if.end4 ]
-  %p.0.idx = phi i64 [ %incdec.ptr.add, %zipmapDecodeLength.exit55 ], [ 1, %if.end4 ]
-  %p.0.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 %p.0.idx
-  %2 = load i8, ptr %p.0.ptr, align 1
-  %cmp8.not = icmp eq i8 %2, -1
-  br i1 %cmp8.not, label %while.end, label %while.body
+.preheader:                                       ; preds = %9, %zipmapDecodeLength.exit77
+  %.049 = phi i32 [ %35, %zipmapDecodeLength.exit77 ], [ 0, %9 ]
+  %.0.idx = phi i64 [ %.add65, %zipmapDecodeLength.exit77 ], [ 1, %9 ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx
+  %10 = load i8, ptr %.0.ptr, align 1, !tbaa !5
+  %.not60 = icmp eq i8 %10, -1
+  br i1 %.not60, label %37, label %11
 
-while.body:                                       ; preds = %while.cond
-  %cmp.i.not = icmp eq i8 %2, -2
-  %idx.ext = select i1 %cmp.i.not, i64 5, i64 1
-  %p.0.add = add nuw nsw i64 %idx.ext, %p.0.idx
-  %cmp12 = icmp slt i64 %p.0.add, 2
-  %add.ptr10.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 %p.0.add
-  %cmp18 = icmp ugt ptr %add.ptr10.ptr, %arrayidx
-  %or.cond56 = select i1 %cmp12, i1 true, i1 %cmp18
-  br i1 %or.cond56, label %return, label %if.end21
+11:                                               ; preds = %.preheader
+  %.not79 = icmp eq i8 %10, -2
+  %12 = select i1 %.not79, i64 5, i64 1
+  %.0.add = add nuw nsw i64 %12, %.0.idx
+  %13 = icmp slt i64 %.0.add, 2
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add
+  %14 = icmp ugt ptr %.ptr, %7
+  %or.cond78 = select i1 %13, i1 true, i1 %14
+  br i1 %or.cond78, label %.loopexit, label %15
 
-if.end21:                                         ; preds = %while.body
-  br i1 %cmp.i.not, label %if.end.i, label %if.then.i
+15:                                               ; preds = %11
+  br i1 %.not79, label %18, label %16
 
-if.then.i:                                        ; preds = %if.end21
-  %conv.i = zext i8 %2 to i32
+16:                                               ; preds = %15
+  %17 = zext i8 %10 to i32
   br label %zipmapDecodeLength.exit
 
-if.end.i:                                         ; preds = %if.end21
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %p.0.ptr, i64 1
-  %len.0.copyload.i = load i32, ptr %add.ptr.i, align 1
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 1
+  %.0.copyload.i = load i32, ptr %19, align 1
   br label %zipmapDecodeLength.exit
 
-zipmapDecodeLength.exit:                          ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi i32 [ %conv.i, %if.then.i ], [ %len.0.copyload.i, %if.end.i ]
-  %idx.ext25 = zext i32 %retval.0.i to i64
-  %add.ptr10.add = add nuw nsw i64 %p.0.add, %idx.ext25
-  %add.ptr26.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 %add.ptr10.add
-  %cmp33 = icmp ugt ptr %add.ptr26.ptr, %arrayidx
-  br i1 %cmp33, label %return, label %if.end36
+zipmapDecodeLength.exit:                          ; preds = %16, %18
+  %.0.i = phi i32 [ %17, %16 ], [ %.0.copyload.i, %18 ]
+  %20 = zext i32 %.0.i to i64
+  %.add = add nuw nsw i64 %.0.add, %20
+  %.ptr66 = getelementptr inbounds nuw i8, ptr %0, i64 %.add
+  %21 = icmp ugt ptr %.ptr66, %7
+  br i1 %21, label %.loopexit, label %22
 
-if.end36:                                         ; preds = %zipmapDecodeLength.exit
-  %add.ptr26.ptr.val = load i8, ptr %add.ptr26.ptr, align 1
-  %cmp.i46 = icmp ult i8 %add.ptr26.ptr.val, -2
-  %idx.ext38 = select i1 %cmp.i46, i64 1, i64 5
-  %add.ptr26.add = add nuw nsw i64 %idx.ext38, %add.ptr10.add
-  %add.ptr39.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 %add.ptr26.add
-  %cmp48 = icmp ugt ptr %add.ptr39.ptr, %arrayidx
-  br i1 %cmp48, label %return, label %if.end51
+22:                                               ; preds = %zipmapDecodeLength.exit
+  %.ptr66.val = load i8, ptr %.ptr66, align 1, !tbaa !5
+  %23 = icmp ult i8 %.ptr66.val, -2
+  %24 = select i1 %23, i64 1, i64 5
+  %.add63 = add nuw nsw i64 %24, %.add
+  %.ptr67 = getelementptr inbounds nuw i8, ptr %0, i64 %.add63
+  %25 = icmp ugt ptr %.ptr67, %7
+  br i1 %25, label %.loopexit, label %26
 
-if.end51:                                         ; preds = %if.end36
-  br i1 %cmp.i46, label %if.then.i53, label %if.end.i49
+26:                                               ; preds = %22
+  br i1 %23, label %27, label %29
 
-if.then.i53:                                      ; preds = %if.end51
-  %conv.i54 = zext i8 %add.ptr26.ptr.val to i32
-  br label %zipmapDecodeLength.exit55
+27:                                               ; preds = %26
+  %28 = zext i8 %.ptr66.val to i32
+  br label %zipmapDecodeLength.exit77
 
-if.end.i49:                                       ; preds = %if.end51
-  %add.ptr.i50 = getelementptr inbounds nuw i8, ptr %add.ptr26.ptr, i64 1
-  %len.0.copyload.i51 = load i32, ptr %add.ptr.i50, align 1
-  br label %zipmapDecodeLength.exit55
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %.ptr66, i64 1
+  %.0.copyload.i75 = load i32, ptr %30, align 1
+  br label %zipmapDecodeLength.exit77
 
-zipmapDecodeLength.exit55:                        ; preds = %if.then.i53, %if.end.i49
-  %retval.0.i52 = phi i32 [ %conv.i54, %if.then.i53 ], [ %len.0.copyload.i51, %if.end.i49 ]
-  %add.ptr39.add = add nuw nsw i64 %add.ptr26.add, 1
-  %3 = load i8, ptr %add.ptr39.ptr, align 1
-  %conv55 = zext i8 %3 to i32
-  %add = add i32 %retval.0.i52, %conv55
-  %idx.ext56 = zext i32 %add to i64
-  %incdec.ptr.add = add nuw nsw i64 %add.ptr39.add, %idx.ext56
-  %add.ptr57.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 %incdec.ptr.add
-  %inc = add i32 %count.0, 1
-  %cmp64 = icmp ugt ptr %add.ptr57.ptr, %arrayidx
-  br i1 %cmp64, label %return, label %while.cond, !llvm.loop !8
+zipmapDecodeLength.exit77:                        ; preds = %27, %29
+  %.0.i76 = phi i32 [ %28, %27 ], [ %.0.copyload.i75, %29 ]
+  %.add64 = add nuw nsw i64 %.add63, 1
+  %31 = load i8, ptr %.ptr67, align 1, !tbaa !5
+  %32 = zext i8 %31 to i32
+  %33 = add i32 %.0.i76, %32
+  %34 = zext i32 %33 to i64
+  %.add65 = add nuw nsw i64 %.add64, %34
+  %.ptr69 = getelementptr inbounds nuw i8, ptr %0, i64 %.add65
+  %35 = add i32 %.049, 1
+  %36 = icmp ugt ptr %.ptr69, %7
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !16
 
-while.end:                                        ; preds = %while.cond
-  %cmp68 = icmp eq i32 %count.0, 0
-  br i1 %cmp68, label %return, label %if.end71
+37:                                               ; preds = %.preheader
+  %38 = icmp eq i32 %.049, 0
+  br i1 %38, label %.loopexit, label %39
 
-if.end71:                                         ; preds = %while.end
-  %4 = load i8, ptr %zm, align 1
-  %cmp74.not = icmp eq i8 %4, -2
-  %conv73 = zext i8 %4 to i32
-  %cmp78.not = icmp eq i32 %count.0, %conv73
-  %or.cond44 = select i1 %cmp74.not, i1 true, i1 %cmp78.not
-  %spec.select = zext i1 %or.cond44 to i32
-  br label %return
+39:                                               ; preds = %37
+  %40 = load i8, ptr %0, align 1, !tbaa !5
+  %.not61 = icmp eq i8 %40, -2
+  %41 = zext i8 %40 to i32
+  %.not62 = icmp eq i32 %.049, %41
+  %or.cond74 = select i1 %.not61, i1 true, i1 %.not62
+  %spec.select = zext i1 %or.cond74 to i32
+  br label %.loopexit
 
-return:                                           ; preds = %zipmapDecodeLength.exit55, %if.end36, %zipmapDecodeLength.exit, %while.body, %if.end71, %while.end, %if.end4, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 1, %if.end4 ], [ 0, %while.end ], [ %spec.select, %if.end71 ], [ 0, %while.body ], [ 0, %zipmapDecodeLength.exit ], [ 0, %if.end36 ], [ 0, %zipmapDecodeLength.exit55 ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %11, %zipmapDecodeLength.exit, %22, %zipmapDecodeLength.exit77, %39, %37, %9, %5, %3
+  %.050 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %9 ], [ 0, %37 ], [ %spec.select, %39 ], [ 0, %zipmapDecodeLength.exit77 ], [ 0, %22 ], [ 0, %zipmapDecodeLength.exit ], [ 0, %11 ]
+  ret i32 %.050
 }
 
 ; Function Attrs: allocsize(1)
@@ -1153,7 +1141,15 @@ attributes #12 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}

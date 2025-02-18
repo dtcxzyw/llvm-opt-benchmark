@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/redis/original/hook.ll'
 source_filename = "bench/redis/original/hook.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.malloc_mutex_s = type { %union.anon }
 %union.anon = type { %struct.anon }
@@ -39,597 +39,583 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [6 x i8] c"hooks\00", align 1
 @nhooks.0 = internal unnamed_addr global i32 0, align 4
 @hooks = internal global [4 x %struct.seq_hooks_t] zeroinitializer, align 16
-@hook_reentrantp.in_hook_global = internal unnamed_addr global i8 1, align 1
-@tsd_booted = external local_unnamed_addr global i8, align 1
-@tsd_tls = external thread_local(initialexec) global %struct.tsd_s, align 8
+@hook_reentrantp.in_hook_global = internal global i8 1, align 1
+@je_tsd_booted = external local_unnamed_addr global i8, align 1
+@je_tsd_tls = external thread_local(initialexec) global %struct.tsd_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @hook_boot() local_unnamed_addr #0 {
-entry:
-  %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull @hooks_mu, ptr noundef nonnull @.str, i32 noundef 25, i32 noundef 0) #6
-  ret i1 %call
+define hidden zeroext i1 @je_hook_boot() local_unnamed_addr #0 {
+  %1 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull @hooks_mu, ptr noundef nonnull @.str, i32 noundef 25, i32 noundef 0) #6
+  ret i1 %1
 }
 
-declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare zeroext i1 @je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @hook_install(ptr noundef %tsdn, ptr noundef readonly captures(none) %to_install) local_unnamed_addr #0 {
-entry:
-  %buf.i7.i = alloca [5 x i64], align 16
-  %buf.i.i = alloca [5 x i64], align 16
-  %hooks_internal.sroa.5.i = alloca [7 x i8], align 1
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 64)) #6
-  %cmp.i.not.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
+define hidden noundef ptr @je_hook_install(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %3 = alloca [5 x i64], align 16
+  %4 = alloca [5 x i64], align 16
+  %.sroa.7.i = alloca [7 x i8], align 1
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 64)) #6
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %6, label %atomic_store_b.exit.i
 
-if.then.i:                                        ; preds = %entry
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @hooks_mu) #6
+atomic_store_b.exit.i:                            ; preds = %2
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @hooks_mu) #6
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 104) monotonic, align 8
-  br label %if.end.i
+  br label %6
 
-if.end.i:                                         ; preds = %if.then.i, %entry
-  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 56), align 8
-  %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 56), align 8
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 48), align 8
-  %cmp.not.i.i = icmp eq ptr %1, %tsdn
-  br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
+6:                                                ; preds = %atomic_store_b.exit.i, %2
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 56), align 8, !tbaa !4
+  %8 = add i64 %7, 1
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 56), align 8, !tbaa !4
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 48), align 8, !tbaa !14
+  %.not.i.i = icmp eq ptr %9, %0
+  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %10
 
-if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsdn, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 48), align 8
-  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 40), align 8
-  %inc2.i.i = add i64 %2, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 40), align 8
+10:                                               ; preds = %6
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 48), align 8, !tbaa !14
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 40), align 8, !tbaa !15
+  %12 = add i64 %11, 1
+  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 40), align 8, !tbaa !15
   br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hooks_internal.sroa.5.i)
-  %hooks_internal.sroa.3.0.buf.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 32
-  %hooks_internal.sroa.5.0.buf.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 33
-  br label %for.body.i
+malloc_mutex_lock.exit:                           ; preds = %6, %10
+  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7.i)
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 33
+  br label %13
 
-for.cond.i:                                       ; preds = %seq_try_load_hooks.exit.i
+13:                                               ; preds = %.thread.i, %malloc_mutex_lock.exit
+  %indvars.iv.i = phi i64 [ 0, %malloc_mutex_lock.exit ], [ %indvars.iv.next.i, %.thread.i ]
+  %14 = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv.i
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
+  %15 = load atomic i64, ptr %14 acquire, align 16
+  %16 = and i64 %15, 1
+  %.not.i.i6 = icmp eq i64 %16, 0
+  br i1 %.not.i.i6, label %.preheader.i.i, label %.thread.sink.split.i
+
+.preheader.i.i:                                   ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  br label %20
+
+18:                                               ; preds = %20
+  fence acquire
+  %19 = load atomic i64, ptr %14 monotonic, align 16
+  %.not12.i.i = icmp eq i64 %15, %19
+  br i1 %.not12.i.i, label %seq_try_load_hooks.exit.i, label %.thread.sink.split.i
+
+20:                                               ; preds = %20, %.preheader.i.i
+  %.01113.i.i = phi i64 [ 0, %.preheader.i.i ], [ %24, %20 ]
+  %21 = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %17, i64 0, i64 %.01113.i.i
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %.01113.i.i
+  store i64 %22, ptr %23, align 8, !tbaa !16
+  %24 = add nuw nsw i64 %.01113.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %24, 5
+  br i1 %exitcond.not.i.i, label %18, label %20, !llvm.loop !17
+
+seq_try_load_hooks.exit.i:                        ; preds = %18
+  %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx.i, i64 7, i1 false)
+  %25 = trunc nuw i8 %.sroa.5.0.copyload.i to i1
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
+  br i1 %25, label %.thread.i, label %26
+
+26:                                               ; preds = %seq_try_load_hooks.exit.i
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %.sroa.5.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 1, ptr %.sroa.5.0..sroa_idx15.i, align 16
+  %.sroa.7.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %3, i64 33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx17.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.i, i64 7, i1 false)
+  %27 = load atomic i64, ptr %14 monotonic, align 8
+  %28 = add i64 %27, 1
+  store atomic i64 %28, ptr %14 monotonic, align 8
+  fence release
+  br label %29
+
+29:                                               ; preds = %29, %26
+  %.010.i.i = phi i64 [ 0, %26 ], [ %33, %29 ]
+  %30 = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %17, i64 0, i64 %.010.i.i
+  %31 = getelementptr inbounds nuw [5 x i64], ptr %3, i64 0, i64 %.010.i.i
+  %32 = load i64, ptr %31, align 8, !tbaa !16
+  store atomic i64 %32, ptr %30 monotonic, align 8
+  %33 = add nuw nsw i64 %.010.i.i, 1
+  %exitcond.not.i14.i = icmp eq i64 %33, 5
+  br i1 %exitcond.not.i14.i, label %34, label %29, !llvm.loop !19
+
+.thread.sink.split.i:                             ; preds = %18, %13
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
+  br label %.thread.i
+
+.thread.i:                                        ; preds = %.thread.sink.split.i, %seq_try_load_hooks.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %hook_install_locked.exit.thread, label %for.body.i, !llvm.loop !5
+  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.i, label %hook_install_locked.exit.thread, label %13, !llvm.loop !20
 
-hook_install_locked.exit.thread:                  ; preds = %for.cond.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hooks_internal.sroa.5.i)
-  br label %if.end
+hook_install_locked.exit.thread:                  ; preds = %.thread.i
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7.i)
+  br label %38
 
-for.body.i:                                       ; preds = %for.cond.i, %malloc_mutex_lock.exit
-  %indvars.iv.i = phi i64 [ 0, %malloc_mutex_lock.exit ], [ %indvars.iv.next.i, %for.cond.i ]
-  %hooks_internal.sroa.3.014.i = phi i8 [ undef, %malloc_mutex_lock.exit ], [ %hooks_internal.sroa.3.1.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i.i)
-  %3 = load atomic i64, ptr %arrayidx.i acquire, align 16
-  %rem.i.i = and i64 %3, 1
-  %cmp.not.i.i4 = icmp eq i64 %rem.i.i, 0
-  br i1 %cmp.not.i.i4, label %for.cond.preheader.i.i, label %seq_try_load_hooks.exit.i
+34:                                               ; preds = %29
+  %35 = add i64 %27, 2
+  store atomic i64 %35, ptr %14 release, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
+  %36 = load atomic i32, ptr @nhooks.0 monotonic, align 4
+  %37 = add i32 %36, 1
+  store atomic i32 %37, ptr @nhooks.0 monotonic, align 4
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7.i)
+  tail call void @je_tsd_global_slow_inc(ptr noundef %0) #6
+  br label %38
 
-for.cond.preheader.i.i:                           ; preds = %for.body.i
-  %data.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.cond.preheader.i.i
-  %i.07.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %inc.i.i6, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %data.i.i, i64 0, i64 %i.07.i.i
-  %4 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %arrayidx3.i.i = getelementptr inbounds nuw [5 x i64], ptr %buf.i.i, i64 0, i64 %i.07.i.i
-  store i64 %4, ptr %arrayidx3.i.i, align 8
-  %inc.i.i6 = add nuw nsw i64 %i.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i6, 5
-  br i1 %exitcond.not.i.i, label %acquire.i47.i.i, label %for.body.i.i, !llvm.loop !7
-
-acquire.i47.i.i:                                  ; preds = %for.body.i.i
-  fence acquire
-  %5 = load atomic i64, ptr %arrayidx.i monotonic, align 16
-  %cmp6.not.i.i = icmp eq i64 %3, %5
-  br i1 %cmp6.not.i.i, label %if.end8.i.i, label %seq_try_load_hooks.exit.i
-
-if.end8.i.i:                                      ; preds = %acquire.i47.i.i
-  %hooks_internal.sroa.3.0.copyload.i = load i8, ptr %hooks_internal.sroa.3.0.buf.i.sroa_idx.i, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.5.i, ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.5.0.buf.i.sroa_idx.i, i64 7, i1 false)
-  br label %seq_try_load_hooks.exit.i
-
-seq_try_load_hooks.exit.i:                        ; preds = %if.end8.i.i, %acquire.i47.i.i, %for.body.i
-  %hooks_internal.sroa.3.1.i = phi i8 [ %hooks_internal.sroa.3.0.copyload.i, %if.end8.i.i ], [ %hooks_internal.sroa.3.014.i, %acquire.i47.i.i ], [ %hooks_internal.sroa.3.014.i, %for.body.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i.i)
-  %tobool.i = trunc i8 %hooks_internal.sroa.3.1.i to i1
-  br i1 %tobool.i, label %for.cond.i, label %if.then.i5
-
-if.then.i5:                                       ; preds = %seq_try_load_hooks.exit.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i7.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i7.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %to_install, i64 32, i1 false)
-  %hooks_internal.sroa.3.0.buf.i7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %buf.i7.i, i64 32
-  store i8 1, ptr %hooks_internal.sroa.3.0.buf.i7.sroa_idx.i, align 16
-  %hooks_internal.sroa.5.0.buf.i7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %buf.i7.i, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.5.0.buf.i7.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.5.i, i64 7, i1 false)
-  %6 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %add.i.i = add i64 %6, 1
-  store atomic i64 %add.i.i, ptr %arrayidx.i monotonic, align 8
-  fence release
-  %data.i8.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  br label %for.body.i9.i
-
-for.body.i9.i:                                    ; preds = %for.body.i9.i, %if.then.i5
-  %i.014.i.i = phi i64 [ 0, %if.then.i5 ], [ %inc.i11.i, %for.body.i9.i ]
-  %arrayidx2.i.i = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %data.i8.i, i64 0, i64 %i.014.i.i
-  %arrayidx3.i10.i = getelementptr inbounds nuw [5 x i64], ptr %buf.i7.i, i64 0, i64 %i.014.i.i
-  %7 = load i64, ptr %arrayidx3.i10.i, align 8
-  store atomic i64 %7, ptr %arrayidx2.i.i monotonic, align 8
-  %inc.i11.i = add nuw nsw i64 %i.014.i.i, 1
-  %exitcond.not.i12.i = icmp eq i64 %inc.i11.i, 5
-  br i1 %exitcond.not.i12.i, label %if.then, label %for.body.i9.i, !llvm.loop !8
-
-if.then:                                          ; preds = %for.body.i9.i
-  %add5.i.i = add i64 %6, 2
-  store atomic i64 %add5.i.i, ptr %arrayidx.i release, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i7.i)
-  %8 = load atomic i32, ptr @nhooks.0 monotonic, align 4
-  %add.i = add i32 %8, 1
-  store atomic i32 %add.i, ptr @nhooks.0 monotonic, align 4
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hooks_internal.sroa.5.i)
-  tail call void @tsd_global_slow_inc(ptr noundef %tsdn) #6
-  br label %if.end
-
-if.end:                                           ; preds = %hook_install_locked.exit.thread, %if.then
-  %retval.0.i9 = phi ptr [ null, %hook_install_locked.exit.thread ], [ %arrayidx.i, %if.then ]
+38:                                               ; preds = %hook_install_locked.exit.thread, %34
+  %spec.select.i10 = phi ptr [ null, %hook_install_locked.exit.thread ], [ %14, %34 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 104) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 64)) #6
-  ret ptr %retval.0.i9
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 64)) #6
+  ret ptr %spec.select.i10
 }
 
-declare void @tsd_global_slow_inc(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+declare void @je_tsd_global_slow_inc(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hook_remove(ptr noundef %tsdn, ptr noundef captures(none) %opaque) local_unnamed_addr #0 {
-entry:
-  %buf.i4.i = alloca [5 x i64], align 16
-  %buf.i.i = alloca [5 x i64], align 16
-  %hooks_internal.sroa.0.i = alloca %struct.hooks_s, align 8
-  %hooks_internal.sroa.3.i = alloca [7 x i8], align 1
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 64)) #6
-  %cmp.i.not.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
+define hidden void @je_hook_remove(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+  %3 = alloca [5 x i64], align 16
+  %4 = alloca [5 x i64], align 16
+  %.sroa.0.i = alloca %struct.hooks_s, align 8
+  %.sroa.5.i = alloca [7 x i8], align 1
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 64)) #6
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %6, label %atomic_store_b.exit.i
 
-if.then.i:                                        ; preds = %entry
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @hooks_mu) #6
+atomic_store_b.exit.i:                            ; preds = %2
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @hooks_mu) #6
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 104) monotonic, align 8
-  br label %if.end.i
+  br label %6
 
-if.end.i:                                         ; preds = %if.then.i, %entry
-  %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 56), align 8
-  %inc.i.i = add i64 %0, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 56), align 8
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 48), align 8
-  %cmp.not.i.i = icmp eq ptr %1, %tsdn
-  br i1 %cmp.not.i.i, label %malloc_mutex_lock.exit, label %if.then.i.i
+6:                                                ; preds = %atomic_store_b.exit.i, %2
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 56), align 8, !tbaa !4
+  %8 = add i64 %7, 1
+  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 56), align 8, !tbaa !4
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 48), align 8, !tbaa !14
+  %.not.i.i = icmp eq ptr %9, %0
+  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %10
 
-if.then.i.i:                                      ; preds = %if.end.i
-  store ptr %tsdn, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 48), align 8
-  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 40), align 8
-  %inc2.i.i = add i64 %2, 1
-  store i64 %inc2.i.i, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 40), align 8
+10:                                               ; preds = %6
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 48), align 8, !tbaa !14
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 40), align 8, !tbaa !15
+  %12 = add i64 %11, 1
+  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 40), align 8, !tbaa !15
   br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %hooks_internal.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hooks_internal.sroa.3.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i.i)
-  %3 = load atomic i64, ptr %opaque acquire, align 8
-  %rem.i.i = and i64 %3, 1
-  %cmp.not.i.i3 = icmp eq i64 %rem.i.i, 0
-  br i1 %cmp.not.i.i3, label %for.cond.preheader.i.i, label %seq_try_load_hooks.exit.i
+malloc_mutex_lock.exit:                           ; preds = %6, %10
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
+  %13 = load atomic i64, ptr %1 acquire, align 8
+  %14 = and i64 %13, 1
+  %.not.i.i4 = icmp eq i64 %14, 0
+  br i1 %.not.i.i4, label %.preheader.i.i, label %seq_try_load_hooks.exit.i
 
-for.cond.preheader.i.i:                           ; preds = %malloc_mutex_lock.exit
-  %data.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 8
-  br label %for.body.i.i
+.preheader.i.i:                                   ; preds = %malloc_mutex_lock.exit
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %18
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.cond.preheader.i.i
-  %i.07.i.i = phi i64 [ 0, %for.cond.preheader.i.i ], [ %inc.i.i4, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %data.i.i, i64 0, i64 %i.07.i.i
-  %4 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %arrayidx3.i.i = getelementptr inbounds nuw [5 x i64], ptr %buf.i.i, i64 0, i64 %i.07.i.i
-  store i64 %4, ptr %arrayidx3.i.i, align 8
-  %inc.i.i4 = add nuw nsw i64 %i.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i4, 5
-  br i1 %exitcond.not.i.i, label %acquire.i47.i.i, label %for.body.i.i, !llvm.loop !7
-
-acquire.i47.i.i:                                  ; preds = %for.body.i.i
+16:                                               ; preds = %18
   fence acquire
-  %5 = load atomic i64, ptr %opaque monotonic, align 8
-  %cmp6.not.i.i = icmp eq i64 %3, %5
-  br i1 %cmp6.not.i.i, label %if.end8.i.i, label %seq_try_load_hooks.exit.i
+  %17 = load atomic i64, ptr %1 monotonic, align 8
+  %.not12.i.i = icmp eq i64 %13, %17
+  br i1 %.not12.i.i, label %23, label %seq_try_load_hooks.exit.i
 
-if.end8.i.i:                                      ; preds = %acquire.i47.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hooks_internal.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(32) %buf.i.i, i64 32, i1 false)
-  %hooks_internal.sroa.3.0.buf.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.3.i, ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.3.0.buf.i.sroa_idx.i, i64 7, i1 false)
+18:                                               ; preds = %18, %.preheader.i.i
+  %.01113.i.i = phi i64 [ 0, %.preheader.i.i ], [ %22, %18 ]
+  %19 = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %15, i64 0, i64 %.01113.i.i
+  %20 = load atomic i64, ptr %19 monotonic, align 8
+  %21 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %.01113.i.i
+  store i64 %20, ptr %21, align 8, !tbaa !16
+  %22 = add nuw nsw i64 %.01113.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %22, 5
+  br i1 %exitcond.not.i.i, label %16, label %18, !llvm.loop !17
+
+23:                                               ; preds = %16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, i64 7, i1 false)
   br label %seq_try_load_hooks.exit.i
 
-seq_try_load_hooks.exit.i:                        ; preds = %if.end8.i.i, %acquire.i47.i.i, %malloc_mutex_lock.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i4.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i4.i, ptr noundef nonnull align 8 dereferenceable(32) %hooks_internal.sroa.0.i, i64 32, i1 false)
-  %hooks_internal.sroa.2.0.buf.i4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %buf.i4.i, i64 32
-  store i8 0, ptr %hooks_internal.sroa.2.0.buf.i4.sroa_idx.i, align 16
-  %hooks_internal.sroa.3.0.buf.i4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %buf.i4.i, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.3.0.buf.i4.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %hooks_internal.sroa.3.i, i64 7, i1 false)
-  %6 = load atomic i64, ptr %opaque monotonic, align 8
-  %add.i.i = add i64 %6, 1
-  store atomic i64 %add.i.i, ptr %opaque monotonic, align 8
+seq_try_load_hooks.exit.i:                        ; preds = %23, %16, %malloc_mutex_lock.exit
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false)
+  %.sroa.4.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 0, ptr %.sroa.4.0..sroa_idx5.i, align 16
+  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %3, i64 33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx7.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i, i64 7, i1 false)
+  %24 = load atomic i64, ptr %1 monotonic, align 8
+  %25 = add i64 %24, 1
+  store atomic i64 %25, ptr %1 monotonic, align 8
   fence release
-  %data.i5.i = getelementptr inbounds nuw i8, ptr %opaque, i64 8
-  br label %for.body.i6.i
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %27
 
-for.body.i6.i:                                    ; preds = %for.body.i6.i, %seq_try_load_hooks.exit.i
-  %i.014.i.i = phi i64 [ 0, %seq_try_load_hooks.exit.i ], [ %inc.i8.i, %for.body.i6.i ]
-  %arrayidx2.i.i = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %data.i5.i, i64 0, i64 %i.014.i.i
-  %arrayidx3.i7.i = getelementptr inbounds nuw [5 x i64], ptr %buf.i4.i, i64 0, i64 %i.014.i.i
-  %7 = load i64, ptr %arrayidx3.i7.i, align 8
-  store atomic i64 %7, ptr %arrayidx2.i.i monotonic, align 8
-  %inc.i8.i = add nuw nsw i64 %i.014.i.i, 1
-  %exitcond.not.i9.i = icmp eq i64 %inc.i8.i, 5
-  br i1 %exitcond.not.i9.i, label %hook_remove_locked.exit, label %for.body.i6.i, !llvm.loop !8
+27:                                               ; preds = %27, %seq_try_load_hooks.exit.i
+  %.010.i.i = phi i64 [ 0, %seq_try_load_hooks.exit.i ], [ %31, %27 ]
+  %28 = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %26, i64 0, i64 %.010.i.i
+  %29 = getelementptr inbounds nuw [5 x i64], ptr %3, i64 0, i64 %.010.i.i
+  %30 = load i64, ptr %29, align 8, !tbaa !16
+  store atomic i64 %30, ptr %28 monotonic, align 8
+  %31 = add nuw nsw i64 %.010.i.i, 1
+  %exitcond.not.i4.i = icmp eq i64 %31, 5
+  br i1 %exitcond.not.i4.i, label %hook_remove_locked.exit, label %27, !llvm.loop !19
 
-hook_remove_locked.exit:                          ; preds = %for.body.i6.i
-  %add5.i.i = add i64 %6, 2
-  store atomic i64 %add5.i.i, ptr %opaque release, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i4.i)
-  %8 = load atomic i32, ptr @nhooks.0 monotonic, align 4
-  %sub.i = add i32 %8, -1
-  store atomic i32 %sub.i, ptr @nhooks.0 monotonic, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hooks_internal.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %hooks_internal.sroa.3.i)
-  tail call void @tsd_global_slow_dec(ptr noundef %tsdn) #6
+hook_remove_locked.exit:                          ; preds = %27
+  %32 = add i64 %24, 2
+  store atomic i64 %32, ptr %1 release, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
+  %33 = load atomic i32, ptr @nhooks.0 monotonic, align 4
+  %34 = add i32 %33, -1
+  store atomic i32 %34, ptr @nhooks.0 monotonic, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i)
+  tail call void @je_tsd_global_slow_dec(ptr noundef %0) #6
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 104) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 64)) #6
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hooks_mu, i64 64)) #6
   ret void
 }
 
-declare void @tsd_global_slow_dec(ptr noundef) local_unnamed_addr #1
+declare void @je_tsd_global_slow_dec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hook_invoke_alloc(i32 noundef %type, ptr noundef %result, i64 noundef %result_raw, ptr noundef %args_raw) local_unnamed_addr #0 {
-entry:
-  %buf.i = alloca [5 x i64], align 16
-  %0 = load atomic i32, ptr @nhooks.0 monotonic, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %return, label %if.end
+define hidden void @je_hook_invoke_alloc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+atomic_load_u.exit:
+  %4 = alloca [5 x i64], align 16
+  %5 = load atomic i32, ptr @nhooks.0 monotonic, align 4
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %29, label %7, !prof !21
 
-if.end:                                           ; preds = %entry
-  %1 = load i8, ptr @tsd_booted, align 1
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %if.end.i.i, label %hook_reentrantp.exit
+7:                                                ; preds = %atomic_load_u.exit
+  %8 = tail call fastcc ptr @hook_reentrantp()
+  %9 = load i8, ptr %8, align 1, !tbaa !22, !range !24, !noundef !25
+  %10 = trunc nuw i8 %9 to i1
+  br i1 %10, label %29, label %11
 
-if.end.i.i:                                       ; preds = %if.end
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 832
-  %3 = load i8, ptr %state.i.i.i, align 8
-  %cmp6.i.not.i = icmp eq i8 %3, 0
-  br i1 %cmp6.i.not.i, label %hook_reentrantp.exit, label %if.then11.i.i
+11:                                               ; preds = %7
+  store i8 1, ptr %8, align 1, !tbaa !22
+  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
+  br label %13
 
-if.then11.i.i:                                    ; preds = %if.end.i.i
-  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #6
-  br label %hook_reentrantp.exit
+12:                                               ; preds = %28
+  store i8 0, ptr %8, align 1, !tbaa !22
+  br label %29
 
-hook_reentrantp.exit:                             ; preds = %if.end, %if.end.i.i, %if.then11.i.i
-  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %2, %if.end.i.i ]
-  %cmp.i.i.i = icmp eq ptr %retval.i.0.i, null
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 216
-  %retval.0.i = select i1 %cmp.i.i.i, ptr @hook_reentrantp.in_hook_global, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i
-  %4 = load i8, ptr %retval.0.i, align 1
-  %tobool3 = trunc i8 %4 to i1
-  br i1 %tobool3, label %return, label %if.end5
+13:                                               ; preds = %11, %28
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %28 ]
+  %14 = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
+  %15 = load atomic i64, ptr %14 acquire, align 16
+  %16 = and i64 %15, 1
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %.preheader.i, label %seq_try_load_hooks.exit.thread
 
-if.end5:                                          ; preds = %hook_reentrantp.exit
-  store i8 1, ptr %retval.0.i, align 1
-  %hook.sroa.27.0.buf.i.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 24
-  %hook.sroa.3.0.buf.i.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 32
-  br label %for.body
+.preheader.i:                                     ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  br label %20
 
-for.body:                                         ; preds = %if.end5, %for.inc
-  %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i)
-  %5 = load atomic i64, ptr %arrayidx acquire, align 16
-  %rem.i = and i64 %5, 1
-  %cmp.not.i = icmp eq i64 %rem.i, 0
-  br i1 %cmp.not.i, label %for.cond.preheader.i, label %seq_try_load_hooks.exit.thread
-
-for.cond.preheader.i:                             ; preds = %for.body
-  %data.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
-  %i.07.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %data.i, i64 0, i64 %i.07.i
-  %6 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %arrayidx3.i = getelementptr inbounds nuw [5 x i64], ptr %buf.i, i64 0, i64 %i.07.i
-  store i64 %6, ptr %arrayidx3.i, align 8
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 5
-  br i1 %exitcond.not.i, label %acquire.i47.i, label %for.body.i, !llvm.loop !7
-
-acquire.i47.i:                                    ; preds = %for.body.i
+18:                                               ; preds = %20
   fence acquire
-  %7 = load atomic i64, ptr %arrayidx monotonic, align 16
-  %cmp6.not.i = icmp eq i64 %5, %7
-  br i1 %cmp6.not.i, label %if.end11, label %seq_try_load_hooks.exit.thread
+  %19 = load atomic i64, ptr %14 monotonic, align 16
+  %.not12.i = icmp eq i64 %15, %19
+  br i1 %.not12.i, label %25, label %seq_try_load_hooks.exit.thread
 
-seq_try_load_hooks.exit.thread:                   ; preds = %for.body, %acquire.i47.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  br label %for.inc
+20:                                               ; preds = %20, %.preheader.i
+  %.01113.i = phi i64 [ 0, %.preheader.i ], [ %24, %20 ]
+  %21 = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %17, i64 0, i64 %.01113.i
+  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %23 = getelementptr inbounds nuw [5 x i64], ptr %4, i64 0, i64 %.01113.i
+  store i64 %22, ptr %23, align 8, !tbaa !16
+  %24 = add nuw nsw i64 %.01113.i, 1
+  %exitcond.not.i = icmp eq i64 %24, 5
+  br i1 %exitcond.not.i, label %18, label %20, !llvm.loop !17
 
-if.end11:                                         ; preds = %acquire.i47.i
-  %hook.sroa.0.0.copyload = load ptr, ptr %buf.i, align 16
-  %hook.sroa.27.0.copyload = load ptr, ptr %hook.sroa.27.0.buf.i.sroa_idx, align 8
-  %hook.sroa.3.0.copyload = load i8, ptr %hook.sroa.3.0.buf.i.sroa_idx, align 16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  %tobool12 = trunc i8 %hook.sroa.3.0.copyload to i1
-  %cmp15.not = icmp ne ptr %hook.sroa.0.0.copyload, null
-  %or.cond.not = select i1 %tobool12, i1 %cmp15.not, i1 false
-  br i1 %or.cond.not, label %if.then17, label %for.inc
+seq_try_load_hooks.exit.thread:                   ; preds = %13, %18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
+  br label %28
 
-if.then17:                                        ; preds = %if.end11
-  tail call void %hook.sroa.0.0.copyload(ptr noundef %hook.sroa.27.0.copyload, i32 noundef %type, ptr noundef %result, i64 noundef %result_raw, ptr noundef %args_raw) #6
-  br label %for.inc
+25:                                               ; preds = %18
+  %.sroa.0.0.copyload = load ptr, ptr %4, align 16
+  %.sroa.415.0.copyload = load ptr, ptr %.sroa.415.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 16
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
+  %26 = trunc nuw i8 %.sroa.5.0.copyload to i1
+  %.not = icmp ne ptr %.sroa.0.0.copyload, null
+  %or.cond.not = select i1 %26, i1 %.not, i1 false
+  br i1 %or.cond.not, label %27, label %28
 
-for.inc:                                          ; preds = %seq_try_load_hooks.exit.thread, %if.then17, %if.end11
+27:                                               ; preds = %25
+  tail call void %.sroa.0.0.copyload(ptr noundef %.sroa.415.0.copyload, i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #6
+  br label %28
+
+28:                                               ; preds = %seq_try_load_hooks.exit.thread, %27, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %12, label %13, !llvm.loop !26
 
-for.end:                                          ; preds = %for.inc
-  store i8 0, ptr %retval.0.i, align 1
-  br label %return
-
-return:                                           ; preds = %hook_reentrantp.exit, %entry, %for.end
+29:                                               ; preds = %12, %7, %atomic_load_u.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hook_invoke_dalloc(i32 noundef %type, ptr noundef %address, ptr noundef %args_raw) local_unnamed_addr #0 {
-entry:
-  %buf.i = alloca [5 x i64], align 16
-  %0 = load atomic i32, ptr @nhooks.0 monotonic, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %return, label %if.end
+define hidden void @je_hook_invoke_dalloc(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+atomic_load_u.exit:
+  %3 = alloca [5 x i64], align 16
+  %4 = load atomic i32, ptr @nhooks.0 monotonic, align 4
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %28, label %6, !prof !21
 
-if.end:                                           ; preds = %entry
-  %1 = load i8, ptr @tsd_booted, align 1
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %if.end.i.i, label %hook_reentrantp.exit
+6:                                                ; preds = %atomic_load_u.exit
+  %7 = tail call fastcc ptr @hook_reentrantp()
+  %8 = load i8, ptr %7, align 1, !tbaa !22, !range !24, !noundef !25
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %28, label %10
 
-if.end.i.i:                                       ; preds = %if.end
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 832
-  %3 = load i8, ptr %state.i.i.i, align 8
-  %cmp6.i.not.i = icmp eq i8 %3, 0
-  br i1 %cmp6.i.not.i, label %hook_reentrantp.exit, label %if.then11.i.i
+10:                                               ; preds = %6
+  store i8 1, ptr %7, align 1, !tbaa !22
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br label %12
 
-if.then11.i.i:                                    ; preds = %if.end.i.i
-  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #6
-  br label %hook_reentrantp.exit
+11:                                               ; preds = %27
+  store i8 0, ptr %7, align 1, !tbaa !22
+  br label %28
 
-hook_reentrantp.exit:                             ; preds = %if.end, %if.end.i.i, %if.then11.i.i
-  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %2, %if.end.i.i ]
-  %cmp.i.i.i = icmp eq ptr %retval.i.0.i, null
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 216
-  %retval.0.i = select i1 %cmp.i.i.i, ptr @hook_reentrantp.in_hook_global, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i
-  %4 = load i8, ptr %retval.0.i, align 1
-  %tobool3 = trunc i8 %4 to i1
-  br i1 %tobool3, label %return, label %if.end5
+12:                                               ; preds = %10, %27
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %27 ]
+  %13 = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
+  %14 = load atomic i64, ptr %13 acquire, align 16
+  %15 = and i64 %14, 1
+  %.not.i = icmp eq i64 %15, 0
+  br i1 %.not.i, label %.preheader.i, label %seq_try_load_hooks.exit.thread
 
-if.end5:                                          ; preds = %hook_reentrantp.exit
-  store i8 1, ptr %retval.0.i, align 1
-  %hook.sroa.1.0.buf.i.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
-  %hook.sroa.27.0.buf.i.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 24
-  %hook.sroa.3.0.buf.i.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 32
-  br label %for.body
+.preheader.i:                                     ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  br label %19
 
-for.body:                                         ; preds = %if.end5, %for.inc
-  %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i)
-  %5 = load atomic i64, ptr %arrayidx acquire, align 16
-  %rem.i = and i64 %5, 1
-  %cmp.not.i = icmp eq i64 %rem.i, 0
-  br i1 %cmp.not.i, label %for.cond.preheader.i, label %seq_try_load_hooks.exit.thread
-
-for.cond.preheader.i:                             ; preds = %for.body
-  %data.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
-  %i.07.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %data.i, i64 0, i64 %i.07.i
-  %6 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %arrayidx3.i = getelementptr inbounds nuw [5 x i64], ptr %buf.i, i64 0, i64 %i.07.i
-  store i64 %6, ptr %arrayidx3.i, align 8
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 5
-  br i1 %exitcond.not.i, label %acquire.i47.i, label %for.body.i, !llvm.loop !7
-
-acquire.i47.i:                                    ; preds = %for.body.i
+17:                                               ; preds = %19
   fence acquire
-  %7 = load atomic i64, ptr %arrayidx monotonic, align 16
-  %cmp6.not.i = icmp eq i64 %5, %7
-  br i1 %cmp6.not.i, label %if.end11, label %seq_try_load_hooks.exit.thread
+  %18 = load atomic i64, ptr %13 monotonic, align 16
+  %.not12.i = icmp eq i64 %14, %18
+  br i1 %.not12.i, label %24, label %seq_try_load_hooks.exit.thread
 
-seq_try_load_hooks.exit.thread:                   ; preds = %for.body, %acquire.i47.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  br label %for.inc
+19:                                               ; preds = %19, %.preheader.i
+  %.01113.i = phi i64 [ 0, %.preheader.i ], [ %23, %19 ]
+  %20 = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %16, i64 0, i64 %.01113.i
+  %21 = load atomic i64, ptr %20 monotonic, align 8
+  %22 = getelementptr inbounds nuw [5 x i64], ptr %3, i64 0, i64 %.01113.i
+  store i64 %21, ptr %22, align 8, !tbaa !16
+  %23 = add nuw nsw i64 %.01113.i, 1
+  %exitcond.not.i = icmp eq i64 %23, 5
+  br i1 %exitcond.not.i, label %17, label %19, !llvm.loop !17
 
-if.end11:                                         ; preds = %acquire.i47.i
-  %hook.sroa.1.0.copyload = load ptr, ptr %hook.sroa.1.0.buf.i.sroa_idx, align 8
-  %hook.sroa.27.0.copyload = load ptr, ptr %hook.sroa.27.0.buf.i.sroa_idx, align 8
-  %hook.sroa.3.0.copyload = load i8, ptr %hook.sroa.3.0.buf.i.sroa_idx, align 16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  %tobool12 = trunc i8 %hook.sroa.3.0.copyload to i1
-  %cmp15.not = icmp ne ptr %hook.sroa.1.0.copyload, null
-  %or.cond.not = select i1 %tobool12, i1 %cmp15.not, i1 false
-  br i1 %or.cond.not, label %if.then17, label %for.inc
+seq_try_load_hooks.exit.thread:                   ; preds = %12, %17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
+  br label %27
 
-if.then17:                                        ; preds = %if.end11
-  tail call void %hook.sroa.1.0.copyload(ptr noundef %hook.sroa.27.0.copyload, i32 noundef %type, ptr noundef %address, ptr noundef %args_raw) #6
-  br label %for.inc
+24:                                               ; preds = %17
+  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.414.0.copyload = load ptr, ptr %.sroa.414.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 16
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
+  %25 = trunc nuw i8 %.sroa.5.0.copyload to i1
+  %.not = icmp ne ptr %.sroa.3.0.copyload, null
+  %or.cond.not = select i1 %25, i1 %.not, i1 false
+  br i1 %or.cond.not, label %26, label %27
 
-for.inc:                                          ; preds = %seq_try_load_hooks.exit.thread, %if.then17, %if.end11
+26:                                               ; preds = %24
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.414.0.copyload, i32 noundef %0, ptr noundef %1, ptr noundef %2) #6
+  br label %27
+
+27:                                               ; preds = %seq_try_load_hooks.exit.thread, %26, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %11, label %12, !llvm.loop !27
 
-for.end:                                          ; preds = %for.inc
-  store i8 0, ptr %retval.0.i, align 1
-  br label %return
-
-return:                                           ; preds = %hook_reentrantp.exit, %entry, %for.end
+28:                                               ; preds = %11, %6, %atomic_load_u.exit
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hook_invoke_expand(i32 noundef %type, ptr noundef %address, i64 noundef %old_usize, i64 noundef %new_usize, i64 noundef %result_raw, ptr noundef %args_raw) local_unnamed_addr #0 {
-entry:
-  %buf.i = alloca [5 x i64], align 16
-  %0 = load atomic i32, ptr @nhooks.0 monotonic, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %return, label %if.end
+define hidden void @je_hook_invoke_expand(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+atomic_load_u.exit:
+  %6 = alloca [5 x i64], align 16
+  %7 = load atomic i32, ptr @nhooks.0 monotonic, align 4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %31, label %9, !prof !21
 
-if.end:                                           ; preds = %entry
-  %1 = load i8, ptr @tsd_booted, align 1
-  %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %if.end.i.i, label %hook_reentrantp.exit
+9:                                                ; preds = %atomic_load_u.exit
+  %10 = tail call fastcc ptr @hook_reentrantp()
+  %11 = load i8, ptr %10, align 1, !tbaa !22, !range !24, !noundef !25
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %31, label %13
 
-if.end.i.i:                                       ; preds = %if.end
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 832
-  %3 = load i8, ptr %state.i.i.i, align 8
-  %cmp6.i.not.i = icmp eq i8 %3, 0
-  br i1 %cmp6.i.not.i, label %hook_reentrantp.exit, label %if.then11.i.i
+13:                                               ; preds = %9
+  store i8 1, ptr %10, align 1, !tbaa !22
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  br label %15
 
-if.then11.i.i:                                    ; preds = %if.end.i.i
-  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #6
-  br label %hook_reentrantp.exit
+14:                                               ; preds = %30
+  store i8 0, ptr %10, align 1, !tbaa !22
+  br label %31
 
-hook_reentrantp.exit:                             ; preds = %if.end, %if.end.i.i, %if.then11.i.i
-  %retval.i.0.i = phi ptr [ null, %if.end ], [ %call13.i.i, %if.then11.i.i ], [ %2, %if.end.i.i ]
-  %cmp.i.i.i = icmp eq ptr %retval.i.0.i, null
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 216
-  %retval.0.i = select i1 %cmp.i.i.i, ptr @hook_reentrantp.in_hook_global, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_in_hook.i.i
-  %4 = load i8, ptr %retval.0.i, align 1
-  %tobool3 = trunc i8 %4 to i1
-  br i1 %tobool3, label %return, label %if.end5
+15:                                               ; preds = %13, %30
+  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %30 ]
+  %16 = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
+  %17 = load atomic i64, ptr %16 acquire, align 16
+  %18 = and i64 %17, 1
+  %.not.i = icmp eq i64 %18, 0
+  br i1 %.not.i, label %.preheader.i, label %seq_try_load_hooks.exit.thread
 
-if.end5:                                          ; preds = %hook_reentrantp.exit
-  store i8 1, ptr %retval.0.i, align 1
-  %hook.sroa.1.0.buf.i.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
-  %hook.sroa.2.0.buf.i.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 24
-  %hook.sroa.3.0.buf.i.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 32
-  br label %for.body
+.preheader.i:                                     ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  br label %22
 
-for.body:                                         ; preds = %if.end5, %for.inc
-  %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i)
-  %5 = load atomic i64, ptr %arrayidx acquire, align 16
-  %rem.i = and i64 %5, 1
-  %cmp.not.i = icmp eq i64 %rem.i, 0
-  br i1 %cmp.not.i, label %for.cond.preheader.i, label %seq_try_load_hooks.exit.thread
-
-for.cond.preheader.i:                             ; preds = %for.body
-  %data.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
-  %i.07.i = phi i64 [ 0, %for.cond.preheader.i ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %data.i, i64 0, i64 %i.07.i
-  %6 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %arrayidx3.i = getelementptr inbounds nuw [5 x i64], ptr %buf.i, i64 0, i64 %i.07.i
-  store i64 %6, ptr %arrayidx3.i, align 8
-  %inc.i = add nuw nsw i64 %i.07.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 5
-  br i1 %exitcond.not.i, label %acquire.i47.i, label %for.body.i, !llvm.loop !7
-
-acquire.i47.i:                                    ; preds = %for.body.i
+20:                                               ; preds = %22
   fence acquire
-  %7 = load atomic i64, ptr %arrayidx monotonic, align 16
-  %cmp6.not.i = icmp eq i64 %5, %7
-  br i1 %cmp6.not.i, label %if.end11, label %seq_try_load_hooks.exit.thread
+  %21 = load atomic i64, ptr %16 monotonic, align 16
+  %.not12.i = icmp eq i64 %17, %21
+  br i1 %.not12.i, label %27, label %seq_try_load_hooks.exit.thread
 
-seq_try_load_hooks.exit.thread:                   ; preds = %for.body, %acquire.i47.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  br label %for.inc
+22:                                               ; preds = %22, %.preheader.i
+  %.01113.i = phi i64 [ 0, %.preheader.i ], [ %26, %22 ]
+  %23 = getelementptr inbounds nuw [5 x %struct.atomic_zu_t], ptr %19, i64 0, i64 %.01113.i
+  %24 = load atomic i64, ptr %23 monotonic, align 8
+  %25 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %.01113.i
+  store i64 %24, ptr %25, align 8, !tbaa !16
+  %26 = add nuw nsw i64 %.01113.i, 1
+  %exitcond.not.i = icmp eq i64 %26, 5
+  br i1 %exitcond.not.i, label %20, label %22, !llvm.loop !17
 
-if.end11:                                         ; preds = %acquire.i47.i
-  %hook.sroa.1.0.copyload = load ptr, ptr %hook.sroa.1.0.buf.i.sroa_idx, align 16
-  %hook.sroa.2.0.copyload = load ptr, ptr %hook.sroa.2.0.buf.i.sroa_idx, align 8
-  %hook.sroa.3.0.copyload = load i8, ptr %hook.sroa.3.0.buf.i.sroa_idx, align 16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
-  %tobool12 = trunc i8 %hook.sroa.3.0.copyload to i1
-  %cmp15.not = icmp ne ptr %hook.sroa.1.0.copyload, null
-  %or.cond.not = select i1 %tobool12, i1 %cmp15.not, i1 false
-  br i1 %or.cond.not, label %if.then17, label %for.inc
+seq_try_load_hooks.exit.thread:                   ; preds = %15, %20
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
+  br label %30
 
-if.then17:                                        ; preds = %if.end11
-  tail call void %hook.sroa.1.0.copyload(ptr noundef %hook.sroa.2.0.copyload, i32 noundef %type, ptr noundef %address, i64 noundef %old_usize, i64 noundef %new_usize, i64 noundef %result_raw, ptr noundef %args_raw) #6
-  br label %for.inc
+27:                                               ; preds = %20
+  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 16
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 16
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
+  %28 = trunc nuw i8 %.sroa.5.0.copyload to i1
+  %.not = icmp ne ptr %.sroa.3.0.copyload, null
+  %or.cond.not = select i1 %28, i1 %.not, i1 false
+  br i1 %or.cond.not, label %29, label %30
 
-for.inc:                                          ; preds = %seq_try_load_hooks.exit.thread, %if.then17, %if.end11
+29:                                               ; preds = %27
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.4.0.copyload, i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #6
+  br label %30
+
+30:                                               ; preds = %seq_try_load_hooks.exit.thread, %29, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %14, label %15, !llvm.loop !28
 
-for.end:                                          ; preds = %for.inc
-  store i8 0, ptr %retval.0.i, align 1
-  br label %return
-
-return:                                           ; preds = %hook_reentrantp.exit, %entry, %for.end
+31:                                               ; preds = %14, %9, %atomic_load_u.exit
   ret void
 }
 
-declare void @malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #1
+declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #2
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
-declare ptr @tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: nounwind uwtable
+define internal fastcc nonnull ptr @hook_reentrantp() unnamed_addr #0 {
+  %1 = load i8, ptr @je_tsd_booted, align 1, !tbaa !22, !range !24, !noundef !25
+  %2 = trunc nuw i8 %1 to i1
+  br i1 %2, label %3, label %tsdn_in_hookp_get.exit
+
+3:                                                ; preds = %0
+  %4 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 832
+  %6 = load i8, ptr %5, align 8, !tbaa !29
+  %.not.i = icmp eq i8 %6, 0
+  br i1 %.not.i, label %tsdn_fetch.exit.thread8, label %tsdn_fetch.exit, !prof !21
+
+tsdn_fetch.exit:                                  ; preds = %3
+  %7 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %4, i1 noundef zeroext false) #6
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %tsdn_in_hookp_get.exit, label %tsdn_fetch.exit.thread8
+
+tsdn_fetch.exit.thread8:                          ; preds = %3, %tsdn_fetch.exit
+  %.0.i10 = phi ptr [ %7, %tsdn_fetch.exit ], [ %4, %3 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 216
+  br label %tsdn_in_hookp_get.exit
+
+tsdn_in_hookp_get.exit:                           ; preds = %0, %tsdn_fetch.exit, %tsdn_fetch.exit.thread8
+  %.0.i5 = phi ptr [ %9, %tsdn_fetch.exit.thread8 ], [ null, %tsdn_fetch.exit ], [ null, %0 ]
+  %.not = icmp eq ptr %.0.i5, null
+  %hook_reentrantp.in_hook_global. = select i1 %.not, ptr @hook_reentrantp.in_hook_global, ptr %.0.i5
+  ret ptr %hook_reentrantp.in_hook_global.
+}
+
+declare ptr @je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!5, !7, i64 56}
+!5 = !{!"", !6, i64 0, !6, i64 8, !7, i64 16, !7, i64 24, !10, i64 32, !11, i64 36, !7, i64 40, !12, i64 48, !7, i64 56}
+!6 = !{!"", !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!"", !10, i64 0}
+!12 = !{!"p1 _ZTS6tsdn_s", !13, i64 0}
+!13 = !{!"any pointer", !8, i64 0}
+!14 = !{!5, !12, i64 48}
+!15 = !{!5, !7, i64 40}
+!16 = !{!7, !7, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"_Bool", !8, i64 0}
+!24 = !{i8 0, i8 2}
+!25 = !{}
+!26 = distinct !{!26, !18}
+!27 = distinct !{!27, !18}
+!28 = distinct !{!28, !18}
+!29 = !{!8, !8, i64 0}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.hiredisAllocFuncs = type { ptr, ptr, ptr, ptr, ptr }
 
@@ -21,34 +21,32 @@ declare noalias ptr @strdup(ptr noundef) #3
 declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define void @hiredisSetAllocators(ptr dead_on_unwind noalias writable sret(%struct.hiredisAllocFuncs) align 8 %agg.result, ptr noundef %override) #4 {
-entry:
-  %override.addr = alloca ptr, align 8
-  store ptr %override, ptr %override.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 @hiredisAllocFns, i64 40, i1 false)
-  %0 = load ptr, ptr %override.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @hiredisAllocFns, ptr align 8 %0, i64 40, i1 false)
+define void @hiredisSetAllocators(ptr dead_on_unwind noalias writable sret(%struct.hiredisAllocFuncs) align 8 %0, ptr noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 @hiredisAllocFns, i64 40, i1 false), !tbaa.struct !9
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @hiredisAllocFns, ptr align 8 %4, i64 40, i1 false), !tbaa.struct !9
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @hiredisResetAllocators() #4 {
-entry:
-  %.compoundliteral = alloca %struct.hiredisAllocFuncs, align 8
-  %mallocFn = getelementptr inbounds %struct.hiredisAllocFuncs, ptr %.compoundliteral, i32 0, i32 0
-  store ptr @malloc, ptr %mallocFn, align 8
-  %callocFn = getelementptr inbounds %struct.hiredisAllocFuncs, ptr %.compoundliteral, i32 0, i32 1
-  store ptr @calloc, ptr %callocFn, align 8
-  %reallocFn = getelementptr inbounds %struct.hiredisAllocFuncs, ptr %.compoundliteral, i32 0, i32 2
-  store ptr @realloc, ptr %reallocFn, align 8
-  %strdupFn = getelementptr inbounds %struct.hiredisAllocFuncs, ptr %.compoundliteral, i32 0, i32 3
-  store ptr @strdup, ptr %strdupFn, align 8
-  %freeFn = getelementptr inbounds %struct.hiredisAllocFuncs, ptr %.compoundliteral, i32 0, i32 4
-  store ptr @free, ptr %freeFn, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @hiredisAllocFns, ptr align 8 %.compoundliteral, i64 40, i1 false)
+  %1 = alloca %struct.hiredisAllocFuncs, align 8
+  %2 = getelementptr inbounds nuw %struct.hiredisAllocFuncs, ptr %1, i32 0, i32 0
+  store ptr @malloc, ptr %2, align 8, !tbaa !11
+  %3 = getelementptr inbounds nuw %struct.hiredisAllocFuncs, ptr %1, i32 0, i32 1
+  store ptr @calloc, ptr %3, align 8, !tbaa !13
+  %4 = getelementptr inbounds nuw %struct.hiredisAllocFuncs, ptr %1, i32 0, i32 2
+  store ptr @realloc, ptr %4, align 8, !tbaa !14
+  %5 = getelementptr inbounds nuw %struct.hiredisAllocFuncs, ptr %1, i32 0, i32 3
+  store ptr @strdup, ptr %5, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw %struct.hiredisAllocFuncs, ptr %1, i32 0, i32 4
+  store ptr @free, ptr %6, align 8, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 @hiredisAllocFns, ptr align 8 %1, i64 40, i1 false), !tbaa.struct !9
   ret void
 }
 
@@ -65,3 +63,16 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS17hiredisAllocFuncs", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{i64 0, i64 8, !10, i64 8, i64 8, !10, i64 16, i64 8, !10, i64 24, i64 8, !10, i64 32, i64 8, !10}
+!10 = !{!6, !6, i64 0}
+!11 = !{!12, !6, i64 0}
+!12 = !{!"hiredisAllocFuncs", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32}
+!13 = !{!12, !6, i64 8}
+!14 = !{!12, !6, i64 16}
+!15 = !{!12, !6, i64 24}
+!16 = !{!12, !6, i64 32}

@@ -1,13 +1,21 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.scriptFlag = type { i64, ptr }
-%struct.engine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.engine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.luaEngineCtx = type { ptr }
 %struct.registerFunctionArgs = type { ptr, ptr, ptr, i64 }
 %struct.loadCtx = type { ptr, i64, i64 }
 %struct.errorInfo = type { ptr, ptr, ptr, i32 }
 %struct.luaFunctionCtx = type { i32 }
+%struct.lua_State = type { ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i32, i32, ptr, %struct.lua_TValue, %struct.lua_TValue, ptr, ptr, ptr, i64 }
+%struct.lua_TValue = type { %union.Value, i32 }
+%union.Value = type { ptr }
+%struct.global_State = type { %struct.stringtable, ptr, ptr, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.Mbuffer, i64, i64, i64, i64, i32, i32, ptr, %struct.lua_TValue, ptr, %struct.UpVal, [9 x ptr], [17 x ptr] }
+%struct.stringtable = type { ptr, i32, i32 }
+%struct.Mbuffer = type { ptr, i64, i64 }
+%struct.UpVal = type { ptr, i8, i8, ptr, %union.anon }
+%union.anon = type { %struct.lua_TValue }
 %struct.sdshdr8 = type { i8, i8, i8, [0 x i8] }
 %struct.sdshdr16 = type <{ i16, i16, i8, [0 x i8] }>
 %struct.sdshdr32 = type <{ i32, i32, i8, [0 x i8] }>
@@ -49,1393 +57,1621 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [15 x i8] c"function_lua.c\00", align 1
 @getMonotonicUs = external global ptr, align 8
 @.str.33 = private unnamed_addr constant [32 x i8] c"Error registering functions: %s\00", align 1
+@gc_count = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [9 x i8] c"load_ctx\00", align 1
 @.str.35 = private unnamed_addr constant [22 x i8] c"FUNCTION LOAD timeout\00", align 1
+@.str.36 = private unnamed_addr constant [15 x i8] c"tcache.destroy\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @luaEngineInitEngine() #0 {
-entry:
-  %lua_engine_ctx = alloca ptr, align 8
-  %errh_func = alloca ptr, align 8
-  %lua_engine = alloca ptr, align 8
-  %.compoundliteral = alloca %struct.engine, align 8
-  %call = call noalias ptr @zmalloc(i64 noundef 8) #8
-  store ptr %call, ptr %lua_engine_ctx, align 8
-  %call1 = call ptr @luaL_newstate()
-  %0 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua = getelementptr inbounds %struct.luaEngineCtx, ptr %0, i32 0, i32 0
-  store ptr %call1, ptr %lua, align 8
-  %1 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua2 = getelementptr inbounds %struct.luaEngineCtx, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %lua2, align 8
-  call void @luaRegisterRedisAPI(ptr noundef %2)
-  %3 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua3 = getelementptr inbounds %struct.luaEngineCtx, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %lua3, align 8
-  call void @lua_createtable(ptr noundef %4, i32 noundef 0, i32 noundef 0)
-  %5 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua4 = getelementptr inbounds %struct.luaEngineCtx, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %lua4, align 8
-  call void @lua_createtable(ptr noundef %6, i32 noundef 0, i32 noundef 0)
-  %7 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua5 = getelementptr inbounds %struct.luaEngineCtx, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %lua5, align 8
-  call void @lua_pushstring(ptr noundef %8, ptr noundef @.str)
-  %9 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua6 = getelementptr inbounds %struct.luaEngineCtx, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %lua6, align 8
-  call void @lua_pushcclosure(ptr noundef %10, ptr noundef @luaRegisterFunction, i32 noundef 0)
-  %11 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua7 = getelementptr inbounds %struct.luaEngineCtx, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %lua7, align 8
-  call void @lua_settable(ptr noundef %12, i32 noundef -3)
-  %13 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua8 = getelementptr inbounds %struct.luaEngineCtx, ptr %13, i32 0, i32 0
-  %14 = load ptr, ptr %lua8, align 8
-  call void @luaRegisterLogFunction(ptr noundef %14)
-  %15 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua9 = getelementptr inbounds %struct.luaEngineCtx, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %lua9, align 8
-  call void @luaRegisterVersion(ptr noundef %16)
-  %17 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua10 = getelementptr inbounds %struct.luaEngineCtx, ptr %17, i32 0, i32 0
-  %18 = load ptr, ptr %lua10, align 8
-  call void @luaSetErrorMetatable(ptr noundef %18)
-  %19 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua11 = getelementptr inbounds %struct.luaEngineCtx, ptr %19, i32 0, i32 0
-  %20 = load ptr, ptr %lua11, align 8
-  call void @lua_setfield(ptr noundef %20, i32 noundef -2, ptr noundef @.str.1)
-  %21 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua12 = getelementptr inbounds %struct.luaEngineCtx, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %lua12, align 8
-  call void @luaSetErrorMetatable(ptr noundef %22)
-  %23 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua13 = getelementptr inbounds %struct.luaEngineCtx, ptr %23, i32 0, i32 0
-  %24 = load ptr, ptr %lua13, align 8
-  call void @luaSetTableProtectionRecursively(ptr noundef %24)
-  %25 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua14 = getelementptr inbounds %struct.luaEngineCtx, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %lua14, align 8
-  call void @lua_setfield(ptr noundef %26, i32 noundef -10000, ptr noundef @.str.2)
-  %27 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua15 = getelementptr inbounds %struct.luaEngineCtx, ptr %27, i32 0, i32 0
-  %28 = load ptr, ptr %lua15, align 8
-  call void @lua_pushstring(ptr noundef %28, ptr noundef @.str.3)
-  store ptr @.str.4, ptr %errh_func, align 8
-  %29 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua16 = getelementptr inbounds %struct.luaEngineCtx, ptr %29, i32 0, i32 0
-  %30 = load ptr, ptr %lua16, align 8
-  %31 = load ptr, ptr %errh_func, align 8
-  %32 = load ptr, ptr %errh_func, align 8
-  %call17 = call i64 @strlen(ptr noundef %32) #9
-  %call18 = call i32 @luaL_loadbuffer(ptr noundef %30, ptr noundef %31, i64 noundef %call17, ptr noundef @.str.5)
-  %33 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua19 = getelementptr inbounds %struct.luaEngineCtx, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %lua19, align 8
-  %call20 = call i32 @lua_pcall(ptr noundef %34, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %35 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua21 = getelementptr inbounds %struct.luaEngineCtx, ptr %35, i32 0, i32 0
-  %36 = load ptr, ptr %lua21, align 8
-  call void @lua_settable(ptr noundef %36, i32 noundef -10000)
-  %37 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua22 = getelementptr inbounds %struct.luaEngineCtx, ptr %37, i32 0, i32 0
-  %38 = load ptr, ptr %lua22, align 8
-  call void @lua_pushvalue(ptr noundef %38, i32 noundef -10002)
-  %39 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua23 = getelementptr inbounds %struct.luaEngineCtx, ptr %39, i32 0, i32 0
-  %40 = load ptr, ptr %lua23, align 8
-  call void @luaSetErrorMetatable(ptr noundef %40)
-  %41 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua24 = getelementptr inbounds %struct.luaEngineCtx, ptr %41, i32 0, i32 0
-  %42 = load ptr, ptr %lua24, align 8
-  call void @luaSetTableProtectionRecursively(ptr noundef %42)
-  %43 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua25 = getelementptr inbounds %struct.luaEngineCtx, ptr %43, i32 0, i32 0
-  %44 = load ptr, ptr %lua25, align 8
-  call void @lua_settop(ptr noundef %44, i32 noundef -2)
-  %45 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua26 = getelementptr inbounds %struct.luaEngineCtx, ptr %45, i32 0, i32 0
-  %46 = load ptr, ptr %lua26, align 8
-  call void @lua_pushvalue(ptr noundef %46, i32 noundef -10002)
-  %47 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua27 = getelementptr inbounds %struct.luaEngineCtx, ptr %47, i32 0, i32 0
-  %48 = load ptr, ptr %lua27, align 8
-  call void @lua_setfield(ptr noundef %48, i32 noundef -10000, ptr noundef @.str.6)
-  %49 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua28 = getelementptr inbounds %struct.luaEngineCtx, ptr %49, i32 0, i32 0
-  %50 = load ptr, ptr %lua28, align 8
-  %51 = load ptr, ptr %lua_engine_ctx, align 8
-  call void @luaSaveOnRegistry(ptr noundef %50, ptr noundef @.str.7, ptr noundef %51)
-  %52 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua29 = getelementptr inbounds %struct.luaEngineCtx, ptr %52, i32 0, i32 0
-  %53 = load ptr, ptr %lua29, align 8
-  call void @lua_createtable(ptr noundef %53, i32 noundef 0, i32 noundef 0)
-  %54 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua30 = getelementptr inbounds %struct.luaEngineCtx, ptr %54, i32 0, i32 0
-  %55 = load ptr, ptr %lua30, align 8
-  call void @lua_createtable(ptr noundef %55, i32 noundef 0, i32 noundef 0)
-  %56 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua31 = getelementptr inbounds %struct.luaEngineCtx, ptr %56, i32 0, i32 0
-  %57 = load ptr, ptr %lua31, align 8
-  call void @lua_pushvalue(ptr noundef %57, i32 noundef -10002)
-  %58 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua32 = getelementptr inbounds %struct.luaEngineCtx, ptr %58, i32 0, i32 0
-  %59 = load ptr, ptr %lua32, align 8
-  call void @lua_setfield(ptr noundef %59, i32 noundef -2, ptr noundef @.str.8)
-  %60 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua33 = getelementptr inbounds %struct.luaEngineCtx, ptr %60, i32 0, i32 0
-  %61 = load ptr, ptr %lua33, align 8
-  call void @lua_enablereadonlytable(ptr noundef %61, i32 noundef -1, i32 noundef 1)
-  %62 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua34 = getelementptr inbounds %struct.luaEngineCtx, ptr %62, i32 0, i32 0
-  %63 = load ptr, ptr %lua34, align 8
-  %call35 = call i32 @lua_setmetatable(ptr noundef %63, i32 noundef -2)
-  %64 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua36 = getelementptr inbounds %struct.luaEngineCtx, ptr %64, i32 0, i32 0
-  %65 = load ptr, ptr %lua36, align 8
-  call void @lua_enablereadonlytable(ptr noundef %65, i32 noundef -1, i32 noundef 1)
-  %66 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua37 = getelementptr inbounds %struct.luaEngineCtx, ptr %66, i32 0, i32 0
-  %67 = load ptr, ptr %lua37, align 8
-  call void @lua_replace(ptr noundef %67, i32 noundef -10002)
-  %call38 = call noalias ptr @zmalloc(i64 noundef 56) #8
-  store ptr %call38, ptr %lua_engine, align 8
-  %68 = load ptr, ptr %lua_engine, align 8
-  %engine_ctx = getelementptr inbounds %struct.engine, ptr %.compoundliteral, i32 0, i32 0
-  %69 = load ptr, ptr %lua_engine_ctx, align 8
-  store ptr %69, ptr %engine_ctx, align 8
-  %create = getelementptr inbounds %struct.engine, ptr %.compoundliteral, i32 0, i32 1
-  store ptr @luaEngineCreate, ptr %create, align 8
-  %call39 = getelementptr inbounds %struct.engine, ptr %.compoundliteral, i32 0, i32 2
-  store ptr @luaEngineCall, ptr %call39, align 8
-  %get_used_memory = getelementptr inbounds %struct.engine, ptr %.compoundliteral, i32 0, i32 3
-  store ptr @luaEngineGetUsedMemoy, ptr %get_used_memory, align 8
-  %get_function_memory_overhead = getelementptr inbounds %struct.engine, ptr %.compoundliteral, i32 0, i32 4
-  store ptr @luaEngineFunctionMemoryOverhead, ptr %get_function_memory_overhead, align 8
-  %get_engine_memory_overhead = getelementptr inbounds %struct.engine, ptr %.compoundliteral, i32 0, i32 5
-  store ptr @luaEngineMemoryOverhead, ptr %get_engine_memory_overhead, align 8
-  %free_function = getelementptr inbounds %struct.engine, ptr %.compoundliteral, i32 0, i32 6
-  store ptr @luaEngineFreeFunction, ptr %free_function, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %68, ptr align 8 %.compoundliteral, i64 56, i1 false)
-  %70 = load ptr, ptr %lua_engine, align 8
-  %call40 = call i32 @functionsRegisterEngine(ptr noundef @.str.9, ptr noundef %70)
-  ret i32 %call40
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.engine, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  %5 = call noalias ptr @zmalloc(i64 noundef 8) #12
+  store ptr %5, ptr %1, align 8, !tbaa !5
+  %6 = call ptr @createLuaState()
+  %7 = load ptr, ptr %1, align 8, !tbaa !5
+  %8 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %1, align 8, !tbaa !5
+  %10 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
+  call void @luaRegisterRedisAPI(ptr noundef %11)
+  %12 = load ptr, ptr %1, align 8, !tbaa !5
+  %13 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !10
+  call void @lua_createtable(ptr noundef %14, i32 noundef 0, i32 noundef 0)
+  %15 = load ptr, ptr %1, align 8, !tbaa !5
+  %16 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !10
+  call void @lua_createtable(ptr noundef %17, i32 noundef 0, i32 noundef 0)
+  %18 = load ptr, ptr %1, align 8, !tbaa !5
+  %19 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !10
+  call void @lua_pushstring(ptr noundef %20, ptr noundef @.str)
+  %21 = load ptr, ptr %1, align 8, !tbaa !5
+  %22 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !10
+  call void @lua_pushcclosure(ptr noundef %23, ptr noundef @luaRegisterFunction, i32 noundef 0)
+  %24 = load ptr, ptr %1, align 8, !tbaa !5
+  %25 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !10
+  call void @lua_settable(ptr noundef %26, i32 noundef -3)
+  %27 = load ptr, ptr %1, align 8, !tbaa !5
+  %28 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !10
+  call void @luaRegisterLogFunction(ptr noundef %29)
+  %30 = load ptr, ptr %1, align 8, !tbaa !5
+  %31 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !10
+  call void @luaRegisterVersion(ptr noundef %32)
+  %33 = load ptr, ptr %1, align 8, !tbaa !5
+  %34 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !10
+  call void @luaSetErrorMetatable(ptr noundef %35)
+  %36 = load ptr, ptr %1, align 8, !tbaa !5
+  %37 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !10
+  call void @lua_setfield(ptr noundef %38, i32 noundef -2, ptr noundef @.str.1)
+  %39 = load ptr, ptr %1, align 8, !tbaa !5
+  %40 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !10
+  call void @luaSetErrorMetatable(ptr noundef %41)
+  %42 = load ptr, ptr %1, align 8, !tbaa !5
+  %43 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !10
+  call void @luaSetTableProtectionRecursively(ptr noundef %44)
+  %45 = load ptr, ptr %1, align 8, !tbaa !5
+  %46 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !10
+  call void @lua_setfield(ptr noundef %47, i32 noundef -10000, ptr noundef @.str.2)
+  %48 = load ptr, ptr %1, align 8, !tbaa !5
+  %49 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !10
+  call void @lua_pushstring(ptr noundef %50, ptr noundef @.str.3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
+  store ptr @.str.4, ptr %2, align 8, !tbaa !13
+  %51 = load ptr, ptr %1, align 8, !tbaa !5
+  %52 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !10
+  %54 = load ptr, ptr %2, align 8, !tbaa !13
+  %55 = load ptr, ptr %2, align 8, !tbaa !13
+  %56 = call i64 @strlen(ptr noundef %55) #13
+  %57 = call i32 @luaL_loadbuffer(ptr noundef %53, ptr noundef %54, i64 noundef %56, ptr noundef @.str.5)
+  %58 = load ptr, ptr %1, align 8, !tbaa !5
+  %59 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !10
+  %61 = call i32 @lua_pcall(ptr noundef %60, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %62 = load ptr, ptr %1, align 8, !tbaa !5
+  %63 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !10
+  call void @lua_settable(ptr noundef %64, i32 noundef -10000)
+  %65 = load ptr, ptr %1, align 8, !tbaa !5
+  %66 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8, !tbaa !10
+  call void @lua_pushvalue(ptr noundef %67, i32 noundef -10002)
+  %68 = load ptr, ptr %1, align 8, !tbaa !5
+  %69 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !10
+  call void @luaSetErrorMetatable(ptr noundef %70)
+  %71 = load ptr, ptr %1, align 8, !tbaa !5
+  %72 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !10
+  call void @luaSetTableProtectionRecursively(ptr noundef %73)
+  %74 = load ptr, ptr %1, align 8, !tbaa !5
+  %75 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !10
+  call void @lua_settop(ptr noundef %76, i32 noundef -2)
+  %77 = load ptr, ptr %1, align 8, !tbaa !5
+  %78 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8, !tbaa !10
+  call void @lua_pushvalue(ptr noundef %79, i32 noundef -10002)
+  %80 = load ptr, ptr %1, align 8, !tbaa !5
+  %81 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8, !tbaa !10
+  call void @lua_setfield(ptr noundef %82, i32 noundef -10000, ptr noundef @.str.6)
+  %83 = load ptr, ptr %1, align 8, !tbaa !5
+  %84 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8, !tbaa !10
+  %86 = load ptr, ptr %1, align 8, !tbaa !5
+  call void @luaSaveOnRegistry(ptr noundef %85, ptr noundef @.str.7, ptr noundef %86)
+  %87 = load ptr, ptr %1, align 8, !tbaa !5
+  %88 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !10
+  call void @lua_createtable(ptr noundef %89, i32 noundef 0, i32 noundef 0)
+  %90 = load ptr, ptr %1, align 8, !tbaa !5
+  %91 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8, !tbaa !10
+  call void @lua_createtable(ptr noundef %92, i32 noundef 0, i32 noundef 0)
+  %93 = load ptr, ptr %1, align 8, !tbaa !5
+  %94 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %93, i32 0, i32 0
+  %95 = load ptr, ptr %94, align 8, !tbaa !10
+  call void @lua_pushvalue(ptr noundef %95, i32 noundef -10002)
+  %96 = load ptr, ptr %1, align 8, !tbaa !5
+  %97 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %96, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8, !tbaa !10
+  call void @lua_setfield(ptr noundef %98, i32 noundef -2, ptr noundef @.str.8)
+  %99 = load ptr, ptr %1, align 8, !tbaa !5
+  %100 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8, !tbaa !10
+  call void @lua_enablereadonlytable(ptr noundef %101, i32 noundef -1, i32 noundef 1)
+  %102 = load ptr, ptr %1, align 8, !tbaa !5
+  %103 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8, !tbaa !10
+  %105 = call i32 @lua_setmetatable(ptr noundef %104, i32 noundef -2)
+  %106 = load ptr, ptr %1, align 8, !tbaa !5
+  %107 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8, !tbaa !10
+  call void @lua_enablereadonlytable(ptr noundef %108, i32 noundef -1, i32 noundef 1)
+  %109 = load ptr, ptr %1, align 8, !tbaa !5
+  %110 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8, !tbaa !10
+  call void @lua_replace(ptr noundef %111, i32 noundef -10002)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %112 = call noalias ptr @zmalloc(i64 noundef 64) #12
+  store ptr %112, ptr %3, align 8, !tbaa !15
+  %113 = load ptr, ptr %3, align 8, !tbaa !15
+  %114 = getelementptr inbounds nuw %struct.engine, ptr %4, i32 0, i32 0
+  %115 = load ptr, ptr %1, align 8, !tbaa !5
+  store ptr %115, ptr %114, align 8, !tbaa !17
+  %116 = getelementptr inbounds nuw %struct.engine, ptr %4, i32 0, i32 1
+  store ptr @luaEngineCreate, ptr %116, align 8, !tbaa !19
+  %117 = getelementptr inbounds nuw %struct.engine, ptr %4, i32 0, i32 2
+  store ptr @luaEngineCall, ptr %117, align 8, !tbaa !20
+  %118 = getelementptr inbounds nuw %struct.engine, ptr %4, i32 0, i32 3
+  store ptr @luaEngineGetUsedMemoy, ptr %118, align 8, !tbaa !21
+  %119 = getelementptr inbounds nuw %struct.engine, ptr %4, i32 0, i32 4
+  store ptr @luaEngineFunctionMemoryOverhead, ptr %119, align 8, !tbaa !22
+  %120 = getelementptr inbounds nuw %struct.engine, ptr %4, i32 0, i32 5
+  store ptr @luaEngineMemoryOverhead, ptr %120, align 8, !tbaa !23
+  %121 = getelementptr inbounds nuw %struct.engine, ptr %4, i32 0, i32 6
+  store ptr @luaEngineFreeFunction, ptr %121, align 8, !tbaa !24
+  %122 = getelementptr inbounds nuw %struct.engine, ptr %4, i32 0, i32 7
+  store ptr @luaEngineFreeCtx, ptr %122, align 8, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %113, ptr align 8 %4, i64 64, i1 false), !tbaa.struct !26
+  %123 = load ptr, ptr %3, align 8, !tbaa !15
+  %124 = call i32 @functionsRegisterEngine(ptr noundef @.str.9, ptr noundef %123)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
+  ret i32 %124
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) #1
+declare noalias ptr @zmalloc(i64 noundef) #2
 
-declare ptr @luaL_newstate() #2
+declare ptr @createLuaState() #3
 
-declare void @luaRegisterRedisAPI(ptr noundef) #2
+declare void @luaRegisterRedisAPI(ptr noundef) #3
 
-declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare void @lua_pushstring(ptr noundef, ptr noundef) #2
+declare void @lua_pushstring(ptr noundef, ptr noundef) #3
 
-declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) #2
+declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaRegisterFunction(ptr noundef %lua) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %lua.addr = alloca ptr, align 8
-  %register_f_args = alloca %struct.registerFunctionArgs, align 8
-  %load_ctx = alloca ptr, align 8
-  %err = alloca ptr, align 8
-  store ptr %lua, ptr %lua.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %register_f_args, i8 0, i64 32, i1 false)
-  %0 = load ptr, ptr %lua.addr, align 8
-  %call = call ptr @luaGetFromRegistry(ptr noundef %0, ptr noundef @.str.10)
-  store ptr %call, ptr %load_ctx, align 8
-  %1 = load ptr, ptr %load_ctx, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @luaRegisterFunction(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.registerFunctionArgs, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #11
+  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %8 = load ptr, ptr %3, align 8, !tbaa !28
+  %9 = call ptr @luaGetFromRegistry(ptr noundef %8, ptr noundef @.str.10)
+  store ptr %9, ptr %5, align 8, !tbaa !29
+  %10 = load ptr, ptr %5, align 8, !tbaa !29
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %16, label %12
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %lua.addr, align 8
-  call void @luaPushError(ptr noundef %2, ptr noundef @.str.11)
-  %3 = load ptr, ptr %lua.addr, align 8
-  %call1 = call i32 @luaError(ptr noundef %3)
-  store i32 %call1, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @luaPushError(ptr noundef %13, ptr noundef @.str.11)
+  %14 = load ptr, ptr %3, align 8, !tbaa !28
+  %15 = call i32 @luaError(ptr noundef %14)
+  store i32 %15, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %46
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %lua.addr, align 8
-  %call2 = call i32 @luaRegisterFunctionReadArgs(ptr noundef %4, ptr noundef %register_f_args)
-  %cmp = icmp ne i32 %call2, 0
-  br i1 %cmp, label %if.then3, label %if.end5
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !28
+  %18 = call i32 @luaRegisterFunctionReadArgs(ptr noundef %17, ptr noundef %4)
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %20, label %23
 
-if.then3:                                         ; preds = %if.end
-  %5 = load ptr, ptr %lua.addr, align 8
-  %call4 = call i32 @luaError(ptr noundef %5)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %3, align 8, !tbaa !28
+  %22 = call i32 @luaError(ptr noundef %21)
+  store i32 %22, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %46
 
-if.end5:                                          ; preds = %if.end
-  store ptr null, ptr %err, align 8
-  %name = getelementptr inbounds %struct.registerFunctionArgs, ptr %register_f_args, i32 0, i32 0
-  %6 = load ptr, ptr %name, align 8
-  %lua_f_ctx = getelementptr inbounds %struct.registerFunctionArgs, ptr %register_f_args, i32 0, i32 2
-  %7 = load ptr, ptr %lua_f_ctx, align 8
-  %8 = load ptr, ptr %load_ctx, align 8
-  %li = getelementptr inbounds %struct.loadCtx, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %li, align 8
-  %desc = getelementptr inbounds %struct.registerFunctionArgs, ptr %register_f_args, i32 0, i32 1
-  %10 = load ptr, ptr %desc, align 8
-  %f_flags = getelementptr inbounds %struct.registerFunctionArgs, ptr %register_f_args, i32 0, i32 3
-  %11 = load i64, ptr %f_flags, align 8
-  %call6 = call i32 @functionLibCreateFunction(ptr noundef %6, ptr noundef %7, ptr noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef %err)
-  %cmp7 = icmp ne i32 %call6, 0
-  br i1 %cmp7, label %if.then8, label %if.end10
+23:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store ptr null, ptr %7, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %4, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !31
+  %26 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %4, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %28 = load ptr, ptr %5, align 8, !tbaa !29
+  %29 = getelementptr inbounds nuw %struct.loadCtx, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !36
+  %31 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %4, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !39
+  %33 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %4, i32 0, i32 3
+  %34 = load i64, ptr %33, align 8, !tbaa !40
+  %35 = call i32 @functionLibCreateFunction(ptr noundef %25, ptr noundef %27, ptr noundef %30, ptr noundef %32, i64 noundef %34, ptr noundef %7)
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %44
 
-if.then8:                                         ; preds = %if.end5
-  %12 = load ptr, ptr %lua.addr, align 8
-  call void @luaRegisterFunctionArgsDispose(ptr noundef %12, ptr noundef %register_f_args)
-  %13 = load ptr, ptr %lua.addr, align 8
-  %14 = load ptr, ptr %err, align 8
-  call void @luaPushError(ptr noundef %13, ptr noundef %14)
-  %15 = load ptr, ptr %err, align 8
-  call void @sdsfree(ptr noundef %15)
-  %16 = load ptr, ptr %lua.addr, align 8
-  %call9 = call i32 @luaError(ptr noundef %16)
-  store i32 %call9, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %23
+  %38 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @luaRegisterFunctionArgsDispose(ptr noundef %38, ptr noundef %4)
+  %39 = load ptr, ptr %3, align 8, !tbaa !28
+  %40 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @luaPushError(ptr noundef %39, ptr noundef %40)
+  %41 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @sdsfree(ptr noundef %41)
+  %42 = load ptr, ptr %3, align 8, !tbaa !28
+  %43 = call i32 @luaError(ptr noundef %42)
+  store i32 %43, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %45
 
-if.end10:                                         ; preds = %if.end5
-  store i32 0, ptr %retval, align 4
-  br label %return
+44:                                               ; preds = %23
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %45
 
-return:                                           ; preds = %if.end10, %if.then8, %if.then3, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+45:                                               ; preds = %44, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %46
+
+46:                                               ; preds = %45, %20, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #11
+  %47 = load i32, ptr %2, align 4
+  ret i32 %47
 }
 
-declare void @lua_settable(ptr noundef, i32 noundef) #2
+declare void @lua_settable(ptr noundef, i32 noundef) #3
 
-declare void @luaRegisterLogFunction(ptr noundef) #2
+declare void @luaRegisterLogFunction(ptr noundef) #3
 
-declare void @luaRegisterVersion(ptr noundef) #2
+declare void @luaRegisterVersion(ptr noundef) #3
 
-declare void @luaSetErrorMetatable(ptr noundef) #2
+declare void @luaSetErrorMetatable(ptr noundef) #3
 
-declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare void @luaSetTableProtectionRecursively(ptr noundef) #2
+declare void @luaSetTableProtectionRecursively(ptr noundef) #3
 
-declare i32 @luaL_loadbuffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @luaL_loadbuffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
 
-declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare void @lua_pushvalue(ptr noundef, i32 noundef) #2
+declare void @lua_pushvalue(ptr noundef, i32 noundef) #3
 
-declare void @lua_settop(ptr noundef, i32 noundef) #2
+declare void @lua_settop(ptr noundef, i32 noundef) #3
 
-declare void @luaSaveOnRegistry(ptr noundef, ptr noundef, ptr noundef) #2
+declare void @luaSaveOnRegistry(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @lua_enablereadonlytable(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @lua_enablereadonlytable(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @lua_setmetatable(ptr noundef, i32 noundef) #2
+declare i32 @lua_setmetatable(ptr noundef, i32 noundef) #3
 
-declare void @lua_replace(ptr noundef, i32 noundef) #2
+declare void @lua_replace(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaEngineCreate(ptr noundef %engine_ctx, ptr noundef %li, ptr noundef %blob, i64 noundef %timeout, ptr noundef %err) #0 {
-entry:
-  %engine_ctx.addr = alloca ptr, align 8
-  %li.addr = alloca ptr, align 8
-  %blob.addr = alloca ptr, align 8
-  %timeout.addr = alloca i64, align 8
-  %err.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %lua_engine_ctx = alloca ptr, align 8
-  %lua = alloca ptr, align 8
-  %load_ctx = alloca %struct.loadCtx, align 8
-  %err_info = alloca %struct.errorInfo, align 8
-  store ptr %engine_ctx, ptr %engine_ctx.addr, align 8
-  store ptr %li, ptr %li.addr, align 8
-  store ptr %blob, ptr %blob.addr, align 8
-  store i64 %timeout, ptr %timeout.addr, align 8
-  store ptr %err, ptr %err.addr, align 8
-  store i32 -1, ptr %ret, align 4
-  %0 = load ptr, ptr %engine_ctx.addr, align 8
-  store ptr %0, ptr %lua_engine_ctx, align 8
-  %1 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua1 = getelementptr inbounds %struct.luaEngineCtx, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %lua1, align 8
-  store ptr %2, ptr %lua, align 8
-  %3 = load ptr, ptr %lua, align 8
-  %call = call i32 @lua_getmetatable(ptr noundef %3, i32 noundef -10002)
-  %4 = load ptr, ptr %lua, align 8
-  call void @lua_enablereadonlytable(ptr noundef %4, i32 noundef -1, i32 noundef 0)
-  %5 = load ptr, ptr %lua, align 8
-  call void @lua_getfield(ptr noundef %5, i32 noundef -10000, ptr noundef @.str.2)
-  %6 = load ptr, ptr %lua, align 8
-  call void @lua_setfield(ptr noundef %6, i32 noundef -2, ptr noundef @.str.8)
-  %7 = load ptr, ptr %lua, align 8
-  call void @lua_enablereadonlytable(ptr noundef %7, i32 noundef -10002, i32 noundef 1)
-  %8 = load ptr, ptr %lua, align 8
-  call void @lua_settop(ptr noundef %8, i32 noundef -2)
-  %9 = load ptr, ptr %lua, align 8
-  %10 = load ptr, ptr %blob.addr, align 8
-  %11 = load ptr, ptr %blob.addr, align 8
-  %call2 = call i64 @sdslen(ptr noundef %11)
-  %call3 = call i32 @luaL_loadbuffer(ptr noundef %9, ptr noundef %10, i64 noundef %call2, ptr noundef @.str.29)
-  %tobool = icmp ne i32 %call3, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @luaEngineCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %struct.loadCtx, align 8
+  %16 = alloca %struct.errorInfo, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !27
+  store ptr %1, ptr %8, align 8, !tbaa !41
+  store ptr %2, ptr %9, align 8, !tbaa !13
+  store i64 %3, ptr %10, align 8, !tbaa !42
+  store ptr %4, ptr %11, align 8, !tbaa !43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  store i32 -1, ptr %12, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %18 = load ptr, ptr %7, align 8, !tbaa !27
+  store ptr %18, ptr %13, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %19 = load ptr, ptr %13, align 8, !tbaa !5
+  %20 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !10
+  store ptr %21, ptr %14, align 8, !tbaa !28
+  %22 = load ptr, ptr %14, align 8, !tbaa !28
+  %23 = call i32 @lua_getmetatable(ptr noundef %22, i32 noundef -10002)
+  %24 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_enablereadonlytable(ptr noundef %24, i32 noundef -1, i32 noundef 0)
+  %25 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_getfield(ptr noundef %25, i32 noundef -10000, ptr noundef @.str.2)
+  %26 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_setfield(ptr noundef %26, i32 noundef -2, ptr noundef @.str.8)
+  %27 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_enablereadonlytable(ptr noundef %27, i32 noundef -10002, i32 noundef 1)
+  %28 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %28, i32 noundef -2)
+  %29 = load ptr, ptr %14, align 8, !tbaa !28
+  %30 = load ptr, ptr %9, align 8, !tbaa !13
+  %31 = load ptr, ptr %9, align 8, !tbaa !13
+  %32 = call i64 @sdslen(ptr noundef %31)
+  %33 = call i32 @luaL_loadbuffer(ptr noundef %29, ptr noundef %30, i64 noundef %32, ptr noundef @.str.29)
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %42
 
-if.then:                                          ; preds = %entry
-  %call4 = call ptr @sdsempty()
-  %12 = load ptr, ptr %lua, align 8
-  %call5 = call ptr @lua_tolstring(ptr noundef %12, i32 noundef -1, ptr noundef null)
-  %call6 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4, ptr noundef @.str.30, ptr noundef %call5)
-  %13 = load ptr, ptr %err.addr, align 8
-  store ptr %call6, ptr %13, align 8
-  %14 = load ptr, ptr %lua, align 8
-  call void @lua_settop(ptr noundef %14, i32 noundef -2)
-  br label %done
+35:                                               ; preds = %5
+  %36 = call ptr @sdsempty()
+  %37 = load ptr, ptr %14, align 8, !tbaa !28
+  %38 = call ptr @lua_tolstring(ptr noundef %37, i32 noundef -1, ptr noundef null)
+  %39 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %36, ptr noundef @.str.30, ptr noundef %38)
+  %40 = load ptr, ptr %11, align 8, !tbaa !43
+  store ptr %39, ptr %40, align 8, !tbaa !13
+  %41 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %41, i32 noundef -2)
+  br label %79
 
-if.end:                                           ; preds = %entry
-  %15 = load ptr, ptr %lua, align 8
-  %call7 = call i32 @lua_type(ptr noundef %15, i32 noundef -1)
-  %cmp = icmp eq i32 %call7, 6
-  %lnot = xor i1 %cmp, true
-  %lnot8 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot8 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool9 = icmp ne i64 %conv, 0
-  br i1 %tobool9, label %cond.true, label %cond.false
+42:                                               ; preds = %5
+  %43 = load ptr, ptr %14, align 8, !tbaa !28
+  %44 = call i32 @lua_type(ptr noundef %43, i32 noundef -1)
+  %45 = icmp eq i32 %44, 6
+  %46 = xor i1 %45, true
+  %47 = xor i1 %46, true
+  %48 = zext i1 %47 to i32
+  %49 = sext i32 %48 to i64
+  %50 = call i64 @llvm.expect.i64(i64 %49, i64 1)
+  %51 = icmp ne i64 %50, 0
+  br i1 %51, label %52, label %53
 
-cond.true:                                        ; preds = %if.end
-  br label %cond.end
+52:                                               ; preds = %42
+  br label %55
 
-cond.false:                                       ; preds = %if.end
-  call void @_serverAssert(ptr noundef @.str.31, ptr noundef @.str.32, i32 noundef 122)
-  call void @abort() #10
+53:                                               ; preds = %42
+  call void @_serverAssert(ptr noundef @.str.31, ptr noundef @.str.32, i32 noundef 106)
+  call void @abort() #14
   unreachable
 
-16:                                               ; No predecessors!
-  br label %cond.end
+54:                                               ; No predecessors!
+  br label %55
 
-cond.end:                                         ; preds = %16, %cond.true
-  %li10 = getelementptr inbounds %struct.loadCtx, ptr %load_ctx, i32 0, i32 0
-  %17 = load ptr, ptr %li.addr, align 8
-  store ptr %17, ptr %li10, align 8
-  %start_time = getelementptr inbounds %struct.loadCtx, ptr %load_ctx, i32 0, i32 1
-  %18 = load ptr, ptr @getMonotonicUs, align 8
-  %call11 = call i64 %18()
-  store i64 %call11, ptr %start_time, align 8
-  %timeout12 = getelementptr inbounds %struct.loadCtx, ptr %load_ctx, i32 0, i32 2
-  %19 = load i64, ptr %timeout.addr, align 8
-  store i64 %19, ptr %timeout12, align 8
-  %20 = load ptr, ptr %lua, align 8
-  call void @luaSaveOnRegistry(ptr noundef %20, ptr noundef @.str.10, ptr noundef %load_ctx)
-  %21 = load ptr, ptr %lua, align 8
-  %call13 = call i32 @lua_sethook(ptr noundef %21, ptr noundef @luaEngineLoadHook, i32 noundef 8, i32 noundef 100000)
-  %22 = load ptr, ptr %lua, align 8
-  %call14 = call i32 @lua_pcall(ptr noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %tobool15 = icmp ne i32 %call14, 0
-  br i1 %tobool15, label %if.then16, label %if.end19
+55:                                               ; preds = %54, %52
+  %56 = getelementptr inbounds nuw %struct.loadCtx, ptr %15, i32 0, i32 0
+  %57 = load ptr, ptr %8, align 8, !tbaa !41
+  store ptr %57, ptr %56, align 8, !tbaa !36
+  %58 = getelementptr inbounds nuw %struct.loadCtx, ptr %15, i32 0, i32 1
+  %59 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !27
+  %60 = call i64 %59()
+  store i64 %60, ptr %58, align 8, !tbaa !47
+  %61 = getelementptr inbounds nuw %struct.loadCtx, ptr %15, i32 0, i32 2
+  %62 = load i64, ptr %10, align 8, !tbaa !42
+  store i64 %62, ptr %61, align 8, !tbaa !48
+  %63 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @luaSaveOnRegistry(ptr noundef %63, ptr noundef @.str.10, ptr noundef %15)
+  %64 = load ptr, ptr %14, align 8, !tbaa !28
+  %65 = call i32 @lua_sethook(ptr noundef %64, ptr noundef @luaEngineLoadHook, i32 noundef 8, i32 noundef 100000)
+  %66 = load ptr, ptr %14, align 8, !tbaa !28
+  %67 = call i32 @lua_pcall(ptr noundef %66, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %78
 
-if.then16:                                        ; preds = %cond.end
-  call void @llvm.memset.p0.i64(ptr align 8 %err_info, i8 0, i64 32, i1 false)
-  %23 = load ptr, ptr %lua, align 8
-  call void @luaExtractErrorInformation(ptr noundef %23, ptr noundef %err_info)
-  %call17 = call ptr @sdsempty()
-  %msg = getelementptr inbounds %struct.errorInfo, ptr %err_info, i32 0, i32 0
-  %24 = load ptr, ptr %msg, align 8
-  %call18 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call17, ptr noundef @.str.33, ptr noundef %24)
-  %25 = load ptr, ptr %err.addr, align 8
-  store ptr %call18, ptr %25, align 8
-  %26 = load ptr, ptr %lua, align 8
-  call void @lua_settop(ptr noundef %26, i32 noundef -2)
-  call void @luaErrorInformationDiscard(ptr noundef %err_info)
-  br label %done
+69:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 32, ptr %16) #11
+  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 32, i1 false)
+  %70 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @luaExtractErrorInformation(ptr noundef %70, ptr noundef %16)
+  %71 = call ptr @sdsempty()
+  %72 = getelementptr inbounds nuw %struct.errorInfo, ptr %16, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !49
+  %74 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %71, ptr noundef @.str.33, ptr noundef %73)
+  %75 = load ptr, ptr %11, align 8, !tbaa !43
+  store ptr %74, ptr %75, align 8, !tbaa !13
+  %76 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %76, i32 noundef -2)
+  call void @luaErrorInformationDiscard(ptr noundef %16)
+  store i32 2, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #11
+  %77 = load i32, ptr %17, align 4
+  switch i32 %77, label %92 [
+    i32 2, label %79
+  ]
 
-if.end19:                                         ; preds = %cond.end
-  store i32 0, ptr %ret, align 4
-  br label %done
+78:                                               ; preds = %55
+  store i32 0, ptr %12, align 4, !tbaa !45
+  br label %79
 
-done:                                             ; preds = %if.end19, %if.then16, %if.then
-  %27 = load ptr, ptr %lua, align 8
-  %call20 = call i32 @lua_getmetatable(ptr noundef %27, i32 noundef -10002)
-  %28 = load ptr, ptr %lua, align 8
-  call void @lua_enablereadonlytable(ptr noundef %28, i32 noundef -1, i32 noundef 0)
-  %29 = load ptr, ptr %lua, align 8
-  call void @lua_getfield(ptr noundef %29, i32 noundef -10000, ptr noundef @.str.6)
-  %30 = load ptr, ptr %lua, align 8
-  call void @lua_setfield(ptr noundef %30, i32 noundef -2, ptr noundef @.str.8)
-  %31 = load ptr, ptr %lua, align 8
-  call void @lua_enablereadonlytable(ptr noundef %31, i32 noundef -10002, i32 noundef 1)
-  %32 = load ptr, ptr %lua, align 8
-  call void @lua_settop(ptr noundef %32, i32 noundef -2)
-  %33 = load ptr, ptr %lua, align 8
-  %call21 = call i32 @lua_sethook(ptr noundef %33, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  %34 = load ptr, ptr %lua, align 8
-  call void @luaSaveOnRegistry(ptr noundef %34, ptr noundef @.str.10, ptr noundef null)
-  %35 = load i32, ptr %ret, align 4
-  ret i32 %35
+79:                                               ; preds = %78, %69, %35
+  %80 = load ptr, ptr %14, align 8, !tbaa !28
+  %81 = call i32 @lua_getmetatable(ptr noundef %80, i32 noundef -10002)
+  %82 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_enablereadonlytable(ptr noundef %82, i32 noundef -1, i32 noundef 0)
+  %83 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_getfield(ptr noundef %83, i32 noundef -10000, ptr noundef @.str.6)
+  %84 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_setfield(ptr noundef %84, i32 noundef -2, ptr noundef @.str.8)
+  %85 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_enablereadonlytable(ptr noundef %85, i32 noundef -10002, i32 noundef 1)
+  %86 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %86, i32 noundef -2)
+  %87 = load ptr, ptr %14, align 8, !tbaa !28
+  %88 = call i32 @lua_sethook(ptr noundef %87, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  %89 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @luaSaveOnRegistry(ptr noundef %89, ptr noundef @.str.10, ptr noundef null)
+  %90 = load ptr, ptr %14, align 8, !tbaa !28
+  call void @luaGC(ptr noundef %90, ptr noundef @gc_count)
+  %91 = load i32, ptr %12, align 4, !tbaa !45
+  store i32 %91, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %92
+
+92:                                               ; preds = %79, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  %93 = load i32, ptr %6, align 4
+  ret i32 %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @luaEngineCall(ptr noundef %run_ctx, ptr noundef %engine_ctx, ptr noundef %compiled_function, ptr noundef %keys, i64 noundef %nkeys, ptr noundef %args, i64 noundef %nargs) #0 {
-entry:
-  %run_ctx.addr = alloca ptr, align 8
-  %engine_ctx.addr = alloca ptr, align 8
-  %compiled_function.addr = alloca ptr, align 8
-  %keys.addr = alloca ptr, align 8
-  %nkeys.addr = alloca i64, align 8
-  %args.addr = alloca ptr, align 8
-  %nargs.addr = alloca i64, align 8
-  %lua_engine_ctx = alloca ptr, align 8
-  %lua = alloca ptr, align 8
-  %f_ctx = alloca ptr, align 8
-  store ptr %run_ctx, ptr %run_ctx.addr, align 8
-  store ptr %engine_ctx, ptr %engine_ctx.addr, align 8
-  store ptr %compiled_function, ptr %compiled_function.addr, align 8
-  store ptr %keys, ptr %keys.addr, align 8
-  store i64 %nkeys, ptr %nkeys.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i64 %nargs, ptr %nargs.addr, align 8
-  %0 = load ptr, ptr %engine_ctx.addr, align 8
-  store ptr %0, ptr %lua_engine_ctx, align 8
-  %1 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua1 = getelementptr inbounds %struct.luaEngineCtx, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %lua1, align 8
-  store ptr %2, ptr %lua, align 8
-  %3 = load ptr, ptr %compiled_function.addr, align 8
-  store ptr %3, ptr %f_ctx, align 8
-  %4 = load ptr, ptr %lua, align 8
-  call void @lua_pushstring(ptr noundef %4, ptr noundef @.str.3)
-  %5 = load ptr, ptr %lua, align 8
-  call void @lua_gettable(ptr noundef %5, i32 noundef -10000)
-  %6 = load ptr, ptr %lua, align 8
-  %7 = load ptr, ptr %f_ctx, align 8
-  %lua_function_ref = getelementptr inbounds %struct.luaFunctionCtx, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %lua_function_ref, align 4
-  call void @lua_rawgeti(ptr noundef %6, i32 noundef -10000, i32 noundef %8)
-  %9 = load ptr, ptr %lua, align 8
-  %call = call i32 @lua_type(ptr noundef %9, i32 noundef -1)
-  %cmp = icmp eq i32 %call, 6
-  %lnot = xor i1 %cmp, true
-  %lnot2 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot2 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+define internal void @luaEngineCall(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !51
+  store ptr %1, ptr %9, align 8, !tbaa !27
+  store ptr %2, ptr %10, align 8, !tbaa !27
+  store ptr %3, ptr %11, align 8, !tbaa !53
+  store i64 %4, ptr %12, align 8, !tbaa !42
+  store ptr %5, ptr %13, align 8, !tbaa !53
+  store i64 %6, ptr %14, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %18 = load ptr, ptr %9, align 8, !tbaa !27
+  store ptr %18, ptr %15, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  %19 = load ptr, ptr %15, align 8, !tbaa !5
+  %20 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !10
+  store ptr %21, ptr %16, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  %22 = load ptr, ptr %10, align 8, !tbaa !27
+  store ptr %22, ptr %17, align 8, !tbaa !55
+  %23 = load ptr, ptr %16, align 8, !tbaa !28
+  call void @lua_pushstring(ptr noundef %23, ptr noundef @.str.3)
+  %24 = load ptr, ptr %16, align 8, !tbaa !28
+  call void @lua_gettable(ptr noundef %24, i32 noundef -10000)
+  %25 = load ptr, ptr %16, align 8, !tbaa !28
+  %26 = load ptr, ptr %17, align 8, !tbaa !55
+  %27 = getelementptr inbounds nuw %struct.luaFunctionCtx, ptr %26, i32 0, i32 0
+  %28 = load i32, ptr %27, align 4, !tbaa !56
+  call void @lua_rawgeti(ptr noundef %25, i32 noundef -10000, i32 noundef %28)
+  %29 = load ptr, ptr %16, align 8, !tbaa !28
+  %30 = call i32 @lua_type(ptr noundef %29, i32 noundef -1)
+  %31 = icmp eq i32 %30, 6
+  %32 = xor i1 %31, true
+  %33 = xor i1 %32, true
+  %34 = zext i1 %33 to i32
+  %35 = sext i32 %34 to i64
+  %36 = call i64 @llvm.expect.i64(i64 %35, i64 1)
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %39
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+38:                                               ; preds = %7
+  br label %41
 
-cond.false:                                       ; preds = %entry
-  call void @_serverAssert(ptr noundef @.str.31, ptr noundef @.str.32, i32 noundef 179)
-  call void @abort() #10
+39:                                               ; preds = %7
+  call void @_serverAssert(ptr noundef @.str.31, ptr noundef @.str.32, i32 noundef 164)
+  call void @abort() #14
   unreachable
 
-10:                                               ; No predecessors!
-  br label %cond.end
+40:                                               ; No predecessors!
+  br label %41
 
-cond.end:                                         ; preds = %10, %cond.true
-  %11 = load ptr, ptr %run_ctx.addr, align 8
-  %12 = load ptr, ptr %lua, align 8
-  %13 = load ptr, ptr %keys.addr, align 8
-  %14 = load i64, ptr %nkeys.addr, align 8
-  %15 = load ptr, ptr %args.addr, align 8
-  %16 = load i64, ptr %nargs.addr, align 8
-  call void @luaCallFunction(ptr noundef %11, ptr noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef 0)
-  %17 = load ptr, ptr %lua, align 8
-  call void @lua_settop(ptr noundef %17, i32 noundef -2)
+41:                                               ; preds = %40, %38
+  %42 = load ptr, ptr %8, align 8, !tbaa !51
+  %43 = load ptr, ptr %16, align 8, !tbaa !28
+  %44 = load ptr, ptr %11, align 8, !tbaa !53
+  %45 = load i64, ptr %12, align 8, !tbaa !42
+  %46 = load ptr, ptr %13, align 8, !tbaa !53
+  %47 = load i64, ptr %14, align 8, !tbaa !42
+  call void @luaCallFunction(ptr noundef %42, ptr noundef %43, ptr noundef %44, i64 noundef %45, ptr noundef %46, i64 noundef %47, i32 noundef 0)
+  %48 = load ptr, ptr %16, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %48, i32 noundef -2)
+  %49 = load ptr, ptr %16, align 8, !tbaa !28
+  call void @luaGC(ptr noundef %49, ptr noundef @gc_count)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @luaEngineGetUsedMemoy(ptr noundef %engine_ctx) #0 {
-entry:
-  %engine_ctx.addr = alloca ptr, align 8
-  %lua_engine_ctx = alloca ptr, align 8
-  store ptr %engine_ctx, ptr %engine_ctx.addr, align 8
-  %0 = load ptr, ptr %engine_ctx.addr, align 8
-  store ptr %0, ptr %lua_engine_ctx, align 8
-  %1 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua = getelementptr inbounds %struct.luaEngineCtx, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %lua, align 8
-  %call = call i64 @luaMemory(ptr noundef %2)
-  ret i64 %call
+define internal i64 @luaEngineGetUsedMemoy(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !27
+  store ptr %4, ptr %3, align 8, !tbaa !5
+  %5 = load ptr, ptr %3, align 8, !tbaa !5
+  %6 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !10
+  %8 = call i64 @luaMemory(ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret i64 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @luaEngineFunctionMemoryOverhead(ptr noundef %compiled_function) #0 {
-entry:
-  %compiled_function.addr = alloca ptr, align 8
-  store ptr %compiled_function, ptr %compiled_function.addr, align 8
-  %0 = load ptr, ptr %compiled_function.addr, align 8
-  %call = call i64 @je_malloc_usable_size(ptr noundef %0) #11
-  ret i64 %call
+define internal i64 @luaEngineFunctionMemoryOverhead(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %4 = call i64 @je_malloc_usable_size(ptr noundef %3) #11
+  ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @luaEngineMemoryOverhead(ptr noundef %engine_ctx) #0 {
-entry:
-  %engine_ctx.addr = alloca ptr, align 8
-  %lua_engine_ctx = alloca ptr, align 8
-  store ptr %engine_ctx, ptr %engine_ctx.addr, align 8
-  %0 = load ptr, ptr %engine_ctx.addr, align 8
-  store ptr %0, ptr %lua_engine_ctx, align 8
-  %1 = load ptr, ptr %lua_engine_ctx, align 8
-  %call = call i64 @je_malloc_usable_size(ptr noundef %1) #11
-  ret i64 %call
+define internal i64 @luaEngineMemoryOverhead(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !27
+  store ptr %4, ptr %3, align 8, !tbaa !5
+  %5 = load ptr, ptr %3, align 8, !tbaa !5
+  %6 = call i64 @je_malloc_usable_size(ptr noundef %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @luaEngineFreeFunction(ptr noundef %engine_ctx, ptr noundef %compiled_function) #0 {
-entry:
-  %engine_ctx.addr = alloca ptr, align 8
-  %compiled_function.addr = alloca ptr, align 8
-  %lua_engine_ctx = alloca ptr, align 8
-  %lua = alloca ptr, align 8
-  %f_ctx = alloca ptr, align 8
-  store ptr %engine_ctx, ptr %engine_ctx.addr, align 8
-  store ptr %compiled_function, ptr %compiled_function.addr, align 8
-  %0 = load ptr, ptr %engine_ctx.addr, align 8
-  store ptr %0, ptr %lua_engine_ctx, align 8
-  %1 = load ptr, ptr %lua_engine_ctx, align 8
-  %lua1 = getelementptr inbounds %struct.luaEngineCtx, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %lua1, align 8
-  store ptr %2, ptr %lua, align 8
-  %3 = load ptr, ptr %compiled_function.addr, align 8
-  store ptr %3, ptr %f_ctx, align 8
-  %4 = load ptr, ptr %lua, align 8
-  %5 = load ptr, ptr %f_ctx, align 8
-  %lua_function_ref = getelementptr inbounds %struct.luaFunctionCtx, ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %lua_function_ref, align 4
-  call void @luaL_unref(ptr noundef %4, i32 noundef -10000, i32 noundef %6)
-  %7 = load ptr, ptr %f_ctx, align 8
-  call void @zfree(ptr noundef %7)
+define internal void @luaEngineFreeFunction(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %8 = load ptr, ptr %3, align 8, !tbaa !27
+  store ptr %8, ptr %5, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %9 = load ptr, ptr %5, align 8, !tbaa !5
+  %10 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
+  store ptr %11, ptr %6, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %12 = load ptr, ptr %4, align 8, !tbaa !27
+  store ptr %12, ptr %7, align 8, !tbaa !55
+  %13 = load ptr, ptr %6, align 8, !tbaa !28
+  %14 = load ptr, ptr %7, align 8, !tbaa !55
+  %15 = getelementptr inbounds nuw %struct.luaFunctionCtx, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 4, !tbaa !56
+  call void @luaL_unref(ptr noundef %13, i32 noundef -10000, i32 noundef %16)
+  %17 = load ptr, ptr %7, align 8, !tbaa !55
+  call void @zfree(ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @luaEngineFreeCtx(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %6 = load ptr, ptr %2, align 8, !tbaa !27
+  store ptr %6, ptr %3, align 8, !tbaa !5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %7 = load ptr, ptr %3, align 8, !tbaa !5
+  %8 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !10
+  %10 = getelementptr inbounds nuw %struct.lua_State, ptr %9, i32 0, i32 6
+  %11 = load ptr, ptr %10, align 8, !tbaa !58
+  %12 = getelementptr inbounds nuw %struct.global_State, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !68
+  store ptr %13, ptr %4, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  %14 = load ptr, ptr %4, align 8, !tbaa !27
+  %15 = ptrtoint ptr %14 to i64
+  %16 = trunc i64 %15 to i32
+  store i32 %16, ptr %5, align 4, !tbaa !45
+  %17 = load ptr, ptr %3, align 8, !tbaa !5
+  %18 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  %20 = call i32 @lua_gc(ptr noundef %19, i32 noundef 2, i32 noundef 0)
+  %21 = load ptr, ptr %3, align 8, !tbaa !5
+  %22 = getelementptr inbounds nuw %struct.luaEngineCtx, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !10
+  call void @lua_close(ptr noundef %23)
+  %24 = load ptr, ptr %3, align 8, !tbaa !5
+  call void @zfree(ptr noundef %24)
+  %25 = call i32 @je_mallctl(ptr noundef @.str.36, ptr noundef null, ptr noundef null, ptr noundef %5, i64 noundef 4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @functionsRegisterEngine(ptr noundef, ptr noundef) #2
+declare i32 @functionsRegisterEngine(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare ptr @luaGetFromRegistry(ptr noundef, ptr noundef) #2
+declare ptr @luaGetFromRegistry(ptr noundef, ptr noundef) #3
 
-declare void @luaPushError(ptr noundef, ptr noundef) #2
+declare void @luaPushError(ptr noundef, ptr noundef) #3
 
-declare i32 @luaError(ptr noundef) #2
+declare i32 @luaError(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaRegisterFunctionReadArgs(ptr noundef %lua, ptr noundef %register_f_args) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %lua.addr = alloca ptr, align 8
-  %register_f_args.addr = alloca ptr, align 8
-  %argc = alloca i32, align 4
-  store ptr %lua, ptr %lua.addr, align 8
-  store ptr %register_f_args, ptr %register_f_args.addr, align 8
-  %0 = load ptr, ptr %lua.addr, align 8
-  %call = call i32 @lua_gettop(ptr noundef %0)
-  store i32 %call, ptr %argc, align 4
-  %1 = load i32, ptr %argc, align 4
-  %cmp = icmp slt i32 %1, 1
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal i32 @luaRegisterFunctionReadArgs(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = call i32 @lua_gettop(ptr noundef %8)
+  store i32 %9, ptr %6, align 4, !tbaa !45
+  %10 = load i32, ptr %6, align 4, !tbaa !45
+  %11 = icmp slt i32 %10, 1
+  br i1 %11, label %15, label %12
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %argc, align 4
-  %cmp1 = icmp sgt i32 %2, 2
-  br i1 %cmp1, label %if.then, label %if.end
+12:                                               ; preds = %2
+  %13 = load i32, ptr %6, align 4, !tbaa !45
+  %14 = icmp sgt i32 %13, 2
+  br i1 %14, label %15, label %17
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %3 = load ptr, ptr %lua.addr, align 8
-  call void @luaPushError(ptr noundef %3, ptr noundef @.str.12)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %12, %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @luaPushError(ptr noundef %16, ptr noundef @.str.12)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load i32, ptr %argc, align 4
-  %cmp2 = icmp eq i32 %4, 1
-  br i1 %cmp2, label %if.then3, label %if.else
+17:                                               ; preds = %12
+  %18 = load i32, ptr %6, align 4, !tbaa !45
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %20, label %24
 
-if.then3:                                         ; preds = %if.end
-  %5 = load ptr, ptr %lua.addr, align 8
-  %6 = load ptr, ptr %register_f_args.addr, align 8
-  %call4 = call i32 @luaRegisterFunctionReadNamedArgs(ptr noundef %5, ptr noundef %6)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %4, align 8, !tbaa !28
+  %22 = load ptr, ptr %5, align 8, !tbaa !74
+  %23 = call i32 @luaRegisterFunctionReadNamedArgs(ptr noundef %21, ptr noundef %22)
+  store i32 %23, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-if.else:                                          ; preds = %if.end
-  %7 = load ptr, ptr %lua.addr, align 8
-  %8 = load ptr, ptr %register_f_args.addr, align 8
-  %call5 = call i32 @luaRegisterFunctionReadPositionalArgs(ptr noundef %7, ptr noundef %8)
-  store i32 %call5, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %4, align 8, !tbaa !28
+  %26 = load ptr, ptr %5, align 8, !tbaa !74
+  %27 = call i32 @luaRegisterFunctionReadPositionalArgs(ptr noundef %25, ptr noundef %26)
+  store i32 %27, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-return:                                           ; preds = %if.else, %if.then3, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+28:                                               ; preds = %24, %20, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
-declare i32 @functionLibCreateFunction(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @functionLibCreateFunction(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @luaRegisterFunctionArgsDispose(ptr noundef %lua, ptr noundef %register_f_args) #0 {
-entry:
-  %lua.addr = alloca ptr, align 8
-  %register_f_args.addr = alloca ptr, align 8
-  store ptr %lua, ptr %lua.addr, align 8
-  store ptr %register_f_args, ptr %register_f_args.addr, align 8
-  %0 = load ptr, ptr %register_f_args.addr, align 8
-  %name = getelementptr inbounds %struct.registerFunctionArgs, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %name, align 8
-  call void @sdsfree(ptr noundef %1)
-  %2 = load ptr, ptr %register_f_args.addr, align 8
-  %desc = getelementptr inbounds %struct.registerFunctionArgs, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %desc, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.then, label %if.end
+define internal void @luaRegisterFunctionArgsDispose(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  %6 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  call void @sdsfree(ptr noundef %7)
+  %8 = load ptr, ptr %4, align 8, !tbaa !74
+  %9 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %16
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %register_f_args.addr, align 8
-  %desc1 = getelementptr inbounds %struct.registerFunctionArgs, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %desc1, align 8
-  call void @sdsfree(ptr noundef %5)
-  br label %if.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !74
+  %14 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !39
+  call void @sdsfree(ptr noundef %15)
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %lua.addr, align 8
-  %7 = load ptr, ptr %register_f_args.addr, align 8
-  %lua_f_ctx = getelementptr inbounds %struct.registerFunctionArgs, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %lua_f_ctx, align 8
-  %lua_function_ref = getelementptr inbounds %struct.luaFunctionCtx, ptr %8, i32 0, i32 0
-  %9 = load i32, ptr %lua_function_ref, align 4
-  call void @luaL_unref(ptr noundef %6, i32 noundef -10000, i32 noundef %9)
-  %10 = load ptr, ptr %register_f_args.addr, align 8
-  %lua_f_ctx2 = getelementptr inbounds %struct.registerFunctionArgs, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %lua_f_ctx2, align 8
-  call void @zfree(ptr noundef %11)
+16:                                               ; preds = %12, %2
+  %17 = load ptr, ptr %3, align 8, !tbaa !28
+  %18 = load ptr, ptr %4, align 8, !tbaa !74
+  %19 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !35
+  %21 = getelementptr inbounds nuw %struct.luaFunctionCtx, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 4, !tbaa !56
+  call void @luaL_unref(ptr noundef %17, i32 noundef -10000, i32 noundef %22)
+  %23 = load ptr, ptr %4, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !35
+  call void @zfree(ptr noundef %25)
   ret void
 }
 
-declare void @sdsfree(ptr noundef) #2
+declare void @sdsfree(ptr noundef) #3
 
-declare i32 @lua_gettop(ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal i32 @luaRegisterFunctionReadNamedArgs(ptr noundef %lua, ptr noundef %register_f_args) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %lua.addr = alloca ptr, align 8
-  %register_f_args.addr = alloca ptr, align 8
-  %err = alloca ptr, align 8
-  %name = alloca ptr, align 8
-  %desc = alloca ptr, align 8
-  %lua_f_ctx = alloca ptr, align 8
-  %flags = alloca i64, align 8
-  %key = alloca ptr, align 8
-  %lua_function_ref = alloca i32, align 4
-  store ptr %lua, ptr %lua.addr, align 8
-  store ptr %register_f_args, ptr %register_f_args.addr, align 8
-  store ptr null, ptr %err, align 8
-  store ptr null, ptr %name, align 8
-  store ptr null, ptr %desc, align 8
-  store ptr null, ptr %lua_f_ctx, align 8
-  store i64 0, ptr %flags, align 8
-  %0 = load ptr, ptr %lua.addr, align 8
-  %call = call i32 @lua_type(ptr noundef %0, i32 noundef 1)
-  %cmp = icmp eq i32 %call, 5
-  br i1 %cmp, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr @.str.13, ptr %err, align 8
-  br label %error
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %lua.addr, align 8
-  call void @lua_pushnil(ptr noundef %1)
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end48, %if.end28, %if.end
-  %2 = load ptr, ptr %lua.addr, align 8
-  %call1 = call i32 @lua_next(ptr noundef %2, i32 noundef -2)
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %3 = load ptr, ptr %lua.addr, align 8
-  %call2 = call i32 @lua_isstring(ptr noundef %3, i32 noundef -2)
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %while.body
-  store ptr @.str.14, ptr %err, align 8
-  br label %error
-
-if.end5:                                          ; preds = %while.body
-  %4 = load ptr, ptr %lua.addr, align 8
-  %call6 = call ptr @lua_tolstring(ptr noundef %4, i32 noundef -2, ptr noundef null)
-  store ptr %call6, ptr %key, align 8
-  %5 = load ptr, ptr %key, align 8
-  %call7 = call i32 @strcasecmp(ptr noundef %5, ptr noundef @.str.15) #9
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.else, label %if.then9
-
-if.then9:                                         ; preds = %if.end5
-  %6 = load ptr, ptr %lua.addr, align 8
-  %call10 = call ptr @luaGetStringSds(ptr noundef %6, i32 noundef -1)
-  store ptr %call10, ptr %name, align 8
-  %tobool11 = icmp ne ptr %call10, null
-  br i1 %tobool11, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %if.then9
-  store ptr @.str.16, ptr %err, align 8
-  br label %error
-
-if.end13:                                         ; preds = %if.then9
-  br label %if.end48
-
-if.else:                                          ; preds = %if.end5
-  %7 = load ptr, ptr %key, align 8
-  %call14 = call i32 @strcasecmp(ptr noundef %7, ptr noundef @.str.17) #9
-  %tobool15 = icmp ne i32 %call14, 0
-  br i1 %tobool15, label %if.else21, label %if.then16
-
-if.then16:                                        ; preds = %if.else
-  %8 = load ptr, ptr %lua.addr, align 8
-  %call17 = call ptr @luaGetStringSds(ptr noundef %8, i32 noundef -1)
-  store ptr %call17, ptr %desc, align 8
-  %tobool18 = icmp ne ptr %call17, null
-  br i1 %tobool18, label %if.end20, label %if.then19
-
-if.then19:                                        ; preds = %if.then16
-  store ptr @.str.18, ptr %err, align 8
-  br label %error
-
-if.end20:                                         ; preds = %if.then16
-  br label %if.end47
-
-if.else21:                                        ; preds = %if.else
-  %9 = load ptr, ptr %key, align 8
-  %call22 = call i32 @strcasecmp(ptr noundef %9, ptr noundef @.str.19) #9
-  %tobool23 = icmp ne i32 %call22, 0
-  br i1 %tobool23, label %if.else32, label %if.then24
-
-if.then24:                                        ; preds = %if.else21
-  %10 = load ptr, ptr %lua.addr, align 8
-  %call25 = call i32 @lua_type(ptr noundef %10, i32 noundef -1)
-  %cmp26 = icmp eq i32 %call25, 6
-  br i1 %cmp26, label %if.end28, label %if.then27
-
-if.then27:                                        ; preds = %if.then24
-  store ptr @.str.20, ptr %err, align 8
-  br label %error
-
-if.end28:                                         ; preds = %if.then24
-  %11 = load ptr, ptr %lua.addr, align 8
-  %call29 = call i32 @luaL_ref(ptr noundef %11, i32 noundef -10000)
-  store i32 %call29, ptr %lua_function_ref, align 4
-  %call30 = call noalias ptr @zmalloc(i64 noundef 4) #8
-  store ptr %call30, ptr %lua_f_ctx, align 8
-  %12 = load i32, ptr %lua_function_ref, align 4
-  %13 = load ptr, ptr %lua_f_ctx, align 8
-  %lua_function_ref31 = getelementptr inbounds %struct.luaFunctionCtx, ptr %13, i32 0, i32 0
-  store i32 %12, ptr %lua_function_ref31, align 4
-  br label %while.cond, !llvm.loop !5
-
-if.else32:                                        ; preds = %if.else21
-  %14 = load ptr, ptr %key, align 8
-  %call33 = call i32 @strcasecmp(ptr noundef %14, ptr noundef @.str.21) #9
-  %tobool34 = icmp ne i32 %call33, 0
-  br i1 %tobool34, label %if.else44, label %if.then35
-
-if.then35:                                        ; preds = %if.else32
-  %15 = load ptr, ptr %lua.addr, align 8
-  %call36 = call i32 @lua_type(ptr noundef %15, i32 noundef -1)
-  %cmp37 = icmp eq i32 %call36, 5
-  br i1 %cmp37, label %if.end39, label %if.then38
-
-if.then38:                                        ; preds = %if.then35
-  store ptr @.str.22, ptr %err, align 8
-  br label %error
-
-if.end39:                                         ; preds = %if.then35
-  %16 = load ptr, ptr %lua.addr, align 8
-  %call40 = call i32 @luaRegisterFunctionReadFlags(ptr noundef %16, ptr noundef %flags)
-  %cmp41 = icmp ne i32 %call40, 0
-  br i1 %cmp41, label %if.then42, label %if.end43
-
-if.then42:                                        ; preds = %if.end39
-  store ptr @.str.23, ptr %err, align 8
-  br label %error
-
-if.end43:                                         ; preds = %if.end39
-  br label %if.end45
-
-if.else44:                                        ; preds = %if.else32
-  store ptr @.str.24, ptr %err, align 8
-  br label %error
-
-if.end45:                                         ; preds = %if.end43
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.end45
-  br label %if.end47
-
-if.end47:                                         ; preds = %if.end46, %if.end20
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.end47, %if.end13
-  %17 = load ptr, ptr %lua.addr, align 8
-  call void @lua_settop(ptr noundef %17, i32 noundef -2)
-  br label %while.cond, !llvm.loop !5
-
-while.end:                                        ; preds = %while.cond
-  %18 = load ptr, ptr %name, align 8
-  %tobool49 = icmp ne ptr %18, null
-  br i1 %tobool49, label %if.end51, label %if.then50
-
-if.then50:                                        ; preds = %while.end
-  store ptr @.str.25, ptr %err, align 8
-  br label %error
-
-if.end51:                                         ; preds = %while.end
-  %19 = load ptr, ptr %lua_f_ctx, align 8
-  %tobool52 = icmp ne ptr %19, null
-  br i1 %tobool52, label %if.end54, label %if.then53
-
-if.then53:                                        ; preds = %if.end51
-  store ptr @.str.26, ptr %err, align 8
-  br label %error
-
-if.end54:                                         ; preds = %if.end51
-  %20 = load ptr, ptr %register_f_args.addr, align 8
-  %21 = load ptr, ptr %name, align 8
-  %22 = load ptr, ptr %desc, align 8
-  %23 = load ptr, ptr %lua_f_ctx, align 8
-  %24 = load i64, ptr %flags, align 8
-  call void @luaRegisterFunctionArgsInitialize(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i64 noundef %24)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-error:                                            ; preds = %if.then53, %if.then50, %if.else44, %if.then42, %if.then38, %if.then27, %if.then19, %if.then12, %if.then4, %if.then
-  %25 = load ptr, ptr %name, align 8
-  %tobool55 = icmp ne ptr %25, null
-  br i1 %tobool55, label %if.then56, label %if.end57
-
-if.then56:                                        ; preds = %error
-  %26 = load ptr, ptr %name, align 8
-  call void @sdsfree(ptr noundef %26)
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.then56, %error
-  %27 = load ptr, ptr %desc, align 8
-  %tobool58 = icmp ne ptr %27, null
-  br i1 %tobool58, label %if.then59, label %if.end60
-
-if.then59:                                        ; preds = %if.end57
-  %28 = load ptr, ptr %desc, align 8
-  call void @sdsfree(ptr noundef %28)
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.then59, %if.end57
-  %29 = load ptr, ptr %lua_f_ctx, align 8
-  %tobool61 = icmp ne ptr %29, null
-  br i1 %tobool61, label %if.then62, label %if.end64
-
-if.then62:                                        ; preds = %if.end60
-  %30 = load ptr, ptr %lua.addr, align 8
-  %31 = load ptr, ptr %lua_f_ctx, align 8
-  %lua_function_ref63 = getelementptr inbounds %struct.luaFunctionCtx, ptr %31, i32 0, i32 0
-  %32 = load i32, ptr %lua_function_ref63, align 4
-  call void @luaL_unref(ptr noundef %30, i32 noundef -10000, i32 noundef %32)
-  %33 = load ptr, ptr %lua_f_ctx, align 8
-  call void @zfree(ptr noundef %33)
-  br label %if.end64
-
-if.end64:                                         ; preds = %if.then62, %if.end60
-  %34 = load ptr, ptr %lua.addr, align 8
-  %35 = load ptr, ptr %err, align 8
-  call void @luaPushError(ptr noundef %34, ptr noundef %35)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end64, %if.end54
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
-}
+declare i32 @lua_gettop(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaRegisterFunctionReadPositionalArgs(ptr noundef %lua, ptr noundef %register_f_args) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %lua.addr = alloca ptr, align 8
-  %register_f_args.addr = alloca ptr, align 8
-  %err = alloca ptr, align 8
-  %name = alloca ptr, align 8
-  %desc = alloca ptr, align 8
-  %lua_f_ctx = alloca ptr, align 8
-  %lua_function_ref = alloca i32, align 4
-  store ptr %lua, ptr %lua.addr, align 8
-  store ptr %register_f_args, ptr %register_f_args.addr, align 8
-  store ptr null, ptr %err, align 8
-  store ptr null, ptr %name, align 8
-  store ptr null, ptr %desc, align 8
-  store ptr null, ptr %lua_f_ctx, align 8
-  %0 = load ptr, ptr %lua.addr, align 8
-  %call = call ptr @luaGetStringSds(ptr noundef %0, i32 noundef 1)
-  store ptr %call, ptr %name, align 8
-  %tobool = icmp ne ptr %call, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal i32 @luaRegisterFunctionReadNamedArgs(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store ptr null, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store ptr null, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  store ptr null, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  store ptr null, ptr %9, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  store i64 0, ptr %10, align 8, !tbaa !42
+  %14 = load ptr, ptr %4, align 8, !tbaa !28
+  %15 = call i32 @lua_type(ptr noundef %14, i32 noundef 1)
+  %16 = icmp eq i32 %15, 5
+  br i1 %16, label %18, label %17
 
-if.then:                                          ; preds = %entry
-  store ptr @.str.27, ptr %err, align 8
-  br label %error
+17:                                               ; preds = %2
+  store ptr @.str.13, ptr %6, align 8, !tbaa !13
+  br label %105
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %lua.addr, align 8
-  %call1 = call i32 @lua_type(ptr noundef %1, i32 noundef 2)
-  %cmp = icmp eq i32 %call1, 6
-  br i1 %cmp, label %if.end3, label %if.then2
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @lua_pushnil(ptr noundef %19)
+  br label %20
 
-if.then2:                                         ; preds = %if.end
-  store ptr @.str.28, ptr %err, align 8
-  br label %error
+20:                                               ; preds = %90, %88, %18
+  %21 = load ptr, ptr %4, align 8, !tbaa !28
+  %22 = call i32 @lua_next(ptr noundef %21, i32 noundef -2)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %91
 
-if.end3:                                          ; preds = %if.end
-  %2 = load ptr, ptr %lua.addr, align 8
-  %call4 = call i32 @luaL_ref(ptr noundef %2, i32 noundef -10000)
-  store i32 %call4, ptr %lua_function_ref, align 4
-  %call5 = call noalias ptr @zmalloc(i64 noundef 4) #8
-  store ptr %call5, ptr %lua_f_ctx, align 8
-  %3 = load i32, ptr %lua_function_ref, align 4
-  %4 = load ptr, ptr %lua_f_ctx, align 8
-  %lua_function_ref6 = getelementptr inbounds %struct.luaFunctionCtx, ptr %4, i32 0, i32 0
-  store i32 %3, ptr %lua_function_ref6, align 4
-  %5 = load ptr, ptr %register_f_args.addr, align 8
-  %6 = load ptr, ptr %name, align 8
-  %7 = load ptr, ptr %lua_f_ctx, align 8
-  call void @luaRegisterFunctionArgsInitialize(ptr noundef %5, ptr noundef %6, ptr noundef null, ptr noundef %7, i64 noundef 0)
-  store i32 0, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %4, align 8, !tbaa !28
+  %26 = call i32 @lua_isstring(ptr noundef %25, i32 noundef -2)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %29, label %28
 
-error:                                            ; preds = %if.then2, %if.then
-  %8 = load ptr, ptr %name, align 8
-  %tobool7 = icmp ne ptr %8, null
-  br i1 %tobool7, label %if.then8, label %if.end9
+28:                                               ; preds = %24
+  store ptr @.str.14, ptr %6, align 8, !tbaa !13
+  br label %105
 
-if.then8:                                         ; preds = %error
-  %9 = load ptr, ptr %name, align 8
-  call void @sdsfree(ptr noundef %9)
-  br label %if.end9
+29:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %30 = load ptr, ptr %4, align 8, !tbaa !28
+  %31 = call ptr @lua_tolstring(ptr noundef %30, i32 noundef -2, ptr noundef null)
+  store ptr %31, ptr %11, align 8, !tbaa !13
+  %32 = load ptr, ptr %11, align 8, !tbaa !13
+  %33 = call i32 @strcasecmp(ptr noundef %32, ptr noundef @.str.15) #13
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %41, label %35
 
-if.end9:                                          ; preds = %if.then8, %error
-  %10 = load ptr, ptr %desc, align 8
-  %tobool10 = icmp ne ptr %10, null
-  br i1 %tobool10, label %if.then11, label %if.end12
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %4, align 8, !tbaa !28
+  %37 = call ptr @luaGetStringSds(ptr noundef %36, i32 noundef -1)
+  store ptr %37, ptr %7, align 8, !tbaa !13
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %40, label %39
 
-if.then11:                                        ; preds = %if.end9
-  %11 = load ptr, ptr %desc, align 8
-  call void @sdsfree(ptr noundef %11)
-  br label %if.end12
+39:                                               ; preds = %35
+  store ptr @.str.16, ptr %6, align 8, !tbaa !13
+  store i32 2, ptr %13, align 4
+  br label %88
 
-if.end12:                                         ; preds = %if.then11, %if.end9
-  %12 = load ptr, ptr %lua.addr, align 8
-  %13 = load ptr, ptr %err, align 8
-  call void @luaPushError(ptr noundef %12, ptr noundef %13)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %35
+  br label %86
 
-return:                                           ; preds = %if.end12, %if.end3
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
-}
+41:                                               ; preds = %29
+  %42 = load ptr, ptr %11, align 8, !tbaa !13
+  %43 = call i32 @strcasecmp(ptr noundef %42, ptr noundef @.str.17) #13
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %51, label %45
 
-declare i32 @lua_type(ptr noundef, i32 noundef) #2
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %4, align 8, !tbaa !28
+  %47 = call ptr @luaGetStringSds(ptr noundef %46, i32 noundef -1)
+  store ptr %47, ptr %8, align 8, !tbaa !13
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %50, label %49
 
-declare void @lua_pushnil(ptr noundef) #2
+49:                                               ; preds = %45
+  store ptr @.str.18, ptr %6, align 8, !tbaa !13
+  store i32 2, ptr %13, align 4
+  br label %88
 
-declare i32 @lua_next(ptr noundef, i32 noundef) #2
+50:                                               ; preds = %45
+  br label %85
 
-declare i32 @lua_isstring(ptr noundef, i32 noundef) #2
+51:                                               ; preds = %41
+  %52 = load ptr, ptr %11, align 8, !tbaa !13
+  %53 = call i32 @strcasecmp(ptr noundef %52, ptr noundef @.str.19) #13
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %67, label %55
 
-declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) #2
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %4, align 8, !tbaa !28
+  %57 = call i32 @lua_type(ptr noundef %56, i32 noundef -1)
+  %58 = icmp eq i32 %57, 6
+  br i1 %58, label %60, label %59
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef, ptr noundef) #3
+59:                                               ; preds = %55
+  store ptr @.str.20, ptr %6, align 8, !tbaa !13
+  store i32 2, ptr %13, align 4
+  br label %88
 
-declare ptr @luaGetStringSds(ptr noundef, i32 noundef) #2
+60:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  %61 = load ptr, ptr %4, align 8, !tbaa !28
+  %62 = call i32 @luaL_ref(ptr noundef %61, i32 noundef -10000)
+  store i32 %62, ptr %12, align 4, !tbaa !45
+  %63 = call noalias ptr @zmalloc(i64 noundef 4) #12
+  store ptr %63, ptr %9, align 8, !tbaa !55
+  %64 = load i32, ptr %12, align 4, !tbaa !45
+  %65 = load ptr, ptr %9, align 8, !tbaa !55
+  %66 = getelementptr inbounds nuw %struct.luaFunctionCtx, ptr %65, i32 0, i32 0
+  store i32 %64, ptr %66, align 4, !tbaa !56
+  store i32 3, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  br label %88
 
-declare i32 @luaL_ref(ptr noundef, i32 noundef) #2
+67:                                               ; preds = %51
+  %68 = load ptr, ptr %11, align 8, !tbaa !13
+  %69 = call i32 @strcasecmp(ptr noundef %68, ptr noundef @.str.21) #13
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %82, label %71
 
-; Function Attrs: nounwind uwtable
-define internal i32 @luaRegisterFunctionReadFlags(ptr noundef %lua, ptr noundef %flags) #0 {
-entry:
-  %lua.addr = alloca ptr, align 8
-  %flags.addr = alloca ptr, align 8
-  %j = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %f_flags = alloca i32, align 4
-  %t = alloca i32, align 4
-  %flag_str = alloca ptr, align 8
-  %found = alloca i32, align 4
-  %flag = alloca ptr, align 8
-  store ptr %lua, ptr %lua.addr, align 8
-  store ptr %flags, ptr %flags.addr, align 8
-  store i32 1, ptr %j, align 4
-  store i32 -1, ptr %ret, align 4
-  store i32 0, ptr %f_flags, align 4
-  br label %while.body
+71:                                               ; preds = %67
+  %72 = load ptr, ptr %4, align 8, !tbaa !28
+  %73 = call i32 @lua_type(ptr noundef %72, i32 noundef -1)
+  %74 = icmp eq i32 %73, 5
+  br i1 %74, label %76, label %75
 
-while.body:                                       ; preds = %if.end17, %entry
-  %0 = load ptr, ptr %lua.addr, align 8
-  %1 = load i32, ptr %j, align 4
-  %inc = add nsw i32 %1, 1
-  store i32 %inc, ptr %j, align 4
-  %conv = sitofp i32 %1 to double
-  call void @lua_pushnumber(ptr noundef %0, double noundef %conv)
-  %2 = load ptr, ptr %lua.addr, align 8
-  call void @lua_gettable(ptr noundef %2, i32 noundef -2)
-  %3 = load ptr, ptr %lua.addr, align 8
-  %call = call i32 @lua_type(ptr noundef %3, i32 noundef -1)
-  store i32 %call, ptr %t, align 4
-  %4 = load i32, ptr %t, align 4
-  %cmp = icmp eq i32 %4, 0
-  br i1 %cmp, label %if.then, label %if.end
+75:                                               ; preds = %71
+  store ptr @.str.22, ptr %6, align 8, !tbaa !13
+  store i32 2, ptr %13, align 4
+  br label %88
 
-if.then:                                          ; preds = %while.body
-  %5 = load ptr, ptr %lua.addr, align 8
-  call void @lua_settop(ptr noundef %5, i32 noundef -2)
-  br label %while.end
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %4, align 8, !tbaa !28
+  %78 = call i32 @luaRegisterFunctionReadFlags(ptr noundef %77, ptr noundef %10)
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %81
 
-if.end:                                           ; preds = %while.body
-  %6 = load ptr, ptr %lua.addr, align 8
-  %call2 = call i32 @lua_isstring(ptr noundef %6, i32 noundef -1)
-  %tobool = icmp ne i32 %call2, 0
-  br i1 %tobool, label %if.end4, label %if.then3
+80:                                               ; preds = %76
+  store ptr @.str.23, ptr %6, align 8, !tbaa !13
+  store i32 2, ptr %13, align 4
+  br label %88
 
-if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr %lua.addr, align 8
-  call void @lua_settop(ptr noundef %7, i32 noundef -2)
-  br label %done
+81:                                               ; preds = %76
+  br label %83
 
-if.end4:                                          ; preds = %if.end
-  %8 = load ptr, ptr %lua.addr, align 8
-  %call5 = call ptr @lua_tolstring(ptr noundef %8, i32 noundef -1, ptr noundef null)
-  store ptr %call5, ptr %flag_str, align 8
-  store i32 0, ptr %found, align 4
-  store ptr @scripts_flags_def, ptr %flag, align 8
-  br label %for.cond
+82:                                               ; preds = %67
+  store ptr @.str.24, ptr %6, align 8, !tbaa !13
+  store i32 2, ptr %13, align 4
+  br label %88
 
-for.cond:                                         ; preds = %for.inc, %if.end4
-  %9 = load ptr, ptr %flag, align 8
-  %str = getelementptr inbounds %struct.scriptFlag, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %str, align 8
-  %tobool6 = icmp ne ptr %10, null
-  br i1 %tobool6, label %for.body, label %for.end
+83:                                               ; preds = %81
+  br label %84
 
-for.body:                                         ; preds = %for.cond
-  %11 = load ptr, ptr %flag, align 8
-  %str7 = getelementptr inbounds %struct.scriptFlag, ptr %11, i32 0, i32 1
-  %12 = load ptr, ptr %str7, align 8
-  %13 = load ptr, ptr %flag_str, align 8
-  %call8 = call i32 @strcasecmp(ptr noundef %12, ptr noundef %13) #9
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %if.end14, label %if.then10
+84:                                               ; preds = %83
+  br label %85
 
-if.then10:                                        ; preds = %for.body
-  %14 = load ptr, ptr %flag, align 8
-  %flag11 = getelementptr inbounds %struct.scriptFlag, ptr %14, i32 0, i32 0
-  %15 = load i64, ptr %flag11, align 8
-  %16 = load i32, ptr %f_flags, align 4
-  %conv12 = sext i32 %16 to i64
-  %or = or i64 %conv12, %15
-  %conv13 = trunc i64 %or to i32
-  store i32 %conv13, ptr %f_flags, align 4
-  store i32 1, ptr %found, align 4
-  br label %for.end
+85:                                               ; preds = %84, %50
+  br label %86
 
-if.end14:                                         ; preds = %for.body
-  br label %for.inc
+86:                                               ; preds = %85, %40
+  %87 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %87, i32 noundef -2)
+  store i32 0, ptr %13, align 4
+  br label %88
 
-for.inc:                                          ; preds = %if.end14
-  %17 = load ptr, ptr %flag, align 8
-  %incdec.ptr = getelementptr inbounds %struct.scriptFlag, ptr %17, i32 1
-  store ptr %incdec.ptr, ptr %flag, align 8
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %if.then10, %for.cond
-  %18 = load ptr, ptr %lua.addr, align 8
-  call void @lua_settop(ptr noundef %18, i32 noundef -2)
-  %19 = load i32, ptr %found, align 4
-  %tobool15 = icmp ne i32 %19, 0
-  br i1 %tobool15, label %if.end17, label %if.then16
-
-if.then16:                                        ; preds = %for.end
-  br label %done
-
-if.end17:                                         ; preds = %for.end
-  br label %while.body
-
-while.end:                                        ; preds = %if.then
-  %20 = load i32, ptr %f_flags, align 4
-  %conv18 = sext i32 %20 to i64
-  %21 = load ptr, ptr %flags.addr, align 8
-  store i64 %conv18, ptr %21, align 8
-  store i32 0, ptr %ret, align 4
-  br label %done
-
-done:                                             ; preds = %while.end, %if.then16, %if.then3
-  %22 = load i32, ptr %ret, align 4
-  ret i32 %22
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @luaRegisterFunctionArgsInitialize(ptr noundef %register_f_args, ptr noundef %name, ptr noundef %desc, ptr noundef %lua_f_ctx, i64 noundef %flags) #0 {
-entry:
-  %register_f_args.addr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %desc.addr = alloca ptr, align 8
-  %lua_f_ctx.addr = alloca ptr, align 8
-  %flags.addr = alloca i64, align 8
-  %.compoundliteral = alloca %struct.registerFunctionArgs, align 8
-  store ptr %register_f_args, ptr %register_f_args.addr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  store ptr %desc, ptr %desc.addr, align 8
-  store ptr %lua_f_ctx, ptr %lua_f_ctx.addr, align 8
-  store i64 %flags, ptr %flags.addr, align 8
-  %0 = load ptr, ptr %register_f_args.addr, align 8
-  %name1 = getelementptr inbounds %struct.registerFunctionArgs, ptr %.compoundliteral, i32 0, i32 0
-  %1 = load ptr, ptr %name.addr, align 8
-  store ptr %1, ptr %name1, align 8
-  %desc2 = getelementptr inbounds %struct.registerFunctionArgs, ptr %.compoundliteral, i32 0, i32 1
-  %2 = load ptr, ptr %desc.addr, align 8
-  store ptr %2, ptr %desc2, align 8
-  %lua_f_ctx3 = getelementptr inbounds %struct.registerFunctionArgs, ptr %.compoundliteral, i32 0, i32 2
-  %3 = load ptr, ptr %lua_f_ctx.addr, align 8
-  store ptr %3, ptr %lua_f_ctx3, align 8
-  %f_flags = getelementptr inbounds %struct.registerFunctionArgs, ptr %.compoundliteral, i32 0, i32 3
-  %4 = load i64, ptr %flags.addr, align 8
-  store i64 %4, ptr %f_flags, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %.compoundliteral, i64 32, i1 false)
-  ret void
-}
-
-declare void @luaL_unref(ptr noundef, i32 noundef, i32 noundef) #2
-
-declare void @zfree(ptr noundef) #2
-
-declare void @lua_pushnumber(ptr noundef, double noundef) #2
-
-declare void @lua_gettable(ptr noundef, i32 noundef) #2
-
-declare i32 @lua_getmetatable(ptr noundef, i32 noundef) #2
-
-declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal i64 @sdslen(ptr noundef %s) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %s.addr = alloca ptr, align 8
-  %flags = alloca i8, align 1
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -1
-  %1 = load i8, ptr %arrayidx, align 1
-  store i8 %1, ptr %flags, align 1
-  %2 = load i8, ptr %flags, align 1
-  %conv = zext i8 %2 to i32
-  %and = and i32 %conv, 7
-  switch i32 %and, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb9
-    i32 4, label %sw.bb13
+88:                                               ; preds = %82, %80, %75, %59, %49, %39, %86, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  %89 = load i32, ptr %13, align 4
+  switch i32 %89, label %127 [
+    i32 0, label %90
+    i32 3, label %20
+    i32 2, label %105
   ]
 
-sw.bb:                                            ; preds = %entry
-  %3 = load i8, ptr %flags, align 1
-  %conv1 = zext i8 %3 to i32
-  %shr = ashr i32 %conv1, 3
-  %conv2 = sext i32 %shr to i64
-  store i64 %conv2, ptr %retval, align 8
-  br label %return
+90:                                               ; preds = %88
+  br label %20, !llvm.loop !76
 
-sw.bb3:                                           ; preds = %entry
-  %4 = load ptr, ptr %s.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 -3
-  %len = getelementptr inbounds %struct.sdshdr8, ptr %add.ptr, i32 0, i32 0
-  %5 = load i8, ptr %len, align 1
-  %conv4 = zext i8 %5 to i64
-  store i64 %conv4, ptr %retval, align 8
-  br label %return
+91:                                               ; preds = %20
+  %92 = load ptr, ptr %7, align 8, !tbaa !13
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %95, label %94
 
-sw.bb5:                                           ; preds = %entry
-  %6 = load ptr, ptr %s.addr, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %6, i64 -5
-  %len7 = getelementptr inbounds %struct.sdshdr16, ptr %add.ptr6, i32 0, i32 0
-  %7 = load i16, ptr %len7, align 1
-  %conv8 = zext i16 %7 to i64
-  store i64 %conv8, ptr %retval, align 8
-  br label %return
+94:                                               ; preds = %91
+  store ptr @.str.25, ptr %6, align 8, !tbaa !13
+  br label %105
 
-sw.bb9:                                           ; preds = %entry
-  %8 = load ptr, ptr %s.addr, align 8
-  %add.ptr10 = getelementptr inbounds i8, ptr %8, i64 -9
-  %len11 = getelementptr inbounds %struct.sdshdr32, ptr %add.ptr10, i32 0, i32 0
-  %9 = load i32, ptr %len11, align 1
-  %conv12 = zext i32 %9 to i64
-  store i64 %conv12, ptr %retval, align 8
-  br label %return
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %9, align 8, !tbaa !55
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %99, label %98
 
-sw.bb13:                                          ; preds = %entry
-  %10 = load ptr, ptr %s.addr, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %10, i64 -17
-  %len15 = getelementptr inbounds %struct.sdshdr64, ptr %add.ptr14, i32 0, i32 0
-  %11 = load i64, ptr %len15, align 1
-  store i64 %11, ptr %retval, align 8
-  br label %return
+98:                                               ; preds = %95
+  store ptr @.str.26, ptr %6, align 8, !tbaa !13
+  br label %105
 
-sw.epilog:                                        ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
+99:                                               ; preds = %95
+  %100 = load ptr, ptr %5, align 8, !tbaa !74
+  %101 = load ptr, ptr %7, align 8, !tbaa !13
+  %102 = load ptr, ptr %8, align 8, !tbaa !13
+  %103 = load ptr, ptr %9, align 8, !tbaa !55
+  %104 = load i64, ptr %10, align 8, !tbaa !42
+  call void @luaRegisterFunctionArgsInitialize(ptr noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103, i64 noundef %104)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %127
 
-return:                                           ; preds = %sw.epilog, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb3, %sw.bb
-  %12 = load i64, ptr %retval, align 8
-  ret i64 %12
+105:                                              ; preds = %88, %98, %94, %28, %17
+  %106 = load ptr, ptr %7, align 8, !tbaa !13
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %108, label %110
+
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @sdsfree(ptr noundef %109)
+  br label %110
+
+110:                                              ; preds = %108, %105
+  %111 = load ptr, ptr %8, align 8, !tbaa !13
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %115
+
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %8, align 8, !tbaa !13
+  call void @sdsfree(ptr noundef %114)
+  br label %115
+
+115:                                              ; preds = %113, %110
+  %116 = load ptr, ptr %9, align 8, !tbaa !55
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %124
+
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %4, align 8, !tbaa !28
+  %120 = load ptr, ptr %9, align 8, !tbaa !55
+  %121 = getelementptr inbounds nuw %struct.luaFunctionCtx, ptr %120, i32 0, i32 0
+  %122 = load i32, ptr %121, align 4, !tbaa !56
+  call void @luaL_unref(ptr noundef %119, i32 noundef -10000, i32 noundef %122)
+  %123 = load ptr, ptr %9, align 8, !tbaa !55
+  call void @zfree(ptr noundef %123)
+  br label %124
+
+124:                                              ; preds = %118, %115
+  %125 = load ptr, ptr %4, align 8, !tbaa !28
+  %126 = load ptr, ptr %6, align 8, !tbaa !13
+  call void @luaPushError(ptr noundef %125, ptr noundef %126)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %127
+
+127:                                              ; preds = %124, %99, %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %128 = load i32, ptr %3, align 4
+  ret i32 %128
 }
 
-declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) #2
+; Function Attrs: nounwind uwtable
+define internal i32 @luaRegisterFunctionReadPositionalArgs(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store ptr null, ptr %6, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  store ptr null, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  store ptr null, ptr %8, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  store ptr null, ptr %9, align 8, !tbaa !55
+  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %13 = call ptr @luaGetStringSds(ptr noundef %12, i32 noundef 1)
+  store ptr %13, ptr %7, align 8, !tbaa !13
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
-declare ptr @sdsempty() #2
+15:                                               ; preds = %2
+  store ptr @.str.27, ptr %6, align 8, !tbaa !13
+  br label %31
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) #2
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !28
+  %18 = call i32 @lua_type(ptr noundef %17, i32 noundef 2)
+  %19 = icmp eq i32 %18, 6
+  br i1 %19, label %21, label %20
 
-; Function Attrs: noreturn nounwind
-declare void @abort() #6
+20:                                               ; preds = %16
+  store ptr @.str.28, ptr %6, align 8, !tbaa !13
+  br label %31
 
-declare i32 @lua_sethook(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %4, align 8, !tbaa !28
+  %23 = call i32 @luaL_ref(ptr noundef %22, i32 noundef -10000)
+  store i32 %23, ptr %10, align 4, !tbaa !45
+  %24 = call noalias ptr @zmalloc(i64 noundef 4) #12
+  store ptr %24, ptr %9, align 8, !tbaa !55
+  %25 = load i32, ptr %10, align 4, !tbaa !45
+  %26 = load ptr, ptr %9, align 8, !tbaa !55
+  %27 = getelementptr inbounds nuw %struct.luaFunctionCtx, ptr %26, i32 0, i32 0
+  store i32 %25, ptr %27, align 4, !tbaa !56
+  %28 = load ptr, ptr %5, align 8, !tbaa !74
+  %29 = load ptr, ptr %7, align 8, !tbaa !13
+  %30 = load ptr, ptr %9, align 8, !tbaa !55
+  call void @luaRegisterFunctionArgsInitialize(ptr noundef %28, ptr noundef %29, ptr noundef null, ptr noundef %30, i64 noundef 0)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %44
+
+31:                                               ; preds = %20, %15
+  %32 = load ptr, ptr %7, align 8, !tbaa !13
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %36
+
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @sdsfree(ptr noundef %35)
+  br label %36
+
+36:                                               ; preds = %34, %31
+  %37 = load ptr, ptr %8, align 8, !tbaa !13
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %41
+
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %8, align 8, !tbaa !13
+  call void @sdsfree(ptr noundef %40)
+  br label %41
+
+41:                                               ; preds = %39, %36
+  %42 = load ptr, ptr %4, align 8, !tbaa !28
+  %43 = load ptr, ptr %6, align 8, !tbaa !13
+  call void @luaPushError(ptr noundef %42, ptr noundef %43)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %44
+
+44:                                               ; preds = %41, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  %45 = load i32, ptr %3, align 4
+  ret i32 %45
+}
+
+declare i32 @lua_type(ptr noundef, i32 noundef) #3
+
+declare void @lua_pushnil(ptr noundef) #3
+
+declare i32 @lua_next(ptr noundef, i32 noundef) #3
+
+declare i32 @lua_isstring(ptr noundef, i32 noundef) #3
+
+declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcasecmp(ptr noundef, ptr noundef) #4
+
+declare ptr @luaGetStringSds(ptr noundef, i32 noundef) #3
+
+declare i32 @luaL_ref(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @luaEngineLoadHook(ptr noundef %lua, ptr noundef %ar) #0 {
-entry:
-  %lua.addr = alloca ptr, align 8
-  %ar.addr = alloca ptr, align 8
-  %load_ctx = alloca ptr, align 8
-  %duration = alloca i64, align 8
-  store ptr %lua, ptr %lua.addr, align 8
-  store ptr %ar, ptr %ar.addr, align 8
-  %0 = load ptr, ptr %lua.addr, align 8
-  %call = call ptr @luaGetFromRegistry(ptr noundef %0, ptr noundef @.str.10)
-  store ptr %call, ptr %load_ctx, align 8
-  %1 = load ptr, ptr %load_ctx, align 8
-  %tobool = icmp ne ptr %1, null
-  %lnot = xor i1 %tobool, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool2 = icmp ne i64 %conv, 0
-  br i1 %tobool2, label %cond.true, label %cond.false
+define internal i32 @luaRegisterFunctionReadFlags(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 1, ptr %6, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 -1, ptr %7, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 0, ptr %8, align 4, !tbaa !45
+  br label %14
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+14:                                               ; preds = %71, %2
+  br label %15
 
-cond.false:                                       ; preds = %entry
-  call void @_serverAssert(ptr noundef @.str.34, ptr noundef @.str.32, i32 noundef 86)
-  call void @abort() #10
-  unreachable
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %4, align 8, !tbaa !28
+  %17 = load i32, ptr %6, align 4, !tbaa !45
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %6, align 4, !tbaa !45
+  %19 = sitofp i32 %17 to double
+  call void @lua_pushnumber(ptr noundef %16, double noundef %19)
+  %20 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @lua_gettable(ptr noundef %20, i32 noundef -2)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %21 = load ptr, ptr %4, align 8, !tbaa !28
+  %22 = call i32 @lua_type(ptr noundef %21, i32 noundef -1)
+  store i32 %22, ptr %9, align 4, !tbaa !45
+  %23 = load i32, ptr %9, align 4, !tbaa !45
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %27
 
-2:                                                ; No predecessors!
-  br label %cond.end
+25:                                               ; preds = %15
+  %26 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %26, i32 noundef -2)
+  store i32 3, ptr %10, align 4
+  br label %69
 
-cond.end:                                         ; preds = %2, %cond.true
-  %3 = load ptr, ptr %load_ctx, align 8
-  %start_time = getelementptr inbounds %struct.loadCtx, ptr %3, i32 0, i32 1
-  %4 = load i64, ptr %start_time, align 8
-  %call3 = call i64 @elapsedMs(i64 noundef %4)
-  store i64 %call3, ptr %duration, align 8
-  %5 = load ptr, ptr %load_ctx, align 8
-  %timeout = getelementptr inbounds %struct.loadCtx, ptr %5, i32 0, i32 2
-  %6 = load i64, ptr %timeout, align 8
-  %cmp = icmp ugt i64 %6, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+27:                                               ; preds = %15
+  %28 = load ptr, ptr %4, align 8, !tbaa !28
+  %29 = call i32 @lua_isstring(ptr noundef %28, i32 noundef -1)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %33, label %31
 
-land.lhs.true:                                    ; preds = %cond.end
-  %7 = load i64, ptr %duration, align 8
-  %8 = load ptr, ptr %load_ctx, align 8
-  %timeout5 = getelementptr inbounds %struct.loadCtx, ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %timeout5, align 8
-  %cmp6 = icmp ugt i64 %7, %9
-  br i1 %cmp6, label %if.then, label %if.end
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %32, i32 noundef -2)
+  store i32 4, ptr %10, align 4
+  br label %69
 
-if.then:                                          ; preds = %land.lhs.true
-  %10 = load ptr, ptr %lua.addr, align 8
-  %call8 = call i32 @lua_sethook(ptr noundef %10, ptr noundef @luaEngineLoadHook, i32 noundef 4, i32 noundef 0)
-  %11 = load ptr, ptr %lua.addr, align 8
-  call void @luaPushError(ptr noundef %11, ptr noundef @.str.35)
-  %12 = load ptr, ptr %lua.addr, align 8
-  %call9 = call i32 @luaError(ptr noundef %12)
-  br label %if.end
+33:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %34 = load ptr, ptr %4, align 8, !tbaa !28
+  %35 = call ptr @lua_tolstring(ptr noundef %34, i32 noundef -1, ptr noundef null)
+  store ptr %35, ptr %11, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  store i32 0, ptr %12, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  store ptr @scripts_flags_def, ptr %13, align 8, !tbaa !80
+  br label %36
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %cond.end
+36:                                               ; preds = %58, %33
+  %37 = load ptr, ptr %13, align 8, !tbaa !80
+  %38 = getelementptr inbounds nuw %struct.scriptFlag, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !82
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %42, label %41
+
+41:                                               ; preds = %36
+  store i32 5, ptr %10, align 4
+  br label %61
+
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %13, align 8, !tbaa !80
+  %44 = getelementptr inbounds nuw %struct.scriptFlag, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !82
+  %46 = load ptr, ptr %11, align 8, !tbaa !13
+  %47 = call i32 @strcasecmp(ptr noundef %45, ptr noundef %46) #13
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %57, label %49
+
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %13, align 8, !tbaa !80
+  %51 = getelementptr inbounds nuw %struct.scriptFlag, ptr %50, i32 0, i32 0
+  %52 = load i64, ptr %51, align 8, !tbaa !84
+  %53 = load i32, ptr %8, align 4, !tbaa !45
+  %54 = sext i32 %53 to i64
+  %55 = or i64 %54, %52
+  %56 = trunc i64 %55 to i32
+  store i32 %56, ptr %8, align 4, !tbaa !45
+  store i32 1, ptr %12, align 4, !tbaa !45
+  store i32 5, ptr %10, align 4
+  br label %61
+
+57:                                               ; preds = %42
+  br label %58
+
+58:                                               ; preds = %57
+  %59 = load ptr, ptr %13, align 8, !tbaa !80
+  %60 = getelementptr inbounds nuw %struct.scriptFlag, ptr %59, i32 1
+  store ptr %60, ptr %13, align 8, !tbaa !80
+  br label %36, !llvm.loop !85
+
+61:                                               ; preds = %49, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  br label %62
+
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @lua_settop(ptr noundef %63, i32 noundef -2)
+  %64 = load i32, ptr %12, align 4, !tbaa !45
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %67, label %66
+
+66:                                               ; preds = %62
+  store i32 4, ptr %10, align 4
+  br label %68
+
+67:                                               ; preds = %62
+  store i32 0, ptr %10, align 4
+  br label %68
+
+68:                                               ; preds = %66, %67
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  br label %69
+
+69:                                               ; preds = %31, %68, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  %70 = load i32, ptr %10, align 4
+  switch i32 %70, label %78 [
+    i32 0, label %71
+    i32 3, label %72
+    i32 4, label %76
+  ]
+
+71:                                               ; preds = %69
+  br label %14
+
+72:                                               ; preds = %69
+  %73 = load i32, ptr %8, align 4, !tbaa !45
+  %74 = sext i32 %73 to i64
+  %75 = load ptr, ptr %5, align 8, !tbaa !78
+  store i64 %74, ptr %75, align 8, !tbaa !42
+  store i32 0, ptr %7, align 4, !tbaa !45
+  br label %76
+
+76:                                               ; preds = %72, %69
+  %77 = load i32, ptr %7, align 4, !tbaa !45
+  store i32 %77, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %78
+
+78:                                               ; preds = %76, %69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %79 = load i32, ptr %3, align 4
+  ret i32 %79
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @luaRegisterFunctionArgsInitialize(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %struct.registerFunctionArgs, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !74
+  store ptr %1, ptr %7, align 8, !tbaa !13
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !55
+  store i64 %4, ptr %10, align 8, !tbaa !42
+  %12 = load ptr, ptr %6, align 8, !tbaa !74
+  %13 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %11, i32 0, i32 0
+  %14 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %14, ptr %13, align 8, !tbaa !31
+  %15 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %11, i32 0, i32 1
+  %16 = load ptr, ptr %8, align 8, !tbaa !13
+  store ptr %16, ptr %15, align 8, !tbaa !39
+  %17 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %11, i32 0, i32 2
+  %18 = load ptr, ptr %9, align 8, !tbaa !55
+  store ptr %18, ptr %17, align 8, !tbaa !35
+  %19 = getelementptr inbounds nuw %struct.registerFunctionArgs, ptr %11, i32 0, i32 3
+  %20 = load i64, ptr %10, align 8, !tbaa !42
+  store i64 %20, ptr %19, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %11, i64 32, i1 false), !tbaa.struct !86
   ret void
 }
 
-declare void @luaExtractErrorInformation(ptr noundef, ptr noundef) #2
+declare void @luaL_unref(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare void @luaErrorInformationDiscard(ptr noundef) #2
+declare void @zfree(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i64 @elapsedMs(i64 noundef %start_time) #0 {
-entry:
-  %start_time.addr = alloca i64, align 8
-  store i64 %start_time, ptr %start_time.addr, align 8
-  %0 = load i64, ptr %start_time.addr, align 8
-  %call = call i64 @elapsedUs(i64 noundef %0)
-  %div = udiv i64 %call, 1000
-  ret i64 %div
+declare void @lua_pushnumber(ptr noundef, double noundef) #3
+
+declare void @lua_gettable(ptr noundef, i32 noundef) #3
+
+declare i32 @lua_getmetatable(ptr noundef, i32 noundef) #3
+
+declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @sdslen(ptr noundef %0) #7 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds i8, ptr %6, i64 -1
+  %8 = load i8, ptr %7, align 1, !tbaa !87
+  store i8 %8, ptr %4, align 1, !tbaa !87
+  %9 = load i8, ptr %4, align 1, !tbaa !87
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 7
+  switch i32 %11, label %40 [
+    i32 0, label %12
+    i32 1, label %17
+    i32 2, label %23
+    i32 3, label %29
+    i32 4, label %35
+  ]
+
+12:                                               ; preds = %1
+  %13 = load i8, ptr %4, align 1, !tbaa !87
+  %14 = zext i8 %13 to i32
+  %15 = ashr i32 %14, 3
+  %16 = sext i32 %15 to i64
+  store i64 %16, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %3, align 8, !tbaa !13
+  %19 = getelementptr inbounds i8, ptr %18, i64 -3
+  %20 = getelementptr inbounds nuw %struct.sdshdr8, ptr %19, i32 0, i32 0
+  %21 = load i8, ptr %20, align 1, !tbaa !87
+  %22 = zext i8 %21 to i64
+  store i64 %22, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %3, align 8, !tbaa !13
+  %25 = getelementptr inbounds i8, ptr %24, i64 -5
+  %26 = getelementptr inbounds nuw %struct.sdshdr16, ptr %25, i32 0, i32 0
+  %27 = load i16, ptr %26, align 1, !tbaa !88
+  %28 = zext i16 %27 to i64
+  store i64 %28, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+29:                                               ; preds = %1
+  %30 = load ptr, ptr %3, align 8, !tbaa !13
+  %31 = getelementptr inbounds i8, ptr %30, i64 -9
+  %32 = getelementptr inbounds nuw %struct.sdshdr32, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 1, !tbaa !45
+  %34 = zext i32 %33 to i64
+  store i64 %34, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+35:                                               ; preds = %1
+  %36 = load ptr, ptr %3, align 8, !tbaa !13
+  %37 = getelementptr inbounds i8, ptr %36, i64 -17
+  %38 = getelementptr inbounds nuw %struct.sdshdr64, ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 1, !tbaa !42
+  store i64 %39, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+40:                                               ; preds = %1
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+41:                                               ; preds = %40, %35, %29, %23, %17, %12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #11
+  %42 = load i64, ptr %2, align 8
+  ret i64 %42
 }
 
+declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) #3
+
+declare ptr @sdsempty() #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #8
+
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) #3
+
+; Function Attrs: noreturn nounwind
+declare void @abort() #9
+
+declare i32 @lua_sethook(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
+
 ; Function Attrs: nounwind uwtable
-define internal i64 @elapsedUs(i64 noundef %start_time) #0 {
-entry:
-  %start_time.addr = alloca i64, align 8
-  store i64 %start_time, ptr %start_time.addr, align 8
-  %0 = load ptr, ptr @getMonotonicUs, align 8
-  %call = call i64 %0()
-  %1 = load i64, ptr %start_time.addr, align 8
-  %sub = sub i64 %call, %1
-  ret i64 %sub
+define internal void @luaEngineLoadHook(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !89
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %7 = load ptr, ptr %3, align 8, !tbaa !28
+  %8 = call ptr @luaGetFromRegistry(ptr noundef %7, ptr noundef @.str.10)
+  store ptr %8, ptr %5, align 8, !tbaa !29
+  %9 = load ptr, ptr %5, align 8, !tbaa !29
+  %10 = icmp ne ptr %9, null
+  %11 = xor i1 %10, true
+  %12 = xor i1 %11, true
+  %13 = zext i1 %12 to i32
+  %14 = sext i32 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 1)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %2
+  br label %20
+
+18:                                               ; preds = %2
+  call void @_serverAssert(ptr noundef @.str.34, ptr noundef @.str.32, i32 noundef 70)
+  call void @abort() #14
+  unreachable
+
+19:                                               ; No predecessors!
+  br label %20
+
+20:                                               ; preds = %19, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %21 = load ptr, ptr %5, align 8, !tbaa !29
+  %22 = getelementptr inbounds nuw %struct.loadCtx, ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8, !tbaa !47
+  %24 = call i64 @elapsedMs(i64 noundef %23)
+  store i64 %24, ptr %6, align 8, !tbaa !42
+  %25 = load ptr, ptr %5, align 8, !tbaa !29
+  %26 = getelementptr inbounds nuw %struct.loadCtx, ptr %25, i32 0, i32 2
+  %27 = load i64, ptr %26, align 8, !tbaa !48
+  %28 = icmp ugt i64 %27, 0
+  br i1 %28, label %29, label %41
+
+29:                                               ; preds = %20
+  %30 = load i64, ptr %6, align 8, !tbaa !42
+  %31 = load ptr, ptr %5, align 8, !tbaa !29
+  %32 = getelementptr inbounds nuw %struct.loadCtx, ptr %31, i32 0, i32 2
+  %33 = load i64, ptr %32, align 8, !tbaa !48
+  %34 = icmp ugt i64 %30, %33
+  br i1 %34, label %35, label %41
+
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %3, align 8, !tbaa !28
+  %37 = call i32 @lua_sethook(ptr noundef %36, ptr noundef @luaEngineLoadHook, i32 noundef 4, i32 noundef 0)
+  %38 = load ptr, ptr %3, align 8, !tbaa !28
+  call void @luaPushError(ptr noundef %38, ptr noundef @.str.35)
+  %39 = load ptr, ptr %3, align 8, !tbaa !28
+  %40 = call i32 @luaError(ptr noundef %39)
+  br label %41
+
+41:                                               ; preds = %35, %29, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret void
 }
 
-declare void @lua_rawgeti(ptr noundef, i32 noundef, i32 noundef) #2
+declare void @luaExtractErrorInformation(ptr noundef, ptr noundef) #3
 
-declare void @luaCallFunction(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare void @luaErrorInformationDiscard(ptr noundef) #3
 
-declare i64 @luaMemory(ptr noundef) #2
+declare void @luaGC(ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @elapsedMs(i64 noundef %0) #7 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !42
+  %3 = load i64, ptr %2, align 8, !tbaa !42
+  %4 = call i64 @elapsedUs(i64 noundef %3)
+  %5 = udiv i64 %4, 1000
+  ret i64 %5
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @elapsedUs(i64 noundef %0) #7 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !27
+  %4 = call i64 %3()
+  %5 = load i64, ptr %2, align 8, !tbaa !42
+  %6 = sub i64 %4, %5
+  ret i64 %6
+}
+
+declare void @lua_rawgeti(ptr noundef, i32 noundef, i32 noundef) #3
+
+declare void @luaCallFunction(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) #3
+
+declare i64 @luaMemory(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i64 @je_malloc_usable_size(ptr noundef) #7
+declare i64 @je_malloc_usable_size(ptr noundef) #10
+
+declare i32 @lua_gc(ptr noundef, i32 noundef, i32 noundef) #3
+
+declare void @lua_close(ptr noundef) #3
+
+; Function Attrs: nounwind
+declare i32 @je_mallctl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { noreturn nounwind }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind }
+attributes #12 = { allocsize(0) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 
@@ -1444,6 +1680,89 @@ attributes #11 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"p1 _ZTS12luaEngineCtx", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"luaEngineCtx", !12, i64 0}
+!12 = !{!"p1 _ZTS9lua_State", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS6engine", !7, i64 0}
+!17 = !{!18, !7, i64 0}
+!18 = !{!"engine", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56}
+!19 = !{!18, !7, i64 8}
+!20 = !{!18, !7, i64 16}
+!21 = !{!18, !7, i64 24}
+!22 = !{!18, !7, i64 32}
+!23 = !{!18, !7, i64 40}
+!24 = !{!18, !7, i64 48}
+!25 = !{!18, !7, i64 56}
+!26 = !{i64 0, i64 8, !27, i64 8, i64 8, !27, i64 16, i64 8, !27, i64 24, i64 8, !27, i64 32, i64 8, !27, i64 40, i64 8, !27, i64 48, i64 8, !27, i64 56, i64 8, !27}
+!27 = !{!7, !7, i64 0}
+!28 = !{!12, !12, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS7loadCtx", !7, i64 0}
+!31 = !{!32, !14, i64 0}
+!32 = !{!"registerFunctionArgs", !14, i64 0, !14, i64 8, !33, i64 16, !34, i64 24}
+!33 = !{!"p1 _ZTS14luaFunctionCtx", !7, i64 0}
+!34 = !{!"long", !8, i64 0}
+!35 = !{!32, !33, i64 16}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"loadCtx", !38, i64 0, !34, i64 8, !34, i64 16}
+!38 = !{!"p1 _ZTS15functionLibInfo", !7, i64 0}
+!39 = !{!32, !14, i64 8}
+!40 = !{!32, !34, i64 24}
+!41 = !{!38, !38, i64 0}
+!42 = !{!34, !34, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p2 omnipotent char", !7, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"int", !8, i64 0}
+!47 = !{!37, !34, i64 8}
+!48 = !{!37, !34, i64 16}
+!49 = !{!50, !14, i64 0}
+!50 = !{!"errorInfo", !14, i64 0, !14, i64 8, !14, i64 16, !46, i64 24}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS12scriptRunCtx", !7, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p2 _ZTS11redisObject", !7, i64 0}
+!55 = !{!33, !33, i64 0}
+!56 = !{!57, !46, i64 0}
+!57 = !{!"luaFunctionCtx", !46, i64 0}
+!58 = !{!59, !62, i64 32}
+!59 = !{!"lua_State", !60, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !61, i64 16, !61, i64 24, !62, i64 32, !63, i64 40, !64, i64 48, !61, i64 56, !61, i64 64, !63, i64 72, !63, i64 80, !46, i64 88, !46, i64 92, !65, i64 96, !65, i64 98, !8, i64 100, !8, i64 101, !46, i64 104, !46, i64 108, !7, i64 112, !66, i64 120, !66, i64 136, !60, i64 152, !60, i64 160, !67, i64 168, !34, i64 176}
+!60 = !{!"p1 _ZTS8GCObject", !7, i64 0}
+!61 = !{!"p1 _ZTS10lua_TValue", !7, i64 0}
+!62 = !{!"p1 _ZTS12global_State", !7, i64 0}
+!63 = !{!"p1 _ZTS8CallInfo", !7, i64 0}
+!64 = !{!"p1 int", !7, i64 0}
+!65 = !{!"short", !8, i64 0}
+!66 = !{!"lua_TValue", !8, i64 0, !46, i64 8}
+!67 = !{!"p1 _ZTS11lua_longjmp", !7, i64 0}
+!68 = !{!69, !7, i64 24}
+!69 = !{!"global_State", !70, i64 0, !7, i64 16, !7, i64 24, !8, i64 32, !8, i64 33, !46, i64 36, !60, i64 40, !71, i64 48, !60, i64 56, !60, i64 64, !60, i64 72, !60, i64 80, !72, i64 88, !34, i64 112, !34, i64 120, !34, i64 128, !34, i64 136, !46, i64 144, !46, i64 148, !7, i64 152, !66, i64 160, !12, i64 176, !73, i64 184, !8, i64 224, !8, i64 296}
+!70 = !{!"stringtable", !71, i64 0, !46, i64 8, !46, i64 12}
+!71 = !{!"p2 _ZTS8GCObject", !7, i64 0}
+!72 = !{!"Mbuffer", !14, i64 0, !34, i64 8, !34, i64 16}
+!73 = !{!"UpVal", !60, i64 0, !8, i64 8, !8, i64 9, !61, i64 16, !8, i64 24}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTS20registerFunctionArgs", !7, i64 0}
+!76 = distinct !{!76, !77}
+!77 = !{!"llvm.loop.mustprogress"}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 long", !7, i64 0}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTS10scriptFlag", !7, i64 0}
+!82 = !{!83, !14, i64 8}
+!83 = !{!"scriptFlag", !34, i64 0, !14, i64 8}
+!84 = !{!83, !34, i64 0}
+!85 = distinct !{!85, !77}
+!86 = !{i64 0, i64 8, !13, i64 8, i64 8, !13, i64 16, i64 8, !55, i64 24, i64 8, !42}
+!87 = !{!8, !8, i64 0}
+!88 = !{!65, !65, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTS9lua_Debug", !7, i64 0}

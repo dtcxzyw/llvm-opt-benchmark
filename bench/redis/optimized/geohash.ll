@@ -1,359 +1,380 @@
 ; ModuleID = 'bench/redis/original/geohash.ll'
 source_filename = "bench/redis/original/geohash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @geohashGetCoordRange(ptr noundef writeonly captures(none) initializes((0, 16)) %long_range, ptr noundef writeonly captures(none) initializes((0, 16)) %lat_range) local_unnamed_addr #0 {
-entry:
-  %max = getelementptr inbounds nuw i8, ptr %long_range, i64 8
-  store double 1.800000e+02, ptr %max, align 8
-  store double -1.800000e+02, ptr %long_range, align 8
-  %max1 = getelementptr inbounds nuw i8, ptr %lat_range, i64 8
-  store double 0x40554345B1A57F00, ptr %max1, align 8
-  store double 0xC0554345B1A57F00, ptr %lat_range, align 8
+define dso_local void @geohashGetCoordRange(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double 1.800000e+02, ptr %3, align 8, !tbaa !5
+  store double -1.800000e+02, ptr %0, align 8, !tbaa !10
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double 0x40554345B1A57F00, ptr %4, align 8, !tbaa !5
+  store double 0xC0554345B1A57F00, ptr %1, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncode(ptr noundef readonly captures(address_is_null) %long_range, ptr noundef readonly captures(address_is_null) %lat_range, double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %hash, null
-  %0 = add i8 %step, -33
-  %1 = icmp ult i8 %0, -32
-  %or.cond1 = or i1 %cmp, %1
-  %cmp8 = icmp eq ptr %lat_range, null
-  %or.cond2 = or i1 %cmp8, %or.cond1
-  br i1 %or.cond2, label %return, label %lor.lhs.false10
+define dso_local range(i32 0, 2) i32 @geohashEncode(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2, double noundef %3, i8 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
+  %7 = icmp eq ptr %5, null
+  %8 = add i8 %4, -33
+  %9 = icmp ult i8 %8, -32
+  %or.cond5 = or i1 %7, %9
+  %10 = icmp eq ptr %1, null
+  %or.cond7 = or i1 %10, %or.cond5
+  br i1 %or.cond7, label %55, label %11
 
-lor.lhs.false10:                                  ; preds = %entry
-  %max = getelementptr inbounds nuw i8, ptr %lat_range, i64 8
-  %2 = load double, ptr %max, align 8
-  %tobool = fcmp une double %2, 0.000000e+00
-  br i1 %tobool, label %lor.lhs.false12, label %land.lhs.true
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load double, ptr %12, align 8, !tbaa !5
+  %14 = fcmp une double %13, 0.000000e+00
+  br i1 %14, label %19, label %15
 
-land.lhs.true:                                    ; preds = %lor.lhs.false10
-  %3 = load double, ptr %lat_range, align 8
-  %tobool11 = fcmp oeq double %3, 0.000000e+00
-  %cmp13 = icmp eq ptr %long_range, null
-  %or.cond3 = or i1 %cmp13, %tobool11
-  br i1 %or.cond3, label %return, label %lor.lhs.false15
+15:                                               ; preds = %11
+  %16 = load double, ptr %1, align 8, !tbaa !10
+  %17 = fcmp oeq double %16, 0.000000e+00
+  %18 = icmp eq ptr %0, null
+  %or.cond9 = or i1 %18, %17
+  br i1 %or.cond9, label %55, label %20
 
-lor.lhs.false12:                                  ; preds = %lor.lhs.false10
-  %cmp13.old = icmp eq ptr %long_range, null
-  br i1 %cmp13.old, label %return, label %lor.lhs.false15
+19:                                               ; preds = %11
+  %.old8 = icmp eq ptr %0, null
+  br i1 %.old8, label %55, label %20
 
-lor.lhs.false15:                                  ; preds = %land.lhs.true, %lor.lhs.false12
-  %max16 = getelementptr inbounds nuw i8, ptr %long_range, i64 8
-  %4 = load double, ptr %max16, align 8
-  %tobool17 = fcmp une double %4, 0.000000e+00
-  br i1 %tobool17, label %if.end, label %land.lhs.true18
+20:                                               ; preds = %15, %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load double, ptr %21, align 8, !tbaa !5
+  %23 = fcmp une double %22, 0.000000e+00
+  br i1 %23, label %27, label %24
 
-land.lhs.true18:                                  ; preds = %lor.lhs.false15
-  %5 = load double, ptr %long_range, align 8
-  %tobool20 = fcmp une double %5, 0.000000e+00
-  br i1 %tobool20, label %if.end, label %return
+24:                                               ; preds = %20
+  %25 = load double, ptr %0, align 8, !tbaa !10
+  %26 = fcmp une double %25, 0.000000e+00
+  br i1 %26, label %27, label %55
 
-if.end:                                           ; preds = %land.lhs.true18, %lor.lhs.false15
-  %6 = tail call double @llvm.fabs.f64(double %longitude)
-  %or.cond5 = fcmp ogt double %6, 1.800000e+02
-  %7 = tail call double @llvm.fabs.f64(double %latitude)
-  %8 = fcmp ogt double %7, 0x40554345B1A57F00
-  %or.cond9 = or i1 %or.cond5, %8
-  br i1 %or.cond9, label %return, label %if.end33
+27:                                               ; preds = %24, %20
+  %28 = tail call double @llvm.fabs.f64(double %2)
+  %or.cond12 = fcmp ogt double %28, 1.800000e+02
+  %29 = tail call double @llvm.fabs.f64(double %3)
+  %30 = fcmp ogt double %29, 0x40554345B1A57F00
+  %or.cond18 = or i1 %or.cond12, %30
+  br i1 %or.cond18, label %55, label %31
 
-if.end33:                                         ; preds = %if.end
-  store i64 0, ptr %hash, align 8
-  %step34 = getelementptr inbounds nuw i8, ptr %hash, i64 8
-  store i8 %step, ptr %step34, align 8
-  %9 = load double, ptr %lat_range, align 8
-  %cmp36 = fcmp olt double %latitude, %9
-  br i1 %cmp36, label %return, label %lor.lhs.false38
+31:                                               ; preds = %27
+  store i64 0, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 %4, ptr %32, align 8, !tbaa !14
+  %33 = load double, ptr %1, align 8, !tbaa !10
+  %34 = fcmp olt double %3, %33
+  %35 = fcmp ogt double %3, %13
+  %or.cond = or i1 %35, %34
+  br i1 %or.cond, label %55, label %36
 
-lor.lhs.false38:                                  ; preds = %if.end33
-  %10 = load double, ptr %max, align 8
-  %cmp40 = fcmp ogt double %latitude, %10
-  br i1 %cmp40, label %return, label %lor.lhs.false42
+36:                                               ; preds = %31
+  %37 = load double, ptr %0, align 8, !tbaa !10
+  %38 = fcmp olt double %2, %37
+  %39 = fcmp ogt double %2, %22
+  %or.cond66 = or i1 %39, %38
+  br i1 %or.cond66, label %55, label %40
 
-lor.lhs.false42:                                  ; preds = %lor.lhs.false38
-  %11 = load double, ptr %long_range, align 8
-  %cmp44 = fcmp olt double %longitude, %11
-  br i1 %cmp44, label %return, label %lor.lhs.false46
+40:                                               ; preds = %36
+  %41 = fsub double %3, %33
+  %42 = fsub double %13, %33
+  %43 = fdiv double %41, %42
+  %44 = fsub double %2, %37
+  %45 = fsub double %22, %37
+  %46 = fdiv double %44, %45
+  %47 = zext nneg i8 %4 to i64
+  %48 = shl nuw nsw i64 1, %47
+  %49 = uitofp nneg i64 %48 to double
+  %50 = fmul double %43, %49
+  %51 = fmul double %46, %49
+  %52 = fptoui double %50 to i32
+  %53 = fptoui double %51 to i32
+  %54 = tail call fastcc i64 @interleave64(i32 noundef %52, i32 noundef %53)
+  store i64 %54, ptr %5, align 8, !tbaa !11
+  br label %55
 
-lor.lhs.false46:                                  ; preds = %lor.lhs.false42
-  %12 = load double, ptr %max16, align 8
-  %cmp48 = fcmp ogt double %longitude, %12
-  br i1 %cmp48, label %return, label %if.end51
-
-if.end51:                                         ; preds = %lor.lhs.false46
-  %sub = fsub double %latitude, %9
-  %sub55 = fsub double %10, %9
-  %div = fdiv double %sub, %sub55
-  %sub57 = fsub double %longitude, %11
-  %sub60 = fsub double %12, %11
-  %div61 = fdiv double %sub57, %sub60
-  %sh_prom = zext nneg i8 %step to i64
-  %shl = shl nuw nsw i64 1, %sh_prom
-  %conv63 = uitofp nneg i64 %shl to double
-  %mul = fmul double %div, %conv63
-  %mul68 = fmul double %div61, %conv63
-  %conv69 = fptoui double %mul to i32
-  %conv70 = fptoui double %mul68 to i32
-  %call = tail call fastcc i64 @interleave64(i32 noundef %conv69, i32 noundef %conv70)
-  store i64 %call, ptr %hash, align 8
-  br label %return
-
-return:                                           ; preds = %if.end33, %lor.lhs.false38, %lor.lhs.false42, %lor.lhs.false46, %if.end, %entry, %land.lhs.true, %lor.lhs.false12, %land.lhs.true18, %if.end51
-  %retval.0 = phi i32 [ 1, %if.end51 ], [ 0, %land.lhs.true18 ], [ 0, %lor.lhs.false12 ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %if.end ], [ 0, %lor.lhs.false46 ], [ 0, %lor.lhs.false42 ], [ 0, %lor.lhs.false38 ], [ 0, %if.end33 ]
-  ret i32 %retval.0
+55:                                               ; preds = %31, %36, %27, %6, %15, %19, %24, %40
+  %.0 = phi i32 [ 1, %40 ], [ 0, %24 ], [ 0, %19 ], [ 0, %15 ], [ 0, %6 ], [ 0, %27 ], [ 0, %36 ], [ 0, %31 ]
+  ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i64 @interleave64(i32 noundef %xlo, i32 noundef %ylo) unnamed_addr #2 {
-entry:
-  %conv = zext i32 %xlo to i64
-  %conv1 = zext i32 %ylo to i64
-  %shl = shl nuw nsw i64 %conv, 16
-  %or = or i64 %shl, %conv
-  %and = and i64 %or, 281470681808895
-  %shl3 = shl nuw nsw i64 %conv1, 16
-  %or4 = or i64 %shl3, %conv1
-  %and5 = and i64 %or4, 281470681808895
-  %shl7 = shl nuw nsw i64 %and, 8
-  %or8 = or i64 %shl7, %and
-  %and9 = and i64 %or8, 71777214294589695
-  %shl11 = shl nuw nsw i64 %and5, 8
-  %or12 = or i64 %shl11, %and5
-  %and13 = and i64 %or12, 71777214294589695
-  %shl15 = shl nuw nsw i64 %and9, 4
-  %or16 = or i64 %shl15, %and9
-  %and17 = and i64 %or16, 1085102592571150095
-  %shl19 = shl nuw nsw i64 %and13, 4
-  %or20 = or i64 %shl19, %and13
-  %and21 = and i64 %or20, 1085102592571150095
-  %shl23 = shl nuw nsw i64 %and17, 2
-  %or24 = or i64 %shl23, %and17
-  %and25 = and i64 %or24, 3689348814741910323
-  %shl27 = shl nuw nsw i64 %and21, 2
-  %or28 = or i64 %shl27, %and21
-  %and29 = and i64 %or28, 3689348814741910323
-  %shl31 = shl nuw nsw i64 %and25, 1
-  %or32 = or i64 %shl31, %and25
-  %and33 = and i64 %or32, 6148914691236517205
-  %0 = shl nuw i64 %and29, 2
-  %1 = shl nuw nsw i64 %and29, 1
-  %and37 = or i64 %0, %1
-  %shl38 = and i64 %and37, -6148914691236517206
-  %or39 = or disjoint i64 %shl38, %and33
-  ret i64 %or39
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define internal fastcc i64 @interleave64(i32 noundef %0, i32 noundef %1) unnamed_addr #2 {
+  %3 = zext i32 %0 to i64
+  %4 = zext i32 %1 to i64
+  %5 = shl nuw nsw i64 %3, 16
+  %6 = or i64 %5, %3
+  %7 = and i64 %6, 281470681808895
+  %8 = shl nuw nsw i64 %4, 16
+  %9 = or i64 %8, %4
+  %10 = and i64 %9, 281470681808895
+  %11 = shl nuw nsw i64 %7, 8
+  %12 = or i64 %11, %7
+  %13 = and i64 %12, 71777214294589695
+  %14 = shl nuw nsw i64 %10, 8
+  %15 = or i64 %14, %10
+  %16 = and i64 %15, 71777214294589695
+  %17 = shl nuw nsw i64 %13, 4
+  %18 = or i64 %17, %13
+  %19 = and i64 %18, 1085102592571150095
+  %20 = shl nuw nsw i64 %16, 4
+  %21 = or i64 %20, %16
+  %22 = and i64 %21, 1085102592571150095
+  %23 = shl nuw nsw i64 %19, 2
+  %24 = or i64 %23, %19
+  %25 = and i64 %24, 3689348814741910323
+  %26 = shl nuw nsw i64 %22, 2
+  %27 = or i64 %26, %22
+  %28 = and i64 %27, 3689348814741910323
+  %29 = shl nuw nsw i64 %25, 1
+  %30 = or i64 %29, %25
+  %31 = and i64 %30, 6148914691236517205
+  %32 = shl nuw i64 %28, 2
+  %33 = shl nuw nsw i64 %28, 1
+  %34 = or i64 %32, %33
+  %35 = and i64 %34, -6148914691236517206
+  %36 = or disjoint i64 %35, %31
+  ret i64 %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncodeType(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp eq ptr %hash, null
-  %0 = add i8 %step, -33
-  %1 = icmp ult i8 %0, -32
-  %or.cond1.i = or i1 %cmp.i, %1
-  br i1 %or.cond1.i, label %geohashEncode.exit, label %if.end.i
+define dso_local range(i32 0, 2) i32 @geohashEncodeType(double noundef %0, double noundef %1, i8 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+  %5 = icmp eq ptr %3, null
+  %6 = add i8 %2, -33
+  %7 = icmp ult i8 %6, -32
+  %or.cond5.i = or i1 %5, %7
+  br i1 %or.cond5.i, label %geohashEncode.exit, label %8
 
-if.end.i:                                         ; preds = %entry
-  %2 = tail call double @llvm.fabs.f64(double %longitude)
-  %or.cond5.i = fcmp ogt double %2, 1.800000e+02
-  %3 = tail call double @llvm.fabs.f64(double %latitude)
-  %4 = fcmp ogt double %3, 0x40554345B1A57F00
-  %or.cond9.i = or i1 %or.cond5.i, %4
-  br i1 %or.cond9.i, label %geohashEncode.exit, label %if.end51.i
+8:                                                ; preds = %4
+  %9 = tail call double @llvm.fabs.f64(double %0)
+  %or.cond12.i = fcmp ogt double %9, 1.800000e+02
+  %10 = tail call double @llvm.fabs.f64(double %1)
+  %11 = fcmp ogt double %10, 0x40554345B1A57F00
+  %or.cond18.i = or i1 %or.cond12.i, %11
+  br i1 %or.cond18.i, label %geohashEncode.exit, label %12
 
-if.end51.i:                                       ; preds = %if.end.i
-  %step34.i = getelementptr inbounds nuw i8, ptr %hash, i64 8
-  store i8 %step, ptr %step34.i, align 8
-  %sub.i = fadd double %latitude, 0x40554345B1A57F00
-  %div.i = fdiv double %sub.i, 0x40654345B1A57F00
-  %sub57.i = fadd double %longitude, 1.800000e+02
-  %div61.i = fdiv double %sub57.i, 3.600000e+02
-  %sh_prom.i = zext nneg i8 %step to i64
-  %shl.i = shl nuw nsw i64 1, %sh_prom.i
-  %conv63.i = uitofp nneg i64 %shl.i to double
-  %mul.i = fmul double %div.i, %conv63.i
-  %mul68.i = fmul double %div61.i, %conv63.i
-  %conv69.i = fptoui double %mul.i to i32
-  %conv70.i = fptoui double %mul68.i to i32
-  %call.i = tail call fastcc i64 @interleave64(i32 noundef %conv69.i, i32 noundef %conv70.i)
-  store i64 %call.i, ptr %hash, align 8
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 %2, ptr %13, align 8, !tbaa !14
+  %14 = fadd double %1, 0x40554345B1A57F00
+  %15 = fdiv double %14, 0x40654345B1A57F00
+  %16 = fadd double %0, 1.800000e+02
+  %17 = fdiv double %16, 3.600000e+02
+  %18 = zext nneg i8 %2 to i64
+  %19 = shl nuw nsw i64 1, %18
+  %20 = uitofp nneg i64 %19 to double
+  %21 = fmul double %15, %20
+  %22 = fmul double %17, %20
+  %23 = fptoui double %21 to i32
+  %24 = fptoui double %22 to i32
+  %25 = zext i32 %23 to i64
+  %26 = zext i32 %24 to i64
+  %27 = shl nuw nsw i64 %25, 16
+  %28 = or i64 %27, %25
+  %29 = and i64 %28, 281470681808895
+  %30 = shl nuw nsw i64 %26, 16
+  %31 = or i64 %30, %26
+  %32 = and i64 %31, 281470681808895
+  %33 = shl nuw nsw i64 %29, 8
+  %34 = or i64 %33, %29
+  %35 = and i64 %34, 71777214294589695
+  %36 = shl nuw nsw i64 %32, 8
+  %37 = or i64 %36, %32
+  %38 = and i64 %37, 71777214294589695
+  %39 = shl nuw nsw i64 %35, 4
+  %40 = or i64 %39, %35
+  %41 = and i64 %40, 1085102592571150095
+  %42 = shl nuw nsw i64 %38, 4
+  %43 = or i64 %42, %38
+  %44 = and i64 %43, 1085102592571150095
+  %45 = shl nuw nsw i64 %41, 2
+  %46 = or i64 %45, %41
+  %47 = and i64 %46, 3689348814741910323
+  %48 = shl nuw nsw i64 %44, 2
+  %49 = or i64 %48, %44
+  %50 = and i64 %49, 3689348814741910323
+  %51 = shl nuw nsw i64 %47, 1
+  %52 = or i64 %51, %47
+  %53 = and i64 %52, 6148914691236517205
+  %54 = shl nuw i64 %50, 2
+  %55 = shl nuw nsw i64 %50, 1
+  %56 = or i64 %54, %55
+  %57 = and i64 %56, -6148914691236517206
+  %58 = or disjoint i64 %57, %53
+  store i64 %58, ptr %3, align 8, !tbaa !11
   br label %geohashEncode.exit
 
-geohashEncode.exit:                               ; preds = %entry, %if.end.i, %if.end51.i
-  %retval.0.i = phi i32 [ 1, %if.end51.i ], [ 0, %entry ], [ 0, %if.end.i ]
-  ret i32 %retval.0.i
+geohashEncode.exit:                               ; preds = %4, %8, %12
+  %.0.i = phi i32 [ 1, %12 ], [ 0, %4 ], [ 0, %8 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashEncodeWGS84(double noundef %longitude, double noundef %latitude, i8 noundef zeroext %step, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #0 {
-entry:
-  %cmp.i.i = icmp eq ptr %hash, null
-  %0 = add i8 %step, -33
-  %1 = icmp ult i8 %0, -32
-  %or.cond1.i.i = or i1 %cmp.i.i, %1
-  br i1 %or.cond1.i.i, label %geohashEncodeType.exit, label %if.end.i.i
+define dso_local range(i32 0, 2) i32 @geohashEncodeWGS84(double noundef %0, double noundef %1, i8 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+  %5 = icmp eq ptr %3, null
+  %6 = add i8 %2, -33
+  %7 = icmp ult i8 %6, -32
+  %or.cond5.i.i = or i1 %5, %7
+  br i1 %or.cond5.i.i, label %geohashEncodeType.exit, label %8
 
-if.end.i.i:                                       ; preds = %entry
-  %2 = tail call double @llvm.fabs.f64(double %longitude)
-  %or.cond5.i.i = fcmp ogt double %2, 1.800000e+02
-  %3 = tail call double @llvm.fabs.f64(double %latitude)
-  %4 = fcmp ogt double %3, 0x40554345B1A57F00
-  %or.cond9.i.i = or i1 %or.cond5.i.i, %4
-  br i1 %or.cond9.i.i, label %geohashEncodeType.exit, label %if.end51.i.i
+8:                                                ; preds = %4
+  %9 = tail call double @llvm.fabs.f64(double %0)
+  %or.cond12.i.i = fcmp ogt double %9, 1.800000e+02
+  %10 = tail call double @llvm.fabs.f64(double %1)
+  %11 = fcmp ogt double %10, 0x40554345B1A57F00
+  %or.cond18.i.i = or i1 %or.cond12.i.i, %11
+  br i1 %or.cond18.i.i, label %geohashEncodeType.exit, label %12
 
-if.end51.i.i:                                     ; preds = %if.end.i.i
-  %step34.i.i = getelementptr inbounds nuw i8, ptr %hash, i64 8
-  store i8 %step, ptr %step34.i.i, align 8
-  %sub.i.i = fadd double %latitude, 0x40554345B1A57F00
-  %div.i.i = fdiv double %sub.i.i, 0x40654345B1A57F00
-  %sub57.i.i = fadd double %longitude, 1.800000e+02
-  %div61.i.i = fdiv double %sub57.i.i, 3.600000e+02
-  %sh_prom.i.i = zext nneg i8 %step to i64
-  %shl.i.i = shl nuw nsw i64 1, %sh_prom.i.i
-  %conv63.i.i = uitofp nneg i64 %shl.i.i to double
-  %mul.i.i = fmul double %div.i.i, %conv63.i.i
-  %mul68.i.i = fmul double %div61.i.i, %conv63.i.i
-  %conv69.i.i = fptoui double %mul.i.i to i32
-  %conv70.i.i = fptoui double %mul68.i.i to i32
-  %conv.i = zext i32 %conv69.i.i to i64
-  %conv1.i = zext i32 %conv70.i.i to i64
-  %shl.i = shl nuw nsw i64 %conv.i, 16
-  %or.i = or i64 %shl.i, %conv.i
-  %and.i = and i64 %or.i, 281470681808895
-  %shl3.i = shl nuw nsw i64 %conv1.i, 16
-  %or4.i = or i64 %shl3.i, %conv1.i
-  %and5.i = and i64 %or4.i, 281470681808895
-  %shl7.i = shl nuw nsw i64 %and.i, 8
-  %or8.i = or i64 %shl7.i, %and.i
-  %and9.i = and i64 %or8.i, 71777214294589695
-  %shl11.i = shl nuw nsw i64 %and5.i, 8
-  %or12.i = or i64 %shl11.i, %and5.i
-  %and13.i = and i64 %or12.i, 71777214294589695
-  %shl15.i = shl nuw nsw i64 %and9.i, 4
-  %or16.i = or i64 %shl15.i, %and9.i
-  %and17.i = and i64 %or16.i, 1085102592571150095
-  %shl19.i = shl nuw nsw i64 %and13.i, 4
-  %or20.i = or i64 %shl19.i, %and13.i
-  %and21.i = and i64 %or20.i, 1085102592571150095
-  %shl23.i = shl nuw nsw i64 %and17.i, 2
-  %or24.i = or i64 %shl23.i, %and17.i
-  %and25.i = and i64 %or24.i, 3689348814741910323
-  %shl27.i = shl nuw nsw i64 %and21.i, 2
-  %or28.i = or i64 %shl27.i, %and21.i
-  %and29.i = and i64 %or28.i, 3689348814741910323
-  %shl31.i = shl nuw nsw i64 %and25.i, 1
-  %or32.i = or i64 %shl31.i, %and25.i
-  %and33.i = and i64 %or32.i, 6148914691236517205
-  %5 = shl nuw i64 %and29.i, 2
-  %6 = shl nuw nsw i64 %and29.i, 1
-  %and37.i = or i64 %5, %6
-  %shl38.i = and i64 %and37.i, -6148914691236517206
-  %or39.i = or disjoint i64 %shl38.i, %and33.i
-  store i64 %or39.i, ptr %hash, align 8
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 %2, ptr %13, align 8, !tbaa !14
+  %14 = fadd double %1, 0x40554345B1A57F00
+  %15 = fdiv double %14, 0x40654345B1A57F00
+  %16 = fadd double %0, 1.800000e+02
+  %17 = fdiv double %16, 3.600000e+02
+  %18 = zext nneg i8 %2 to i64
+  %19 = shl nuw nsw i64 1, %18
+  %20 = uitofp nneg i64 %19 to double
+  %21 = fmul double %15, %20
+  %22 = fmul double %17, %20
+  %23 = fptoui double %21 to i32
+  %24 = fptoui double %22 to i32
+  %25 = zext i32 %23 to i64
+  %26 = zext i32 %24 to i64
+  %27 = shl nuw nsw i64 %25, 16
+  %28 = or i64 %27, %25
+  %29 = and i64 %28, 281470681808895
+  %30 = shl nuw nsw i64 %26, 16
+  %31 = or i64 %30, %26
+  %32 = and i64 %31, 281470681808895
+  %33 = shl nuw nsw i64 %29, 8
+  %34 = or i64 %33, %29
+  %35 = and i64 %34, 71777214294589695
+  %36 = shl nuw nsw i64 %32, 8
+  %37 = or i64 %36, %32
+  %38 = and i64 %37, 71777214294589695
+  %39 = shl nuw nsw i64 %35, 4
+  %40 = or i64 %39, %35
+  %41 = and i64 %40, 1085102592571150095
+  %42 = shl nuw nsw i64 %38, 4
+  %43 = or i64 %42, %38
+  %44 = and i64 %43, 1085102592571150095
+  %45 = shl nuw nsw i64 %41, 2
+  %46 = or i64 %45, %41
+  %47 = and i64 %46, 3689348814741910323
+  %48 = shl nuw nsw i64 %44, 2
+  %49 = or i64 %48, %44
+  %50 = and i64 %49, 3689348814741910323
+  %51 = shl nuw nsw i64 %47, 1
+  %52 = or i64 %51, %47
+  %53 = and i64 %52, 6148914691236517205
+  %54 = shl nuw i64 %50, 2
+  %55 = shl nuw nsw i64 %50, 1
+  %56 = or i64 %54, %55
+  %57 = and i64 %56, -6148914691236517206
+  %58 = or disjoint i64 %57, %53
+  store i64 %58, ptr %3, align 8, !tbaa !11
   br label %geohashEncodeType.exit
 
-geohashEncodeType.exit:                           ; preds = %entry, %if.end.i.i, %if.end51.i.i
-  %retval.0.i.i = phi i32 [ 1, %if.end51.i.i ], [ 0, %entry ], [ 0, %if.end.i.i ]
-  ret i32 %retval.0.i.i
+geohashEncodeType.exit:                           ; preds = %4, %8, %12
+  %.0.i.i = phi i32 [ 1, %12 ], [ 0, %4 ], [ 0, %8 ]
+  ret i32 %.0.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecode(double %long_range.coerce0, double %long_range.coerce1, double %lat_range.coerce0, double %lat_range.coerce1, i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly captures(address_is_null) %area) local_unnamed_addr #0 {
-entry:
-  %tobool = icmp eq i64 %hash.coerce0, 0
-  %tobool1 = icmp eq i8 %hash.coerce1, 0
-  %or.cond.not27 = select i1 %tobool, i1 %tobool1, i1 false
-  %cmp = icmp eq ptr %area, null
-  %or.cond1 = or i1 %or.cond.not27, %cmp
-  br i1 %or.cond1, label %return, label %lor.lhs.false2
+define dso_local range(i32 0, 2) i32 @geohashDecode(double %0, double %1, double %2, double %3, i64 %4, i8 %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+  %8 = icmp eq i64 %4, 0
+  %9 = icmp eq i8 %5, 0
+  %or.cond.not45 = select i1 %8, i1 %9, i1 false
+  %10 = icmp eq ptr %6, null
+  %or.cond4 = or i1 %or.cond.not45, %10
+  br i1 %or.cond4, label %74, label %11
 
-lor.lhs.false2:                                   ; preds = %entry
-  %tobool3 = fcmp une double %lat_range.coerce1, 0.000000e+00
-  %tobool5 = fcmp une double %lat_range.coerce0, 0.000000e+00
-  %or.cond2 = select i1 %tobool3, i1 true, i1 %tobool5
-  br i1 %or.cond2, label %lor.lhs.false6, label %return
+11:                                               ; preds = %7
+  %12 = fcmp une double %3, 0.000000e+00
+  %13 = fcmp une double %2, 0.000000e+00
+  %or.cond7 = select i1 %12, i1 true, i1 %13
+  br i1 %or.cond7, label %14, label %74
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false2
-  %tobool8 = fcmp une double %long_range.coerce1, 0.000000e+00
-  %tobool11 = fcmp une double %long_range.coerce0, 0.000000e+00
-  %or.cond3 = select i1 %tobool8, i1 true, i1 %tobool11
-  br i1 %or.cond3, label %if.end, label %return
+14:                                               ; preds = %11
+  %15 = fcmp une double %1, 0.000000e+00
+  %16 = fcmp une double %0, 0.000000e+00
+  %or.cond10 = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond10, label %17, label %74
 
-if.end:                                           ; preds = %lor.lhs.false6
-  store i64 %hash.coerce0, ptr %area, align 8
-  %hash.sroa.4.0.hash12.sroa_idx = getelementptr inbounds nuw i8, ptr %area, i64 8
-  store i8 %hash.coerce1, ptr %hash.sroa.4.0.hash12.sroa_idx, align 8
-  %shr.i = lshr i64 %hash.coerce0, 1
-  %and.i = and i64 %hash.coerce0, 6148914691236517205
-  %and5.i = and i64 %shr.i, 4919131752989213764
-  %shr7.i = lshr i64 %and.i, 1
-  %or8.i = or disjoint i64 %shr7.i, %and.i
-  %and9.i = and i64 %or8.i, 3689348814741910323
-  %0 = and i64 %hash.coerce0, 2459565876494606882
-  %1 = or disjoint i64 %and5.i, %0
-  %or12.i = lshr exact i64 %1, 1
-  %shr15.i = lshr i64 %and9.i, 2
-  %or16.i = or disjoint i64 %shr15.i, %and9.i
-  %and17.i = and i64 %or16.i, 1085102592571150095
-  %shr19.i = lshr i64 %1, 3
-  %or20.i = or disjoint i64 %or12.i, %shr19.i
-  %and21.i = and i64 %or20.i, 1085102592571150095
-  %shr23.i = lshr i64 %and17.i, 4
-  %or24.i = or disjoint i64 %shr23.i, %and17.i
-  %and25.i = and i64 %or24.i, 71777214294589695
-  %shr27.i = lshr i64 %and21.i, 4
-  %or28.i = or disjoint i64 %shr27.i, %and21.i
-  %and29.i = and i64 %or28.i, 71777214294589695
-  %shr31.i = lshr i64 %and25.i, 8
-  %or32.i = or disjoint i64 %shr31.i, %and25.i
-  %shr35.i = lshr i64 %and29.i, 8
-  %or36.i = or disjoint i64 %shr35.i, %and29.i
-  %and33.i = lshr i64 %or32.i, 16
-  %shr39.i = and i64 %and33.i, 4294901760
-  %and33.masked.i = and i64 %or32.i, 65535
-  %and41.i = or disjoint i64 %shr39.i, %and33.masked.i
-  %and37.i = lshr i64 %or36.i, 16
-  %shr43.i = and i64 %and37.i, 4294901760
-  %and37.masked.i = and i64 %or36.i, 65535
-  %and45.i = or disjoint i64 %shr43.i, %and37.masked.i
-  %sub = fsub double %lat_range.coerce1, %lat_range.coerce0
-  %sub20 = fsub double %long_range.coerce1, %long_range.coerce0
-  %conv = trunc nuw i64 %and41.i to i32
-  %conv21 = trunc nuw i64 %and45.i to i32
-  %conv23 = uitofp i32 %conv to double
-  %sh_prom = zext nneg i8 %hash.coerce1 to i64
-  %shl = shl nuw i64 1, %sh_prom
-  %conv25 = uitofp i64 %shl to double
-  %div = fdiv double %conv23, %conv25
-  %2 = tail call double @llvm.fmuladd.f64(double %div, double %sub, double %lat_range.coerce0)
-  %latitude = getelementptr inbounds nuw i8, ptr %area, i64 32
-  store double %2, ptr %latitude, align 8
-  %add = add i32 %conv, 1
-  %conv29 = uitofp i32 %add to double
-  %div35 = fdiv double %conv29, %conv25
-  %3 = tail call double @llvm.fmuladd.f64(double %div35, double %sub, double %lat_range.coerce0)
-  %max38 = getelementptr inbounds nuw i8, ptr %area, i64 40
-  store double %3, ptr %max38, align 8
-  %conv40 = uitofp i32 %conv21 to double
-  %div46 = fdiv double %conv40, %conv25
-  %4 = tail call double @llvm.fmuladd.f64(double %div46, double %sub20, double %long_range.coerce0)
-  %longitude = getelementptr inbounds nuw i8, ptr %area, i64 16
-  store double %4, ptr %longitude, align 8
-  %add50 = add i32 %conv21, 1
-  %conv51 = uitofp i32 %add50 to double
-  %div57 = fdiv double %conv51, %conv25
-  %5 = tail call double @llvm.fmuladd.f64(double %div57, double %sub20, double %long_range.coerce0)
-  %max60 = getelementptr inbounds nuw i8, ptr %area, i64 24
-  store double %5, ptr %max60, align 8
-  br label %return
+17:                                               ; preds = %14
+  store i64 %4, ptr %6, align 8, !tbaa !15
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i8 %5, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %18 = lshr i64 %4, 1
+  %19 = and i64 %4, 6148914691236517205
+  %20 = and i64 %18, 4919131752989213764
+  %21 = lshr i64 %19, 1
+  %22 = or disjoint i64 %21, %19
+  %23 = and i64 %22, 3689348814741910323
+  %24 = and i64 %4, 2459565876494606882
+  %25 = or disjoint i64 %20, %24
+  %26 = lshr exact i64 %25, 1
+  %27 = lshr i64 %23, 2
+  %28 = or disjoint i64 %27, %23
+  %29 = and i64 %28, 1085102592571150095
+  %30 = lshr i64 %25, 3
+  %31 = or disjoint i64 %26, %30
+  %32 = and i64 %31, 1085102592571150095
+  %33 = lshr i64 %29, 4
+  %34 = or disjoint i64 %33, %29
+  %35 = and i64 %34, 71777214294589695
+  %36 = lshr i64 %32, 4
+  %37 = or disjoint i64 %36, %32
+  %38 = and i64 %37, 71777214294589695
+  %39 = lshr i64 %35, 8
+  %40 = or disjoint i64 %39, %35
+  %41 = lshr i64 %38, 8
+  %42 = or disjoint i64 %41, %38
+  %43 = lshr i64 %40, 16
+  %44 = and i64 %43, 4294901760
+  %.masked.i = and i64 %40, 65535
+  %45 = or disjoint i64 %44, %.masked.i
+  %46 = lshr i64 %42, 16
+  %47 = and i64 %46, 4294901760
+  %.masked28.i = and i64 %42, 65535
+  %48 = or disjoint i64 %47, %.masked28.i
+  %49 = fsub double %3, %2
+  %50 = fsub double %1, %0
+  %51 = trunc nuw i64 %45 to i32
+  %52 = trunc nuw i64 %48 to i32
+  %53 = uitofp i32 %51 to double
+  %54 = zext nneg i8 %5 to i64
+  %55 = shl nuw i64 1, %54
+  %56 = uitofp i64 %55 to double
+  %57 = fdiv double %53, %56
+  %58 = tail call double @llvm.fmuladd.f64(double %57, double %49, double %2)
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store double %58, ptr %59, align 8, !tbaa !17
+  %60 = add i32 %51, 1
+  %61 = uitofp i32 %60 to double
+  %62 = fdiv double %61, %56
+  %63 = tail call double @llvm.fmuladd.f64(double %62, double %49, double %2)
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store double %63, ptr %64, align 8, !tbaa !19
+  %65 = uitofp i32 %52 to double
+  %66 = fdiv double %65, %56
+  %67 = tail call double @llvm.fmuladd.f64(double %66, double %50, double %0)
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store double %67, ptr %68, align 8, !tbaa !20
+  %69 = add i32 %52, 1
+  %70 = uitofp i32 %69 to double
+  %71 = fdiv double %70, %56
+  %72 = tail call double @llvm.fmuladd.f64(double %71, double %50, double %0)
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store double %72, ptr %73, align 8, !tbaa !21
+  br label %74
 
-return:                                           ; preds = %entry, %lor.lhs.false2, %lor.lhs.false6, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false2 ], [ 0, %entry ]
-  ret i32 %retval.0
+74:                                               ; preds = %7, %11, %14, %17
+  %.0 = phi i32 [ 1, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %7 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -363,381 +384,375 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef captures(address_is_null) %area) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @geohashDecode(double -1.800000e+02, double 1.800000e+02, double 0xC0554345B1A57F00, double 0x40554345B1A57F00, i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef %area)
-  ret i32 %call
+define dso_local range(i32 0, 2) i32 @geohashDecodeType(i64 %0, i8 %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @geohashDecode(double -1.800000e+02, double 1.800000e+02, double 0xC0554345B1A57F00, double 0x40554345B1A57F00, i64 %0, i8 %1, ptr noundef %2)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeWGS84(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly captures(address_is_null) %area) local_unnamed_addr #0 {
-entry:
-  %tobool.i = icmp eq i64 %hash.coerce0, 0
-  %tobool1.i = icmp eq i8 %hash.coerce1, 0
-  %or.cond.not27.i = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  %cmp.i = icmp eq ptr %area, null
-  %or.cond1.i = or i1 %or.cond.not27.i, %cmp.i
-  br i1 %or.cond1.i, label %geohashDecode.exit, label %lor.lhs.false2.i
+define dso_local range(i32 0, 2) i32 @geohashDecodeWGS84(i64 %0, i8 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+  %4 = icmp eq i64 %0, 0
+  %5 = icmp eq i8 %1, 0
+  %or.cond.not45.i = select i1 %4, i1 %5, i1 false
+  %6 = icmp eq ptr %2, null
+  %or.cond4.i = or i1 %or.cond.not45.i, %6
+  br i1 %or.cond4.i, label %geohashDecode.exit, label %7
 
-lor.lhs.false2.i:                                 ; preds = %entry
-  store i64 %hash.coerce0, ptr %area, align 8
-  %hash.sroa.4.0.hash12.sroa_idx.i = getelementptr inbounds nuw i8, ptr %area, i64 8
-  store i8 %hash.coerce1, ptr %hash.sroa.4.0.hash12.sroa_idx.i, align 8
-  %shr.i.i = lshr i64 %hash.coerce0, 1
-  %and.i.i = and i64 %hash.coerce0, 6148914691236517205
-  %and5.i.i = and i64 %shr.i.i, 4919131752989213764
-  %shr7.i.i = lshr i64 %and.i.i, 1
-  %or8.i.i = or disjoint i64 %shr7.i.i, %and.i.i
-  %and9.i.i = and i64 %or8.i.i, 3689348814741910323
-  %0 = and i64 %hash.coerce0, 2459565876494606882
-  %1 = or disjoint i64 %and5.i.i, %0
-  %or12.i.i = lshr exact i64 %1, 1
-  %shr15.i.i = lshr i64 %and9.i.i, 2
-  %or16.i.i = or disjoint i64 %shr15.i.i, %and9.i.i
-  %and17.i.i = and i64 %or16.i.i, 1085102592571150095
-  %shr19.i.i = lshr i64 %1, 3
-  %or20.i.i = or disjoint i64 %or12.i.i, %shr19.i.i
-  %and21.i.i = and i64 %or20.i.i, 1085102592571150095
-  %shr23.i.i = lshr i64 %and17.i.i, 4
-  %or24.i.i = or disjoint i64 %shr23.i.i, %and17.i.i
-  %and25.i.i = and i64 %or24.i.i, 71777214294589695
-  %shr27.i.i = lshr i64 %and21.i.i, 4
-  %or28.i.i = or disjoint i64 %shr27.i.i, %and21.i.i
-  %and29.i.i = and i64 %or28.i.i, 71777214294589695
-  %shr31.i.i = lshr i64 %and25.i.i, 8
-  %or32.i.i = or disjoint i64 %shr31.i.i, %and25.i.i
-  %shr35.i.i = lshr i64 %and29.i.i, 8
-  %or36.i.i = or disjoint i64 %shr35.i.i, %and29.i.i
-  %and33.i.i = lshr i64 %or32.i.i, 16
-  %shr39.i.i = and i64 %and33.i.i, 4294901760
-  %and33.masked.i.i = and i64 %or32.i.i, 65535
-  %and41.i.i = or disjoint i64 %shr39.i.i, %and33.masked.i.i
-  %and37.i.i = lshr i64 %or36.i.i, 16
-  %shr43.i.i = and i64 %and37.i.i, 4294901760
-  %and37.masked.i.i = and i64 %or36.i.i, 65535
-  %and45.i.i = or disjoint i64 %shr43.i.i, %and37.masked.i.i
-  %conv.i = trunc nuw i64 %and41.i.i to i32
-  %conv21.i = trunc nuw i64 %and45.i.i to i32
-  %conv23.i = uitofp i32 %conv.i to double
-  %sh_prom.i = zext nneg i8 %hash.coerce1 to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
-  %conv25.i = uitofp i64 %shl.i to double
-  %div.i = fdiv double %conv23.i, %conv25.i
-  %2 = tail call double @llvm.fmuladd.f64(double %div.i, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
-  %latitude.i = getelementptr inbounds nuw i8, ptr %area, i64 32
-  store double %2, ptr %latitude.i, align 8
-  %add.i = add i32 %conv.i, 1
-  %conv29.i = uitofp i32 %add.i to double
-  %div35.i = fdiv double %conv29.i, %conv25.i
-  %3 = tail call double @llvm.fmuladd.f64(double %div35.i, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
-  %max38.i = getelementptr inbounds nuw i8, ptr %area, i64 40
-  store double %3, ptr %max38.i, align 8
-  %conv40.i = uitofp i32 %conv21.i to double
-  %div46.i = fdiv double %conv40.i, %conv25.i
-  %4 = tail call double @llvm.fmuladd.f64(double %div46.i, double 3.600000e+02, double -1.800000e+02)
-  %longitude.i = getelementptr inbounds nuw i8, ptr %area, i64 16
-  store double %4, ptr %longitude.i, align 8
-  %add50.i = add i32 %conv21.i, 1
-  %conv51.i = uitofp i32 %add50.i to double
-  %div57.i = fdiv double %conv51.i, %conv25.i
-  %5 = tail call double @llvm.fmuladd.f64(double %div57.i, double 3.600000e+02, double -1.800000e+02)
-  %max60.i = getelementptr inbounds nuw i8, ptr %area, i64 24
-  store double %5, ptr %max60.i, align 8
+7:                                                ; preds = %3
+  store i64 %0, ptr %2, align 8, !tbaa !15
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i8 %1, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
+  %8 = lshr i64 %0, 1
+  %9 = and i64 %0, 6148914691236517205
+  %10 = and i64 %8, 4919131752989213764
+  %11 = lshr i64 %9, 1
+  %12 = or disjoint i64 %11, %9
+  %13 = and i64 %12, 3689348814741910323
+  %14 = and i64 %0, 2459565876494606882
+  %15 = or disjoint i64 %10, %14
+  %16 = lshr exact i64 %15, 1
+  %17 = lshr i64 %13, 2
+  %18 = or disjoint i64 %17, %13
+  %19 = and i64 %18, 1085102592571150095
+  %20 = lshr i64 %15, 3
+  %21 = or disjoint i64 %16, %20
+  %22 = and i64 %21, 1085102592571150095
+  %23 = lshr i64 %19, 4
+  %24 = or disjoint i64 %23, %19
+  %25 = and i64 %24, 71777214294589695
+  %26 = lshr i64 %22, 4
+  %27 = or disjoint i64 %26, %22
+  %28 = and i64 %27, 71777214294589695
+  %29 = lshr i64 %25, 8
+  %30 = or disjoint i64 %29, %25
+  %31 = lshr i64 %28, 8
+  %32 = or disjoint i64 %31, %28
+  %33 = lshr i64 %30, 16
+  %34 = and i64 %33, 4294901760
+  %.masked.i.i = and i64 %30, 65535
+  %35 = or disjoint i64 %34, %.masked.i.i
+  %36 = lshr i64 %32, 16
+  %37 = and i64 %36, 4294901760
+  %.masked28.i.i = and i64 %32, 65535
+  %38 = or disjoint i64 %37, %.masked28.i.i
+  %39 = trunc nuw i64 %35 to i32
+  %40 = trunc nuw i64 %38 to i32
+  %41 = uitofp i32 %39 to double
+  %42 = zext nneg i8 %1 to i64
+  %43 = shl nuw i64 1, %42
+  %44 = uitofp i64 %43 to double
+  %45 = fdiv double %41, %44
+  %46 = tail call double @llvm.fmuladd.f64(double %45, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store double %46, ptr %47, align 8, !tbaa !17
+  %48 = add i32 %39, 1
+  %49 = uitofp i32 %48 to double
+  %50 = fdiv double %49, %44
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store double %51, ptr %52, align 8, !tbaa !19
+  %53 = uitofp i32 %40 to double
+  %54 = fdiv double %53, %44
+  %55 = tail call double @llvm.fmuladd.f64(double %54, double 3.600000e+02, double -1.800000e+02)
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %55, ptr %56, align 8, !tbaa !20
+  %57 = add i32 %40, 1
+  %58 = uitofp i32 %57 to double
+  %59 = fdiv double %58, %44
+  %60 = tail call double @llvm.fmuladd.f64(double %59, double 3.600000e+02, double -1.800000e+02)
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store double %60, ptr %61, align 8, !tbaa !21
   br label %geohashDecode.exit
 
-geohashDecode.exit:                               ; preds = %entry, %lor.lhs.false2.i
-  %retval.0.i = phi i32 [ 1, %lor.lhs.false2.i ], [ 0, %entry ]
-  ret i32 %retval.0.i
+geohashDecode.exit:                               ; preds = %3, %7
+  %.0.i = phi i32 [ 1, %7 ], [ 0, %3 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef readonly captures(none) %area, ptr noundef writeonly captures(address_is_null) %xy) local_unnamed_addr #1 {
-entry:
-  %tobool.not = icmp eq ptr %xy, null
-  br i1 %tobool.not, label %return, label %if.end
+define dso_local range(i32 0, 2) i32 @geohashDecodeAreaToLongLat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %21, label %3
 
-if.end:                                           ; preds = %entry
-  %longitude = getelementptr inbounds nuw i8, ptr %area, i64 16
-  %0 = load double, ptr %longitude, align 8
-  %max = getelementptr inbounds nuw i8, ptr %area, i64 24
-  %1 = load double, ptr %max, align 8
-  %add = fadd double %0, %1
-  %div = fmul double %add, 5.000000e-01
-  %cmp = fcmp ogt double %div, 1.800000e+02
-  %storemerge = select i1 %cmp, double 1.800000e+02, double %div
-  %cmp7 = fcmp olt double %storemerge, -1.800000e+02
-  %storemerge14 = select i1 %cmp7, double -1.800000e+02, double %storemerge
-  store double %storemerge14, ptr %xy, align 8
-  %latitude = getelementptr inbounds nuw i8, ptr %area, i64 32
-  %2 = load double, ptr %latitude, align 8
-  %max13 = getelementptr inbounds nuw i8, ptr %area, i64 40
-  %3 = load double, ptr %max13, align 8
-  %add14 = fadd double %2, %3
-  %div15 = fmul double %add14, 5.000000e-01
-  %arrayidx16 = getelementptr inbounds nuw i8, ptr %xy, i64 8
-  %cmp18 = fcmp ogt double %div15, 0x40554345B1A57F00
-  %storemerge15 = select i1 %cmp18, double 0x40554345B1A57F00, double %div15
-  %cmp23 = fcmp olt double %storemerge15, 0xC0554345B1A57F00
-  %storemerge16 = select i1 %cmp23, double 0xC0554345B1A57F00, double %storemerge15
-  store double %storemerge16, ptr %arrayidx16, align 8
-  br label %return
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load double, ptr %4, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load double, ptr %6, align 8, !tbaa !21
+  %8 = fadd double %5, %7
+  %9 = fmul double %8, 5.000000e-01
+  %10 = fcmp ogt double %9, 1.800000e+02
+  %storemerge = select i1 %10, double 1.800000e+02, double %9
+  %11 = fcmp olt double %storemerge, -1.800000e+02
+  %storemerge16 = select i1 %11, double -1.800000e+02, double %storemerge
+  store double %storemerge16, ptr %1, align 8, !tbaa !22
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load double, ptr %12, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = load double, ptr %14, align 8, !tbaa !19
+  %16 = fadd double %13, %15
+  %17 = fmul double %16, 5.000000e-01
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = fcmp ogt double %17, 0x40554345B1A57F00
+  %storemerge17 = select i1 %19, double 0x40554345B1A57F00, double %17
+  %20 = fcmp olt double %storemerge17, 0xC0554345B1A57F00
+  %storemerge18 = select i1 %20, double 0xC0554345B1A57F00, double %storemerge17
+  store double %storemerge18, ptr %18, align 8, !tbaa !22
+  br label %21
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %entry ]
-  ret i32 %retval.0
+21:                                               ; preds = %2, %3
+  %.0 = phi i32 [ 1, %3 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef writeonly captures(address_is_null) %xy) local_unnamed_addr #0 {
-entry:
-  %tobool.not = icmp eq ptr %xy, null
-  br i1 %tobool.not, label %return, label %lor.lhs.false
+define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatType(i64 %0, i8 %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %geohashDecode.exit.thread, label %4
 
-lor.lhs.false:                                    ; preds = %entry
-  %tobool.i = icmp eq i64 %hash.coerce0, 0
-  %tobool1.i = icmp eq i8 %hash.coerce1, 0
-  %or.cond.not27.i = select i1 %tobool.i, i1 %tobool1.i, i1 false
-  br i1 %or.cond.not27.i, label %return, label %geohashDecodeAreaToLongLat.exit
+4:                                                ; preds = %3
+  %5 = icmp eq i64 %0, 0
+  %6 = icmp eq i8 %1, 0
+  %or.cond.not45.i = select i1 %5, i1 %6, i1 false
+  br i1 %or.cond.not45.i, label %geohashDecode.exit.thread, label %geohashDecodeAreaToLongLat.exit
 
-geohashDecodeAreaToLongLat.exit:                  ; preds = %lor.lhs.false
-  %shr.i.i = lshr i64 %hash.coerce0, 1
-  %and.i.i = and i64 %hash.coerce0, 6148914691236517205
-  %and5.i.i = and i64 %shr.i.i, 4919131752989213764
-  %shr7.i.i = lshr i64 %and.i.i, 1
-  %or8.i.i = or disjoint i64 %shr7.i.i, %and.i.i
-  %and9.i.i = and i64 %or8.i.i, 3689348814741910323
-  %0 = and i64 %hash.coerce0, 2459565876494606882
-  %1 = or disjoint i64 %and5.i.i, %0
-  %or12.i.i = lshr exact i64 %1, 1
-  %shr15.i.i = lshr i64 %and9.i.i, 2
-  %or16.i.i = or disjoint i64 %shr15.i.i, %and9.i.i
-  %and17.i.i = and i64 %or16.i.i, 1085102592571150095
-  %shr19.i.i = lshr i64 %1, 3
-  %or20.i.i = or disjoint i64 %or12.i.i, %shr19.i.i
-  %and21.i.i = and i64 %or20.i.i, 1085102592571150095
-  %shr23.i.i = lshr i64 %and17.i.i, 4
-  %or24.i.i = or disjoint i64 %shr23.i.i, %and17.i.i
-  %and25.i.i = and i64 %or24.i.i, 71777214294589695
-  %shr27.i.i = lshr i64 %and21.i.i, 4
-  %or28.i.i = or disjoint i64 %shr27.i.i, %and21.i.i
-  %and29.i.i = and i64 %or28.i.i, 71777214294589695
-  %shr31.i.i = lshr i64 %and25.i.i, 8
-  %or32.i.i = or disjoint i64 %shr31.i.i, %and25.i.i
-  %shr35.i.i = lshr i64 %and29.i.i, 8
-  %or36.i.i = or disjoint i64 %shr35.i.i, %and29.i.i
-  %and33.i.i = lshr i64 %or32.i.i, 16
-  %shr39.i.i = and i64 %and33.i.i, 4294901760
-  %and33.masked.i.i = and i64 %or32.i.i, 65535
-  %and41.i.i = or disjoint i64 %shr39.i.i, %and33.masked.i.i
-  %and37.i.i = lshr i64 %or36.i.i, 16
-  %shr43.i.i = and i64 %and37.i.i, 4294901760
-  %and37.masked.i.i = and i64 %or36.i.i, 65535
-  %and45.i.i = or disjoint i64 %shr43.i.i, %and37.masked.i.i
-  %conv.i = trunc nuw i64 %and41.i.i to i32
-  %conv21.i = trunc nuw i64 %and45.i.i to i32
-  %conv23.i = uitofp i32 %conv.i to double
-  %sh_prom.i = zext nneg i8 %hash.coerce1 to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
-  %conv25.i = uitofp i64 %shl.i to double
-  %div.i4 = fdiv double %conv23.i, %conv25.i
-  %2 = tail call double @llvm.fmuladd.f64(double %div.i4, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
-  %add.i6 = add i32 %conv.i, 1
-  %conv29.i = uitofp i32 %add.i6 to double
-  %div35.i = fdiv double %conv29.i, %conv25.i
-  %3 = tail call double @llvm.fmuladd.f64(double %div35.i, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
-  %conv40.i = uitofp i32 %conv21.i to double
-  %div46.i = fdiv double %conv40.i, %conv25.i
-  %4 = tail call double @llvm.fmuladd.f64(double %div46.i, double 3.600000e+02, double -1.800000e+02)
-  %add50.i = add i32 %conv21.i, 1
-  %conv51.i = uitofp i32 %add50.i to double
-  %div57.i = fdiv double %conv51.i, %conv25.i
-  %5 = tail call double @llvm.fmuladd.f64(double %div57.i, double 3.600000e+02, double -1.800000e+02)
-  %add.i = fadd double %4, %5
-  %div.i = fmul double %add.i, 5.000000e-01
-  %cmp.i = fcmp ogt double %div.i, 1.800000e+02
-  %storemerge.i = select i1 %cmp.i, double 1.800000e+02, double %div.i
-  %cmp7.i = fcmp olt double %storemerge.i, -1.800000e+02
-  %storemerge14.i = select i1 %cmp7.i, double -1.800000e+02, double %storemerge.i
-  store double %storemerge14.i, ptr %xy, align 8
-  %add14.i = fadd double %2, %3
-  %div15.i = fmul double %add14.i, 5.000000e-01
-  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %xy, i64 8
-  %cmp18.i = fcmp ogt double %div15.i, 0x40554345B1A57F00
-  %storemerge15.i = select i1 %cmp18.i, double 0x40554345B1A57F00, double %div15.i
-  %cmp23.i = fcmp olt double %storemerge15.i, 0xC0554345B1A57F00
-  %storemerge16.i = select i1 %cmp23.i, double 0xC0554345B1A57F00, double %storemerge15.i
-  store double %storemerge16.i, ptr %arrayidx16.i, align 8
-  br label %return
+geohashDecodeAreaToLongLat.exit:                  ; preds = %4
+  %7 = lshr i64 %0, 1
+  %8 = and i64 %0, 6148914691236517205
+  %9 = and i64 %7, 4919131752989213764
+  %10 = lshr i64 %8, 1
+  %11 = or disjoint i64 %10, %8
+  %12 = and i64 %11, 3689348814741910323
+  %13 = and i64 %0, 2459565876494606882
+  %14 = or disjoint i64 %9, %13
+  %15 = lshr exact i64 %14, 1
+  %16 = lshr i64 %12, 2
+  %17 = or disjoint i64 %16, %12
+  %18 = and i64 %17, 1085102592571150095
+  %19 = lshr i64 %14, 3
+  %20 = or disjoint i64 %15, %19
+  %21 = and i64 %20, 1085102592571150095
+  %22 = lshr i64 %18, 4
+  %23 = or disjoint i64 %22, %18
+  %24 = and i64 %23, 71777214294589695
+  %25 = lshr i64 %21, 4
+  %26 = or disjoint i64 %25, %21
+  %27 = and i64 %26, 71777214294589695
+  %28 = lshr i64 %24, 8
+  %29 = or disjoint i64 %28, %24
+  %30 = lshr i64 %27, 8
+  %31 = or disjoint i64 %30, %27
+  %32 = lshr i64 %29, 16
+  %33 = and i64 %32, 4294901760
+  %.masked.i.i = and i64 %29, 65535
+  %34 = or disjoint i64 %33, %.masked.i.i
+  %35 = lshr i64 %31, 16
+  %36 = and i64 %35, 4294901760
+  %.masked28.i.i = and i64 %31, 65535
+  %37 = or disjoint i64 %36, %.masked28.i.i
+  %38 = trunc nuw i64 %34 to i32
+  %39 = trunc nuw i64 %37 to i32
+  %40 = uitofp i32 %38 to double
+  %41 = zext nneg i8 %1 to i64
+  %42 = shl nuw i64 1, %41
+  %43 = uitofp i64 %42 to double
+  %44 = fdiv double %40, %43
+  %45 = tail call double @llvm.fmuladd.f64(double %44, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
+  %46 = add i32 %38, 1
+  %47 = uitofp i32 %46 to double
+  %48 = fdiv double %47, %43
+  %49 = tail call double @llvm.fmuladd.f64(double %48, double 0x40654345B1A57F00, double 0xC0554345B1A57F00)
+  %50 = uitofp i32 %39 to double
+  %51 = fdiv double %50, %43
+  %52 = tail call double @llvm.fmuladd.f64(double %51, double 3.600000e+02, double -1.800000e+02)
+  %53 = add i32 %39, 1
+  %54 = uitofp i32 %53 to double
+  %55 = fdiv double %54, %43
+  %56 = tail call double @llvm.fmuladd.f64(double %55, double 3.600000e+02, double -1.800000e+02)
+  %57 = fadd double %52, %56
+  %58 = fmul double %57, 5.000000e-01
+  %59 = fcmp ogt double %58, 1.800000e+02
+  %storemerge.i = select i1 %59, double 1.800000e+02, double %58
+  %60 = fcmp olt double %storemerge.i, -1.800000e+02
+  %storemerge16.i = select i1 %60, double -1.800000e+02, double %storemerge.i
+  store double %storemerge16.i, ptr %2, align 8, !tbaa !22
+  %61 = fadd double %45, %49
+  %62 = fmul double %61, 5.000000e-01
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %64 = fcmp ogt double %62, 0x40554345B1A57F00
+  %storemerge17.i = select i1 %64, double 0x40554345B1A57F00, double %62
+  %65 = fcmp olt double %storemerge17.i, 0xC0554345B1A57F00
+  %storemerge18.i = select i1 %65, double 0xC0554345B1A57F00, double %storemerge17.i
+  store double %storemerge18.i, ptr %63, align 8, !tbaa !22
+  br label %geohashDecode.exit.thread
 
-return:                                           ; preds = %lor.lhs.false, %entry, %geohashDecodeAreaToLongLat.exit
-  %retval.0 = phi i32 [ 1, %geohashDecodeAreaToLongLat.exit ], [ 0, %entry ], [ 0, %lor.lhs.false ]
-  ret i32 %retval.0
+geohashDecode.exit.thread:                        ; preds = %4, %3, %geohashDecodeAreaToLongLat.exit
+  %.0 = phi i32 [ 1, %geohashDecodeAreaToLongLat.exit ], [ 0, %3 ], [ 0, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatWGS84(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef captures(address_is_null) %xy) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @geohashDecodeToLongLatType(i64 %hash.coerce0, i8 %hash.coerce1, ptr noundef %xy)
-  ret i32 %call
+define dso_local range(i32 0, 2) i32 @geohashDecodeToLongLatWGS84(i64 %0, i8 %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @geohashDecodeToLongLatType(i64 %0, i8 %1, ptr noundef %2)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @geohashNeighbors(ptr noundef readonly captures(none) %hash, ptr noundef captures(none) initializes((0, 128)) %neighbors) local_unnamed_addr #1 {
-entry:
-  %east = getelementptr inbounds nuw i8, ptr %neighbors, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %west = getelementptr inbounds nuw i8, ptr %neighbors, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %west, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %neighbors, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %south = getelementptr inbounds nuw i8, ptr %neighbors, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %south, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %south_east = getelementptr inbounds nuw i8, ptr %neighbors, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %south_east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %south_west = getelementptr inbounds nuw i8, ptr %neighbors, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %south_west, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %north_east = getelementptr inbounds nuw i8, ptr %neighbors, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %north_east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %north_west = getelementptr inbounds nuw i8, ptr %neighbors, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %north_west, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)
-  %0 = load i64, ptr %east, align 8
-  %and.i = and i64 %0, -6148914691236517206
-  %and3.i = and i64 %0, 6148914691236517205
-  %step.i = getelementptr inbounds nuw i8, ptr %neighbors, i64 24
-  %1 = load i8, ptr %step.i, align 8
-  %conv4.i = zext i8 %1 to i64
-  %mul.i = shl nuw nsw i64 %conv4.i, 1
-  %sub.i = sub nsw i64 64, %mul.i
-  %sh_prom.i = and i64 %sub.i, 4294967294
-  %shr.i = lshr i64 6148914691236517205, %sh_prom.i
-  %add.i = or disjoint i64 %and.i, 1
-  %add9.i = add i64 %add.i, %shr.i
-  %shr18.i = lshr i64 -6148914691236517206, %sh_prom.i
-  %and19.i = and i64 %add9.i, %shr18.i
-  %or20.i = or disjoint i64 %and19.i, %and3.i
-  store i64 %or20.i, ptr %east, align 8
-  %2 = load i64, ptr %west, align 8
-  %and.i31 = and i64 %2, -6148914691236517206
-  %and3.i32 = and i64 %2, 6148914691236517205
-  %step.i33 = getelementptr inbounds nuw i8, ptr %neighbors, i64 40
-  %3 = load i8, ptr %step.i33, align 8
-  %conv4.i34 = zext i8 %3 to i64
-  %mul.i35 = shl nuw nsw i64 %conv4.i34, 1
-  %sub.i36 = sub nsw i64 64, %mul.i35
-  %sh_prom.i37 = and i64 %sub.i36, 4294967294
-  %shr.i38 = lshr i64 6148914691236517205, %sh_prom.i37
-  %or.i = or disjoint i64 %shr.i38, %and.i31
-  %add10.neg.i = ashr i64 -6148914691236517206, %sh_prom.i37
-  %sub11.i = add i64 %or.i, %add10.neg.i
-  %shr18.i39 = lshr i64 -6148914691236517206, %sh_prom.i37
-  %and19.i40 = and i64 %sub11.i, %shr18.i39
-  %or20.i41 = or disjoint i64 %and19.i40, %and3.i32
-  store i64 %or20.i41, ptr %west, align 8
-  %4 = load i64, ptr %south, align 8
-  %and.i42 = and i64 %4, -6148914691236517206
-  %and3.i43 = and i64 %4, 6148914691236517205
-  %step.i44 = getelementptr inbounds nuw i8, ptr %neighbors, i64 56
-  %5 = load i8, ptr %step.i44, align 8
-  %conv4.i45 = zext i8 %5 to i64
-  %mul.i46 = shl nuw nsw i64 %conv4.i45, 1
-  %sub.i47 = sub nsw i64 64, %mul.i46
-  %sh_prom.i48 = and i64 %sub.i47, 4294967294
-  %sub11.i52 = add nuw i64 %and3.i43, 9223372036854775807
-  %shr18.i53 = lshr i64 6148914691236517205, %sh_prom.i48
-  %and19.i54 = and i64 %shr18.i53, %sub11.i52
-  %or20.i55 = or disjoint i64 %and19.i54, %and.i42
-  store i64 %or20.i55, ptr %south, align 8
-  %6 = load i64, ptr %neighbors, align 8
-  %and.i56 = and i64 %6, -6148914691236517206
-  %and3.i57 = and i64 %6, 6148914691236517205
-  %step.i58 = getelementptr inbounds nuw i8, ptr %neighbors, i64 8
-  %7 = load i8, ptr %step.i58, align 8
-  %conv4.i59 = zext i8 %7 to i64
-  %mul.i60 = shl nuw nsw i64 %conv4.i59, 1
-  %sub.i61 = sub nsw i64 64, %mul.i60
-  %sh_prom.i62 = and i64 %sub.i61, 4294967294
-  %shr.i63 = lshr i64 -6148914691236517206, %sh_prom.i62
-  %add.i64 = add nuw nsw i64 %and3.i57, 1
-  %add9.i65 = add i64 %add.i64, %shr.i63
-  %shr18.i67 = lshr i64 6148914691236517205, %sh_prom.i62
-  %and19.i68 = and i64 %add9.i65, %shr18.i67
-  %or20.i69 = or disjoint i64 %and19.i68, %and.i56
-  store i64 %or20.i69, ptr %neighbors, align 8
-  %8 = load i64, ptr %north_west, align 8
-  %and.i70 = and i64 %8, -6148914691236517206
-  %step.i72 = getelementptr inbounds nuw i8, ptr %neighbors, i64 104
-  %9 = load i8, ptr %step.i72, align 8
-  %conv4.i73 = zext i8 %9 to i64
-  %mul.i74 = shl nuw nsw i64 %conv4.i73, 1
-  %sub.i75 = sub nsw i64 64, %mul.i74
-  %sh_prom.i76 = and i64 %sub.i75, 4294967294
-  %shr.i77 = lshr i64 6148914691236517205, %sh_prom.i76
-  %or.i78 = or disjoint i64 %shr.i77, %and.i70
-  %add10.neg.i79 = ashr i64 -6148914691236517206, %sh_prom.i76
-  %sub11.i80 = add i64 %or.i78, %add10.neg.i79
-  %shr18.i81 = lshr i64 -6148914691236517206, %sh_prom.i76
-  %and19.i82 = and i64 %sub11.i80, %shr18.i81
-  %and3.i85 = and i64 %8, 6148914691236517205
-  %add.i92 = add nuw nsw i64 %and3.i85, 1
-  %add9.i93 = add i64 %add.i92, %shr18.i81
-  %and19.i96 = and i64 %add9.i93, %shr.i77
-  %or20.i97 = or disjoint i64 %and19.i82, %and19.i96
-  store i64 %or20.i97, ptr %north_west, align 8
-  %10 = load i64, ptr %north_east, align 8
-  %and.i98 = and i64 %10, -6148914691236517206
-  %step.i100 = getelementptr inbounds nuw i8, ptr %neighbors, i64 72
-  %11 = load i8, ptr %step.i100, align 8
-  %conv4.i101 = zext i8 %11 to i64
-  %mul.i102 = shl nuw nsw i64 %conv4.i101, 1
-  %sub.i103 = sub nsw i64 64, %mul.i102
-  %sh_prom.i104 = and i64 %sub.i103, 4294967294
-  %shr.i105 = lshr i64 6148914691236517205, %sh_prom.i104
-  %add.i106 = or disjoint i64 %and.i98, 1
-  %add9.i107 = add i64 %add.i106, %shr.i105
-  %shr18.i108 = lshr i64 -6148914691236517206, %sh_prom.i104
-  %and19.i109 = and i64 %add9.i107, %shr18.i108
-  %and3.i112 = and i64 %10, 6148914691236517205
-  %add.i119 = add nuw nsw i64 %and3.i112, 1
-  %add9.i120 = add i64 %add.i119, %shr18.i108
-  %and19.i123 = and i64 %add9.i120, %shr.i105
-  %or20.i124 = or disjoint i64 %and19.i123, %and19.i109
-  store i64 %or20.i124, ptr %north_east, align 8
-  %12 = load i64, ptr %south_east, align 8
-  %and.i125 = and i64 %12, -6148914691236517206
-  %step.i127 = getelementptr inbounds nuw i8, ptr %neighbors, i64 88
-  %13 = load i8, ptr %step.i127, align 8
-  %conv4.i128 = zext i8 %13 to i64
-  %mul.i129 = shl nuw nsw i64 %conv4.i128, 1
-  %sub.i130 = sub nsw i64 64, %mul.i129
-  %sh_prom.i131 = and i64 %sub.i130, 4294967294
-  %shr.i132 = lshr i64 6148914691236517205, %sh_prom.i131
-  %add.i133 = or disjoint i64 %and.i125, 1
-  %add9.i134 = add i64 %add.i133, %shr.i132
-  %shr18.i135 = lshr i64 -6148914691236517206, %sh_prom.i131
-  %and19.i136 = and i64 %add9.i134, %shr18.i135
-  %and3.i139 = and i64 %12, 6148914691236517205
-  %sub11.i148 = add nuw i64 %and3.i139, 9223372036854775807
-  %and19.i150 = and i64 %shr.i132, %sub11.i148
-  %or20.i151 = or disjoint i64 %and19.i136, %and19.i150
-  store i64 %or20.i151, ptr %south_east, align 8
-  %14 = load i64, ptr %south_west, align 8
-  %and.i152 = and i64 %14, -6148914691236517206
-  %step.i154 = getelementptr inbounds nuw i8, ptr %neighbors, i64 120
-  %15 = load i8, ptr %step.i154, align 8
-  %conv4.i155 = zext i8 %15 to i64
-  %mul.i156 = shl nuw nsw i64 %conv4.i155, 1
-  %sub.i157 = sub nsw i64 64, %mul.i156
-  %sh_prom.i158 = and i64 %sub.i157, 4294967294
-  %shr.i159 = lshr i64 6148914691236517205, %sh_prom.i158
-  %or.i160 = or disjoint i64 %shr.i159, %and.i152
-  %add10.neg.i161 = ashr i64 -6148914691236517206, %sh_prom.i158
-  %sub11.i162 = add i64 %or.i160, %add10.neg.i161
-  %shr18.i163 = lshr i64 -6148914691236517206, %sh_prom.i158
-  %and19.i164 = and i64 %sub11.i162, %shr18.i163
-  %and3.i167 = and i64 %14, 6148914691236517205
-  %sub11.i176 = add nuw i64 %and3.i167, 9223372036854775807
-  %and19.i178 = and i64 %shr.i159, %sub11.i176
-  %or20.i179 = or disjoint i64 %and19.i164, %and19.i178
-  store i64 %or20.i179, ptr %south_west, align 8
+define dso_local void @geohashNeighbors(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 128)) %1) local_unnamed_addr #1 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !23
+  %10 = load i64, ptr %3, align 8, !tbaa !11
+  %11 = and i64 %10, -6148914691236517206
+  %12 = and i64 %10, 6148914691236517205
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = load i8, ptr %13, align 8, !tbaa !14
+  %15 = zext i8 %14 to i64
+  %16 = shl nuw nsw i64 %15, 1
+  %17 = sub nsw i64 64, %16
+  %18 = and i64 %17, 4294967294
+  %19 = lshr i64 6148914691236517205, %18
+  %20 = or disjoint i64 %11, 1
+  %21 = add i64 %20, %19
+  %22 = lshr i64 -6148914691236517206, %18
+  %23 = and i64 %21, %22
+  %24 = or disjoint i64 %23, %12
+  store i64 %24, ptr %3, align 8, !tbaa !11
+  %25 = load i64, ptr %4, align 8, !tbaa !11
+  %26 = and i64 %25, -6148914691236517206
+  %27 = and i64 %25, 6148914691236517205
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %29 = load i8, ptr %28, align 8, !tbaa !14
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, 1
+  %32 = sub nsw i64 64, %31
+  %33 = and i64 %32, 4294967294
+  %34 = lshr i64 6148914691236517205, %33
+  %35 = or disjoint i64 %34, %26
+  %.neg.i = ashr i64 -6148914691236517206, %33
+  %36 = add i64 %35, %.neg.i
+  %37 = lshr i64 -6148914691236517206, %33
+  %38 = and i64 %36, %37
+  %39 = or disjoint i64 %38, %27
+  store i64 %39, ptr %4, align 8, !tbaa !11
+  %40 = load i64, ptr %5, align 8, !tbaa !11
+  %41 = and i64 %40, -6148914691236517206
+  %42 = and i64 %40, 6148914691236517205
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %44 = load i8, ptr %43, align 8, !tbaa !14
+  %45 = zext i8 %44 to i64
+  %46 = shl nuw nsw i64 %45, 1
+  %47 = sub nsw i64 64, %46
+  %48 = and i64 %47, 4294967294
+  %49 = add nuw i64 %42, 9223372036854775807
+  %50 = lshr i64 6148914691236517205, %48
+  %51 = and i64 %50, %49
+  %52 = or disjoint i64 %51, %41
+  store i64 %52, ptr %5, align 8, !tbaa !11
+  %53 = load i64, ptr %1, align 8, !tbaa !11
+  %54 = and i64 %53, -6148914691236517206
+  %55 = and i64 %53, 6148914691236517205
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %57 = load i8, ptr %56, align 8, !tbaa !14
+  %58 = zext i8 %57 to i64
+  %59 = shl nuw nsw i64 %58, 1
+  %60 = sub nsw i64 64, %59
+  %61 = and i64 %60, 4294967294
+  %62 = lshr i64 -6148914691236517206, %61
+  %63 = add nuw nsw i64 %55, 1
+  %64 = add i64 %63, %62
+  %65 = lshr i64 6148914691236517205, %61
+  %66 = and i64 %64, %65
+  %67 = or disjoint i64 %66, %54
+  store i64 %67, ptr %1, align 8, !tbaa !11
+  %68 = load i64, ptr %9, align 8, !tbaa !11
+  %69 = and i64 %68, -6148914691236517206
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %71 = load i8, ptr %70, align 8, !tbaa !14
+  %72 = zext i8 %71 to i64
+  %73 = shl nuw nsw i64 %72, 1
+  %74 = sub nsw i64 64, %73
+  %75 = and i64 %74, 4294967294
+  %76 = lshr i64 6148914691236517205, %75
+  %77 = or disjoint i64 %76, %69
+  %.neg.i32 = ashr i64 -6148914691236517206, %75
+  %78 = add i64 %77, %.neg.i32
+  %79 = lshr i64 -6148914691236517206, %75
+  %80 = and i64 %78, %79
+  %81 = and i64 %68, 6148914691236517205
+  %82 = add nuw nsw i64 %81, 1
+  %83 = add i64 %82, %79
+  %84 = and i64 %83, %76
+  %85 = or disjoint i64 %80, %84
+  store i64 %85, ptr %9, align 8, !tbaa !11
+  %86 = load i64, ptr %8, align 8, !tbaa !11
+  %87 = and i64 %86, -6148914691236517206
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %89 = load i8, ptr %88, align 8, !tbaa !14
+  %90 = zext i8 %89 to i64
+  %91 = shl nuw nsw i64 %90, 1
+  %92 = sub nsw i64 64, %91
+  %93 = and i64 %92, 4294967294
+  %94 = lshr i64 6148914691236517205, %93
+  %95 = or disjoint i64 %87, 1
+  %96 = add i64 %95, %94
+  %97 = lshr i64 -6148914691236517206, %93
+  %98 = and i64 %96, %97
+  %99 = and i64 %86, 6148914691236517205
+  %100 = add nuw nsw i64 %99, 1
+  %101 = add i64 %100, %97
+  %102 = and i64 %101, %94
+  %103 = or disjoint i64 %102, %98
+  store i64 %103, ptr %8, align 8, !tbaa !11
+  %104 = load i64, ptr %6, align 8, !tbaa !11
+  %105 = and i64 %104, -6148914691236517206
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %107 = load i8, ptr %106, align 8, !tbaa !14
+  %108 = zext i8 %107 to i64
+  %109 = shl nuw nsw i64 %108, 1
+  %110 = sub nsw i64 64, %109
+  %111 = and i64 %110, 4294967294
+  %112 = lshr i64 6148914691236517205, %111
+  %113 = or disjoint i64 %105, 1
+  %114 = add i64 %113, %112
+  %115 = lshr i64 -6148914691236517206, %111
+  %116 = and i64 %114, %115
+  %117 = and i64 %104, 6148914691236517205
+  %118 = add nuw i64 %117, 9223372036854775807
+  %119 = and i64 %112, %118
+  %120 = or disjoint i64 %116, %119
+  store i64 %120, ptr %6, align 8, !tbaa !11
+  %121 = load i64, ptr %7, align 8, !tbaa !11
+  %122 = and i64 %121, -6148914691236517206
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %124 = load i8, ptr %123, align 8, !tbaa !14
+  %125 = zext i8 %124 to i64
+  %126 = shl nuw nsw i64 %125, 1
+  %127 = sub nsw i64 64, %126
+  %128 = and i64 %127, 4294967294
+  %129 = lshr i64 6148914691236517205, %128
+  %130 = or disjoint i64 %129, %122
+  %.neg.i33 = ashr i64 -6148914691236517206, %128
+  %131 = add i64 %130, %.neg.i33
+  %132 = lshr i64 -6148914691236517206, %128
+  %133 = and i64 %131, %132
+  %134 = and i64 %121, 6148914691236517205
+  %135 = add nuw i64 %134, 9223372036854775807
+  %136 = and i64 %129, %135
+  %137 = or disjoint i64 %133, %136
+  store i64 %137, ptr %7, align 8, !tbaa !11
   ret void
 }
 
@@ -746,7 +761,7 @@ declare double @llvm.fabs.f64(double) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -758,3 +773,22 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{!6, !7, i64 8}
+!6 = !{!"", !7, i64 0, !7, i64 8}
+!7 = !{!"double", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!6, !7, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"", !13, i64 0, !8, i64 8}
+!13 = !{!"long", !8, i64 0}
+!14 = !{!12, !8, i64 8}
+!15 = !{!13, !13, i64 0}
+!16 = !{!8, !8, i64 0}
+!17 = !{!18, !7, i64 32}
+!18 = !{!"", !12, i64 0, !6, i64 16, !6, i64 32}
+!19 = !{!18, !7, i64 40}
+!20 = !{!18, !7, i64 16}
+!21 = !{!18, !7, i64 24}
+!22 = !{!7, !7, i64 0}
+!23 = !{i64 0, i64 8, !15, i64 8, i64 1, !16}

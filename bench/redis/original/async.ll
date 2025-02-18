@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.dictType = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.hiredisAllocFuncs = type { ptr, ptr, ptr, ptr, ptr }
@@ -41,5027 +41,5439 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [10 x i8] c"monitor\0D\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisAsyncConnectWithOptions(ptr noundef %options) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %options.addr = alloca ptr, align 8
-  %myOptions = alloca %struct.redisOptions, align 8
-  %c = alloca ptr, align 8
-  %ac = alloca ptr, align 8
-  store ptr %options, ptr %options.addr, align 8
-  %0 = load ptr, ptr %options.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %myOptions, ptr align 8 %0, i64 80, i1 false)
-  %push_cb = getelementptr inbounds %struct.redisOptions, ptr %myOptions, i32 0, i32 7
-  store ptr null, ptr %push_cb, align 8
-  %options1 = getelementptr inbounds %struct.redisOptions, ptr %myOptions, i32 0, i32 1
-  %1 = load i32, ptr %options1, align 4
-  %or = or i32 %1, 8
-  store i32 %or, ptr %options1, align 4
-  %options2 = getelementptr inbounds %struct.redisOptions, ptr %myOptions, i32 0, i32 1
-  %2 = load i32, ptr %options2, align 4
-  %or3 = or i32 %2, 1
-  store i32 %or3, ptr %options2, align 4
-  %call = call ptr @redisConnectWithOptions(ptr noundef %myOptions)
-  store ptr %call, ptr %c, align 8
-  %3 = load ptr, ptr %c, align 8
-  %cmp = icmp eq ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
+define ptr @redisAsyncConnectWithOptions(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.redisOptions, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 80, ptr %4) #10
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %8, i64 80, i1 false), !tbaa.struct !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %9 = getelementptr inbounds nuw %struct.redisOptions, ptr %4, i32 0, i32 7
+  store ptr null, ptr %9, align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw %struct.redisOptions, ptr %4, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4, !tbaa !16
+  %12 = or i32 %11, 8
+  store i32 %12, ptr %10, align 4, !tbaa !16
+  %13 = getelementptr inbounds nuw %struct.redisOptions, ptr %4, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4, !tbaa !16
+  %15 = or i32 %14, 1
+  store i32 %15, ptr %13, align 4, !tbaa !16
+  %16 = call ptr @redisConnectWithOptions(ptr noundef %4)
+  store ptr %16, ptr %5, align 8, !tbaa !17
+  %17 = load ptr, ptr %5, align 8, !tbaa !17
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %34
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %c, align 8
-  %call4 = call ptr @redisAsyncInitialize(ptr noundef %4)
-  store ptr %call4, ptr %ac, align 8
-  %5 = load ptr, ptr %ac, align 8
-  %cmp5 = icmp eq ptr %5, null
-  br i1 %cmp5, label %if.then6, label %if.end7
+20:                                               ; preds = %1
+  %21 = load ptr, ptr %5, align 8, !tbaa !17
+  %22 = call ptr @redisAsyncInitialize(ptr noundef %21)
+  store ptr %22, ptr %6, align 8, !tbaa !19
+  %23 = load ptr, ptr %6, align 8, !tbaa !19
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %27
 
-if.then6:                                         ; preds = %if.end
-  %6 = load ptr, ptr %c, align 8
-  call void @redisFree(ptr noundef %6)
-  store ptr null, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @redisFree(ptr noundef %26)
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %34
 
-if.end7:                                          ; preds = %if.end
-  %7 = load ptr, ptr %ac, align 8
-  %async_push_cb = getelementptr inbounds %struct.redisOptions, ptr %myOptions, i32 0, i32 8
-  %8 = load ptr, ptr %async_push_cb, align 8
-  %call8 = call ptr @redisAsyncSetPushCallback(ptr noundef %7, ptr noundef %8)
-  %9 = load ptr, ptr %ac, align 8
-  call void @__redisAsyncCopyError(ptr noundef %9)
-  %10 = load ptr, ptr %ac, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %6, align 8, !tbaa !19
+  %29 = getelementptr inbounds nuw %struct.redisOptions, ptr %4, i32 0, i32 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !21
+  %31 = call ptr @redisAsyncSetPushCallback(ptr noundef %28, ptr noundef %30)
+  %32 = load ptr, ptr %6, align 8, !tbaa !19
+  call void @__redisAsyncCopyError(ptr noundef %32)
+  %33 = load ptr, ptr %6, align 8, !tbaa !19
+  store ptr %33, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %34
 
-return:                                           ; preds = %if.end7, %if.then6, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
-
-declare ptr @redisConnectWithOptions(ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal ptr @redisAsyncInitialize(ptr noundef %c) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  %ac = alloca ptr, align 8
-  %channels = alloca ptr, align 8
-  %patterns = alloca ptr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  store ptr null, ptr %channels, align 8
-  store ptr null, ptr %patterns, align 8
-  %call = call ptr @dictCreate(ptr noundef @callbackDict, ptr noundef null)
-  store ptr %call, ptr %channels, align 8
-  %0 = load ptr, ptr %channels, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %oom
-
-if.end:                                           ; preds = %entry
-  %call1 = call ptr @dictCreate(ptr noundef @callbackDict, ptr noundef null)
-  store ptr %call1, ptr %patterns, align 8
-  %1 = load ptr, ptr %patterns, align 8
-  %cmp2 = icmp eq ptr %1, null
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  br label %oom
-
-if.end4:                                          ; preds = %if.end
-  %2 = load ptr, ptr %c.addr, align 8
-  %call5 = call ptr @hi_realloc(ptr noundef %2, i64 noundef 464)
-  store ptr %call5, ptr %ac, align 8
-  %3 = load ptr, ptr %ac, align 8
-  %cmp6 = icmp eq ptr %3, null
-  br i1 %cmp6, label %if.then7, label %if.end8
-
-if.then7:                                         ; preds = %if.end4
-  br label %oom
-
-if.end8:                                          ; preds = %if.end4
-  %4 = load ptr, ptr %ac, align 8
-  %c9 = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 0
-  store ptr %c9, ptr %c.addr, align 8
-  %5 = load ptr, ptr %c.addr, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %5, i32 0, i32 4
-  %6 = load i32, ptr %flags, align 8
-  %and = and i32 %6, -3
-  store i32 %and, ptr %flags, align 8
-  %7 = load ptr, ptr %ac, align 8
-  %err = getelementptr inbounds %struct.redisAsyncContext, ptr %7, i32 0, i32 1
-  store i32 0, ptr %err, align 8
-  %8 = load ptr, ptr %ac, align 8
-  %errstr = getelementptr inbounds %struct.redisAsyncContext, ptr %8, i32 0, i32 2
-  store ptr null, ptr %errstr, align 8
-  %9 = load ptr, ptr %ac, align 8
-  %data = getelementptr inbounds %struct.redisAsyncContext, ptr %9, i32 0, i32 3
-  store ptr null, ptr %data, align 8
-  %10 = load ptr, ptr %ac, align 8
-  %dataCleanup = getelementptr inbounds %struct.redisAsyncContext, ptr %10, i32 0, i32 4
-  store ptr null, ptr %dataCleanup, align 8
-  %11 = load ptr, ptr %ac, align 8
-  %ev = getelementptr inbounds %struct.redisAsyncContext, ptr %11, i32 0, i32 5
-  %data10 = getelementptr inbounds %struct.anon.2, ptr %ev, i32 0, i32 0
-  store ptr null, ptr %data10, align 8
-  %12 = load ptr, ptr %ac, align 8
-  %ev11 = getelementptr inbounds %struct.redisAsyncContext, ptr %12, i32 0, i32 5
-  %addRead = getelementptr inbounds %struct.anon.2, ptr %ev11, i32 0, i32 1
-  store ptr null, ptr %addRead, align 8
-  %13 = load ptr, ptr %ac, align 8
-  %ev12 = getelementptr inbounds %struct.redisAsyncContext, ptr %13, i32 0, i32 5
-  %delRead = getelementptr inbounds %struct.anon.2, ptr %ev12, i32 0, i32 2
-  store ptr null, ptr %delRead, align 8
-  %14 = load ptr, ptr %ac, align 8
-  %ev13 = getelementptr inbounds %struct.redisAsyncContext, ptr %14, i32 0, i32 5
-  %addWrite = getelementptr inbounds %struct.anon.2, ptr %ev13, i32 0, i32 3
-  store ptr null, ptr %addWrite, align 8
-  %15 = load ptr, ptr %ac, align 8
-  %ev14 = getelementptr inbounds %struct.redisAsyncContext, ptr %15, i32 0, i32 5
-  %delWrite = getelementptr inbounds %struct.anon.2, ptr %ev14, i32 0, i32 4
-  store ptr null, ptr %delWrite, align 8
-  %16 = load ptr, ptr %ac, align 8
-  %ev15 = getelementptr inbounds %struct.redisAsyncContext, ptr %16, i32 0, i32 5
-  %cleanup = getelementptr inbounds %struct.anon.2, ptr %ev15, i32 0, i32 5
-  store ptr null, ptr %cleanup, align 8
-  %17 = load ptr, ptr %ac, align 8
-  %ev16 = getelementptr inbounds %struct.redisAsyncContext, ptr %17, i32 0, i32 5
-  %scheduleTimer = getelementptr inbounds %struct.anon.2, ptr %ev16, i32 0, i32 6
-  store ptr null, ptr %scheduleTimer, align 8
-  %18 = load ptr, ptr %ac, align 8
-  %onConnect = getelementptr inbounds %struct.redisAsyncContext, ptr %18, i32 0, i32 7
-  store ptr null, ptr %onConnect, align 8
-  %19 = load ptr, ptr %ac, align 8
-  %onConnectNC = getelementptr inbounds %struct.redisAsyncContext, ptr %19, i32 0, i32 8
-  store ptr null, ptr %onConnectNC, align 8
-  %20 = load ptr, ptr %ac, align 8
-  %onDisconnect = getelementptr inbounds %struct.redisAsyncContext, ptr %20, i32 0, i32 6
-  store ptr null, ptr %onDisconnect, align 8
-  %21 = load ptr, ptr %ac, align 8
-  %replies = getelementptr inbounds %struct.redisAsyncContext, ptr %21, i32 0, i32 9
-  %head = getelementptr inbounds %struct.redisCallbackList, ptr %replies, i32 0, i32 0
-  store ptr null, ptr %head, align 8
-  %22 = load ptr, ptr %ac, align 8
-  %replies17 = getelementptr inbounds %struct.redisAsyncContext, ptr %22, i32 0, i32 9
-  %tail = getelementptr inbounds %struct.redisCallbackList, ptr %replies17, i32 0, i32 1
-  store ptr null, ptr %tail, align 8
-  %23 = load ptr, ptr %ac, align 8
-  %sub = getelementptr inbounds %struct.redisAsyncContext, ptr %23, i32 0, i32 12
-  %replies18 = getelementptr inbounds %struct.anon.3, ptr %sub, i32 0, i32 0
-  %head19 = getelementptr inbounds %struct.redisCallbackList, ptr %replies18, i32 0, i32 0
-  store ptr null, ptr %head19, align 8
-  %24 = load ptr, ptr %ac, align 8
-  %sub20 = getelementptr inbounds %struct.redisAsyncContext, ptr %24, i32 0, i32 12
-  %replies21 = getelementptr inbounds %struct.anon.3, ptr %sub20, i32 0, i32 0
-  %tail22 = getelementptr inbounds %struct.redisCallbackList, ptr %replies21, i32 0, i32 1
-  store ptr null, ptr %tail22, align 8
-  %25 = load ptr, ptr %channels, align 8
-  %26 = load ptr, ptr %ac, align 8
-  %sub23 = getelementptr inbounds %struct.redisAsyncContext, ptr %26, i32 0, i32 12
-  %channels24 = getelementptr inbounds %struct.anon.3, ptr %sub23, i32 0, i32 1
-  store ptr %25, ptr %channels24, align 8
-  %27 = load ptr, ptr %patterns, align 8
-  %28 = load ptr, ptr %ac, align 8
-  %sub25 = getelementptr inbounds %struct.redisAsyncContext, ptr %28, i32 0, i32 12
-  %patterns26 = getelementptr inbounds %struct.anon.3, ptr %sub25, i32 0, i32 2
-  store ptr %27, ptr %patterns26, align 8
-  %29 = load ptr, ptr %ac, align 8
-  %sub27 = getelementptr inbounds %struct.redisAsyncContext, ptr %29, i32 0, i32 12
-  %pending_unsubs = getelementptr inbounds %struct.anon.3, ptr %sub27, i32 0, i32 3
-  store i32 0, ptr %pending_unsubs, align 8
-  %30 = load ptr, ptr %ac, align 8
-  store ptr %30, ptr %retval, align 8
-  br label %return
-
-oom:                                              ; preds = %if.then7, %if.then3, %if.then
-  %31 = load ptr, ptr %channels, align 8
-  %tobool = icmp ne ptr %31, null
-  br i1 %tobool, label %if.then28, label %if.end29
-
-if.then28:                                        ; preds = %oom
-  %32 = load ptr, ptr %channels, align 8
-  call void @dictRelease(ptr noundef %32)
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.then28, %oom
-  %33 = load ptr, ptr %patterns, align 8
-  %tobool30 = icmp ne ptr %33, null
-  br i1 %tobool30, label %if.then31, label %if.end32
-
-if.then31:                                        ; preds = %if.end29
-  %34 = load ptr, ptr %patterns, align 8
-  call void @dictRelease(ptr noundef %34)
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.then31, %if.end29
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end32, %if.end8
-  %35 = load ptr, ptr %retval, align 8
+34:                                               ; preds = %27, %25, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 80, ptr %4) #10
+  %35 = load ptr, ptr %2, align 8
   ret ptr %35
 }
 
-declare void @redisFree(ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+declare ptr @redisConnectWithOptions(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisAsyncSetPushCallback(ptr noundef %ac, ptr noundef %fn) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %old = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %push_cb = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 13
-  %1 = load ptr, ptr %push_cb, align 8
-  store ptr %1, ptr %old, align 8
-  %2 = load ptr, ptr %fn.addr, align 8
-  %3 = load ptr, ptr %ac.addr, align 8
-  %push_cb1 = getelementptr inbounds %struct.redisAsyncContext, ptr %3, i32 0, i32 13
-  store ptr %2, ptr %push_cb1, align 8
-  %4 = load ptr, ptr %old, align 8
-  ret ptr %4
+define internal ptr @redisAsyncInitialize(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  store ptr null, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  store ptr null, ptr %6, align 8, !tbaa !22
+  %8 = call ptr @dictCreate(ptr noundef @callbackDict, ptr noundef null)
+  store ptr %8, ptr %5, align 8, !tbaa !22
+  %9 = load ptr, ptr %5, align 8, !tbaa !22
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %1
+  br label %91
+
+12:                                               ; preds = %1
+  %13 = call ptr @dictCreate(ptr noundef @callbackDict, ptr noundef null)
+  store ptr %13, ptr %6, align 8, !tbaa !22
+  %14 = load ptr, ptr %6, align 8, !tbaa !22
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %12
+  br label %91
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8, !tbaa !17
+  %19 = call ptr @hi_realloc(ptr noundef %18, i64 noundef 464)
+  store ptr %19, ptr %4, align 8, !tbaa !19
+  %20 = load ptr, ptr %4, align 8, !tbaa !19
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %17
+  br label %91
+
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %4, align 8, !tbaa !19
+  %25 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %24, i32 0, i32 0
+  store ptr %25, ptr %3, align 8, !tbaa !17
+  %26 = load ptr, ptr %3, align 8, !tbaa !17
+  %27 = getelementptr inbounds nuw %struct.redisContext, ptr %26, i32 0, i32 4
+  %28 = load i32, ptr %27, align 8, !tbaa !24
+  %29 = and i32 %28, -3
+  store i32 %29, ptr %27, align 8, !tbaa !24
+  %30 = load ptr, ptr %4, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %30, i32 0, i32 1
+  store i32 0, ptr %31, align 8, !tbaa !33
+  %32 = load ptr, ptr %4, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %32, i32 0, i32 2
+  store ptr null, ptr %33, align 8, !tbaa !39
+  %34 = load ptr, ptr %4, align 8, !tbaa !19
+  %35 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %34, i32 0, i32 3
+  store ptr null, ptr %35, align 8, !tbaa !40
+  %36 = load ptr, ptr %4, align 8, !tbaa !19
+  %37 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %36, i32 0, i32 4
+  store ptr null, ptr %37, align 8, !tbaa !41
+  %38 = load ptr, ptr %4, align 8, !tbaa !19
+  %39 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %38, i32 0, i32 5
+  %40 = getelementptr inbounds nuw %struct.anon.2, ptr %39, i32 0, i32 0
+  store ptr null, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %4, align 8, !tbaa !19
+  %42 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %41, i32 0, i32 5
+  %43 = getelementptr inbounds nuw %struct.anon.2, ptr %42, i32 0, i32 1
+  store ptr null, ptr %43, align 8, !tbaa !43
+  %44 = load ptr, ptr %4, align 8, !tbaa !19
+  %45 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %44, i32 0, i32 5
+  %46 = getelementptr inbounds nuw %struct.anon.2, ptr %45, i32 0, i32 2
+  store ptr null, ptr %46, align 8, !tbaa !44
+  %47 = load ptr, ptr %4, align 8, !tbaa !19
+  %48 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %47, i32 0, i32 5
+  %49 = getelementptr inbounds nuw %struct.anon.2, ptr %48, i32 0, i32 3
+  store ptr null, ptr %49, align 8, !tbaa !45
+  %50 = load ptr, ptr %4, align 8, !tbaa !19
+  %51 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %50, i32 0, i32 5
+  %52 = getelementptr inbounds nuw %struct.anon.2, ptr %51, i32 0, i32 4
+  store ptr null, ptr %52, align 8, !tbaa !46
+  %53 = load ptr, ptr %4, align 8, !tbaa !19
+  %54 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %53, i32 0, i32 5
+  %55 = getelementptr inbounds nuw %struct.anon.2, ptr %54, i32 0, i32 5
+  store ptr null, ptr %55, align 8, !tbaa !47
+  %56 = load ptr, ptr %4, align 8, !tbaa !19
+  %57 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %56, i32 0, i32 5
+  %58 = getelementptr inbounds nuw %struct.anon.2, ptr %57, i32 0, i32 6
+  store ptr null, ptr %58, align 8, !tbaa !48
+  %59 = load ptr, ptr %4, align 8, !tbaa !19
+  %60 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %59, i32 0, i32 7
+  store ptr null, ptr %60, align 8, !tbaa !49
+  %61 = load ptr, ptr %4, align 8, !tbaa !19
+  %62 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %61, i32 0, i32 8
+  store ptr null, ptr %62, align 8, !tbaa !50
+  %63 = load ptr, ptr %4, align 8, !tbaa !19
+  %64 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %63, i32 0, i32 6
+  store ptr null, ptr %64, align 8, !tbaa !51
+  %65 = load ptr, ptr %4, align 8, !tbaa !19
+  %66 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %65, i32 0, i32 9
+  %67 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %66, i32 0, i32 0
+  store ptr null, ptr %67, align 8, !tbaa !52
+  %68 = load ptr, ptr %4, align 8, !tbaa !19
+  %69 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %68, i32 0, i32 9
+  %70 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %69, i32 0, i32 1
+  store ptr null, ptr %70, align 8, !tbaa !53
+  %71 = load ptr, ptr %4, align 8, !tbaa !19
+  %72 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %71, i32 0, i32 12
+  %73 = getelementptr inbounds nuw %struct.anon.3, ptr %72, i32 0, i32 0
+  %74 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %73, i32 0, i32 0
+  store ptr null, ptr %74, align 8, !tbaa !54
+  %75 = load ptr, ptr %4, align 8, !tbaa !19
+  %76 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %75, i32 0, i32 12
+  %77 = getelementptr inbounds nuw %struct.anon.3, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %77, i32 0, i32 1
+  store ptr null, ptr %78, align 8, !tbaa !55
+  %79 = load ptr, ptr %5, align 8, !tbaa !22
+  %80 = load ptr, ptr %4, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %80, i32 0, i32 12
+  %82 = getelementptr inbounds nuw %struct.anon.3, ptr %81, i32 0, i32 1
+  store ptr %79, ptr %82, align 8, !tbaa !56
+  %83 = load ptr, ptr %6, align 8, !tbaa !22
+  %84 = load ptr, ptr %4, align 8, !tbaa !19
+  %85 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %84, i32 0, i32 12
+  %86 = getelementptr inbounds nuw %struct.anon.3, ptr %85, i32 0, i32 2
+  store ptr %83, ptr %86, align 8, !tbaa !57
+  %87 = load ptr, ptr %4, align 8, !tbaa !19
+  %88 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %87, i32 0, i32 12
+  %89 = getelementptr inbounds nuw %struct.anon.3, ptr %88, i32 0, i32 3
+  store i32 0, ptr %89, align 8, !tbaa !58
+  %90 = load ptr, ptr %4, align 8, !tbaa !19
+  store ptr %90, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %102
+
+91:                                               ; preds = %22, %16, %11
+  %92 = load ptr, ptr %5, align 8, !tbaa !22
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %94, label %96
+
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %5, align 8, !tbaa !22
+  call void @dictRelease(ptr noundef %95)
+  br label %96
+
+96:                                               ; preds = %94, %91
+  %97 = load ptr, ptr %6, align 8, !tbaa !22
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %99, label %101
+
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @dictRelease(ptr noundef %100)
+  br label %101
+
+101:                                              ; preds = %99, %96
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %102
+
+102:                                              ; preds = %101, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %103 = load ptr, ptr %2, align 8
+  ret ptr %103
+}
+
+declare void @redisFree(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define ptr @redisAsyncSetPushCallback(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %6 = load ptr, ptr %3, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %6, i32 0, i32 13
+  %8 = load ptr, ptr %7, align 8, !tbaa !59
+  store ptr %8, ptr %5, align 8, !tbaa !4
+  %9 = load ptr, ptr %4, align 8, !tbaa !4
+  %10 = load ptr, ptr %3, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %10, i32 0, i32 13
+  store ptr %9, ptr %11, align 8, !tbaa !59
+  %12 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__redisAsyncCopyError(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal void @__redisAsyncCopyError(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %4 = load ptr, ptr %2, align 8, !tbaa !19
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %7, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+6:                                                ; preds = %1
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %1, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %2 = load ptr, ptr %c, align 8
-  %err = getelementptr inbounds %struct.redisContext, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %err, align 8
-  %4 = load ptr, ptr %ac.addr, align 8
-  %err2 = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 1
-  store i32 %3, ptr %err2, align 8
-  %5 = load ptr, ptr %c, align 8
-  %errstr = getelementptr inbounds %struct.redisContext, ptr %5, i32 0, i32 2
-  %arraydecay = getelementptr inbounds [128 x i8], ptr %errstr, i64 0, i64 0
-  %6 = load ptr, ptr %ac.addr, align 8
-  %errstr3 = getelementptr inbounds %struct.redisAsyncContext, ptr %6, i32 0, i32 2
-  store ptr %arraydecay, ptr %errstr3, align 8
-  br label %return
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %8 = load ptr, ptr %2, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %8, i32 0, i32 0
+  store ptr %9, ptr %3, align 8, !tbaa !17
+  %10 = load ptr, ptr %3, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw %struct.redisContext, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8, !tbaa !60
+  %13 = load ptr, ptr %2, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %13, i32 0, i32 1
+  store i32 %12, ptr %14, align 8, !tbaa !33
+  %15 = load ptr, ptr %3, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw %struct.redisContext, ptr %15, i32 0, i32 2
+  %17 = getelementptr inbounds [128 x i8], ptr %16, i64 0, i64 0
+  %18 = load ptr, ptr %2, align 8, !tbaa !19
+  %19 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %18, i32 0, i32 2
+  store ptr %17, ptr %19, align 8, !tbaa !39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  br label %20
 
-return:                                           ; preds = %if.end, %if.then
+20:                                               ; preds = %7, %6
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define ptr @redisAsyncConnect(ptr noundef %ip, i32 noundef %port) #0 {
-entry:
-  %ip.addr = alloca ptr, align 8
-  %port.addr = alloca i32, align 4
-  %options = alloca %struct.redisOptions, align 8
-  store ptr %ip, ptr %ip.addr, align 8
-  store i32 %port, ptr %port.addr, align 4
-  call void @llvm.memset.p0.i64(ptr align 8 %options, i8 0, i64 80, i1 false)
-  br label %do.body
+define ptr @redisAsyncConnect(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.redisOptions, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 80, ptr %5) #10
+  call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 80, i1 false)
+  br label %6
 
-do.body:                                          ; preds = %entry
-  %type = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 0
-  store i32 0, ptr %type, align 8
-  %0 = load ptr, ptr %ip.addr, align 8
-  %endpoint = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  %ip1 = getelementptr inbounds %struct.anon, ptr %endpoint, i32 0, i32 1
-  store ptr %0, ptr %ip1, align 8
-  %1 = load i32, ptr %port.addr, align 4
-  %endpoint2 = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  %port3 = getelementptr inbounds %struct.anon, ptr %endpoint2, i32 0, i32 2
-  store i32 %1, ptr %port3, align 8
-  br label %do.end
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw %struct.redisOptions, ptr %5, i32 0, i32 0
+  store i32 0, ptr %7, align 8, !tbaa !62
+  %8 = load ptr, ptr %3, align 8, !tbaa !61
+  %9 = getelementptr inbounds nuw %struct.redisOptions, ptr %5, i32 0, i32 4
+  %10 = getelementptr inbounds nuw %struct.anon, ptr %9, i32 0, i32 1
+  store ptr %8, ptr %10, align 8, !tbaa !13
+  %11 = load i32, ptr %4, align 4, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.redisOptions, ptr %5, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 2
+  store i32 %11, ptr %13, align 8, !tbaa !13
+  br label %14
 
-do.end:                                           ; preds = %do.body
-  %call = call ptr @redisAsyncConnectWithOptions(ptr noundef %options)
-  ret ptr %call
+14:                                               ; preds = %6
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = call ptr @redisAsyncConnectWithOptions(ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 80, ptr %5) #10
+  ret ptr %16
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisAsyncConnectBind(ptr noundef %ip, i32 noundef %port, ptr noundef %source_addr) #0 {
-entry:
-  %ip.addr = alloca ptr, align 8
-  %port.addr = alloca i32, align 4
-  %source_addr.addr = alloca ptr, align 8
-  %options = alloca %struct.redisOptions, align 8
-  store ptr %ip, ptr %ip.addr, align 8
-  store i32 %port, ptr %port.addr, align 4
-  store ptr %source_addr, ptr %source_addr.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %options, i8 0, i64 80, i1 false)
-  br label %do.body
+define ptr @redisAsyncConnectBind(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.redisOptions, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 80, ptr %7) #10
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 80, i1 false)
+  br label %8
 
-do.body:                                          ; preds = %entry
-  %type = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 0
-  store i32 0, ptr %type, align 8
-  %0 = load ptr, ptr %ip.addr, align 8
-  %endpoint = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  %ip1 = getelementptr inbounds %struct.anon, ptr %endpoint, i32 0, i32 1
-  store ptr %0, ptr %ip1, align 8
-  %1 = load i32, ptr %port.addr, align 4
-  %endpoint2 = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  %port3 = getelementptr inbounds %struct.anon, ptr %endpoint2, i32 0, i32 2
-  store i32 %1, ptr %port3, align 8
-  br label %do.end
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 0
+  store i32 0, ptr %9, align 8, !tbaa !62
+  %10 = load ptr, ptr %4, align 8, !tbaa !61
+  %11 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 4
+  %12 = getelementptr inbounds nuw %struct.anon, ptr %11, i32 0, i32 1
+  store ptr %10, ptr %12, align 8, !tbaa !13
+  %13 = load i32, ptr %5, align 4, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 4
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %14, i32 0, i32 2
+  store i32 %13, ptr %15, align 8, !tbaa !13
+  br label %16
 
-do.end:                                           ; preds = %do.body
-  %2 = load ptr, ptr %source_addr.addr, align 8
-  %endpoint4 = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  %source_addr5 = getelementptr inbounds %struct.anon, ptr %endpoint4, i32 0, i32 0
-  store ptr %2, ptr %source_addr5, align 8
-  %call = call ptr @redisAsyncConnectWithOptions(ptr noundef %options)
-  ret ptr %call
+16:                                               ; preds = %8
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %6, align 8, !tbaa !61
+  %19 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 4
+  %20 = getelementptr inbounds nuw %struct.anon, ptr %19, i32 0, i32 0
+  store ptr %18, ptr %20, align 8, !tbaa !13
+  %21 = call ptr @redisAsyncConnectWithOptions(ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 80, ptr %7) #10
+  ret ptr %21
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisAsyncConnectBindWithReuse(ptr noundef %ip, i32 noundef %port, ptr noundef %source_addr) #0 {
-entry:
-  %ip.addr = alloca ptr, align 8
-  %port.addr = alloca i32, align 4
-  %source_addr.addr = alloca ptr, align 8
-  %options = alloca %struct.redisOptions, align 8
-  store ptr %ip, ptr %ip.addr, align 8
-  store i32 %port, ptr %port.addr, align 4
-  store ptr %source_addr, ptr %source_addr.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %options, i8 0, i64 80, i1 false)
-  br label %do.body
+define ptr @redisAsyncConnectBindWithReuse(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca %struct.redisOptions, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  store ptr %2, ptr %6, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 80, ptr %7) #10
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 80, i1 false)
+  br label %8
 
-do.body:                                          ; preds = %entry
-  %type = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 0
-  store i32 0, ptr %type, align 8
-  %0 = load ptr, ptr %ip.addr, align 8
-  %endpoint = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  %ip1 = getelementptr inbounds %struct.anon, ptr %endpoint, i32 0, i32 1
-  store ptr %0, ptr %ip1, align 8
-  %1 = load i32, ptr %port.addr, align 4
-  %endpoint2 = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  %port3 = getelementptr inbounds %struct.anon, ptr %endpoint2, i32 0, i32 2
-  store i32 %1, ptr %port3, align 8
-  br label %do.end
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 0
+  store i32 0, ptr %9, align 8, !tbaa !62
+  %10 = load ptr, ptr %4, align 8, !tbaa !61
+  %11 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 4
+  %12 = getelementptr inbounds nuw %struct.anon, ptr %11, i32 0, i32 1
+  store ptr %10, ptr %12, align 8, !tbaa !13
+  %13 = load i32, ptr %5, align 4, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 4
+  %15 = getelementptr inbounds nuw %struct.anon, ptr %14, i32 0, i32 2
+  store i32 %13, ptr %15, align 8, !tbaa !13
+  br label %16
 
-do.end:                                           ; preds = %do.body
-  %options4 = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 1
-  %2 = load i32, ptr %options4, align 4
-  %or = or i32 %2, 2
-  store i32 %or, ptr %options4, align 4
-  %3 = load ptr, ptr %source_addr.addr, align 8
-  %endpoint5 = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  %source_addr6 = getelementptr inbounds %struct.anon, ptr %endpoint5, i32 0, i32 0
-  store ptr %3, ptr %source_addr6, align 8
-  %call = call ptr @redisAsyncConnectWithOptions(ptr noundef %options)
-  ret ptr %call
+16:                                               ; preds = %8
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 1
+  %19 = load i32, ptr %18, align 4, !tbaa !16
+  %20 = or i32 %19, 2
+  store i32 %20, ptr %18, align 4, !tbaa !16
+  %21 = load ptr, ptr %6, align 8, !tbaa !61
+  %22 = getelementptr inbounds nuw %struct.redisOptions, ptr %7, i32 0, i32 4
+  %23 = getelementptr inbounds nuw %struct.anon, ptr %22, i32 0, i32 0
+  store ptr %21, ptr %23, align 8, !tbaa !13
+  %24 = call ptr @redisAsyncConnectWithOptions(ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 80, ptr %7) #10
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisAsyncConnectUnix(ptr noundef %path) #0 {
-entry:
-  %path.addr = alloca ptr, align 8
-  %options = alloca %struct.redisOptions, align 8
-  store ptr %path, ptr %path.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %options, i8 0, i64 80, i1 false)
-  br label %do.body
+define ptr @redisAsyncConnectUnix(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.redisOptions, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 80, ptr %3) #10
+  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 80, i1 false)
+  br label %4
 
-do.body:                                          ; preds = %entry
-  %type = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 0
-  store i32 1, ptr %type, align 8
-  %0 = load ptr, ptr %path.addr, align 8
-  %endpoint = getelementptr inbounds %struct.redisOptions, ptr %options, i32 0, i32 4
-  store ptr %0, ptr %endpoint, align 8
-  br label %do.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %struct.redisOptions, ptr %3, i32 0, i32 0
+  store i32 1, ptr %5, align 8, !tbaa !62
+  %6 = load ptr, ptr %2, align 8, !tbaa !61
+  %7 = getelementptr inbounds nuw %struct.redisOptions, ptr %3, i32 0, i32 4
+  store ptr %6, ptr %7, align 8, !tbaa !13
+  br label %8
 
-do.end:                                           ; preds = %do.body
-  %call = call ptr @redisAsyncConnectWithOptions(ptr noundef %options)
-  ret ptr %call
+8:                                                ; preds = %4
+  br label %9
+
+9:                                                ; preds = %8
+  %10 = call ptr @redisAsyncConnectWithOptions(ptr noundef %3)
+  call void @llvm.lifetime.end.p0(i64 80, ptr %3) #10
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @redisAsyncSetConnectCallback(ptr noundef %ac, ptr noundef %fn) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %1 = load ptr, ptr %fn.addr, align 8
-  %call = call i32 @redisAsyncSetConnectCallbackImpl(ptr noundef %0, ptr noundef %1, ptr noundef null)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @redisAsyncSetConnectCallbackImpl(ptr noundef %ac, ptr noundef %fn, ptr noundef %fn_nc) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %fn_nc.addr = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %fn_nc, ptr %fn_nc.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %onConnect = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 7
-  %1 = load ptr, ptr %onConnect, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %ac.addr, align 8
-  %onConnectNC = getelementptr inbounds %struct.redisAsyncContext, ptr %2, i32 0, i32 8
-  %3 = load ptr, ptr %onConnectNC, align 8
-  %tobool1 = icmp ne ptr %3, null
-  br i1 %tobool1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %fn.addr, align 8
-  %tobool2 = icmp ne ptr %4, null
-  br i1 %tobool2, label %if.then3, label %if.else
-
-if.then3:                                         ; preds = %if.end
-  %5 = load ptr, ptr %fn.addr, align 8
-  %6 = load ptr, ptr %ac.addr, align 8
-  %onConnect4 = getelementptr inbounds %struct.redisAsyncContext, ptr %6, i32 0, i32 7
-  store ptr %5, ptr %onConnect4, align 8
-  br label %if.end9
-
-if.else:                                          ; preds = %if.end
-  %7 = load ptr, ptr %fn_nc.addr, align 8
-  %tobool5 = icmp ne ptr %7, null
-  br i1 %tobool5, label %if.then6, label %if.end8
-
-if.then6:                                         ; preds = %if.else
-  %8 = load ptr, ptr %fn_nc.addr, align 8
-  %9 = load ptr, ptr %ac.addr, align 8
-  %onConnectNC7 = getelementptr inbounds %struct.redisAsyncContext, ptr %9, i32 0, i32 8
-  store ptr %8, ptr %onConnectNC7, align 8
-  br label %if.end8
-
-if.end8:                                          ; preds = %if.then6, %if.else
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.end8, %if.then3
-  br label %do.body
-
-do.body:                                          ; preds = %if.end9
-  %10 = load ptr, ptr %ac.addr, align 8
-  call void @refreshTimeout(ptr noundef %10)
-  %11 = load ptr, ptr %ac.addr, align 8
-  %ev = getelementptr inbounds %struct.redisAsyncContext, ptr %11, i32 0, i32 5
-  %addWrite = getelementptr inbounds %struct.anon.2, ptr %ev, i32 0, i32 3
-  %12 = load ptr, ptr %addWrite, align 8
-  %tobool10 = icmp ne ptr %12, null
-  br i1 %tobool10, label %if.then11, label %if.end15
-
-if.then11:                                        ; preds = %do.body
-  %13 = load ptr, ptr %ac.addr, align 8
-  %ev12 = getelementptr inbounds %struct.redisAsyncContext, ptr %13, i32 0, i32 5
-  %addWrite13 = getelementptr inbounds %struct.anon.2, ptr %ev12, i32 0, i32 3
-  %14 = load ptr, ptr %addWrite13, align 8
-  %15 = load ptr, ptr %ac.addr, align 8
-  %ev14 = getelementptr inbounds %struct.redisAsyncContext, ptr %15, i32 0, i32 5
-  %data = getelementptr inbounds %struct.anon.2, ptr %ev14, i32 0, i32 0
-  %16 = load ptr, ptr %data, align 8
-  call void %14(ptr noundef %16)
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then11, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end15
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @redisAsyncSetConnectCallbackNC(ptr noundef %ac, ptr noundef %fn) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %1 = load ptr, ptr %fn.addr, align 8
-  %call = call i32 @redisAsyncSetConnectCallbackImpl(ptr noundef %0, ptr noundef null, ptr noundef %1)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @redisAsyncSetDisconnectCallback(ptr noundef %ac, ptr noundef %fn) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %onDisconnect = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %onDisconnect, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %fn.addr, align 8
-  %3 = load ptr, ptr %ac.addr, align 8
-  %onDisconnect1 = getelementptr inbounds %struct.redisAsyncContext, ptr %3, i32 0, i32 6
-  store ptr %2, ptr %onDisconnect1, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
-}
-
-; Function Attrs: nounwind uwtable
-define void @redisAsyncFree(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %if.end4
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %1, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %2 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %2, i32 0, i32 4
-  %3 = load i32, ptr %flags, align 8
-  %or = or i32 %3, 8
-  store i32 %or, ptr %flags, align 8
-  %4 = load ptr, ptr %c, align 8
-  %flags2 = getelementptr inbounds %struct.redisContext, ptr %4, i32 0, i32 4
-  %5 = load i32, ptr %flags2, align 8
-  %and = and i32 %5, 16
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.end4, label %if.then3
-
-if.then3:                                         ; preds = %if.end
-  %6 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncFree(ptr noundef %6)
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.then3, %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @__redisAsyncFree(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %cb = alloca %struct.redisCallback, align 8
-  %it = alloca %struct.dictIterator, align 8
-  %de = alloca ptr, align 8
-  %status = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %1 = load ptr, ptr %ac.addr, align 8
-  %replies = getelementptr inbounds %struct.redisAsyncContext, ptr %1, i32 0, i32 9
-  %call = call i32 @__redisShiftCallback(ptr noundef %replies, ptr noundef %cb)
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %ac.addr, align 8
-  call void @__redisRunCallback(ptr noundef %2, ptr noundef %cb, ptr noundef null)
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  br label %while.cond2
-
-while.cond2:                                      ; preds = %while.body6, %while.end
-  %3 = load ptr, ptr %ac.addr, align 8
-  %sub = getelementptr inbounds %struct.redisAsyncContext, ptr %3, i32 0, i32 12
-  %replies3 = getelementptr inbounds %struct.anon.3, ptr %sub, i32 0, i32 0
-  %call4 = call i32 @__redisShiftCallback(ptr noundef %replies3, ptr noundef %cb)
-  %cmp5 = icmp eq i32 %call4, 0
-  br i1 %cmp5, label %while.body6, label %while.end7
-
-while.body6:                                      ; preds = %while.cond2
-  %4 = load ptr, ptr %ac.addr, align 8
-  call void @__redisRunCallback(ptr noundef %4, ptr noundef %cb, ptr noundef null)
-  br label %while.cond2
-
-while.end7:                                       ; preds = %while.cond2
-  %5 = load ptr, ptr %ac.addr, align 8
-  %sub8 = getelementptr inbounds %struct.redisAsyncContext, ptr %5, i32 0, i32 12
-  %channels = getelementptr inbounds %struct.anon.3, ptr %sub8, i32 0, i32 1
-  %6 = load ptr, ptr %channels, align 8
-  %tobool = icmp ne ptr %6, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %while.end7
-  %7 = load ptr, ptr %ac.addr, align 8
-  %sub9 = getelementptr inbounds %struct.redisAsyncContext, ptr %7, i32 0, i32 12
-  %channels10 = getelementptr inbounds %struct.anon.3, ptr %sub9, i32 0, i32 1
-  %8 = load ptr, ptr %channels10, align 8
-  call void @dictInitIterator(ptr noundef %it, ptr noundef %8)
-  br label %while.cond11
-
-while.cond11:                                     ; preds = %while.body14, %if.then
-  %call12 = call ptr @dictNext(ptr noundef %it)
-  store ptr %call12, ptr %de, align 8
-  %cmp13 = icmp ne ptr %call12, null
-  br i1 %cmp13, label %while.body14, label %while.end15
-
-while.body14:                                     ; preds = %while.cond11
-  %9 = load ptr, ptr %ac.addr, align 8
-  %10 = load ptr, ptr %de, align 8
-  %val = getelementptr inbounds %struct.dictEntry, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %val, align 8
-  call void @__redisRunCallback(ptr noundef %9, ptr noundef %11, ptr noundef null)
-  br label %while.cond11
-
-while.end15:                                      ; preds = %while.cond11
-  %12 = load ptr, ptr %ac.addr, align 8
-  %sub16 = getelementptr inbounds %struct.redisAsyncContext, ptr %12, i32 0, i32 12
-  %channels17 = getelementptr inbounds %struct.anon.3, ptr %sub16, i32 0, i32 1
-  %13 = load ptr, ptr %channels17, align 8
-  call void @dictRelease(ptr noundef %13)
-  br label %if.end
-
-if.end:                                           ; preds = %while.end15, %while.end7
-  %14 = load ptr, ptr %ac.addr, align 8
-  %sub18 = getelementptr inbounds %struct.redisAsyncContext, ptr %14, i32 0, i32 12
-  %patterns = getelementptr inbounds %struct.anon.3, ptr %sub18, i32 0, i32 2
-  %15 = load ptr, ptr %patterns, align 8
-  %tobool19 = icmp ne ptr %15, null
-  br i1 %tobool19, label %if.then20, label %if.end31
-
-if.then20:                                        ; preds = %if.end
-  %16 = load ptr, ptr %ac.addr, align 8
-  %sub21 = getelementptr inbounds %struct.redisAsyncContext, ptr %16, i32 0, i32 12
-  %patterns22 = getelementptr inbounds %struct.anon.3, ptr %sub21, i32 0, i32 2
-  %17 = load ptr, ptr %patterns22, align 8
-  call void @dictInitIterator(ptr noundef %it, ptr noundef %17)
-  br label %while.cond23
-
-while.cond23:                                     ; preds = %while.body26, %if.then20
-  %call24 = call ptr @dictNext(ptr noundef %it)
-  store ptr %call24, ptr %de, align 8
-  %cmp25 = icmp ne ptr %call24, null
-  br i1 %cmp25, label %while.body26, label %while.end28
-
-while.body26:                                     ; preds = %while.cond23
-  %18 = load ptr, ptr %ac.addr, align 8
-  %19 = load ptr, ptr %de, align 8
-  %val27 = getelementptr inbounds %struct.dictEntry, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %val27, align 8
-  call void @__redisRunCallback(ptr noundef %18, ptr noundef %20, ptr noundef null)
-  br label %while.cond23
-
-while.end28:                                      ; preds = %while.cond23
-  %21 = load ptr, ptr %ac.addr, align 8
-  %sub29 = getelementptr inbounds %struct.redisAsyncContext, ptr %21, i32 0, i32 12
-  %patterns30 = getelementptr inbounds %struct.anon.3, ptr %sub29, i32 0, i32 2
-  %22 = load ptr, ptr %patterns30, align 8
-  call void @dictRelease(ptr noundef %22)
-  br label %if.end31
-
-if.end31:                                         ; preds = %while.end28, %if.end
-  br label %do.body
-
-do.body:                                          ; preds = %if.end31
-  %23 = load ptr, ptr %ac.addr, align 8
-  %ev = getelementptr inbounds %struct.redisAsyncContext, ptr %23, i32 0, i32 5
-  %cleanup = getelementptr inbounds %struct.anon.2, ptr %ev, i32 0, i32 5
-  %24 = load ptr, ptr %cleanup, align 8
-  %tobool32 = icmp ne ptr %24, null
-  br i1 %tobool32, label %if.then33, label %if.end37
-
-if.then33:                                        ; preds = %do.body
-  %25 = load ptr, ptr %ac.addr, align 8
-  %ev34 = getelementptr inbounds %struct.redisAsyncContext, ptr %25, i32 0, i32 5
-  %cleanup35 = getelementptr inbounds %struct.anon.2, ptr %ev34, i32 0, i32 5
-  %26 = load ptr, ptr %cleanup35, align 8
-  %27 = load ptr, ptr %ac.addr, align 8
-  %ev36 = getelementptr inbounds %struct.redisAsyncContext, ptr %27, i32 0, i32 5
-  %data = getelementptr inbounds %struct.anon.2, ptr %ev36, i32 0, i32 0
-  %28 = load ptr, ptr %data, align 8
-  call void %26(ptr noundef %28)
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then33, %do.body
-  %29 = load ptr, ptr %ac.addr, align 8
-  %ev38 = getelementptr inbounds %struct.redisAsyncContext, ptr %29, i32 0, i32 5
-  %cleanup39 = getelementptr inbounds %struct.anon.2, ptr %ev38, i32 0, i32 5
-  store ptr null, ptr %cleanup39, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %if.end37
-  %30 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %30, i32 0, i32 4
-  %31 = load i32, ptr %flags, align 8
-  %and = and i32 %31, 2
-  %tobool40 = icmp ne i32 %and, 0
-  br i1 %tobool40, label %if.then41, label %if.end48
-
-if.then41:                                        ; preds = %do.end
-  %32 = load ptr, ptr %ac.addr, align 8
-  %err = getelementptr inbounds %struct.redisAsyncContext, ptr %32, i32 0, i32 1
-  %33 = load i32, ptr %err, align 8
-  %cmp42 = icmp eq i32 %33, 0
-  %cond = select i1 %cmp42, i32 0, i32 -1
-  store i32 %cond, ptr %status, align 4
-  %34 = load ptr, ptr %c, align 8
-  %flags43 = getelementptr inbounds %struct.redisContext, ptr %34, i32 0, i32 4
-  %35 = load i32, ptr %flags43, align 8
-  %and44 = and i32 %35, 8
-  %tobool45 = icmp ne i32 %and44, 0
-  br i1 %tobool45, label %if.then46, label %if.end47
-
-if.then46:                                        ; preds = %if.then41
-  store i32 0, ptr %status, align 4
-  br label %if.end47
-
-if.end47:                                         ; preds = %if.then46, %if.then41
-  %36 = load ptr, ptr %ac.addr, align 8
-  %37 = load i32, ptr %status, align 4
-  call void @__redisRunDisconnectCallback(ptr noundef %36, i32 noundef %37)
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.end47, %do.end
-  %38 = load ptr, ptr %ac.addr, align 8
-  %dataCleanup = getelementptr inbounds %struct.redisAsyncContext, ptr %38, i32 0, i32 4
-  %39 = load ptr, ptr %dataCleanup, align 8
-  %tobool49 = icmp ne ptr %39, null
-  br i1 %tobool49, label %if.then50, label %if.end53
-
-if.then50:                                        ; preds = %if.end48
-  %40 = load ptr, ptr %ac.addr, align 8
-  %dataCleanup51 = getelementptr inbounds %struct.redisAsyncContext, ptr %40, i32 0, i32 4
-  %41 = load ptr, ptr %dataCleanup51, align 8
-  %42 = load ptr, ptr %ac.addr, align 8
-  %data52 = getelementptr inbounds %struct.redisAsyncContext, ptr %42, i32 0, i32 3
-  %43 = load ptr, ptr %data52, align 8
-  call void %41(ptr noundef %43)
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.then50, %if.end48
-  %44 = load ptr, ptr %c, align 8
-  call void @redisFree(ptr noundef %44)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @__redisAsyncDisconnect(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncCopyError(ptr noundef %1)
-  %2 = load ptr, ptr %ac.addr, align 8
-  %err = getelementptr inbounds %struct.redisAsyncContext, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %err, align 8
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %ac.addr, align 8
-  %replies = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 9
-  %call = call i32 @__redisShiftCallback(ptr noundef %replies, ptr noundef null)
-  store i32 %call, ptr %ret, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %5, i32 0, i32 4
-  %6 = load i32, ptr %flags, align 8
-  %or = or i32 %6, 4
-  store i32 %or, ptr %flags, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  %7 = load ptr, ptr %ac.addr, align 8
-  %ev = getelementptr inbounds %struct.redisAsyncContext, ptr %7, i32 0, i32 5
-  %cleanup = getelementptr inbounds %struct.anon.2, ptr %ev, i32 0, i32 5
-  %8 = load ptr, ptr %cleanup, align 8
-  %tobool = icmp ne ptr %8, null
-  br i1 %tobool, label %if.then3, label %if.end7
-
-if.then3:                                         ; preds = %do.body
-  %9 = load ptr, ptr %ac.addr, align 8
-  %ev4 = getelementptr inbounds %struct.redisAsyncContext, ptr %9, i32 0, i32 5
-  %cleanup5 = getelementptr inbounds %struct.anon.2, ptr %ev4, i32 0, i32 5
-  %10 = load ptr, ptr %cleanup5, align 8
-  %11 = load ptr, ptr %ac.addr, align 8
-  %ev6 = getelementptr inbounds %struct.redisAsyncContext, ptr %11, i32 0, i32 5
-  %data = getelementptr inbounds %struct.anon.2, ptr %ev6, i32 0, i32 0
-  %12 = load ptr, ptr %data, align 8
-  call void %10(ptr noundef %12)
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then3, %do.body
-  %13 = load ptr, ptr %ac.addr, align 8
-  %ev8 = getelementptr inbounds %struct.redisAsyncContext, ptr %13, i32 0, i32 5
-  %cleanup9 = getelementptr inbounds %struct.anon.2, ptr %ev8, i32 0, i32 5
-  store ptr null, ptr %cleanup9, align 8
-  br label %do.end
-
-do.end:                                           ; preds = %if.end7
-  %14 = load ptr, ptr %c, align 8
-  %flags10 = getelementptr inbounds %struct.redisContext, ptr %14, i32 0, i32 4
-  %15 = load i32, ptr %flags10, align 8
-  %and = and i32 %15, 512
-  %tobool11 = icmp ne i32 %and, 0
-  br i1 %tobool11, label %if.end13, label %if.then12
-
-if.then12:                                        ; preds = %do.end
-  %16 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncFree(ptr noundef %16)
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then12, %do.end
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @__redisShiftCallback(ptr noundef %list, ptr noundef %target) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %list.addr = alloca ptr, align 8
-  %target.addr = alloca ptr, align 8
-  %cb = alloca ptr, align 8
-  store ptr %list, ptr %list.addr, align 8
-  store ptr %target, ptr %target.addr, align 8
-  %0 = load ptr, ptr %list.addr, align 8
-  %head = getelementptr inbounds %struct.redisCallbackList, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %head, align 8
-  store ptr %1, ptr %cb, align 8
-  %2 = load ptr, ptr %cb, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end8
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %cb, align 8
-  %next = getelementptr inbounds %struct.redisCallback, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %next, align 8
-  %5 = load ptr, ptr %list.addr, align 8
-  %head1 = getelementptr inbounds %struct.redisCallbackList, ptr %5, i32 0, i32 0
-  store ptr %4, ptr %head1, align 8
-  %6 = load ptr, ptr %cb, align 8
-  %7 = load ptr, ptr %list.addr, align 8
-  %tail = getelementptr inbounds %struct.redisCallbackList, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %tail, align 8
-  %cmp2 = icmp eq ptr %6, %8
-  br i1 %cmp2, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %if.then
-  %9 = load ptr, ptr %list.addr, align 8
-  %tail4 = getelementptr inbounds %struct.redisCallbackList, ptr %9, i32 0, i32 1
-  store ptr null, ptr %tail4, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then3, %if.then
-  %10 = load ptr, ptr %target.addr, align 8
-  %cmp5 = icmp ne ptr %10, null
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.end
-  %11 = load ptr, ptr %target.addr, align 8
-  %12 = load ptr, ptr %cb, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 32, i1 false)
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then6, %if.end
-  %13 = load ptr, ptr %cb, align 8
-  call void @hi_free(ptr noundef %13)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end8:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end8, %if.end7
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
-}
-
-; Function Attrs: nounwind uwtable
-define void @redisAsyncDisconnect(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %flags, align 8
-  %or = or i32 %2, 4
-  store i32 %or, ptr %flags, align 8
-  %3 = load ptr, ptr %c, align 8
-  %flags2 = getelementptr inbounds %struct.redisContext, ptr %3, i32 0, i32 4
-  %4 = load i32, ptr %flags2, align 8
-  %and = and i32 %4, -513
-  store i32 %and, ptr %flags2, align 8
-  %5 = load ptr, ptr %c, align 8
-  %flags3 = getelementptr inbounds %struct.redisContext, ptr %5, i32 0, i32 4
-  %6 = load i32, ptr %flags3, align 8
-  %and4 = and i32 %6, 16
-  %tobool = icmp ne i32 %and4, 0
-  br i1 %tobool, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
-  %7 = load ptr, ptr %ac.addr, align 8
-  %replies = getelementptr inbounds %struct.redisAsyncContext, ptr %7, i32 0, i32 9
-  %head = getelementptr inbounds %struct.redisCallbackList, ptr %replies, i32 0, i32 0
-  %8 = load ptr, ptr %head, align 8
-  %cmp = icmp eq ptr %8, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %9 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncDisconnect(ptr noundef %9)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @redisProcessCallbacks(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %reply = alloca ptr, align 8
-  %status = alloca i32, align 4
-  %cb = alloca %struct.redisCallback, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  store ptr null, ptr %reply, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end67, %if.then18, %entry
-  %1 = load ptr, ptr %c, align 8
-  %call = call i32 @redisGetReply(ptr noundef %1, ptr noundef %reply)
-  store i32 %call, ptr %status, align 4
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %2 = load ptr, ptr %reply, align 8
-  %cmp2 = icmp eq ptr %2, null
-  br i1 %cmp2, label %if.then, label %if.end8
-
-if.then:                                          ; preds = %while.body
-  %3 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %3, i32 0, i32 4
-  %4 = load i32, ptr %flags, align 8
-  %and = and i32 %4, 4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %if.then
-  %5 = load ptr, ptr %c, align 8
-  %obuf = getelementptr inbounds %struct.redisContext, ptr %5, i32 0, i32 5
-  %6 = load ptr, ptr %obuf, align 8
-  %call3 = call i64 @hi_sdslen(ptr noundef %6)
-  %cmp4 = icmp eq i64 %call3, 0
-  br i1 %cmp4, label %land.lhs.true5, label %if.end
-
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %7 = load ptr, ptr %ac.addr, align 8
-  %replies = getelementptr inbounds %struct.redisAsyncContext, ptr %7, i32 0, i32 9
-  %head = getelementptr inbounds %struct.redisCallbackList, ptr %replies, i32 0, i32 0
-  %8 = load ptr, ptr %head, align 8
-  %cmp6 = icmp eq ptr %8, null
-  br i1 %cmp6, label %if.then7, label %if.end
-
-if.then7:                                         ; preds = %land.lhs.true5
-  %9 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncDisconnect(ptr noundef %9)
-  br label %if.end70
-
-if.end:                                           ; preds = %land.lhs.true5, %land.lhs.true, %if.then
-  br label %while.end
-
-if.end8:                                          ; preds = %while.body
-  %10 = load ptr, ptr %reply, align 8
-  %type = getelementptr inbounds %struct.redisReply, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %type, align 8
-  %cmp9 = icmp eq i32 %11, 12
-  br i1 %cmp9, label %if.then10, label %if.end12
-
-if.then10:                                        ; preds = %if.end8
-  %12 = load ptr, ptr %c, align 8
-  %flags11 = getelementptr inbounds %struct.redisContext, ptr %12, i32 0, i32 4
-  %13 = load i32, ptr %flags11, align 8
-  %or = or i32 %13, 256
-  store i32 %or, ptr %flags11, align 8
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then10, %if.end8
-  %14 = load ptr, ptr %reply, align 8
-  %type13 = getelementptr inbounds %struct.redisReply, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %type13, align 8
-  %cmp14 = icmp eq i32 %15, 12
-  br i1 %cmp14, label %land.lhs.true15, label %if.end19
-
-land.lhs.true15:                                  ; preds = %if.end12
-  %16 = load ptr, ptr %reply, align 8
-  %call16 = call i32 @redisIsSubscribeReply(ptr noundef %16)
-  %tobool17 = icmp ne i32 %call16, 0
-  br i1 %tobool17, label %if.end19, label %if.then18
-
-if.then18:                                        ; preds = %land.lhs.true15
-  %17 = load ptr, ptr %ac.addr, align 8
-  %18 = load ptr, ptr %reply, align 8
-  call void @__redisRunPushCallback(ptr noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %c, align 8
-  %reader = getelementptr inbounds %struct.redisContext, ptr %19, i32 0, i32 6
-  %20 = load ptr, ptr %reader, align 8
-  %fn = getelementptr inbounds %struct.redisReader, ptr %20, i32 0, i32 11
-  %21 = load ptr, ptr %fn, align 8
-  %freeObject = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %21, i32 0, i32 6
-  %22 = load ptr, ptr %freeObject, align 8
-  %23 = load ptr, ptr %reply, align 8
-  call void %22(ptr noundef %23)
-  br label %while.cond
-
-if.end19:                                         ; preds = %land.lhs.true15, %if.end12
-  call void @llvm.memset.p0.i64(ptr align 8 %cb, i8 0, i64 32, i1 false)
-  %24 = load ptr, ptr %ac.addr, align 8
-  %replies20 = getelementptr inbounds %struct.redisAsyncContext, ptr %24, i32 0, i32 9
-  %call21 = call i32 @__redisShiftCallback(ptr noundef %replies20, ptr noundef %cb)
-  %cmp22 = icmp ne i32 %call21, 0
-  br i1 %cmp22, label %if.then23, label %if.end40
-
-if.then23:                                        ; preds = %if.end19
-  %25 = load ptr, ptr %reply, align 8
-  %type24 = getelementptr inbounds %struct.redisReply, ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %type24, align 8
-  %cmp25 = icmp eq i32 %26, 6
-  br i1 %cmp25, label %if.then26, label %if.end31
-
-if.then26:                                        ; preds = %if.then23
-  %27 = load ptr, ptr %c, align 8
-  %err = getelementptr inbounds %struct.redisContext, ptr %27, i32 0, i32 1
-  store i32 2, ptr %err, align 8
-  %28 = load ptr, ptr %c, align 8
-  %errstr = getelementptr inbounds %struct.redisContext, ptr %28, i32 0, i32 2
-  %arraydecay = getelementptr inbounds [128 x i8], ptr %errstr, i64 0, i64 0
-  %29 = load ptr, ptr %reply, align 8
-  %str = getelementptr inbounds %struct.redisReply, ptr %29, i32 0, i32 4
-  %30 = load ptr, ptr %str, align 8
-  %call27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay, i64 noundef 128, ptr noundef @.str, ptr noundef %30) #7
-  %31 = load ptr, ptr %c, align 8
-  %reader28 = getelementptr inbounds %struct.redisContext, ptr %31, i32 0, i32 6
-  %32 = load ptr, ptr %reader28, align 8
-  %fn29 = getelementptr inbounds %struct.redisReader, ptr %32, i32 0, i32 11
-  %33 = load ptr, ptr %fn29, align 8
-  %freeObject30 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %33, i32 0, i32 6
-  %34 = load ptr, ptr %freeObject30, align 8
-  %35 = load ptr, ptr %reply, align 8
-  call void %34(ptr noundef %35)
-  %36 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncDisconnect(ptr noundef %36)
-  br label %if.end70
-
-if.end31:                                         ; preds = %if.then23
-  %37 = load ptr, ptr %c, align 8
-  %flags34 = getelementptr inbounds %struct.redisContext, ptr %37, i32 0, i32 4
-  %38 = load i32, ptr %flags34, align 8
-  %and35 = and i32 %38, 32
-  %tobool36 = icmp ne i32 %and35, 0
-  br i1 %tobool36, label %if.then37, label %if.end39
-
-if.then37:                                        ; preds = %if.end31
-  %39 = load ptr, ptr %ac.addr, align 8
-  %40 = load ptr, ptr %reply, align 8
-  %call38 = call i32 @__redisGetSubscribeCallback(ptr noundef %39, ptr noundef %40, ptr noundef %cb)
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.then37, %if.end31
-  br label %if.end40
-
-if.end40:                                         ; preds = %if.end39, %if.end19
-  %fn41 = getelementptr inbounds %struct.redisCallback, ptr %cb, i32 0, i32 1
-  %41 = load ptr, ptr %fn41, align 8
-  %cmp42 = icmp ne ptr %41, null
-  br i1 %cmp42, label %if.then43, label %if.else
-
-if.then43:                                        ; preds = %if.end40
-  %42 = load ptr, ptr %ac.addr, align 8
-  %43 = load ptr, ptr %reply, align 8
-  call void @__redisRunCallback(ptr noundef %42, ptr noundef %cb, ptr noundef %43)
-  %44 = load ptr, ptr %c, align 8
-  %flags44 = getelementptr inbounds %struct.redisContext, ptr %44, i32 0, i32 4
-  %45 = load i32, ptr %flags44, align 8
-  %and45 = and i32 %45, 1024
-  %tobool46 = icmp ne i32 %and45, 0
-  br i1 %tobool46, label %if.end51, label %if.then47
-
-if.then47:                                        ; preds = %if.then43
-  %46 = load ptr, ptr %c, align 8
-  %reader48 = getelementptr inbounds %struct.redisContext, ptr %46, i32 0, i32 6
-  %47 = load ptr, ptr %reader48, align 8
-  %fn49 = getelementptr inbounds %struct.redisReader, ptr %47, i32 0, i32 11
-  %48 = load ptr, ptr %fn49, align 8
-  %freeObject50 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %48, i32 0, i32 6
-  %49 = load ptr, ptr %freeObject50, align 8
-  %50 = load ptr, ptr %reply, align 8
-  call void %49(ptr noundef %50)
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.then47, %if.then43
-  %51 = load ptr, ptr %c, align 8
-  %flags52 = getelementptr inbounds %struct.redisContext, ptr %51, i32 0, i32 4
-  %52 = load i32, ptr %flags52, align 8
-  %and53 = and i32 %52, 8
-  %tobool54 = icmp ne i32 %and53, 0
-  br i1 %tobool54, label %if.then55, label %if.end56
-
-if.then55:                                        ; preds = %if.end51
-  %53 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncFree(ptr noundef %53)
-  br label %if.end70
-
-if.end56:                                         ; preds = %if.end51
-  br label %if.end60
-
-if.else:                                          ; preds = %if.end40
-  %54 = load ptr, ptr %c, align 8
-  %reader57 = getelementptr inbounds %struct.redisContext, ptr %54, i32 0, i32 6
-  %55 = load ptr, ptr %reader57, align 8
-  %fn58 = getelementptr inbounds %struct.redisReader, ptr %55, i32 0, i32 11
-  %56 = load ptr, ptr %fn58, align 8
-  %freeObject59 = getelementptr inbounds %struct.redisReplyObjectFunctions, ptr %56, i32 0, i32 6
-  %57 = load ptr, ptr %freeObject59, align 8
-  %58 = load ptr, ptr %reply, align 8
-  call void %57(ptr noundef %58)
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.else, %if.end56
-  %59 = load ptr, ptr %c, align 8
-  %flags61 = getelementptr inbounds %struct.redisContext, ptr %59, i32 0, i32 4
-  %60 = load i32, ptr %flags61, align 8
-  %and62 = and i32 %60, 64
-  %tobool63 = icmp ne i32 %and62, 0
-  br i1 %tobool63, label %if.then64, label %if.end67
-
-if.then64:                                        ; preds = %if.end60
-  %61 = load ptr, ptr %ac.addr, align 8
-  %replies65 = getelementptr inbounds %struct.redisAsyncContext, ptr %61, i32 0, i32 9
-  %call66 = call i32 @__redisPushCallback(ptr noundef %replies65, ptr noundef %cb)
-  br label %if.end67
-
-if.end67:                                         ; preds = %if.then64, %if.end60
-  br label %while.cond
-
-while.end:                                        ; preds = %if.end, %while.cond
-  %62 = load i32, ptr %status, align 4
-  %cmp68 = icmp ne i32 %62, 0
-  br i1 %cmp68, label %if.then69, label %if.end70
-
-if.then69:                                        ; preds = %while.end
-  %63 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncDisconnect(ptr noundef %63)
-  br label %if.end70
-
-if.end70:                                         ; preds = %if.then69, %while.end, %if.then55, %if.then26, %if.then7
-  ret void
-}
-
-declare i32 @redisGetReply(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal i64 @hi_sdslen(ptr noundef %s) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %s.addr = alloca ptr, align 8
-  %flags = alloca i8, align 1
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -1
-  %1 = load i8, ptr %arrayidx, align 1
-  store i8 %1, ptr %flags, align 1
-  %2 = load i8, ptr %flags, align 1
-  %conv = zext i8 %2 to i32
-  %and = and i32 %conv, 7
-  switch i32 %and, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb9
-    i32 4, label %sw.bb13
-  ]
-
-sw.bb:                                            ; preds = %entry
-  %3 = load i8, ptr %flags, align 1
-  %conv1 = zext i8 %3 to i32
-  %shr = ashr i32 %conv1, 3
-  %conv2 = sext i32 %shr to i64
-  store i64 %conv2, ptr %retval, align 8
-  br label %return
-
-sw.bb3:                                           ; preds = %entry
-  %4 = load ptr, ptr %s.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 -3
-  %len = getelementptr inbounds %struct.hisdshdr8, ptr %add.ptr, i32 0, i32 0
-  %5 = load i8, ptr %len, align 1
-  %conv4 = zext i8 %5 to i64
-  store i64 %conv4, ptr %retval, align 8
-  br label %return
-
-sw.bb5:                                           ; preds = %entry
-  %6 = load ptr, ptr %s.addr, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %6, i64 -5
-  %len7 = getelementptr inbounds %struct.hisdshdr16, ptr %add.ptr6, i32 0, i32 0
-  %7 = load i16, ptr %len7, align 1
-  %conv8 = zext i16 %7 to i64
-  store i64 %conv8, ptr %retval, align 8
-  br label %return
-
-sw.bb9:                                           ; preds = %entry
-  %8 = load ptr, ptr %s.addr, align 8
-  %add.ptr10 = getelementptr inbounds i8, ptr %8, i64 -9
-  %len11 = getelementptr inbounds %struct.hisdshdr32, ptr %add.ptr10, i32 0, i32 0
-  %9 = load i32, ptr %len11, align 1
-  %conv12 = zext i32 %9 to i64
-  store i64 %conv12, ptr %retval, align 8
-  br label %return
-
-sw.bb13:                                          ; preds = %entry
-  %10 = load ptr, ptr %s.addr, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %10, i64 -17
-  %len15 = getelementptr inbounds %struct.hisdshdr64, ptr %add.ptr14, i32 0, i32 0
-  %11 = load i64, ptr %len15, align 1
-  store i64 %11, ptr %retval, align 8
-  br label %return
-
-sw.epilog:                                        ; preds = %entry
-  store i64 0, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %sw.bb13, %sw.bb9, %sw.bb5, %sw.bb3, %sw.bb
-  %12 = load i64, ptr %retval, align 8
-  ret i64 %12
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @redisIsSubscribeReply(ptr noundef %reply) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %reply.addr = alloca ptr, align 8
-  %str = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %off = alloca i64, align 8
-  store ptr %reply, ptr %reply.addr, align 8
-  %0 = load ptr, ptr %reply.addr, align 8
-  %elements = getelementptr inbounds %struct.redisReply, ptr %0, i32 0, i32 6
-  %1 = load i64, ptr %elements, align 8
-  %cmp = icmp ult i64 %1, 1
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %reply.addr, align 8
-  %element = getelementptr inbounds %struct.redisReply, ptr %2, i32 0, i32 7
-  %3 = load ptr, ptr %element, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 0
-  %4 = load ptr, ptr %arrayidx, align 8
-  %type = getelementptr inbounds %struct.redisReply, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %type, align 8
-  %cmp1 = icmp ne i32 %5, 1
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
-
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %reply.addr, align 8
-  %element3 = getelementptr inbounds %struct.redisReply, ptr %6, i32 0, i32 7
-  %7 = load ptr, ptr %element3, align 8
-  %arrayidx4 = getelementptr inbounds ptr, ptr %7, i64 0
-  %8 = load ptr, ptr %arrayidx4, align 8
-  %len5 = getelementptr inbounds %struct.redisReply, ptr %8, i32 0, i32 3
-  %9 = load i64, ptr %len5, align 8
-  %cmp6 = icmp ult i64 %9, 7
-  br i1 %cmp6, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false2
-  %10 = load ptr, ptr %reply.addr, align 8
-  %element7 = getelementptr inbounds %struct.redisReply, ptr %10, i32 0, i32 7
-  %11 = load ptr, ptr %element7, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %11, i64 0
-  %12 = load ptr, ptr %arrayidx8, align 8
-  %str9 = getelementptr inbounds %struct.redisReply, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %str9, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %13, i64 0
-  %14 = load i8, ptr %arrayidx10, align 1
-  %conv = sext i8 %14 to i32
-  %call = call i32 @tolower(i32 noundef %conv) #8
-  %cmp11 = icmp eq i32 %call, 112
-  %conv12 = zext i1 %cmp11 to i32
-  %conv13 = sext i32 %conv12 to i64
-  store i64 %conv13, ptr %off, align 8
-  %15 = load ptr, ptr %reply.addr, align 8
-  %element14 = getelementptr inbounds %struct.redisReply, ptr %15, i32 0, i32 7
-  %16 = load ptr, ptr %element14, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %16, i64 0
-  %17 = load ptr, ptr %arrayidx15, align 8
-  %str16 = getelementptr inbounds %struct.redisReply, ptr %17, i32 0, i32 4
-  %18 = load ptr, ptr %str16, align 8
-  %19 = load i64, ptr %off, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %18, i64 %19
-  store ptr %add.ptr, ptr %str, align 8
-  %20 = load ptr, ptr %reply.addr, align 8
-  %element17 = getelementptr inbounds %struct.redisReply, ptr %20, i32 0, i32 7
-  %21 = load ptr, ptr %element17, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %21, i64 0
-  %22 = load ptr, ptr %arrayidx18, align 8
-  %len19 = getelementptr inbounds %struct.redisReply, ptr %22, i32 0, i32 3
-  %23 = load i64, ptr %len19, align 8
-  %24 = load i64, ptr %off, align 8
-  %sub = sub i64 %23, %24
-  store i64 %sub, ptr %len, align 8
-  %25 = load ptr, ptr %str, align 8
-  %26 = load i64, ptr %len, align 8
-  %call20 = call i32 @strncasecmp(ptr noundef %25, ptr noundef @.str.3, i64 noundef %26) #8
-  %tobool = icmp ne i32 %call20, 0
-  br i1 %tobool, label %lor.lhs.false21, label %lor.end
-
-lor.lhs.false21:                                  ; preds = %if.end
-  %27 = load ptr, ptr %str, align 8
-  %28 = load i64, ptr %len, align 8
-  %call22 = call i32 @strncasecmp(ptr noundef %27, ptr noundef @.str.4, i64 noundef %28) #8
-  %tobool23 = icmp ne i32 %call22, 0
-  br i1 %tobool23, label %lor.rhs, label %lor.end
-
-lor.rhs:                                          ; preds = %lor.lhs.false21
-  %29 = load ptr, ptr %str, align 8
-  %30 = load i64, ptr %len, align 8
-  %call24 = call i32 @strncasecmp(ptr noundef %29, ptr noundef @.str.5, i64 noundef %30) #8
-  %tobool25 = icmp ne i32 %call24, 0
-  %lnot = xor i1 %tobool25, true
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false21, %if.end
-  %31 = phi i1 [ true, %lor.lhs.false21 ], [ true, %if.end ], [ %lnot, %lor.rhs ]
-  %lor.ext = zext i1 %31 to i32
-  store i32 %lor.ext, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %lor.end, %if.then
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @__redisRunPushCallback(ptr noundef %ac, ptr noundef %reply) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %reply.addr = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %reply, ptr %reply.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %push_cb = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 13
-  %1 = load ptr, ptr %push_cb, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %ac.addr, align 8
-  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %2, i32 0, i32 0
-  %flags = getelementptr inbounds %struct.redisContext, ptr %c, i32 0, i32 4
-  %3 = load i32, ptr %flags, align 8
-  %or = or i32 %3, 16
-  store i32 %or, ptr %flags, align 8
-  %4 = load ptr, ptr %ac.addr, align 8
-  %push_cb1 = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 13
-  %5 = load ptr, ptr %push_cb1, align 8
-  %6 = load ptr, ptr %ac.addr, align 8
-  %7 = load ptr, ptr %reply.addr, align 8
-  call void %5(ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %ac.addr, align 8
-  %c2 = getelementptr inbounds %struct.redisAsyncContext, ptr %8, i32 0, i32 0
-  %flags3 = getelementptr inbounds %struct.redisContext, ptr %c2, i32 0, i32 4
-  %9 = load i32, ptr %flags3, align 8
-  %and = and i32 %9, -17
-  store i32 %and, ptr %flags3, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #4
-
-; Function Attrs: nounwind uwtable
-define internal i32 @__redisGetSubscribeCallback(ptr noundef %ac, ptr noundef %reply, ptr noundef %dstcb) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ac.addr = alloca ptr, align 8
-  %reply.addr = alloca ptr, align 8
-  %dstcb.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %callbacks = alloca ptr, align 8
-  %cb = alloca ptr, align 8
-  %de = alloca ptr, align 8
-  %pvariant = alloca i32, align 4
-  %stype = alloca ptr, align 8
-  %sname = alloca ptr, align 8
-  %cb94 = alloca %struct.redisCallback, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %reply, ptr %reply.addr, align 8
-  store ptr %dstcb, ptr %dstcb.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  store ptr null, ptr %cb, align 8
-  store ptr null, ptr %sname, align 8
-  %1 = load ptr, ptr %reply.addr, align 8
-  %type = getelementptr inbounds %struct.redisReply, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %type, align 8
-  %cmp = icmp eq i32 %2, 2
-  br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
-
-land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %3, i32 0, i32 4
-  %4 = load i32, ptr %flags, align 8
-  %and = and i32 %4, 256
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %lor.lhs.false, label %land.lhs.true2
-
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %5 = load ptr, ptr %reply.addr, align 8
-  %elements = getelementptr inbounds %struct.redisReply, ptr %5, i32 0, i32 6
-  %6 = load i64, ptr %elements, align 8
-  %cmp3 = icmp uge i64 %6, 3
-  br i1 %cmp3, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true2, %land.lhs.true, %entry
-  %7 = load ptr, ptr %reply.addr, align 8
-  %type4 = getelementptr inbounds %struct.redisReply, ptr %7, i32 0, i32 0
-  %8 = load i32, ptr %type4, align 8
-  %cmp5 = icmp eq i32 %8, 12
-  br i1 %cmp5, label %if.then, label %if.else104
-
-if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true2
-  %9 = load ptr, ptr %reply.addr, align 8
-  %element8 = getelementptr inbounds %struct.redisReply, ptr %9, i32 0, i32 7
-  %10 = load ptr, ptr %element8, align 8
-  %arrayidx9 = getelementptr inbounds ptr, ptr %10, i64 0
-  %11 = load ptr, ptr %arrayidx9, align 8
-  %str = getelementptr inbounds %struct.redisReply, ptr %11, i32 0, i32 4
-  %12 = load ptr, ptr %str, align 8
-  store ptr %12, ptr %stype, align 8
-  %13 = load ptr, ptr %stype, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %13, i64 0
-  %14 = load i8, ptr %arrayidx10, align 1
-  %conv11 = sext i8 %14 to i32
-  %call = call i32 @tolower(i32 noundef %conv11) #8
-  %cmp12 = icmp eq i32 %call, 112
-  %cond = select i1 %cmp12, i32 1, i32 0
-  store i32 %cond, ptr %pvariant, align 4
-  %15 = load i32, ptr %pvariant, align 4
-  %tobool14 = icmp ne i32 %15, 0
-  br i1 %tobool14, label %if.then15, label %if.else
-
-if.then15:                                        ; preds = %if.then
-  %16 = load ptr, ptr %ac.addr, align 8
-  %sub = getelementptr inbounds %struct.redisAsyncContext, ptr %16, i32 0, i32 12
-  %patterns = getelementptr inbounds %struct.anon.3, ptr %sub, i32 0, i32 2
-  %17 = load ptr, ptr %patterns, align 8
-  store ptr %17, ptr %callbacks, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %if.then
-  %18 = load ptr, ptr %ac.addr, align 8
-  %sub16 = getelementptr inbounds %struct.redisAsyncContext, ptr %18, i32 0, i32 12
-  %channels = getelementptr inbounds %struct.anon.3, ptr %sub16, i32 0, i32 1
-  %19 = load ptr, ptr %channels, align 8
-  store ptr %19, ptr %callbacks, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then15
-  %20 = load ptr, ptr %reply.addr, align 8
-  %element17 = getelementptr inbounds %struct.redisReply, ptr %20, i32 0, i32 7
-  %21 = load ptr, ptr %element17, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %21, i64 1
-  %22 = load ptr, ptr %arrayidx18, align 8
-  %type19 = getelementptr inbounds %struct.redisReply, ptr %22, i32 0, i32 0
-  %23 = load i32, ptr %type19, align 8
-  %cmp20 = icmp eq i32 %23, 1
-  br i1 %cmp20, label %if.then22, label %if.end38
-
-if.then22:                                        ; preds = %if.end
-  %24 = load ptr, ptr %reply.addr, align 8
-  %element23 = getelementptr inbounds %struct.redisReply, ptr %24, i32 0, i32 7
-  %25 = load ptr, ptr %element23, align 8
-  %arrayidx24 = getelementptr inbounds ptr, ptr %25, i64 1
-  %26 = load ptr, ptr %arrayidx24, align 8
-  %str25 = getelementptr inbounds %struct.redisReply, ptr %26, i32 0, i32 4
-  %27 = load ptr, ptr %str25, align 8
-  %28 = load ptr, ptr %reply.addr, align 8
-  %element26 = getelementptr inbounds %struct.redisReply, ptr %28, i32 0, i32 7
-  %29 = load ptr, ptr %element26, align 8
-  %arrayidx27 = getelementptr inbounds ptr, ptr %29, i64 1
-  %30 = load ptr, ptr %arrayidx27, align 8
-  %len = getelementptr inbounds %struct.redisReply, ptr %30, i32 0, i32 3
-  %31 = load i64, ptr %len, align 8
-  %call28 = call ptr @hi_sdsnewlen(ptr noundef %27, i64 noundef %31)
-  store ptr %call28, ptr %sname, align 8
-  %32 = load ptr, ptr %sname, align 8
-  %cmp29 = icmp eq ptr %32, null
-  br i1 %cmp29, label %if.then31, label %if.end32
-
-if.then31:                                        ; preds = %if.then22
-  br label %oom
-
-if.end32:                                         ; preds = %if.then22
-  %33 = load ptr, ptr %callbacks, align 8
-  %34 = load ptr, ptr %sname, align 8
-  %call33 = call ptr @dictFind(ptr noundef %33, ptr noundef %34)
-  store ptr %call33, ptr %de, align 8
-  %cmp34 = icmp ne ptr %call33, null
-  br i1 %cmp34, label %if.then36, label %if.end37
-
-if.then36:                                        ; preds = %if.end32
-  %35 = load ptr, ptr %de, align 8
-  %val = getelementptr inbounds %struct.dictEntry, ptr %35, i32 0, i32 1
-  %36 = load ptr, ptr %val, align 8
-  store ptr %36, ptr %cb, align 8
-  %37 = load ptr, ptr %dstcb.addr, align 8
-  %38 = load ptr, ptr %cb, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %37, ptr align 8 %38, i64 32, i1 false)
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then36, %if.end32
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.end37, %if.end
-  %39 = load ptr, ptr %stype, align 8
-  %40 = load i32, ptr %pvariant, align 4
-  %idx.ext = sext i32 %40 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %39, i64 %idx.ext
-  %call39 = call i32 @strcasecmp(ptr noundef %add.ptr, ptr noundef @.str.3) #8
-  %cmp40 = icmp eq i32 %call39, 0
-  br i1 %cmp40, label %if.then42, label %if.else46
-
-if.then42:                                        ; preds = %if.end38
-  %41 = load ptr, ptr %cb, align 8
-  %pending_subs = getelementptr inbounds %struct.redisCallback, ptr %41, i32 0, i32 2
-  %42 = load i32, ptr %pending_subs, align 8
-  %sub45 = sub nsw i32 %42, 1
-  store i32 %sub45, ptr %pending_subs, align 8
-  br label %if.end103
-
-if.else46:                                        ; preds = %if.end38
-  %43 = load ptr, ptr %stype, align 8
-  %44 = load i32, ptr %pvariant, align 4
-  %idx.ext47 = sext i32 %44 to i64
-  %add.ptr48 = getelementptr inbounds i8, ptr %43, i64 %idx.ext47
-  %call49 = call i32 @strcasecmp(ptr noundef %add.ptr48, ptr noundef @.str.5) #8
-  %cmp50 = icmp eq i32 %call49, 0
-  br i1 %cmp50, label %if.then52, label %if.end102
-
-if.then52:                                        ; preds = %if.else46
-  %45 = load ptr, ptr %cb, align 8
-  %cmp53 = icmp eq ptr %45, null
-  br i1 %cmp53, label %if.then55, label %if.else58
-
-if.then55:                                        ; preds = %if.then52
-  %46 = load ptr, ptr %ac.addr, align 8
-  %sub56 = getelementptr inbounds %struct.redisAsyncContext, ptr %46, i32 0, i32 12
-  %pending_unsubs = getelementptr inbounds %struct.anon.3, ptr %sub56, i32 0, i32 3
-  %47 = load i32, ptr %pending_unsubs, align 8
-  %sub57 = sub nsw i32 %47, 1
-  store i32 %sub57, ptr %pending_unsubs, align 8
-  br label %if.end65
-
-if.else58:                                        ; preds = %if.then52
-  %48 = load ptr, ptr %cb, align 8
-  %pending_subs59 = getelementptr inbounds %struct.redisCallback, ptr %48, i32 0, i32 2
-  %49 = load i32, ptr %pending_subs59, align 8
-  %cmp60 = icmp eq i32 %49, 0
-  br i1 %cmp60, label %if.then62, label %if.end64
-
-if.then62:                                        ; preds = %if.else58
-  %50 = load ptr, ptr %callbacks, align 8
-  %51 = load ptr, ptr %sname, align 8
-  %call63 = call i32 @dictDelete(ptr noundef %50, ptr noundef %51)
-  br label %if.end64
-
-if.end64:                                         ; preds = %if.then62, %if.else58
-  br label %if.end65
-
-if.end65:                                         ; preds = %if.end64, %if.then55
-  %52 = load ptr, ptr %reply.addr, align 8
-  %element71 = getelementptr inbounds %struct.redisReply, ptr %52, i32 0, i32 7
-  %53 = load ptr, ptr %element71, align 8
-  %arrayidx72 = getelementptr inbounds ptr, ptr %53, i64 2
-  %54 = load ptr, ptr %arrayidx72, align 8
-  %integer = getelementptr inbounds %struct.redisReply, ptr %54, i32 0, i32 1
-  %55 = load i64, ptr %integer, align 8
-  %cmp73 = icmp eq i64 %55, 0
-  br i1 %cmp73, label %land.lhs.true75, label %if.end101
-
-land.lhs.true75:                                  ; preds = %if.end65
-  %56 = load ptr, ptr %ac.addr, align 8
-  %sub76 = getelementptr inbounds %struct.redisAsyncContext, ptr %56, i32 0, i32 12
-  %channels77 = getelementptr inbounds %struct.anon.3, ptr %sub76, i32 0, i32 1
-  %57 = load ptr, ptr %channels77, align 8
-  %used = getelementptr inbounds %struct.dict, ptr %57, i32 0, i32 4
-  %58 = load i64, ptr %used, align 8
-  %cmp78 = icmp eq i64 %58, 0
-  br i1 %cmp78, label %land.lhs.true80, label %if.end101
-
-land.lhs.true80:                                  ; preds = %land.lhs.true75
-  %59 = load ptr, ptr %ac.addr, align 8
-  %sub81 = getelementptr inbounds %struct.redisAsyncContext, ptr %59, i32 0, i32 12
-  %patterns82 = getelementptr inbounds %struct.anon.3, ptr %sub81, i32 0, i32 2
-  %60 = load ptr, ptr %patterns82, align 8
-  %used83 = getelementptr inbounds %struct.dict, ptr %60, i32 0, i32 4
-  %61 = load i64, ptr %used83, align 8
-  %cmp84 = icmp eq i64 %61, 0
-  br i1 %cmp84, label %land.lhs.true86, label %if.end101
-
-land.lhs.true86:                                  ; preds = %land.lhs.true80
-  %62 = load ptr, ptr %ac.addr, align 8
-  %sub87 = getelementptr inbounds %struct.redisAsyncContext, ptr %62, i32 0, i32 12
-  %pending_unsubs88 = getelementptr inbounds %struct.anon.3, ptr %sub87, i32 0, i32 3
-  %63 = load i32, ptr %pending_unsubs88, align 8
-  %cmp89 = icmp eq i32 %63, 0
-  br i1 %cmp89, label %if.then91, label %if.end101
-
-if.then91:                                        ; preds = %land.lhs.true86
-  %64 = load ptr, ptr %c, align 8
-  %flags92 = getelementptr inbounds %struct.redisContext, ptr %64, i32 0, i32 4
-  %65 = load i32, ptr %flags92, align 8
-  %and93 = and i32 %65, -33
-  store i32 %and93, ptr %flags92, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.then91
-  %66 = load ptr, ptr %ac.addr, align 8
-  %sub95 = getelementptr inbounds %struct.redisAsyncContext, ptr %66, i32 0, i32 12
-  %replies = getelementptr inbounds %struct.anon.3, ptr %sub95, i32 0, i32 0
-  %call96 = call i32 @__redisShiftCallback(ptr noundef %replies, ptr noundef %cb94)
-  %cmp97 = icmp eq i32 %call96, 0
-  br i1 %cmp97, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %67 = load ptr, ptr %ac.addr, align 8
-  %replies99 = getelementptr inbounds %struct.redisAsyncContext, ptr %67, i32 0, i32 9
-  %call100 = call i32 @__redisPushCallback(ptr noundef %replies99, ptr noundef %cb94)
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end101
-
-if.end101:                                        ; preds = %while.end, %land.lhs.true86, %land.lhs.true80, %land.lhs.true75, %if.end65
-  br label %if.end102
-
-if.end102:                                        ; preds = %if.end101, %if.else46
-  br label %if.end103
-
-if.end103:                                        ; preds = %if.end102, %if.then42
-  %68 = load ptr, ptr %sname, align 8
-  call void @hi_sdsfree(ptr noundef %68)
-  br label %if.end108
-
-if.else104:                                       ; preds = %lor.lhs.false
-  %69 = load ptr, ptr %ac.addr, align 8
-  %sub105 = getelementptr inbounds %struct.redisAsyncContext, ptr %69, i32 0, i32 12
-  %replies106 = getelementptr inbounds %struct.anon.3, ptr %sub105, i32 0, i32 0
-  %70 = load ptr, ptr %dstcb.addr, align 8
-  %call107 = call i32 @__redisShiftCallback(ptr noundef %replies106, ptr noundef %70)
-  br label %if.end108
-
-if.end108:                                        ; preds = %if.else104, %if.end103
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-oom:                                              ; preds = %if.then31
-  %71 = load ptr, ptr %ac.addr, align 8
-  %c109 = getelementptr inbounds %struct.redisAsyncContext, ptr %71, i32 0, i32 0
-  call void @__redisSetError(ptr noundef %c109, i32 noundef 5, ptr noundef @.str.2)
-  %72 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncCopyError(ptr noundef %72)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %oom, %if.end108
-  %73 = load i32, ptr %retval, align 4
-  ret i32 %73
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @__redisRunCallback(ptr noundef %ac, ptr noundef %cb, ptr noundef %reply) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %cb.addr = alloca ptr, align 8
-  %reply.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %cb, ptr %cb.addr, align 8
-  store ptr %reply, ptr %reply.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %cb.addr, align 8
-  %fn = getelementptr inbounds %struct.redisCallback, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %fn, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %3, i32 0, i32 4
-  %4 = load i32, ptr %flags, align 8
-  %or = or i32 %4, 16
-  store i32 %or, ptr %flags, align 8
-  %5 = load ptr, ptr %cb.addr, align 8
-  %fn2 = getelementptr inbounds %struct.redisCallback, ptr %5, i32 0, i32 1
-  %6 = load ptr, ptr %fn2, align 8
-  %7 = load ptr, ptr %ac.addr, align 8
-  %8 = load ptr, ptr %reply.addr, align 8
-  %9 = load ptr, ptr %cb.addr, align 8
-  %privdata = getelementptr inbounds %struct.redisCallback, ptr %9, i32 0, i32 4
-  %10 = load ptr, ptr %privdata, align 8
-  call void %6(ptr noundef %7, ptr noundef %8, ptr noundef %10)
-  %11 = load ptr, ptr %c, align 8
-  %flags3 = getelementptr inbounds %struct.redisContext, ptr %11, i32 0, i32 4
-  %12 = load i32, ptr %flags3, align 8
-  %and = and i32 %12, -17
-  store i32 %and, ptr %flags3, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @__redisPushCallback(ptr noundef %list, ptr noundef %source) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %list.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  %cb = alloca ptr, align 8
-  store ptr %list, ptr %list.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  %call = call ptr @hi_malloc(i64 noundef 32)
-  store ptr %call, ptr %cb, align 8
-  %0 = load ptr, ptr %cb, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 5, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %source.addr, align 8
-  %cmp1 = icmp ne ptr %1, null
-  br i1 %cmp1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  %2 = load ptr, ptr %cb, align 8
-  %3 = load ptr, ptr %source.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 32, i1 false)
-  %4 = load ptr, ptr %cb, align 8
-  %next = getelementptr inbounds %struct.redisCallback, ptr %4, i32 0, i32 0
-  store ptr null, ptr %next, align 8
-  br label %if.end3
-
-if.end3:                                          ; preds = %if.then2, %if.end
-  %5 = load ptr, ptr %list.addr, align 8
-  %head = getelementptr inbounds %struct.redisCallbackList, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %head, align 8
-  %cmp4 = icmp eq ptr %6, null
-  br i1 %cmp4, label %if.then5, label %if.end7
-
-if.then5:                                         ; preds = %if.end3
-  %7 = load ptr, ptr %cb, align 8
-  %8 = load ptr, ptr %list.addr, align 8
-  %head6 = getelementptr inbounds %struct.redisCallbackList, ptr %8, i32 0, i32 0
-  store ptr %7, ptr %head6, align 8
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then5, %if.end3
-  %9 = load ptr, ptr %list.addr, align 8
-  %tail = getelementptr inbounds %struct.redisCallbackList, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %tail, align 8
-  %cmp8 = icmp ne ptr %10, null
-  br i1 %cmp8, label %if.then9, label %if.end12
-
-if.then9:                                         ; preds = %if.end7
-  %11 = load ptr, ptr %cb, align 8
-  %12 = load ptr, ptr %list.addr, align 8
-  %tail10 = getelementptr inbounds %struct.redisCallbackList, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %tail10, align 8
-  %next11 = getelementptr inbounds %struct.redisCallback, ptr %13, i32 0, i32 0
-  store ptr %11, ptr %next11, align 8
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then9, %if.end7
-  %14 = load ptr, ptr %cb, align 8
-  %15 = load ptr, ptr %list.addr, align 8
-  %tail13 = getelementptr inbounds %struct.redisCallbackList, ptr %15, i32 0, i32 1
-  store ptr %14, ptr %tail13, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end12, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
-}
-
-; Function Attrs: nounwind uwtable
-define void @redisAsyncRead(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %c, align 8
-  %call = call i32 @redisBufferRead(ptr noundef %1)
-  %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncDisconnect(ptr noundef %2)
-  br label %if.end6
-
-if.else:                                          ; preds = %entry
-  br label %do.body
-
-do.body:                                          ; preds = %if.else
-  %3 = load ptr, ptr %ac.addr, align 8
-  call void @refreshTimeout(ptr noundef %3)
-  %4 = load ptr, ptr %ac.addr, align 8
-  %ev = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 5
-  %addRead = getelementptr inbounds %struct.anon.2, ptr %ev, i32 0, i32 1
-  %5 = load ptr, ptr %addRead, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.then2, label %if.end
-
-if.then2:                                         ; preds = %do.body
-  %6 = load ptr, ptr %ac.addr, align 8
-  %ev3 = getelementptr inbounds %struct.redisAsyncContext, ptr %6, i32 0, i32 5
-  %addRead4 = getelementptr inbounds %struct.anon.2, ptr %ev3, i32 0, i32 1
-  %7 = load ptr, ptr %addRead4, align 8
-  %8 = load ptr, ptr %ac.addr, align 8
-  %ev5 = getelementptr inbounds %struct.redisAsyncContext, ptr %8, i32 0, i32 5
-  %data = getelementptr inbounds %struct.anon.2, ptr %ev5, i32 0, i32 0
-  %9 = load ptr, ptr %data, align 8
-  call void %7(ptr noundef %9)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then2, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %10 = load ptr, ptr %ac.addr, align 8
-  call void @redisProcessCallbacks(ptr noundef %10)
-  br label %if.end6
-
-if.end6:                                          ; preds = %do.end, %if.then
-  ret void
-}
-
-declare i32 @redisBufferRead(ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal void @refreshTimeout(ptr noundef %ctx) #0 {
-entry:
-  %ctx.addr = alloca ptr, align 8
-  store ptr %ctx, ptr %ctx.addr, align 8
-  %0 = load ptr, ptr %ctx.addr, align 8
-  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  %flags = getelementptr inbounds %struct.redisContext, ptr %c, i32 0, i32 4
-  %1 = load i32, ptr %flags, align 8
-  %and = and i32 %1, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %ctx.addr, align 8
-  %ev = getelementptr inbounds %struct.redisAsyncContext, ptr %2, i32 0, i32 5
-  %scheduleTimer = getelementptr inbounds %struct.anon.2, ptr %ev, i32 0, i32 6
-  %3 = load ptr, ptr %scheduleTimer, align 8
-  %tobool1 = icmp ne ptr %3, null
-  br i1 %tobool1, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %if.then
-  %4 = load ptr, ptr %ctx.addr, align 8
-  %c2 = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 0
-  %command_timeout = getelementptr inbounds %struct.redisContext, ptr %c2, i32 0, i32 9
-  %5 = load ptr, ptr %command_timeout, align 8
-  %tobool3 = icmp ne ptr %5, null
-  br i1 %tobool3, label %land.lhs.true4, label %if.end
-
-land.lhs.true4:                                   ; preds = %land.lhs.true
-  %6 = load ptr, ptr %ctx.addr, align 8
-  %c5 = getelementptr inbounds %struct.redisAsyncContext, ptr %6, i32 0, i32 0
-  %command_timeout6 = getelementptr inbounds %struct.redisContext, ptr %c5, i32 0, i32 9
-  %7 = load ptr, ptr %command_timeout6, align 8
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %7, i32 0, i32 0
-  %8 = load i64, ptr %tv_sec, align 8
-  %tobool7 = icmp ne i64 %8, 0
-  br i1 %tobool7, label %if.then11, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true4
-  %9 = load ptr, ptr %ctx.addr, align 8
-  %c8 = getelementptr inbounds %struct.redisAsyncContext, ptr %9, i32 0, i32 0
-  %command_timeout9 = getelementptr inbounds %struct.redisContext, ptr %c8, i32 0, i32 9
-  %10 = load ptr, ptr %command_timeout9, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %10, i32 0, i32 1
-  %11 = load i64, ptr %tv_usec, align 8
-  %tobool10 = icmp ne i64 %11, 0
-  br i1 %tobool10, label %if.then11, label %if.end
-
-if.then11:                                        ; preds = %lor.lhs.false, %land.lhs.true4
-  %12 = load ptr, ptr %ctx.addr, align 8
-  %ev12 = getelementptr inbounds %struct.redisAsyncContext, ptr %12, i32 0, i32 5
-  %scheduleTimer13 = getelementptr inbounds %struct.anon.2, ptr %ev12, i32 0, i32 6
-  %13 = load ptr, ptr %scheduleTimer13, align 8
-  %14 = load ptr, ptr %ctx.addr, align 8
-  %ev14 = getelementptr inbounds %struct.redisAsyncContext, ptr %14, i32 0, i32 5
-  %data = getelementptr inbounds %struct.anon.2, ptr %ev14, i32 0, i32 0
-  %15 = load ptr, ptr %data, align 8
-  %16 = load ptr, ptr %ctx.addr, align 8
-  %c15 = getelementptr inbounds %struct.redisAsyncContext, ptr %16, i32 0, i32 0
-  %command_timeout16 = getelementptr inbounds %struct.redisContext, ptr %c15, i32 0, i32 9
-  %17 = load ptr, ptr %command_timeout16, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %17, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  call void %13(ptr noundef %15, i64 %19, i64 %21)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then11, %lor.lhs.false, %land.lhs.true, %if.then
-  br label %if.end41
-
-if.else:                                          ; preds = %entry
-  %22 = load ptr, ptr %ctx.addr, align 8
-  %ev17 = getelementptr inbounds %struct.redisAsyncContext, ptr %22, i32 0, i32 5
-  %scheduleTimer18 = getelementptr inbounds %struct.anon.2, ptr %ev17, i32 0, i32 6
-  %23 = load ptr, ptr %scheduleTimer18, align 8
-  %tobool19 = icmp ne ptr %23, null
-  br i1 %tobool19, label %land.lhs.true20, label %if.end40
-
-land.lhs.true20:                                  ; preds = %if.else
-  %24 = load ptr, ptr %ctx.addr, align 8
-  %c21 = getelementptr inbounds %struct.redisAsyncContext, ptr %24, i32 0, i32 0
-  %connect_timeout = getelementptr inbounds %struct.redisContext, ptr %c21, i32 0, i32 8
-  %25 = load ptr, ptr %connect_timeout, align 8
-  %tobool22 = icmp ne ptr %25, null
-  br i1 %tobool22, label %land.lhs.true23, label %if.end40
-
-land.lhs.true23:                                  ; preds = %land.lhs.true20
-  %26 = load ptr, ptr %ctx.addr, align 8
-  %c24 = getelementptr inbounds %struct.redisAsyncContext, ptr %26, i32 0, i32 0
-  %connect_timeout25 = getelementptr inbounds %struct.redisContext, ptr %c24, i32 0, i32 8
-  %27 = load ptr, ptr %connect_timeout25, align 8
-  %tv_sec26 = getelementptr inbounds %struct.timeval, ptr %27, i32 0, i32 0
-  %28 = load i64, ptr %tv_sec26, align 8
-  %tobool27 = icmp ne i64 %28, 0
-  br i1 %tobool27, label %if.then33, label %lor.lhs.false28
-
-lor.lhs.false28:                                  ; preds = %land.lhs.true23
-  %29 = load ptr, ptr %ctx.addr, align 8
-  %c29 = getelementptr inbounds %struct.redisAsyncContext, ptr %29, i32 0, i32 0
-  %connect_timeout30 = getelementptr inbounds %struct.redisContext, ptr %c29, i32 0, i32 8
-  %30 = load ptr, ptr %connect_timeout30, align 8
-  %tv_usec31 = getelementptr inbounds %struct.timeval, ptr %30, i32 0, i32 1
-  %31 = load i64, ptr %tv_usec31, align 8
-  %tobool32 = icmp ne i64 %31, 0
-  br i1 %tobool32, label %if.then33, label %if.end40
-
-if.then33:                                        ; preds = %lor.lhs.false28, %land.lhs.true23
-  %32 = load ptr, ptr %ctx.addr, align 8
-  %ev34 = getelementptr inbounds %struct.redisAsyncContext, ptr %32, i32 0, i32 5
-  %scheduleTimer35 = getelementptr inbounds %struct.anon.2, ptr %ev34, i32 0, i32 6
-  %33 = load ptr, ptr %scheduleTimer35, align 8
-  %34 = load ptr, ptr %ctx.addr, align 8
-  %ev36 = getelementptr inbounds %struct.redisAsyncContext, ptr %34, i32 0, i32 5
-  %data37 = getelementptr inbounds %struct.anon.2, ptr %ev36, i32 0, i32 0
-  %35 = load ptr, ptr %data37, align 8
-  %36 = load ptr, ptr %ctx.addr, align 8
-  %c38 = getelementptr inbounds %struct.redisAsyncContext, ptr %36, i32 0, i32 0
-  %connect_timeout39 = getelementptr inbounds %struct.redisContext, ptr %c38, i32 0, i32 8
-  %37 = load ptr, ptr %connect_timeout39, align 8
-  %38 = getelementptr inbounds { i64, i64 }, ptr %37, i32 0, i32 0
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds { i64, i64 }, ptr %37, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  call void %33(ptr noundef %35, i64 %39, i64 %41)
-  br label %if.end40
-
-if.end40:                                         ; preds = %if.then33, %lor.lhs.false28, %land.lhs.true20, %if.else
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.end40, %if.end
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @redisAsyncHandleRead(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %c, align 8
-  %flags2 = getelementptr inbounds %struct.redisContext, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %flags2, align 8
-  %and3 = and i32 %2, 2
-  %tobool4 = icmp ne i32 %and3, 0
-  br i1 %tobool4, label %if.end11, label %if.then
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %ac.addr, align 8
-  %call = call i32 @__redisAsyncHandleConnect(ptr noundef %3)
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %if.then
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  %4 = load ptr, ptr %c, align 8
-  %flags6 = getelementptr inbounds %struct.redisContext, ptr %4, i32 0, i32 4
-  %5 = load i32, ptr %flags6, align 8
-  %and7 = and i32 %5, 2
-  %tobool8 = icmp ne i32 %and7, 0
-  br i1 %tobool8, label %if.end10, label %if.then9
-
-if.then9:                                         ; preds = %if.end
-  br label %return
-
-if.end10:                                         ; preds = %if.end
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %entry
-  %6 = load ptr, ptr %c, align 8
-  %funcs = getelementptr inbounds %struct.redisContext, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %funcs, align 8
-  %async_read = getelementptr inbounds %struct.redisContextFuncs, ptr %7, i32 0, i32 2
-  %8 = load ptr, ptr %async_read, align 8
-  %9 = load ptr, ptr %ac.addr, align 8
-  call void %8(ptr noundef %9)
-  br label %return
-
-return:                                           ; preds = %if.end11, %if.then9, %if.then5
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @__redisAsyncHandleConnect(ptr noundef %ac) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ac.addr = alloca ptr, align 8
-  %completed = alloca i32, align 4
-  %c = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  store i32 0, ptr %completed, align 4
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %c, align 8
-  %call = call i32 @redisCheckConnectDone(ptr noundef %1, ptr noundef %completed)
-  %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %c, align 8
-  %call2 = call i32 @redisCheckSocketError(ptr noundef %2)
-  %cmp3 = icmp eq i32 %call2, -1
-  br i1 %cmp3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then
-  %3 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncCopyError(ptr noundef %3)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %if.then
-  %4 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncHandleConnectFailure(ptr noundef %4)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %5 = load i32, ptr %completed, align 4
-  %cmp5 = icmp eq i32 %5, 1
-  br i1 %cmp5, label %if.then6, label %if.else23
-
-if.then6:                                         ; preds = %if.else
-  %6 = load ptr, ptr %c, align 8
-  %connection_type = getelementptr inbounds %struct.redisContext, ptr %6, i32 0, i32 7
-  %7 = load i32, ptr %connection_type, align 8
-  %cmp7 = icmp eq i32 %7, 0
-  br i1 %cmp7, label %land.lhs.true, label %if.end11
-
-land.lhs.true:                                    ; preds = %if.then6
-  %8 = load ptr, ptr %c, align 8
-  %call8 = call i32 @redisSetTcpNoDelay(ptr noundef %8)
-  %cmp9 = icmp eq i32 %call8, -1
-  br i1 %cmp9, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %land.lhs.true
-  %9 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncHandleConnectFailure(ptr noundef %9)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end11:                                         ; preds = %land.lhs.true, %if.then6
-  %10 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %10, i32 0, i32 4
-  %11 = load i32, ptr %flags, align 8
-  %or = or i32 %11, 2
-  store i32 %or, ptr %flags, align 8
-  %12 = load ptr, ptr %ac.addr, align 8
-  call void @__redisRunConnectCallback(ptr noundef %12, i32 noundef 0)
-  %13 = load ptr, ptr %ac.addr, align 8
-  %c12 = getelementptr inbounds %struct.redisAsyncContext, ptr %13, i32 0, i32 0
-  %flags13 = getelementptr inbounds %struct.redisContext, ptr %c12, i32 0, i32 4
-  %14 = load i32, ptr %flags13, align 8
-  %and = and i32 %14, 4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then14, label %if.else15
-
-if.then14:                                        ; preds = %if.end11
-  %15 = load ptr, ptr %ac.addr, align 8
-  call void @redisAsyncDisconnect(ptr noundef %15)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.else15:                                        ; preds = %if.end11
-  %16 = load ptr, ptr %ac.addr, align 8
-  %c16 = getelementptr inbounds %struct.redisAsyncContext, ptr %16, i32 0, i32 0
-  %flags17 = getelementptr inbounds %struct.redisContext, ptr %c16, i32 0, i32 4
-  %17 = load i32, ptr %flags17, align 8
-  %and18 = and i32 %17, 8
-  %tobool19 = icmp ne i32 %and18, 0
-  br i1 %tobool19, label %if.then20, label %if.end21
-
-if.then20:                                        ; preds = %if.else15
-  %18 = load ptr, ptr %ac.addr, align 8
-  call void @redisAsyncFree(ptr noundef %18)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end21:                                         ; preds = %if.else15
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.end21
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.else23:                                        ; preds = %if.else
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else23, %if.end22, %if.then20, %if.then14, %if.then10, %if.end
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
-}
-
-; Function Attrs: nounwind uwtable
-define void @redisAsyncWrite(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %done = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  store i32 0, ptr %done, align 4
-  %1 = load ptr, ptr %c, align 8
-  %call = call i32 @redisBufferWrite(ptr noundef %1, ptr noundef %done)
-  %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncDisconnect(ptr noundef %2)
-  br label %if.end30
-
-if.else:                                          ; preds = %entry
-  %3 = load i32, ptr %done, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.else8, label %if.then2
-
-if.then2:                                         ; preds = %if.else
-  br label %do.body
-
-do.body:                                          ; preds = %if.then2
-  %4 = load ptr, ptr %ac.addr, align 8
-  call void @refreshTimeout(ptr noundef %4)
-  %5 = load ptr, ptr %ac.addr, align 8
-  %ev = getelementptr inbounds %struct.redisAsyncContext, ptr %5, i32 0, i32 5
-  %addWrite = getelementptr inbounds %struct.anon.2, ptr %ev, i32 0, i32 3
-  %6 = load ptr, ptr %addWrite, align 8
-  %tobool3 = icmp ne ptr %6, null
-  br i1 %tobool3, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %do.body
-  %7 = load ptr, ptr %ac.addr, align 8
-  %ev5 = getelementptr inbounds %struct.redisAsyncContext, ptr %7, i32 0, i32 5
-  %addWrite6 = getelementptr inbounds %struct.anon.2, ptr %ev5, i32 0, i32 3
-  %8 = load ptr, ptr %addWrite6, align 8
-  %9 = load ptr, ptr %ac.addr, align 8
-  %ev7 = getelementptr inbounds %struct.redisAsyncContext, ptr %9, i32 0, i32 5
-  %data = getelementptr inbounds %struct.anon.2, ptr %ev7, i32 0, i32 0
-  %10 = load ptr, ptr %data, align 8
-  call void %8(ptr noundef %10)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  br label %if.end19
-
-if.else8:                                         ; preds = %if.else
-  br label %do.body9
-
-do.body9:                                         ; preds = %if.else8
-  %11 = load ptr, ptr %ac.addr, align 8
-  %ev10 = getelementptr inbounds %struct.redisAsyncContext, ptr %11, i32 0, i32 5
-  %delWrite = getelementptr inbounds %struct.anon.2, ptr %ev10, i32 0, i32 4
-  %12 = load ptr, ptr %delWrite, align 8
-  %tobool11 = icmp ne ptr %12, null
-  br i1 %tobool11, label %if.then12, label %if.end17
-
-if.then12:                                        ; preds = %do.body9
-  %13 = load ptr, ptr %ac.addr, align 8
-  %ev13 = getelementptr inbounds %struct.redisAsyncContext, ptr %13, i32 0, i32 5
-  %delWrite14 = getelementptr inbounds %struct.anon.2, ptr %ev13, i32 0, i32 4
-  %14 = load ptr, ptr %delWrite14, align 8
-  %15 = load ptr, ptr %ac.addr, align 8
-  %ev15 = getelementptr inbounds %struct.redisAsyncContext, ptr %15, i32 0, i32 5
-  %data16 = getelementptr inbounds %struct.anon.2, ptr %ev15, i32 0, i32 0
-  %16 = load ptr, ptr %data16, align 8
-  call void %14(ptr noundef %16)
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then12, %do.body9
-  br label %do.end18
-
-do.end18:                                         ; preds = %if.end17
-  br label %if.end19
-
-if.end19:                                         ; preds = %do.end18, %do.end
-  br label %do.body20
-
-do.body20:                                        ; preds = %if.end19
-  %17 = load ptr, ptr %ac.addr, align 8
-  call void @refreshTimeout(ptr noundef %17)
-  %18 = load ptr, ptr %ac.addr, align 8
-  %ev21 = getelementptr inbounds %struct.redisAsyncContext, ptr %18, i32 0, i32 5
-  %addRead = getelementptr inbounds %struct.anon.2, ptr %ev21, i32 0, i32 1
-  %19 = load ptr, ptr %addRead, align 8
-  %tobool22 = icmp ne ptr %19, null
-  br i1 %tobool22, label %if.then23, label %if.end28
-
-if.then23:                                        ; preds = %do.body20
-  %20 = load ptr, ptr %ac.addr, align 8
-  %ev24 = getelementptr inbounds %struct.redisAsyncContext, ptr %20, i32 0, i32 5
-  %addRead25 = getelementptr inbounds %struct.anon.2, ptr %ev24, i32 0, i32 1
-  %21 = load ptr, ptr %addRead25, align 8
-  %22 = load ptr, ptr %ac.addr, align 8
-  %ev26 = getelementptr inbounds %struct.redisAsyncContext, ptr %22, i32 0, i32 5
-  %data27 = getelementptr inbounds %struct.anon.2, ptr %ev26, i32 0, i32 0
-  %23 = load ptr, ptr %data27, align 8
-  call void %21(ptr noundef %23)
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then23, %do.body20
-  br label %do.end29
-
-do.end29:                                         ; preds = %if.end28
-  br label %if.end30
-
-if.end30:                                         ; preds = %do.end29, %if.then
-  ret void
-}
-
-declare i32 @redisBufferWrite(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define void @redisAsyncHandleWrite(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %c, align 8
-  %flags2 = getelementptr inbounds %struct.redisContext, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %flags2, align 8
-  %and3 = and i32 %2, 2
-  %tobool4 = icmp ne i32 %and3, 0
-  br i1 %tobool4, label %if.end11, label %if.then
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %ac.addr, align 8
-  %call = call i32 @__redisAsyncHandleConnect(ptr noundef %3)
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %if.then
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  %4 = load ptr, ptr %c, align 8
-  %flags6 = getelementptr inbounds %struct.redisContext, ptr %4, i32 0, i32 4
-  %5 = load i32, ptr %flags6, align 8
-  %and7 = and i32 %5, 2
-  %tobool8 = icmp ne i32 %and7, 0
-  br i1 %tobool8, label %if.end10, label %if.then9
-
-if.then9:                                         ; preds = %if.end
-  br label %return
-
-if.end10:                                         ; preds = %if.end
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %entry
-  %6 = load ptr, ptr %c, align 8
-  %funcs = getelementptr inbounds %struct.redisContext, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %funcs, align 8
-  %async_write = getelementptr inbounds %struct.redisContextFuncs, ptr %7, i32 0, i32 3
-  %8 = load ptr, ptr %async_write, align 8
-  %9 = load ptr, ptr %ac.addr, align 8
-  call void %8(ptr noundef %9)
-  br label %return
-
-return:                                           ; preds = %if.end11, %if.then9, %if.then5
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @redisAsyncHandleTimeout(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %c = alloca ptr, align 8
-  %cb = alloca %struct.redisCallback, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %c, align 8
-  %flags2 = getelementptr inbounds %struct.redisContext, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %flags2, align 8
-  %and3 = and i32 %2, 2
-  %tobool4 = icmp ne i32 %and3, 0
-  br i1 %tobool4, label %if.then, label %if.end20
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %ac.addr, align 8
-  %replies = getelementptr inbounds %struct.redisAsyncContext, ptr %3, i32 0, i32 9
-  %head = getelementptr inbounds %struct.redisCallbackList, ptr %replies, i32 0, i32 0
-  %4 = load ptr, ptr %head, align 8
-  %cmp = icmp eq ptr %4, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %if.then
-  %5 = load ptr, ptr %ac.addr, align 8
-  %sub = getelementptr inbounds %struct.redisAsyncContext, ptr %5, i32 0, i32 12
-  %replies5 = getelementptr inbounds %struct.anon.3, ptr %sub, i32 0, i32 0
-  %head6 = getelementptr inbounds %struct.redisCallbackList, ptr %replies5, i32 0, i32 0
-  %6 = load ptr, ptr %head6, align 8
-  %cmp7 = icmp eq ptr %6, null
-  br i1 %cmp7, label %if.then8, label %if.end
-
-if.then8:                                         ; preds = %land.lhs.true
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true, %if.then
-  %7 = load ptr, ptr %ac.addr, align 8
-  %c9 = getelementptr inbounds %struct.redisAsyncContext, ptr %7, i32 0, i32 0
-  %command_timeout = getelementptr inbounds %struct.redisContext, ptr %c9, i32 0, i32 9
-  %8 = load ptr, ptr %command_timeout, align 8
-  %tobool10 = icmp ne ptr %8, null
-  br i1 %tobool10, label %lor.lhs.false, label %if.then18
-
-lor.lhs.false:                                    ; preds = %if.end
-  %9 = load ptr, ptr %ac.addr, align 8
-  %c11 = getelementptr inbounds %struct.redisAsyncContext, ptr %9, i32 0, i32 0
-  %command_timeout12 = getelementptr inbounds %struct.redisContext, ptr %c11, i32 0, i32 9
-  %10 = load ptr, ptr %command_timeout12, align 8
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %10, i32 0, i32 0
-  %11 = load i64, ptr %tv_sec, align 8
-  %tobool13 = icmp ne i64 %11, 0
-  br i1 %tobool13, label %if.end19, label %land.lhs.true14
-
-land.lhs.true14:                                  ; preds = %lor.lhs.false
-  %12 = load ptr, ptr %ac.addr, align 8
-  %c15 = getelementptr inbounds %struct.redisAsyncContext, ptr %12, i32 0, i32 0
-  %command_timeout16 = getelementptr inbounds %struct.redisContext, ptr %c15, i32 0, i32 9
-  %13 = load ptr, ptr %command_timeout16, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %13, i32 0, i32 1
-  %14 = load i64, ptr %tv_usec, align 8
-  %tobool17 = icmp ne i64 %14, 0
-  br i1 %tobool17, label %if.end19, label %if.then18
-
-if.then18:                                        ; preds = %land.lhs.true14, %if.end
-  br label %return
-
-if.end19:                                         ; preds = %land.lhs.true14, %lor.lhs.false
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.end19, %entry
-  %15 = load ptr, ptr %c, align 8
-  %err = getelementptr inbounds %struct.redisContext, ptr %15, i32 0, i32 1
-  %16 = load i32, ptr %err, align 8
-  %tobool21 = icmp ne i32 %16, 0
-  br i1 %tobool21, label %if.end23, label %if.then22
-
-if.then22:                                        ; preds = %if.end20
-  %17 = load ptr, ptr %c, align 8
-  call void @__redisSetError(ptr noundef %17, i32 noundef 6, ptr noundef @.str.1)
-  %18 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncCopyError(ptr noundef %18)
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.then22, %if.end20
-  %19 = load ptr, ptr %c, align 8
-  %flags24 = getelementptr inbounds %struct.redisContext, ptr %19, i32 0, i32 4
-  %20 = load i32, ptr %flags24, align 8
-  %and25 = and i32 %20, 2
-  %tobool26 = icmp ne i32 %and25, 0
-  br i1 %tobool26, label %if.end28, label %if.then27
-
-if.then27:                                        ; preds = %if.end23
-  %21 = load ptr, ptr %ac.addr, align 8
-  call void @__redisRunConnectCallback(ptr noundef %21, i32 noundef -1)
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then27, %if.end23
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end28
-  %22 = load ptr, ptr %ac.addr, align 8
-  %replies29 = getelementptr inbounds %struct.redisAsyncContext, ptr %22, i32 0, i32 9
-  %call = call i32 @__redisShiftCallback(ptr noundef %replies29, ptr noundef %cb)
-  %cmp30 = icmp eq i32 %call, 0
-  br i1 %cmp30, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %23 = load ptr, ptr %ac.addr, align 8
-  call void @__redisRunCallback(ptr noundef %23, ptr noundef %cb, ptr noundef null)
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  %24 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncDisconnect(ptr noundef %24)
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then18, %if.then8
-  ret void
-}
-
-declare void @__redisSetError(ptr noundef, i32 noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal void @__redisRunConnectCallback(ptr noundef %ac, i32 noundef %status) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %status.addr = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  store i32 %status, ptr %status.addr, align 4
-  %0 = load ptr, ptr %ac.addr, align 8
-  %onConnect = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 7
-  %1 = load ptr, ptr %onConnect, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %ac.addr, align 8
-  %onConnectNC = getelementptr inbounds %struct.redisAsyncContext, ptr %2, i32 0, i32 8
-  %3 = load ptr, ptr %onConnectNC, align 8
-  %cmp1 = icmp eq ptr %3, null
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  br label %if.end22
-
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load ptr, ptr %ac.addr, align 8
-  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 0
-  %flags = getelementptr inbounds %struct.redisContext, ptr %c, i32 0, i32 4
-  %5 = load i32, ptr %flags, align 8
-  %and = and i32 %5, 16
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.else14, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  %6 = load ptr, ptr %ac.addr, align 8
-  %c3 = getelementptr inbounds %struct.redisAsyncContext, ptr %6, i32 0, i32 0
-  %flags4 = getelementptr inbounds %struct.redisContext, ptr %c3, i32 0, i32 4
-  %7 = load i32, ptr %flags4, align 8
-  %or = or i32 %7, 16
-  store i32 %or, ptr %flags4, align 8
-  %8 = load ptr, ptr %ac.addr, align 8
-  %onConnect5 = getelementptr inbounds %struct.redisAsyncContext, ptr %8, i32 0, i32 7
-  %9 = load ptr, ptr %onConnect5, align 8
-  %tobool6 = icmp ne ptr %9, null
-  br i1 %tobool6, label %if.then7, label %if.else
-
-if.then7:                                         ; preds = %if.then2
-  %10 = load ptr, ptr %ac.addr, align 8
-  %onConnect8 = getelementptr inbounds %struct.redisAsyncContext, ptr %10, i32 0, i32 7
-  %11 = load ptr, ptr %onConnect8, align 8
-  %12 = load ptr, ptr %ac.addr, align 8
-  %13 = load i32, ptr %status.addr, align 4
-  call void %11(ptr noundef %12, i32 noundef %13)
-  br label %if.end10
-
-if.else:                                          ; preds = %if.then2
-  %14 = load ptr, ptr %ac.addr, align 8
-  %onConnectNC9 = getelementptr inbounds %struct.redisAsyncContext, ptr %14, i32 0, i32 8
-  %15 = load ptr, ptr %onConnectNC9, align 8
-  %16 = load ptr, ptr %ac.addr, align 8
-  %17 = load i32, ptr %status.addr, align 4
-  call void %15(ptr noundef %16, i32 noundef %17)
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.else, %if.then7
-  %18 = load ptr, ptr %ac.addr, align 8
-  %c11 = getelementptr inbounds %struct.redisAsyncContext, ptr %18, i32 0, i32 0
-  %flags12 = getelementptr inbounds %struct.redisContext, ptr %c11, i32 0, i32 4
-  %19 = load i32, ptr %flags12, align 8
-  %and13 = and i32 %19, -17
-  store i32 %and13, ptr %flags12, align 8
-  br label %if.end22
-
-if.else14:                                        ; preds = %if.end
-  %20 = load ptr, ptr %ac.addr, align 8
-  %onConnect15 = getelementptr inbounds %struct.redisAsyncContext, ptr %20, i32 0, i32 7
-  %21 = load ptr, ptr %onConnect15, align 8
-  %tobool16 = icmp ne ptr %21, null
-  br i1 %tobool16, label %if.then17, label %if.else19
-
-if.then17:                                        ; preds = %if.else14
-  %22 = load ptr, ptr %ac.addr, align 8
-  %onConnect18 = getelementptr inbounds %struct.redisAsyncContext, ptr %22, i32 0, i32 7
-  %23 = load ptr, ptr %onConnect18, align 8
-  %24 = load ptr, ptr %ac.addr, align 8
-  %25 = load i32, ptr %status.addr, align 4
-  call void %23(ptr noundef %24, i32 noundef %25)
-  br label %if.end21
-
-if.else19:                                        ; preds = %if.else14
-  %26 = load ptr, ptr %ac.addr, align 8
-  %onConnectNC20 = getelementptr inbounds %struct.redisAsyncContext, ptr %26, i32 0, i32 8
-  %27 = load ptr, ptr %onConnectNC20, align 8
-  %28 = load ptr, ptr %ac.addr, align 8
-  %29 = load i32, ptr %status.addr, align 4
-  call void %27(ptr noundef %28, i32 noundef %29)
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.else19, %if.then17
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.end21, %if.end10, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @redisvAsyncCommand(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, ptr noundef %format, ptr noundef %ap) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %privdata.addr = alloca ptr, align 8
-  %format.addr = alloca ptr, align 8
-  %ap.addr = alloca ptr, align 8
-  %cmd = alloca ptr, align 8
-  %len = alloca i32, align 4
-  %status = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store ptr %format, ptr %format.addr, align 8
-  store ptr %ap, ptr %ap.addr, align 8
-  %0 = load ptr, ptr %format.addr, align 8
-  %1 = load ptr, ptr %ap.addr, align 8
-  %call = call i32 @redisvFormatCommand(ptr noundef %cmd, ptr noundef %0, ptr noundef %1)
-  store i32 %call, ptr %len, align 4
-  %2 = load i32, ptr %len, align 4
-  %cmp = icmp slt i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %ac.addr, align 8
-  %4 = load ptr, ptr %fn.addr, align 8
-  %5 = load ptr, ptr %privdata.addr, align 8
-  %6 = load ptr, ptr %cmd, align 8
-  %7 = load i32, ptr %len, align 4
-  %conv = sext i32 %7 to i64
-  %call1 = call i32 @__redisAsyncCommand(ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %conv)
-  store i32 %call1, ptr %status, align 4
-  %8 = load ptr, ptr %cmd, align 8
-  call void @hi_free(ptr noundef %8)
-  %9 = load i32, ptr %status, align 4
-  store i32 %9, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
-}
-
-declare i32 @redisvFormatCommand(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal i32 @__redisAsyncCommand(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, ptr noundef %cmd, i64 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %privdata.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %c = alloca ptr, align 8
-  %cb = alloca %struct.redisCallback, align 8
-  %cbdict = alloca ptr, align 8
-  %it = alloca %struct.dictIterator, align 8
-  %de = alloca ptr, align 8
-  %existcb = alloca ptr, align 8
-  %pvariant = alloca i32, align 4
-  %hasnext = alloca i32, align 4
-  %cstr = alloca ptr, align 8
-  %astr = alloca ptr, align 8
-  %clen = alloca i64, align 8
-  %alen = alloca i64, align 8
-  %p = alloca ptr, align 8
-  %sname = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %no_subs = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 0
-  store ptr %c1, ptr %c, align 8
-  %1 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.redisContext, ptr %1, i32 0, i32 4
-  %2 = load i32, ptr %flags, align 8
-  %and = and i32 %2, 12
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %fn.addr, align 8
-  %fn2 = getelementptr inbounds %struct.redisCallback, ptr %cb, i32 0, i32 1
-  store ptr %3, ptr %fn2, align 8
-  %4 = load ptr, ptr %privdata.addr, align 8
-  %privdata3 = getelementptr inbounds %struct.redisCallback, ptr %cb, i32 0, i32 4
-  store ptr %4, ptr %privdata3, align 8
-  %pending_subs = getelementptr inbounds %struct.redisCallback, ptr %cb, i32 0, i32 2
-  store i32 1, ptr %pending_subs, align 8
-  %unsubscribe_sent = getelementptr inbounds %struct.redisCallback, ptr %cb, i32 0, i32 3
-  store i32 0, ptr %unsubscribe_sent, align 4
-  %5 = load ptr, ptr %cmd.addr, align 8
-  %call = call ptr @nextArgument(ptr noundef %5, ptr noundef %cstr, ptr noundef %clen)
-  store ptr %call, ptr %p, align 8
-  %6 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %6, i64 0
-  %7 = load i8, ptr %arrayidx, align 1
-  %conv4 = sext i8 %7 to i32
-  %cmp5 = icmp eq i32 %conv4, 36
-  %conv6 = zext i1 %cmp5 to i32
-  store i32 %conv6, ptr %hasnext, align 4
-  %8 = load ptr, ptr %cstr, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %8, i64 0
-  %9 = load i8, ptr %arrayidx7, align 1
-  %conv8 = sext i8 %9 to i32
-  %call9 = call i32 @tolower(i32 noundef %conv8) #8
-  %cmp10 = icmp eq i32 %call9, 112
-  %cond = select i1 %cmp10, i32 1, i32 0
-  store i32 %cond, ptr %pvariant, align 4
-  %10 = load i32, ptr %pvariant, align 4
-  %11 = load ptr, ptr %cstr, align 8
-  %idx.ext = sext i32 %10 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %idx.ext
-  store ptr %add.ptr, ptr %cstr, align 8
-  %12 = load i32, ptr %pvariant, align 4
-  %conv12 = sext i32 %12 to i64
-  %13 = load i64, ptr %clen, align 8
-  %sub = sub i64 %13, %conv12
-  store i64 %sub, ptr %clen, align 8
-  %14 = load i32, ptr %hasnext, align 4
-  %tobool13 = icmp ne i32 %14, 0
-  br i1 %tobool13, label %land.lhs.true, label %if.else44
-
-land.lhs.true:                                    ; preds = %if.end
-  %15 = load ptr, ptr %cstr, align 8
-  %call14 = call i32 @strncasecmp(ptr noundef %15, ptr noundef @.str.6, i64 noundef 11) #8
-  %cmp15 = icmp eq i32 %call14, 0
-  br i1 %cmp15, label %if.then17, label %if.else44
-
-if.then17:                                        ; preds = %land.lhs.true
-  %16 = load ptr, ptr %c, align 8
-  %flags18 = getelementptr inbounds %struct.redisContext, ptr %16, i32 0, i32 4
-  %17 = load i32, ptr %flags18, align 8
-  %or = or i32 %17, 32
-  store i32 %or, ptr %flags18, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end43, %if.then17
-  %18 = load ptr, ptr %p, align 8
-  %call19 = call ptr @nextArgument(ptr noundef %18, ptr noundef %astr, ptr noundef %alen)
-  store ptr %call19, ptr %p, align 8
-  %cmp20 = icmp ne ptr %call19, null
-  br i1 %cmp20, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %19 = load ptr, ptr %astr, align 8
-  %20 = load i64, ptr %alen, align 8
-  %call22 = call ptr @hi_sdsnewlen(ptr noundef %19, i64 noundef %20)
-  store ptr %call22, ptr %sname, align 8
-  %21 = load ptr, ptr %sname, align 8
-  %cmp23 = icmp eq ptr %21, null
-  br i1 %cmp23, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %while.body
-  br label %oom
-
-if.end26:                                         ; preds = %while.body
-  %22 = load i32, ptr %pvariant, align 4
-  %tobool27 = icmp ne i32 %22, 0
-  br i1 %tobool27, label %if.then28, label %if.else
-
-if.then28:                                        ; preds = %if.end26
-  %23 = load ptr, ptr %ac.addr, align 8
-  %sub29 = getelementptr inbounds %struct.redisAsyncContext, ptr %23, i32 0, i32 12
-  %patterns = getelementptr inbounds %struct.anon.3, ptr %sub29, i32 0, i32 2
-  %24 = load ptr, ptr %patterns, align 8
-  store ptr %24, ptr %cbdict, align 8
-  br label %if.end31
-
-if.else:                                          ; preds = %if.end26
-  %25 = load ptr, ptr %ac.addr, align 8
-  %sub30 = getelementptr inbounds %struct.redisAsyncContext, ptr %25, i32 0, i32 12
-  %channels = getelementptr inbounds %struct.anon.3, ptr %sub30, i32 0, i32 1
-  %26 = load ptr, ptr %channels, align 8
-  store ptr %26, ptr %cbdict, align 8
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.else, %if.then28
-  %27 = load ptr, ptr %cbdict, align 8
-  %28 = load ptr, ptr %sname, align 8
-  %call32 = call ptr @dictFind(ptr noundef %27, ptr noundef %28)
-  store ptr %call32, ptr %de, align 8
-  %29 = load ptr, ptr %de, align 8
-  %cmp33 = icmp ne ptr %29, null
-  br i1 %cmp33, label %if.then35, label %if.end38
-
-if.then35:                                        ; preds = %if.end31
-  %30 = load ptr, ptr %de, align 8
-  %val = getelementptr inbounds %struct.dictEntry, ptr %30, i32 0, i32 1
-  %31 = load ptr, ptr %val, align 8
-  store ptr %31, ptr %existcb, align 8
-  %32 = load ptr, ptr %existcb, align 8
-  %pending_subs36 = getelementptr inbounds %struct.redisCallback, ptr %32, i32 0, i32 2
-  %33 = load i32, ptr %pending_subs36, align 8
-  %add = add nsw i32 %33, 1
-  %pending_subs37 = getelementptr inbounds %struct.redisCallback, ptr %cb, i32 0, i32 2
-  store i32 %add, ptr %pending_subs37, align 8
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.then35, %if.end31
-  %34 = load ptr, ptr %cbdict, align 8
-  %35 = load ptr, ptr %sname, align 8
-  %call39 = call i32 @dictReplace(ptr noundef %34, ptr noundef %35, ptr noundef %cb)
-  store i32 %call39, ptr %ret, align 4
-  %36 = load i32, ptr %ret, align 4
-  %cmp40 = icmp eq i32 %36, 0
-  br i1 %cmp40, label %if.then42, label %if.end43
-
-if.then42:                                        ; preds = %if.end38
-  %37 = load ptr, ptr %sname, align 8
-  call void @hi_sdsfree(ptr noundef %37)
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.then42, %if.end38
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end150
-
-if.else44:                                        ; preds = %land.lhs.true, %if.end
-  %38 = load ptr, ptr %cstr, align 8
-  %call45 = call i32 @strncasecmp(ptr noundef %38, ptr noundef @.str.7, i64 noundef 13) #8
-  %cmp46 = icmp eq i32 %call45, 0
-  br i1 %cmp46, label %if.then48, label %if.else116
-
-if.then48:                                        ; preds = %if.else44
-  %39 = load ptr, ptr %c, align 8
-  %flags49 = getelementptr inbounds %struct.redisContext, ptr %39, i32 0, i32 4
-  %40 = load i32, ptr %flags49, align 8
-  %and50 = and i32 %40, 32
-  %tobool51 = icmp ne i32 %and50, 0
-  br i1 %tobool51, label %if.end53, label %if.then52
-
-if.then52:                                        ; preds = %if.then48
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end53:                                         ; preds = %if.then48
-  %41 = load i32, ptr %pvariant, align 4
-  %tobool54 = icmp ne i32 %41, 0
-  br i1 %tobool54, label %if.then55, label %if.else58
-
-if.then55:                                        ; preds = %if.end53
-  %42 = load ptr, ptr %ac.addr, align 8
-  %sub56 = getelementptr inbounds %struct.redisAsyncContext, ptr %42, i32 0, i32 12
-  %patterns57 = getelementptr inbounds %struct.anon.3, ptr %sub56, i32 0, i32 2
-  %43 = load ptr, ptr %patterns57, align 8
-  store ptr %43, ptr %cbdict, align 8
-  br label %if.end61
-
-if.else58:                                        ; preds = %if.end53
-  %44 = load ptr, ptr %ac.addr, align 8
-  %sub59 = getelementptr inbounds %struct.redisAsyncContext, ptr %44, i32 0, i32 12
-  %channels60 = getelementptr inbounds %struct.anon.3, ptr %sub59, i32 0, i32 1
-  %45 = load ptr, ptr %channels60, align 8
-  store ptr %45, ptr %cbdict, align 8
-  br label %if.end61
-
-if.end61:                                         ; preds = %if.else58, %if.then55
-  %46 = load i32, ptr %hasnext, align 4
-  %tobool62 = icmp ne i32 %46, 0
-  br i1 %tobool62, label %if.then63, label %if.else94
-
-if.then63:                                        ; preds = %if.end61
-  br label %while.cond64
-
-while.cond64:                                     ; preds = %if.end92, %if.then63
-  %47 = load ptr, ptr %p, align 8
-  %call65 = call ptr @nextArgument(ptr noundef %47, ptr noundef %astr, ptr noundef %alen)
-  store ptr %call65, ptr %p, align 8
-  %cmp66 = icmp ne ptr %call65, null
-  br i1 %cmp66, label %while.body68, label %while.end93
-
-while.body68:                                     ; preds = %while.cond64
-  %48 = load ptr, ptr %astr, align 8
-  %49 = load i64, ptr %alen, align 8
-  %call69 = call ptr @hi_sdsnewlen(ptr noundef %48, i64 noundef %49)
-  store ptr %call69, ptr %sname, align 8
-  %50 = load ptr, ptr %sname, align 8
-  %cmp70 = icmp eq ptr %50, null
-  br i1 %cmp70, label %if.then72, label %if.end73
-
-if.then72:                                        ; preds = %while.body68
-  br label %oom
-
-if.end73:                                         ; preds = %while.body68
-  %51 = load ptr, ptr %cbdict, align 8
-  %52 = load ptr, ptr %sname, align 8
-  %call74 = call ptr @dictFind(ptr noundef %51, ptr noundef %52)
-  store ptr %call74, ptr %de, align 8
-  %53 = load ptr, ptr %de, align 8
-  %cmp75 = icmp ne ptr %53, null
-  br i1 %cmp75, label %if.then77, label %if.else88
-
-if.then77:                                        ; preds = %if.end73
-  %54 = load ptr, ptr %de, align 8
-  %val78 = getelementptr inbounds %struct.dictEntry, ptr %54, i32 0, i32 1
-  %55 = load ptr, ptr %val78, align 8
-  store ptr %55, ptr %existcb, align 8
-  %56 = load ptr, ptr %existcb, align 8
-  %unsubscribe_sent79 = getelementptr inbounds %struct.redisCallback, ptr %56, i32 0, i32 3
-  %57 = load i32, ptr %unsubscribe_sent79, align 4
-  %cmp80 = icmp eq i32 %57, 0
-  br i1 %cmp80, label %if.then82, label %if.else84
-
-if.then82:                                        ; preds = %if.then77
-  %58 = load ptr, ptr %existcb, align 8
-  %unsubscribe_sent83 = getelementptr inbounds %struct.redisCallback, ptr %58, i32 0, i32 3
-  store i32 1, ptr %unsubscribe_sent83, align 4
-  br label %if.end87
-
-if.else84:                                        ; preds = %if.then77
-  %59 = load ptr, ptr %ac.addr, align 8
-  %sub85 = getelementptr inbounds %struct.redisAsyncContext, ptr %59, i32 0, i32 12
-  %pending_unsubs = getelementptr inbounds %struct.anon.3, ptr %sub85, i32 0, i32 3
-  %60 = load i32, ptr %pending_unsubs, align 8
-  %add86 = add nsw i32 %60, 1
-  store i32 %add86, ptr %pending_unsubs, align 8
-  br label %if.end87
-
-if.end87:                                         ; preds = %if.else84, %if.then82
-  br label %if.end92
-
-if.else88:                                        ; preds = %if.end73
-  %61 = load ptr, ptr %ac.addr, align 8
-  %sub89 = getelementptr inbounds %struct.redisAsyncContext, ptr %61, i32 0, i32 12
-  %pending_unsubs90 = getelementptr inbounds %struct.anon.3, ptr %sub89, i32 0, i32 3
-  %62 = load i32, ptr %pending_unsubs90, align 8
-  %add91 = add nsw i32 %62, 1
-  store i32 %add91, ptr %pending_unsubs90, align 8
-  br label %if.end92
-
-if.end92:                                         ; preds = %if.else88, %if.end87
-  %63 = load ptr, ptr %sname, align 8
-  call void @hi_sdsfree(ptr noundef %63)
-  br label %while.cond64
-
-while.end93:                                      ; preds = %while.cond64
-  br label %if.end115
-
-if.else94:                                        ; preds = %if.end61
-  store i32 1, ptr %no_subs, align 4
-  %64 = load ptr, ptr %cbdict, align 8
-  call void @dictInitIterator(ptr noundef %it, ptr noundef %64)
-  br label %while.cond95
-
-while.cond95:                                     ; preds = %if.end106, %if.else94
-  %call96 = call ptr @dictNext(ptr noundef %it)
-  store ptr %call96, ptr %de, align 8
-  %cmp97 = icmp ne ptr %call96, null
-  br i1 %cmp97, label %while.body99, label %while.end107
-
-while.body99:                                     ; preds = %while.cond95
-  %65 = load ptr, ptr %de, align 8
-  %val100 = getelementptr inbounds %struct.dictEntry, ptr %65, i32 0, i32 1
-  %66 = load ptr, ptr %val100, align 8
-  store ptr %66, ptr %existcb, align 8
-  %67 = load ptr, ptr %existcb, align 8
-  %unsubscribe_sent101 = getelementptr inbounds %struct.redisCallback, ptr %67, i32 0, i32 3
-  %68 = load i32, ptr %unsubscribe_sent101, align 4
-  %cmp102 = icmp eq i32 %68, 0
-  br i1 %cmp102, label %if.then104, label %if.end106
-
-if.then104:                                       ; preds = %while.body99
-  %69 = load ptr, ptr %existcb, align 8
-  %unsubscribe_sent105 = getelementptr inbounds %struct.redisCallback, ptr %69, i32 0, i32 3
-  store i32 1, ptr %unsubscribe_sent105, align 4
-  store i32 0, ptr %no_subs, align 4
-  br label %if.end106
-
-if.end106:                                        ; preds = %if.then104, %while.body99
-  br label %while.cond95
-
-while.end107:                                     ; preds = %while.cond95
-  %70 = load i32, ptr %no_subs, align 4
-  %cmp108 = icmp eq i32 %70, 1
-  br i1 %cmp108, label %if.then110, label %if.end114
-
-if.then110:                                       ; preds = %while.end107
-  %71 = load ptr, ptr %ac.addr, align 8
-  %sub111 = getelementptr inbounds %struct.redisAsyncContext, ptr %71, i32 0, i32 12
-  %pending_unsubs112 = getelementptr inbounds %struct.anon.3, ptr %sub111, i32 0, i32 3
-  %72 = load i32, ptr %pending_unsubs112, align 8
-  %add113 = add nsw i32 %72, 1
-  store i32 %add113, ptr %pending_unsubs112, align 8
-  br label %if.end114
-
-if.end114:                                        ; preds = %if.then110, %while.end107
-  br label %if.end115
-
-if.end115:                                        ; preds = %if.end114, %while.end93
-  br label %if.end149
-
-if.else116:                                       ; preds = %if.else44
-  %73 = load ptr, ptr %cstr, align 8
-  %call117 = call i32 @strncasecmp(ptr noundef %73, ptr noundef @.str.8, i64 noundef 9) #8
-  %cmp118 = icmp eq i32 %call117, 0
-  br i1 %cmp118, label %if.then120, label %if.else128
-
-if.then120:                                       ; preds = %if.else116
-  %74 = load ptr, ptr %c, align 8
-  %flags121 = getelementptr inbounds %struct.redisContext, ptr %74, i32 0, i32 4
-  %75 = load i32, ptr %flags121, align 8
-  %or122 = or i32 %75, 64
-  store i32 %or122, ptr %flags121, align 8
-  %76 = load ptr, ptr %ac.addr, align 8
-  %replies = getelementptr inbounds %struct.redisAsyncContext, ptr %76, i32 0, i32 9
-  %call123 = call i32 @__redisPushCallback(ptr noundef %replies, ptr noundef %cb)
-  %cmp124 = icmp ne i32 %call123, 0
-  br i1 %cmp124, label %if.then126, label %if.end127
-
-if.then126:                                       ; preds = %if.then120
-  br label %oom
-
-if.end127:                                        ; preds = %if.then120
-  br label %if.end148
-
-if.else128:                                       ; preds = %if.else116
-  %77 = load ptr, ptr %c, align 8
-  %flags129 = getelementptr inbounds %struct.redisContext, ptr %77, i32 0, i32 4
-  %78 = load i32, ptr %flags129, align 8
-  %and130 = and i32 %78, 32
-  %tobool131 = icmp ne i32 %and130, 0
-  br i1 %tobool131, label %if.then132, label %if.else140
-
-if.then132:                                       ; preds = %if.else128
-  %79 = load ptr, ptr %ac.addr, align 8
-  %sub133 = getelementptr inbounds %struct.redisAsyncContext, ptr %79, i32 0, i32 12
-  %replies134 = getelementptr inbounds %struct.anon.3, ptr %sub133, i32 0, i32 0
-  %call135 = call i32 @__redisPushCallback(ptr noundef %replies134, ptr noundef %cb)
-  %cmp136 = icmp ne i32 %call135, 0
-  br i1 %cmp136, label %if.then138, label %if.end139
-
-if.then138:                                       ; preds = %if.then132
-  br label %oom
-
-if.end139:                                        ; preds = %if.then132
-  br label %if.end147
-
-if.else140:                                       ; preds = %if.else128
-  %80 = load ptr, ptr %ac.addr, align 8
-  %replies141 = getelementptr inbounds %struct.redisAsyncContext, ptr %80, i32 0, i32 9
-  %call142 = call i32 @__redisPushCallback(ptr noundef %replies141, ptr noundef %cb)
-  %cmp143 = icmp ne i32 %call142, 0
-  br i1 %cmp143, label %if.then145, label %if.end146
-
-if.then145:                                       ; preds = %if.else140
-  br label %oom
-
-if.end146:                                        ; preds = %if.else140
-  br label %if.end147
-
-if.end147:                                        ; preds = %if.end146, %if.end139
-  br label %if.end148
-
-if.end148:                                        ; preds = %if.end147, %if.end127
-  br label %if.end149
-
-if.end149:                                        ; preds = %if.end148, %if.end115
-  br label %if.end150
-
-if.end150:                                        ; preds = %if.end149, %while.end
-  %81 = load ptr, ptr %c, align 8
-  %82 = load ptr, ptr %cmd.addr, align 8
-  %83 = load i64, ptr %len.addr, align 8
-  %call151 = call i32 @__redisAppendCommand(ptr noundef %81, ptr noundef %82, i64 noundef %83)
-  br label %do.body
-
-do.body:                                          ; preds = %if.end150
-  %84 = load ptr, ptr %ac.addr, align 8
-  call void @refreshTimeout(ptr noundef %84)
-  %85 = load ptr, ptr %ac.addr, align 8
-  %ev = getelementptr inbounds %struct.redisAsyncContext, ptr %85, i32 0, i32 5
-  %addWrite = getelementptr inbounds %struct.anon.2, ptr %ev, i32 0, i32 3
-  %86 = load ptr, ptr %addWrite, align 8
-  %tobool152 = icmp ne ptr %86, null
-  br i1 %tobool152, label %if.then153, label %if.end157
-
-if.then153:                                       ; preds = %do.body
-  %87 = load ptr, ptr %ac.addr, align 8
-  %ev154 = getelementptr inbounds %struct.redisAsyncContext, ptr %87, i32 0, i32 5
-  %addWrite155 = getelementptr inbounds %struct.anon.2, ptr %ev154, i32 0, i32 3
-  %88 = load ptr, ptr %addWrite155, align 8
-  %89 = load ptr, ptr %ac.addr, align 8
-  %ev156 = getelementptr inbounds %struct.redisAsyncContext, ptr %89, i32 0, i32 5
-  %data = getelementptr inbounds %struct.anon.2, ptr %ev156, i32 0, i32 0
-  %90 = load ptr, ptr %data, align 8
-  call void %88(ptr noundef %90)
-  br label %if.end157
-
-if.end157:                                        ; preds = %if.then153, %do.body
-  br label %do.end
-
-do.end:                                           ; preds = %if.end157
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-oom:                                              ; preds = %if.then145, %if.then138, %if.then126, %if.then72, %if.then25
-  %91 = load ptr, ptr %ac.addr, align 8
-  %c158 = getelementptr inbounds %struct.redisAsyncContext, ptr %91, i32 0, i32 0
-  call void @__redisSetError(ptr noundef %c158, i32 noundef 5, ptr noundef @.str.2)
-  %92 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncCopyError(ptr noundef %92)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %oom, %do.end, %if.then52, %if.then
-  %93 = load i32, ptr %retval, align 4
-  ret i32 %93
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @hi_free(ptr noundef %ptr) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 4
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  call void %1(ptr noundef %2)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @redisAsyncCommand(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, ptr noundef %format, ...) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %privdata.addr = alloca ptr, align 8
-  %format.addr = alloca ptr, align 8
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %status = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store ptr %format, ptr %format.addr, align 8
-  %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_start.p0(ptr %arraydecay)
-  %0 = load ptr, ptr %ac.addr, align 8
-  %1 = load ptr, ptr %fn.addr, align 8
-  %2 = load ptr, ptr %privdata.addr, align 8
-  %3 = load ptr, ptr %format.addr, align 8
-  %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  %call = call i32 @redisvAsyncCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
-  store i32 %call, ptr %status, align 4
-  %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %ap, i64 0, i64 0
-  call void @llvm.va_end.p0(ptr %arraydecay2)
-  %4 = load i32, ptr %status, align 4
-  ret i32 %4
-}
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
-
-; Function Attrs: nounwind uwtable
-define i32 @redisAsyncCommandArgv(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, i32 noundef %argc, ptr noundef %argv, ptr noundef %argvlen) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %privdata.addr = alloca ptr, align 8
-  %argc.addr = alloca i32, align 4
-  %argv.addr = alloca ptr, align 8
-  %argvlen.addr = alloca ptr, align 8
-  %cmd = alloca ptr, align 8
-  %len = alloca i64, align 8
-  %status = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store i32 %argc, ptr %argc.addr, align 4
-  store ptr %argv, ptr %argv.addr, align 8
-  store ptr %argvlen, ptr %argvlen.addr, align 8
-  %0 = load i32, ptr %argc.addr, align 4
-  %1 = load ptr, ptr %argv.addr, align 8
-  %2 = load ptr, ptr %argvlen.addr, align 8
-  %call = call i64 @redisFormatSdsCommandArgv(ptr noundef %cmd, i32 noundef %0, ptr noundef %1, ptr noundef %2)
-  store i64 %call, ptr %len, align 8
-  %3 = load i64, ptr %len, align 8
-  %cmp = icmp slt i64 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %ac.addr, align 8
-  %5 = load ptr, ptr %fn.addr, align 8
-  %6 = load ptr, ptr %privdata.addr, align 8
-  %7 = load ptr, ptr %cmd, align 8
-  %8 = load i64, ptr %len, align 8
-  %call1 = call i32 @__redisAsyncCommand(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8)
-  store i32 %call1, ptr %status, align 4
-  %9 = load ptr, ptr %cmd, align 8
-  call void @hi_sdsfree(ptr noundef %9)
-  %10 = load i32, ptr %status, align 4
-  store i32 %10, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
-}
-
-declare i64 @redisFormatSdsCommandArgv(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
-
-declare void @hi_sdsfree(ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define i32 @redisAsyncFormattedCommand(ptr noundef %ac, ptr noundef %fn, ptr noundef %privdata, ptr noundef %cmd, i64 noundef %len) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %privdata.addr = alloca ptr, align 8
-  %cmd.addr = alloca ptr, align 8
-  %len.addr = alloca i64, align 8
-  %status = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store ptr %cmd, ptr %cmd.addr, align 8
-  store i64 %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  %1 = load ptr, ptr %fn.addr, align 8
-  %2 = load ptr, ptr %privdata.addr, align 8
-  %3 = load ptr, ptr %cmd.addr, align 8
-  %4 = load i64, ptr %len.addr, align 8
-  %call = call i32 @__redisAsyncCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
-  store i32 %call, ptr %status, align 4
-  %5 = load i32, ptr %status, align 4
-  ret i32 %5
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @redisAsyncSetTimeout(ptr noundef %ac, i64 %tv.coerce0, i64 %tv.coerce1) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %tv = alloca %struct.timeval, align 8
-  %ac.addr = alloca ptr, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %tv, i32 0, i32 0
-  store i64 %tv.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %tv, i32 0, i32 1
-  store i64 %tv.coerce1, ptr %1, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %2 = load ptr, ptr %ac.addr, align 8
-  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %2, i32 0, i32 0
-  %command_timeout = getelementptr inbounds %struct.redisContext, ptr %c, i32 0, i32 9
-  %3 = load ptr, ptr %command_timeout, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.end7, label %if.then
-
-if.then:                                          ; preds = %entry
-  %call = call ptr @hi_calloc(i64 noundef 1, i64 noundef 16)
-  %4 = load ptr, ptr %ac.addr, align 8
-  %c1 = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 0
-  %command_timeout2 = getelementptr inbounds %struct.redisContext, ptr %c1, i32 0, i32 9
-  store ptr %call, ptr %command_timeout2, align 8
-  %5 = load ptr, ptr %ac.addr, align 8
-  %c3 = getelementptr inbounds %struct.redisAsyncContext, ptr %5, i32 0, i32 0
-  %command_timeout4 = getelementptr inbounds %struct.redisContext, ptr %c3, i32 0, i32 9
-  %6 = load ptr, ptr %command_timeout4, align 8
-  %cmp = icmp eq ptr %6, null
-  br i1 %cmp, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %if.then
-  %7 = load ptr, ptr %ac.addr, align 8
-  %c6 = getelementptr inbounds %struct.redisAsyncContext, ptr %7, i32 0, i32 0
-  call void @__redisSetError(ptr noundef %c6, i32 noundef 5, ptr noundef @.str.2)
-  %8 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncCopyError(ptr noundef %8)
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.end, %entry
-  %tv_sec = getelementptr inbounds %struct.timeval, ptr %tv, i32 0, i32 0
-  %9 = load i64, ptr %tv_sec, align 8
-  %10 = load ptr, ptr %ac.addr, align 8
-  %c8 = getelementptr inbounds %struct.redisAsyncContext, ptr %10, i32 0, i32 0
-  %command_timeout9 = getelementptr inbounds %struct.redisContext, ptr %c8, i32 0, i32 9
-  %11 = load ptr, ptr %command_timeout9, align 8
-  %tv_sec10 = getelementptr inbounds %struct.timeval, ptr %11, i32 0, i32 0
-  %12 = load i64, ptr %tv_sec10, align 8
-  %cmp11 = icmp ne i64 %9, %12
-  br i1 %cmp11, label %if.then16, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end7
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i32 0, i32 1
-  %13 = load i64, ptr %tv_usec, align 8
-  %14 = load ptr, ptr %ac.addr, align 8
-  %c12 = getelementptr inbounds %struct.redisAsyncContext, ptr %14, i32 0, i32 0
-  %command_timeout13 = getelementptr inbounds %struct.redisContext, ptr %c12, i32 0, i32 9
-  %15 = load ptr, ptr %command_timeout13, align 8
-  %tv_usec14 = getelementptr inbounds %struct.timeval, ptr %15, i32 0, i32 1
-  %16 = load i64, ptr %tv_usec14, align 8
-  %cmp15 = icmp ne i64 %13, %16
-  br i1 %cmp15, label %if.then16, label %if.end19
-
-if.then16:                                        ; preds = %lor.lhs.false, %if.end7
-  %17 = load ptr, ptr %ac.addr, align 8
-  %c17 = getelementptr inbounds %struct.redisAsyncContext, ptr %17, i32 0, i32 0
-  %command_timeout18 = getelementptr inbounds %struct.redisContext, ptr %c17, i32 0, i32 9
-  %18 = load ptr, ptr %command_timeout18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %tv, i64 16, i1 false)
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.then16, %lor.lhs.false
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end19, %if.then5
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @hi_calloc(i64 noundef %nmemb, i64 noundef %size) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %nmemb.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  store i64 %nmemb, ptr %nmemb.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %div = udiv i64 -1, %0
-  %1 = load i64, ptr %nmemb.addr, align 8
-  %cmp = icmp ult i64 %div, %1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 1
-  %3 = load ptr, ptr %2, align 8
-  %4 = load i64, ptr %nmemb.addr, align 8
-  %5 = load i64, ptr %size.addr, align 8
-  %call = call ptr %3(i64 noundef %4, i64 noundef %5)
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @dictCreate(ptr noundef %type, ptr noundef %privDataPtr) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %type.addr = alloca ptr, align 8
-  %privDataPtr.addr = alloca ptr, align 8
-  %ht = alloca ptr, align 8
-  store ptr %type, ptr %type.addr, align 8
-  store ptr %privDataPtr, ptr %privDataPtr.addr, align 8
-  %call = call ptr @hi_malloc(i64 noundef 48)
-  store ptr %call, ptr %ht, align 8
-  %0 = load ptr, ptr %ht, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ht, align 8
-  %2 = load ptr, ptr %type.addr, align 8
-  %3 = load ptr, ptr %privDataPtr.addr, align 8
-  %call1 = call i32 @_dictInit(ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %4 = load ptr, ptr %ht, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @hi_realloc(ptr noundef %ptr, i64 noundef %size) #0 {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = getelementptr inbounds %struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 2
-  %1 = load ptr, ptr %0, align 8
-  %2 = load ptr, ptr %ptr.addr, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %call = call ptr %1(ptr noundef %2, i64 noundef %3)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @dictRelease(ptr noundef %ht) #0 {
-entry:
-  %ht.addr = alloca ptr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %call = call i32 @_dictClear(ptr noundef %0)
-  %1 = load ptr, ptr %ht.addr, align 8
-  call void @hi_free(ptr noundef %1)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @hi_malloc(i64 noundef %size) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr @hiredisAllocFns, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %call = call ptr %0(i64 noundef %1)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @_dictInit(ptr noundef %ht, ptr noundef %type, ptr noundef %privDataPtr) #0 {
-entry:
-  %ht.addr = alloca ptr, align 8
-  %type.addr = alloca ptr, align 8
-  %privDataPtr.addr = alloca ptr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  store ptr %type, ptr %type.addr, align 8
-  store ptr %privDataPtr, ptr %privDataPtr.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  call void @_dictReset(ptr noundef %0)
-  %1 = load ptr, ptr %type.addr, align 8
-  %2 = load ptr, ptr %ht.addr, align 8
-  %type1 = getelementptr inbounds %struct.dict, ptr %2, i32 0, i32 1
-  store ptr %1, ptr %type1, align 8
-  %3 = load ptr, ptr %privDataPtr.addr, align 8
-  %4 = load ptr, ptr %ht.addr, align 8
-  %privdata = getelementptr inbounds %struct.dict, ptr %4, i32 0, i32 5
-  store ptr %3, ptr %privdata, align 8
-  ret i32 0
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @_dictReset(ptr noundef %ht) #0 {
-entry:
-  %ht.addr = alloca ptr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %table = getelementptr inbounds %struct.dict, ptr %0, i32 0, i32 0
-  store ptr null, ptr %table, align 8
-  %1 = load ptr, ptr %ht.addr, align 8
-  %size = getelementptr inbounds %struct.dict, ptr %1, i32 0, i32 2
-  store i64 0, ptr %size, align 8
-  %2 = load ptr, ptr %ht.addr, align 8
-  %sizemask = getelementptr inbounds %struct.dict, ptr %2, i32 0, i32 3
-  store i64 0, ptr %sizemask, align 8
-  %3 = load ptr, ptr %ht.addr, align 8
-  %used = getelementptr inbounds %struct.dict, ptr %3, i32 0, i32 4
-  store i64 0, ptr %used, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @callbackHash(ptr noundef %key) #0 {
-entry:
-  %key.addr = alloca ptr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  %1 = load ptr, ptr %key.addr, align 8
-  %call = call i64 @hi_sdslen(ptr noundef %1)
-  %conv = trunc i64 %call to i32
-  %call1 = call i32 @dictGenHashFunction(ptr noundef %0, i32 noundef %conv)
-  ret i32 %call1
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @callbackValDup(ptr noundef %privdata, ptr noundef %src) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %privdata.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %dup = alloca ptr, align 8
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  %call = call ptr @hi_malloc(i64 noundef 32)
-  store ptr %call, ptr %dup, align 8
-  %0 = load ptr, ptr %dup, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %dup, align 8
-  %2 = load ptr, ptr %src.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr align 1 %2, i64 32, i1 false)
-  %3 = load ptr, ptr %dup, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @callbackKeyCompare(ptr noundef %privdata, ptr noundef %key1, ptr noundef %key2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %privdata.addr = alloca ptr, align 8
-  %key1.addr = alloca ptr, align 8
-  %key2.addr = alloca ptr, align 8
-  %l1 = alloca i32, align 4
-  %l2 = alloca i32, align 4
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store ptr %key1, ptr %key1.addr, align 8
-  store ptr %key2, ptr %key2.addr, align 8
-  %0 = load ptr, ptr %key1.addr, align 8
-  %call = call i64 @hi_sdslen(ptr noundef %0)
-  %conv = trunc i64 %call to i32
-  store i32 %conv, ptr %l1, align 4
-  %1 = load ptr, ptr %key2.addr, align 8
-  %call1 = call i64 @hi_sdslen(ptr noundef %1)
-  %conv2 = trunc i64 %call1 to i32
-  store i32 %conv2, ptr %l2, align 4
-  %2 = load i32, ptr %l1, align 4
-  %3 = load i32, ptr %l2, align 4
-  %cmp = icmp ne i32 %2, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %key1.addr, align 8
-  %5 = load ptr, ptr %key2.addr, align 8
-  %6 = load i32, ptr %l1, align 4
-  %conv4 = sext i32 %6 to i64
-  %call5 = call i32 @memcmp(ptr noundef %4, ptr noundef %5, i64 noundef %conv4) #8
-  %cmp6 = icmp eq i32 %call5, 0
-  %conv7 = zext i1 %cmp6 to i32
-  store i32 %conv7, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %7 = load i32, ptr %retval, align 4
+define i32 @redisAsyncSetConnectCallback(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = load ptr, ptr %4, align 8, !tbaa !4
+  %7 = call i32 @redisAsyncSetConnectCallbackImpl(ptr noundef %5, ptr noundef %6, ptr noundef null)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callbackKeyDestructor(ptr noundef %privdata, ptr noundef %key) #0 {
-entry:
-  %privdata.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  call void @hi_sdsfree(ptr noundef %0)
+define internal i32 @redisAsyncSetConnectCallbackImpl(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  %8 = load ptr, ptr %5, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %8, i32 0, i32 7
+  %10 = load ptr, ptr %9, align 8, !tbaa !49
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %17, label %12
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %13, i32 0, i32 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %12, %3
+  store i32 -1, ptr %4, align 4
+  br label %52
+
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %6, align 8, !tbaa !4
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %25
+
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !4
+  %23 = load ptr, ptr %5, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %23, i32 0, i32 7
+  store ptr %22, ptr %24, align 8, !tbaa !49
+  br label %33
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %7, align 8, !tbaa !4
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %32
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %7, align 8, !tbaa !4
+  %30 = load ptr, ptr %5, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %30, i32 0, i32 8
+  store ptr %29, ptr %31, align 8, !tbaa !50
+  br label %32
+
+32:                                               ; preds = %28, %25
+  br label %33
+
+33:                                               ; preds = %32, %21
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %5, align 8, !tbaa !19
+  call void @refreshTimeout(ptr noundef %35)
+  %36 = load ptr, ptr %5, align 8, !tbaa !19
+  %37 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %36, i32 0, i32 5
+  %38 = getelementptr inbounds nuw %struct.anon.2, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8, !tbaa !45
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %50
+
+41:                                               ; preds = %34
+  %42 = load ptr, ptr %5, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %42, i32 0, i32 5
+  %44 = getelementptr inbounds nuw %struct.anon.2, ptr %43, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8, !tbaa !45
+  %46 = load ptr, ptr %5, align 8, !tbaa !19
+  %47 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %46, i32 0, i32 5
+  %48 = getelementptr inbounds nuw %struct.anon.2, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !42
+  call void %45(ptr noundef %49)
+  br label %50
+
+50:                                               ; preds = %41, %34
+  br label %51
+
+51:                                               ; preds = %50
+  store i32 0, ptr %4, align 4
+  br label %52
+
+52:                                               ; preds = %51, %17
+  %53 = load i32, ptr %4, align 4
+  ret i32 %53
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @redisAsyncSetConnectCallbackNC(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = load ptr, ptr %4, align 8, !tbaa !4
+  %7 = call i32 @redisAsyncSetConnectCallbackImpl(ptr noundef %5, ptr noundef null, ptr noundef %6)
+  ret i32 %7
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @redisAsyncSetDisconnectCallback(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %6, i32 0, i32 6
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = load ptr, ptr %4, align 8, !tbaa !19
+  %13 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %12, i32 0, i32 6
+  store ptr %11, ptr %13, align 8, !tbaa !51
+  store i32 0, ptr %3, align 4
+  br label %15
+
+14:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  br label %15
+
+15:                                               ; preds = %14, %10
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
+}
+
+; Function Attrs: nounwind uwtable
+define void @redisAsyncFree(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %4 = load ptr, ptr %2, align 8, !tbaa !19
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %1
+  br label %22
+
+7:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %8 = load ptr, ptr %2, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %8, i32 0, i32 0
+  store ptr %9, ptr %3, align 8, !tbaa !17
+  %10 = load ptr, ptr %3, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw %struct.redisContext, ptr %10, i32 0, i32 4
+  %12 = load i32, ptr %11, align 8, !tbaa !24
+  %13 = or i32 %12, 8
+  store i32 %13, ptr %11, align 8, !tbaa !24
+  %14 = load ptr, ptr %3, align 8, !tbaa !17
+  %15 = getelementptr inbounds nuw %struct.redisContext, ptr %14, i32 0, i32 4
+  %16 = load i32, ptr %15, align 8, !tbaa !24
+  %17 = and i32 %16, 16
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %21, label %19
+
+19:                                               ; preds = %7
+  %20 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncFree(ptr noundef %20)
+  br label %21
+
+21:                                               ; preds = %19, %7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  br label %22
+
+22:                                               ; preds = %21, %6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callbackValDestructor(ptr noundef %privdata, ptr noundef %val) #0 {
-entry:
-  %privdata.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  store ptr %privdata, ptr %privdata.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  %0 = load ptr, ptr %val.addr, align 8
-  call void @hi_free(ptr noundef %0)
+define internal void @__redisAsyncFree(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.redisCallback, align 8
+  %5 = alloca %struct.dictIterator, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %8 = load ptr, ptr %2, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %8, i32 0, i32 0
+  store ptr %9, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  br label %10
+
+10:                                               ; preds = %15, %1
+  %11 = load ptr, ptr %2, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %11, i32 0, i32 9
+  %13 = call i32 @__redisShiftCallback(ptr noundef %12, ptr noundef %4)
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisRunCallback(ptr noundef %16, ptr noundef %4, ptr noundef null)
+  br label %10
+
+17:                                               ; preds = %10
+  br label %18
+
+18:                                               ; preds = %24, %17
+  %19 = load ptr, ptr %2, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %19, i32 0, i32 12
+  %21 = getelementptr inbounds nuw %struct.anon.3, ptr %20, i32 0, i32 0
+  %22 = call i32 @__redisShiftCallback(ptr noundef %21, ptr noundef %4)
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisRunCallback(ptr noundef %25, ptr noundef %4, ptr noundef null)
+  br label %18
+
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %2, align 8, !tbaa !19
+  %28 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %27, i32 0, i32 12
+  %29 = getelementptr inbounds nuw %struct.anon.3, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !56
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %50
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %2, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %33, i32 0, i32 12
+  %35 = getelementptr inbounds nuw %struct.anon.3, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8, !tbaa !56
+  call void @dictInitIterator(ptr noundef %5, ptr noundef %36)
+  br label %37
+
+37:                                               ; preds = %40, %32
+  %38 = call ptr @dictNext(ptr noundef %5)
+  store ptr %38, ptr %6, align 8, !tbaa !63
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %45
+
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %2, align 8, !tbaa !19
+  %42 = load ptr, ptr %6, align 8, !tbaa !63
+  %43 = getelementptr inbounds nuw %struct.dictEntry, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !65
+  call void @__redisRunCallback(ptr noundef %41, ptr noundef %44, ptr noundef null)
+  br label %37
+
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %2, align 8, !tbaa !19
+  %47 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %46, i32 0, i32 12
+  %48 = getelementptr inbounds nuw %struct.anon.3, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !56
+  call void @dictRelease(ptr noundef %49)
+  br label %50
+
+50:                                               ; preds = %45, %26
+  %51 = load ptr, ptr %2, align 8, !tbaa !19
+  %52 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %51, i32 0, i32 12
+  %53 = getelementptr inbounds nuw %struct.anon.3, ptr %52, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8, !tbaa !57
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %74
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %2, align 8, !tbaa !19
+  %58 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %57, i32 0, i32 12
+  %59 = getelementptr inbounds nuw %struct.anon.3, ptr %58, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8, !tbaa !57
+  call void @dictInitIterator(ptr noundef %5, ptr noundef %60)
+  br label %61
+
+61:                                               ; preds = %64, %56
+  %62 = call ptr @dictNext(ptr noundef %5)
+  store ptr %62, ptr %6, align 8, !tbaa !63
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %69
+
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %2, align 8, !tbaa !19
+  %66 = load ptr, ptr %6, align 8, !tbaa !63
+  %67 = getelementptr inbounds nuw %struct.dictEntry, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8, !tbaa !65
+  call void @__redisRunCallback(ptr noundef %65, ptr noundef %68, ptr noundef null)
+  br label %61
+
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %2, align 8, !tbaa !19
+  %71 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %70, i32 0, i32 12
+  %72 = getelementptr inbounds nuw %struct.anon.3, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8, !tbaa !57
+  call void @dictRelease(ptr noundef %73)
+  br label %74
+
+74:                                               ; preds = %69, %50
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %2, align 8, !tbaa !19
+  %77 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %76, i32 0, i32 5
+  %78 = getelementptr inbounds nuw %struct.anon.2, ptr %77, i32 0, i32 5
+  %79 = load ptr, ptr %78, align 8, !tbaa !47
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %90
+
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %2, align 8, !tbaa !19
+  %83 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %82, i32 0, i32 5
+  %84 = getelementptr inbounds nuw %struct.anon.2, ptr %83, i32 0, i32 5
+  %85 = load ptr, ptr %84, align 8, !tbaa !47
+  %86 = load ptr, ptr %2, align 8, !tbaa !19
+  %87 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %86, i32 0, i32 5
+  %88 = getelementptr inbounds nuw %struct.anon.2, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !42
+  call void %85(ptr noundef %89)
+  br label %90
+
+90:                                               ; preds = %81, %75
+  %91 = load ptr, ptr %2, align 8, !tbaa !19
+  %92 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %91, i32 0, i32 5
+  %93 = getelementptr inbounds nuw %struct.anon.2, ptr %92, i32 0, i32 5
+  store ptr null, ptr %93, align 8, !tbaa !47
+  br label %94
+
+94:                                               ; preds = %90
+  br label %95
+
+95:                                               ; preds = %94
+  %96 = load ptr, ptr %3, align 8, !tbaa !17
+  %97 = getelementptr inbounds nuw %struct.redisContext, ptr %96, i32 0, i32 4
+  %98 = load i32, ptr %97, align 8, !tbaa !24
+  %99 = and i32 %98, 2
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %116
+
+101:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %102 = load ptr, ptr %2, align 8, !tbaa !19
+  %103 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %102, i32 0, i32 1
+  %104 = load i32, ptr %103, align 8, !tbaa !33
+  %105 = icmp eq i32 %104, 0
+  %106 = select i1 %105, i32 0, i32 -1
+  store i32 %106, ptr %7, align 4, !tbaa !9
+  %107 = load ptr, ptr %3, align 8, !tbaa !17
+  %108 = getelementptr inbounds nuw %struct.redisContext, ptr %107, i32 0, i32 4
+  %109 = load i32, ptr %108, align 8, !tbaa !24
+  %110 = and i32 %109, 8
+  %111 = icmp ne i32 %110, 0
+  br i1 %111, label %112, label %113
+
+112:                                              ; preds = %101
+  store i32 0, ptr %7, align 4, !tbaa !9
+  br label %113
+
+113:                                              ; preds = %112, %101
+  %114 = load ptr, ptr %2, align 8, !tbaa !19
+  %115 = load i32, ptr %7, align 4, !tbaa !9
+  call void @__redisRunDisconnectCallback(ptr noundef %114, i32 noundef %115)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  br label %116
+
+116:                                              ; preds = %113, %95
+  %117 = load ptr, ptr %2, align 8, !tbaa !19
+  %118 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %117, i32 0, i32 4
+  %119 = load ptr, ptr %118, align 8, !tbaa !41
+  %120 = icmp ne ptr %119, null
+  br i1 %120, label %121, label %128
+
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %2, align 8, !tbaa !19
+  %123 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %122, i32 0, i32 4
+  %124 = load ptr, ptr %123, align 8, !tbaa !41
+  %125 = load ptr, ptr %2, align 8, !tbaa !19
+  %126 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %125, i32 0, i32 3
+  %127 = load ptr, ptr %126, align 8, !tbaa !40
+  call void %124(ptr noundef %127)
+  br label %128
+
+128:                                              ; preds = %121, %116
+  %129 = load ptr, ptr %3, align 8, !tbaa !17
+  call void @redisFree(ptr noundef %129)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dictGenHashFunction(ptr noundef %buf, i32 noundef %len) #0 {
-entry:
-  %buf.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %hash = alloca i32, align 4
-  store ptr %buf, ptr %buf.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  store i32 5381, ptr %hash, align 4
-  br label %while.cond
+define void @__redisAsyncDisconnect(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = load ptr, ptr %2, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %5, i32 0, i32 0
+  store ptr %6, ptr %3, align 8, !tbaa !17
+  %7 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncCopyError(ptr noundef %7)
+  %8 = load ptr, ptr %2, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !33
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %16
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %len.addr, align 4
-  %dec = add nsw i32 %0, -1
-  store i32 %dec, ptr %len.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %while.body, label %while.end
+12:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  %13 = load ptr, ptr %2, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %13, i32 0, i32 9
+  %15 = call i32 @__redisShiftCallback(ptr noundef %14, ptr noundef null)
+  store i32 %15, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  br label %21
 
-while.body:                                       ; preds = %while.cond
-  %1 = load i32, ptr %hash, align 4
-  %shl = shl i32 %1, 5
-  %2 = load i32, ptr %hash, align 4
-  %add = add i32 %shl, %2
-  %3 = load ptr, ptr %buf.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %3, i32 1
-  store ptr %incdec.ptr, ptr %buf.addr, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = zext i8 %4 to i32
-  %add1 = add i32 %add, %conv
-  store i32 %add1, ptr %hash, align 4
-  br label %while.cond
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw %struct.redisContext, ptr %17, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8, !tbaa !24
+  %20 = or i32 %19, 4
+  store i32 %20, ptr %18, align 8, !tbaa !24
+  br label %21
 
-while.end:                                        ; preds = %while.cond
-  %5 = load i32, ptr %hash, align 4
-  ret i32 %5
+21:                                               ; preds = %16, %12
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load ptr, ptr %2, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %23, i32 0, i32 5
+  %25 = getelementptr inbounds nuw %struct.anon.2, ptr %24, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8, !tbaa !47
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %37
+
+28:                                               ; preds = %22
+  %29 = load ptr, ptr %2, align 8, !tbaa !19
+  %30 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %29, i32 0, i32 5
+  %31 = getelementptr inbounds nuw %struct.anon.2, ptr %30, i32 0, i32 5
+  %32 = load ptr, ptr %31, align 8, !tbaa !47
+  %33 = load ptr, ptr %2, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %33, i32 0, i32 5
+  %35 = getelementptr inbounds nuw %struct.anon.2, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !42
+  call void %32(ptr noundef %36)
+  br label %37
+
+37:                                               ; preds = %28, %22
+  %38 = load ptr, ptr %2, align 8, !tbaa !19
+  %39 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %38, i32 0, i32 5
+  %40 = getelementptr inbounds nuw %struct.anon.2, ptr %39, i32 0, i32 5
+  store ptr null, ptr %40, align 8, !tbaa !47
+  br label %41
+
+41:                                               ; preds = %37
+  br label %42
+
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %3, align 8, !tbaa !17
+  %44 = getelementptr inbounds nuw %struct.redisContext, ptr %43, i32 0, i32 4
+  %45 = load i32, ptr %44, align 8, !tbaa !24
+  %46 = and i32 %45, 512
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %50, label %48
+
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncFree(ptr noundef %49)
+  br label %50
+
+50:                                               ; preds = %48, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret void
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
+; Function Attrs: nounwind uwtable
+define internal i32 @__redisShiftCallback(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !67
+  store ptr %1, ptr %5, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !67
+  %9 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !70
+  store ptr %10, ptr %6, align 8, !tbaa !69
+  %11 = load ptr, ptr %6, align 8, !tbaa !69
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %35
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %6, align 8, !tbaa !69
+  %15 = getelementptr inbounds nuw %struct.redisCallback, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !71
+  %17 = load ptr, ptr %4, align 8, !tbaa !67
+  %18 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %17, i32 0, i32 0
+  store ptr %16, ptr %18, align 8, !tbaa !70
+  %19 = load ptr, ptr %6, align 8, !tbaa !69
+  %20 = load ptr, ptr %4, align 8, !tbaa !67
+  %21 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !73
+  %23 = icmp eq ptr %19, %22
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %13
+  %25 = load ptr, ptr %4, align 8, !tbaa !67
+  %26 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %25, i32 0, i32 1
+  store ptr null, ptr %26, align 8, !tbaa !73
+  br label %27
+
+27:                                               ; preds = %24, %13
+  %28 = load ptr, ptr %5, align 8, !tbaa !69
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %33
+
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %5, align 8, !tbaa !69
+  %32 = load ptr, ptr %6, align 8, !tbaa !69
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %32, i64 32, i1 false)
+  br label %33
+
+33:                                               ; preds = %30, %27
+  %34 = load ptr, ptr %6, align 8, !tbaa !69
+  call void @hi_free(ptr noundef %34)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
+
+35:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
+
+36:                                               ; preds = %35, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %37 = load i32, ptr %3, align 4
+  ret i32 %37
+}
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_dictClear(ptr noundef %ht) #0 {
-entry:
-  %ht.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %he = alloca ptr, align 8
-  %nextHe = alloca ptr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define void @redisAsyncDisconnect(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !19
+  %5 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %4, i32 0, i32 0
+  store ptr %5, ptr %3, align 8, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !17
+  %7 = getelementptr inbounds nuw %struct.redisContext, ptr %6, i32 0, i32 4
+  %8 = load i32, ptr %7, align 8, !tbaa !24
+  %9 = or i32 %8, 4
+  store i32 %9, ptr %7, align 8, !tbaa !24
+  %10 = load ptr, ptr %3, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw %struct.redisContext, ptr %10, i32 0, i32 4
+  %12 = load i32, ptr %11, align 8, !tbaa !24
+  %13 = and i32 %12, -513
+  store i32 %13, ptr %11, align 8, !tbaa !24
+  %14 = load ptr, ptr %3, align 8, !tbaa !17
+  %15 = getelementptr inbounds nuw %struct.redisContext, ptr %14, i32 0, i32 4
+  %16 = load i32, ptr %15, align 8, !tbaa !24
+  %17 = and i32 %16, 16
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %27, label %19
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %1 = load ptr, ptr %ht.addr, align 8
-  %size = getelementptr inbounds %struct.dict, ptr %1, i32 0, i32 2
-  %2 = load i64, ptr %size, align 8
-  %cmp = icmp ult i64 %0, %2
-  br i1 %cmp, label %land.rhs, label %land.end
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %2, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %20, i32 0, i32 9
+  %22 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !52
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %27
 
-land.rhs:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %ht.addr, align 8
-  %used = getelementptr inbounds %struct.dict, ptr %3, i32 0, i32 4
-  %4 = load i64, ptr %used, align 8
-  %cmp1 = icmp ugt i64 %4, 0
-  br label %land.end
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncDisconnect(ptr noundef %26)
+  br label %27
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %5 = phi i1 [ false, %for.cond ], [ %cmp1, %land.rhs ]
-  br i1 %5, label %for.body, label %for.end
+27:                                               ; preds = %25, %19, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret void
+}
 
-for.body:                                         ; preds = %land.end
-  %6 = load ptr, ptr %ht.addr, align 8
-  %table = getelementptr inbounds %struct.dict, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %table, align 8
-  %8 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %8
-  %9 = load ptr, ptr %arrayidx, align 8
-  store ptr %9, ptr %he, align 8
-  %cmp2 = icmp eq ptr %9, null
-  br i1 %cmp2, label %if.then, label %if.end
+; Function Attrs: nounwind uwtable
+define void @redisProcessCallbacks(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.redisCallback, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %8 = load ptr, ptr %2, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %8, i32 0, i32 0
+  store ptr %9, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  store ptr null, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  br label %10
 
-if.then:                                          ; preds = %for.body
-  br label %for.inc
+10:                                               ; preds = %160, %57, %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !17
+  %12 = call i32 @redisGetReply(ptr noundef %11, ptr noundef %4)
+  store i32 %12, ptr %5, align 4, !tbaa !9
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %161
 
-if.end:                                           ; preds = %for.body
-  br label %while.cond
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %38
 
-while.cond:                                       ; preds = %if.end14, %if.end
-  %10 = load ptr, ptr %he, align 8
-  %tobool = icmp ne ptr %10, null
-  br i1 %tobool, label %while.body, label %while.end
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %3, align 8, !tbaa !17
+  %19 = getelementptr inbounds nuw %struct.redisContext, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8, !tbaa !24
+  %21 = and i32 %20, 4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %37
 
-while.body:                                       ; preds = %while.cond
-  %11 = load ptr, ptr %he, align 8
-  %next = getelementptr inbounds %struct.dictEntry, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %next, align 8
-  store ptr %12, ptr %nextHe, align 8
-  %13 = load ptr, ptr %ht.addr, align 8
-  %type = getelementptr inbounds %struct.dict, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %type, align 8
-  %keyDestructor = getelementptr inbounds %struct.dictType, ptr %14, i32 0, i32 4
-  %15 = load ptr, ptr %keyDestructor, align 8
-  %tobool3 = icmp ne ptr %15, null
-  br i1 %tobool3, label %if.then4, label %if.end7
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %3, align 8, !tbaa !17
+  %25 = getelementptr inbounds nuw %struct.redisContext, ptr %24, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8, !tbaa !74
+  %27 = call i64 @hi_sdslen(ptr noundef %26)
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %37
 
-if.then4:                                         ; preds = %while.body
-  %16 = load ptr, ptr %ht.addr, align 8
-  %type5 = getelementptr inbounds %struct.dict, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %type5, align 8
-  %keyDestructor6 = getelementptr inbounds %struct.dictType, ptr %17, i32 0, i32 4
-  %18 = load ptr, ptr %keyDestructor6, align 8
-  %19 = load ptr, ptr %ht.addr, align 8
-  %privdata = getelementptr inbounds %struct.dict, ptr %19, i32 0, i32 5
-  %20 = load ptr, ptr %privdata, align 8
-  %21 = load ptr, ptr %he, align 8
-  %key = getelementptr inbounds %struct.dictEntry, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %key, align 8
-  call void %18(ptr noundef %20, ptr noundef %22)
-  br label %if.end7
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %2, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %30, i32 0, i32 9
+  %32 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !52
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %37
 
-if.end7:                                          ; preds = %if.then4, %while.body
-  %23 = load ptr, ptr %ht.addr, align 8
-  %type8 = getelementptr inbounds %struct.dict, ptr %23, i32 0, i32 1
-  %24 = load ptr, ptr %type8, align 8
-  %valDestructor = getelementptr inbounds %struct.dictType, ptr %24, i32 0, i32 5
-  %25 = load ptr, ptr %valDestructor, align 8
-  %tobool9 = icmp ne ptr %25, null
-  br i1 %tobool9, label %if.then10, label %if.end14
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncDisconnect(ptr noundef %36)
+  store i32 1, ptr %6, align 4
+  br label %167
 
-if.then10:                                        ; preds = %if.end7
-  %26 = load ptr, ptr %ht.addr, align 8
-  %type11 = getelementptr inbounds %struct.dict, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %type11, align 8
-  %valDestructor12 = getelementptr inbounds %struct.dictType, ptr %27, i32 0, i32 5
-  %28 = load ptr, ptr %valDestructor12, align 8
-  %29 = load ptr, ptr %ht.addr, align 8
-  %privdata13 = getelementptr inbounds %struct.dict, ptr %29, i32 0, i32 5
-  %30 = load ptr, ptr %privdata13, align 8
-  %31 = load ptr, ptr %he, align 8
-  %val = getelementptr inbounds %struct.dictEntry, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %val, align 8
-  call void %28(ptr noundef %30, ptr noundef %32)
-  br label %if.end14
+37:                                               ; preds = %29, %23, %17
+  br label %161
 
-if.end14:                                         ; preds = %if.then10, %if.end7
-  %33 = load ptr, ptr %he, align 8
-  call void @hi_free(ptr noundef %33)
-  %34 = load ptr, ptr %ht.addr, align 8
-  %used15 = getelementptr inbounds %struct.dict, ptr %34, i32 0, i32 4
-  %35 = load i64, ptr %used15, align 8
-  %dec = add i64 %35, -1
-  store i64 %dec, ptr %used15, align 8
-  %36 = load ptr, ptr %nextHe, align 8
-  store ptr %36, ptr %he, align 8
-  br label %while.cond
+38:                                               ; preds = %14
+  %39 = load ptr, ptr %4, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.redisReply, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8, !tbaa !75
+  %42 = icmp eq i32 %41, 12
+  br i1 %42, label %43, label %48
 
-while.end:                                        ; preds = %while.cond
-  br label %for.inc
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %3, align 8, !tbaa !17
+  %45 = getelementptr inbounds nuw %struct.redisContext, ptr %44, i32 0, i32 4
+  %46 = load i32, ptr %45, align 8, !tbaa !24
+  %47 = or i32 %46, 256
+  store i32 %47, ptr %45, align 8, !tbaa !24
+  br label %48
 
-for.inc:                                          ; preds = %while.end, %if.then
-  %37 = load i64, ptr %i, align 8
-  %inc = add i64 %37, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond
+48:                                               ; preds = %43, %38
+  %49 = load ptr, ptr %4, align 8, !tbaa !4
+  %50 = getelementptr inbounds nuw %struct.redisReply, ptr %49, i32 0, i32 0
+  %51 = load i32, ptr %50, align 8, !tbaa !75
+  %52 = icmp eq i32 %51, 12
+  br i1 %52, label %53, label %68
 
-for.end:                                          ; preds = %land.end
-  %38 = load ptr, ptr %ht.addr, align 8
-  %table16 = getelementptr inbounds %struct.dict, ptr %38, i32 0, i32 0
-  %39 = load ptr, ptr %table16, align 8
-  call void @hi_free(ptr noundef %39)
-  %40 = load ptr, ptr %ht.addr, align 8
-  call void @_dictReset(ptr noundef %40)
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %4, align 8, !tbaa !4
+  %55 = call i32 @redisIsSubscribeReply(ptr noundef %54)
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %68, label %57
+
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %2, align 8, !tbaa !19
+  %59 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @__redisRunPushCallback(ptr noundef %58, ptr noundef %59)
+  %60 = load ptr, ptr %3, align 8, !tbaa !17
+  %61 = getelementptr inbounds nuw %struct.redisContext, ptr %60, i32 0, i32 6
+  %62 = load ptr, ptr %61, align 8, !tbaa !80
+  %63 = getelementptr inbounds nuw %struct.redisReader, ptr %62, i32 0, i32 11
+  %64 = load ptr, ptr %63, align 8, !tbaa !81
+  %65 = getelementptr inbounds nuw %struct.redisReplyObjectFunctions, ptr %64, i32 0, i32 6
+  %66 = load ptr, ptr %65, align 8, !tbaa !85
+  %67 = load ptr, ptr %4, align 8, !tbaa !4
+  call void %66(ptr noundef %67)
+  br label %10
+
+68:                                               ; preds = %53, %48
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #10
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 32, i1 false)
+  %69 = load ptr, ptr %2, align 8, !tbaa !19
+  %70 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %69, i32 0, i32 9
+  %71 = call i32 @__redisShiftCallback(ptr noundef %70, ptr noundef %7)
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %108
+
+73:                                               ; preds = %68
+  %74 = load ptr, ptr %4, align 8, !tbaa !4
+  %75 = getelementptr inbounds nuw %struct.redisReply, ptr %74, i32 0, i32 0
+  %76 = load i32, ptr %75, align 8, !tbaa !75
+  %77 = icmp eq i32 %76, 6
+  br i1 %77, label %78, label %97
+
+78:                                               ; preds = %73
+  %79 = load ptr, ptr %3, align 8, !tbaa !17
+  %80 = getelementptr inbounds nuw %struct.redisContext, ptr %79, i32 0, i32 1
+  store i32 2, ptr %80, align 8, !tbaa !60
+  %81 = load ptr, ptr %3, align 8, !tbaa !17
+  %82 = getelementptr inbounds nuw %struct.redisContext, ptr %81, i32 0, i32 2
+  %83 = getelementptr inbounds [128 x i8], ptr %82, i64 0, i64 0
+  %84 = load ptr, ptr %4, align 8, !tbaa !4
+  %85 = getelementptr inbounds nuw %struct.redisReply, ptr %84, i32 0, i32 4
+  %86 = load ptr, ptr %85, align 8, !tbaa !87
+  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %83, i64 noundef 128, ptr noundef @.str, ptr noundef %86) #10
+  %88 = load ptr, ptr %3, align 8, !tbaa !17
+  %89 = getelementptr inbounds nuw %struct.redisContext, ptr %88, i32 0, i32 6
+  %90 = load ptr, ptr %89, align 8, !tbaa !80
+  %91 = getelementptr inbounds nuw %struct.redisReader, ptr %90, i32 0, i32 11
+  %92 = load ptr, ptr %91, align 8, !tbaa !81
+  %93 = getelementptr inbounds nuw %struct.redisReplyObjectFunctions, ptr %92, i32 0, i32 6
+  %94 = load ptr, ptr %93, align 8, !tbaa !85
+  %95 = load ptr, ptr %4, align 8, !tbaa !4
+  call void %94(ptr noundef %95)
+  %96 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncDisconnect(ptr noundef %96)
+  store i32 1, ptr %6, align 4
+  br label %158
+
+97:                                               ; preds = %73
+  %98 = load ptr, ptr %3, align 8, !tbaa !17
+  %99 = getelementptr inbounds nuw %struct.redisContext, ptr %98, i32 0, i32 4
+  %100 = load i32, ptr %99, align 8, !tbaa !24
+  %101 = and i32 %100, 32
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %107
+
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %2, align 8, !tbaa !19
+  %105 = load ptr, ptr %4, align 8, !tbaa !4
+  %106 = call i32 @__redisGetSubscribeCallback(ptr noundef %104, ptr noundef %105, ptr noundef %7)
+  br label %107
+
+107:                                              ; preds = %103, %97
+  br label %108
+
+108:                                              ; preds = %107, %68
+  %109 = getelementptr inbounds nuw %struct.redisCallback, ptr %7, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8, !tbaa !88
+  %111 = icmp ne ptr %110, null
+  br i1 %111, label %112, label %138
+
+112:                                              ; preds = %108
+  %113 = load ptr, ptr %2, align 8, !tbaa !19
+  %114 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @__redisRunCallback(ptr noundef %113, ptr noundef %7, ptr noundef %114)
+  %115 = load ptr, ptr %3, align 8, !tbaa !17
+  %116 = getelementptr inbounds nuw %struct.redisContext, ptr %115, i32 0, i32 4
+  %117 = load i32, ptr %116, align 8, !tbaa !24
+  %118 = and i32 %117, 1024
+  %119 = icmp ne i32 %118, 0
+  br i1 %119, label %129, label %120
+
+120:                                              ; preds = %112
+  %121 = load ptr, ptr %3, align 8, !tbaa !17
+  %122 = getelementptr inbounds nuw %struct.redisContext, ptr %121, i32 0, i32 6
+  %123 = load ptr, ptr %122, align 8, !tbaa !80
+  %124 = getelementptr inbounds nuw %struct.redisReader, ptr %123, i32 0, i32 11
+  %125 = load ptr, ptr %124, align 8, !tbaa !81
+  %126 = getelementptr inbounds nuw %struct.redisReplyObjectFunctions, ptr %125, i32 0, i32 6
+  %127 = load ptr, ptr %126, align 8, !tbaa !85
+  %128 = load ptr, ptr %4, align 8, !tbaa !4
+  call void %127(ptr noundef %128)
+  br label %129
+
+129:                                              ; preds = %120, %112
+  %130 = load ptr, ptr %3, align 8, !tbaa !17
+  %131 = getelementptr inbounds nuw %struct.redisContext, ptr %130, i32 0, i32 4
+  %132 = load i32, ptr %131, align 8, !tbaa !24
+  %133 = and i32 %132, 8
+  %134 = icmp ne i32 %133, 0
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %129
+  %136 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncFree(ptr noundef %136)
+  store i32 1, ptr %6, align 4
+  br label %158
+
+137:                                              ; preds = %129
+  br label %147
+
+138:                                              ; preds = %108
+  %139 = load ptr, ptr %3, align 8, !tbaa !17
+  %140 = getelementptr inbounds nuw %struct.redisContext, ptr %139, i32 0, i32 6
+  %141 = load ptr, ptr %140, align 8, !tbaa !80
+  %142 = getelementptr inbounds nuw %struct.redisReader, ptr %141, i32 0, i32 11
+  %143 = load ptr, ptr %142, align 8, !tbaa !81
+  %144 = getelementptr inbounds nuw %struct.redisReplyObjectFunctions, ptr %143, i32 0, i32 6
+  %145 = load ptr, ptr %144, align 8, !tbaa !85
+  %146 = load ptr, ptr %4, align 8, !tbaa !4
+  call void %145(ptr noundef %146)
+  br label %147
+
+147:                                              ; preds = %138, %137
+  %148 = load ptr, ptr %3, align 8, !tbaa !17
+  %149 = getelementptr inbounds nuw %struct.redisContext, ptr %148, i32 0, i32 4
+  %150 = load i32, ptr %149, align 8, !tbaa !24
+  %151 = and i32 %150, 64
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %153, label %157
+
+153:                                              ; preds = %147
+  %154 = load ptr, ptr %2, align 8, !tbaa !19
+  %155 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %154, i32 0, i32 9
+  %156 = call i32 @__redisPushCallback(ptr noundef %155, ptr noundef %7)
+  br label %157
+
+157:                                              ; preds = %153, %147
+  store i32 0, ptr %6, align 4
+  br label %158
+
+158:                                              ; preds = %157, %135, %78
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #10
+  %159 = load i32, ptr %6, align 4
+  switch i32 %159, label %167 [
+    i32 0, label %160
+  ]
+
+160:                                              ; preds = %158
+  br label %10
+
+161:                                              ; preds = %37, %10
+  %162 = load i32, ptr %5, align 4, !tbaa !9
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %166
+
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncDisconnect(ptr noundef %165)
+  br label %166
+
+166:                                              ; preds = %164, %161
+  store i32 0, ptr %6, align 4
+  br label %167
+
+167:                                              ; preds = %166, %158, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %168 = load i32, ptr %6, align 4
+  switch i32 %168, label %170 [
+    i32 0, label %169
+    i32 1, label %169
+  ]
+
+169:                                              ; preds = %167, %167
+  ret void
+
+170:                                              ; preds = %167
+  unreachable
+}
+
+declare i32 @redisGetReply(ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @hi_sdslen(ptr noundef %0) #5 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #10
+  %6 = load ptr, ptr %3, align 8, !tbaa !61
+  %7 = getelementptr inbounds i8, ptr %6, i64 -1
+  %8 = load i8, ptr %7, align 1, !tbaa !13
+  store i8 %8, ptr %4, align 1, !tbaa !13
+  %9 = load i8, ptr %4, align 1, !tbaa !13
+  %10 = zext i8 %9 to i32
+  %11 = and i32 %10, 7
+  switch i32 %11, label %40 [
+    i32 0, label %12
+    i32 1, label %17
+    i32 2, label %23
+    i32 3, label %29
+    i32 4, label %35
+  ]
+
+12:                                               ; preds = %1
+  %13 = load i8, ptr %4, align 1, !tbaa !13
+  %14 = zext i8 %13 to i32
+  %15 = ashr i32 %14, 3
+  %16 = sext i32 %15 to i64
+  store i64 %16, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %3, align 8, !tbaa !61
+  %19 = getelementptr inbounds i8, ptr %18, i64 -3
+  %20 = getelementptr inbounds nuw %struct.hisdshdr8, ptr %19, i32 0, i32 0
+  %21 = load i8, ptr %20, align 1, !tbaa !13
+  %22 = zext i8 %21 to i64
+  store i64 %22, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+23:                                               ; preds = %1
+  %24 = load ptr, ptr %3, align 8, !tbaa !61
+  %25 = getelementptr inbounds i8, ptr %24, i64 -5
+  %26 = getelementptr inbounds nuw %struct.hisdshdr16, ptr %25, i32 0, i32 0
+  %27 = load i16, ptr %26, align 1, !tbaa !89
+  %28 = zext i16 %27 to i64
+  store i64 %28, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+29:                                               ; preds = %1
+  %30 = load ptr, ptr %3, align 8, !tbaa !61
+  %31 = getelementptr inbounds i8, ptr %30, i64 -9
+  %32 = getelementptr inbounds nuw %struct.hisdshdr32, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr %32, align 1, !tbaa !9
+  %34 = zext i32 %33 to i64
+  store i64 %34, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+35:                                               ; preds = %1
+  %36 = load ptr, ptr %3, align 8, !tbaa !61
+  %37 = getelementptr inbounds i8, ptr %36, i64 -17
+  %38 = getelementptr inbounds nuw %struct.hisdshdr64, ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 1, !tbaa !91
+  store i64 %39, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+40:                                               ; preds = %1
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %41
+
+41:                                               ; preds = %40, %35, %29, %23, %17, %12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #10
+  %42 = load i64, ptr %2, align 8
+  ret i64 %42
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @redisIsSubscribeReply(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %10 = load ptr, ptr %3, align 8, !tbaa !92
+  %11 = getelementptr inbounds nuw %struct.redisReply, ptr %10, i32 0, i32 6
+  %12 = load i64, ptr %11, align 8, !tbaa !94
+  %13 = icmp ult i64 %12, 1
+  br i1 %13, label %32, label %14
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !92
+  %16 = getelementptr inbounds nuw %struct.redisReply, ptr %15, i32 0, i32 7
+  %17 = load ptr, ptr %16, align 8, !tbaa !95
+  %18 = getelementptr inbounds ptr, ptr %17, i64 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !92
+  %20 = getelementptr inbounds nuw %struct.redisReply, ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 8, !tbaa !75
+  %22 = icmp ne i32 %21, 1
+  br i1 %22, label %32, label %23
+
+23:                                               ; preds = %14
+  %24 = load ptr, ptr %3, align 8, !tbaa !92
+  %25 = getelementptr inbounds nuw %struct.redisReply, ptr %24, i32 0, i32 7
+  %26 = load ptr, ptr %25, align 8, !tbaa !95
+  %27 = getelementptr inbounds ptr, ptr %26, i64 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !92
+  %29 = getelementptr inbounds nuw %struct.redisReply, ptr %28, i32 0, i32 3
+  %30 = load i64, ptr %29, align 8, !tbaa !96
+  %31 = icmp ult i64 %30, 7
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %23, %14, %1
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %90
+
+33:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %34 = call ptr @__ctype_tolower_loc() #11
+  %35 = load ptr, ptr %34, align 8, !tbaa !97
+  %36 = load ptr, ptr %3, align 8, !tbaa !92
+  %37 = getelementptr inbounds nuw %struct.redisReply, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !95
+  %39 = getelementptr inbounds ptr, ptr %38, i64 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !92
+  %41 = getelementptr inbounds nuw %struct.redisReply, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !87
+  %43 = getelementptr inbounds i8, ptr %42, i64 0
+  %44 = load i8, ptr %43, align 1, !tbaa !13
+  %45 = sext i8 %44 to i32
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i32, ptr %35, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !9
+  store i32 %48, ptr %8, align 4, !tbaa !9
+  %49 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %49, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %50 = load i32, ptr %9, align 4, !tbaa !9
+  %51 = icmp eq i32 %50, 112
+  %52 = zext i1 %51 to i32
+  %53 = sext i32 %52 to i64
+  store i64 %53, ptr %6, align 8, !tbaa !91
+  %54 = load ptr, ptr %3, align 8, !tbaa !92
+  %55 = getelementptr inbounds nuw %struct.redisReply, ptr %54, i32 0, i32 7
+  %56 = load ptr, ptr %55, align 8, !tbaa !95
+  %57 = getelementptr inbounds ptr, ptr %56, i64 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !92
+  %59 = getelementptr inbounds nuw %struct.redisReply, ptr %58, i32 0, i32 4
+  %60 = load ptr, ptr %59, align 8, !tbaa !87
+  %61 = load i64, ptr %6, align 8, !tbaa !91
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
+  store ptr %62, ptr %4, align 8, !tbaa !61
+  %63 = load ptr, ptr %3, align 8, !tbaa !92
+  %64 = getelementptr inbounds nuw %struct.redisReply, ptr %63, i32 0, i32 7
+  %65 = load ptr, ptr %64, align 8, !tbaa !95
+  %66 = getelementptr inbounds ptr, ptr %65, i64 0
+  %67 = load ptr, ptr %66, align 8, !tbaa !92
+  %68 = getelementptr inbounds nuw %struct.redisReply, ptr %67, i32 0, i32 3
+  %69 = load i64, ptr %68, align 8, !tbaa !96
+  %70 = load i64, ptr %6, align 8, !tbaa !91
+  %71 = sub i64 %69, %70
+  store i64 %71, ptr %5, align 8, !tbaa !91
+  %72 = load ptr, ptr %4, align 8, !tbaa !61
+  %73 = load i64, ptr %5, align 8, !tbaa !91
+  %74 = call i32 @strncasecmp(ptr noundef %72, ptr noundef @.str.3, i64 noundef %73) #12
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %87
+
+76:                                               ; preds = %33
+  %77 = load ptr, ptr %4, align 8, !tbaa !61
+  %78 = load i64, ptr %5, align 8, !tbaa !91
+  %79 = call i32 @strncasecmp(ptr noundef %77, ptr noundef @.str.4, i64 noundef %78) #12
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %87
+
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %4, align 8, !tbaa !61
+  %83 = load i64, ptr %5, align 8, !tbaa !91
+  %84 = call i32 @strncasecmp(ptr noundef %82, ptr noundef @.str.5, i64 noundef %83) #12
+  %85 = icmp ne i32 %84, 0
+  %86 = xor i1 %85, true
+  br label %87
+
+87:                                               ; preds = %81, %76, %33
+  %88 = phi i1 [ true, %76 ], [ true, %33 ], [ %86, %81 ]
+  %89 = zext i1 %88 to i32
+  store i32 %89, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %90
+
+90:                                               ; preds = %87, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %91 = load i32, ptr %2, align 4
+  ret i32 %91
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @__redisRunPushCallback(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %5, i32 0, i32 13
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %25
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.redisContext, ptr %11, i32 0, i32 4
+  %13 = load i32, ptr %12, align 8, !tbaa !99
+  %14 = or i32 %13, 16
+  store i32 %14, ptr %12, align 8, !tbaa !99
+  %15 = load ptr, ptr %3, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %15, i32 0, i32 13
+  %17 = load ptr, ptr %16, align 8, !tbaa !59
+  %18 = load ptr, ptr %3, align 8, !tbaa !19
+  %19 = load ptr, ptr %4, align 8, !tbaa !92
+  call void %17(ptr noundef %18, ptr noundef %19)
+  %20 = load ptr, ptr %3, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.redisContext, ptr %21, i32 0, i32 4
+  %23 = load i32, ptr %22, align 8, !tbaa !99
+  %24 = and i32 %23, -17
+  store i32 %24, ptr %22, align 8, !tbaa !99
+  br label %25
+
+25:                                               ; preds = %9, %2
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #6
+
+; Function Attrs: nounwind uwtable
+define internal i32 @__redisGetSubscribeCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca %struct.redisCallback, align 8
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store ptr %1, ptr %6, align 8, !tbaa !92
+  store ptr %2, ptr %7, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %19 = load ptr, ptr %5, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %19, i32 0, i32 0
+  store ptr %20, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  store ptr null, ptr %10, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  store ptr null, ptr %14, align 8, !tbaa !61
+  %21 = load ptr, ptr %6, align 8, !tbaa !92
+  %22 = getelementptr inbounds nuw %struct.redisReply, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8, !tbaa !75
+  %24 = icmp eq i32 %23, 2
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %8, align 8, !tbaa !17
+  %27 = getelementptr inbounds nuw %struct.redisContext, ptr %26, i32 0, i32 4
+  %28 = load i32, ptr %27, align 8, !tbaa !24
+  %29 = and i32 %28, 256
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %36, label %31
+
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %6, align 8, !tbaa !92
+  %33 = getelementptr inbounds nuw %struct.redisReply, ptr %32, i32 0, i32 6
+  %34 = load i64, ptr %33, align 8, !tbaa !94
+  %35 = icmp uge i64 %34, 3
+  br i1 %35, label %41, label %36
+
+36:                                               ; preds = %31, %25, %3
+  %37 = load ptr, ptr %6, align 8, !tbaa !92
+  %38 = getelementptr inbounds nuw %struct.redisReply, ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %38, align 8, !tbaa !75
+  %40 = icmp eq i32 %39, 12
+  br i1 %40, label %41, label %203
+
+41:                                               ; preds = %36, %31
+  %42 = load ptr, ptr %6, align 8, !tbaa !92
+  %43 = getelementptr inbounds nuw %struct.redisReply, ptr %42, i32 0, i32 7
+  %44 = load ptr, ptr %43, align 8, !tbaa !95
+  %45 = getelementptr inbounds ptr, ptr %44, i64 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !92
+  %47 = getelementptr inbounds nuw %struct.redisReply, ptr %46, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8, !tbaa !87
+  store ptr %48, ptr %13, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  %49 = call ptr @__ctype_tolower_loc() #11
+  %50 = load ptr, ptr %49, align 8, !tbaa !97
+  %51 = load ptr, ptr %13, align 8, !tbaa !61
+  %52 = getelementptr inbounds i8, ptr %51, i64 0
+  %53 = load i8, ptr %52, align 1, !tbaa !13
+  %54 = sext i8 %53 to i32
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i32, ptr %50, i64 %55
+  %57 = load i32, ptr %56, align 4, !tbaa !9
+  store i32 %57, ptr %15, align 4, !tbaa !9
+  %58 = load i32, ptr %15, align 4, !tbaa !9
+  store i32 %58, ptr %16, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  %59 = load i32, ptr %16, align 4, !tbaa !9
+  %60 = icmp eq i32 %59, 112
+  %61 = select i1 %60, i32 1, i32 0
+  store i32 %61, ptr %12, align 4, !tbaa !9
+  %62 = load i32, ptr %12, align 4, !tbaa !9
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %69
+
+64:                                               ; preds = %41
+  %65 = load ptr, ptr %5, align 8, !tbaa !19
+  %66 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %65, i32 0, i32 12
+  %67 = getelementptr inbounds nuw %struct.anon.3, ptr %66, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8, !tbaa !57
+  store ptr %68, ptr %9, align 8, !tbaa !22
+  br label %74
+
+69:                                               ; preds = %41
+  %70 = load ptr, ptr %5, align 8, !tbaa !19
+  %71 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %70, i32 0, i32 12
+  %72 = getelementptr inbounds nuw %struct.anon.3, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8, !tbaa !56
+  store ptr %73, ptr %9, align 8, !tbaa !22
+  br label %74
+
+74:                                               ; preds = %69, %64
+  %75 = load ptr, ptr %6, align 8, !tbaa !92
+  %76 = getelementptr inbounds nuw %struct.redisReply, ptr %75, i32 0, i32 7
+  %77 = load ptr, ptr %76, align 8, !tbaa !95
+  %78 = getelementptr inbounds ptr, ptr %77, i64 1
+  %79 = load ptr, ptr %78, align 8, !tbaa !92
+  %80 = getelementptr inbounds nuw %struct.redisReply, ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 8, !tbaa !75
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %83, label %114
+
+83:                                               ; preds = %74
+  %84 = load ptr, ptr %6, align 8, !tbaa !92
+  %85 = getelementptr inbounds nuw %struct.redisReply, ptr %84, i32 0, i32 7
+  %86 = load ptr, ptr %85, align 8, !tbaa !95
+  %87 = getelementptr inbounds ptr, ptr %86, i64 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !92
+  %89 = getelementptr inbounds nuw %struct.redisReply, ptr %88, i32 0, i32 4
+  %90 = load ptr, ptr %89, align 8, !tbaa !87
+  %91 = load ptr, ptr %6, align 8, !tbaa !92
+  %92 = getelementptr inbounds nuw %struct.redisReply, ptr %91, i32 0, i32 7
+  %93 = load ptr, ptr %92, align 8, !tbaa !95
+  %94 = getelementptr inbounds ptr, ptr %93, i64 1
+  %95 = load ptr, ptr %94, align 8, !tbaa !92
+  %96 = getelementptr inbounds nuw %struct.redisReply, ptr %95, i32 0, i32 3
+  %97 = load i64, ptr %96, align 8, !tbaa !96
+  %98 = call ptr @hi_sdsnewlen(ptr noundef %90, i64 noundef %97)
+  store ptr %98, ptr %14, align 8, !tbaa !61
+  %99 = load ptr, ptr %14, align 8, !tbaa !61
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %102
+
+101:                                              ; preds = %83
+  br label %210
+
+102:                                              ; preds = %83
+  %103 = load ptr, ptr %9, align 8, !tbaa !22
+  %104 = load ptr, ptr %14, align 8, !tbaa !61
+  %105 = call ptr @dictFind(ptr noundef %103, ptr noundef %104)
+  store ptr %105, ptr %11, align 8, !tbaa !63
+  %106 = icmp ne ptr %105, null
+  br i1 %106, label %107, label %113
+
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %11, align 8, !tbaa !63
+  %109 = getelementptr inbounds nuw %struct.dictEntry, ptr %108, i32 0, i32 1
+  %110 = load ptr, ptr %109, align 8, !tbaa !65
+  store ptr %110, ptr %10, align 8, !tbaa !69
+  %111 = load ptr, ptr %7, align 8, !tbaa !69
+  %112 = load ptr, ptr %10, align 8, !tbaa !69
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %111, ptr align 8 %112, i64 32, i1 false)
+  br label %113
+
+113:                                              ; preds = %107, %102
+  br label %114
+
+114:                                              ; preds = %113, %74
+  %115 = load ptr, ptr %13, align 8, !tbaa !61
+  %116 = load i32, ptr %12, align 4, !tbaa !9
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds i8, ptr %115, i64 %117
+  %119 = call i32 @strcasecmp(ptr noundef %118, ptr noundef @.str.3) #12
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %126
+
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %10, align 8, !tbaa !69
+  %123 = getelementptr inbounds nuw %struct.redisCallback, ptr %122, i32 0, i32 2
+  %124 = load i32, ptr %123, align 8, !tbaa !100
+  %125 = sub nsw i32 %124, 1
+  store i32 %125, ptr %123, align 8, !tbaa !100
+  br label %201
+
+126:                                              ; preds = %114
+  %127 = load ptr, ptr %13, align 8, !tbaa !61
+  %128 = load i32, ptr %12, align 4, !tbaa !9
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds i8, ptr %127, i64 %129
+  %131 = call i32 @strcasecmp(ptr noundef %130, ptr noundef @.str.5) #12
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %200
+
+133:                                              ; preds = %126
+  %134 = load ptr, ptr %10, align 8, !tbaa !69
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %136, label %142
+
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %5, align 8, !tbaa !19
+  %138 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %137, i32 0, i32 12
+  %139 = getelementptr inbounds nuw %struct.anon.3, ptr %138, i32 0, i32 3
+  %140 = load i32, ptr %139, align 8, !tbaa !58
+  %141 = sub nsw i32 %140, 1
+  store i32 %141, ptr %139, align 8, !tbaa !58
+  br label %152
+
+142:                                              ; preds = %133
+  %143 = load ptr, ptr %10, align 8, !tbaa !69
+  %144 = getelementptr inbounds nuw %struct.redisCallback, ptr %143, i32 0, i32 2
+  %145 = load i32, ptr %144, align 8, !tbaa !100
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %151
+
+147:                                              ; preds = %142
+  %148 = load ptr, ptr %9, align 8, !tbaa !22
+  %149 = load ptr, ptr %14, align 8, !tbaa !61
+  %150 = call i32 @dictDelete(ptr noundef %148, ptr noundef %149)
+  br label %151
+
+151:                                              ; preds = %147, %142
+  br label %152
+
+152:                                              ; preds = %151, %136
+  %153 = load ptr, ptr %6, align 8, !tbaa !92
+  %154 = getelementptr inbounds nuw %struct.redisReply, ptr %153, i32 0, i32 7
+  %155 = load ptr, ptr %154, align 8, !tbaa !95
+  %156 = getelementptr inbounds ptr, ptr %155, i64 2
+  %157 = load ptr, ptr %156, align 8, !tbaa !92
+  %158 = getelementptr inbounds nuw %struct.redisReply, ptr %157, i32 0, i32 1
+  %159 = load i64, ptr %158, align 8, !tbaa !101
+  %160 = icmp eq i64 %159, 0
+  br i1 %160, label %161, label %199
+
+161:                                              ; preds = %152
+  %162 = load ptr, ptr %5, align 8, !tbaa !19
+  %163 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %162, i32 0, i32 12
+  %164 = getelementptr inbounds nuw %struct.anon.3, ptr %163, i32 0, i32 1
+  %165 = load ptr, ptr %164, align 8, !tbaa !56
+  %166 = getelementptr inbounds nuw %struct.dict, ptr %165, i32 0, i32 4
+  %167 = load i64, ptr %166, align 8, !tbaa !102
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %169, label %199
+
+169:                                              ; preds = %161
+  %170 = load ptr, ptr %5, align 8, !tbaa !19
+  %171 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %170, i32 0, i32 12
+  %172 = getelementptr inbounds nuw %struct.anon.3, ptr %171, i32 0, i32 2
+  %173 = load ptr, ptr %172, align 8, !tbaa !57
+  %174 = getelementptr inbounds nuw %struct.dict, ptr %173, i32 0, i32 4
+  %175 = load i64, ptr %174, align 8, !tbaa !102
+  %176 = icmp eq i64 %175, 0
+  br i1 %176, label %177, label %199
+
+177:                                              ; preds = %169
+  %178 = load ptr, ptr %5, align 8, !tbaa !19
+  %179 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %178, i32 0, i32 12
+  %180 = getelementptr inbounds nuw %struct.anon.3, ptr %179, i32 0, i32 3
+  %181 = load i32, ptr %180, align 8, !tbaa !58
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %183, label %199
+
+183:                                              ; preds = %177
+  %184 = load ptr, ptr %8, align 8, !tbaa !17
+  %185 = getelementptr inbounds nuw %struct.redisContext, ptr %184, i32 0, i32 4
+  %186 = load i32, ptr %185, align 8, !tbaa !24
+  %187 = and i32 %186, -33
+  store i32 %187, ptr %185, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #10
+  br label %188
+
+188:                                              ; preds = %194, %183
+  %189 = load ptr, ptr %5, align 8, !tbaa !19
+  %190 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %189, i32 0, i32 12
+  %191 = getelementptr inbounds nuw %struct.anon.3, ptr %190, i32 0, i32 0
+  %192 = call i32 @__redisShiftCallback(ptr noundef %191, ptr noundef %17)
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %198
+
+194:                                              ; preds = %188
+  %195 = load ptr, ptr %5, align 8, !tbaa !19
+  %196 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %195, i32 0, i32 9
+  %197 = call i32 @__redisPushCallback(ptr noundef %196, ptr noundef %17)
+  br label %188
+
+198:                                              ; preds = %188
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #10
+  br label %199
+
+199:                                              ; preds = %198, %177, %169, %161, %152
+  br label %200
+
+200:                                              ; preds = %199, %126
+  br label %201
+
+201:                                              ; preds = %200, %121
+  %202 = load ptr, ptr %14, align 8, !tbaa !61
+  call void @hi_sdsfree(ptr noundef %202)
+  br label %209
+
+203:                                              ; preds = %36
+  %204 = load ptr, ptr %5, align 8, !tbaa !19
+  %205 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %204, i32 0, i32 12
+  %206 = getelementptr inbounds nuw %struct.anon.3, ptr %205, i32 0, i32 0
+  %207 = load ptr, ptr %7, align 8, !tbaa !69
+  %208 = call i32 @__redisShiftCallback(ptr noundef %206, ptr noundef %207)
+  br label %209
+
+209:                                              ; preds = %203, %201
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %214
+
+210:                                              ; preds = %101
+  %211 = load ptr, ptr %5, align 8, !tbaa !19
+  %212 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %211, i32 0, i32 0
+  call void @__redisSetError(ptr noundef %212, i32 noundef 5, ptr noundef @.str.2)
+  %213 = load ptr, ptr %5, align 8, !tbaa !19
+  call void @__redisAsyncCopyError(ptr noundef %213)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %18, align 4
+  br label %214
+
+214:                                              ; preds = %210, %209
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %215 = load i32, ptr %4, align 4
+  ret i32 %215
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @__redisRunCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !19
+  store ptr %1, ptr %5, align 8, !tbaa !69
+  store ptr %2, ptr %6, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %8, i32 0, i32 0
+  store ptr %9, ptr %7, align 8, !tbaa !17
+  %10 = load ptr, ptr %5, align 8, !tbaa !69
+  %11 = getelementptr inbounds nuw %struct.redisCallback, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !88
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %31
+
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %7, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw %struct.redisContext, ptr %15, i32 0, i32 4
+  %17 = load i32, ptr %16, align 8, !tbaa !24
+  %18 = or i32 %17, 16
+  store i32 %18, ptr %16, align 8, !tbaa !24
+  %19 = load ptr, ptr %5, align 8, !tbaa !69
+  %20 = getelementptr inbounds nuw %struct.redisCallback, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !88
+  %22 = load ptr, ptr %4, align 8, !tbaa !19
+  %23 = load ptr, ptr %6, align 8, !tbaa !92
+  %24 = load ptr, ptr %5, align 8, !tbaa !69
+  %25 = getelementptr inbounds nuw %struct.redisCallback, ptr %24, i32 0, i32 4
+  %26 = load ptr, ptr %25, align 8, !tbaa !106
+  call void %21(ptr noundef %22, ptr noundef %23, ptr noundef %26)
+  %27 = load ptr, ptr %7, align 8, !tbaa !17
+  %28 = getelementptr inbounds nuw %struct.redisContext, ptr %27, i32 0, i32 4
+  %29 = load i32, ptr %28, align 8, !tbaa !24
+  %30 = and i32 %29, -17
+  store i32 %30, ptr %28, align 8, !tbaa !24
+  br label %31
+
+31:                                               ; preds = %14, %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @__redisPushCallback(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !67
+  store ptr %1, ptr %5, align 8, !tbaa !69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = call ptr @hi_malloc(i64 noundef 32)
+  store ptr %8, ptr %6, align 8, !tbaa !69
+  %9 = load ptr, ptr %6, align 8, !tbaa !69
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %2
+  store i32 5, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %44
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8, !tbaa !69
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %6, align 8, !tbaa !69
+  %17 = load ptr, ptr %5, align 8, !tbaa !69
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %17, i64 32, i1 false)
+  %18 = load ptr, ptr %6, align 8, !tbaa !69
+  %19 = getelementptr inbounds nuw %struct.redisCallback, ptr %18, i32 0, i32 0
+  store ptr null, ptr %19, align 8, !tbaa !71
+  br label %20
+
+20:                                               ; preds = %15, %12
+  %21 = load ptr, ptr %4, align 8, !tbaa !67
+  %22 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !70
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %29
+
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %6, align 8, !tbaa !69
+  %27 = load ptr, ptr %4, align 8, !tbaa !67
+  %28 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %27, i32 0, i32 0
+  store ptr %26, ptr %28, align 8, !tbaa !70
+  br label %29
+
+29:                                               ; preds = %25, %20
+  %30 = load ptr, ptr %4, align 8, !tbaa !67
+  %31 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !73
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %40
+
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %6, align 8, !tbaa !69
+  %36 = load ptr, ptr %4, align 8, !tbaa !67
+  %37 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !73
+  %39 = getelementptr inbounds nuw %struct.redisCallback, ptr %38, i32 0, i32 0
+  store ptr %35, ptr %39, align 8, !tbaa !71
+  br label %40
+
+40:                                               ; preds = %34, %29
+  %41 = load ptr, ptr %6, align 8, !tbaa !69
+  %42 = load ptr, ptr %4, align 8, !tbaa !67
+  %43 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %42, i32 0, i32 1
+  store ptr %41, ptr %43, align 8, !tbaa !73
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %44
+
+44:                                               ; preds = %40, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %45 = load i32, ptr %3, align 4
+  ret i32 %45
+}
+
+; Function Attrs: nounwind uwtable
+define void @redisAsyncRead(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !19
+  %5 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %4, i32 0, i32 0
+  store ptr %5, ptr %3, align 8, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !17
+  %7 = call i32 @redisBufferRead(ptr noundef %6)
+  %8 = icmp eq i32 %7, -1
+  br i1 %8, label %9, label %11
+
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncDisconnect(ptr noundef %10)
+  br label %32
+
+11:                                               ; preds = %1
+  br label %12
+
+12:                                               ; preds = %11
+  %13 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @refreshTimeout(ptr noundef %13)
+  %14 = load ptr, ptr %2, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %14, i32 0, i32 5
+  %16 = getelementptr inbounds nuw %struct.anon.2, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !43
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %28
+
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %2, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %20, i32 0, i32 5
+  %22 = getelementptr inbounds nuw %struct.anon.2, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !43
+  %24 = load ptr, ptr %2, align 8, !tbaa !19
+  %25 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %24, i32 0, i32 5
+  %26 = getelementptr inbounds nuw %struct.anon.2, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !42
+  call void %23(ptr noundef %27)
+  br label %28
+
+28:                                               ; preds = %19, %12
+  br label %29
+
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @redisProcessCallbacks(ptr noundef %31)
+  br label %32
+
+32:                                               ; preds = %30, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret void
+}
+
+declare i32 @redisBufferRead(ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @refreshTimeout(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %4 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.redisContext, ptr %4, i32 0, i32 4
+  %6 = load i32, ptr %5, align 8, !tbaa !99
+  %7 = and i32 %6, 2
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %55
+
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %10, i32 0, i32 5
+  %12 = getelementptr inbounds nuw %struct.anon.2, ptr %11, i32 0, i32 6
+  %13 = load ptr, ptr %12, align 8, !tbaa !48
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %54
+
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %2, align 8, !tbaa !19
+  %17 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.redisContext, ptr %17, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8, !tbaa !107
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %54
+
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %2, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.redisContext, ptr %23, i32 0, i32 9
+  %25 = load ptr, ptr %24, align 8, !tbaa !107
+  %26 = getelementptr inbounds nuw %struct.timeval, ptr %25, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8, !tbaa !108
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %37, label %29
+
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %2, align 8, !tbaa !19
+  %31 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %30, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.redisContext, ptr %31, i32 0, i32 9
+  %33 = load ptr, ptr %32, align 8, !tbaa !107
+  %34 = getelementptr inbounds nuw %struct.timeval, ptr %33, i32 0, i32 1
+  %35 = load i64, ptr %34, align 8, !tbaa !110
+  %36 = icmp ne i64 %35, 0
+  br i1 %36, label %37, label %54
+
+37:                                               ; preds = %29, %21
+  %38 = load ptr, ptr %2, align 8, !tbaa !19
+  %39 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %38, i32 0, i32 5
+  %40 = getelementptr inbounds nuw %struct.anon.2, ptr %39, i32 0, i32 6
+  %41 = load ptr, ptr %40, align 8, !tbaa !48
+  %42 = load ptr, ptr %2, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %42, i32 0, i32 5
+  %44 = getelementptr inbounds nuw %struct.anon.2, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !42
+  %46 = load ptr, ptr %2, align 8, !tbaa !19
+  %47 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %46, i32 0, i32 0
+  %48 = getelementptr inbounds nuw %struct.redisContext, ptr %47, i32 0, i32 9
+  %49 = load ptr, ptr %48, align 8, !tbaa !107
+  %50 = getelementptr inbounds nuw { i64, i64 }, ptr %49, i32 0, i32 0
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds nuw { i64, i64 }, ptr %49, i32 0, i32 1
+  %53 = load i64, ptr %52, align 8
+  call void %41(ptr noundef %45, i64 %51, i64 %53)
+  br label %54
+
+54:                                               ; preds = %37, %29, %15, %9
+  br label %101
+
+55:                                               ; preds = %1
+  %56 = load ptr, ptr %2, align 8, !tbaa !19
+  %57 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %56, i32 0, i32 5
+  %58 = getelementptr inbounds nuw %struct.anon.2, ptr %57, i32 0, i32 6
+  %59 = load ptr, ptr %58, align 8, !tbaa !48
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %61, label %100
+
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %2, align 8, !tbaa !19
+  %63 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %62, i32 0, i32 0
+  %64 = getelementptr inbounds nuw %struct.redisContext, ptr %63, i32 0, i32 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !111
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %100
+
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %2, align 8, !tbaa !19
+  %69 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %struct.redisContext, ptr %69, i32 0, i32 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !111
+  %72 = getelementptr inbounds nuw %struct.timeval, ptr %71, i32 0, i32 0
+  %73 = load i64, ptr %72, align 8, !tbaa !108
+  %74 = icmp ne i64 %73, 0
+  br i1 %74, label %83, label %75
+
+75:                                               ; preds = %67
+  %76 = load ptr, ptr %2, align 8, !tbaa !19
+  %77 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %76, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.redisContext, ptr %77, i32 0, i32 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !111
+  %80 = getelementptr inbounds nuw %struct.timeval, ptr %79, i32 0, i32 1
+  %81 = load i64, ptr %80, align 8, !tbaa !110
+  %82 = icmp ne i64 %81, 0
+  br i1 %82, label %83, label %100
+
+83:                                               ; preds = %75, %67
+  %84 = load ptr, ptr %2, align 8, !tbaa !19
+  %85 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %84, i32 0, i32 5
+  %86 = getelementptr inbounds nuw %struct.anon.2, ptr %85, i32 0, i32 6
+  %87 = load ptr, ptr %86, align 8, !tbaa !48
+  %88 = load ptr, ptr %2, align 8, !tbaa !19
+  %89 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %88, i32 0, i32 5
+  %90 = getelementptr inbounds nuw %struct.anon.2, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8, !tbaa !42
+  %92 = load ptr, ptr %2, align 8, !tbaa !19
+  %93 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %92, i32 0, i32 0
+  %94 = getelementptr inbounds nuw %struct.redisContext, ptr %93, i32 0, i32 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !111
+  %96 = getelementptr inbounds nuw { i64, i64 }, ptr %95, i32 0, i32 0
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds nuw { i64, i64 }, ptr %95, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  call void %87(ptr noundef %91, i64 %97, i64 %99)
+  br label %100
+
+100:                                              ; preds = %83, %75, %61, %55
+  br label %101
+
+101:                                              ; preds = %100, %54
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @redisAsyncHandleRead(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = load ptr, ptr %2, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %5, i32 0, i32 0
+  store ptr %6, ptr %3, align 8, !tbaa !17
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw %struct.redisContext, ptr %7, i32 0, i32 4
+  %9 = load i32, ptr %8, align 8, !tbaa !24
+  %10 = and i32 %9, 2
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %25, label %12
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8, !tbaa !19
+  %14 = call i32 @__redisAsyncHandleConnect(ptr noundef %13)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %12
+  store i32 1, ptr %4, align 4
+  br label %32
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8, !tbaa !17
+  %19 = getelementptr inbounds nuw %struct.redisContext, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8, !tbaa !24
+  %21 = and i32 %20, 2
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %17
+  store i32 1, ptr %4, align 4
+  br label %32
+
+24:                                               ; preds = %17
+  br label %25
+
+25:                                               ; preds = %24, %1
+  %26 = load ptr, ptr %3, align 8, !tbaa !17
+  %27 = getelementptr inbounds nuw %struct.redisContext, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !112
+  %29 = getelementptr inbounds nuw %struct.redisContextFuncs, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !113
+  %31 = load ptr, ptr %2, align 8, !tbaa !19
+  call void %30(ptr noundef %31)
+  store i32 0, ptr %4, align 4
+  br label %32
+
+32:                                               ; preds = %25, %23, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %33 = load i32, ptr %4, align 4
+  switch i32 %33, label %35 [
+    i32 0, label %34
+    i32 1, label %34
+  ]
+
+34:                                               ; preds = %32, %32
+  ret void
+
+35:                                               ; preds = %32
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @__redisAsyncHandleConnect(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  store i32 0, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %3, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %7, i32 0, i32 0
+  store ptr %8, ptr %5, align 8, !tbaa !17
+  %9 = load ptr, ptr %5, align 8, !tbaa !17
+  %10 = call i32 @redisCheckConnectDone(ptr noundef %9, ptr noundef %4)
+  %11 = icmp eq i32 %10, -1
+  br i1 %11, label %12, label %20
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %5, align 8, !tbaa !17
+  %14 = call i32 @redisCheckSocketError(ptr noundef %13)
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @__redisAsyncCopyError(ptr noundef %17)
+  br label %18
+
+18:                                               ; preds = %16, %12
+  %19 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @__redisAsyncHandleConnectFailure(ptr noundef %19)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %60
+
+20:                                               ; preds = %1
+  %21 = load i32, ptr %4, align 4, !tbaa !9
+  %22 = icmp eq i32 %21, 1
+  br i1 %22, label %23, label %59
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %5, align 8, !tbaa !17
+  %25 = getelementptr inbounds nuw %struct.redisContext, ptr %24, i32 0, i32 7
+  %26 = load i32, ptr %25, align 8, !tbaa !115
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %5, align 8, !tbaa !17
+  %30 = call i32 @redisSetTcpNoDelay(ptr noundef %29)
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @__redisAsyncHandleConnectFailure(ptr noundef %33)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %60
+
+34:                                               ; preds = %28, %23
+  %35 = load ptr, ptr %5, align 8, !tbaa !17
+  %36 = getelementptr inbounds nuw %struct.redisContext, ptr %35, i32 0, i32 4
+  %37 = load i32, ptr %36, align 8, !tbaa !24
+  %38 = or i32 %37, 2
+  store i32 %38, ptr %36, align 8, !tbaa !24
+  %39 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @__redisRunConnectCallback(ptr noundef %39, i32 noundef 0)
+  %40 = load ptr, ptr %3, align 8, !tbaa !19
+  %41 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %40, i32 0, i32 0
+  %42 = getelementptr inbounds nuw %struct.redisContext, ptr %41, i32 0, i32 4
+  %43 = load i32, ptr %42, align 8, !tbaa !99
+  %44 = and i32 %43, 4
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %48
+
+46:                                               ; preds = %34
+  %47 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @redisAsyncDisconnect(ptr noundef %47)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %60
+
+48:                                               ; preds = %34
+  %49 = load ptr, ptr %3, align 8, !tbaa !19
+  %50 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.redisContext, ptr %50, i32 0, i32 4
+  %52 = load i32, ptr %51, align 8, !tbaa !99
+  %53 = and i32 %52, 8
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @redisAsyncFree(ptr noundef %56)
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %60
+
+57:                                               ; preds = %48
+  br label %58
+
+58:                                               ; preds = %57
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %60
+
+59:                                               ; preds = %20
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %60
+
+60:                                               ; preds = %59, %58, %55, %46, %32, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  %61 = load i32, ptr %2, align 4
+  ret i32 %61
+}
+
+; Function Attrs: nounwind uwtable
+define void @redisAsyncWrite(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = load ptr, ptr %2, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %5, i32 0, i32 0
+  store ptr %6, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  store i32 0, ptr %4, align 4, !tbaa !9
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = call i32 @redisBufferWrite(ptr noundef %7, ptr noundef %4)
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncDisconnect(ptr noundef %11)
+  br label %74
+
+12:                                               ; preds = %1
+  %13 = load i32, ptr %4, align 4, !tbaa !9
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %35, label %15
+
+15:                                               ; preds = %12
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @refreshTimeout(ptr noundef %17)
+  %18 = load ptr, ptr %2, align 8, !tbaa !19
+  %19 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %18, i32 0, i32 5
+  %20 = getelementptr inbounds nuw %struct.anon.2, ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8, !tbaa !45
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %2, align 8, !tbaa !19
+  %25 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %24, i32 0, i32 5
+  %26 = getelementptr inbounds nuw %struct.anon.2, ptr %25, i32 0, i32 3
+  %27 = load ptr, ptr %26, align 8, !tbaa !45
+  %28 = load ptr, ptr %2, align 8, !tbaa !19
+  %29 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %28, i32 0, i32 5
+  %30 = getelementptr inbounds nuw %struct.anon.2, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !42
+  call void %27(ptr noundef %31)
+  br label %32
+
+32:                                               ; preds = %23, %16
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  br label %54
+
+35:                                               ; preds = %12
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %2, align 8, !tbaa !19
+  %38 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %37, i32 0, i32 5
+  %39 = getelementptr inbounds nuw %struct.anon.2, ptr %38, i32 0, i32 4
+  %40 = load ptr, ptr %39, align 8, !tbaa !46
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %51
+
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %2, align 8, !tbaa !19
+  %44 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %43, i32 0, i32 5
+  %45 = getelementptr inbounds nuw %struct.anon.2, ptr %44, i32 0, i32 4
+  %46 = load ptr, ptr %45, align 8, !tbaa !46
+  %47 = load ptr, ptr %2, align 8, !tbaa !19
+  %48 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %47, i32 0, i32 5
+  %49 = getelementptr inbounds nuw %struct.anon.2, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8, !tbaa !42
+  call void %46(ptr noundef %50)
+  br label %51
+
+51:                                               ; preds = %42, %36
+  br label %52
+
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
+  br label %54
+
+54:                                               ; preds = %53, %34
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @refreshTimeout(ptr noundef %56)
+  %57 = load ptr, ptr %2, align 8, !tbaa !19
+  %58 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %57, i32 0, i32 5
+  %59 = getelementptr inbounds nuw %struct.anon.2, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !43
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %71
+
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %2, align 8, !tbaa !19
+  %64 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %63, i32 0, i32 5
+  %65 = getelementptr inbounds nuw %struct.anon.2, ptr %64, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8, !tbaa !43
+  %67 = load ptr, ptr %2, align 8, !tbaa !19
+  %68 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %67, i32 0, i32 5
+  %69 = getelementptr inbounds nuw %struct.anon.2, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !42
+  call void %66(ptr noundef %70)
+  br label %71
+
+71:                                               ; preds = %62, %55
+  br label %72
+
+72:                                               ; preds = %71
+  br label %73
+
+73:                                               ; preds = %72
+  br label %74
+
+74:                                               ; preds = %73, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret void
+}
+
+declare i32 @redisBufferWrite(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define void @redisAsyncHandleWrite(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = load ptr, ptr %2, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %5, i32 0, i32 0
+  store ptr %6, ptr %3, align 8, !tbaa !17
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw %struct.redisContext, ptr %7, i32 0, i32 4
+  %9 = load i32, ptr %8, align 8, !tbaa !24
+  %10 = and i32 %9, 2
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %25, label %12
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8, !tbaa !19
+  %14 = call i32 @__redisAsyncHandleConnect(ptr noundef %13)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %12
+  store i32 1, ptr %4, align 4
+  br label %32
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8, !tbaa !17
+  %19 = getelementptr inbounds nuw %struct.redisContext, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8, !tbaa !24
+  %21 = and i32 %20, 2
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %17
+  store i32 1, ptr %4, align 4
+  br label %32
+
+24:                                               ; preds = %17
+  br label %25
+
+25:                                               ; preds = %24, %1
+  %26 = load ptr, ptr %3, align 8, !tbaa !17
+  %27 = getelementptr inbounds nuw %struct.redisContext, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !112
+  %29 = getelementptr inbounds nuw %struct.redisContextFuncs, ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %29, align 8, !tbaa !116
+  %31 = load ptr, ptr %2, align 8, !tbaa !19
+  call void %30(ptr noundef %31)
+  store i32 0, ptr %4, align 4
+  br label %32
+
+32:                                               ; preds = %25, %23, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %33 = load i32, ptr %4, align 4
+  switch i32 %33, label %35 [
+    i32 0, label %34
+    i32 1, label %34
+  ]
+
+34:                                               ; preds = %32, %32
+  ret void
+
+35:                                               ; preds = %32
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define void @redisAsyncHandleTimeout(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %struct.redisCallback, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %6 = load ptr, ptr %2, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %6, i32 0, i32 0
+  store ptr %7, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #10
+  %8 = load ptr, ptr %3, align 8, !tbaa !17
+  %9 = getelementptr inbounds nuw %struct.redisContext, ptr %8, i32 0, i32 4
+  %10 = load i32, ptr %9, align 8, !tbaa !24
+  %11 = and i32 %10, 2
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %51
+
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %14, i32 0, i32 9
+  %16 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !52
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %27
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %2, align 8, !tbaa !19
+  %21 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %20, i32 0, i32 12
+  %22 = getelementptr inbounds nuw %struct.anon.3, ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.redisCallbackList, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !54
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %19
+  store i32 1, ptr %5, align 4
+  br label %77
+
+27:                                               ; preds = %19, %13
+  %28 = load ptr, ptr %2, align 8, !tbaa !19
+  %29 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.redisContext, ptr %29, i32 0, i32 9
+  %31 = load ptr, ptr %30, align 8, !tbaa !107
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %49
+
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %2, align 8, !tbaa !19
+  %35 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.redisContext, ptr %35, i32 0, i32 9
+  %37 = load ptr, ptr %36, align 8, !tbaa !107
+  %38 = getelementptr inbounds nuw %struct.timeval, ptr %37, i32 0, i32 0
+  %39 = load i64, ptr %38, align 8, !tbaa !108
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %50, label %41
+
+41:                                               ; preds = %33
+  %42 = load ptr, ptr %2, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.redisContext, ptr %43, i32 0, i32 9
+  %45 = load ptr, ptr %44, align 8, !tbaa !107
+  %46 = getelementptr inbounds nuw %struct.timeval, ptr %45, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8, !tbaa !110
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %50, label %49
+
+49:                                               ; preds = %41, %27
+  store i32 1, ptr %5, align 4
+  br label %77
+
+50:                                               ; preds = %41, %33
+  br label %51
+
+51:                                               ; preds = %50, %1
+  %52 = load ptr, ptr %3, align 8, !tbaa !17
+  %53 = getelementptr inbounds nuw %struct.redisContext, ptr %52, i32 0, i32 1
+  %54 = load i32, ptr %53, align 8, !tbaa !60
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %59, label %56
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %3, align 8, !tbaa !17
+  call void @__redisSetError(ptr noundef %57, i32 noundef 6, ptr noundef @.str.1)
+  %58 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncCopyError(ptr noundef %58)
+  br label %59
+
+59:                                               ; preds = %56, %51
+  %60 = load ptr, ptr %3, align 8, !tbaa !17
+  %61 = getelementptr inbounds nuw %struct.redisContext, ptr %60, i32 0, i32 4
+  %62 = load i32, ptr %61, align 8, !tbaa !24
+  %63 = and i32 %62, 2
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %67, label %65
+
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisRunConnectCallback(ptr noundef %66, i32 noundef -1)
+  br label %67
+
+67:                                               ; preds = %65, %59
+  br label %68
+
+68:                                               ; preds = %73, %67
+  %69 = load ptr, ptr %2, align 8, !tbaa !19
+  %70 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %69, i32 0, i32 9
+  %71 = call i32 @__redisShiftCallback(ptr noundef %70, ptr noundef %4)
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %68
+  %74 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisRunCallback(ptr noundef %74, ptr noundef %4, ptr noundef null)
+  br label %68
+
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncDisconnect(ptr noundef %76)
+  store i32 0, ptr %5, align 4
+  br label %77
+
+77:                                               ; preds = %75, %49, %26
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %78 = load i32, ptr %5, align 4
+  switch i32 %78, label %80 [
+    i32 0, label %79
+    i32 1, label %79
+  ]
+
+79:                                               ; preds = %77, %77
+  ret void
+
+80:                                               ; preds = %77
+  unreachable
+}
+
+declare void @__redisSetError(ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @__redisRunConnectCallback(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %5, i32 0, i32 7
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %15
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %10, i32 0, i32 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !50
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %9
+  br label %68
+
+15:                                               ; preds = %9, %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !19
+  %17 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.redisContext, ptr %17, i32 0, i32 4
+  %19 = load i32, ptr %18, align 8, !tbaa !99
+  %20 = and i32 %19, 16
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %50, label %22
+
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %3, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.redisContext, ptr %24, i32 0, i32 4
+  %26 = load i32, ptr %25, align 8, !tbaa !99
+  %27 = or i32 %26, 16
+  store i32 %27, ptr %25, align 8, !tbaa !99
+  %28 = load ptr, ptr %3, align 8, !tbaa !19
+  %29 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %28, i32 0, i32 7
+  %30 = load ptr, ptr %29, align 8, !tbaa !49
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %3, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %33, i32 0, i32 7
+  %35 = load ptr, ptr %34, align 8, !tbaa !49
+  %36 = load ptr, ptr %3, align 8, !tbaa !19
+  %37 = load i32, ptr %4, align 4, !tbaa !9
+  call void %35(ptr noundef %36, i32 noundef %37)
+  br label %44
+
+38:                                               ; preds = %22
+  %39 = load ptr, ptr %3, align 8, !tbaa !19
+  %40 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %39, i32 0, i32 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !50
+  %42 = load ptr, ptr %3, align 8, !tbaa !19
+  %43 = load i32, ptr %4, align 4, !tbaa !9
+  call void %41(ptr noundef %42, i32 noundef %43)
+  br label %44
+
+44:                                               ; preds = %38, %32
+  %45 = load ptr, ptr %3, align 8, !tbaa !19
+  %46 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %45, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct.redisContext, ptr %46, i32 0, i32 4
+  %48 = load i32, ptr %47, align 8, !tbaa !99
+  %49 = and i32 %48, -17
+  store i32 %49, ptr %47, align 8, !tbaa !99
+  br label %68
+
+50:                                               ; preds = %15
+  %51 = load ptr, ptr %3, align 8, !tbaa !19
+  %52 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %51, i32 0, i32 7
+  %53 = load ptr, ptr %52, align 8, !tbaa !49
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %61
+
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %3, align 8, !tbaa !19
+  %57 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %56, i32 0, i32 7
+  %58 = load ptr, ptr %57, align 8, !tbaa !49
+  %59 = load ptr, ptr %3, align 8, !tbaa !19
+  %60 = load i32, ptr %4, align 4, !tbaa !9
+  call void %58(ptr noundef %59, i32 noundef %60)
+  br label %67
+
+61:                                               ; preds = %50
+  %62 = load ptr, ptr %3, align 8, !tbaa !19
+  %63 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %62, i32 0, i32 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !50
+  %65 = load ptr, ptr %3, align 8, !tbaa !19
+  %66 = load i32, ptr %4, align 4, !tbaa !9
+  call void %64(ptr noundef %65, i32 noundef %66)
+  br label %67
+
+67:                                               ; preds = %61, %55
+  br label %68
+
+68:                                               ; preds = %14, %67, %44
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @redisvAsyncCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !19
+  store ptr %1, ptr %8, align 8, !tbaa !4
+  store ptr %2, ptr %9, align 8, !tbaa !4
+  store ptr %3, ptr %10, align 8, !tbaa !61
+  store ptr %4, ptr %11, align 8, !tbaa !117
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %16 = load ptr, ptr %10, align 8, !tbaa !61
+  %17 = load ptr, ptr %11, align 8, !tbaa !117
+  %18 = call i32 @redisvFormatCommand(ptr noundef %12, ptr noundef %16, ptr noundef %17)
+  store i32 %18, ptr %13, align 4, !tbaa !9
+  %19 = load i32, ptr %13, align 4, !tbaa !9
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %5
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %32
+
+22:                                               ; preds = %5
+  %23 = load ptr, ptr %7, align 8, !tbaa !19
+  %24 = load ptr, ptr %8, align 8, !tbaa !4
+  %25 = load ptr, ptr %9, align 8, !tbaa !4
+  %26 = load ptr, ptr %12, align 8, !tbaa !61
+  %27 = load i32, ptr %13, align 4, !tbaa !9
+  %28 = sext i32 %27 to i64
+  %29 = call i32 @__redisAsyncCommand(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, i64 noundef %28)
+  store i32 %29, ptr %14, align 4, !tbaa !9
+  %30 = load ptr, ptr %12, align 8, !tbaa !61
+  call void @hi_free(ptr noundef %30)
+  %31 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %31, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %32
+
+32:                                               ; preds = %22, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  %33 = load i32, ptr %6, align 4
+  ret i32 %33
+}
+
+declare i32 @redisvFormatCommand(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal i32 @__redisAsyncCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct.redisCallback, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %struct.dictIterator, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca i64, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !19
+  store ptr %1, ptr %8, align 8, !tbaa !4
+  store ptr %2, ptr %9, align 8, !tbaa !4
+  store ptr %3, ptr %10, align 8, !tbaa !61
+  store i64 %4, ptr %11, align 8, !tbaa !91
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %31 = load ptr, ptr %7, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %31, i32 0, i32 0
+  store ptr %32, ptr %12, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #10
+  %33 = load ptr, ptr %12, align 8, !tbaa !17
+  %34 = getelementptr inbounds nuw %struct.redisContext, ptr %33, i32 0, i32 4
+  %35 = load i32, ptr %34, align 8, !tbaa !24
+  %36 = and i32 %35, 12
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %5
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %27, align 4
+  br label %302
+
+39:                                               ; preds = %5
+  %40 = load ptr, ptr %8, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.redisCallback, ptr %13, i32 0, i32 1
+  store ptr %40, ptr %41, align 8, !tbaa !88
+  %42 = load ptr, ptr %9, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.redisCallback, ptr %13, i32 0, i32 4
+  store ptr %42, ptr %43, align 8, !tbaa !106
+  %44 = getelementptr inbounds nuw %struct.redisCallback, ptr %13, i32 0, i32 2
+  store i32 1, ptr %44, align 8, !tbaa !100
+  %45 = getelementptr inbounds nuw %struct.redisCallback, ptr %13, i32 0, i32 3
+  store i32 0, ptr %45, align 4, !tbaa !119
+  %46 = load ptr, ptr %10, align 8, !tbaa !61
+  %47 = call ptr @nextArgument(ptr noundef %46, ptr noundef %20, ptr noundef %22)
+  store ptr %47, ptr %24, align 8, !tbaa !61
+  %48 = load ptr, ptr %24, align 8, !tbaa !61
+  %49 = getelementptr inbounds i8, ptr %48, i64 0
+  %50 = load i8, ptr %49, align 1, !tbaa !13
+  %51 = sext i8 %50 to i32
+  %52 = icmp eq i32 %51, 36
+  %53 = zext i1 %52 to i32
+  store i32 %53, ptr %19, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #10
+  %54 = call ptr @__ctype_tolower_loc() #11
+  %55 = load ptr, ptr %54, align 8, !tbaa !97
+  %56 = load ptr, ptr %20, align 8, !tbaa !61
+  %57 = getelementptr inbounds i8, ptr %56, i64 0
+  %58 = load i8, ptr %57, align 1, !tbaa !13
+  %59 = sext i8 %58 to i32
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i32, ptr %55, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !9
+  store i32 %62, ptr %28, align 4, !tbaa !9
+  %63 = load i32, ptr %28, align 4, !tbaa !9
+  store i32 %63, ptr %29, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #10
+  %64 = load i32, ptr %29, align 4, !tbaa !9
+  %65 = icmp eq i32 %64, 112
+  %66 = select i1 %65, i32 1, i32 0
+  store i32 %66, ptr %18, align 4, !tbaa !9
+  %67 = load i32, ptr %18, align 4, !tbaa !9
+  %68 = load ptr, ptr %20, align 8, !tbaa !61
+  %69 = sext i32 %67 to i64
+  %70 = getelementptr inbounds i8, ptr %68, i64 %69
+  store ptr %70, ptr %20, align 8, !tbaa !61
+  %71 = load i32, ptr %18, align 4, !tbaa !9
+  %72 = sext i32 %71 to i64
+  %73 = load i64, ptr %22, align 8, !tbaa !91
+  %74 = sub i64 %73, %72
+  store i64 %74, ptr %22, align 8, !tbaa !91
+  %75 = load i32, ptr %19, align 4, !tbaa !9
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %135
+
+77:                                               ; preds = %39
+  %78 = load ptr, ptr %20, align 8, !tbaa !61
+  %79 = call i32 @strncasecmp(ptr noundef %78, ptr noundef @.str.6, i64 noundef 11) #12
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %135
+
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %12, align 8, !tbaa !17
+  %83 = getelementptr inbounds nuw %struct.redisContext, ptr %82, i32 0, i32 4
+  %84 = load i32, ptr %83, align 8, !tbaa !24
+  %85 = or i32 %84, 32
+  store i32 %85, ptr %83, align 8, !tbaa !24
+  br label %86
+
+86:                                               ; preds = %133, %81
+  %87 = load ptr, ptr %24, align 8, !tbaa !61
+  %88 = call ptr @nextArgument(ptr noundef %87, ptr noundef %21, ptr noundef %23)
+  store ptr %88, ptr %24, align 8, !tbaa !61
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %134
+
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %21, align 8, !tbaa !61
+  %92 = load i64, ptr %23, align 8, !tbaa !91
+  %93 = call ptr @hi_sdsnewlen(ptr noundef %91, i64 noundef %92)
+  store ptr %93, ptr %25, align 8, !tbaa !61
+  %94 = load ptr, ptr %25, align 8, !tbaa !61
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %97
+
+96:                                               ; preds = %90
+  br label %298
+
+97:                                               ; preds = %90
+  %98 = load i32, ptr %18, align 4, !tbaa !9
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %105
+
+100:                                              ; preds = %97
+  %101 = load ptr, ptr %7, align 8, !tbaa !19
+  %102 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %101, i32 0, i32 12
+  %103 = getelementptr inbounds nuw %struct.anon.3, ptr %102, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8, !tbaa !57
+  store ptr %104, ptr %14, align 8, !tbaa !22
+  br label %110
+
+105:                                              ; preds = %97
+  %106 = load ptr, ptr %7, align 8, !tbaa !19
+  %107 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %106, i32 0, i32 12
+  %108 = getelementptr inbounds nuw %struct.anon.3, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8, !tbaa !56
+  store ptr %109, ptr %14, align 8, !tbaa !22
+  br label %110
+
+110:                                              ; preds = %105, %100
+  %111 = load ptr, ptr %14, align 8, !tbaa !22
+  %112 = load ptr, ptr %25, align 8, !tbaa !61
+  %113 = call ptr @dictFind(ptr noundef %111, ptr noundef %112)
+  store ptr %113, ptr %16, align 8, !tbaa !63
+  %114 = load ptr, ptr %16, align 8, !tbaa !63
+  %115 = icmp ne ptr %114, null
+  br i1 %115, label %116, label %125
+
+116:                                              ; preds = %110
+  %117 = load ptr, ptr %16, align 8, !tbaa !63
+  %118 = getelementptr inbounds nuw %struct.dictEntry, ptr %117, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8, !tbaa !65
+  store ptr %119, ptr %17, align 8, !tbaa !69
+  %120 = load ptr, ptr %17, align 8, !tbaa !69
+  %121 = getelementptr inbounds nuw %struct.redisCallback, ptr %120, i32 0, i32 2
+  %122 = load i32, ptr %121, align 8, !tbaa !100
+  %123 = add nsw i32 %122, 1
+  %124 = getelementptr inbounds nuw %struct.redisCallback, ptr %13, i32 0, i32 2
+  store i32 %123, ptr %124, align 8, !tbaa !100
+  br label %125
+
+125:                                              ; preds = %116, %110
+  %126 = load ptr, ptr %14, align 8, !tbaa !22
+  %127 = load ptr, ptr %25, align 8, !tbaa !61
+  %128 = call i32 @dictReplace(ptr noundef %126, ptr noundef %127, ptr noundef %13)
+  store i32 %128, ptr %26, align 4, !tbaa !9
+  %129 = load i32, ptr %26, align 4, !tbaa !9
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %133
+
+131:                                              ; preds = %125
+  %132 = load ptr, ptr %25, align 8, !tbaa !61
+  call void @hi_sdsfree(ptr noundef %132)
+  br label %133
+
+133:                                              ; preds = %131, %125
+  br label %86
+
+134:                                              ; preds = %86
+  br label %274
+
+135:                                              ; preds = %77, %39
+  %136 = load ptr, ptr %20, align 8, !tbaa !61
+  %137 = call i32 @strncasecmp(ptr noundef %136, ptr noundef @.str.7, i64 noundef 13) #12
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %235
+
+139:                                              ; preds = %135
+  %140 = load ptr, ptr %12, align 8, !tbaa !17
+  %141 = getelementptr inbounds nuw %struct.redisContext, ptr %140, i32 0, i32 4
+  %142 = load i32, ptr %141, align 8, !tbaa !24
+  %143 = and i32 %142, 32
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %146, label %145
+
+145:                                              ; preds = %139
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %27, align 4
+  br label %302
+
+146:                                              ; preds = %139
+  %147 = load i32, ptr %18, align 4, !tbaa !9
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %149, label %154
+
+149:                                              ; preds = %146
+  %150 = load ptr, ptr %7, align 8, !tbaa !19
+  %151 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %150, i32 0, i32 12
+  %152 = getelementptr inbounds nuw %struct.anon.3, ptr %151, i32 0, i32 2
+  %153 = load ptr, ptr %152, align 8, !tbaa !57
+  store ptr %153, ptr %14, align 8, !tbaa !22
+  br label %159
+
+154:                                              ; preds = %146
+  %155 = load ptr, ptr %7, align 8, !tbaa !19
+  %156 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %155, i32 0, i32 12
+  %157 = getelementptr inbounds nuw %struct.anon.3, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8, !tbaa !56
+  store ptr %158, ptr %14, align 8, !tbaa !22
+  br label %159
+
+159:                                              ; preds = %154, %149
+  %160 = load i32, ptr %19, align 4, !tbaa !9
+  %161 = icmp ne i32 %160, 0
+  br i1 %161, label %162, label %207
+
+162:                                              ; preds = %159
+  br label %163
+
+163:                                              ; preds = %204, %162
+  %164 = load ptr, ptr %24, align 8, !tbaa !61
+  %165 = call ptr @nextArgument(ptr noundef %164, ptr noundef %21, ptr noundef %23)
+  store ptr %165, ptr %24, align 8, !tbaa !61
+  %166 = icmp ne ptr %165, null
+  br i1 %166, label %167, label %206
+
+167:                                              ; preds = %163
+  %168 = load ptr, ptr %21, align 8, !tbaa !61
+  %169 = load i64, ptr %23, align 8, !tbaa !91
+  %170 = call ptr @hi_sdsnewlen(ptr noundef %168, i64 noundef %169)
+  store ptr %170, ptr %25, align 8, !tbaa !61
+  %171 = load ptr, ptr %25, align 8, !tbaa !61
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %173, label %174
+
+173:                                              ; preds = %167
+  br label %298
+
+174:                                              ; preds = %167
+  %175 = load ptr, ptr %14, align 8, !tbaa !22
+  %176 = load ptr, ptr %25, align 8, !tbaa !61
+  %177 = call ptr @dictFind(ptr noundef %175, ptr noundef %176)
+  store ptr %177, ptr %16, align 8, !tbaa !63
+  %178 = load ptr, ptr %16, align 8, !tbaa !63
+  %179 = icmp ne ptr %178, null
+  br i1 %179, label %180, label %198
+
+180:                                              ; preds = %174
+  %181 = load ptr, ptr %16, align 8, !tbaa !63
+  %182 = getelementptr inbounds nuw %struct.dictEntry, ptr %181, i32 0, i32 1
+  %183 = load ptr, ptr %182, align 8, !tbaa !65
+  store ptr %183, ptr %17, align 8, !tbaa !69
+  %184 = load ptr, ptr %17, align 8, !tbaa !69
+  %185 = getelementptr inbounds nuw %struct.redisCallback, ptr %184, i32 0, i32 3
+  %186 = load i32, ptr %185, align 4, !tbaa !119
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %188, label %191
+
+188:                                              ; preds = %180
+  %189 = load ptr, ptr %17, align 8, !tbaa !69
+  %190 = getelementptr inbounds nuw %struct.redisCallback, ptr %189, i32 0, i32 3
+  store i32 1, ptr %190, align 4, !tbaa !119
+  br label %197
+
+191:                                              ; preds = %180
+  %192 = load ptr, ptr %7, align 8, !tbaa !19
+  %193 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %192, i32 0, i32 12
+  %194 = getelementptr inbounds nuw %struct.anon.3, ptr %193, i32 0, i32 3
+  %195 = load i32, ptr %194, align 8, !tbaa !58
+  %196 = add nsw i32 %195, 1
+  store i32 %196, ptr %194, align 8, !tbaa !58
+  br label %197
+
+197:                                              ; preds = %191, %188
+  br label %204
+
+198:                                              ; preds = %174
+  %199 = load ptr, ptr %7, align 8, !tbaa !19
+  %200 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %199, i32 0, i32 12
+  %201 = getelementptr inbounds nuw %struct.anon.3, ptr %200, i32 0, i32 3
+  %202 = load i32, ptr %201, align 8, !tbaa !58
+  %203 = add nsw i32 %202, 1
+  store i32 %203, ptr %201, align 8, !tbaa !58
+  br label %204
+
+204:                                              ; preds = %198, %197
+  %205 = load ptr, ptr %25, align 8, !tbaa !61
+  call void @hi_sdsfree(ptr noundef %205)
+  br label %163
+
+206:                                              ; preds = %163
+  br label %234
+
+207:                                              ; preds = %159
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #10
+  store i32 1, ptr %30, align 4, !tbaa !9
+  %208 = load ptr, ptr %14, align 8, !tbaa !22
+  call void @dictInitIterator(ptr noundef %15, ptr noundef %208)
+  br label %209
+
+209:                                              ; preds = %223, %207
+  %210 = call ptr @dictNext(ptr noundef %15)
+  store ptr %210, ptr %16, align 8, !tbaa !63
+  %211 = icmp ne ptr %210, null
+  br i1 %211, label %212, label %224
+
+212:                                              ; preds = %209
+  %213 = load ptr, ptr %16, align 8, !tbaa !63
+  %214 = getelementptr inbounds nuw %struct.dictEntry, ptr %213, i32 0, i32 1
+  %215 = load ptr, ptr %214, align 8, !tbaa !65
+  store ptr %215, ptr %17, align 8, !tbaa !69
+  %216 = load ptr, ptr %17, align 8, !tbaa !69
+  %217 = getelementptr inbounds nuw %struct.redisCallback, ptr %216, i32 0, i32 3
+  %218 = load i32, ptr %217, align 4, !tbaa !119
+  %219 = icmp eq i32 %218, 0
+  br i1 %219, label %220, label %223
+
+220:                                              ; preds = %212
+  %221 = load ptr, ptr %17, align 8, !tbaa !69
+  %222 = getelementptr inbounds nuw %struct.redisCallback, ptr %221, i32 0, i32 3
+  store i32 1, ptr %222, align 4, !tbaa !119
+  store i32 0, ptr %30, align 4, !tbaa !9
+  br label %223
+
+223:                                              ; preds = %220, %212
+  br label %209
+
+224:                                              ; preds = %209
+  %225 = load i32, ptr %30, align 4, !tbaa !9
+  %226 = icmp eq i32 %225, 1
+  br i1 %226, label %227, label %233
+
+227:                                              ; preds = %224
+  %228 = load ptr, ptr %7, align 8, !tbaa !19
+  %229 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %228, i32 0, i32 12
+  %230 = getelementptr inbounds nuw %struct.anon.3, ptr %229, i32 0, i32 3
+  %231 = load i32, ptr %230, align 8, !tbaa !58
+  %232 = add nsw i32 %231, 1
+  store i32 %232, ptr %230, align 8, !tbaa !58
+  br label %233
+
+233:                                              ; preds = %227, %224
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #10
+  br label %234
+
+234:                                              ; preds = %233, %206
+  br label %273
+
+235:                                              ; preds = %135
+  %236 = load ptr, ptr %20, align 8, !tbaa !61
+  %237 = call i32 @strncasecmp(ptr noundef %236, ptr noundef @.str.8, i64 noundef 9) #12
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %239, label %250
+
+239:                                              ; preds = %235
+  %240 = load ptr, ptr %12, align 8, !tbaa !17
+  %241 = getelementptr inbounds nuw %struct.redisContext, ptr %240, i32 0, i32 4
+  %242 = load i32, ptr %241, align 8, !tbaa !24
+  %243 = or i32 %242, 64
+  store i32 %243, ptr %241, align 8, !tbaa !24
+  %244 = load ptr, ptr %7, align 8, !tbaa !19
+  %245 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %244, i32 0, i32 9
+  %246 = call i32 @__redisPushCallback(ptr noundef %245, ptr noundef %13)
+  %247 = icmp ne i32 %246, 0
+  br i1 %247, label %248, label %249
+
+248:                                              ; preds = %239
+  br label %298
+
+249:                                              ; preds = %239
+  br label %272
+
+250:                                              ; preds = %235
+  %251 = load ptr, ptr %12, align 8, !tbaa !17
+  %252 = getelementptr inbounds nuw %struct.redisContext, ptr %251, i32 0, i32 4
+  %253 = load i32, ptr %252, align 8, !tbaa !24
+  %254 = and i32 %253, 32
+  %255 = icmp ne i32 %254, 0
+  br i1 %255, label %256, label %264
+
+256:                                              ; preds = %250
+  %257 = load ptr, ptr %7, align 8, !tbaa !19
+  %258 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %257, i32 0, i32 12
+  %259 = getelementptr inbounds nuw %struct.anon.3, ptr %258, i32 0, i32 0
+  %260 = call i32 @__redisPushCallback(ptr noundef %259, ptr noundef %13)
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %262, label %263
+
+262:                                              ; preds = %256
+  br label %298
+
+263:                                              ; preds = %256
+  br label %271
+
+264:                                              ; preds = %250
+  %265 = load ptr, ptr %7, align 8, !tbaa !19
+  %266 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %265, i32 0, i32 9
+  %267 = call i32 @__redisPushCallback(ptr noundef %266, ptr noundef %13)
+  %268 = icmp ne i32 %267, 0
+  br i1 %268, label %269, label %270
+
+269:                                              ; preds = %264
+  br label %298
+
+270:                                              ; preds = %264
+  br label %271
+
+271:                                              ; preds = %270, %263
+  br label %272
+
+272:                                              ; preds = %271, %249
+  br label %273
+
+273:                                              ; preds = %272, %234
+  br label %274
+
+274:                                              ; preds = %273, %134
+  %275 = load ptr, ptr %12, align 8, !tbaa !17
+  %276 = load ptr, ptr %10, align 8, !tbaa !61
+  %277 = load i64, ptr %11, align 8, !tbaa !91
+  %278 = call i32 @__redisAppendCommand(ptr noundef %275, ptr noundef %276, i64 noundef %277)
+  br label %279
+
+279:                                              ; preds = %274
+  %280 = load ptr, ptr %7, align 8, !tbaa !19
+  call void @refreshTimeout(ptr noundef %280)
+  %281 = load ptr, ptr %7, align 8, !tbaa !19
+  %282 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %281, i32 0, i32 5
+  %283 = getelementptr inbounds nuw %struct.anon.2, ptr %282, i32 0, i32 3
+  %284 = load ptr, ptr %283, align 8, !tbaa !45
+  %285 = icmp ne ptr %284, null
+  br i1 %285, label %286, label %295
+
+286:                                              ; preds = %279
+  %287 = load ptr, ptr %7, align 8, !tbaa !19
+  %288 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %287, i32 0, i32 5
+  %289 = getelementptr inbounds nuw %struct.anon.2, ptr %288, i32 0, i32 3
+  %290 = load ptr, ptr %289, align 8, !tbaa !45
+  %291 = load ptr, ptr %7, align 8, !tbaa !19
+  %292 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %291, i32 0, i32 5
+  %293 = getelementptr inbounds nuw %struct.anon.2, ptr %292, i32 0, i32 0
+  %294 = load ptr, ptr %293, align 8, !tbaa !42
+  call void %290(ptr noundef %294)
+  br label %295
+
+295:                                              ; preds = %286, %279
+  br label %296
+
+296:                                              ; preds = %295
+  br label %297
+
+297:                                              ; preds = %296
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %27, align 4
+  br label %302
+
+298:                                              ; preds = %269, %262, %248, %173, %96
+  %299 = load ptr, ptr %7, align 8, !tbaa !19
+  %300 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %299, i32 0, i32 0
+  call void @__redisSetError(ptr noundef %300, i32 noundef 5, ptr noundef @.str.2)
+  %301 = load ptr, ptr %7, align 8, !tbaa !19
+  call void @__redisAsyncCopyError(ptr noundef %301)
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %27, align 4
+  br label %302
+
+302:                                              ; preds = %298, %297, %145, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 32, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  %303 = load i32, ptr %6, align 4
+  ret i32 %303
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @hi_free(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr getelementptr inbounds nuw (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 4), align 8, !tbaa !120
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  call void %3(ptr noundef %4)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @redisAsyncCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ...) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca [1 x %struct.__va_list_tag], align 16
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !19
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  store ptr %3, ptr %8, align 8, !tbaa !61
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %11)
+  %12 = load ptr, ptr %5, align 8, !tbaa !19
+  %13 = load ptr, ptr %6, align 8, !tbaa !4
+  %14 = load ptr, ptr %7, align 8, !tbaa !4
+  %15 = load ptr, ptr %8, align 8, !tbaa !61
+  %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
+  %17 = call i32 @redisvAsyncCommand(ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  store i32 %17, ptr %10, align 4, !tbaa !9
+  %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %9, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %18)
+  %19 = load i32, ptr %10, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #10
+  ret i32 %19
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #7
+
+; Function Attrs: nounwind uwtable
+define i32 @redisAsyncCommandArgv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !19
+  store ptr %1, ptr %9, align 8, !tbaa !4
+  store ptr %2, ptr %10, align 8, !tbaa !4
+  store i32 %3, ptr %11, align 4, !tbaa !9
+  store ptr %4, ptr %12, align 8, !tbaa !122
+  store ptr %5, ptr %13, align 8, !tbaa !124
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  %18 = load i32, ptr %11, align 4, !tbaa !9
+  %19 = load ptr, ptr %12, align 8, !tbaa !122
+  %20 = load ptr, ptr %13, align 8, !tbaa !124
+  %21 = call i64 @redisFormatSdsCommandArgv(ptr noundef %14, i32 noundef %18, ptr noundef %19, ptr noundef %20)
+  store i64 %21, ptr %15, align 8, !tbaa !126
+  %22 = load i64, ptr %15, align 8, !tbaa !126
+  %23 = icmp slt i64 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %6
+  store i32 -1, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %34
+
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %8, align 8, !tbaa !19
+  %27 = load ptr, ptr %9, align 8, !tbaa !4
+  %28 = load ptr, ptr %10, align 8, !tbaa !4
+  %29 = load ptr, ptr %14, align 8, !tbaa !61
+  %30 = load i64, ptr %15, align 8, !tbaa !126
+  %31 = call i32 @__redisAsyncCommand(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i64 noundef %30)
+  store i32 %31, ptr %16, align 4, !tbaa !9
+  %32 = load ptr, ptr %14, align 8, !tbaa !61
+  call void @hi_sdsfree(ptr noundef %32)
+  %33 = load i32, ptr %16, align 4, !tbaa !9
+  store i32 %33, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %34
+
+34:                                               ; preds = %25, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  %35 = load i32, ptr %7, align 4
+  ret i32 %35
+}
+
+declare i64 @redisFormatSdsCommandArgv(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
+
+declare void @hi_sdsfree(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define i32 @redisAsyncFormattedCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !19
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !4
+  store ptr %3, ptr %9, align 8, !tbaa !61
+  store i64 %4, ptr %10, align 8, !tbaa !91
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %12 = load ptr, ptr %6, align 8, !tbaa !19
+  %13 = load ptr, ptr %7, align 8, !tbaa !4
+  %14 = load ptr, ptr %8, align 8, !tbaa !4
+  %15 = load ptr, ptr %9, align 8, !tbaa !61
+  %16 = load i64, ptr %10, align 8, !tbaa !91
+  %17 = call i32 @__redisAsyncCommand(ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16)
+  store i32 %17, ptr %11, align 4, !tbaa !9
+  %18 = load i32, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  ret i32 %18
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @redisAsyncSetTimeout(ptr noundef %0, i64 %1, i64 %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.timeval, align 8
+  %6 = alloca ptr, align 8
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  store i64 %1, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  store i64 %2, ptr %8, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !19
+  %9 = load ptr, ptr %6, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.redisContext, ptr %10, i32 0, i32 9
+  %12 = load ptr, ptr %11, align 8, !tbaa !107
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %29, label %14
+
+14:                                               ; preds = %3
+  %15 = call ptr @hi_calloc(i64 noundef 1, i64 noundef 16)
+  %16 = load ptr, ptr %6, align 8, !tbaa !19
+  %17 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.redisContext, ptr %17, i32 0, i32 9
+  store ptr %15, ptr %18, align 8, !tbaa !107
+  %19 = load ptr, ptr %6, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %19, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.redisContext, ptr %20, i32 0, i32 9
+  %22 = load ptr, ptr %21, align 8, !tbaa !107
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %28
+
+24:                                               ; preds = %14
+  %25 = load ptr, ptr %6, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %25, i32 0, i32 0
+  call void @__redisSetError(ptr noundef %26, i32 noundef 5, ptr noundef @.str.2)
+  %27 = load ptr, ptr %6, align 8, !tbaa !19
+  call void @__redisAsyncCopyError(ptr noundef %27)
+  store i32 -1, ptr %4, align 4
+  br label %55
+
+28:                                               ; preds = %14
+  br label %29
+
+29:                                               ; preds = %28, %3
+  %30 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 0
+  %31 = load i64, ptr %30, align 8, !tbaa !108
+  %32 = load ptr, ptr %6, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %struct.redisContext, ptr %33, i32 0, i32 9
+  %35 = load ptr, ptr %34, align 8, !tbaa !107
+  %36 = getelementptr inbounds nuw %struct.timeval, ptr %35, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8, !tbaa !108
+  %38 = icmp ne i64 %31, %37
+  br i1 %38, label %49, label %39
+
+39:                                               ; preds = %29
+  %40 = getelementptr inbounds nuw %struct.timeval, ptr %5, i32 0, i32 1
+  %41 = load i64, ptr %40, align 8, !tbaa !110
+  %42 = load ptr, ptr %6, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.redisContext, ptr %43, i32 0, i32 9
+  %45 = load ptr, ptr %44, align 8, !tbaa !107
+  %46 = getelementptr inbounds nuw %struct.timeval, ptr %45, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8, !tbaa !110
+  %48 = icmp ne i64 %41, %47
+  br i1 %48, label %49, label %54
+
+49:                                               ; preds = %39, %29
+  %50 = load ptr, ptr %6, align 8, !tbaa !19
+  %51 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %struct.redisContext, ptr %51, i32 0, i32 9
+  %53 = load ptr, ptr %52, align 8, !tbaa !107
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !127
+  br label %54
+
+54:                                               ; preds = %49, %39
+  store i32 0, ptr %4, align 4
+  br label %55
+
+55:                                               ; preds = %54, %24
+  %56 = load i32, ptr %4, align 4
+  ret i32 %56
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @hi_calloc(i64 noundef %0, i64 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !91
+  store i64 %1, ptr %5, align 8, !tbaa !91
+  %6 = load i64, ptr %5, align 8, !tbaa !91
+  %7 = udiv i64 -1, %6
+  %8 = load i64, ptr %4, align 8, !tbaa !91
+  %9 = icmp ult i64 %7, %8
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %16
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr getelementptr inbounds nuw (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 1), align 8, !tbaa !128
+  %13 = load i64, ptr %4, align 8, !tbaa !91
+  %14 = load i64, ptr %5, align 8, !tbaa !91
+  %15 = call ptr %12(i64 noundef %13, i64 noundef %14)
+  store ptr %15, ptr %3, align 8
+  br label %16
+
+16:                                               ; preds = %11, %10
+  %17 = load ptr, ptr %3, align 8
+  ret ptr %17
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @dictCreate(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !129
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = call ptr @hi_malloc(i64 noundef 48)
+  store ptr %8, ptr %6, align 8, !tbaa !22
+  %9 = load ptr, ptr %6, align 8, !tbaa !22
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %18
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %6, align 8, !tbaa !22
+  %14 = load ptr, ptr %4, align 8, !tbaa !129
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = call i32 @_dictInit(ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  %17 = load ptr, ptr %6, align 8, !tbaa !22
+  store ptr %17, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %18
+
+18:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @hi_realloc(ptr noundef %0, i64 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i64 %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr getelementptr inbounds nuw (%struct.hiredisAllocFuncs, ptr @hiredisAllocFns, i32 0, i32 2), align 8, !tbaa !130
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = load i64, ptr %4, align 8, !tbaa !91
+  %8 = call ptr %5(ptr noundef %6, i64 noundef %7)
+  ret ptr %8
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @dictRelease(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %4 = call i32 @_dictClear(ptr noundef %3)
+  %5 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @hi_free(ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @hi_malloc(i64 noundef %0) #5 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr @hiredisAllocFns, align 8, !tbaa !131
+  %4 = load i64, ptr %2, align 8, !tbaa !91
+  %5 = call ptr %3(i64 noundef %4)
+  ret ptr %5
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_dictInit(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !129
+  store ptr %2, ptr %6, align 8, !tbaa !4
+  %7 = load ptr, ptr %4, align 8, !tbaa !22
+  call void @_dictReset(ptr noundef %7)
+  %8 = load ptr, ptr %5, align 8, !tbaa !129
+  %9 = load ptr, ptr %4, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw %struct.dict, ptr %9, i32 0, i32 1
+  store ptr %8, ptr %10, align 8, !tbaa !132
+  %11 = load ptr, ptr %6, align 8, !tbaa !4
+  %12 = load ptr, ptr %4, align 8, !tbaa !22
+  %13 = getelementptr inbounds nuw %struct.dict, ptr %12, i32 0, i32 5
+  store ptr %11, ptr %13, align 8, !tbaa !133
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dictInitIterator(ptr noundef %iter, ptr noundef %ht) #0 {
-entry:
-  %iter.addr = alloca ptr, align 8
-  %ht.addr = alloca ptr, align 8
-  store ptr %iter, ptr %iter.addr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %1 = load ptr, ptr %iter.addr, align 8
-  %ht1 = getelementptr inbounds %struct.dictIterator, ptr %1, i32 0, i32 0
-  store ptr %0, ptr %ht1, align 8
-  %2 = load ptr, ptr %iter.addr, align 8
-  %index = getelementptr inbounds %struct.dictIterator, ptr %2, i32 0, i32 1
-  store i32 -1, ptr %index, align 8
-  %3 = load ptr, ptr %iter.addr, align 8
-  %entry2 = getelementptr inbounds %struct.dictIterator, ptr %3, i32 0, i32 2
-  store ptr null, ptr %entry2, align 8
-  %4 = load ptr, ptr %iter.addr, align 8
-  %nextEntry = getelementptr inbounds %struct.dictIterator, ptr %4, i32 0, i32 3
-  store ptr null, ptr %nextEntry, align 8
+define internal void @_dictReset(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %4 = getelementptr inbounds nuw %struct.dict, ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !134
+  %5 = load ptr, ptr %2, align 8, !tbaa !22
+  %6 = getelementptr inbounds nuw %struct.dict, ptr %5, i32 0, i32 2
+  store i64 0, ptr %6, align 8, !tbaa !135
+  %7 = load ptr, ptr %2, align 8, !tbaa !22
+  %8 = getelementptr inbounds nuw %struct.dict, ptr %7, i32 0, i32 3
+  store i64 0, ptr %8, align 8, !tbaa !136
+  %9 = load ptr, ptr %2, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw %struct.dict, ptr %9, i32 0, i32 4
+  store i64 0, ptr %10, align 8, !tbaa !102
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dictNext(ptr noundef %iter) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %iter.addr = alloca ptr, align 8
-  store ptr %iter, ptr %iter.addr, align 8
-  br label %while.body
-
-while.body:                                       ; preds = %if.end16, %entry
-  %0 = load ptr, ptr %iter.addr, align 8
-  %entry1 = getelementptr inbounds %struct.dictIterator, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %entry1, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %while.body
-  %2 = load ptr, ptr %iter.addr, align 8
-  %index = getelementptr inbounds %struct.dictIterator, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %index, align 8
-  %inc = add nsw i32 %3, 1
-  store i32 %inc, ptr %index, align 8
-  %4 = load ptr, ptr %iter.addr, align 8
-  %index2 = getelementptr inbounds %struct.dictIterator, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %index2, align 8
-  %6 = load ptr, ptr %iter.addr, align 8
-  %ht = getelementptr inbounds %struct.dictIterator, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %ht, align 8
-  %size = getelementptr inbounds %struct.dict, ptr %7, i32 0, i32 2
-  %8 = load i64, ptr %size, align 8
-  %conv = trunc i64 %8 to i32
-  %cmp3 = icmp sge i32 %5, %conv
-  br i1 %cmp3, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %if.then
-  br label %while.end
-
-if.end:                                           ; preds = %if.then
-  %9 = load ptr, ptr %iter.addr, align 8
-  %ht6 = getelementptr inbounds %struct.dictIterator, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %ht6, align 8
-  %table = getelementptr inbounds %struct.dict, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %table, align 8
-  %12 = load ptr, ptr %iter.addr, align 8
-  %index7 = getelementptr inbounds %struct.dictIterator, ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %index7, align 8
-  %idxprom = sext i32 %13 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
-  %14 = load ptr, ptr %arrayidx, align 8
-  %15 = load ptr, ptr %iter.addr, align 8
-  %entry8 = getelementptr inbounds %struct.dictIterator, ptr %15, i32 0, i32 2
-  store ptr %14, ptr %entry8, align 8
-  br label %if.end10
-
-if.else:                                          ; preds = %while.body
-  %16 = load ptr, ptr %iter.addr, align 8
-  %nextEntry = getelementptr inbounds %struct.dictIterator, ptr %16, i32 0, i32 3
-  %17 = load ptr, ptr %nextEntry, align 8
-  %18 = load ptr, ptr %iter.addr, align 8
-  %entry9 = getelementptr inbounds %struct.dictIterator, ptr %18, i32 0, i32 2
-  store ptr %17, ptr %entry9, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.else, %if.end
-  %19 = load ptr, ptr %iter.addr, align 8
-  %entry11 = getelementptr inbounds %struct.dictIterator, ptr %19, i32 0, i32 2
-  %20 = load ptr, ptr %entry11, align 8
-  %tobool = icmp ne ptr %20, null
-  br i1 %tobool, label %if.then12, label %if.end16
-
-if.then12:                                        ; preds = %if.end10
-  %21 = load ptr, ptr %iter.addr, align 8
-  %entry13 = getelementptr inbounds %struct.dictIterator, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %entry13, align 8
-  %next = getelementptr inbounds %struct.dictEntry, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %next, align 8
-  %24 = load ptr, ptr %iter.addr, align 8
-  %nextEntry14 = getelementptr inbounds %struct.dictIterator, ptr %24, i32 0, i32 3
-  store ptr %23, ptr %nextEntry14, align 8
-  %25 = load ptr, ptr %iter.addr, align 8
-  %entry15 = getelementptr inbounds %struct.dictIterator, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %entry15, align 8
-  store ptr %26, ptr %retval, align 8
-  br label %return
-
-if.end16:                                         ; preds = %if.end10
-  br label %while.body
-
-while.end:                                        ; preds = %if.then5
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then12
-  %27 = load ptr, ptr %retval, align 8
-  ret ptr %27
+define internal i32 @callbackHash(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call i64 @hi_sdslen(ptr noundef %4)
+  %6 = trunc i64 %5 to i32
+  %7 = call i32 @dictGenHashFunction(ptr noundef %3, i32 noundef %6)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__redisRunDisconnectCallback(ptr noundef %ac, i32 noundef %status) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  %status.addr = alloca i32, align 4
-  store ptr %ac, ptr %ac.addr, align 8
-  store i32 %status, ptr %status.addr, align 4
-  %0 = load ptr, ptr %ac.addr, align 8
-  %onDisconnect = getelementptr inbounds %struct.redisAsyncContext, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %onDisconnect, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end10
+define internal ptr @callbackValDup(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %8 = call ptr @hi_malloc(i64 noundef 32)
+  store ptr %8, ptr %6, align 8, !tbaa !69
+  %9 = load ptr, ptr %6, align 8, !tbaa !69
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %ac.addr, align 8
-  %c = getelementptr inbounds %struct.redisAsyncContext, ptr %2, i32 0, i32 0
-  %flags = getelementptr inbounds %struct.redisContext, ptr %c, i32 0, i32 4
-  %3 = load i32, ptr %flags, align 8
-  %and = and i32 %3, 16
-  %tobool1 = icmp ne i32 %and, 0
-  br i1 %tobool1, label %if.else, label %if.then2
+11:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %16
 
-if.then2:                                         ; preds = %if.then
-  %4 = load ptr, ptr %ac.addr, align 8
-  %c3 = getelementptr inbounds %struct.redisAsyncContext, ptr %4, i32 0, i32 0
-  %flags4 = getelementptr inbounds %struct.redisContext, ptr %c3, i32 0, i32 4
-  %5 = load i32, ptr %flags4, align 8
-  %or = or i32 %5, 16
-  store i32 %or, ptr %flags4, align 8
-  %6 = load ptr, ptr %ac.addr, align 8
-  %onDisconnect5 = getelementptr inbounds %struct.redisAsyncContext, ptr %6, i32 0, i32 6
-  %7 = load ptr, ptr %onDisconnect5, align 8
-  %8 = load ptr, ptr %ac.addr, align 8
-  %9 = load i32, ptr %status.addr, align 4
-  call void %7(ptr noundef %8, i32 noundef %9)
-  %10 = load ptr, ptr %ac.addr, align 8
-  %c6 = getelementptr inbounds %struct.redisAsyncContext, ptr %10, i32 0, i32 0
-  %flags7 = getelementptr inbounds %struct.redisContext, ptr %c6, i32 0, i32 4
-  %11 = load i32, ptr %flags7, align 8
-  %and8 = and i32 %11, -17
-  store i32 %and8, ptr %flags7, align 8
-  br label %if.end
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %6, align 8, !tbaa !69
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 1 %14, i64 32, i1 false)
+  %15 = load ptr, ptr %6, align 8, !tbaa !69
+  store ptr %15, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %16
 
-if.else:                                          ; preds = %if.then
-  %12 = load ptr, ptr %ac.addr, align 8
-  %onDisconnect9 = getelementptr inbounds %struct.redisAsyncContext, ptr %12, i32 0, i32 6
-  %13 = load ptr, ptr %onDisconnect9, align 8
-  %14 = load ptr, ptr %ac.addr, align 8
-  %15 = load i32, ptr %status.addr, align 4
-  call void %13(ptr noundef %14, i32 noundef %15)
-  br label %if.end
+16:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %17 = load ptr, ptr %3, align 8
+  ret ptr %17
+}
 
-if.end:                                           ; preds = %if.else, %if.then2
-  br label %if.end10
+; Function Attrs: nounwind uwtable
+define internal i32 @callbackKeyCompare(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %11 = load ptr, ptr %6, align 8, !tbaa !4
+  %12 = call i64 @hi_sdslen(ptr noundef %11)
+  %13 = trunc i64 %12 to i32
+  store i32 %13, ptr %8, align 4, !tbaa !9
+  %14 = load ptr, ptr %7, align 8, !tbaa !4
+  %15 = call i64 @hi_sdslen(ptr noundef %14)
+  %16 = trunc i64 %15 to i32
+  store i32 %16, ptr %9, align 4, !tbaa !9
+  %17 = load i32, ptr %8, align 4, !tbaa !9
+  %18 = load i32, ptr %9, align 4, !tbaa !9
+  %19 = icmp ne i32 %17, %18
+  br i1 %19, label %20, label %21
 
-if.end10:                                         ; preds = %if.end, %entry
+20:                                               ; preds = %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %29
+
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %6, align 8, !tbaa !4
+  %23 = load ptr, ptr %7, align 8, !tbaa !4
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = sext i32 %24 to i64
+  %26 = call i32 @memcmp(ptr noundef %22, ptr noundef %23, i64 noundef %25) #12
+  %27 = icmp eq i32 %26, 0
+  %28 = zext i1 %27 to i32
+  store i32 %28, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %29
+
+29:                                               ; preds = %21, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %30 = load i32, ptr %4, align 4
+  ret i32 %30
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @callbackKeyDestructor(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @hi_sdsfree(ptr noundef %5)
   ret void
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) #6
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #6
-
-declare ptr @hi_sdsnewlen(ptr noundef, i64 noundef) #2
-
 ; Function Attrs: nounwind uwtable
-define internal ptr @dictFind(ptr noundef %ht, ptr noundef %key) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %ht.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %he = alloca ptr, align 8
-  %h = alloca i32, align 4
-  store ptr %ht, ptr %ht.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %size = getelementptr inbounds %struct.dict, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %size, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ht.addr, align 8
-  %type = getelementptr inbounds %struct.dict, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %type, align 8
-  %hashFunction = getelementptr inbounds %struct.dictType, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %hashFunction, align 8
-  %5 = load ptr, ptr %key.addr, align 8
-  %call = call i32 %4(ptr noundef %5)
-  %conv = zext i32 %call to i64
-  %6 = load ptr, ptr %ht.addr, align 8
-  %sizemask = getelementptr inbounds %struct.dict, ptr %6, i32 0, i32 3
-  %7 = load i64, ptr %sizemask, align 8
-  %and = and i64 %conv, %7
-  %conv1 = trunc i64 %and to i32
-  store i32 %conv1, ptr %h, align 4
-  %8 = load ptr, ptr %ht.addr, align 8
-  %table = getelementptr inbounds %struct.dict, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %table, align 8
-  %10 = load i32, ptr %h, align 4
-  %idxprom = zext i32 %10 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  store ptr %11, ptr %he, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end13, %if.end
-  %12 = load ptr, ptr %he, align 8
-  %tobool = icmp ne ptr %12, null
-  br i1 %tobool, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %13 = load ptr, ptr %ht.addr, align 8
-  %type2 = getelementptr inbounds %struct.dict, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %type2, align 8
-  %keyCompare = getelementptr inbounds %struct.dictType, ptr %14, i32 0, i32 3
-  %15 = load ptr, ptr %keyCompare, align 8
-  %tobool3 = icmp ne ptr %15, null
-  br i1 %tobool3, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %while.body
-  %16 = load ptr, ptr %ht.addr, align 8
-  %type4 = getelementptr inbounds %struct.dict, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %type4, align 8
-  %keyCompare5 = getelementptr inbounds %struct.dictType, ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %keyCompare5, align 8
-  %19 = load ptr, ptr %ht.addr, align 8
-  %privdata = getelementptr inbounds %struct.dict, ptr %19, i32 0, i32 5
-  %20 = load ptr, ptr %privdata, align 8
-  %21 = load ptr, ptr %key.addr, align 8
-  %22 = load ptr, ptr %he, align 8
-  %key6 = getelementptr inbounds %struct.dictEntry, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %key6, align 8
-  %call7 = call i32 %18(ptr noundef %20, ptr noundef %21, ptr noundef %23)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then12, label %if.end13
-
-cond.false:                                       ; preds = %while.body
-  %24 = load ptr, ptr %key.addr, align 8
-  %25 = load ptr, ptr %he, align 8
-  %key9 = getelementptr inbounds %struct.dictEntry, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %key9, align 8
-  %cmp10 = icmp eq ptr %24, %26
-  br i1 %cmp10, label %if.then12, label %if.end13
-
-if.then12:                                        ; preds = %cond.false, %cond.true
-  %27 = load ptr, ptr %he, align 8
-  store ptr %27, ptr %retval, align 8
-  br label %return
-
-if.end13:                                         ; preds = %cond.false, %cond.true
-  %28 = load ptr, ptr %he, align 8
-  %next = getelementptr inbounds %struct.dictEntry, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %next, align 8
-  store ptr %29, ptr %he, align 8
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then12, %if.then
-  %30 = load ptr, ptr %retval, align 8
-  ret ptr %30
-}
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef, ptr noundef) #6
-
-; Function Attrs: nounwind uwtable
-define internal i32 @dictDelete(ptr noundef %ht, ptr noundef %key) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ht.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %h = alloca i32, align 4
-  %de = alloca ptr, align 8
-  %prevde = alloca ptr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %size = getelementptr inbounds %struct.dict, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %size, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ht.addr, align 8
-  %type = getelementptr inbounds %struct.dict, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %type, align 8
-  %hashFunction = getelementptr inbounds %struct.dictType, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %hashFunction, align 8
-  %5 = load ptr, ptr %key.addr, align 8
-  %call = call i32 %4(ptr noundef %5)
-  %conv = zext i32 %call to i64
-  %6 = load ptr, ptr %ht.addr, align 8
-  %sizemask = getelementptr inbounds %struct.dict, ptr %6, i32 0, i32 3
-  %7 = load i64, ptr %sizemask, align 8
-  %and = and i64 %conv, %7
-  %conv1 = trunc i64 %and to i32
-  store i32 %conv1, ptr %h, align 4
-  %8 = load ptr, ptr %ht.addr, align 8
-  %table = getelementptr inbounds %struct.dict, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %table, align 8
-  %10 = load i32, ptr %h, align 4
-  %idxprom = zext i32 %10 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
-  %11 = load ptr, ptr %arrayidx, align 8
-  store ptr %11, ptr %de, align 8
-  store ptr null, ptr %prevde, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end36, %if.end
-  %12 = load ptr, ptr %de, align 8
-  %tobool = icmp ne ptr %12, null
-  br i1 %tobool, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %13 = load ptr, ptr %ht.addr, align 8
-  %type2 = getelementptr inbounds %struct.dict, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %type2, align 8
-  %keyCompare = getelementptr inbounds %struct.dictType, ptr %14, i32 0, i32 3
-  %15 = load ptr, ptr %keyCompare, align 8
-  %tobool3 = icmp ne ptr %15, null
-  br i1 %tobool3, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %while.body
-  %16 = load ptr, ptr %ht.addr, align 8
-  %type4 = getelementptr inbounds %struct.dict, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %type4, align 8
-  %keyCompare5 = getelementptr inbounds %struct.dictType, ptr %17, i32 0, i32 3
-  %18 = load ptr, ptr %keyCompare5, align 8
-  %19 = load ptr, ptr %ht.addr, align 8
-  %privdata = getelementptr inbounds %struct.dict, ptr %19, i32 0, i32 5
-  %20 = load ptr, ptr %privdata, align 8
-  %21 = load ptr, ptr %key.addr, align 8
-  %22 = load ptr, ptr %de, align 8
-  %key6 = getelementptr inbounds %struct.dictEntry, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %key6, align 8
-  %call7 = call i32 %18(ptr noundef %20, ptr noundef %21, ptr noundef %23)
-  %tobool8 = icmp ne i32 %call7, 0
-  br i1 %tobool8, label %if.then12, label %if.end36
-
-cond.false:                                       ; preds = %while.body
-  %24 = load ptr, ptr %key.addr, align 8
-  %25 = load ptr, ptr %de, align 8
-  %key9 = getelementptr inbounds %struct.dictEntry, ptr %25, i32 0, i32 0
-  %26 = load ptr, ptr %key9, align 8
-  %cmp10 = icmp eq ptr %24, %26
-  br i1 %cmp10, label %if.then12, label %if.end36
-
-if.then12:                                        ; preds = %cond.false, %cond.true
-  %27 = load ptr, ptr %prevde, align 8
-  %tobool13 = icmp ne ptr %27, null
-  br i1 %tobool13, label %if.then14, label %if.else
-
-if.then14:                                        ; preds = %if.then12
-  %28 = load ptr, ptr %de, align 8
-  %next = getelementptr inbounds %struct.dictEntry, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %next, align 8
-  %30 = load ptr, ptr %prevde, align 8
-  %next15 = getelementptr inbounds %struct.dictEntry, ptr %30, i32 0, i32 2
-  store ptr %29, ptr %next15, align 8
-  br label %if.end20
-
-if.else:                                          ; preds = %if.then12
-  %31 = load ptr, ptr %de, align 8
-  %next16 = getelementptr inbounds %struct.dictEntry, ptr %31, i32 0, i32 2
-  %32 = load ptr, ptr %next16, align 8
-  %33 = load ptr, ptr %ht.addr, align 8
-  %table17 = getelementptr inbounds %struct.dict, ptr %33, i32 0, i32 0
-  %34 = load ptr, ptr %table17, align 8
-  %35 = load i32, ptr %h, align 4
-  %idxprom18 = zext i32 %35 to i64
-  %arrayidx19 = getelementptr inbounds ptr, ptr %34, i64 %idxprom18
-  store ptr %32, ptr %arrayidx19, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.else, %if.then14
-  %36 = load ptr, ptr %ht.addr, align 8
-  %type21 = getelementptr inbounds %struct.dict, ptr %36, i32 0, i32 1
-  %37 = load ptr, ptr %type21, align 8
-  %keyDestructor = getelementptr inbounds %struct.dictType, ptr %37, i32 0, i32 4
-  %38 = load ptr, ptr %keyDestructor, align 8
-  %tobool22 = icmp ne ptr %38, null
-  br i1 %tobool22, label %if.then23, label %if.end28
-
-if.then23:                                        ; preds = %if.end20
-  %39 = load ptr, ptr %ht.addr, align 8
-  %type24 = getelementptr inbounds %struct.dict, ptr %39, i32 0, i32 1
-  %40 = load ptr, ptr %type24, align 8
-  %keyDestructor25 = getelementptr inbounds %struct.dictType, ptr %40, i32 0, i32 4
-  %41 = load ptr, ptr %keyDestructor25, align 8
-  %42 = load ptr, ptr %ht.addr, align 8
-  %privdata26 = getelementptr inbounds %struct.dict, ptr %42, i32 0, i32 5
-  %43 = load ptr, ptr %privdata26, align 8
-  %44 = load ptr, ptr %de, align 8
-  %key27 = getelementptr inbounds %struct.dictEntry, ptr %44, i32 0, i32 0
-  %45 = load ptr, ptr %key27, align 8
-  call void %41(ptr noundef %43, ptr noundef %45)
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.then23, %if.end20
-  %46 = load ptr, ptr %ht.addr, align 8
-  %type29 = getelementptr inbounds %struct.dict, ptr %46, i32 0, i32 1
-  %47 = load ptr, ptr %type29, align 8
-  %valDestructor = getelementptr inbounds %struct.dictType, ptr %47, i32 0, i32 5
-  %48 = load ptr, ptr %valDestructor, align 8
-  %tobool30 = icmp ne ptr %48, null
-  br i1 %tobool30, label %if.then31, label %if.end35
-
-if.then31:                                        ; preds = %if.end28
-  %49 = load ptr, ptr %ht.addr, align 8
-  %type32 = getelementptr inbounds %struct.dict, ptr %49, i32 0, i32 1
-  %50 = load ptr, ptr %type32, align 8
-  %valDestructor33 = getelementptr inbounds %struct.dictType, ptr %50, i32 0, i32 5
-  %51 = load ptr, ptr %valDestructor33, align 8
-  %52 = load ptr, ptr %ht.addr, align 8
-  %privdata34 = getelementptr inbounds %struct.dict, ptr %52, i32 0, i32 5
-  %53 = load ptr, ptr %privdata34, align 8
-  %54 = load ptr, ptr %de, align 8
-  %val = getelementptr inbounds %struct.dictEntry, ptr %54, i32 0, i32 1
-  %55 = load ptr, ptr %val, align 8
-  call void %51(ptr noundef %53, ptr noundef %55)
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.then31, %if.end28
-  %56 = load ptr, ptr %de, align 8
-  call void @hi_free(ptr noundef %56)
-  %57 = load ptr, ptr %ht.addr, align 8
-  %used = getelementptr inbounds %struct.dict, ptr %57, i32 0, i32 4
-  %58 = load i64, ptr %used, align 8
-  %dec = add i64 %58, -1
-  store i64 %dec, ptr %used, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end36:                                         ; preds = %cond.false, %cond.true
-  %59 = load ptr, ptr %de, align 8
-  store ptr %59, ptr %prevde, align 8
-  %60 = load ptr, ptr %de, align 8
-  %next37 = getelementptr inbounds %struct.dictEntry, ptr %60, i32 0, i32 2
-  %61 = load ptr, ptr %next37, align 8
-  store ptr %61, ptr %de, align 8
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %while.end, %if.end35, %if.then
-  %62 = load i32, ptr %retval, align 4
-  ret i32 %62
-}
-
-declare i32 @redisCheckConnectDone(ptr noundef, ptr noundef) #2
-
-declare i32 @redisCheckSocketError(ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal void @__redisAsyncHandleConnectFailure(ptr noundef %ac) #0 {
-entry:
-  %ac.addr = alloca ptr, align 8
-  store ptr %ac, ptr %ac.addr, align 8
-  %0 = load ptr, ptr %ac.addr, align 8
-  call void @__redisRunConnectCallback(ptr noundef %0, i32 noundef -1)
-  %1 = load ptr, ptr %ac.addr, align 8
-  call void @__redisAsyncDisconnect(ptr noundef %1)
+define internal void @callbackValDestructor(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @hi_free(ptr noundef %5)
   ret void
 }
 
-declare i32 @redisSetTcpNoDelay(ptr noundef) #2
+; Function Attrs: nounwind uwtable
+define internal i32 @dictGenHashFunction(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  store i32 5381, ptr %5, align 4, !tbaa !9
+  br label %6
+
+6:                                                ; preds = %10, %2
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  %8 = add nsw i32 %7, -1
+  store i32 %8, ptr %4, align 4, !tbaa !9
+  %9 = icmp ne i32 %7, 0
+  br i1 %9, label %10, label %20
+
+10:                                               ; preds = %6
+  %11 = load i32, ptr %5, align 4, !tbaa !9
+  %12 = shl i32 %11, 5
+  %13 = load i32, ptr %5, align 4, !tbaa !9
+  %14 = add i32 %12, %13
+  %15 = load ptr, ptr %3, align 8, !tbaa !61
+  %16 = getelementptr inbounds nuw i8, ptr %15, i32 1
+  store ptr %16, ptr %3, align 8, !tbaa !61
+  %17 = load i8, ptr %15, align 1, !tbaa !13
+  %18 = zext i8 %17 to i32
+  %19 = add i32 %14, %18
+  store i32 %19, ptr %5, align 4, !tbaa !9
+  br label %6
+
+20:                                               ; preds = %6
+  %21 = load i32, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  ret i32 %21
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #8
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @nextArgument(ptr noundef %start, ptr noundef %str, ptr noundef %len) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %start.addr = alloca ptr, align 8
-  %str.addr = alloca ptr, align 8
-  %len.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %start, ptr %start.addr, align 8
-  store ptr %str, ptr %str.addr, align 8
-  store ptr %len, ptr %len.addr, align 8
-  %0 = load ptr, ptr %start.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 0
-  %2 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %2 to i32
-  %cmp = icmp ne i32 %conv, 36
-  br i1 %cmp, label %if.then, label %if.end5
+define internal i32 @_dictClear(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  store i64 0, ptr %3, align 8, !tbaa !91
+  br label %7
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %p, align 8
-  %call = call ptr @strchr(ptr noundef %3, i32 noundef 36) #8
-  store ptr %call, ptr %p, align 8
-  %4 = load ptr, ptr %p, align 8
-  %cmp2 = icmp eq ptr %4, null
-  br i1 %cmp2, label %if.then4, label %if.end
+7:                                                ; preds = %85, %1
+  %8 = load i64, ptr %3, align 8, !tbaa !91
+  %9 = load ptr, ptr %2, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw %struct.dict, ptr %9, i32 0, i32 2
+  %11 = load i64, ptr %10, align 8, !tbaa !135
+  %12 = icmp ult i64 %8, %11
+  br i1 %12, label %13, label %18
 
-if.then4:                                         ; preds = %if.then
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %7
+  %14 = load ptr, ptr %2, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %struct.dict, ptr %14, i32 0, i32 4
+  %16 = load i64, ptr %15, align 8, !tbaa !102
+  %17 = icmp ugt i64 %16, 0
+  br label %18
 
-if.end:                                           ; preds = %if.then
-  br label %if.end5
+18:                                               ; preds = %13, %7
+  %19 = phi i1 [ false, %7 ], [ %17, %13 ]
+  br i1 %19, label %20, label %88
 
-if.end5:                                          ; preds = %if.end, %entry
-  %5 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 1
-  %call6 = call i64 @strtol(ptr noundef %add.ptr, ptr noundef null, i32 noundef 10) #7
-  %conv7 = trunc i64 %call6 to i32
-  %conv8 = sext i32 %conv7 to i64
-  %6 = load ptr, ptr %len.addr, align 8
-  store i64 %conv8, ptr %6, align 8
-  %7 = load ptr, ptr %p, align 8
-  %call9 = call ptr @strchr(ptr noundef %7, i32 noundef 13) #8
-  store ptr %call9, ptr %p, align 8
-  %8 = load ptr, ptr %p, align 8
-  %add.ptr10 = getelementptr inbounds i8, ptr %8, i64 2
-  %9 = load ptr, ptr %str.addr, align 8
-  store ptr %add.ptr10, ptr %9, align 8
-  %10 = load ptr, ptr %p, align 8
-  %add.ptr11 = getelementptr inbounds i8, ptr %10, i64 2
-  %11 = load ptr, ptr %len.addr, align 8
-  %12 = load i64, ptr %11, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %add.ptr11, i64 %12
-  %add.ptr13 = getelementptr inbounds i8, ptr %add.ptr12, i64 2
-  store ptr %add.ptr13, ptr %retval, align 8
-  br label %return
+20:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %21 = load ptr, ptr %2, align 8, !tbaa !22
+  %22 = getelementptr inbounds nuw %struct.dict, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !134
+  %24 = load i64, ptr %3, align 8, !tbaa !91
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !63
+  store ptr %26, ptr %4, align 8, !tbaa !63
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %29
 
-return:                                           ; preds = %if.end5, %if.then4
-  %13 = load ptr, ptr %retval, align 8
-  ret ptr %13
+28:                                               ; preds = %20
+  store i32 4, ptr %6, align 4
+  br label %82
+
+29:                                               ; preds = %20
+  br label %30
+
+30:                                               ; preds = %74, %29
+  %31 = load ptr, ptr %4, align 8, !tbaa !63
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %81
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %4, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw %struct.dictEntry, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !137
+  store ptr %36, ptr %5, align 8, !tbaa !63
+  %37 = load ptr, ptr %2, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw %struct.dict, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8, !tbaa !132
+  %40 = getelementptr inbounds nuw %struct.dictType, ptr %39, i32 0, i32 4
+  %41 = load ptr, ptr %40, align 8, !tbaa !138
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %55
+
+43:                                               ; preds = %33
+  %44 = load ptr, ptr %2, align 8, !tbaa !22
+  %45 = getelementptr inbounds nuw %struct.dict, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !132
+  %47 = getelementptr inbounds nuw %struct.dictType, ptr %46, i32 0, i32 4
+  %48 = load ptr, ptr %47, align 8, !tbaa !138
+  %49 = load ptr, ptr %2, align 8, !tbaa !22
+  %50 = getelementptr inbounds nuw %struct.dict, ptr %49, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8, !tbaa !133
+  %52 = load ptr, ptr %4, align 8, !tbaa !63
+  %53 = getelementptr inbounds nuw %struct.dictEntry, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !140
+  call void %48(ptr noundef %51, ptr noundef %54)
+  br label %55
+
+55:                                               ; preds = %43, %33
+  %56 = load ptr, ptr %2, align 8, !tbaa !22
+  %57 = getelementptr inbounds nuw %struct.dict, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !132
+  %59 = getelementptr inbounds nuw %struct.dictType, ptr %58, i32 0, i32 5
+  %60 = load ptr, ptr %59, align 8, !tbaa !141
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %74
+
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %2, align 8, !tbaa !22
+  %64 = getelementptr inbounds nuw %struct.dict, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8, !tbaa !132
+  %66 = getelementptr inbounds nuw %struct.dictType, ptr %65, i32 0, i32 5
+  %67 = load ptr, ptr %66, align 8, !tbaa !141
+  %68 = load ptr, ptr %2, align 8, !tbaa !22
+  %69 = getelementptr inbounds nuw %struct.dict, ptr %68, i32 0, i32 5
+  %70 = load ptr, ptr %69, align 8, !tbaa !133
+  %71 = load ptr, ptr %4, align 8, !tbaa !63
+  %72 = getelementptr inbounds nuw %struct.dictEntry, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8, !tbaa !65
+  call void %67(ptr noundef %70, ptr noundef %73)
+  br label %74
+
+74:                                               ; preds = %62, %55
+  %75 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @hi_free(ptr noundef %75)
+  %76 = load ptr, ptr %2, align 8, !tbaa !22
+  %77 = getelementptr inbounds nuw %struct.dict, ptr %76, i32 0, i32 4
+  %78 = load i64, ptr %77, align 8, !tbaa !102
+  %79 = add i64 %78, -1
+  store i64 %79, ptr %77, align 8, !tbaa !102
+  %80 = load ptr, ptr %5, align 8, !tbaa !63
+  store ptr %80, ptr %4, align 8, !tbaa !63
+  br label %30
+
+81:                                               ; preds = %30
+  store i32 0, ptr %6, align 4
+  br label %82
+
+82:                                               ; preds = %81, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %83 = load i32, ptr %6, align 4
+  switch i32 %83, label %93 [
+    i32 0, label %84
+    i32 4, label %85
+  ]
+
+84:                                               ; preds = %82
+  br label %85
+
+85:                                               ; preds = %84, %82
+  %86 = load i64, ptr %3, align 8, !tbaa !91
+  %87 = add i64 %86, 1
+  store i64 %87, ptr %3, align 8, !tbaa !91
+  br label %7
+
+88:                                               ; preds = %18
+  %89 = load ptr, ptr %2, align 8, !tbaa !22
+  %90 = getelementptr inbounds nuw %struct.dict, ptr %89, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8, !tbaa !134
+  call void @hi_free(ptr noundef %91)
+  %92 = load ptr, ptr %2, align 8, !tbaa !22
+  call void @_dictReset(ptr noundef %92)
+  store i32 1, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret i32 0
+
+93:                                               ; preds = %82
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dictReplace(ptr noundef %ht, ptr noundef %key, ptr noundef %val) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ht.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %entry1 = alloca ptr, align 8
-  %auxentry = alloca %struct.dictEntry, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %1 = load ptr, ptr %key.addr, align 8
-  %2 = load ptr, ptr %val.addr, align 8
-  %call = call i32 @dictAdd(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @dictInitIterator(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !142
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %6 = load ptr, ptr %3, align 8, !tbaa !142
+  %7 = getelementptr inbounds nuw %struct.dictIterator, ptr %6, i32 0, i32 0
+  store ptr %5, ptr %7, align 8, !tbaa !144
+  %8 = load ptr, ptr %3, align 8, !tbaa !142
+  %9 = getelementptr inbounds nuw %struct.dictIterator, ptr %8, i32 0, i32 1
+  store i32 -1, ptr %9, align 8, !tbaa !146
+  %10 = load ptr, ptr %3, align 8, !tbaa !142
+  %11 = getelementptr inbounds nuw %struct.dictIterator, ptr %10, i32 0, i32 2
+  store ptr null, ptr %11, align 8, !tbaa !147
+  %12 = load ptr, ptr %3, align 8, !tbaa !142
+  %13 = getelementptr inbounds nuw %struct.dictIterator, ptr %12, i32 0, i32 3
+  store ptr null, ptr %13, align 8, !tbaa !148
+  ret void
+}
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+; Function Attrs: nounwind uwtable
+define internal ptr @dictNext(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !142
+  br label %4
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %ht.addr, align 8
-  %4 = load ptr, ptr %key.addr, align 8
-  %call2 = call ptr @dictFind(ptr noundef %3, ptr noundef %4)
-  store ptr %call2, ptr %entry1, align 8
-  %5 = load ptr, ptr %entry1, align 8
-  %cmp3 = icmp eq ptr %5, null
-  br i1 %cmp3, label %if.then4, label %if.end5
+4:                                                ; preds = %1, %61
+  %5 = load ptr, ptr %3, align 8, !tbaa !142
+  %6 = getelementptr inbounds nuw %struct.dictIterator, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !147
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %39
 
-if.then4:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %4
+  %10 = load ptr, ptr %3, align 8, !tbaa !142
+  %11 = getelementptr inbounds nuw %struct.dictIterator, ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8, !tbaa !146
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %11, align 8, !tbaa !146
+  %14 = load ptr, ptr %3, align 8, !tbaa !142
+  %15 = getelementptr inbounds nuw %struct.dictIterator, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8, !tbaa !146
+  %17 = load ptr, ptr %3, align 8, !tbaa !142
+  %18 = getelementptr inbounds nuw %struct.dictIterator, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !144
+  %20 = getelementptr inbounds nuw %struct.dict, ptr %19, i32 0, i32 2
+  %21 = load i64, ptr %20, align 8, !tbaa !135
+  %22 = trunc i64 %21 to i32
+  %23 = icmp sge i32 %16, %22
+  br i1 %23, label %24, label %25
 
-if.end5:                                          ; preds = %if.end
-  %6 = load ptr, ptr %entry1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %auxentry, ptr align 8 %6, i64 24, i1 false)
-  br label %do.body
+24:                                               ; preds = %9
+  br label %62
 
-do.body:                                          ; preds = %if.end5
-  %7 = load ptr, ptr %ht.addr, align 8
-  %type = getelementptr inbounds %struct.dict, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %type, align 8
-  %valDup = getelementptr inbounds %struct.dictType, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %valDup, align 8
-  %tobool = icmp ne ptr %9, null
-  br i1 %tobool, label %if.then6, label %if.else
+25:                                               ; preds = %9
+  %26 = load ptr, ptr %3, align 8, !tbaa !142
+  %27 = getelementptr inbounds nuw %struct.dictIterator, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !144
+  %29 = getelementptr inbounds nuw %struct.dict, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !134
+  %31 = load ptr, ptr %3, align 8, !tbaa !142
+  %32 = getelementptr inbounds nuw %struct.dictIterator, ptr %31, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8, !tbaa !146
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds ptr, ptr %30, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !63
+  %37 = load ptr, ptr %3, align 8, !tbaa !142
+  %38 = getelementptr inbounds nuw %struct.dictIterator, ptr %37, i32 0, i32 2
+  store ptr %36, ptr %38, align 8, !tbaa !147
+  br label %45
 
-if.then6:                                         ; preds = %do.body
-  %10 = load ptr, ptr %ht.addr, align 8
-  %type7 = getelementptr inbounds %struct.dict, ptr %10, i32 0, i32 1
-  %11 = load ptr, ptr %type7, align 8
-  %valDup8 = getelementptr inbounds %struct.dictType, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %valDup8, align 8
-  %13 = load ptr, ptr %ht.addr, align 8
-  %privdata = getelementptr inbounds %struct.dict, ptr %13, i32 0, i32 5
-  %14 = load ptr, ptr %privdata, align 8
-  %15 = load ptr, ptr %val.addr, align 8
-  %call9 = call ptr %12(ptr noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %entry1, align 8
-  %val10 = getelementptr inbounds %struct.dictEntry, ptr %16, i32 0, i32 1
-  store ptr %call9, ptr %val10, align 8
-  br label %if.end12
+39:                                               ; preds = %4
+  %40 = load ptr, ptr %3, align 8, !tbaa !142
+  %41 = getelementptr inbounds nuw %struct.dictIterator, ptr %40, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8, !tbaa !148
+  %43 = load ptr, ptr %3, align 8, !tbaa !142
+  %44 = getelementptr inbounds nuw %struct.dictIterator, ptr %43, i32 0, i32 2
+  store ptr %42, ptr %44, align 8, !tbaa !147
+  br label %45
 
-if.else:                                          ; preds = %do.body
-  %17 = load ptr, ptr %val.addr, align 8
-  %18 = load ptr, ptr %entry1, align 8
-  %val11 = getelementptr inbounds %struct.dictEntry, ptr %18, i32 0, i32 1
-  store ptr %17, ptr %val11, align 8
-  br label %if.end12
+45:                                               ; preds = %39, %25
+  %46 = load ptr, ptr %3, align 8, !tbaa !142
+  %47 = getelementptr inbounds nuw %struct.dictIterator, ptr %46, i32 0, i32 2
+  %48 = load ptr, ptr %47, align 8, !tbaa !147
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %61
 
-if.end12:                                         ; preds = %if.else, %if.then6
-  br label %do.end
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %3, align 8, !tbaa !142
+  %52 = getelementptr inbounds nuw %struct.dictIterator, ptr %51, i32 0, i32 2
+  %53 = load ptr, ptr %52, align 8, !tbaa !147
+  %54 = getelementptr inbounds nuw %struct.dictEntry, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8, !tbaa !137
+  %56 = load ptr, ptr %3, align 8, !tbaa !142
+  %57 = getelementptr inbounds nuw %struct.dictIterator, ptr %56, i32 0, i32 3
+  store ptr %55, ptr %57, align 8, !tbaa !148
+  %58 = load ptr, ptr %3, align 8, !tbaa !142
+  %59 = getelementptr inbounds nuw %struct.dictIterator, ptr %58, i32 0, i32 2
+  %60 = load ptr, ptr %59, align 8, !tbaa !147
+  store ptr %60, ptr %2, align 8
+  br label %63
 
-do.end:                                           ; preds = %if.end12
-  %19 = load ptr, ptr %ht.addr, align 8
-  %type13 = getelementptr inbounds %struct.dict, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %type13, align 8
-  %valDestructor = getelementptr inbounds %struct.dictType, ptr %20, i32 0, i32 5
-  %21 = load ptr, ptr %valDestructor, align 8
-  %tobool14 = icmp ne ptr %21, null
-  br i1 %tobool14, label %if.then15, label %if.end20
+61:                                               ; preds = %45
+  br label %4
 
-if.then15:                                        ; preds = %do.end
-  %22 = load ptr, ptr %ht.addr, align 8
-  %type16 = getelementptr inbounds %struct.dict, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %type16, align 8
-  %valDestructor17 = getelementptr inbounds %struct.dictType, ptr %23, i32 0, i32 5
-  %24 = load ptr, ptr %valDestructor17, align 8
-  %25 = load ptr, ptr %ht.addr, align 8
-  %privdata18 = getelementptr inbounds %struct.dict, ptr %25, i32 0, i32 5
-  %26 = load ptr, ptr %privdata18, align 8
-  %val19 = getelementptr inbounds %struct.dictEntry, ptr %auxentry, i32 0, i32 1
-  %27 = load ptr, ptr %val19, align 8
-  call void %24(ptr noundef %26, ptr noundef %27)
-  br label %if.end20
+62:                                               ; preds = %24
+  store ptr null, ptr %2, align 8
+  br label %63
 
-if.end20:                                         ; preds = %if.then15, %do.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+63:                                               ; preds = %62, %50
+  %64 = load ptr, ptr %2, align 8
+  ret ptr %64
+}
 
-return:                                           ; preds = %if.end20, %if.then4, %if.then
-  %28 = load i32, ptr %retval, align 4
+; Function Attrs: nounwind uwtable
+define internal void @__redisRunDisconnectCallback(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %5, i32 0, i32 6
+  %7 = load ptr, ptr %6, align 8, !tbaa !51
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %39
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.redisContext, ptr %11, i32 0, i32 4
+  %13 = load i32, ptr %12, align 8, !tbaa !99
+  %14 = and i32 %13, 16
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %32, label %16
+
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %3, align 8, !tbaa !19
+  %18 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.redisContext, ptr %18, i32 0, i32 4
+  %20 = load i32, ptr %19, align 8, !tbaa !99
+  %21 = or i32 %20, 16
+  store i32 %21, ptr %19, align 8, !tbaa !99
+  %22 = load ptr, ptr %3, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !51
+  %25 = load ptr, ptr %3, align 8, !tbaa !19
+  %26 = load i32, ptr %4, align 4, !tbaa !9
+  call void %24(ptr noundef %25, i32 noundef %26)
+  %27 = load ptr, ptr %3, align 8, !tbaa !19
+  %28 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.redisContext, ptr %28, i32 0, i32 4
+  %30 = load i32, ptr %29, align 8, !tbaa !99
+  %31 = and i32 %30, -17
+  store i32 %31, ptr %29, align 8, !tbaa !99
+  br label %38
+
+32:                                               ; preds = %9
+  %33 = load ptr, ptr %3, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw %struct.redisAsyncContext, ptr %33, i32 0, i32 6
+  %35 = load ptr, ptr %34, align 8, !tbaa !51
+  %36 = load ptr, ptr %3, align 8, !tbaa !19
+  %37 = load i32, ptr %4, align 4, !tbaa !9
+  call void %35(ptr noundef %36, i32 noundef %37)
+  br label %38
+
+38:                                               ; preds = %32, %16
+  br label %39
+
+39:                                               ; preds = %38, %2
+  ret void
+}
+
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__ctype_tolower_loc() #9
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strncasecmp(ptr noundef, ptr noundef, i64 noundef) #8
+
+declare ptr @hi_sdsnewlen(ptr noundef, i64 noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @dictFind(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %9 = load ptr, ptr %4, align 8, !tbaa !22
+  %10 = getelementptr inbounds nuw %struct.dict, ptr %9, i32 0, i32 2
+  %11 = load i64, ptr %10, align 8, !tbaa !135
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %73
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !22
+  %16 = getelementptr inbounds nuw %struct.dict, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !132
+  %18 = getelementptr inbounds nuw %struct.dictType, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !149
+  %20 = load ptr, ptr %5, align 8, !tbaa !4
+  %21 = call i32 %19(ptr noundef %20)
+  %22 = zext i32 %21 to i64
+  %23 = load ptr, ptr %4, align 8, !tbaa !22
+  %24 = getelementptr inbounds nuw %struct.dict, ptr %23, i32 0, i32 3
+  %25 = load i64, ptr %24, align 8, !tbaa !136
+  %26 = and i64 %22, %25
+  %27 = trunc i64 %26 to i32
+  store i32 %27, ptr %7, align 4, !tbaa !9
+  %28 = load ptr, ptr %4, align 8, !tbaa !22
+  %29 = getelementptr inbounds nuw %struct.dict, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !134
+  %31 = load i32, ptr %7, align 4, !tbaa !9
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %34 = load ptr, ptr %33, align 8, !tbaa !63
+  store ptr %34, ptr %6, align 8, !tbaa !63
+  br label %35
+
+35:                                               ; preds = %68, %14
+  %36 = load ptr, ptr %6, align 8, !tbaa !63
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %72
+
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %4, align 8, !tbaa !22
+  %40 = getelementptr inbounds nuw %struct.dict, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !132
+  %42 = getelementptr inbounds nuw %struct.dictType, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8, !tbaa !150
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %60
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %4, align 8, !tbaa !22
+  %47 = getelementptr inbounds nuw %struct.dict, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !132
+  %49 = getelementptr inbounds nuw %struct.dictType, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %49, align 8, !tbaa !150
+  %51 = load ptr, ptr %4, align 8, !tbaa !22
+  %52 = getelementptr inbounds nuw %struct.dict, ptr %51, i32 0, i32 5
+  %53 = load ptr, ptr %52, align 8, !tbaa !133
+  %54 = load ptr, ptr %5, align 8, !tbaa !4
+  %55 = load ptr, ptr %6, align 8, !tbaa !63
+  %56 = getelementptr inbounds nuw %struct.dictEntry, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !140
+  %58 = call i32 %50(ptr noundef %53, ptr noundef %54, ptr noundef %57)
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %66, label %68
+
+60:                                               ; preds = %38
+  %61 = load ptr, ptr %5, align 8, !tbaa !4
+  %62 = load ptr, ptr %6, align 8, !tbaa !63
+  %63 = getelementptr inbounds nuw %struct.dictEntry, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !140
+  %65 = icmp eq ptr %61, %64
+  br i1 %65, label %66, label %68
+
+66:                                               ; preds = %60, %45
+  %67 = load ptr, ptr %6, align 8, !tbaa !63
+  store ptr %67, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %73
+
+68:                                               ; preds = %60, %45
+  %69 = load ptr, ptr %6, align 8, !tbaa !63
+  %70 = getelementptr inbounds nuw %struct.dictEntry, ptr %69, i32 0, i32 2
+  %71 = load ptr, ptr %70, align 8, !tbaa !137
+  store ptr %71, ptr %6, align 8, !tbaa !63
+  br label %35
+
+72:                                               ; preds = %35
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %73
+
+73:                                               ; preds = %72, %66, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %74 = load ptr, ptr %3, align 8
+  ret ptr %74
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcasecmp(ptr noundef, ptr noundef) #8
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dictDelete(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %10 = load ptr, ptr %4, align 8, !tbaa !22
+  %11 = getelementptr inbounds nuw %struct.dict, ptr %10, i32 0, i32 2
+  %12 = load i64, ptr %11, align 8, !tbaa !135
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %136
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !22
+  %17 = getelementptr inbounds nuw %struct.dict, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !132
+  %19 = getelementptr inbounds nuw %struct.dictType, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !149
+  %21 = load ptr, ptr %5, align 8, !tbaa !4
+  %22 = call i32 %20(ptr noundef %21)
+  %23 = zext i32 %22 to i64
+  %24 = load ptr, ptr %4, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw %struct.dict, ptr %24, i32 0, i32 3
+  %26 = load i64, ptr %25, align 8, !tbaa !136
+  %27 = and i64 %23, %26
+  %28 = trunc i64 %27 to i32
+  store i32 %28, ptr %6, align 4, !tbaa !9
+  %29 = load ptr, ptr %4, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.dict, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !134
+  %32 = load i32, ptr %6, align 4, !tbaa !9
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !63
+  store ptr %35, ptr %7, align 8, !tbaa !63
+  store ptr null, ptr %8, align 8, !tbaa !63
+  br label %36
+
+36:                                               ; preds = %130, %15
+  %37 = load ptr, ptr %7, align 8, !tbaa !63
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %135
+
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %4, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw %struct.dict, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !132
+  %43 = getelementptr inbounds nuw %struct.dictType, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8, !tbaa !150
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %61
+
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %4, align 8, !tbaa !22
+  %48 = getelementptr inbounds nuw %struct.dict, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !132
+  %50 = getelementptr inbounds nuw %struct.dictType, ptr %49, i32 0, i32 3
+  %51 = load ptr, ptr %50, align 8, !tbaa !150
+  %52 = load ptr, ptr %4, align 8, !tbaa !22
+  %53 = getelementptr inbounds nuw %struct.dict, ptr %52, i32 0, i32 5
+  %54 = load ptr, ptr %53, align 8, !tbaa !133
+  %55 = load ptr, ptr %5, align 8, !tbaa !4
+  %56 = load ptr, ptr %7, align 8, !tbaa !63
+  %57 = getelementptr inbounds nuw %struct.dictEntry, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !140
+  %59 = call i32 %51(ptr noundef %54, ptr noundef %55, ptr noundef %58)
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %67, label %130
+
+61:                                               ; preds = %39
+  %62 = load ptr, ptr %5, align 8, !tbaa !4
+  %63 = load ptr, ptr %7, align 8, !tbaa !63
+  %64 = getelementptr inbounds nuw %struct.dictEntry, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8, !tbaa !140
+  %66 = icmp eq ptr %62, %65
+  br i1 %66, label %67, label %130
+
+67:                                               ; preds = %61, %46
+  %68 = load ptr, ptr %8, align 8, !tbaa !63
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %76
+
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %7, align 8, !tbaa !63
+  %72 = getelementptr inbounds nuw %struct.dictEntry, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8, !tbaa !137
+  %74 = load ptr, ptr %8, align 8, !tbaa !63
+  %75 = getelementptr inbounds nuw %struct.dictEntry, ptr %74, i32 0, i32 2
+  store ptr %73, ptr %75, align 8, !tbaa !137
+  br label %86
+
+76:                                               ; preds = %67
+  %77 = load ptr, ptr %7, align 8, !tbaa !63
+  %78 = getelementptr inbounds nuw %struct.dictEntry, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8, !tbaa !137
+  %80 = load ptr, ptr %4, align 8, !tbaa !22
+  %81 = getelementptr inbounds nuw %struct.dict, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8, !tbaa !134
+  %83 = load i32, ptr %6, align 4, !tbaa !9
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw ptr, ptr %82, i64 %84
+  store ptr %79, ptr %85, align 8, !tbaa !63
+  br label %86
+
+86:                                               ; preds = %76, %70
+  %87 = load ptr, ptr %4, align 8, !tbaa !22
+  %88 = getelementptr inbounds nuw %struct.dict, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !132
+  %90 = getelementptr inbounds nuw %struct.dictType, ptr %89, i32 0, i32 4
+  %91 = load ptr, ptr %90, align 8, !tbaa !138
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %105
+
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %4, align 8, !tbaa !22
+  %95 = getelementptr inbounds nuw %struct.dict, ptr %94, i32 0, i32 1
+  %96 = load ptr, ptr %95, align 8, !tbaa !132
+  %97 = getelementptr inbounds nuw %struct.dictType, ptr %96, i32 0, i32 4
+  %98 = load ptr, ptr %97, align 8, !tbaa !138
+  %99 = load ptr, ptr %4, align 8, !tbaa !22
+  %100 = getelementptr inbounds nuw %struct.dict, ptr %99, i32 0, i32 5
+  %101 = load ptr, ptr %100, align 8, !tbaa !133
+  %102 = load ptr, ptr %7, align 8, !tbaa !63
+  %103 = getelementptr inbounds nuw %struct.dictEntry, ptr %102, i32 0, i32 0
+  %104 = load ptr, ptr %103, align 8, !tbaa !140
+  call void %98(ptr noundef %101, ptr noundef %104)
+  br label %105
+
+105:                                              ; preds = %93, %86
+  %106 = load ptr, ptr %4, align 8, !tbaa !22
+  %107 = getelementptr inbounds nuw %struct.dict, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8, !tbaa !132
+  %109 = getelementptr inbounds nuw %struct.dictType, ptr %108, i32 0, i32 5
+  %110 = load ptr, ptr %109, align 8, !tbaa !141
+  %111 = icmp ne ptr %110, null
+  br i1 %111, label %112, label %124
+
+112:                                              ; preds = %105
+  %113 = load ptr, ptr %4, align 8, !tbaa !22
+  %114 = getelementptr inbounds nuw %struct.dict, ptr %113, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8, !tbaa !132
+  %116 = getelementptr inbounds nuw %struct.dictType, ptr %115, i32 0, i32 5
+  %117 = load ptr, ptr %116, align 8, !tbaa !141
+  %118 = load ptr, ptr %4, align 8, !tbaa !22
+  %119 = getelementptr inbounds nuw %struct.dict, ptr %118, i32 0, i32 5
+  %120 = load ptr, ptr %119, align 8, !tbaa !133
+  %121 = load ptr, ptr %7, align 8, !tbaa !63
+  %122 = getelementptr inbounds nuw %struct.dictEntry, ptr %121, i32 0, i32 1
+  %123 = load ptr, ptr %122, align 8, !tbaa !65
+  call void %117(ptr noundef %120, ptr noundef %123)
+  br label %124
+
+124:                                              ; preds = %112, %105
+  %125 = load ptr, ptr %7, align 8, !tbaa !63
+  call void @hi_free(ptr noundef %125)
+  %126 = load ptr, ptr %4, align 8, !tbaa !22
+  %127 = getelementptr inbounds nuw %struct.dict, ptr %126, i32 0, i32 4
+  %128 = load i64, ptr %127, align 8, !tbaa !102
+  %129 = add i64 %128, -1
+  store i64 %129, ptr %127, align 8, !tbaa !102
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %136
+
+130:                                              ; preds = %61, %46
+  %131 = load ptr, ptr %7, align 8, !tbaa !63
+  store ptr %131, ptr %8, align 8, !tbaa !63
+  %132 = load ptr, ptr %7, align 8, !tbaa !63
+  %133 = getelementptr inbounds nuw %struct.dictEntry, ptr %132, i32 0, i32 2
+  %134 = load ptr, ptr %133, align 8, !tbaa !137
+  store ptr %134, ptr %7, align 8, !tbaa !63
+  br label %36
+
+135:                                              ; preds = %36
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %136
+
+136:                                              ; preds = %135, %124, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %137 = load i32, ptr %3, align 4
+  ret i32 %137
+}
+
+declare i32 @redisCheckConnectDone(ptr noundef, ptr noundef) #3
+
+declare i32 @redisCheckSocketError(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @__redisAsyncHandleConnectFailure(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisRunConnectCallback(ptr noundef %3, i32 noundef -1)
+  %4 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @__redisAsyncDisconnect(ptr noundef %4)
+  ret void
+}
+
+declare i32 @redisSetTcpNoDelay(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @nextArgument(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !61
+  store ptr %1, ptr %6, align 8, !tbaa !122
+  store ptr %2, ptr %7, align 8, !tbaa !124
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %10 = load ptr, ptr %5, align 8, !tbaa !61
+  store ptr %10, ptr %8, align 8, !tbaa !61
+  %11 = load ptr, ptr %8, align 8, !tbaa !61
+  %12 = getelementptr inbounds i8, ptr %11, i64 0
+  %13 = load i8, ptr %12, align 1, !tbaa !13
+  %14 = sext i8 %13 to i32
+  %15 = icmp ne i32 %14, 36
+  br i1 %15, label %16, label %23
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %8, align 8, !tbaa !61
+  %18 = call ptr @strchr(ptr noundef %17, i32 noundef 36) #12
+  store ptr %18, ptr %8, align 8, !tbaa !61
+  %19 = load ptr, ptr %8, align 8, !tbaa !61
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %16
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %41
+
+22:                                               ; preds = %16
+  br label %23
+
+23:                                               ; preds = %22, %3
+  %24 = load ptr, ptr %8, align 8, !tbaa !61
+  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %26 = call i64 @strtol(ptr noundef %25, ptr noundef null, i32 noundef 10) #10
+  %27 = trunc i64 %26 to i32
+  %28 = sext i32 %27 to i64
+  %29 = load ptr, ptr %7, align 8, !tbaa !124
+  store i64 %28, ptr %29, align 8, !tbaa !91
+  %30 = load ptr, ptr %8, align 8, !tbaa !61
+  %31 = call ptr @strchr(ptr noundef %30, i32 noundef 13) #12
+  store ptr %31, ptr %8, align 8, !tbaa !61
+  %32 = load ptr, ptr %8, align 8, !tbaa !61
+  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  %34 = load ptr, ptr %6, align 8, !tbaa !122
+  store ptr %33, ptr %34, align 8, !tbaa !61
+  %35 = load ptr, ptr %8, align 8, !tbaa !61
+  %36 = getelementptr inbounds i8, ptr %35, i64 2
+  %37 = load ptr, ptr %7, align 8, !tbaa !124
+  %38 = load i64, ptr %37, align 8, !tbaa !91
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
+  %40 = getelementptr inbounds i8, ptr %39, i64 2
+  store ptr %40, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %41
+
+41:                                               ; preds = %23, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %42 = load ptr, ptr %4, align 8
+  ret ptr %42
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dictReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %struct.dictEntry, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #10
+  %11 = load ptr, ptr %5, align 8, !tbaa !22
+  %12 = load ptr, ptr %6, align 8, !tbaa !4
+  %13 = load ptr, ptr %7, align 8, !tbaa !4
+  %14 = call i32 @dictAdd(ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %3
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %71
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !22
+  %19 = load ptr, ptr %6, align 8, !tbaa !4
+  %20 = call ptr @dictFind(ptr noundef %18, ptr noundef %19)
+  store ptr %20, ptr %8, align 8, !tbaa !63
+  %21 = load ptr, ptr %8, align 8, !tbaa !63
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %17
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %71
+
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %8, align 8, !tbaa !63
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %25, i64 24, i1 false), !tbaa.struct !151
+  br label %26
+
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %5, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw %struct.dict, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !132
+  %30 = getelementptr inbounds nuw %struct.dictType, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8, !tbaa !152
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %46
+
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %5, align 8, !tbaa !22
+  %35 = getelementptr inbounds nuw %struct.dict, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8, !tbaa !132
+  %37 = getelementptr inbounds nuw %struct.dictType, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !152
+  %39 = load ptr, ptr %5, align 8, !tbaa !22
+  %40 = getelementptr inbounds nuw %struct.dict, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8, !tbaa !133
+  %42 = load ptr, ptr %7, align 8, !tbaa !4
+  %43 = call ptr %38(ptr noundef %41, ptr noundef %42)
+  %44 = load ptr, ptr %8, align 8, !tbaa !63
+  %45 = getelementptr inbounds nuw %struct.dictEntry, ptr %44, i32 0, i32 1
+  store ptr %43, ptr %45, align 8, !tbaa !65
+  br label %50
+
+46:                                               ; preds = %26
+  %47 = load ptr, ptr %7, align 8, !tbaa !4
+  %48 = load ptr, ptr %8, align 8, !tbaa !63
+  %49 = getelementptr inbounds nuw %struct.dictEntry, ptr %48, i32 0, i32 1
+  store ptr %47, ptr %49, align 8, !tbaa !65
+  br label %50
+
+50:                                               ; preds = %46, %33
+  br label %51
+
+51:                                               ; preds = %50
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %5, align 8, !tbaa !22
+  %54 = getelementptr inbounds nuw %struct.dict, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8, !tbaa !132
+  %56 = getelementptr inbounds nuw %struct.dictType, ptr %55, i32 0, i32 5
+  %57 = load ptr, ptr %56, align 8, !tbaa !141
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %70
+
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %5, align 8, !tbaa !22
+  %61 = getelementptr inbounds nuw %struct.dict, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !132
+  %63 = getelementptr inbounds nuw %struct.dictType, ptr %62, i32 0, i32 5
+  %64 = load ptr, ptr %63, align 8, !tbaa !141
+  %65 = load ptr, ptr %5, align 8, !tbaa !22
+  %66 = getelementptr inbounds nuw %struct.dict, ptr %65, i32 0, i32 5
+  %67 = load ptr, ptr %66, align 8, !tbaa !133
+  %68 = getelementptr inbounds nuw %struct.dictEntry, ptr %9, i32 0, i32 1
+  %69 = load ptr, ptr %68, align 8, !tbaa !65
+  call void %64(ptr noundef %67, ptr noundef %69)
+  br label %70
+
+70:                                               ; preds = %59, %52
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %71
+
+71:                                               ; preds = %70, %23, %16
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %72 = load i32, ptr %4, align 4
+  ret i32 %72
+}
+
+declare i32 @__redisAppendCommand(ptr noundef, ptr noundef, i64 noundef) #3
+
+; Function Attrs: nounwind willreturn memory(read)
+declare ptr @strchr(ptr noundef, i32 noundef) #8
+
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #6
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dictAdd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !22
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %11 = load ptr, ptr %5, align 8, !tbaa !22
+  %12 = load ptr, ptr %6, align 8, !tbaa !4
+  %13 = call i32 @_dictKeyIndex(ptr noundef %11, ptr noundef %12)
+  store i32 %13, ptr %8, align 4, !tbaa !9
+  %14 = icmp eq i32 %13, -1
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %3
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %96
+
+16:                                               ; preds = %3
+  %17 = call ptr @hi_malloc(i64 noundef 24)
+  store ptr %17, ptr %9, align 8, !tbaa !63
+  %18 = load ptr, ptr %9, align 8, !tbaa !63
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %16
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %96
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %struct.dict, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !134
+  %25 = load i32, ptr %8, align 4, !tbaa !9
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !63
+  %29 = load ptr, ptr %9, align 8, !tbaa !63
+  %30 = getelementptr inbounds nuw %struct.dictEntry, ptr %29, i32 0, i32 2
+  store ptr %28, ptr %30, align 8, !tbaa !137
+  %31 = load ptr, ptr %9, align 8, !tbaa !63
+  %32 = load ptr, ptr %5, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.dict, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !134
+  %35 = load i32, ptr %8, align 4, !tbaa !9
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
+  store ptr %31, ptr %37, align 8, !tbaa !63
+  br label %38
+
+38:                                               ; preds = %21
+  %39 = load ptr, ptr %5, align 8, !tbaa !22
+  %40 = getelementptr inbounds nuw %struct.dict, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !132
+  %42 = getelementptr inbounds nuw %struct.dictType, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !153
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %58
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %5, align 8, !tbaa !22
+  %47 = getelementptr inbounds nuw %struct.dict, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !132
+  %49 = getelementptr inbounds nuw %struct.dictType, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8, !tbaa !153
+  %51 = load ptr, ptr %5, align 8, !tbaa !22
+  %52 = getelementptr inbounds nuw %struct.dict, ptr %51, i32 0, i32 5
+  %53 = load ptr, ptr %52, align 8, !tbaa !133
+  %54 = load ptr, ptr %6, align 8, !tbaa !4
+  %55 = call ptr %50(ptr noundef %53, ptr noundef %54)
+  %56 = load ptr, ptr %9, align 8, !tbaa !63
+  %57 = getelementptr inbounds nuw %struct.dictEntry, ptr %56, i32 0, i32 0
+  store ptr %55, ptr %57, align 8, !tbaa !140
+  br label %62
+
+58:                                               ; preds = %38
+  %59 = load ptr, ptr %6, align 8, !tbaa !4
+  %60 = load ptr, ptr %9, align 8, !tbaa !63
+  %61 = getelementptr inbounds nuw %struct.dictEntry, ptr %60, i32 0, i32 0
+  store ptr %59, ptr %61, align 8, !tbaa !140
+  br label %62
+
+62:                                               ; preds = %58, %45
+  br label %63
+
+63:                                               ; preds = %62
+  br label %64
+
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %5, align 8, !tbaa !22
+  %67 = getelementptr inbounds nuw %struct.dict, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8, !tbaa !132
+  %69 = getelementptr inbounds nuw %struct.dictType, ptr %68, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8, !tbaa !152
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %85
+
+72:                                               ; preds = %65
+  %73 = load ptr, ptr %5, align 8, !tbaa !22
+  %74 = getelementptr inbounds nuw %struct.dict, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !132
+  %76 = getelementptr inbounds nuw %struct.dictType, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8, !tbaa !152
+  %78 = load ptr, ptr %5, align 8, !tbaa !22
+  %79 = getelementptr inbounds nuw %struct.dict, ptr %78, i32 0, i32 5
+  %80 = load ptr, ptr %79, align 8, !tbaa !133
+  %81 = load ptr, ptr %7, align 8, !tbaa !4
+  %82 = call ptr %77(ptr noundef %80, ptr noundef %81)
+  %83 = load ptr, ptr %9, align 8, !tbaa !63
+  %84 = getelementptr inbounds nuw %struct.dictEntry, ptr %83, i32 0, i32 1
+  store ptr %82, ptr %84, align 8, !tbaa !65
+  br label %89
+
+85:                                               ; preds = %65
+  %86 = load ptr, ptr %7, align 8, !tbaa !4
+  %87 = load ptr, ptr %9, align 8, !tbaa !63
+  %88 = getelementptr inbounds nuw %struct.dictEntry, ptr %87, i32 0, i32 1
+  store ptr %86, ptr %88, align 8, !tbaa !65
+  br label %89
+
+89:                                               ; preds = %85, %72
+  br label %90
+
+90:                                               ; preds = %89
+  br label %91
+
+91:                                               ; preds = %90
+  %92 = load ptr, ptr %5, align 8, !tbaa !22
+  %93 = getelementptr inbounds nuw %struct.dict, ptr %92, i32 0, i32 4
+  %94 = load i64, ptr %93, align 8, !tbaa !102
+  %95 = add i64 %94, 1
+  store i64 %95, ptr %93, align 8, !tbaa !102
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %96
+
+96:                                               ; preds = %91, %20, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %97 = load i32, ptr %4, align 4
+  ret i32 %97
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_dictKeyIndex(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %9 = load ptr, ptr %4, align 8, !tbaa !22
+  %10 = call i32 @_dictExpandIfNeeded(ptr noundef %9)
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %2
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %72
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %struct.dict, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !132
+  %17 = getelementptr inbounds nuw %struct.dictType, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !149
+  %19 = load ptr, ptr %5, align 8, !tbaa !4
+  %20 = call i32 %18(ptr noundef %19)
+  %21 = zext i32 %20 to i64
+  %22 = load ptr, ptr %4, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %struct.dict, ptr %22, i32 0, i32 3
+  %24 = load i64, ptr %23, align 8, !tbaa !136
+  %25 = and i64 %21, %24
+  %26 = trunc i64 %25 to i32
+  store i32 %26, ptr %6, align 4, !tbaa !9
+  %27 = load ptr, ptr %4, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw %struct.dict, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !134
+  %30 = load i32, ptr %6, align 4, !tbaa !9
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !63
+  store ptr %33, ptr %7, align 8, !tbaa !63
+  br label %34
+
+34:                                               ; preds = %66, %13
+  %35 = load ptr, ptr %7, align 8, !tbaa !63
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %70
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %4, align 8, !tbaa !22
+  %39 = getelementptr inbounds nuw %struct.dict, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !132
+  %41 = getelementptr inbounds nuw %struct.dictType, ptr %40, i32 0, i32 3
+  %42 = load ptr, ptr %41, align 8, !tbaa !150
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %59
+
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %4, align 8, !tbaa !22
+  %46 = getelementptr inbounds nuw %struct.dict, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !132
+  %48 = getelementptr inbounds nuw %struct.dictType, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8, !tbaa !150
+  %50 = load ptr, ptr %4, align 8, !tbaa !22
+  %51 = getelementptr inbounds nuw %struct.dict, ptr %50, i32 0, i32 5
+  %52 = load ptr, ptr %51, align 8, !tbaa !133
+  %53 = load ptr, ptr %5, align 8, !tbaa !4
+  %54 = load ptr, ptr %7, align 8, !tbaa !63
+  %55 = getelementptr inbounds nuw %struct.dictEntry, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !140
+  %57 = call i32 %49(ptr noundef %52, ptr noundef %53, ptr noundef %56)
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %65, label %66
+
+59:                                               ; preds = %37
+  %60 = load ptr, ptr %5, align 8, !tbaa !4
+  %61 = load ptr, ptr %7, align 8, !tbaa !63
+  %62 = getelementptr inbounds nuw %struct.dictEntry, ptr %61, i32 0, i32 0
+  %63 = load ptr, ptr %62, align 8, !tbaa !140
+  %64 = icmp eq ptr %60, %63
+  br i1 %64, label %65, label %66
+
+65:                                               ; preds = %59, %44
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %72
+
+66:                                               ; preds = %59, %44
+  %67 = load ptr, ptr %7, align 8, !tbaa !63
+  %68 = getelementptr inbounds nuw %struct.dictEntry, ptr %67, i32 0, i32 2
+  %69 = load ptr, ptr %68, align 8, !tbaa !137
+  store ptr %69, ptr %7, align 8, !tbaa !63
+  br label %34
+
+70:                                               ; preds = %34
+  %71 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %71, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %72
+
+72:                                               ; preds = %70, %65, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %73 = load i32, ptr %3, align 4
+  ret i32 %73
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_dictExpandIfNeeded(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
+  %5 = getelementptr inbounds nuw %struct.dict, ptr %4, i32 0, i32 2
+  %6 = load i64, ptr %5, align 8, !tbaa !135
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !22
+  %10 = call i32 @dictExpand(ptr noundef %9, i64 noundef 4)
+  store i32 %10, ptr %2, align 4
+  br label %27
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !22
+  %13 = getelementptr inbounds nuw %struct.dict, ptr %12, i32 0, i32 4
+  %14 = load i64, ptr %13, align 8, !tbaa !102
+  %15 = load ptr, ptr %3, align 8, !tbaa !22
+  %16 = getelementptr inbounds nuw %struct.dict, ptr %15, i32 0, i32 2
+  %17 = load i64, ptr %16, align 8, !tbaa !135
+  %18 = icmp eq i64 %14, %17
+  br i1 %18, label %19, label %26
+
+19:                                               ; preds = %11
+  %20 = load ptr, ptr %3, align 8, !tbaa !22
+  %21 = load ptr, ptr %3, align 8, !tbaa !22
+  %22 = getelementptr inbounds nuw %struct.dict, ptr %21, i32 0, i32 2
+  %23 = load i64, ptr %22, align 8, !tbaa !135
+  %24 = mul i64 %23, 2
+  %25 = call i32 @dictExpand(ptr noundef %20, i64 noundef %24)
+  store i32 %25, ptr %2, align 4
+  br label %27
+
+26:                                               ; preds = %11
+  store i32 0, ptr %2, align 4
+  br label %27
+
+27:                                               ; preds = %26, %19, %8
+  %28 = load i32, ptr %2, align 4
   ret i32 %28
 }
 
-declare i32 @__redisAppendCommand(ptr noundef, ptr noundef, i64 noundef) #2
-
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #6
-
-; Function Attrs: nounwind
-declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #4
-
 ; Function Attrs: nounwind uwtable
-define internal i32 @dictAdd(ptr noundef %ht, ptr noundef %key, ptr noundef %val) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ht.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %val.addr = alloca ptr, align 8
-  %index = alloca i32, align 4
-  %entry1 = alloca ptr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %1 = load ptr, ptr %key.addr, align 8
-  %call = call i32 @_dictKeyIndex(ptr noundef %0, ptr noundef %1)
-  store i32 %call, ptr %index, align 4
-  %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @dictExpand(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %struct.dict, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store i64 %1, ptr %5, align 8, !tbaa !91
+  call void @llvm.lifetime.start.p0(i64 48, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %13 = load i64, ptr %5, align 8, !tbaa !91
+  %14 = call i64 @_dictNextPower(i64 noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !91
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %15 = load ptr, ptr %4, align 8, !tbaa !22
+  %16 = getelementptr inbounds nuw %struct.dict, ptr %15, i32 0, i32 4
+  %17 = load i64, ptr %16, align 8, !tbaa !102
+  %18 = load i64, ptr %5, align 8, !tbaa !91
+  %19 = icmp ugt i64 %17, %18
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %2
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %127
 
-if.end:                                           ; preds = %entry
-  %call2 = call ptr @hi_malloc(i64 noundef 24)
-  store ptr %call2, ptr %entry1, align 8
-  %2 = load ptr, ptr %entry1, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then4, label %if.end5
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %4, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %struct.dict, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !132
+  %25 = load ptr, ptr %4, align 8, !tbaa !22
+  %26 = getelementptr inbounds nuw %struct.dict, ptr %25, i32 0, i32 5
+  %27 = load ptr, ptr %26, align 8, !tbaa !133
+  %28 = call i32 @_dictInit(ptr noundef %6, ptr noundef %24, ptr noundef %27)
+  %29 = load i64, ptr %7, align 8, !tbaa !91
+  %30 = getelementptr inbounds nuw %struct.dict, ptr %6, i32 0, i32 2
+  store i64 %29, ptr %30, align 8, !tbaa !135
+  %31 = load i64, ptr %7, align 8, !tbaa !91
+  %32 = sub i64 %31, 1
+  %33 = getelementptr inbounds nuw %struct.dict, ptr %6, i32 0, i32 3
+  store i64 %32, ptr %33, align 8, !tbaa !136
+  %34 = load i64, ptr %7, align 8, !tbaa !91
+  %35 = call ptr @hi_calloc(i64 noundef %34, i64 noundef 8)
+  %36 = getelementptr inbounds nuw %struct.dict, ptr %6, i32 0, i32 0
+  store ptr %35, ptr %36, align 8, !tbaa !134
+  %37 = getelementptr inbounds nuw %struct.dict, ptr %6, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !134
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %41
 
-if.then4:                                         ; preds = %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %21
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %127
 
-if.end5:                                          ; preds = %if.end
-  %3 = load ptr, ptr %ht.addr, align 8
-  %table = getelementptr inbounds %struct.dict, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %table, align 8
-  %5 = load i32, ptr %index, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
-  %6 = load ptr, ptr %arrayidx, align 8
-  %7 = load ptr, ptr %entry1, align 8
-  %next = getelementptr inbounds %struct.dictEntry, ptr %7, i32 0, i32 2
-  store ptr %6, ptr %next, align 8
-  %8 = load ptr, ptr %entry1, align 8
-  %9 = load ptr, ptr %ht.addr, align 8
-  %table6 = getelementptr inbounds %struct.dict, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %table6, align 8
-  %11 = load i32, ptr %index, align 4
-  %idxprom7 = sext i32 %11 to i64
-  %arrayidx8 = getelementptr inbounds ptr, ptr %10, i64 %idxprom7
-  store ptr %8, ptr %arrayidx8, align 8
-  br label %do.body
+41:                                               ; preds = %21
+  %42 = load ptr, ptr %4, align 8, !tbaa !22
+  %43 = getelementptr inbounds nuw %struct.dict, ptr %42, i32 0, i32 4
+  %44 = load i64, ptr %43, align 8, !tbaa !102
+  %45 = getelementptr inbounds nuw %struct.dict, ptr %6, i32 0, i32 4
+  store i64 %44, ptr %45, align 8, !tbaa !102
+  store i64 0, ptr %8, align 8, !tbaa !91
+  br label %46
 
-do.body:                                          ; preds = %if.end5
-  %12 = load ptr, ptr %ht.addr, align 8
-  %type = getelementptr inbounds %struct.dict, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %type, align 8
-  %keyDup = getelementptr inbounds %struct.dictType, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %keyDup, align 8
-  %tobool = icmp ne ptr %14, null
-  br i1 %tobool, label %if.then9, label %if.else
+46:                                               ; preds = %119, %41
+  %47 = load i64, ptr %8, align 8, !tbaa !91
+  %48 = load ptr, ptr %4, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw %struct.dict, ptr %48, i32 0, i32 2
+  %50 = load i64, ptr %49, align 8, !tbaa !135
+  %51 = icmp ult i64 %47, %50
+  br i1 %51, label %52, label %57
 
-if.then9:                                         ; preds = %do.body
-  %15 = load ptr, ptr %ht.addr, align 8
-  %type10 = getelementptr inbounds %struct.dict, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %type10, align 8
-  %keyDup11 = getelementptr inbounds %struct.dictType, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %keyDup11, align 8
-  %18 = load ptr, ptr %ht.addr, align 8
-  %privdata = getelementptr inbounds %struct.dict, ptr %18, i32 0, i32 5
-  %19 = load ptr, ptr %privdata, align 8
-  %20 = load ptr, ptr %key.addr, align 8
-  %call12 = call ptr %17(ptr noundef %19, ptr noundef %20)
-  %21 = load ptr, ptr %entry1, align 8
-  %key13 = getelementptr inbounds %struct.dictEntry, ptr %21, i32 0, i32 0
-  store ptr %call12, ptr %key13, align 8
-  br label %if.end15
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %4, align 8, !tbaa !22
+  %54 = getelementptr inbounds nuw %struct.dict, ptr %53, i32 0, i32 4
+  %55 = load i64, ptr %54, align 8, !tbaa !102
+  %56 = icmp ugt i64 %55, 0
+  br label %57
 
-if.else:                                          ; preds = %do.body
-  %22 = load ptr, ptr %key.addr, align 8
-  %23 = load ptr, ptr %entry1, align 8
-  %key14 = getelementptr inbounds %struct.dictEntry, ptr %23, i32 0, i32 0
-  store ptr %22, ptr %key14, align 8
-  br label %if.end15
+57:                                               ; preds = %52, %46
+  %58 = phi i1 [ false, %46 ], [ %56, %52 ]
+  br i1 %58, label %59, label %122
 
-if.end15:                                         ; preds = %if.else, %if.then9
-  br label %do.end
+59:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %60 = load ptr, ptr %4, align 8, !tbaa !22
+  %61 = getelementptr inbounds nuw %struct.dict, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !134
+  %63 = load i64, ptr %8, align 8, !tbaa !91
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %65 = load ptr, ptr %64, align 8, !tbaa !63
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %68
 
-do.end:                                           ; preds = %if.end15
-  br label %do.body16
+67:                                               ; preds = %59
+  store i32 4, ptr %9, align 4
+  br label %116
 
-do.body16:                                        ; preds = %do.end
-  %24 = load ptr, ptr %ht.addr, align 8
-  %type17 = getelementptr inbounds %struct.dict, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %type17, align 8
-  %valDup = getelementptr inbounds %struct.dictType, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %valDup, align 8
-  %tobool18 = icmp ne ptr %26, null
-  br i1 %tobool18, label %if.then19, label %if.else25
+68:                                               ; preds = %59
+  %69 = load ptr, ptr %4, align 8, !tbaa !22
+  %70 = getelementptr inbounds nuw %struct.dict, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !134
+  %72 = load i64, ptr %8, align 8, !tbaa !91
+  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
+  %74 = load ptr, ptr %73, align 8, !tbaa !63
+  store ptr %74, ptr %10, align 8, !tbaa !63
+  br label %75
 
-if.then19:                                        ; preds = %do.body16
-  %27 = load ptr, ptr %ht.addr, align 8
-  %type20 = getelementptr inbounds %struct.dict, ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %type20, align 8
-  %valDup21 = getelementptr inbounds %struct.dictType, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %valDup21, align 8
-  %30 = load ptr, ptr %ht.addr, align 8
-  %privdata22 = getelementptr inbounds %struct.dict, ptr %30, i32 0, i32 5
-  %31 = load ptr, ptr %privdata22, align 8
-  %32 = load ptr, ptr %val.addr, align 8
-  %call23 = call ptr %29(ptr noundef %31, ptr noundef %32)
-  %33 = load ptr, ptr %entry1, align 8
-  %val24 = getelementptr inbounds %struct.dictEntry, ptr %33, i32 0, i32 1
-  store ptr %call23, ptr %val24, align 8
-  br label %if.end27
+75:                                               ; preds = %78, %68
+  %76 = load ptr, ptr %10, align 8, !tbaa !63
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %115
 
-if.else25:                                        ; preds = %do.body16
-  %34 = load ptr, ptr %val.addr, align 8
-  %35 = load ptr, ptr %entry1, align 8
-  %val26 = getelementptr inbounds %struct.dictEntry, ptr %35, i32 0, i32 1
-  store ptr %34, ptr %val26, align 8
-  br label %if.end27
+78:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  %79 = load ptr, ptr %10, align 8, !tbaa !63
+  %80 = getelementptr inbounds nuw %struct.dictEntry, ptr %79, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8, !tbaa !137
+  store ptr %81, ptr %11, align 8, !tbaa !63
+  %82 = load ptr, ptr %4, align 8, !tbaa !22
+  %83 = getelementptr inbounds nuw %struct.dict, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !132
+  %85 = getelementptr inbounds nuw %struct.dictType, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !149
+  %87 = load ptr, ptr %10, align 8, !tbaa !63
+  %88 = getelementptr inbounds nuw %struct.dictEntry, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !140
+  %90 = call i32 %86(ptr noundef %89)
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw %struct.dict, ptr %6, i32 0, i32 3
+  %93 = load i64, ptr %92, align 8, !tbaa !136
+  %94 = and i64 %91, %93
+  %95 = trunc i64 %94 to i32
+  store i32 %95, ptr %12, align 4, !tbaa !9
+  %96 = getelementptr inbounds nuw %struct.dict, ptr %6, i32 0, i32 0
+  %97 = load ptr, ptr %96, align 8, !tbaa !134
+  %98 = load i32, ptr %12, align 4, !tbaa !9
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds nuw ptr, ptr %97, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !63
+  %102 = load ptr, ptr %10, align 8, !tbaa !63
+  %103 = getelementptr inbounds nuw %struct.dictEntry, ptr %102, i32 0, i32 2
+  store ptr %101, ptr %103, align 8, !tbaa !137
+  %104 = load ptr, ptr %10, align 8, !tbaa !63
+  %105 = getelementptr inbounds nuw %struct.dict, ptr %6, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8, !tbaa !134
+  %107 = load i32, ptr %12, align 4, !tbaa !9
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw ptr, ptr %106, i64 %108
+  store ptr %104, ptr %109, align 8, !tbaa !63
+  %110 = load ptr, ptr %4, align 8, !tbaa !22
+  %111 = getelementptr inbounds nuw %struct.dict, ptr %110, i32 0, i32 4
+  %112 = load i64, ptr %111, align 8, !tbaa !102
+  %113 = add i64 %112, -1
+  store i64 %113, ptr %111, align 8, !tbaa !102
+  %114 = load ptr, ptr %11, align 8, !tbaa !63
+  store ptr %114, ptr %10, align 8, !tbaa !63
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  br label %75
 
-if.end27:                                         ; preds = %if.else25, %if.then19
-  br label %do.end28
+115:                                              ; preds = %75
+  store i32 0, ptr %9, align 4
+  br label %116
 
-do.end28:                                         ; preds = %if.end27
-  %36 = load ptr, ptr %ht.addr, align 8
-  %used = getelementptr inbounds %struct.dict, ptr %36, i32 0, i32 4
-  %37 = load i64, ptr %used, align 8
-  %inc = add i64 %37, 1
-  store i64 %inc, ptr %used, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+116:                                              ; preds = %115, %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %117 = load i32, ptr %9, align 4
+  switch i32 %117, label %129 [
+    i32 0, label %118
+    i32 4, label %119
+  ]
 
-return:                                           ; preds = %do.end28, %if.then4, %if.then
-  %38 = load i32, ptr %retval, align 4
-  ret i32 %38
+118:                                              ; preds = %116
+  br label %119
+
+119:                                              ; preds = %118, %116
+  %120 = load i64, ptr %8, align 8, !tbaa !91
+  %121 = add i64 %120, 1
+  store i64 %121, ptr %8, align 8, !tbaa !91
+  br label %46
+
+122:                                              ; preds = %57
+  %123 = load ptr, ptr %4, align 8, !tbaa !22
+  %124 = getelementptr inbounds nuw %struct.dict, ptr %123, i32 0, i32 0
+  %125 = load ptr, ptr %124, align 8, !tbaa !134
+  call void @hi_free(ptr noundef %125)
+  %126 = load ptr, ptr %4, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %126, ptr align 8 %6, i64 48, i1 false), !tbaa.struct !154
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %127
+
+127:                                              ; preds = %122, %40, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 48, ptr %6) #10
+  %128 = load i32, ptr %3, align 4
+  ret i32 %128
+
+129:                                              ; preds = %116
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_dictKeyIndex(ptr noundef %ht, ptr noundef %key) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ht.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %h = alloca i32, align 4
-  %he = alloca ptr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %call = call i32 @_dictExpandIfNeeded(ptr noundef %0)
-  %cmp = icmp eq i32 %call, 1
-  br i1 %cmp, label %if.then, label %if.end
+define internal i64 @_dictNextPower(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  store i64 %0, ptr %3, align 8, !tbaa !91
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  store i64 4, ptr %4, align 8, !tbaa !91
+  %6 = load i64, ptr %3, align 8, !tbaa !91
+  %7 = icmp uge i64 %6, 9223372036854775807
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %1
+  store i64 9223372036854775807, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ht.addr, align 8
-  %type = getelementptr inbounds %struct.dict, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %type, align 8
-  %hashFunction = getelementptr inbounds %struct.dictType, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %hashFunction, align 8
-  %4 = load ptr, ptr %key.addr, align 8
-  %call1 = call i32 %3(ptr noundef %4)
-  %conv = zext i32 %call1 to i64
-  %5 = load ptr, ptr %ht.addr, align 8
-  %sizemask = getelementptr inbounds %struct.dict, ptr %5, i32 0, i32 3
-  %6 = load i64, ptr %sizemask, align 8
-  %and = and i64 %conv, %6
-  %conv2 = trunc i64 %and to i32
-  store i32 %conv2, ptr %h, align 4
-  %7 = load ptr, ptr %ht.addr, align 8
-  %table = getelementptr inbounds %struct.dict, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %table, align 8
-  %9 = load i32, ptr %h, align 4
-  %idxprom = zext i32 %9 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx, align 8
-  store ptr %10, ptr %he, align 8
-  br label %while.cond
+9:                                                ; preds = %1
+  br label %10
 
-while.cond:                                       ; preds = %if.end14, %if.end
-  %11 = load ptr, ptr %he, align 8
-  %tobool = icmp ne ptr %11, null
-  br i1 %tobool, label %while.body, label %while.end
+10:                                               ; preds = %17, %9
+  br label %11
 
-while.body:                                       ; preds = %while.cond
-  %12 = load ptr, ptr %ht.addr, align 8
-  %type3 = getelementptr inbounds %struct.dict, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %type3, align 8
-  %keyCompare = getelementptr inbounds %struct.dictType, ptr %13, i32 0, i32 3
-  %14 = load ptr, ptr %keyCompare, align 8
-  %tobool4 = icmp ne ptr %14, null
-  br i1 %tobool4, label %cond.true, label %cond.false
+11:                                               ; preds = %10
+  %12 = load i64, ptr %4, align 8, !tbaa !91
+  %13 = load i64, ptr %3, align 8, !tbaa !91
+  %14 = icmp uge i64 %12, %13
+  br i1 %14, label %15, label %17
 
-cond.true:                                        ; preds = %while.body
-  %15 = load ptr, ptr %ht.addr, align 8
-  %type5 = getelementptr inbounds %struct.dict, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %type5, align 8
-  %keyCompare6 = getelementptr inbounds %struct.dictType, ptr %16, i32 0, i32 3
-  %17 = load ptr, ptr %keyCompare6, align 8
-  %18 = load ptr, ptr %ht.addr, align 8
-  %privdata = getelementptr inbounds %struct.dict, ptr %18, i32 0, i32 5
-  %19 = load ptr, ptr %privdata, align 8
-  %20 = load ptr, ptr %key.addr, align 8
-  %21 = load ptr, ptr %he, align 8
-  %key7 = getelementptr inbounds %struct.dictEntry, ptr %21, i32 0, i32 0
-  %22 = load ptr, ptr %key7, align 8
-  %call8 = call i32 %17(ptr noundef %19, ptr noundef %20, ptr noundef %22)
-  %tobool9 = icmp ne i32 %call8, 0
-  br i1 %tobool9, label %if.then13, label %if.end14
+15:                                               ; preds = %11
+  %16 = load i64, ptr %4, align 8, !tbaa !91
+  store i64 %16, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %20
 
-cond.false:                                       ; preds = %while.body
-  %23 = load ptr, ptr %key.addr, align 8
-  %24 = load ptr, ptr %he, align 8
-  %key10 = getelementptr inbounds %struct.dictEntry, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %key10, align 8
-  %cmp11 = icmp eq ptr %23, %25
-  br i1 %cmp11, label %if.then13, label %if.end14
+17:                                               ; preds = %11
+  %18 = load i64, ptr %4, align 8, !tbaa !91
+  %19 = mul i64 %18, 2
+  store i64 %19, ptr %4, align 8, !tbaa !91
+  br label %10
 
-if.then13:                                        ; preds = %cond.false, %cond.true
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end14:                                         ; preds = %cond.false, %cond.true
-  %26 = load ptr, ptr %he, align 8
-  %next = getelementptr inbounds %struct.dictEntry, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %next, align 8
-  store ptr %27, ptr %he, align 8
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  %28 = load i32, ptr %h, align 4
-  store i32 %28, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then13, %if.then
-  %29 = load i32, ptr %retval, align 4
-  ret i32 %29
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @_dictExpandIfNeeded(ptr noundef %ht) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ht.addr = alloca ptr, align 8
-  store ptr %ht, ptr %ht.addr, align 8
-  %0 = load ptr, ptr %ht.addr, align 8
-  %size = getelementptr inbounds %struct.dict, ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %size, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %ht.addr, align 8
-  %call = call i32 @dictExpand(ptr noundef %2, i64 noundef 4)
-  store i32 %call, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %ht.addr, align 8
-  %used = getelementptr inbounds %struct.dict, ptr %3, i32 0, i32 4
-  %4 = load i64, ptr %used, align 8
-  %5 = load ptr, ptr %ht.addr, align 8
-  %size1 = getelementptr inbounds %struct.dict, ptr %5, i32 0, i32 2
-  %6 = load i64, ptr %size1, align 8
-  %cmp2 = icmp eq i64 %4, %6
-  br i1 %cmp2, label %if.then3, label %if.end6
-
-if.then3:                                         ; preds = %if.end
-  %7 = load ptr, ptr %ht.addr, align 8
-  %8 = load ptr, ptr %ht.addr, align 8
-  %size4 = getelementptr inbounds %struct.dict, ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %size4, align 8
-  %mul = mul i64 %9, 2
-  %call5 = call i32 @dictExpand(ptr noundef %7, i64 noundef %mul)
-  store i32 %call5, ptr %retval, align 4
-  br label %return
-
-if.end6:                                          ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end6, %if.then3, %if.then
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @dictExpand(ptr noundef %ht, i64 noundef %size) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ht.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %n = alloca %struct.dict, align 8
-  %realsize = alloca i64, align 8
-  %i = alloca i64, align 8
-  %he = alloca ptr, align 8
-  %nextHe = alloca ptr, align 8
-  %h = alloca i32, align 4
-  store ptr %ht, ptr %ht.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %call = call i64 @_dictNextPower(i64 noundef %0)
-  store i64 %call, ptr %realsize, align 8
-  %1 = load ptr, ptr %ht.addr, align 8
-  %used = getelementptr inbounds %struct.dict, ptr %1, i32 0, i32 4
-  %2 = load i64, ptr %used, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %cmp = icmp ugt i64 %2, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %ht.addr, align 8
-  %type = getelementptr inbounds %struct.dict, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %type, align 8
-  %6 = load ptr, ptr %ht.addr, align 8
-  %privdata = getelementptr inbounds %struct.dict, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %privdata, align 8
-  %call1 = call i32 @_dictInit(ptr noundef %n, ptr noundef %5, ptr noundef %7)
-  %8 = load i64, ptr %realsize, align 8
-  %size2 = getelementptr inbounds %struct.dict, ptr %n, i32 0, i32 2
-  store i64 %8, ptr %size2, align 8
-  %9 = load i64, ptr %realsize, align 8
-  %sub = sub i64 %9, 1
-  %sizemask = getelementptr inbounds %struct.dict, ptr %n, i32 0, i32 3
-  store i64 %sub, ptr %sizemask, align 8
-  %10 = load i64, ptr %realsize, align 8
-  %call3 = call ptr @hi_calloc(i64 noundef %10, i64 noundef 8)
-  %table = getelementptr inbounds %struct.dict, ptr %n, i32 0, i32 0
-  store ptr %call3, ptr %table, align 8
-  %table4 = getelementptr inbounds %struct.dict, ptr %n, i32 0, i32 0
-  %11 = load ptr, ptr %table4, align 8
-  %cmp5 = icmp eq ptr %11, null
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end7:                                          ; preds = %if.end
-  %12 = load ptr, ptr %ht.addr, align 8
-  %used8 = getelementptr inbounds %struct.dict, ptr %12, i32 0, i32 4
-  %13 = load i64, ptr %used8, align 8
-  %used9 = getelementptr inbounds %struct.dict, ptr %n, i32 0, i32 4
-  store i64 %13, ptr %used9, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end7
-  %14 = load i64, ptr %i, align 8
-  %15 = load ptr, ptr %ht.addr, align 8
-  %size10 = getelementptr inbounds %struct.dict, ptr %15, i32 0, i32 2
-  %16 = load i64, ptr %size10, align 8
-  %cmp11 = icmp ult i64 %14, %16
-  br i1 %cmp11, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond
-  %17 = load ptr, ptr %ht.addr, align 8
-  %used12 = getelementptr inbounds %struct.dict, ptr %17, i32 0, i32 4
-  %18 = load i64, ptr %used12, align 8
-  %cmp13 = icmp ugt i64 %18, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %19 = phi i1 [ false, %for.cond ], [ %cmp13, %land.rhs ]
-  br i1 %19, label %for.body, label %for.end
-
-for.body:                                         ; preds = %land.end
-  %20 = load ptr, ptr %ht.addr, align 8
-  %table14 = getelementptr inbounds %struct.dict, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %table14, align 8
-  %22 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %21, i64 %22
-  %23 = load ptr, ptr %arrayidx, align 8
-  %cmp15 = icmp eq ptr %23, null
-  br i1 %cmp15, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %for.body
-  br label %for.inc
-
-if.end17:                                         ; preds = %for.body
-  %24 = load ptr, ptr %ht.addr, align 8
-  %table18 = getelementptr inbounds %struct.dict, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %table18, align 8
-  %26 = load i64, ptr %i, align 8
-  %arrayidx19 = getelementptr inbounds ptr, ptr %25, i64 %26
-  %27 = load ptr, ptr %arrayidx19, align 8
-  store ptr %27, ptr %he, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end17
-  %28 = load ptr, ptr %he, align 8
-  %tobool = icmp ne ptr %28, null
-  br i1 %tobool, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %29 = load ptr, ptr %he, align 8
-  %next = getelementptr inbounds %struct.dictEntry, ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %next, align 8
-  store ptr %30, ptr %nextHe, align 8
-  %31 = load ptr, ptr %ht.addr, align 8
-  %type20 = getelementptr inbounds %struct.dict, ptr %31, i32 0, i32 1
-  %32 = load ptr, ptr %type20, align 8
-  %hashFunction = getelementptr inbounds %struct.dictType, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %hashFunction, align 8
-  %34 = load ptr, ptr %he, align 8
-  %key = getelementptr inbounds %struct.dictEntry, ptr %34, i32 0, i32 0
-  %35 = load ptr, ptr %key, align 8
-  %call21 = call i32 %33(ptr noundef %35)
-  %conv = zext i32 %call21 to i64
-  %sizemask22 = getelementptr inbounds %struct.dict, ptr %n, i32 0, i32 3
-  %36 = load i64, ptr %sizemask22, align 8
-  %and = and i64 %conv, %36
-  %conv23 = trunc i64 %and to i32
-  store i32 %conv23, ptr %h, align 4
-  %table24 = getelementptr inbounds %struct.dict, ptr %n, i32 0, i32 0
-  %37 = load ptr, ptr %table24, align 8
-  %38 = load i32, ptr %h, align 4
-  %idxprom = zext i32 %38 to i64
-  %arrayidx25 = getelementptr inbounds ptr, ptr %37, i64 %idxprom
-  %39 = load ptr, ptr %arrayidx25, align 8
-  %40 = load ptr, ptr %he, align 8
-  %next26 = getelementptr inbounds %struct.dictEntry, ptr %40, i32 0, i32 2
-  store ptr %39, ptr %next26, align 8
-  %41 = load ptr, ptr %he, align 8
-  %table27 = getelementptr inbounds %struct.dict, ptr %n, i32 0, i32 0
-  %42 = load ptr, ptr %table27, align 8
-  %43 = load i32, ptr %h, align 4
-  %idxprom28 = zext i32 %43 to i64
-  %arrayidx29 = getelementptr inbounds ptr, ptr %42, i64 %idxprom28
-  store ptr %41, ptr %arrayidx29, align 8
-  %44 = load ptr, ptr %ht.addr, align 8
-  %used30 = getelementptr inbounds %struct.dict, ptr %44, i32 0, i32 4
-  %45 = load i64, ptr %used30, align 8
-  %dec = add i64 %45, -1
-  store i64 %dec, ptr %used30, align 8
-  %46 = load ptr, ptr %nextHe, align 8
-  store ptr %46, ptr %he, align 8
-  br label %while.cond
-
-while.end:                                        ; preds = %while.cond
-  br label %for.inc
-
-for.inc:                                          ; preds = %while.end, %if.then16
-  %47 = load i64, ptr %i, align 8
-  %inc = add i64 %47, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond
-
-for.end:                                          ; preds = %land.end
-  %48 = load ptr, ptr %ht.addr, align 8
-  %table31 = getelementptr inbounds %struct.dict, ptr %48, i32 0, i32 0
-  %49 = load ptr, ptr %table31, align 8
-  call void @hi_free(ptr noundef %49)
-  %50 = load ptr, ptr %ht.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %50, ptr align 8 %n, i64 48, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then6, %if.then
-  %51 = load i32, ptr %retval, align 4
-  ret i32 %51
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @_dictNextPower(i64 noundef %size) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %i = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 4, ptr %i, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %cmp = icmp uge i64 %0, 9223372036854775807
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i64 9223372036854775807, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  br label %while.body
-
-while.body:                                       ; preds = %if.end3, %if.end
-  %1 = load i64, ptr %i, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %cmp1 = icmp uge i64 %1, %2
-  br i1 %cmp1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %while.body
-  %3 = load i64, ptr %i, align 8
-  store i64 %3, ptr %retval, align 8
-  br label %return
-
-if.end3:                                          ; preds = %while.body
-  %4 = load i64, ptr %i, align 8
-  %mul = mul i64 %4, 2
-  store i64 %mul, ptr %i, align 8
-  br label %while.body
-
-return:                                           ; preds = %if.then2, %if.then
-  %5 = load i64, ptr %retval, align 8
-  ret i64 %5
+20:                                               ; preds = %15, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %21 = load i64, ptr %2, align 8
+  ret i64 %21
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
+attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -5069,3 +5481,155 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{i64 0, i64 4, !9, i64 4, i64 4, !9, i64 8, i64 8, !11, i64 16, i64 8, !11, i64 24, i64 24, !13, i64 48, i64 8, !4, i64 56, i64 8, !4, i64 64, i64 8, !4, i64 72, i64 8, !4}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS7timeval", !5, i64 0}
+!13 = !{!6, !6, i64 0}
+!14 = !{!15, !5, i64 64}
+!15 = !{!"", !10, i64 0, !10, i64 4, !12, i64 8, !12, i64 16, !6, i64 24, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72}
+!16 = !{!15, !10, i64 4}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS12redisContext", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS17redisAsyncContext", !5, i64 0}
+!21 = !{!15, !5, i64 72}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS4dict", !5, i64 0}
+!24 = !{!25, !10, i64 144}
+!25 = !{!"redisContext", !26, i64 0, !10, i64 8, !6, i64 12, !10, i64 140, !10, i64 144, !27, i64 152, !28, i64 160, !10, i64 168, !12, i64 176, !12, i64 184, !29, i64 192, !30, i64 216, !31, i64 224, !32, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264}
+!26 = !{!"p1 _ZTS17redisContextFuncs", !5, i64 0}
+!27 = !{!"p1 omnipotent char", !5, i64 0}
+!28 = !{!"p1 _ZTS11redisReader", !5, i64 0}
+!29 = !{!"", !27, i64 0, !27, i64 8, !10, i64 16}
+!30 = !{!"", !27, i64 0}
+!31 = !{!"p1 _ZTS8sockaddr", !5, i64 0}
+!32 = !{!"long", !6, i64 0}
+!33 = !{!34, !10, i64 272}
+!34 = !{!"redisAsyncContext", !25, i64 0, !10, i64 272, !27, i64 280, !5, i64 288, !5, i64 296, !35, i64 304, !5, i64 360, !5, i64 368, !5, i64 376, !36, i64 384, !31, i64 400, !32, i64 408, !38, i64 416, !5, i64 456}
+!35 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48}
+!36 = !{!"redisCallbackList", !37, i64 0, !37, i64 8}
+!37 = !{!"p1 _ZTS13redisCallback", !5, i64 0}
+!38 = !{!"", !36, i64 0, !23, i64 16, !23, i64 24, !10, i64 32}
+!39 = !{!34, !27, i64 280}
+!40 = !{!34, !5, i64 288}
+!41 = !{!34, !5, i64 296}
+!42 = !{!34, !5, i64 304}
+!43 = !{!34, !5, i64 312}
+!44 = !{!34, !5, i64 320}
+!45 = !{!34, !5, i64 328}
+!46 = !{!34, !5, i64 336}
+!47 = !{!34, !5, i64 344}
+!48 = !{!34, !5, i64 352}
+!49 = !{!34, !5, i64 368}
+!50 = !{!34, !5, i64 376}
+!51 = !{!34, !5, i64 360}
+!52 = !{!34, !37, i64 384}
+!53 = !{!34, !37, i64 392}
+!54 = !{!34, !37, i64 416}
+!55 = !{!34, !37, i64 424}
+!56 = !{!34, !23, i64 432}
+!57 = !{!34, !23, i64 440}
+!58 = !{!34, !10, i64 448}
+!59 = !{!34, !5, i64 456}
+!60 = !{!25, !10, i64 8}
+!61 = !{!27, !27, i64 0}
+!62 = !{!15, !10, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS9dictEntry", !5, i64 0}
+!65 = !{!66, !5, i64 8}
+!66 = !{!"dictEntry", !5, i64 0, !5, i64 8, !64, i64 16}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS17redisCallbackList", !5, i64 0}
+!69 = !{!37, !37, i64 0}
+!70 = !{!36, !37, i64 0}
+!71 = !{!72, !37, i64 0}
+!72 = !{!"redisCallback", !37, i64 0, !5, i64 8, !10, i64 16, !10, i64 20, !5, i64 24}
+!73 = !{!36, !37, i64 8}
+!74 = !{!25, !27, i64 152}
+!75 = !{!76, !10, i64 0}
+!76 = !{!"redisReply", !10, i64 0, !77, i64 8, !78, i64 16, !32, i64 24, !27, i64 32, !6, i64 40, !32, i64 48, !79, i64 56}
+!77 = !{!"long long", !6, i64 0}
+!78 = !{!"double", !6, i64 0}
+!79 = !{!"p2 _ZTS10redisReply", !5, i64 0}
+!80 = !{!25, !28, i64 160}
+!81 = !{!82, !84, i64 200}
+!82 = !{!"redisReader", !10, i64 0, !6, i64 4, !27, i64 136, !32, i64 144, !32, i64 152, !32, i64 160, !77, i64 168, !83, i64 176, !10, i64 184, !10, i64 188, !5, i64 192, !84, i64 200, !5, i64 208}
+!83 = !{!"p2 _ZTS13redisReadTask", !5, i64 0}
+!84 = !{!"p1 _ZTS25redisReplyObjectFunctions", !5, i64 0}
+!85 = !{!86, !5, i64 48}
+!86 = !{!"redisReplyObjectFunctions", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48}
+!87 = !{!76, !27, i64 32}
+!88 = !{!72, !5, i64 8}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"short", !6, i64 0}
+!91 = !{!32, !32, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTS10redisReply", !5, i64 0}
+!94 = !{!76, !32, i64 48}
+!95 = !{!76, !79, i64 56}
+!96 = !{!76, !32, i64 24}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 int", !5, i64 0}
+!99 = !{!34, !10, i64 144}
+!100 = !{!72, !10, i64 16}
+!101 = !{!76, !77, i64 8}
+!102 = !{!103, !32, i64 32}
+!103 = !{!"dict", !104, i64 0, !105, i64 8, !32, i64 16, !32, i64 24, !32, i64 32, !5, i64 40}
+!104 = !{!"p2 _ZTS9dictEntry", !5, i64 0}
+!105 = !{!"p1 _ZTS8dictType", !5, i64 0}
+!106 = !{!72, !5, i64 24}
+!107 = !{!34, !12, i64 184}
+!108 = !{!109, !32, i64 0}
+!109 = !{!"timeval", !32, i64 0, !32, i64 8}
+!110 = !{!109, !32, i64 8}
+!111 = !{!34, !12, i64 176}
+!112 = !{!25, !26, i64 0}
+!113 = !{!114, !5, i64 16}
+!114 = !{!"redisContextFuncs", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!115 = !{!25, !10, i64 168}
+!116 = !{!114, !5, i64 24}
+!117 = !{!118, !118, i64 0}
+!118 = !{!"p1 _ZTS13__va_list_tag", !5, i64 0}
+!119 = !{!72, !10, i64 20}
+!120 = !{!121, !5, i64 32}
+!121 = !{!"hiredisAllocFuncs", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
+!122 = !{!123, !123, i64 0}
+!123 = !{!"p2 omnipotent char", !5, i64 0}
+!124 = !{!125, !125, i64 0}
+!125 = !{!"p1 long", !5, i64 0}
+!126 = !{!77, !77, i64 0}
+!127 = !{i64 0, i64 8, !91, i64 8, i64 8, !91}
+!128 = !{!121, !5, i64 8}
+!129 = !{!105, !105, i64 0}
+!130 = !{!121, !5, i64 16}
+!131 = !{!121, !5, i64 0}
+!132 = !{!103, !105, i64 8}
+!133 = !{!103, !5, i64 40}
+!134 = !{!103, !104, i64 0}
+!135 = !{!103, !32, i64 16}
+!136 = !{!103, !32, i64 24}
+!137 = !{!66, !64, i64 16}
+!138 = !{!139, !5, i64 32}
+!139 = !{!"dictType", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!140 = !{!66, !5, i64 0}
+!141 = !{!139, !5, i64 40}
+!142 = !{!143, !143, i64 0}
+!143 = !{!"p1 _ZTS12dictIterator", !5, i64 0}
+!144 = !{!145, !23, i64 0}
+!145 = !{!"dictIterator", !23, i64 0, !10, i64 8, !64, i64 16, !64, i64 24}
+!146 = !{!145, !10, i64 8}
+!147 = !{!145, !64, i64 16}
+!148 = !{!145, !64, i64 24}
+!149 = !{!139, !5, i64 0}
+!150 = !{!139, !5, i64 24}
+!151 = !{i64 0, i64 8, !4, i64 8, i64 8, !4, i64 16, i64 8, !63}
+!152 = !{!139, !5, i64 16}
+!153 = !{!139, !5, i64 8}
+!154 = !{i64 0, i64 8, !155, i64 8, i64 8, !129, i64 16, i64 8, !91, i64 24, i64 8, !91, i64 32, i64 8, !91, i64 40, i64 8, !4}
+!155 = !{!104, !104, i64 0}

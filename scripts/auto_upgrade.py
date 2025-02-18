@@ -54,6 +54,7 @@ supported_project = [
     "qoi",
     "quickjs",
     "raylib",
+    "redis",
 ]
 
 modify_only = [
@@ -70,6 +71,7 @@ modify_only = [
     "postgres",
     "qemu",
     "raylib",
+    "redis",
 ]
 
 

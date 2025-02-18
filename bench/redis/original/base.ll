@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.extent_hooks_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.tsd_s = type { i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i64, i64, i64, ptr, ptr, %struct.ticker_geom_s, i8, %struct.tsd_binshards_s, %struct.tsd_link_t, i8, %struct.peak_s, %struct.activity_callback_thunk_s, %struct.tcache_slow_s, %struct.rtree_ctx_s, %struct.atomic_u8_t, i64, i64, i64, i64, %struct.tcache_s, %struct.witness_tsd_s }
@@ -44,3811 +44,3928 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic_b_t = type { i8 }
 %struct.edata_heap_t = type { %struct.ph_s }
 %struct.ph_s = type { ptr, i64 }
+%struct.tsdn_s = type { %struct.tsd_s }
 
-@opt_metadata_thp = hidden global i32 0, align 4
+@je_opt_metadata_thp = hidden global i32 0, align 4
 @.str = private unnamed_addr constant [9 x i8] c"disabled\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"auto\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"always\00", align 1
-@metadata_thp_mode_names = hidden global [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 16
+@je_metadata_thp_mode_names = hidden global [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 16
 @b0 = internal global ptr null, align 8
-@ehooks_default_extent_hooks = external constant %struct.extent_hooks_s, align 8
+@je_ehooks_default_extent_hooks = external constant %struct.extent_hooks_s, align 8
 @.str.3 = private unnamed_addr constant [5 x i8] c"base\00", align 1
-@sz_pind2sz_tab = external global [200 x i64], align 16
-@tsd_tls = external thread_local(initialexec) global %struct.tsd_s, align 8
-@init_system_thp_mode = external global i32, align 4
-@sz_size2index_tab = external global [0 x i8], align 1
+@je_sz_pind2sz_tab = external global [200 x i64], align 16
+@je_tsd_tls = external thread_local(initialexec) global %struct.tsd_s, align 8
+@je_init_system_thp_mode = external global i32, align 4
+@je_sz_size2index_tab = external global [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @b0get() #0 {
-entry:
-  %0 = load ptr, ptr @b0, align 8
-  ret ptr %0
-}
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @base_new(ptr noundef %tsdn, i32 noundef %ind, ptr noundef %extent_hooks, i1 noundef zeroext %metadata_use_hooks) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %ind.addr = alloca i32, align 4
-  %extent_hooks.addr = alloca ptr, align 8
-  %metadata_use_hooks.addr = alloca i8, align 1
-  %pind_last = alloca i32, align 4
-  %extent_sn_next = alloca i64, align 8
-  %fake_ehooks = alloca %struct.ehooks_s, align 8
-  %block = alloca ptr, align 8
-  %gap_size = alloca i64, align 8
-  %base_alignment = alloca i64, align 8
-  %base_size = alloca i64, align 8
-  %base = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store i32 %ind, ptr %ind.addr, align 4
-  store ptr %extent_hooks, ptr %extent_hooks.addr, align 8
-  %frombool = zext i1 %metadata_use_hooks to i8
-  store i8 %frombool, ptr %metadata_use_hooks.addr, align 1
-  store i32 0, ptr %pind_last, align 4
-  store i64 0, ptr %extent_sn_next, align 8
-  %0 = load i8, ptr %metadata_use_hooks.addr, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load ptr, ptr %extent_hooks.addr, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %1, %cond.true ], [ @ehooks_default_extent_hooks, %cond.false ]
-  %2 = load i32, ptr %ind.addr, align 4
-  call void @ehooks_init(ptr noundef %fake_ehooks, ptr noundef %cond, i32 noundef %2)
-  %3 = load ptr, ptr %tsdn.addr, align 8
-  %4 = load i32, ptr %ind.addr, align 4
-  %call = call ptr @base_block_alloc(ptr noundef %3, ptr noundef null, ptr noundef %fake_ehooks, i32 noundef %4, ptr noundef %pind_last, ptr noundef %extent_sn_next, i64 noundef 3960, i64 noundef 8)
-  store ptr %call, ptr %block, align 8
-  %5 = load ptr, ptr %block, align 8
-  %cmp = icmp eq ptr %5, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %cond.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %cond.end
-  store i64 64, ptr %base_alignment, align 8
-  %6 = load i64, ptr %base_alignment, align 8
-  %sub = sub i64 %6, 1
-  %add = add i64 3960, %sub
-  %7 = load i64, ptr %base_alignment, align 8
-  %not = xor i64 %7, -1
-  %add1 = add i64 %not, 1
-  %and = and i64 %add, %add1
-  store i64 %and, ptr %base_size, align 8
-  %8 = load ptr, ptr %block, align 8
-  %edata = getelementptr inbounds %struct.base_block_s, ptr %8, i32 0, i32 2
-  %9 = load i64, ptr %base_size, align 8
-  %10 = load i64, ptr %base_alignment, align 8
-  %call2 = call ptr @base_extent_bump_alloc_helper(ptr noundef %edata, ptr noundef %gap_size, i64 noundef %9, i64 noundef %10)
-  store ptr %call2, ptr %base, align 8
-  %11 = load ptr, ptr %base, align 8
-  %ehooks = getelementptr inbounds %struct.base_s, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %extent_hooks.addr, align 8
-  %13 = load i32, ptr %ind.addr, align 4
-  call void @ehooks_init(ptr noundef %ehooks, ptr noundef %12, i32 noundef %13)
-  %14 = load ptr, ptr %base, align 8
-  %ehooks_base = getelementptr inbounds %struct.base_s, ptr %14, i32 0, i32 1
-  %15 = load i8, ptr %metadata_use_hooks.addr, align 1
-  %tobool3 = trunc i8 %15 to i1
-  br i1 %tobool3, label %cond.true4, label %cond.false5
-
-cond.true4:                                       ; preds = %if.end
-  %16 = load ptr, ptr %extent_hooks.addr, align 8
-  br label %cond.end6
-
-cond.false5:                                      ; preds = %if.end
-  br label %cond.end6
-
-cond.end6:                                        ; preds = %cond.false5, %cond.true4
-  %cond7 = phi ptr [ %16, %cond.true4 ], [ @ehooks_default_extent_hooks, %cond.false5 ]
-  %17 = load i32, ptr %ind.addr, align 4
-  call void @ehooks_init(ptr noundef %ehooks_base, ptr noundef %cond7, i32 noundef %17)
-  %18 = load ptr, ptr %base, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %18, i32 0, i32 2
-  %call8 = call zeroext i1 @malloc_mutex_init(ptr noundef %mtx, ptr noundef @.str.3, i32 noundef 23, i32 noundef 0)
-  br i1 %call8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %cond.end6
-  %19 = load ptr, ptr %tsdn.addr, align 8
-  %20 = load i32, ptr %ind.addr, align 4
-  %21 = load ptr, ptr %block, align 8
-  %22 = load ptr, ptr %block, align 8
-  %size = getelementptr inbounds %struct.base_block_s, ptr %22, i32 0, i32 0
-  %23 = load i64, ptr %size, align 8
-  call void @base_unmap(ptr noundef %19, ptr noundef %fake_ehooks, i32 noundef %20, ptr noundef %21, i64 noundef %23)
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %cond.end6
-  %24 = load i32, ptr %pind_last, align 4
-  %25 = load ptr, ptr %base, align 8
-  %pind_last11 = getelementptr inbounds %struct.base_s, ptr %25, i32 0, i32 4
-  store i32 %24, ptr %pind_last11, align 4
-  %26 = load i64, ptr %extent_sn_next, align 8
-  %27 = load ptr, ptr %base, align 8
-  %extent_sn_next12 = getelementptr inbounds %struct.base_s, ptr %27, i32 0, i32 5
-  store i64 %26, ptr %extent_sn_next12, align 8
-  %28 = load ptr, ptr %block, align 8
-  %29 = load ptr, ptr %base, align 8
-  %blocks = getelementptr inbounds %struct.base_s, ptr %29, i32 0, i32 6
-  store ptr %28, ptr %blocks, align 8
-  %30 = load ptr, ptr %base, align 8
-  %auto_thp_switched = getelementptr inbounds %struct.base_s, ptr %30, i32 0, i32 3
-  store i8 0, ptr %auto_thp_switched, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end10
-  %31 = load i32, ptr %i, align 4
-  %conv = zext i32 %31 to i64
-  %cmp13 = icmp ult i64 %conv, 235
-  br i1 %cmp13, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %32 = load ptr, ptr %base, align 8
-  %avail = getelementptr inbounds %struct.base_s, ptr %32, i32 0, i32 7
-  %33 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %33 to i64
-  %arrayidx = getelementptr inbounds [235 x %struct.edata_heap_t], ptr %avail, i64 0, i64 %idxprom
-  call void @edata_heap_new(ptr noundef %arrayidx)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %34 = load i32, ptr %i, align 4
-  %inc = add i32 %34, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %for.cond
-  %35 = load ptr, ptr %base, align 8
-  %allocated = getelementptr inbounds %struct.base_s, ptr %35, i32 0, i32 8
-  store i64 144, ptr %allocated, align 8
-  %36 = load ptr, ptr %base, align 8
-  %resident = getelementptr inbounds %struct.base_s, ptr %36, i32 0, i32 9
-  store i64 4096, ptr %resident, align 8
-  %37 = load ptr, ptr %block, align 8
-  %size15 = getelementptr inbounds %struct.base_block_s, ptr %37, i32 0, i32 0
-  %38 = load i64, ptr %size15, align 8
-  %39 = load ptr, ptr %base, align 8
-  %mapped = getelementptr inbounds %struct.base_s, ptr %39, i32 0, i32 10
-  store i64 %38, ptr %mapped, align 8
-  %40 = load i32, ptr @opt_metadata_thp, align 4
-  %cmp16 = icmp eq i32 %40, 2
-  br i1 %cmp16, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.end
-  %call18 = call zeroext i1 @metadata_thp_madvise()
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.end
-  %41 = phi i1 [ false, %for.end ], [ %call18, %land.rhs ]
-  %cond20 = select i1 %41, i64 1, i64 0
-  %42 = load ptr, ptr %base, align 8
-  %n_thp = getelementptr inbounds %struct.base_s, ptr %42, i32 0, i32 11
-  store i64 %cond20, ptr %n_thp, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %land.end
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %do.body21
-
-do.body21:                                        ; preds = %do.end
-  br label %do.end22
-
-do.end22:                                         ; preds = %do.body21
-  br label %do.body23
-
-do.body23:                                        ; preds = %do.end22
-  br label %do.end24
-
-do.end24:                                         ; preds = %do.body23
-  %43 = load ptr, ptr %base, align 8
-  %44 = load ptr, ptr %block, align 8
-  %edata25 = getelementptr inbounds %struct.base_block_s, ptr %44, i32 0, i32 2
-  %45 = load i64, ptr %gap_size, align 8
-  %46 = load ptr, ptr %base, align 8
-  %47 = load i64, ptr %base_size, align 8
-  call void @base_extent_bump_alloc_post(ptr noundef %43, ptr noundef %edata25, i64 noundef %45, ptr noundef %46, i64 noundef %47)
-  %48 = load ptr, ptr %base, align 8
-  store ptr %48, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %do.end24, %if.then9, %if.then
-  %49 = load ptr, ptr %retval, align 8
-  ret ptr %49
-}
-
-declare void @ehooks_init(ptr noundef, ptr noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef %base, ptr noundef %ehooks, i32 noundef %ind, ptr noundef %pind_last, ptr noundef %extent_sn_next, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %retval.i48 = alloca i32, align 4
-  %psz.addr.i49 = alloca i64, align 8
-  %x.i50 = alloca i32, align 4
-  %off_to_first_ps_rg.i51 = alloca i32, align 4
-  %lg_delta.i52 = alloca i32, align 4
-  %rg_inner_off.i53 = alloca i32, align 4
-  %base_ind.i54 = alloca i32, align 4
-  %ind.i55 = alloca i32, align 4
-  %retval.i = alloca i32, align 4
-  %psz.addr.i = alloca i64, align 8
-  %x.i = alloca i32, align 4
-  %off_to_first_ps_rg.i = alloca i32, align 4
-  %lg_delta.i = alloca i32, align 4
-  %rg_inner_off.i = alloca i32, align 4
-  %base_ind.i = alloca i32, align 4
-  %ind.i = alloca i32, align 4
-  %retval = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  %ind.addr = alloca i32, align 4
-  %pind_last.addr = alloca ptr, align 8
-  %extent_sn_next.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %usize = alloca i64, align 8
-  %header_size = alloca i64, align 8
-  %gap_size = alloca i64, align 8
-  %min_block_size = alloca i64, align 8
-  %pind_next = alloca i32, align 4
-  %next_block_size = alloca i64, align 8
-  %block_size = alloca i64, align 8
-  %block = alloca ptr, align 8
-  %addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  store i32 %ind, ptr %ind.addr, align 4
-  store ptr %pind_last, ptr %pind_last.addr, align 8
-  store ptr %extent_sn_next, ptr %extent_sn_next.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load i64, ptr %alignment.addr, align 8
-  %add = add i64 %0, 7
-  %and = and i64 %add, -8
-  store i64 %and, ptr %alignment.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %sub = sub i64 %2, 1
-  %add1 = add i64 %1, %sub
-  %3 = load i64, ptr %alignment.addr, align 8
-  %not = xor i64 %3, -1
-  %add2 = add i64 %not, 1
-  %and3 = and i64 %add1, %add2
-  store i64 %and3, ptr %usize, align 8
-  store i64 144, ptr %header_size, align 8
-  %4 = load i64, ptr %header_size, align 8
-  %5 = load i64, ptr %alignment.addr, align 8
-  %sub4 = sub i64 %5, 1
-  %add5 = add i64 %4, %sub4
-  %6 = load i64, ptr %alignment.addr, align 8
-  %not6 = xor i64 %6, -1
-  %add7 = add i64 %not6, 1
-  %and8 = and i64 %add5, %add7
-  %7 = load i64, ptr %header_size, align 8
-  %sub9 = sub i64 %and8, %7
-  store i64 %sub9, ptr %gap_size, align 8
-  %8 = load i64, ptr %header_size, align 8
-  %9 = load i64, ptr %gap_size, align 8
-  %add10 = add i64 %8, %9
-  %10 = load i64, ptr %usize, align 8
-  %add11 = add i64 %add10, %10
-  %call = call i64 @sz_psz2u(i64 noundef %add11)
-  %add12 = add i64 %call, 2097151
-  %and13 = and i64 %add12, -2097152
-  store i64 %and13, ptr %min_block_size, align 8
-  %11 = load ptr, ptr %pind_last.addr, align 8
-  %12 = load i32, ptr %11, align 4
-  %add14 = add i32 %12, 1
-  store i64 8070450532247928832, ptr %psz.addr.i49, align 8
-  %13 = load i64, ptr %psz.addr.i49, align 8
-  %cmp.i56 = icmp ugt i64 %13, 8070450532247928832
-  br i1 %cmp.i56, label %if.then.i82, label %if.end.i60
-
-if.then.i82:                                      ; preds = %entry
-  store i32 199, ptr %retval.i48, align 4
-  br label %sz_psz2ind.exit83
-
-if.end.i60:                                       ; preds = %entry
-  %14 = load i64, ptr %psz.addr.i49, align 8
-  %call.i61 = call i32 @lg_ceil(i64 noundef %14)
-  store i32 %call.i61, ptr %x.i50, align 4
-  %15 = load i32, ptr %x.i50, align 4
-  %cmp2.i62 = icmp ult i32 %15, 14
-  br i1 %cmp2.i62, label %cond.true.i81, label %cond.false.i63
-
-cond.true.i81:                                    ; preds = %if.end.i60
-  br label %cond.end.i65
-
-cond.false.i63:                                   ; preds = %if.end.i60
-  %16 = load i32, ptr %x.i50, align 4
-  %sub.i64 = sub i32 %16, 14
-  br label %cond.end.i65
-
-cond.end.i65:                                     ; preds = %cond.false.i63, %cond.true.i81
-  %cond.i66 = phi i32 [ 0, %cond.true.i81 ], [ %sub.i64, %cond.false.i63 ]
-  store i32 %cond.i66, ptr %off_to_first_ps_rg.i51, align 4
-  %17 = load i32, ptr %off_to_first_ps_rg.i51, align 4
-  %cmp4.i67 = icmp eq i32 %17, 0
-  br i1 %cmp4.i67, label %cond.true6.i80, label %cond.false7.i68
-
-cond.true6.i80:                                   ; preds = %cond.end.i65
-  br label %cond.end9.i71
-
-cond.false7.i68:                                  ; preds = %cond.end.i65
-  %18 = load i32, ptr %off_to_first_ps_rg.i51, align 4
-  %sub8.i69 = sub i32 %18, 1
-  %add.i70 = add i32 12, %sub8.i69
-  br label %cond.end9.i71
-
-cond.end9.i71:                                    ; preds = %cond.false7.i68, %cond.true6.i80
-  %cond10.i72 = phi i32 [ 12, %cond.true6.i80 ], [ %add.i70, %cond.false7.i68 ]
-  store i32 %cond10.i72, ptr %lg_delta.i52, align 4
-  %19 = load i64, ptr %psz.addr.i49, align 8
-  %sub11.i73 = sub i64 %19, 1
-  %20 = load i32, ptr %lg_delta.i52, align 4
-  %sh_prom.i74 = zext i32 %20 to i64
-  %shr.i75 = lshr i64 %sub11.i73, %sh_prom.i74
-  %and.i76 = and i64 %shr.i75, 3
-  %conv12.i77 = trunc i64 %and.i76 to i32
-  store i32 %conv12.i77, ptr %rg_inner_off.i53, align 4
-  %21 = load i32, ptr %off_to_first_ps_rg.i51, align 4
-  %shl.i78 = shl i32 %21, 2
-  store i32 %shl.i78, ptr %base_ind.i54, align 4
-  %22 = load i32, ptr %base_ind.i54, align 4
-  %23 = load i32, ptr %rg_inner_off.i53, align 4
-  %add13.i79 = add i32 %22, %23
-  store i32 %add13.i79, ptr %ind.i55, align 4
-  %24 = load i32, ptr %ind.i55, align 4
-  store i32 %24, ptr %retval.i48, align 4
-  br label %sz_psz2ind.exit83
-
-sz_psz2ind.exit83:                                ; preds = %cond.end9.i71, %if.then.i82
-  %25 = load i32, ptr %retval.i48, align 4
-  %cmp = icmp ult i32 %add14, %25
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %sz_psz2ind.exit83
-  %26 = load ptr, ptr %pind_last.addr, align 8
-  %27 = load i32, ptr %26, align 4
-  %add16 = add i32 %27, 1
-  br label %cond.end
-
-cond.false:                                       ; preds = %sz_psz2ind.exit83
-  %28 = load ptr, ptr %pind_last.addr, align 8
-  %29 = load i32, ptr %28, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %add16, %cond.true ], [ %29, %cond.false ]
-  store i32 %cond, ptr %pind_next, align 4
-  %30 = load i32, ptr %pind_next, align 4
-  %call17 = call i64 @sz_pind2sz(i32 noundef %30)
-  %add18 = add i64 %call17, 2097151
-  %and19 = and i64 %add18, -2097152
-  store i64 %and19, ptr %next_block_size, align 8
-  %31 = load i64, ptr %min_block_size, align 8
-  %32 = load i64, ptr %next_block_size, align 8
-  %cmp20 = icmp ugt i64 %31, %32
-  br i1 %cmp20, label %cond.true21, label %cond.false22
-
-cond.true21:                                      ; preds = %cond.end
-  %33 = load i64, ptr %min_block_size, align 8
-  br label %cond.end23
-
-cond.false22:                                     ; preds = %cond.end
-  %34 = load i64, ptr %next_block_size, align 8
-  br label %cond.end23
-
-cond.end23:                                       ; preds = %cond.false22, %cond.true21
-  %cond24 = phi i64 [ %33, %cond.true21 ], [ %34, %cond.false22 ]
-  store i64 %cond24, ptr %block_size, align 8
-  %35 = load ptr, ptr %tsdn.addr, align 8
-  %36 = load ptr, ptr %ehooks.addr, align 8
-  %37 = load i32, ptr %ind.addr, align 4
-  %38 = load i64, ptr %block_size, align 8
-  %call25 = call ptr @base_map(ptr noundef %35, ptr noundef %36, i32 noundef %37, i64 noundef %38)
-  store ptr %call25, ptr %block, align 8
-  %39 = load ptr, ptr %block, align 8
-  %cmp26 = icmp eq ptr %39, null
-  br i1 %cmp26, label %if.then, label %if.end
-
-if.then:                                          ; preds = %cond.end23
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %cond.end23
-  %call27 = call zeroext i1 @metadata_thp_madvise()
-  br i1 %call27, label %if.then28, label %if.end41
-
-if.then28:                                        ; preds = %if.end
-  %40 = load ptr, ptr %block, align 8
-  store ptr %40, ptr %addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %if.then28
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %41 = load i32, ptr @opt_metadata_thp, align 4
-  %cmp29 = icmp eq i32 %41, 2
-  br i1 %cmp29, label %if.then30, label %if.else
-
-if.then30:                                        ; preds = %do.end
-  %42 = load ptr, ptr %addr, align 8
-  %43 = load i64, ptr %block_size, align 8
-  %call31 = call zeroext i1 @pages_huge(ptr noundef %42, i64 noundef %43)
-  br label %if.end40
-
-if.else:                                          ; preds = %do.end
-  %44 = load i32, ptr @opt_metadata_thp, align 4
-  %cmp32 = icmp eq i32 %44, 1
-  br i1 %cmp32, label %land.lhs.true, label %if.end39
-
-land.lhs.true:                                    ; preds = %if.else
-  %45 = load ptr, ptr %base.addr, align 8
-  %cmp33 = icmp ne ptr %45, null
-  br i1 %cmp33, label %if.then34, label %if.end39
-
-if.then34:                                        ; preds = %land.lhs.true
-  %46 = load ptr, ptr %tsdn.addr, align 8
-  %47 = load ptr, ptr %base.addr, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %47, i32 0, i32 2
-  call void @malloc_mutex_lock(ptr noundef %46, ptr noundef %mtx)
-  %48 = load ptr, ptr %tsdn.addr, align 8
-  %49 = load ptr, ptr %base.addr, align 8
-  call void @base_auto_thp_switch(ptr noundef %48, ptr noundef %49)
-  %50 = load ptr, ptr %base.addr, align 8
-  %auto_thp_switched = getelementptr inbounds %struct.base_s, ptr %50, i32 0, i32 3
-  %51 = load i8, ptr %auto_thp_switched, align 8
-  %tobool = trunc i8 %51 to i1
-  br i1 %tobool, label %if.then35, label %if.end37
-
-if.then35:                                        ; preds = %if.then34
-  %52 = load ptr, ptr %addr, align 8
-  %53 = load i64, ptr %block_size, align 8
-  %call36 = call zeroext i1 @pages_huge(ptr noundef %52, i64 noundef %53)
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then35, %if.then34
-  %54 = load ptr, ptr %tsdn.addr, align 8
-  %55 = load ptr, ptr %base.addr, align 8
-  %mtx38 = getelementptr inbounds %struct.base_s, ptr %55, i32 0, i32 2
-  call void @malloc_mutex_unlock(ptr noundef %54, ptr noundef %mtx38)
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.end37, %land.lhs.true, %if.else
-  br label %if.end40
-
-if.end40:                                         ; preds = %if.end39, %if.then30
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.end40, %if.end
-  %56 = load i64, ptr %block_size, align 8
-  store i64 %56, ptr %psz.addr.i, align 8
-  %57 = load i64, ptr %psz.addr.i, align 8
-  %cmp.i = icmp ugt i64 %57, 8070450532247928832
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end41
-  store i32 199, ptr %retval.i, align 4
-  br label %sz_psz2ind.exit
-
-if.end.i:                                         ; preds = %if.end41
-  %58 = load i64, ptr %psz.addr.i, align 8
-  %call.i = call i32 @lg_ceil(i64 noundef %58)
-  store i32 %call.i, ptr %x.i, align 4
-  %59 = load i32, ptr %x.i, align 4
-  %cmp2.i = icmp ult i32 %59, 14
-  br i1 %cmp2.i, label %cond.true.i, label %cond.false.i
-
-cond.true.i:                                      ; preds = %if.end.i
-  br label %cond.end.i
-
-cond.false.i:                                     ; preds = %if.end.i
-  %60 = load i32, ptr %x.i, align 4
-  %sub.i = sub i32 %60, 14
-  br label %cond.end.i
-
-cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %cond.i = phi i32 [ 0, %cond.true.i ], [ %sub.i, %cond.false.i ]
-  store i32 %cond.i, ptr %off_to_first_ps_rg.i, align 4
-  %61 = load i32, ptr %off_to_first_ps_rg.i, align 4
-  %cmp4.i = icmp eq i32 %61, 0
-  br i1 %cmp4.i, label %cond.true6.i, label %cond.false7.i
-
-cond.true6.i:                                     ; preds = %cond.end.i
-  br label %cond.end9.i
-
-cond.false7.i:                                    ; preds = %cond.end.i
-  %62 = load i32, ptr %off_to_first_ps_rg.i, align 4
-  %sub8.i = sub i32 %62, 1
-  %add.i = add i32 12, %sub8.i
-  br label %cond.end9.i
-
-cond.end9.i:                                      ; preds = %cond.false7.i, %cond.true6.i
-  %cond10.i = phi i32 [ 12, %cond.true6.i ], [ %add.i, %cond.false7.i ]
-  store i32 %cond10.i, ptr %lg_delta.i, align 4
-  %63 = load i64, ptr %psz.addr.i, align 8
-  %sub11.i = sub i64 %63, 1
-  %64 = load i32, ptr %lg_delta.i, align 4
-  %sh_prom.i = zext i32 %64 to i64
-  %shr.i = lshr i64 %sub11.i, %sh_prom.i
-  %and.i = and i64 %shr.i, 3
-  %conv12.i = trunc i64 %and.i to i32
-  store i32 %conv12.i, ptr %rg_inner_off.i, align 4
-  %65 = load i32, ptr %off_to_first_ps_rg.i, align 4
-  %shl.i = shl i32 %65, 2
-  store i32 %shl.i, ptr %base_ind.i, align 4
-  %66 = load i32, ptr %base_ind.i, align 4
-  %67 = load i32, ptr %rg_inner_off.i, align 4
-  %add13.i = add i32 %66, %67
-  store i32 %add13.i, ptr %ind.i, align 4
-  %68 = load i32, ptr %ind.i, align 4
-  store i32 %68, ptr %retval.i, align 4
-  br label %sz_psz2ind.exit
-
-sz_psz2ind.exit:                                  ; preds = %cond.end9.i, %if.then.i
-  %69 = load i32, ptr %retval.i, align 4
-  %70 = load ptr, ptr %pind_last.addr, align 8
-  store i32 %69, ptr %70, align 4
-  %71 = load i64, ptr %block_size, align 8
-  %72 = load ptr, ptr %block, align 8
-  %size43 = getelementptr inbounds %struct.base_block_s, ptr %72, i32 0, i32 0
-  store i64 %71, ptr %size43, align 8
-  %73 = load ptr, ptr %block, align 8
-  %next = getelementptr inbounds %struct.base_block_s, ptr %73, i32 0, i32 1
-  store ptr null, ptr %next, align 8
-  br label %do.body44
-
-do.body44:                                        ; preds = %sz_psz2ind.exit
-  br label %do.end45
-
-do.end45:                                         ; preds = %do.body44
-  %74 = load ptr, ptr %extent_sn_next.addr, align 8
-  %75 = load ptr, ptr %block, align 8
-  %edata = getelementptr inbounds %struct.base_block_s, ptr %75, i32 0, i32 2
-  %76 = load ptr, ptr %block, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %78 = load i64, ptr %header_size, align 8
-  %add46 = add i64 %77, %78
-  %79 = inttoptr i64 %add46 to ptr
-  %80 = load i64, ptr %block_size, align 8
-  %81 = load i64, ptr %header_size, align 8
-  %sub47 = sub i64 %80, %81
-  call void @base_edata_init(ptr noundef %74, ptr noundef %edata, ptr noundef %79, i64 noundef %sub47)
-  %82 = load ptr, ptr %block, align 8
-  store ptr %82, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %do.end45, %if.then
-  %83 = load ptr, ptr %retval, align 8
-  ret ptr %83
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @base_extent_bump_alloc_helper(ptr noundef %edata, ptr noundef %gap_size, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %gap_size.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %ret = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store ptr %gap_size, ptr %gap_size.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %do.body1
-
-do.body1:                                         ; preds = %do.end
-  br label %do.end2
-
-do.end2:                                          ; preds = %do.body1
-  %0 = load ptr, ptr %edata.addr, align 8
-  %call = call ptr @edata_addr_get(ptr noundef %0)
-  %1 = ptrtoint ptr %call to i64
-  %2 = load i64, ptr %alignment.addr, align 8
-  %sub = sub i64 %2, 1
-  %add = add i64 %1, %sub
-  %3 = load i64, ptr %alignment.addr, align 8
-  %not = xor i64 %3, -1
-  %add3 = add i64 %not, 1
-  %and = and i64 %add, %add3
-  %4 = load ptr, ptr %edata.addr, align 8
-  %call4 = call ptr @edata_addr_get(ptr noundef %4)
-  %5 = ptrtoint ptr %call4 to i64
-  %sub5 = sub i64 %and, %5
-  %6 = load ptr, ptr %gap_size.addr, align 8
-  store i64 %sub5, ptr %6, align 8
-  %7 = load ptr, ptr %edata.addr, align 8
-  %call6 = call ptr @edata_addr_get(ptr noundef %7)
-  %8 = ptrtoint ptr %call6 to i64
-  %9 = load ptr, ptr %gap_size.addr, align 8
-  %10 = load i64, ptr %9, align 8
-  %add7 = add i64 %8, %10
-  %11 = inttoptr i64 %add7 to ptr
-  store ptr %11, ptr %ret, align 8
-  br label %do.body8
-
-do.body8:                                         ; preds = %do.end2
-  br label %do.end9
-
-do.end9:                                          ; preds = %do.body8
-  %12 = load ptr, ptr %edata.addr, align 8
-  %13 = load ptr, ptr %edata.addr, align 8
-  %call10 = call ptr @edata_addr_get(ptr noundef %13)
-  %14 = ptrtoint ptr %call10 to i64
-  %15 = load ptr, ptr %gap_size.addr, align 8
-  %16 = load i64, ptr %15, align 8
-  %add11 = add i64 %14, %16
-  %17 = load i64, ptr %size.addr, align 8
-  %add12 = add i64 %add11, %17
-  %18 = inttoptr i64 %add12 to ptr
-  %19 = load ptr, ptr %edata.addr, align 8
-  %call13 = call i64 @edata_bsize_get(ptr noundef %19)
-  %20 = load ptr, ptr %gap_size.addr, align 8
-  %21 = load i64, ptr %20, align 8
-  %sub14 = sub i64 %call13, %21
-  %22 = load i64, ptr %size.addr, align 8
-  %sub15 = sub i64 %sub14, %22
-  %23 = load ptr, ptr %edata.addr, align 8
-  %call16 = call i64 @edata_sn_get(ptr noundef %23)
-  call void @edata_binit(ptr noundef %12, ptr noundef %18, i64 noundef %sub15, i64 noundef %call16)
-  %24 = load ptr, ptr %ret, align 8
-  ret ptr %24
-}
-
-declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @base_unmap(ptr noundef %tsdn, ptr noundef %ehooks, i32 noundef %ind, ptr noundef %addr, i64 noundef %size) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  %ind.addr = alloca i32, align 4
-  %addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  store i32 %ind, ptr %ind.addr, align 4
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %call = call zeroext i1 @ehooks_are_default(ptr noundef %0)
-  br i1 %call, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %addr.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %call1 = call zeroext i1 @extent_dalloc_mmap(ptr noundef %1, i64 noundef %2)
-  br i1 %call1, label %if.end, label %if.then2
-
-if.then2:                                         ; preds = %if.then
-  br label %label_done
-
-if.end:                                           ; preds = %if.then
-  %3 = load ptr, ptr %addr.addr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %call3 = call zeroext i1 @pages_decommit(ptr noundef %3, i64 noundef %4)
-  br i1 %call3, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %if.end
-  br label %label_done
-
-if.end5:                                          ; preds = %if.end
-  %5 = load ptr, ptr %addr.addr, align 8
-  %6 = load i64, ptr %size.addr, align 8
-  %call6 = call zeroext i1 @pages_purge_forced(ptr noundef %5, i64 noundef %6)
-  br i1 %call6, label %if.end8, label %if.then7
-
-if.then7:                                         ; preds = %if.end5
-  br label %label_done
-
-if.end8:                                          ; preds = %if.end5
-  %7 = load ptr, ptr %addr.addr, align 8
-  %8 = load i64, ptr %size.addr, align 8
-  %call9 = call zeroext i1 @pages_purge_lazy(ptr noundef %7, i64 noundef %8)
-  br i1 %call9, label %if.end11, label %if.then10
-
-if.then10:                                        ; preds = %if.end8
-  br label %label_done
-
-if.end11:                                         ; preds = %if.end8
-  br label %do.body
-
-do.body:                                          ; preds = %if.end11
-  unreachable
-
-do.end:                                           ; No predecessors!
-  br label %if.end24
-
-if.else:                                          ; preds = %entry
-  %9 = load ptr, ptr %tsdn.addr, align 8
-  %10 = load ptr, ptr %ehooks.addr, align 8
-  %11 = load ptr, ptr %addr.addr, align 8
-  %12 = load i64, ptr %size.addr, align 8
-  %call12 = call zeroext i1 @ehooks_dalloc(ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12, i1 noundef zeroext true)
-  br i1 %call12, label %if.end14, label %if.then13
-
-if.then13:                                        ; preds = %if.else
-  br label %label_done
-
-if.end14:                                         ; preds = %if.else
-  %13 = load ptr, ptr %tsdn.addr, align 8
-  %14 = load ptr, ptr %ehooks.addr, align 8
-  %15 = load ptr, ptr %addr.addr, align 8
-  %16 = load i64, ptr %size.addr, align 8
-  %17 = load i64, ptr %size.addr, align 8
-  %call15 = call zeroext i1 @ehooks_decommit(ptr noundef %13, ptr noundef %14, ptr noundef %15, i64 noundef %16, i64 noundef 0, i64 noundef %17)
-  br i1 %call15, label %if.end17, label %if.then16
-
-if.then16:                                        ; preds = %if.end14
-  br label %label_done
-
-if.end17:                                         ; preds = %if.end14
-  %18 = load ptr, ptr %tsdn.addr, align 8
-  %19 = load ptr, ptr %ehooks.addr, align 8
-  %20 = load ptr, ptr %addr.addr, align 8
-  %21 = load i64, ptr %size.addr, align 8
-  %22 = load i64, ptr %size.addr, align 8
-  %call18 = call zeroext i1 @ehooks_purge_forced(ptr noundef %18, ptr noundef %19, ptr noundef %20, i64 noundef %21, i64 noundef 0, i64 noundef %22)
-  br i1 %call18, label %if.end20, label %if.then19
-
-if.then19:                                        ; preds = %if.end17
-  br label %label_done
-
-if.end20:                                         ; preds = %if.end17
-  %23 = load ptr, ptr %tsdn.addr, align 8
-  %24 = load ptr, ptr %ehooks.addr, align 8
-  %25 = load ptr, ptr %addr.addr, align 8
-  %26 = load i64, ptr %size.addr, align 8
-  %27 = load i64, ptr %size.addr, align 8
-  %call21 = call zeroext i1 @ehooks_purge_lazy(ptr noundef %23, ptr noundef %24, ptr noundef %25, i64 noundef %26, i64 noundef 0, i64 noundef %27)
-  br i1 %call21, label %if.end23, label %if.then22
-
-if.then22:                                        ; preds = %if.end20
-  br label %label_done
-
-if.end23:                                         ; preds = %if.end20
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.end23, %do.end
-  br label %label_done
-
-label_done:                                       ; preds = %if.end24, %if.then22, %if.then19, %if.then16, %if.then13, %if.then10, %if.then7, %if.then4, %if.then2
-  %call25 = call zeroext i1 @metadata_thp_madvise()
-  br i1 %call25, label %if.then26, label %if.end30
-
-if.then26:                                        ; preds = %label_done
-  br label %do.body27
-
-do.body27:                                        ; preds = %if.then26
-  br label %do.end28
-
-do.end28:                                         ; preds = %do.body27
-  %28 = load ptr, ptr %addr.addr, align 8
-  %29 = load i64, ptr %size.addr, align 8
-  %call29 = call zeroext i1 @pages_nohuge(ptr noundef %28, i64 noundef %29)
-  br label %if.end30
-
-if.end30:                                         ; preds = %do.end28, %label_done
-  ret void
-}
-
-declare void @edata_heap_new(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @metadata_thp_madvise() #0 {
-entry:
-  %call = call zeroext i1 @metadata_thp_enabled()
-  br i1 %call, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %0 = load i32, ptr @init_system_thp_mode, align 4
-  %cmp = icmp eq i32 %0, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %1 = phi i1 [ false, %entry ], [ %cmp, %land.rhs ]
-  ret i1 %1
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef %edata, i64 noundef %gap_size, ptr noundef %addr, i64 noundef %size) #0 {
-entry:
-  %size.addr.i29 = alloca i64, align 8
-  %size.addr.i27 = alloca i64, align 8
-  %ret.i = alloca i32, align 4
-  %retval.i = alloca i32, align 4
-  %size.addr.i = alloca i64, align 8
-  %base.addr = alloca ptr, align 8
-  %edata.addr = alloca ptr, align 8
-  %gap_size.addr = alloca i64, align 8
-  %addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %index_floor = alloca i32, align 4
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store i64 %gap_size, ptr %gap_size.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %call = call i64 @edata_bsize_get(ptr noundef %0)
-  %cmp = icmp ugt i64 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %edata.addr, align 8
-  %call1 = call i64 @edata_bsize_get(ptr noundef %1)
-  %add = add i64 %call1, 1
-  store i64 %add, ptr %size.addr.i, align 8
-  %2 = load i64, ptr %size.addr.i, align 8
-  %cmp.i = icmp ule i64 %2, 4096
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.then
-  %3 = load i64, ptr %size.addr.i, align 8
-  store i64 %3, ptr %size.addr.i27, align 8
-  %4 = load i64, ptr %size.addr.i27, align 8
-  store i64 %4, ptr %size.addr.i29, align 8
-  %5 = load i64, ptr %size.addr.i29, align 8
-  %add.i = add i64 %5, 8
-  %sub.i = sub i64 %add.i, 1
-  %shr.i = lshr i64 %sub.i, 3
-  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i
-  %6 = load i8, ptr %arrayidx.i, align 1
-  %conv.i30 = zext i8 %6 to i32
-  store i32 %conv.i30, ptr %ret.i, align 4
-  %7 = load i32, ptr %ret.i, align 4
-  store i32 %7, ptr %retval.i, align 4
-  br label %sz_size2index.exit
-
-if.end.i:                                         ; preds = %if.then
-  %8 = load i64, ptr %size.addr.i, align 8
-  %call2.i = call i32 @sz_size2index_compute(i64 noundef %8)
-  store i32 %call2.i, ptr %retval.i, align 4
-  br label %sz_size2index.exit
-
-sz_size2index.exit:                               ; preds = %if.end.i, %if.then.i
-  %9 = load i32, ptr %retval.i, align 4
-  %sub = sub i32 %9, 1
-  store i32 %sub, ptr %index_floor, align 4
-  %10 = load ptr, ptr %base.addr, align 8
-  %avail = getelementptr inbounds %struct.base_s, ptr %10, i32 0, i32 7
-  %11 = load i32, ptr %index_floor, align 4
-  %idxprom = zext i32 %11 to i64
-  %arrayidx = getelementptr inbounds [235 x %struct.edata_heap_t], ptr %avail, i64 0, i64 %idxprom
-  %12 = load ptr, ptr %edata.addr, align 8
-  call void @edata_heap_insert(ptr noundef %arrayidx, ptr noundef %12)
-  br label %if.end
-
-if.end:                                           ; preds = %sz_size2index.exit, %entry
-  %13 = load i64, ptr %size.addr, align 8
-  %14 = load ptr, ptr %base.addr, align 8
-  %allocated = getelementptr inbounds %struct.base_s, ptr %14, i32 0, i32 8
-  %15 = load i64, ptr %allocated, align 8
-  %add3 = add i64 %15, %13
-  store i64 %add3, ptr %allocated, align 8
-  %16 = load ptr, ptr %addr.addr, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %18 = load i64, ptr %size.addr, align 8
-  %add4 = add i64 %17, %18
-  %add5 = add i64 %add4, 4095
-  %and = and i64 %add5, -4096
-  %19 = load ptr, ptr %addr.addr, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %21 = load i64, ptr %gap_size.addr, align 8
-  %sub6 = sub i64 %20, %21
-  %add7 = add i64 %sub6, 4095
-  %and8 = and i64 %add7, -4096
-  %sub9 = sub i64 %and, %and8
-  %22 = load ptr, ptr %base.addr, align 8
-  %resident = getelementptr inbounds %struct.base_s, ptr %22, i32 0, i32 9
-  %23 = load i64, ptr %resident, align 8
-  %add10 = add i64 %23, %sub9
-  store i64 %add10, ptr %resident, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %do.body11
-
-do.body11:                                        ; preds = %do.end
-  br label %do.end12
-
-do.end12:                                         ; preds = %do.body11
-  %call13 = call zeroext i1 @metadata_thp_madvise()
-  br i1 %call13, label %land.lhs.true, label %if.end26
-
-land.lhs.true:                                    ; preds = %do.end12
-  %24 = load i32, ptr @opt_metadata_thp, align 4
-  %cmp14 = icmp eq i32 %24, 2
-  br i1 %cmp14, label %if.then15, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %25 = load ptr, ptr %base.addr, align 8
-  %auto_thp_switched = getelementptr inbounds %struct.base_s, ptr %25, i32 0, i32 3
-  %26 = load i8, ptr %auto_thp_switched, align 8
-  %tobool = trunc i8 %26 to i1
-  br i1 %tobool, label %if.then15, label %if.end26
-
-if.then15:                                        ; preds = %lor.lhs.false, %land.lhs.true
-  %27 = load ptr, ptr %addr.addr, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = load i64, ptr %size.addr, align 8
-  %add16 = add i64 %28, %29
-  %add17 = add i64 %add16, 2097151
-  %and18 = and i64 %add17, -2097152
-  %30 = load ptr, ptr %addr.addr, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = load i64, ptr %gap_size.addr, align 8
-  %sub19 = sub i64 %31, %32
-  %add20 = add i64 %sub19, 2097151
-  %and21 = and i64 %add20, -2097152
-  %sub22 = sub i64 %and18, %and21
-  %shr = lshr i64 %sub22, 21
-  %33 = load ptr, ptr %base.addr, align 8
-  %n_thp = getelementptr inbounds %struct.base_s, ptr %33, i32 0, i32 11
-  %34 = load i64, ptr %n_thp, align 8
-  %add23 = add i64 %34, %shr
-  store i64 %add23, ptr %n_thp, align 8
-  br label %do.body24
-
-do.body24:                                        ; preds = %if.then15
-  br label %do.end25
-
-do.end25:                                         ; preds = %do.body24
-  br label %if.end26
-
-if.end26:                                         ; preds = %do.end25, %lor.lhs.false, %do.end12
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @base_delete(ptr noundef %tsdn, ptr noundef %base) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %ehooks = alloca ptr, align 8
-  %next = alloca ptr, align 8
-  %block = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %call = call ptr @base_ehooks_get_for_metadata(ptr noundef %0)
-  store ptr %call, ptr %ehooks, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %blocks = getelementptr inbounds %struct.base_s, ptr %1, i32 0, i32 6
-  %2 = load ptr, ptr %blocks, align 8
-  store ptr %2, ptr %next, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %entry
-  %3 = load ptr, ptr %next, align 8
-  store ptr %3, ptr %block, align 8
-  %4 = load ptr, ptr %block, align 8
-  %next1 = getelementptr inbounds %struct.base_block_s, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %next1, align 8
-  store ptr %5, ptr %next, align 8
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %7 = load ptr, ptr %ehooks, align 8
-  %8 = load ptr, ptr %base.addr, align 8
-  %call2 = call i32 @base_ind_get(ptr noundef %8)
-  %9 = load ptr, ptr %block, align 8
-  %10 = load ptr, ptr %block, align 8
-  %size = getelementptr inbounds %struct.base_block_s, ptr %10, i32 0, i32 0
-  %11 = load i64, ptr %size, align 8
-  call void @base_unmap(ptr noundef %6, ptr noundef %7, i32 noundef %call2, ptr noundef %9, i64 noundef %11)
-  br label %do.cond
-
-do.cond:                                          ; preds = %do.body
-  %12 = load ptr, ptr %next, align 8
-  %cmp = icmp ne ptr %12, null
-  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !7
-
-do.end:                                           ; preds = %do.cond
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @base_ehooks_get_for_metadata(ptr noundef %base) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %ehooks_base = getelementptr inbounds %struct.base_s, ptr %0, i32 0, i32 1
-  ret ptr %ehooks_base
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @base_ind_get(ptr noundef %base) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %ehooks = getelementptr inbounds %struct.base_s, ptr %0, i32 0, i32 0
-  %call = call i32 @ehooks_ind_get(ptr noundef %ehooks)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @base_ehooks_get(ptr noundef %base) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %ehooks = getelementptr inbounds %struct.base_s, ptr %0, i32 0, i32 0
-  ret ptr %ehooks
-}
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @base_extent_hooks_set(ptr noundef %base, ptr noundef %extent_hooks) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %extent_hooks.addr = alloca ptr, align 8
-  %old_extent_hooks = alloca ptr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %extent_hooks, ptr %extent_hooks.addr, align 8
-  %0 = load ptr, ptr %base.addr, align 8
-  %ehooks = getelementptr inbounds %struct.base_s, ptr %0, i32 0, i32 0
-  %call = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %ehooks)
-  store ptr %call, ptr %old_extent_hooks, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %ehooks1 = getelementptr inbounds %struct.base_s, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %extent_hooks.addr, align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %ehooks2 = getelementptr inbounds %struct.base_s, ptr %3, i32 0, i32 0
-  %call3 = call i32 @ehooks_ind_get(ptr noundef %ehooks2)
-  call void @ehooks_init(ptr noundef %ehooks1, ptr noundef %2, i32 noundef %call3)
-  %4 = load ptr, ptr %old_extent_hooks, align 8
-  ret ptr %4
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @ehooks_get_extent_hooks_ptr(ptr noundef %ehooks) #0 {
-entry:
-  %retval.i = alloca i32, align 4
-  %mo.addr.i1 = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %mo.addr.i = alloca i32, align 4
-  %result.i = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %ptr = getelementptr inbounds %struct.ehooks_s, ptr %0, i32 0, i32 1
-  store ptr %ptr, ptr %a.addr.i, align 8
-  store i32 1, ptr %mo.addr.i, align 4
-  %1 = load ptr, ptr %a.addr.i, align 8
-  %2 = load i32, ptr %mo.addr.i, align 4
-  store i32 %2, ptr %mo.addr.i1, align 4
-  %3 = load i32, ptr %mo.addr.i1, align 4
-  switch i32 %3, label %sw.epilog.i [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
-  ]
-
-sw.bb.i:                                          ; preds = %entry
-  store i32 0, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb1.i:                                         ; preds = %entry
-  store i32 2, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb2.i:                                         ; preds = %entry
-  store i32 3, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb3.i:                                         ; preds = %entry
-  store i32 4, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.bb4.i:                                         ; preds = %entry
-  store i32 5, ptr %retval.i, align 4
-  br label %atomic_enum_to_builtin.exit
-
-sw.epilog.i:                                      ; preds = %entry
-  unreachable
-
-atomic_enum_to_builtin.exit:                      ; preds = %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %4 = load i32, ptr %retval.i, align 4
-  switch i32 %4, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit
-  %5 = load atomic i64, ptr %1 monotonic, align 8
-  store i64 %5, ptr %result.i, align 8
-  br label %atomic_load_p.exit
-
-acquire.i:                                        ; preds = %atomic_enum_to_builtin.exit, %atomic_enum_to_builtin.exit
-  %6 = load atomic i64, ptr %1 acquire, align 8
-  store i64 %6, ptr %result.i, align 8
-  br label %atomic_load_p.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit
-  %7 = load atomic i64, ptr %1 seq_cst, align 8
-  store i64 %7, ptr %result.i, align 8
-  br label %atomic_load_p.exit
-
-atomic_load_p.exit:                               ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %8 = load ptr, ptr %result.i, align 8
-  ret ptr %8
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @ehooks_ind_get(ptr noundef %ehooks) #0 {
-entry:
-  %ehooks.addr = alloca ptr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %ind = getelementptr inbounds %struct.ehooks_s, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %ind, align 8
-  ret i32 %1
-}
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @base_alloc(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  %call = call ptr @base_alloc_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef null)
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @base_alloc_impl(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment, ptr noundef %esn) #0 {
-entry:
-  %size.addr.i28 = alloca i64, align 8
-  %size.addr.i26 = alloca i64, align 8
-  %ret.i = alloca i32, align 4
-  %retval.i = alloca i32, align 4
-  %size.addr.i = alloca i64, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %esn.addr = alloca ptr, align 8
-  %usize = alloca i64, align 8
-  %asize = alloca i64, align 8
-  %edata = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ret = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store ptr %esn, ptr %esn.addr, align 8
-  %0 = load i64, ptr %alignment.addr, align 8
-  %add = add i64 %0, 7
-  %and = and i64 %add, -8
-  store i64 %and, ptr %alignment.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %sub = sub i64 %2, 1
-  %add1 = add i64 %1, %sub
-  %3 = load i64, ptr %alignment.addr, align 8
-  %not = xor i64 %3, -1
-  %add2 = add i64 %not, 1
-  %and3 = and i64 %add1, %add2
-  store i64 %and3, ptr %usize, align 8
-  %4 = load i64, ptr %usize, align 8
-  %5 = load i64, ptr %alignment.addr, align 8
-  %add4 = add i64 %4, %5
-  %sub5 = sub i64 %add4, 8
-  store i64 %sub5, ptr %asize, align 8
-  store ptr null, ptr %edata, align 8
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %7 = load ptr, ptr %base.addr, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %7, i32 0, i32 2
-  call void @malloc_mutex_lock(ptr noundef %6, ptr noundef %mtx)
-  %8 = load i64, ptr %asize, align 8
-  store i64 %8, ptr %size.addr.i, align 8
-  %9 = load i64, ptr %size.addr.i, align 8
-  %cmp.i = icmp ule i64 %9, 4096
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %entry
-  %10 = load i64, ptr %size.addr.i, align 8
-  store i64 %10, ptr %size.addr.i26, align 8
-  %11 = load i64, ptr %size.addr.i26, align 8
-  store i64 %11, ptr %size.addr.i28, align 8
-  %12 = load i64, ptr %size.addr.i28, align 8
-  %add.i = add i64 %12, 8
-  %sub.i = sub i64 %add.i, 1
-  %shr.i = lshr i64 %sub.i, 3
-  %arrayidx.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i
-  %13 = load i8, ptr %arrayidx.i, align 1
-  %conv.i29 = zext i8 %13 to i32
-  store i32 %conv.i29, ptr %ret.i, align 4
-  %14 = load i32, ptr %ret.i, align 4
-  store i32 %14, ptr %retval.i, align 4
-  br label %sz_size2index.exit
-
-if.end.i:                                         ; preds = %entry
-  %15 = load i64, ptr %size.addr.i, align 8
-  %call2.i = call i32 @sz_size2index_compute(i64 noundef %15)
-  store i32 %call2.i, ptr %retval.i, align 4
-  br label %sz_size2index.exit
-
-sz_size2index.exit:                               ; preds = %if.end.i, %if.then.i
-  %16 = load i32, ptr %retval.i, align 4
-  store i32 %16, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %sz_size2index.exit
-  %17 = load i32, ptr %i, align 4
-  %conv = zext i32 %17 to i64
-  %cmp = icmp ult i64 %conv, 235
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %18 = load ptr, ptr %base.addr, align 8
-  %avail = getelementptr inbounds %struct.base_s, ptr %18, i32 0, i32 7
-  %19 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %19 to i64
-  %arrayidx = getelementptr inbounds [235 x %struct.edata_heap_t], ptr %avail, i64 0, i64 %idxprom
-  %call7 = call ptr @edata_heap_remove_first(ptr noundef %arrayidx)
-  store ptr %call7, ptr %edata, align 8
-  %20 = load ptr, ptr %edata, align 8
-  %cmp8 = icmp ne ptr %20, null
-  br i1 %cmp8, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  br label %for.end
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %21 = load i32, ptr %i, align 4
-  %inc = add i32 %21, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %if.then, %for.cond
-  %22 = load ptr, ptr %edata, align 8
-  %cmp10 = icmp eq ptr %22, null
-  br i1 %cmp10, label %if.then12, label %if.end14
-
-if.then12:                                        ; preds = %for.end
-  %23 = load ptr, ptr %tsdn.addr, align 8
-  %24 = load ptr, ptr %base.addr, align 8
-  %25 = load i64, ptr %usize, align 8
-  %26 = load i64, ptr %alignment.addr, align 8
-  %call13 = call ptr @base_extent_alloc(ptr noundef %23, ptr noundef %24, i64 noundef %25, i64 noundef %26)
-  store ptr %call13, ptr %edata, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then12, %for.end
-  %27 = load ptr, ptr %edata, align 8
-  %cmp15 = icmp eq ptr %27, null
-  br i1 %cmp15, label %if.then17, label %if.end18
-
-if.then17:                                        ; preds = %if.end14
-  store ptr null, ptr %ret, align 8
-  br label %label_return
-
-if.end18:                                         ; preds = %if.end14
-  %28 = load ptr, ptr %base.addr, align 8
-  %29 = load ptr, ptr %edata, align 8
-  %30 = load i64, ptr %usize, align 8
-  %31 = load i64, ptr %alignment.addr, align 8
-  %call19 = call ptr @base_extent_bump_alloc(ptr noundef %28, ptr noundef %29, i64 noundef %30, i64 noundef %31)
-  store ptr %call19, ptr %ret, align 8
-  %32 = load ptr, ptr %esn.addr, align 8
-  %cmp20 = icmp ne ptr %32, null
-  br i1 %cmp20, label %if.then22, label %if.end24
-
-if.then22:                                        ; preds = %if.end18
-  %33 = load ptr, ptr %edata, align 8
-  %call23 = call i64 @edata_sn_get(ptr noundef %33)
-  %34 = load ptr, ptr %esn.addr, align 8
-  store i64 %call23, ptr %34, align 8
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.then22, %if.end18
-  br label %label_return
-
-label_return:                                     ; preds = %if.end24, %if.then17
-  %35 = load ptr, ptr %tsdn.addr, align 8
-  %36 = load ptr, ptr %base.addr, align 8
-  %mtx25 = getelementptr inbounds %struct.base_s, ptr %36, i32 0, i32 2
-  call void @malloc_mutex_unlock(ptr noundef %35, ptr noundef %mtx25)
-  %37 = load ptr, ptr %ret, align 8
-  ret ptr %37
-}
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @base_alloc_edata(ptr noundef %tsdn, ptr noundef %base) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %esn = alloca i64, align 8
-  %edata = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %call = call ptr @base_alloc_impl(ptr noundef %0, ptr noundef %1, i64 noundef 128, i64 noundef 128, ptr noundef %esn)
-  store ptr %call, ptr %edata, align 8
-  %2 = load ptr, ptr %edata, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %edata, align 8
-  %4 = load i64, ptr %esn, align 8
-  call void @edata_esn_set(ptr noundef %3, i64 noundef %4)
-  %5 = load ptr, ptr %edata, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_esn_set(ptr noundef %edata, i64 noundef %esn) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %esn.addr = alloca i64, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store i64 %esn, ptr %esn.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %1 = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 2
-  %2 = load i64, ptr %1, align 8
-  %and = and i64 %2, -4096
-  %3 = load i64, ptr %esn.addr, align 8
-  %and1 = and i64 %3, 4095
-  %or = or i64 %and, %and1
-  %4 = load ptr, ptr %edata.addr, align 8
-  %5 = getelementptr inbounds %struct.edata_s, ptr %4, i32 0, i32 2
-  store i64 %or, ptr %5, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @base_stats_get(ptr noundef %tsdn, ptr noundef %base, ptr noundef %allocated, ptr noundef %resident, ptr noundef %mapped, ptr noundef %n_thp) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %allocated.addr = alloca ptr, align 8
-  %resident.addr = alloca ptr, align 8
-  %mapped.addr = alloca ptr, align 8
-  %n_thp.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %allocated, ptr %allocated.addr, align 8
-  store ptr %resident, ptr %resident.addr, align 8
-  store ptr %mapped, ptr %mapped.addr, align 8
-  store ptr %n_thp, ptr %n_thp.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %1, i32 0, i32 2
-  call void @malloc_mutex_lock(ptr noundef %0, ptr noundef %mtx)
-  br label %do.body1
-
-do.body1:                                         ; preds = %do.end
-  br label %do.end2
-
-do.end2:                                          ; preds = %do.body1
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end2
-  br label %do.end4
-
-do.end4:                                          ; preds = %do.body3
-  %2 = load ptr, ptr %base.addr, align 8
-  %allocated5 = getelementptr inbounds %struct.base_s, ptr %2, i32 0, i32 8
-  %3 = load i64, ptr %allocated5, align 8
-  %4 = load ptr, ptr %allocated.addr, align 8
-  store i64 %3, ptr %4, align 8
-  %5 = load ptr, ptr %base.addr, align 8
-  %resident6 = getelementptr inbounds %struct.base_s, ptr %5, i32 0, i32 9
-  %6 = load i64, ptr %resident6, align 8
-  %7 = load ptr, ptr %resident.addr, align 8
-  store i64 %6, ptr %7, align 8
-  %8 = load ptr, ptr %base.addr, align 8
-  %mapped7 = getelementptr inbounds %struct.base_s, ptr %8, i32 0, i32 10
-  %9 = load i64, ptr %mapped7, align 8
-  %10 = load ptr, ptr %mapped.addr, align 8
-  store i64 %9, ptr %10, align 8
-  %11 = load ptr, ptr %base.addr, align 8
-  %n_thp8 = getelementptr inbounds %struct.base_s, ptr %11, i32 0, i32 11
-  %12 = load i64, ptr %n_thp8, align 8
-  %13 = load ptr, ptr %n_thp.addr, align 8
-  store i64 %12, ptr %13, align 8
-  %14 = load ptr, ptr %tsdn.addr, align 8
-  %15 = load ptr, ptr %base.addr, align 8
-  %mtx9 = getelementptr inbounds %struct.base_s, ptr %15, i32 0, i32 2
-  call void @malloc_mutex_unlock(ptr noundef %14, ptr noundef %mtx9)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_lock(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %val.addr.i = alloca i8, align 1
-  %mo.addr.i = alloca i32, align 4
-  %tsd.addr.i19 = alloca ptr, align 8
-  %tsd.addr.i18 = alloca ptr, align 8
-  %tsd.addr.i.i13 = alloca ptr, align 8
-  %tsd.addr.i14 = alloca ptr, align 8
-  %state.i15 = alloca i8, align 1
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsdn.addr.i3.i3 = alloca ptr, align 8
-  %tsdn.addr.i.i4 = alloca ptr, align 8
-  %retval.i5 = alloca ptr, align 8
-  %tsdn.addr.i6 = alloca ptr, align 8
-  %tsd.i7 = alloca ptr, align 8
-  %tsdn.addr.i3.i = alloca ptr, align 8
-  %tsdn.addr.i.i = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i6, align 8
-  %1 = load ptr, ptr %tsdn.addr.i6, align 8
-  store ptr %1, ptr %tsdn.addr.i.i4, align 8
-  %2 = load ptr, ptr %tsdn.addr.i.i4, align 8
-  %cmp.i.i8 = icmp eq ptr %2, null
-  br i1 %cmp.i.i8, label %if.then.i11, label %if.end.i9
-
-if.then.i11:                                      ; preds = %entry
-  store ptr null, ptr %retval.i5, align 8
-  br label %tsdn_witness_tsdp_get.exit12
-
-if.end.i9:                                        ; preds = %entry
-  %3 = load ptr, ptr %tsdn.addr.i6, align 8
-  store ptr %3, ptr %tsdn.addr.i3.i3, align 8
-  %4 = load ptr, ptr %tsdn.addr.i3.i3, align 8
-  store ptr %4, ptr %tsd.i7, align 8
-  %5 = load ptr, ptr %tsd.i7, align 8
-  store ptr %5, ptr %tsd.addr.i, align 8
-  %6 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %6, ptr %tsd.addr.i.i, align 8
-  %7 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 29
-  %8 = load i8, ptr %state.i.i, align 8
-  store i8 %8, ptr %state.i, align 1
-  %9 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %9, ptr %tsd.addr.i19, align 8
-  %10 = load ptr, ptr %tsd.addr.i19, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i20 = getelementptr inbounds %struct.tsd_s, ptr %10, i32 0, i32 35
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i20, ptr %retval.i5, align 8
-  br label %tsdn_witness_tsdp_get.exit12
-
-tsdn_witness_tsdp_get.exit12:                     ; preds = %if.end.i9, %if.then.i11
-  %11 = load ptr, ptr %retval.i5, align 8
-  %12 = load ptr, ptr %mutex.addr, align 8
-  %13 = getelementptr inbounds %struct.malloc_mutex_s, ptr %12, i32 0, i32 0
-  call void @witness_assert_not_owner(ptr noundef %11, ptr noundef %13)
-  %14 = load ptr, ptr %mutex.addr, align 8
-  %call1 = call zeroext i1 @malloc_mutex_trylock_final(ptr noundef %14)
-  br i1 %call1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %tsdn_witness_tsdp_get.exit12
-  %15 = load ptr, ptr %mutex.addr, align 8
-  call void @malloc_mutex_lock_slow(ptr noundef %15)
-  %16 = load ptr, ptr %mutex.addr, align 8
-  %17 = getelementptr inbounds %struct.malloc_mutex_s, ptr %16, i32 0, i32 0
-  %locked = getelementptr inbounds %struct.anon.5, ptr %17, i32 0, i32 2
-  store ptr %locked, ptr %a.addr.i, align 8
-  store i8 1, ptr %val.addr.i, align 1
-  store i32 0, ptr %mo.addr.i, align 4
-  %18 = load ptr, ptr %a.addr.i, align 8
-  %19 = load i32, ptr %mo.addr.i, align 4
-  store i32 %19, ptr %mo.addr.i.i, align 4
-  %20 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %20, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %if.then
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb1.i.i:                                       ; preds = %if.then
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %if.then
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %if.then
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %if.then
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %if.then
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %21 = load i32, ptr %retval.i.i, align 4
-  switch i32 %21, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %22 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %22, ptr %18 monotonic, align 1
-  br label %atomic_store_b.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i
-  %23 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %23, ptr %18 release, align 1
-  br label %atomic_store_b.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %24 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %24, ptr %18 seq_cst, align 1
-  br label %atomic_store_b.exit
-
-atomic_store_b.exit:                              ; preds = %seqcst.i, %release.i, %monotonic.i
-  br label %if.end
-
-if.end:                                           ; preds = %atomic_store_b.exit, %tsdn_witness_tsdp_get.exit12
-  %25 = load ptr, ptr %tsdn.addr, align 8
-  %26 = load ptr, ptr %mutex.addr, align 8
-  call void @mutex_owner_stats_update(ptr noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %27, ptr %tsdn.addr.i, align 8
-  %28 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %28, ptr %tsdn.addr.i.i, align 8
-  %29 = load ptr, ptr %tsdn.addr.i.i, align 8
-  %cmp.i.i = icmp eq ptr %29, null
-  br i1 %cmp.i.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %if.end
-  store ptr null, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-if.end.i:                                         ; preds = %if.end
-  %30 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %30, ptr %tsdn.addr.i3.i, align 8
-  %31 = load ptr, ptr %tsdn.addr.i3.i, align 8
-  store ptr %31, ptr %tsd.i, align 8
-  %32 = load ptr, ptr %tsd.i, align 8
-  store ptr %32, ptr %tsd.addr.i14, align 8
-  %33 = load ptr, ptr %tsd.addr.i14, align 8
-  store ptr %33, ptr %tsd.addr.i.i13, align 8
-  %34 = load ptr, ptr %tsd.addr.i.i13, align 8
-  %state.i.i16 = getelementptr inbounds %struct.tsd_s, ptr %34, i32 0, i32 29
-  %35 = load i8, ptr %state.i.i16, align 8
-  store i8 %35, ptr %state.i15, align 1
-  %36 = load ptr, ptr %tsd.addr.i14, align 8
-  store ptr %36, ptr %tsd.addr.i18, align 8
-  %37 = load ptr, ptr %tsd.addr.i18, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds %struct.tsd_s, ptr %37, i32 0, i32 35
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-tsdn_witness_tsdp_get.exit:                       ; preds = %if.end.i, %if.then.i
-  %38 = load ptr, ptr %retval.i, align 8
-  %39 = load ptr, ptr %mutex.addr, align 8
-  %40 = getelementptr inbounds %struct.malloc_mutex_s, ptr %39, i32 0, i32 0
-  call void @witness_lock(ptr noundef %38, ptr noundef %40)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_unlock(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %retval.i.i = alloca i32, align 4
-  %mo.addr.i.i = alloca i32, align 4
-  %a.addr.i = alloca ptr, align 8
-  %val.addr.i = alloca i8, align 1
-  %mo.addr.i = alloca i32, align 4
-  %tsd.addr.i2 = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsdn.addr.i3.i = alloca ptr, align 8
-  %tsdn.addr.i.i = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %locked = getelementptr inbounds %struct.anon.5, ptr %1, i32 0, i32 2
-  store ptr %locked, ptr %a.addr.i, align 8
-  store i8 0, ptr %val.addr.i, align 1
-  store i32 0, ptr %mo.addr.i, align 4
-  %2 = load ptr, ptr %a.addr.i, align 8
-  %3 = load i32, ptr %mo.addr.i, align 4
-  store i32 %3, ptr %mo.addr.i.i, align 4
-  %4 = load i32, ptr %mo.addr.i.i, align 4
-  switch i32 %4, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
-    i32 3, label %sw.bb3.i.i
-    i32 4, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %entry
-  store i32 0, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb1.i.i:                                       ; preds = %entry
-  store i32 2, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb2.i.i:                                       ; preds = %entry
-  store i32 3, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb3.i.i:                                       ; preds = %entry
-  store i32 4, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.bb4.i.i:                                       ; preds = %entry
-  store i32 5, ptr %retval.i.i, align 4
-  br label %atomic_enum_to_builtin.exit.i
-
-sw.epilog.i.i:                                    ; preds = %entry
-  unreachable
-
-atomic_enum_to_builtin.exit.i:                    ; preds = %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
-  %5 = load i32, ptr %retval.i.i, align 4
-  switch i32 %5, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %atomic_enum_to_builtin.exit.i
-  %6 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %6, ptr %2 monotonic, align 1
-  br label %atomic_store_b.exit
-
-release.i:                                        ; preds = %atomic_enum_to_builtin.exit.i
-  %7 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %7, ptr %2 release, align 1
-  br label %atomic_store_b.exit
-
-seqcst.i:                                         ; preds = %atomic_enum_to_builtin.exit.i
-  %8 = load i8, ptr %val.addr.i, align 1
-  store atomic i8 %8, ptr %2 seq_cst, align 1
-  br label %atomic_store_b.exit
-
-atomic_store_b.exit:                              ; preds = %seqcst.i, %release.i, %monotonic.i
-  %9 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %9, ptr %tsdn.addr.i, align 8
-  %10 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %10, ptr %tsdn.addr.i.i, align 8
-  %11 = load ptr, ptr %tsdn.addr.i.i, align 8
-  %cmp.i.i = icmp eq ptr %11, null
-  br i1 %cmp.i.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %atomic_store_b.exit
-  store ptr null, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-if.end.i:                                         ; preds = %atomic_store_b.exit
-  %12 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %12, ptr %tsdn.addr.i3.i, align 8
-  %13 = load ptr, ptr %tsdn.addr.i3.i, align 8
-  store ptr %13, ptr %tsd.i, align 8
-  %14 = load ptr, ptr %tsd.i, align 8
-  store ptr %14, ptr %tsd.addr.i, align 8
-  %15 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %15, ptr %tsd.addr.i.i, align 8
-  %16 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %16, i32 0, i32 29
-  %17 = load i8, ptr %state.i.i, align 8
-  store i8 %17, ptr %state.i, align 1
-  %18 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %18, ptr %tsd.addr.i2, align 8
-  %19 = load ptr, ptr %tsd.addr.i2, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds %struct.tsd_s, ptr %19, i32 0, i32 35
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-tsdn_witness_tsdp_get.exit:                       ; preds = %if.end.i, %if.then.i
-  %20 = load ptr, ptr %retval.i, align 8
-  %21 = load ptr, ptr %mutex.addr, align 8
-  %22 = getelementptr inbounds %struct.malloc_mutex_s, ptr %21, i32 0, i32 0
-  call void @witness_unlock(ptr noundef %20, ptr noundef %22)
-  %23 = load ptr, ptr %mutex.addr, align 8
-  %24 = getelementptr inbounds %struct.malloc_mutex_s, ptr %23, i32 0, i32 0
-  %lock = getelementptr inbounds %struct.anon.5, ptr %24, i32 0, i32 1
-  %call1 = call i32 @pthread_mutex_unlock(ptr noundef %lock) #4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @base_prefork(ptr noundef %tsdn, ptr noundef %base) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %1, i32 0, i32 2
-  call void @malloc_mutex_prefork(ptr noundef %0, ptr noundef %mtx)
-  ret void
-}
-
-declare void @malloc_mutex_prefork(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define hidden void @base_postfork_parent(ptr noundef %tsdn, ptr noundef %base) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %1, i32 0, i32 2
-  call void @malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef %mtx)
-  ret void
-}
-
-declare void @malloc_mutex_postfork_parent(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define hidden void @base_postfork_child(ptr noundef %tsdn, ptr noundef %base) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %1, i32 0, i32 2
-  call void @malloc_mutex_postfork_child(ptr noundef %0, ptr noundef %mtx)
-  ret void
-}
-
-declare void @malloc_mutex_postfork_child(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @base_boot(ptr noundef %tsdn) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %call = call ptr @base_new(ptr noundef %0, i32 noundef 0, ptr noundef @ehooks_default_extent_hooks, i1 noundef zeroext true)
-  store ptr %call, ptr @b0, align 8
-  %1 = load ptr, ptr @b0, align 8
-  %cmp = icmp eq ptr %1, null
-  ret i1 %cmp
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @sz_psz2u(i64 noundef %psz) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %psz.addr = alloca i64, align 8
-  %x = alloca i64, align 8
-  %lg_delta = alloca i64, align 8
-  %delta = alloca i64, align 8
-  %delta_mask = alloca i64, align 8
-  %usize = alloca i64, align 8
-  store i64 %psz, ptr %psz.addr, align 8
-  %0 = load i64, ptr %psz.addr, align 8
-  %cmp = icmp ugt i64 %0, 8070450532247928832
-  %lnot = xor i1 %cmp, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i64 8070450532247932928, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i64, ptr %psz.addr, align 8
-  %shl = shl i64 %1, 1
-  %sub = sub i64 %shl, 1
-  %call = call i32 @lg_floor(i64 noundef %sub)
-  %conv2 = zext i32 %call to i64
-  store i64 %conv2, ptr %x, align 8
-  %2 = load i64, ptr %x, align 8
-  %cmp3 = icmp ult i64 %2, 15
-  br i1 %cmp3, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end
-  %3 = load i64, ptr %x, align 8
-  %sub5 = sub i64 %3, 2
-  %sub6 = sub i64 %sub5, 1
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 12, %cond.true ], [ %sub6, %cond.false ]
-  store i64 %cond, ptr %lg_delta, align 8
-  %4 = load i64, ptr %lg_delta, align 8
-  %shl7 = shl i64 1, %4
-  store i64 %shl7, ptr %delta, align 8
-  %5 = load i64, ptr %delta, align 8
-  %sub8 = sub i64 %5, 1
-  store i64 %sub8, ptr %delta_mask, align 8
-  %6 = load i64, ptr %psz.addr, align 8
-  %7 = load i64, ptr %delta_mask, align 8
-  %add = add i64 %6, %7
-  %8 = load i64, ptr %delta_mask, align 8
-  %not = xor i64 %8, -1
-  %and = and i64 %add, %not
-  store i64 %and, ptr %usize, align 8
-  %9 = load i64, ptr %usize, align 8
-  store i64 %9, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %cond.end, %if.then
-  %10 = load i64, ptr %retval, align 8
-  ret i64 %10
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @sz_pind2sz(i32 noundef %pind) #0 {
-entry:
-  %pind.addr = alloca i32, align 4
-  store i32 %pind, ptr %pind.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load i32, ptr %pind.addr, align 4
-  %call = call i64 @sz_pind2sz_lookup(i32 noundef %0)
-  ret i64 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @base_map(ptr noundef %tsdn, ptr noundef %ehooks, i32 noundef %ind, i64 noundef %size) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  %ind.addr = alloca i32, align 4
-  %size.addr = alloca i64, align 8
-  %addr = alloca ptr, align 8
-  %zero = alloca i8, align 1
-  %commit = alloca i8, align 1
-  %alignment = alloca i64, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  store i32 %ind, ptr %ind.addr, align 4
-  store i64 %size, ptr %size.addr, align 8
-  store i8 1, ptr %zero, align 1
-  store i8 1, ptr %commit, align 1
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  store i64 2097152, ptr %alignment, align 8
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %call = call zeroext i1 @ehooks_are_default(ptr noundef %0)
-  br i1 %call, label %if.then, label %if.else
-
-if.then:                                          ; preds = %do.end
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment, align 8
-  %call1 = call ptr @extent_alloc_mmap(ptr noundef null, i64 noundef %1, i64 noundef %2, ptr noundef %zero, ptr noundef %commit)
-  store ptr %call1, ptr %addr, align 8
-  %3 = load ptr, ptr %addr, align 8
-  %tobool = icmp ne ptr %3, null
-  br i1 %tobool, label %if.then2, label %if.end
-
-if.then2:                                         ; preds = %if.then
-  %4 = load ptr, ptr %addr, align 8
-  %5 = load i64, ptr %size.addr, align 8
-  call void @pages_set_thp_state(ptr noundef %4, i64 noundef %5)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then2, %if.then
-  br label %if.end4
-
-if.else:                                          ; preds = %do.end
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %7 = load ptr, ptr %ehooks.addr, align 8
-  %8 = load i64, ptr %size.addr, align 8
-  %9 = load i64, ptr %alignment, align 8
-  %call3 = call ptr @ehooks_alloc(ptr noundef %6, ptr noundef %7, ptr noundef null, i64 noundef %8, i64 noundef %9, ptr noundef %zero, ptr noundef %commit)
-  store ptr %call3, ptr %addr, align 8
-  br label %if.end4
-
-if.end4:                                          ; preds = %if.else, %if.end
-  %10 = load ptr, ptr %addr, align 8
-  ret ptr %10
-}
-
-declare zeroext i1 @pages_huge(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @base_auto_thp_switch(ptr noundef %tsdn, ptr noundef %base) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %should_switch = alloca i8, align 1
-  %block = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %1, i32 0, i32 2
-  call void @malloc_mutex_assert_owner(ptr noundef %0, ptr noundef %mtx)
-  %2 = load ptr, ptr %base.addr, align 8
-  %auto_thp_switched = getelementptr inbounds %struct.base_s, ptr %2, i32 0, i32 3
-  %3 = load i8, ptr %auto_thp_switched, align 8
-  %tobool = trunc i8 %3 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.end
-  br label %while.end
-
-if.end:                                           ; preds = %do.end
-  %4 = load ptr, ptr %base.addr, align 8
-  %call = call i32 @base_ind_get(ptr noundef %4)
-  %cmp = icmp ne i32 %call, 0
-  br i1 %cmp, label %if.then1, label %if.else
-
-if.then1:                                         ; preds = %if.end
-  %5 = load ptr, ptr %base.addr, align 8
-  %call2 = call i64 @base_get_num_blocks(ptr noundef %5, i1 noundef zeroext true)
-  %cmp3 = icmp eq i64 %call2, 2
-  %frombool = zext i1 %cmp3 to i8
-  store i8 %frombool, ptr %should_switch, align 1
-  br label %if.end7
-
-if.else:                                          ; preds = %if.end
-  %6 = load ptr, ptr %base.addr, align 8
-  %call4 = call i64 @base_get_num_blocks(ptr noundef %6, i1 noundef zeroext true)
-  %cmp5 = icmp eq i64 %call4, 5
-  %frombool6 = zext i1 %cmp5 to i8
-  store i8 %frombool6, ptr %should_switch, align 1
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.else, %if.then1
-  %7 = load i8, ptr %should_switch, align 1
-  %tobool8 = trunc i8 %7 to i1
-  br i1 %tobool8, label %if.end10, label %if.then9
-
-if.then9:                                         ; preds = %if.end7
-  br label %while.end
-
-if.end10:                                         ; preds = %if.end7
-  %8 = load ptr, ptr %base.addr, align 8
-  %auto_thp_switched11 = getelementptr inbounds %struct.base_s, ptr %8, i32 0, i32 3
-  store i8 1, ptr %auto_thp_switched11, align 8
-  br label %do.body12
-
-do.body12:                                        ; preds = %if.end10
-  br label %do.end13
-
-do.end13:                                         ; preds = %do.body12
-  %9 = load ptr, ptr %base.addr, align 8
-  %blocks = getelementptr inbounds %struct.base_s, ptr %9, i32 0, i32 6
-  %10 = load ptr, ptr %blocks, align 8
-  store ptr %10, ptr %block, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %do.end22, %do.end13
-  %11 = load ptr, ptr %block, align 8
-  %cmp14 = icmp ne ptr %11, null
-  br i1 %cmp14, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  br label %do.body15
-
-do.body15:                                        ; preds = %while.body
-  br label %do.end16
-
-do.end16:                                         ; preds = %do.body15
-  %12 = load ptr, ptr %block, align 8
-  %13 = load ptr, ptr %block, align 8
-  %size = getelementptr inbounds %struct.base_block_s, ptr %13, i32 0, i32 0
-  %14 = load i64, ptr %size, align 8
-  %call17 = call zeroext i1 @pages_huge(ptr noundef %12, i64 noundef %14)
-  %15 = load ptr, ptr %block, align 8
-  %size18 = getelementptr inbounds %struct.base_block_s, ptr %15, i32 0, i32 0
-  %16 = load i64, ptr %size18, align 8
-  %17 = load ptr, ptr %block, align 8
-  %edata = getelementptr inbounds %struct.base_block_s, ptr %17, i32 0, i32 2
-  %call19 = call i64 @edata_bsize_get(ptr noundef %edata)
-  %sub = sub i64 %16, %call19
-  %add = add i64 %sub, 2097151
-  %and = and i64 %add, -2097152
-  %shr = lshr i64 %and, 21
-  %18 = load ptr, ptr %base.addr, align 8
-  %n_thp = getelementptr inbounds %struct.base_s, ptr %18, i32 0, i32 11
-  %19 = load i64, ptr %n_thp, align 8
-  %add20 = add i64 %19, %shr
-  store i64 %add20, ptr %n_thp, align 8
-  %20 = load ptr, ptr %block, align 8
-  %next = getelementptr inbounds %struct.base_block_s, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %next, align 8
-  store ptr %21, ptr %block, align 8
-  br label %do.body21
-
-do.body21:                                        ; preds = %do.end16
-  br label %do.end22
-
-do.end22:                                         ; preds = %do.body21
-  br label %while.cond, !llvm.loop !9
-
-while.end:                                        ; preds = %while.cond, %if.then9, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @base_edata_init(ptr noundef %extent_sn_next, ptr noundef %edata, ptr noundef %addr, i64 noundef %size) #0 {
-entry:
-  %extent_sn_next.addr = alloca ptr, align 8
-  %edata.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %sn = alloca i64, align 8
-  store ptr %extent_sn_next, ptr %extent_sn_next.addr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load ptr, ptr %extent_sn_next.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  store i64 %1, ptr %sn, align 8
-  %2 = load ptr, ptr %extent_sn_next.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %inc = add i64 %3, 1
-  store i64 %inc, ptr %2, align 8
-  %4 = load ptr, ptr %edata.addr, align 8
-  %5 = load ptr, ptr %addr.addr, align 8
-  %6 = load i64, ptr %size.addr, align 8
-  %7 = load i64, ptr %sn, align 8
-  call void @edata_binit(ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @lg_floor(i64 noundef %x) #0 {
-entry:
-  %b.addr.i = alloca i8, align 1
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  %frombool.i = zext i1 %cmp to i8
-  store i8 %frombool.i, ptr %b.addr.i, align 1
-  %1 = load i8, ptr %b.addr.i, align 1
-  %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %util_assume.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  unreachable
-
-util_assume.exit:                                 ; preds = %entry
-  %2 = load i64, ptr %x.addr, align 8
-  %call = call i32 @fls_u64(i64 noundef %2)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @fls_u64(i64 noundef %x) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %call = call i32 @fls_lu(i64 noundef %0)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @fls_lu(i64 noundef %x) #0 {
-entry:
-  %b.addr.i = alloca i8, align 1
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  %frombool.i = zext i1 %cmp to i8
-  store i8 %frombool.i, ptr %b.addr.i, align 1
-  %1 = load i8, ptr %b.addr.i, align 1
-  %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %util_assume.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  unreachable
-
-util_assume.exit:                                 ; preds = %entry
-  %2 = load i64, ptr %x.addr, align 8
-  %3 = call i64 @llvm.ctlz.i64(i64 %2, i1 true)
-  %cast = trunc i64 %3 to i32
-  %conv = sext i32 %cast to i64
-  %xor = xor i64 63, %conv
-  %conv1 = trunc i64 %xor to i32
-  ret i32 %conv1
-}
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #2
-
-; Function Attrs: nounwind uwtable
-define internal i32 @lg_ceil(i64 noundef %x) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %call = call i32 @lg_floor(i64 noundef %0)
-  %1 = load i64, ptr %x.addr, align 8
-  %2 = load i64, ptr %x.addr, align 8
-  %sub = sub i64 %2, 1
-  %and = and i64 %1, %sub
-  %cmp = icmp eq i64 %and, 0
-  %cond = select i1 %cmp, i32 0, i32 1
-  %add = add i32 %call, %cond
-  ret i32 %add
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @sz_pind2sz_lookup(i32 noundef %pind) #0 {
-entry:
-  %pind.addr = alloca i32, align 4
-  %ret = alloca i64, align 8
-  store i32 %pind, ptr %pind.addr, align 4
-  %0 = load i32, ptr %pind.addr, align 4
-  %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom
-  %1 = load i64, ptr %arrayidx, align 8
-  store i64 %1, ptr %ret, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %2 = load i64, ptr %ret, align 8
-  ret i64 %2
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_are_default(ptr noundef %ehooks) #0 {
-entry:
-  %ehooks.addr = alloca ptr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %call = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %0)
-  %cmp = icmp eq ptr %call, @ehooks_default_extent_hooks
-  ret i1 %cmp
-}
-
-declare ptr @extent_alloc_mmap(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
-
-declare void @pages_set_thp_state(ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @ehooks_alloc(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  %new_addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %zero.addr = alloca ptr, align 8
-  %commit.addr = alloca ptr, align 8
-  %orig_zero = alloca i8, align 1
-  %ret = alloca ptr, align 8
-  %extent_hooks = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  store ptr %new_addr, ptr %new_addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store ptr %zero, ptr %zero.addr, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  %0 = load ptr, ptr %zero.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = trunc i8 %1 to i1
-  %frombool = zext i1 %tobool to i8
-  store i8 %frombool, ptr %orig_zero, align 1
-  %2 = load ptr, ptr %ehooks.addr, align 8
-  %call = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %2)
-  store ptr %call, ptr %extent_hooks, align 8
-  %3 = load ptr, ptr %extent_hooks, align 8
-  %cmp = icmp eq ptr %3, @ehooks_default_extent_hooks
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %tsdn.addr, align 8
-  %5 = load ptr, ptr %new_addr.addr, align 8
-  %6 = load i64, ptr %size.addr, align 8
-  %7 = load i64, ptr %alignment.addr, align 8
-  %8 = load ptr, ptr %zero.addr, align 8
-  %9 = load ptr, ptr %commit.addr, align 8
-  %10 = load ptr, ptr %ehooks.addr, align 8
-  %call1 = call i32 @ehooks_ind_get(ptr noundef %10)
-  %call2 = call ptr @ehooks_default_alloc_impl(ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %call1)
-  store ptr %call2, ptr %ret, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %11 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_pre_reentrancy(ptr noundef %11)
-  %12 = load ptr, ptr %extent_hooks, align 8
-  %alloc = getelementptr inbounds %struct.extent_hooks_s, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %alloc, align 8
-  %14 = load ptr, ptr %extent_hooks, align 8
-  %15 = load ptr, ptr %new_addr.addr, align 8
-  %16 = load i64, ptr %size.addr, align 8
-  %17 = load i64, ptr %alignment.addr, align 8
-  %18 = load ptr, ptr %zero.addr, align 8
-  %19 = load ptr, ptr %commit.addr, align 8
-  %20 = load ptr, ptr %ehooks.addr, align 8
-  %call3 = call i32 @ehooks_ind_get(ptr noundef %20)
-  %call4 = call ptr %13(ptr noundef %14, ptr noundef %15, i64 noundef %16, i64 noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %call3)
-  store ptr %call4, ptr %ret, align 8
-  %21 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_post_reentrancy(ptr noundef %21)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %do.body5
-
-do.body5:                                         ; preds = %do.end
-  br label %do.end6
-
-do.end6:                                          ; preds = %do.body5
-  %22 = load ptr, ptr %zero.addr, align 8
-  %23 = load i8, ptr %22, align 1
-  %tobool7 = trunc i8 %23 to i1
-  br i1 %tobool7, label %land.lhs.true, label %if.end10
-
-land.lhs.true:                                    ; preds = %do.end6
-  %24 = load ptr, ptr %ret, align 8
-  %cmp8 = icmp ne ptr %24, null
-  br i1 %cmp8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %land.lhs.true
-  %25 = load ptr, ptr %ret, align 8
-  %26 = load i64, ptr %size.addr, align 8
-  call void @ehooks_debug_zero_check(ptr noundef %25, i64 noundef %26)
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then9, %land.lhs.true, %do.end6
-  %27 = load ptr, ptr %ret, align 8
-  ret ptr %27
-}
-
-declare ptr @ehooks_default_alloc_impl(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @ehooks_pre_reentrancy(ptr noundef %tsdn) #0 {
-entry:
-  %tsd.addr.i7 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %init.addr.i6 = alloca i8, align 1
-  %retval.i = alloca ptr, align 8
-  %init.addr.i = alloca i8, align 1
-  %minimal.addr.i = alloca i8, align 1
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr.i3 = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %tsd = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i, align 8
-  %1 = load ptr, ptr %tsdn.addr.i, align 8
-  %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  store i8 1, ptr %init.addr.i, align 1
-  store i8 0, ptr %minimal.addr.i, align 1
-  %2 = load i8, ptr %init.addr.i, align 1
-  %tobool.i = trunc i8 %2 to i1
-  %frombool.i = zext i1 %tobool.i to i8
-  store i8 %frombool.i, ptr %init.addr.i6, align 1
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  store ptr %3, ptr %tsd.i, align 8
-  %4 = load i8, ptr %init.addr.i, align 1
-  %tobool2.i = trunc i8 %4 to i1
-  br i1 %tobool2.i, label %if.end.i, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %cond.true
-  br i1 false, label %land.lhs.true4.i, label %if.end.i
-
-land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %5 = load ptr, ptr %tsd.i, align 8
-  %cmp.i5 = icmp eq ptr %5, null
-  br i1 %cmp.i5, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %land.lhs.true4.i
-  store ptr null, ptr %retval.i, align 8
-  br label %tsd_fetch_impl.exit
-
-if.end.i:                                         ; preds = %land.lhs.true4.i, %land.lhs.true.i, %cond.true
-  %6 = load ptr, ptr %tsd.i, align 8
-  store ptr %6, ptr %tsd.addr.i, align 8
-  %7 = load ptr, ptr %tsd.addr.i, align 8
-  %state.i = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 29
-  %8 = load i8, ptr %state.i, align 8
-  %conv.i = zext i8 %8 to i32
-  %cmp6.i = icmp ne i32 %conv.i, 0
-  br i1 %cmp6.i, label %if.then11.i, label %if.end14.i
-
-if.then11.i:                                      ; preds = %if.end.i
-  %9 = load ptr, ptr %tsd.i, align 8
-  %10 = load i8, ptr %minimal.addr.i, align 1
-  %tobool12.i = trunc i8 %10 to i1
-  %call13.i = call ptr @tsd_fetch_slow(ptr noundef %9, i1 noundef zeroext %tobool12.i) #4
-  store ptr %call13.i, ptr %retval.i, align 8
-  br label %tsd_fetch_impl.exit
-
-if.end14.i:                                       ; preds = %if.end.i
-  %11 = load ptr, ptr %tsd.i, align 8
-  store ptr %11, ptr %tsd.addr.i7, align 8
-  %12 = load ptr, ptr %tsd.i, align 8
-  store ptr %12, ptr %retval.i, align 8
-  br label %tsd_fetch_impl.exit
-
-tsd_fetch_impl.exit:                              ; preds = %if.end14.i, %if.then11.i, %if.then.i
-  %13 = load ptr, ptr %retval.i, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %14 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %14, ptr %tsdn.addr.i3, align 8
-  %15 = load ptr, ptr %tsdn.addr.i3, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %tsd_fetch_impl.exit
-  %cond = phi ptr [ %13, %tsd_fetch_impl.exit ], [ %15, %cond.false ]
-  store ptr %cond, ptr %tsd, align 8
-  %16 = load ptr, ptr %tsd, align 8
-  call void @tsd_pre_reentrancy_raw(ptr noundef %16)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @ehooks_post_reentrancy(ptr noundef %tsdn) #0 {
-entry:
-  %tsd.addr.i7 = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %init.addr.i6 = alloca i8, align 1
-  %retval.i = alloca ptr, align 8
-  %init.addr.i = alloca i8, align 1
-  %minimal.addr.i = alloca i8, align 1
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr.i3 = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %tsd = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i, align 8
-  %1 = load ptr, ptr %tsdn.addr.i, align 8
-  %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  store i8 1, ptr %init.addr.i, align 1
-  store i8 0, ptr %minimal.addr.i, align 1
-  %2 = load i8, ptr %init.addr.i, align 1
-  %tobool.i = trunc i8 %2 to i1
-  %frombool.i = zext i1 %tobool.i to i8
-  store i8 %frombool.i, ptr %init.addr.i6, align 1
-  %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  store ptr %3, ptr %tsd.i, align 8
-  %4 = load i8, ptr %init.addr.i, align 1
-  %tobool2.i = trunc i8 %4 to i1
-  br i1 %tobool2.i, label %if.end.i, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %cond.true
-  br i1 false, label %land.lhs.true4.i, label %if.end.i
-
-land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %5 = load ptr, ptr %tsd.i, align 8
-  %cmp.i5 = icmp eq ptr %5, null
-  br i1 %cmp.i5, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %land.lhs.true4.i
-  store ptr null, ptr %retval.i, align 8
-  br label %tsd_fetch_impl.exit
-
-if.end.i:                                         ; preds = %land.lhs.true4.i, %land.lhs.true.i, %cond.true
-  %6 = load ptr, ptr %tsd.i, align 8
-  store ptr %6, ptr %tsd.addr.i, align 8
-  %7 = load ptr, ptr %tsd.addr.i, align 8
-  %state.i = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 29
-  %8 = load i8, ptr %state.i, align 8
-  %conv.i = zext i8 %8 to i32
-  %cmp6.i = icmp ne i32 %conv.i, 0
-  br i1 %cmp6.i, label %if.then11.i, label %if.end14.i
-
-if.then11.i:                                      ; preds = %if.end.i
-  %9 = load ptr, ptr %tsd.i, align 8
-  %10 = load i8, ptr %minimal.addr.i, align 1
-  %tobool12.i = trunc i8 %10 to i1
-  %call13.i = call ptr @tsd_fetch_slow(ptr noundef %9, i1 noundef zeroext %tobool12.i) #4
-  store ptr %call13.i, ptr %retval.i, align 8
-  br label %tsd_fetch_impl.exit
-
-if.end14.i:                                       ; preds = %if.end.i
-  %11 = load ptr, ptr %tsd.i, align 8
-  store ptr %11, ptr %tsd.addr.i7, align 8
-  %12 = load ptr, ptr %tsd.i, align 8
-  store ptr %12, ptr %retval.i, align 8
-  br label %tsd_fetch_impl.exit
-
-tsd_fetch_impl.exit:                              ; preds = %if.end14.i, %if.then11.i, %if.then.i
-  %13 = load ptr, ptr %retval.i, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %14 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %14, ptr %tsdn.addr.i3, align 8
-  %15 = load ptr, ptr %tsdn.addr.i3, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %tsd_fetch_impl.exit
-  %cond = phi ptr [ %13, %tsd_fetch_impl.exit ], [ %15, %cond.false ]
-  store ptr %cond, ptr %tsd, align 8
-  %16 = load ptr, ptr %tsd, align 8
-  call void @tsd_post_reentrancy_raw(ptr noundef %16)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @ehooks_debug_zero_check(ptr noundef %addr, i64 noundef %size) #0 {
-entry:
-  %addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  br label %do.body1
-
-do.body1:                                         ; preds = %do.end
-  br label %do.end2
-
-do.end2:                                          ; preds = %do.body1
-  br label %do.body3
-
-do.body3:                                         ; preds = %do.end2
-  br label %do.end4
-
-do.end4:                                          ; preds = %do.body3
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @tsd_pre_reentrancy_raw(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr.i7 = alloca ptr, align 8
-  %tsd.addr.i.i4 = alloca ptr, align 8
-  %tsd.addr.i5 = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsd.addr.i3.i = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %fast.i = alloca i8, align 1
-  %tsd.addr = alloca ptr, align 8
-  %fast = alloca i8, align 1
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %0 = load ptr, ptr %tsd.addr, align 8
-  store ptr %0, ptr %tsd.addr.i, align 8
-  %1 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %1, ptr %tsd.addr.i.i, align 8
-  %2 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %2, i32 0, i32 29
-  %3 = load i8, ptr %state.i.i, align 8
-  %conv.i = zext i8 %3 to i32
-  %cmp.i = icmp eq i32 %conv.i, 0
-  %frombool.i = zext i1 %cmp.i to i8
-  store i8 %frombool.i, ptr %fast.i, align 1
-  %4 = load i8, ptr %fast.i, align 1
-  %tobool.i = trunc i8 %4 to i1
-  br i1 %tobool.i, label %if.then.i, label %tsd_fast.exit
-
-if.then.i:                                        ; preds = %entry
-  %5 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %5, ptr %tsd.addr.i3.i, align 8
-  br label %tsd_fast.exit
-
-tsd_fast.exit:                                    ; preds = %if.then.i, %entry
-  %6 = load i8, ptr %fast.i, align 1
-  %tobool2.i = trunc i8 %6 to i1
-  %frombool = zext i1 %tobool2.i to i8
-  store i8 %frombool, ptr %fast, align 1
-  br label %do.body
-
-do.body:                                          ; preds = %tsd_fast.exit
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %7 = load ptr, ptr %tsd.addr, align 8
-  store ptr %7, ptr %tsd.addr.i5, align 8
-  %8 = load ptr, ptr %tsd.addr.i5, align 8
-  store ptr %8, ptr %tsd.addr.i.i4, align 8
-  %9 = load ptr, ptr %tsd.addr.i.i4, align 8
-  %state.i.i6 = getelementptr inbounds %struct.tsd_s, ptr %9, i32 0, i32 29
-  %10 = load i8, ptr %state.i.i6, align 8
-  store i8 %10, ptr %state.i, align 1
-  %11 = load ptr, ptr %tsd.addr.i5, align 8
-  store ptr %11, ptr %tsd.addr.i7, align 8
-  %12 = load ptr, ptr %tsd.addr.i7, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i = getelementptr inbounds %struct.tsd_s, ptr %12, i32 0, i32 1
-  %13 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
-  %inc = add i8 %13, 1
-  store i8 %inc, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
-  %14 = load i8, ptr %fast, align 1
-  %tobool = trunc i8 %14 to i1
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.end
-  %15 = load ptr, ptr %tsd.addr, align 8
-  call void @tsd_slow_update(ptr noundef %15)
-  br label %do.body2
-
-do.body2:                                         ; preds = %if.then
-  br label %do.end3
-
-do.end3:                                          ; preds = %do.body2
-  br label %if.end
-
-if.end:                                           ; preds = %do.end3, %do.end
-  ret void
-}
-
-declare ptr @tsd_fetch_slow(ptr noundef, i1 noundef zeroext) #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
-
-declare void @tsd_slow_update(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @tsd_post_reentrancy_raw(ptr noundef %tsd) #0 {
-entry:
-  %tsd.addr.i2 = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsd.addr = alloca ptr, align 8
-  %reentrancy_level = alloca ptr, align 8
-  store ptr %tsd, ptr %tsd.addr, align 8
-  %0 = load ptr, ptr %tsd.addr, align 8
-  store ptr %0, ptr %tsd.addr.i, align 8
-  %1 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %1, ptr %tsd.addr.i.i, align 8
-  %2 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %2, i32 0, i32 29
-  %3 = load i8, ptr %state.i.i, align 8
-  store i8 %3, ptr %state.i, align 1
-  %4 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %4, ptr %tsd.addr.i2, align 8
-  %5 = load ptr, ptr %tsd.addr.i2, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i = getelementptr inbounds %struct.tsd_s, ptr %5, i32 0, i32 1
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, ptr %reentrancy_level, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %6 = load ptr, ptr %reentrancy_level, align 8
-  %7 = load i8, ptr %6, align 1
-  %dec = add i8 %7, -1
-  store i8 %dec, ptr %6, align 1
-  %conv = sext i8 %dec to i32
-  %cmp = icmp eq i32 %conv, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %do.end
-  %8 = load ptr, ptr %tsd.addr, align 8
-  call void @tsd_slow_update(ptr noundef %8)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %do.end
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @malloc_mutex_assert_owner(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsd.addr.i1 = alloca ptr, align 8
-  %tsd.addr.i.i = alloca ptr, align 8
-  %tsd.addr.i = alloca ptr, align 8
-  %state.i = alloca i8, align 1
-  %tsdn.addr.i3.i = alloca ptr, align 8
-  %tsdn.addr.i.i = alloca ptr, align 8
-  %retval.i = alloca ptr, align 8
-  %tsdn.addr.i = alloca ptr, align 8
-  %tsd.i = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  store ptr %0, ptr %tsdn.addr.i, align 8
-  %1 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %1, ptr %tsdn.addr.i.i, align 8
-  %2 = load ptr, ptr %tsdn.addr.i.i, align 8
-  %cmp.i.i = icmp eq ptr %2, null
-  br i1 %cmp.i.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %entry
-  store ptr null, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-if.end.i:                                         ; preds = %entry
-  %3 = load ptr, ptr %tsdn.addr.i, align 8
-  store ptr %3, ptr %tsdn.addr.i3.i, align 8
-  %4 = load ptr, ptr %tsdn.addr.i3.i, align 8
-  store ptr %4, ptr %tsd.i, align 8
-  %5 = load ptr, ptr %tsd.i, align 8
-  store ptr %5, ptr %tsd.addr.i, align 8
-  %6 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %6, ptr %tsd.addr.i.i, align 8
-  %7 = load ptr, ptr %tsd.addr.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.tsd_s, ptr %7, i32 0, i32 29
-  %8 = load i8, ptr %state.i.i, align 8
-  store i8 %8, ptr %state.i, align 1
-  %9 = load ptr, ptr %tsd.addr.i, align 8
-  store ptr %9, ptr %tsd.addr.i1, align 8
-  %10 = load ptr, ptr %tsd.addr.i1, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds %struct.tsd_s, ptr %10, i32 0, i32 35
-  store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i, ptr %retval.i, align 8
-  br label %tsdn_witness_tsdp_get.exit
-
-tsdn_witness_tsdp_get.exit:                       ; preds = %if.end.i, %if.then.i
-  %11 = load ptr, ptr %retval.i, align 8
-  %12 = load ptr, ptr %mutex.addr, align 8
-  %13 = getelementptr inbounds %struct.malloc_mutex_s, ptr %12, i32 0, i32 0
-  call void @witness_assert_owner(ptr noundef %11, ptr noundef %13)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @base_get_num_blocks(ptr noundef %base, i1 noundef zeroext %with_new_block) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %with_new_block.addr = alloca i8, align 1
-  %b = alloca ptr, align 8
-  %n_blocks = alloca i64, align 8
-  store ptr %base, ptr %base.addr, align 8
-  %frombool = zext i1 %with_new_block to i8
-  store i8 %frombool, ptr %with_new_block.addr, align 1
-  %0 = load ptr, ptr %base.addr, align 8
-  %blocks = getelementptr inbounds %struct.base_s, ptr %0, i32 0, i32 6
-  %1 = load ptr, ptr %blocks, align 8
-  store ptr %1, ptr %b, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %2 = load i8, ptr %with_new_block.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %cond = select i1 %tobool, i32 2, i32 1
-  %conv = sext i32 %cond to i64
-  store i64 %conv, ptr %n_blocks, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %do.end
-  %3 = load ptr, ptr %b, align 8
-  %next = getelementptr inbounds %struct.base_block_s, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %next, align 8
-  %cmp = icmp ne ptr %4, null
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %5 = load i64, ptr %n_blocks, align 8
-  %inc = add i64 %5, 1
-  store i64 %inc, ptr %n_blocks, align 8
-  %6 = load ptr, ptr %b, align 8
-  %next2 = getelementptr inbounds %struct.base_block_s, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %next2, align 8
-  store ptr %7, ptr %b, align 8
-  br label %while.cond, !llvm.loop !10
-
-while.end:                                        ; preds = %while.cond
-  %8 = load i64, ptr %n_blocks, align 8
-  ret i64 %8
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @edata_bsize_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %1 = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 2
-  %2 = load i64, ptr %1, align 8
-  ret i64 %2
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @witness_assert_owner(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_binit(ptr noundef %edata, ptr noundef %addr, i64 noundef %bsize, i64 noundef %sn) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %bsize.addr = alloca i64, align 8
-  %sn.addr = alloca i64, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %bsize, ptr %bsize.addr, align 8
-  store i64 %sn, ptr %sn.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  call void @edata_arena_ind_set(ptr noundef %0, i32 noundef 4095)
-  %1 = load ptr, ptr %edata.addr, align 8
-  %2 = load ptr, ptr %addr.addr, align 8
-  call void @edata_addr_set(ptr noundef %1, ptr noundef %2)
-  %3 = load ptr, ptr %edata.addr, align 8
-  %4 = load i64, ptr %bsize.addr, align 8
-  call void @edata_bsize_set(ptr noundef %3, i64 noundef %4)
-  %5 = load ptr, ptr %edata.addr, align 8
-  call void @edata_slab_set(ptr noundef %5, i1 noundef zeroext false)
-  %6 = load ptr, ptr %edata.addr, align 8
-  call void @edata_szind_set(ptr noundef %6, i32 noundef 235)
-  %7 = load ptr, ptr %edata.addr, align 8
-  %8 = load i64, ptr %sn.addr, align 8
-  call void @edata_sn_set(ptr noundef %7, i64 noundef %8)
-  %9 = load ptr, ptr %edata.addr, align 8
-  call void @edata_state_set(ptr noundef %9, i32 noundef 0)
-  %10 = load ptr, ptr %edata.addr, align 8
-  call void @edata_guarded_set(ptr noundef %10, i1 noundef zeroext false)
-  %11 = load ptr, ptr %edata.addr, align 8
-  call void @edata_zeroed_set(ptr noundef %11, i1 noundef zeroext true)
-  %12 = load ptr, ptr %edata.addr, align 8
-  call void @edata_committed_set(ptr noundef %12, i1 noundef zeroext true)
-  %13 = load ptr, ptr %edata.addr, align 8
-  call void @edata_pai_set(ptr noundef %13, i32 noundef 0)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_arena_ind_set(ptr noundef %edata, i32 noundef %arena_ind) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %arena_ind.addr = alloca i32, align 4
-  store ptr %edata, ptr %edata.addr, align 8
-  store i32 %arena_ind, ptr %arena_ind.addr, align 4
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, -4096
-  %2 = load i32, ptr %arena_ind.addr, align 4
-  %conv = zext i32 %2 to i64
-  %shl = shl i64 %conv, 0
-  %or = or i64 %and, %shl
-  %3 = load ptr, ptr %edata.addr, align 8
-  %e_bits1 = getelementptr inbounds %struct.edata_s, ptr %3, i32 0, i32 0
-  store i64 %or, ptr %e_bits1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_addr_set(ptr noundef %edata, ptr noundef %addr) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  %0 = load ptr, ptr %addr.addr, align 8
-  %1 = load ptr, ptr %edata.addr, align 8
-  %e_addr = getelementptr inbounds %struct.edata_s, ptr %1, i32 0, i32 1
-  store ptr %0, ptr %e_addr, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_bsize_set(ptr noundef %edata, i64 noundef %bsize) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %bsize.addr = alloca i64, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store i64 %bsize, ptr %bsize.addr, align 8
-  %0 = load i64, ptr %bsize.addr, align 8
-  %1 = load ptr, ptr %edata.addr, align 8
-  %2 = getelementptr inbounds %struct.edata_s, ptr %1, i32 0, i32 2
-  store i64 %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_slab_set(ptr noundef %edata, i1 noundef zeroext %slab) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %slab.addr = alloca i8, align 1
-  store ptr %edata, ptr %edata.addr, align 8
-  %frombool = zext i1 %slab to i8
-  store i8 %frombool, ptr %slab.addr, align 1
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, -4097
-  %2 = load i8, ptr %slab.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %conv = zext i1 %tobool to i64
-  %shl = shl i64 %conv, 12
-  %or = or i64 %and, %shl
-  %3 = load ptr, ptr %edata.addr, align 8
-  %e_bits1 = getelementptr inbounds %struct.edata_s, ptr %3, i32 0, i32 0
-  store i64 %or, ptr %e_bits1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_szind_set(ptr noundef %edata, i32 noundef %szind) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %szind.addr = alloca i32, align 4
-  store ptr %edata, ptr %edata.addr, align 8
-  store i32 %szind, ptr %szind.addr, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, -267386881
-  %2 = load i32, ptr %szind.addr, align 4
-  %conv = zext i32 %2 to i64
-  %shl = shl i64 %conv, 20
-  %or = or i64 %and, %shl
-  %3 = load ptr, ptr %edata.addr, align 8
-  %e_bits1 = getelementptr inbounds %struct.edata_s, ptr %3, i32 0, i32 0
-  store i64 %or, ptr %e_bits1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_sn_set(ptr noundef %edata, i64 noundef %sn) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %sn.addr = alloca i64, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store i64 %sn, ptr %sn.addr, align 8
-  %0 = load i64, ptr %sn.addr, align 8
-  %1 = load ptr, ptr %edata.addr, align 8
-  %e_sn = getelementptr inbounds %struct.edata_s, ptr %1, i32 0, i32 4
-  store i64 %0, ptr %e_sn, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_state_set(ptr noundef %edata, i32 noundef %state) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %state.addr = alloca i32, align 4
-  store ptr %edata, ptr %edata.addr, align 8
-  store i32 %state, ptr %state.addr, align 4
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, -917505
-  %2 = load i32, ptr %state.addr, align 4
-  %conv = zext i32 %2 to i64
-  %shl = shl i64 %conv, 17
-  %or = or i64 %and, %shl
-  %3 = load ptr, ptr %edata.addr, align 8
-  %e_bits1 = getelementptr inbounds %struct.edata_s, ptr %3, i32 0, i32 0
-  store i64 %or, ptr %e_bits1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_guarded_set(ptr noundef %edata, i1 noundef zeroext %guarded) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %guarded.addr = alloca i8, align 1
-  store ptr %edata, ptr %edata.addr, align 8
-  %frombool = zext i1 %guarded to i8
-  store i8 %frombool, ptr %guarded.addr, align 1
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, -65537
-  %2 = load i8, ptr %guarded.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %conv = zext i1 %tobool to i64
-  %shl = shl i64 %conv, 16
-  %or = or i64 %and, %shl
-  %3 = load ptr, ptr %edata.addr, align 8
-  %e_bits1 = getelementptr inbounds %struct.edata_s, ptr %3, i32 0, i32 0
-  store i64 %or, ptr %e_bits1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_zeroed_set(ptr noundef %edata, i1 noundef zeroext %zeroed) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %zeroed.addr = alloca i8, align 1
-  store ptr %edata, ptr %edata.addr, align 8
-  %frombool = zext i1 %zeroed to i8
-  store i8 %frombool, ptr %zeroed.addr, align 1
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, -32769
-  %2 = load i8, ptr %zeroed.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %conv = zext i1 %tobool to i64
-  %shl = shl i64 %conv, 15
-  %or = or i64 %and, %shl
-  %3 = load ptr, ptr %edata.addr, align 8
-  %e_bits1 = getelementptr inbounds %struct.edata_s, ptr %3, i32 0, i32 0
-  store i64 %or, ptr %e_bits1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_committed_set(ptr noundef %edata, i1 noundef zeroext %committed) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %committed.addr = alloca i8, align 1
-  store ptr %edata, ptr %edata.addr, align 8
-  %frombool = zext i1 %committed to i8
-  store i8 %frombool, ptr %committed.addr, align 1
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, -8193
-  %2 = load i8, ptr %committed.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %conv = zext i1 %tobool to i64
-  %shl = shl i64 %conv, 13
-  %or = or i64 %and, %shl
-  %3 = load ptr, ptr %edata.addr, align 8
-  %e_bits1 = getelementptr inbounds %struct.edata_s, ptr %3, i32 0, i32 0
-  store i64 %or, ptr %e_bits1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @edata_pai_set(ptr noundef %edata, i32 noundef %pai) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  %pai.addr = alloca i32, align 4
-  store ptr %edata, ptr %edata.addr, align 8
-  store i32 %pai, ptr %pai.addr, align 4
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_bits = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 0
-  %1 = load i64, ptr %e_bits, align 8
-  %and = and i64 %1, -16385
-  %2 = load i32, ptr %pai.addr, align 4
-  %conv = zext i32 %2 to i64
-  %shl = shl i64 %conv, 14
-  %or = or i64 %and, %shl
-  %3 = load ptr, ptr %edata.addr, align 8
-  %e_bits1 = getelementptr inbounds %struct.edata_s, ptr %3, i32 0, i32 0
-  store i64 %or, ptr %e_bits1, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @edata_addr_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_addr = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %e_addr, align 8
+define hidden ptr @je_b0get() #0 {
+  %1 = load ptr, ptr @b0, align 8, !tbaa !4
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @edata_sn_get(ptr noundef %edata) #0 {
-entry:
-  %edata.addr = alloca ptr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %e_sn = getelementptr inbounds %struct.edata_s, ptr %0, i32 0, i32 4
-  %1 = load i64, ptr %e_sn, align 8
-  ret i64 %1
+define hidden ptr @je_base_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca %struct.ehooks_s, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store i32 %1, ptr %7, align 4, !tbaa !11
+  store ptr %2, ptr %8, align 8, !tbaa !13
+  %20 = zext i1 %3 to i8
+  store i8 %20, ptr %9, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  store i64 0, ptr %11, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #8
+  %21 = load i8, ptr %9, align 1, !tbaa !15, !range !19, !noundef !20
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %8, align 8, !tbaa !13
+  br label %26
+
+25:                                               ; preds = %4
+  br label %26
+
+26:                                               ; preds = %25, %23
+  %27 = phi ptr [ %24, %23 ], [ @je_ehooks_default_extent_hooks, %25 ]
+  %28 = load i32, ptr %7, align 4, !tbaa !11
+  call void @je_ehooks_init(ptr noundef %12, ptr noundef %27, i32 noundef %28)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  %29 = load ptr, ptr %6, align 8, !tbaa !9
+  %30 = load i32, ptr %7, align 4, !tbaa !11
+  %31 = call ptr @base_block_alloc(ptr noundef %29, ptr noundef null, ptr noundef %12, i32 noundef %30, ptr noundef %10, ptr noundef %11, i64 noundef 3960, i64 noundef 8)
+  store ptr %31, ptr %13, align 8, !tbaa !21
+  %32 = load ptr, ptr %13, align 8, !tbaa !21
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %26
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  br label %134
+
+35:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  store i64 64, ptr %16, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %36 = load i64, ptr %16, align 8, !tbaa !17
+  %37 = sub i64 %36, 1
+  %38 = add i64 3960, %37
+  %39 = load i64, ptr %16, align 8, !tbaa !17
+  %40 = xor i64 %39, -1
+  %41 = add i64 %40, 1
+  %42 = and i64 %38, %41
+  store i64 %42, ptr %17, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %43 = load ptr, ptr %13, align 8, !tbaa !21
+  %44 = getelementptr inbounds nuw %struct.base_block_s, ptr %43, i32 0, i32 2
+  %45 = load i64, ptr %17, align 8, !tbaa !17
+  %46 = load i64, ptr %16, align 8, !tbaa !17
+  %47 = call ptr @base_extent_bump_alloc_helper(ptr noundef %44, ptr noundef %15, i64 noundef %45, i64 noundef %46)
+  store ptr %47, ptr %18, align 8, !tbaa !4
+  %48 = load ptr, ptr %18, align 8, !tbaa !4
+  %49 = getelementptr inbounds nuw %struct.base_s, ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %8, align 8, !tbaa !13
+  %51 = load i32, ptr %7, align 4, !tbaa !11
+  call void @je_ehooks_init(ptr noundef %49, ptr noundef %50, i32 noundef %51)
+  %52 = load ptr, ptr %18, align 8, !tbaa !4
+  %53 = getelementptr inbounds nuw %struct.base_s, ptr %52, i32 0, i32 1
+  %54 = load i8, ptr %9, align 1, !tbaa !15, !range !19, !noundef !20
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %58
+
+56:                                               ; preds = %35
+  %57 = load ptr, ptr %8, align 8, !tbaa !13
+  br label %59
+
+58:                                               ; preds = %35
+  br label %59
+
+59:                                               ; preds = %58, %56
+  %60 = phi ptr [ %57, %56 ], [ @je_ehooks_default_extent_hooks, %58 ]
+  %61 = load i32, ptr %7, align 4, !tbaa !11
+  call void @je_ehooks_init(ptr noundef %53, ptr noundef %60, i32 noundef %61)
+  %62 = load ptr, ptr %18, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw %struct.base_s, ptr %62, i32 0, i32 2
+  %64 = call zeroext i1 @je_malloc_mutex_init(ptr noundef %63, ptr noundef @.str.3, i32 noundef 23, i32 noundef 0)
+  br i1 %64, label %65, label %72
+
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %6, align 8, !tbaa !9
+  %67 = load i32, ptr %7, align 4, !tbaa !11
+  %68 = load ptr, ptr %13, align 8, !tbaa !21
+  %69 = load ptr, ptr %13, align 8, !tbaa !21
+  %70 = getelementptr inbounds nuw %struct.base_block_s, ptr %69, i32 0, i32 0
+  %71 = load i64, ptr %70, align 8, !tbaa !23
+  call void @base_unmap(ptr noundef %66, ptr noundef %12, i32 noundef %67, ptr noundef %68, i64 noundef %71)
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  br label %133
+
+72:                                               ; preds = %59
+  %73 = load i32, ptr %10, align 4, !tbaa !11
+  %74 = load ptr, ptr %18, align 8, !tbaa !4
+  %75 = getelementptr inbounds nuw %struct.base_s, ptr %74, i32 0, i32 4
+  store i32 %73, ptr %75, align 4, !tbaa !27
+  %76 = load i64, ptr %11, align 8, !tbaa !17
+  %77 = load ptr, ptr %18, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw %struct.base_s, ptr %77, i32 0, i32 5
+  store i64 %76, ptr %78, align 8, !tbaa !32
+  %79 = load ptr, ptr %13, align 8, !tbaa !21
+  %80 = load ptr, ptr %18, align 8, !tbaa !4
+  %81 = getelementptr inbounds nuw %struct.base_s, ptr %80, i32 0, i32 6
+  store ptr %79, ptr %81, align 8, !tbaa !33
+  %82 = load ptr, ptr %18, align 8, !tbaa !4
+  %83 = getelementptr inbounds nuw %struct.base_s, ptr %82, i32 0, i32 3
+  store i8 0, ptr %83, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  store i32 0, ptr %19, align 4, !tbaa !11
+  br label %84
+
+84:                                               ; preds = %95, %72
+  %85 = load i32, ptr %19, align 4, !tbaa !11
+  %86 = zext i32 %85 to i64
+  %87 = icmp ult i64 %86, 235
+  br i1 %87, label %89, label %88
+
+88:                                               ; preds = %84
+  store i32 2, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  br label %98
+
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %18, align 8, !tbaa !4
+  %91 = getelementptr inbounds nuw %struct.base_s, ptr %90, i32 0, i32 7
+  %92 = load i32, ptr %19, align 4, !tbaa !11
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw [235 x %struct.edata_heap_t], ptr %91, i64 0, i64 %93
+  call void @je_edata_heap_new(ptr noundef %94)
+  br label %95
+
+95:                                               ; preds = %89
+  %96 = load i32, ptr %19, align 4, !tbaa !11
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %19, align 4, !tbaa !11
+  br label %84, !llvm.loop !35
+
+98:                                               ; preds = %88
+  %99 = load ptr, ptr %18, align 8, !tbaa !4
+  %100 = getelementptr inbounds nuw %struct.base_s, ptr %99, i32 0, i32 8
+  store i64 144, ptr %100, align 8, !tbaa !37
+  %101 = load ptr, ptr %18, align 8, !tbaa !4
+  %102 = getelementptr inbounds nuw %struct.base_s, ptr %101, i32 0, i32 9
+  store i64 4096, ptr %102, align 8, !tbaa !38
+  %103 = load ptr, ptr %13, align 8, !tbaa !21
+  %104 = getelementptr inbounds nuw %struct.base_block_s, ptr %103, i32 0, i32 0
+  %105 = load i64, ptr %104, align 8, !tbaa !23
+  %106 = load ptr, ptr %18, align 8, !tbaa !4
+  %107 = getelementptr inbounds nuw %struct.base_s, ptr %106, i32 0, i32 10
+  store i64 %105, ptr %107, align 8, !tbaa !39
+  %108 = load i32, ptr @je_opt_metadata_thp, align 4, !tbaa !11
+  %109 = icmp eq i32 %108, 2
+  br i1 %109, label %110, label %112
+
+110:                                              ; preds = %98
+  %111 = call zeroext i1 @metadata_thp_madvise()
+  br label %112
+
+112:                                              ; preds = %110, %98
+  %113 = phi i1 [ false, %98 ], [ %111, %110 ]
+  %114 = select i1 %113, i64 1, i64 0
+  %115 = load ptr, ptr %18, align 8, !tbaa !4
+  %116 = getelementptr inbounds nuw %struct.base_s, ptr %115, i32 0, i32 11
+  store i64 %114, ptr %116, align 8, !tbaa !40
+  br label %117
+
+117:                                              ; preds = %112
+  br label %118
+
+118:                                              ; preds = %117
+  br label %119
+
+119:                                              ; preds = %118
+  br label %120
+
+120:                                              ; preds = %119
+  br label %121
+
+121:                                              ; preds = %120
+  br label %122
+
+122:                                              ; preds = %121
+  br label %123
+
+123:                                              ; preds = %122
+  br label %124
+
+124:                                              ; preds = %123
+  br label %125
+
+125:                                              ; preds = %124
+  %126 = load ptr, ptr %18, align 8, !tbaa !4
+  %127 = load ptr, ptr %13, align 8, !tbaa !21
+  %128 = getelementptr inbounds nuw %struct.base_block_s, ptr %127, i32 0, i32 2
+  %129 = load i64, ptr %15, align 8, !tbaa !17
+  %130 = load ptr, ptr %18, align 8, !tbaa !4
+  %131 = load i64, ptr %17, align 8, !tbaa !17
+  call void @base_extent_bump_alloc_post(ptr noundef %126, ptr noundef %128, i64 noundef %129, ptr noundef %130, i64 noundef %131)
+  %132 = load ptr, ptr %18, align 8, !tbaa !4
+  store ptr %132, ptr %5, align 8
+  store i32 1, ptr %14, align 4
+  br label %133
+
+133:                                              ; preds = %125, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  br label %134
+
+134:                                              ; preds = %133, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %135 = load ptr, ptr %5, align 8
+  ret ptr %135
 }
 
-declare zeroext i1 @extent_dalloc_mmap(ptr noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i1 @pages_decommit(ptr noundef, i64 noundef) #1
-
-declare zeroext i1 @pages_purge_forced(ptr noundef, i64 noundef) #1
-
-declare zeroext i1 @pages_purge_lazy(ptr noundef, i64 noundef) #1
+declare void @je_ehooks_init(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_dalloc(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %committed) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %tsdn.addr = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %committed.addr = alloca i8, align 1
-  %extent_hooks = alloca ptr, align 8
-  %err = alloca i8, align 1
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %frombool = zext i1 %committed to i8
-  store i8 %frombool, ptr %committed.addr, align 1
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %call = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %0)
-  store ptr %call, ptr %extent_hooks, align 8
-  %1 = load ptr, ptr %extent_hooks, align 8
-  %cmp = icmp eq ptr %1, @ehooks_default_extent_hooks
-  br i1 %cmp, label %if.then, label %if.else
+define internal ptr @base_block_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i32, align 4
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca i32, align 4
+  %27 = alloca ptr, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !9
+  store ptr %1, ptr %11, align 8, !tbaa !4
+  store ptr %2, ptr %12, align 8, !tbaa !41
+  store i32 %3, ptr %13, align 4, !tbaa !11
+  store ptr %4, ptr %14, align 8, !tbaa !43
+  store ptr %5, ptr %15, align 8, !tbaa !45
+  store i64 %6, ptr %16, align 8, !tbaa !17
+  store i64 %7, ptr %17, align 8, !tbaa !17
+  %28 = load i64, ptr %17, align 8, !tbaa !17
+  %29 = add i64 %28, 7
+  %30 = and i64 %29, -8
+  store i64 %30, ptr %17, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  %31 = load i64, ptr %16, align 8, !tbaa !17
+  %32 = load i64, ptr %17, align 8, !tbaa !17
+  %33 = sub i64 %32, 1
+  %34 = add i64 %31, %33
+  %35 = load i64, ptr %17, align 8, !tbaa !17
+  %36 = xor i64 %35, -1
+  %37 = add i64 %36, 1
+  %38 = and i64 %34, %37
+  store i64 %38, ptr %18, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  store i64 144, ptr %19, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  %39 = load i64, ptr %19, align 8, !tbaa !17
+  %40 = load i64, ptr %17, align 8, !tbaa !17
+  %41 = sub i64 %40, 1
+  %42 = add i64 %39, %41
+  %43 = load i64, ptr %17, align 8, !tbaa !17
+  %44 = xor i64 %43, -1
+  %45 = add i64 %44, 1
+  %46 = and i64 %42, %45
+  %47 = load i64, ptr %19, align 8, !tbaa !17
+  %48 = sub i64 %46, %47
+  store i64 %48, ptr %20, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #8
+  %49 = load i64, ptr %19, align 8, !tbaa !17
+  %50 = load i64, ptr %20, align 8, !tbaa !17
+  %51 = add i64 %49, %50
+  %52 = load i64, ptr %18, align 8, !tbaa !17
+  %53 = add i64 %51, %52
+  %54 = call i64 @sz_psz2u(i64 noundef %53)
+  %55 = add i64 %54, 2097151
+  %56 = and i64 %55, -2097152
+  store i64 %56, ptr %21, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  %57 = load ptr, ptr %14, align 8, !tbaa !43
+  %58 = load i32, ptr %57, align 4, !tbaa !11
+  %59 = add i32 %58, 1
+  %60 = call i32 @sz_psz2ind(i64 noundef 8070450532247928832)
+  %61 = icmp ult i32 %59, %60
+  br i1 %61, label %62, label %66
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %addr.addr, align 8
-  %3 = load i64, ptr %size.addr, align 8
-  %call1 = call zeroext i1 @ehooks_default_dalloc_impl(ptr noundef %2, i64 noundef %3)
-  store i1 %call1, ptr %retval, align 1
-  br label %return
+62:                                               ; preds = %8
+  %63 = load ptr, ptr %14, align 8, !tbaa !43
+  %64 = load i32, ptr %63, align 4, !tbaa !11
+  %65 = add i32 %64, 1
+  br label %69
 
-if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %extent_hooks, align 8
-  %dalloc = getelementptr inbounds %struct.extent_hooks_s, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %dalloc, align 8
-  %cmp2 = icmp eq ptr %5, null
-  br i1 %cmp2, label %if.then3, label %if.else4
+66:                                               ; preds = %8
+  %67 = load ptr, ptr %14, align 8, !tbaa !43
+  %68 = load i32, ptr %67, align 4, !tbaa !11
+  br label %69
 
-if.then3:                                         ; preds = %if.else
-  store i1 true, ptr %retval, align 1
-  br label %return
+69:                                               ; preds = %66, %62
+  %70 = phi i32 [ %65, %62 ], [ %68, %66 ]
+  store i32 %70, ptr %22, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
+  %71 = load i32, ptr %22, align 4, !tbaa !11
+  %72 = call i64 @sz_pind2sz(i32 noundef %71)
+  %73 = add i64 %72, 2097151
+  %74 = and i64 %73, -2097152
+  store i64 %74, ptr %23, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #8
+  %75 = load i64, ptr %21, align 8, !tbaa !17
+  %76 = load i64, ptr %23, align 8, !tbaa !17
+  %77 = icmp ugt i64 %75, %76
+  br i1 %77, label %78, label %80
 
-if.else4:                                         ; preds = %if.else
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_pre_reentrancy(ptr noundef %6)
-  %7 = load ptr, ptr %extent_hooks, align 8
-  %dalloc5 = getelementptr inbounds %struct.extent_hooks_s, ptr %7, i32 0, i32 1
-  %8 = load ptr, ptr %dalloc5, align 8
-  %9 = load ptr, ptr %extent_hooks, align 8
-  %10 = load ptr, ptr %addr.addr, align 8
-  %11 = load i64, ptr %size.addr, align 8
-  %12 = load i8, ptr %committed.addr, align 1
-  %tobool = trunc i8 %12 to i1
-  %13 = load ptr, ptr %ehooks.addr, align 8
-  %call6 = call i32 @ehooks_ind_get(ptr noundef %13)
-  %call7 = call zeroext i1 %8(ptr noundef %9, ptr noundef %10, i64 noundef %11, i1 noundef zeroext %tobool, i32 noundef %call6)
-  %frombool8 = zext i1 %call7 to i8
-  store i8 %frombool8, ptr %err, align 1
-  %14 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_post_reentrancy(ptr noundef %14)
-  %15 = load i8, ptr %err, align 1
-  %tobool9 = trunc i8 %15 to i1
-  store i1 %tobool9, ptr %retval, align 1
-  br label %return
+78:                                               ; preds = %69
+  %79 = load i64, ptr %21, align 8, !tbaa !17
+  br label %82
 
-return:                                           ; preds = %if.else4, %if.then3, %if.then
-  %16 = load i1, ptr %retval, align 1
-  ret i1 %16
+80:                                               ; preds = %69
+  %81 = load i64, ptr %23, align 8, !tbaa !17
+  br label %82
+
+82:                                               ; preds = %80, %78
+  %83 = phi i64 [ %79, %78 ], [ %81, %80 ]
+  store i64 %83, ptr %24, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #8
+  %84 = load ptr, ptr %10, align 8, !tbaa !9
+  %85 = load ptr, ptr %12, align 8, !tbaa !41
+  %86 = load i32, ptr %13, align 4, !tbaa !11
+  %87 = load i64, ptr %24, align 8, !tbaa !17
+  %88 = call ptr @base_map(ptr noundef %84, ptr noundef %85, i32 noundef %86, i64 noundef %87)
+  store ptr %88, ptr %25, align 8, !tbaa !21
+  %89 = load ptr, ptr %25, align 8, !tbaa !21
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %91, label %92
+
+91:                                               ; preds = %82
+  store ptr null, ptr %9, align 8
+  store i32 1, ptr %26, align 4
+  br label %155
+
+92:                                               ; preds = %82
+  %93 = call zeroext i1 @metadata_thp_madvise()
+  br i1 %93, label %94, label %131
+
+94:                                               ; preds = %92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #8
+  %95 = load ptr, ptr %25, align 8, !tbaa !21
+  store ptr %95, ptr %27, align 8, !tbaa !47
+  br label %96
+
+96:                                               ; preds = %94
+  br label %97
+
+97:                                               ; preds = %96
+  br label %98
+
+98:                                               ; preds = %97
+  %99 = load i32, ptr @je_opt_metadata_thp, align 4, !tbaa !11
+  %100 = icmp eq i32 %99, 2
+  br i1 %100, label %101, label %105
+
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %27, align 8, !tbaa !47
+  %103 = load i64, ptr %24, align 8, !tbaa !17
+  %104 = call zeroext i1 @je_pages_huge(ptr noundef %102, i64 noundef %103)
+  br label %130
+
+105:                                              ; preds = %98
+  %106 = load i32, ptr @je_opt_metadata_thp, align 4, !tbaa !11
+  %107 = icmp eq i32 %106, 1
+  br i1 %107, label %108, label %129
+
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %11, align 8, !tbaa !4
+  %110 = icmp ne ptr %109, null
+  br i1 %110, label %111, label %129
+
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %10, align 8, !tbaa !9
+  %113 = load ptr, ptr %11, align 8, !tbaa !4
+  %114 = getelementptr inbounds nuw %struct.base_s, ptr %113, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %112, ptr noundef %114)
+  %115 = load ptr, ptr %10, align 8, !tbaa !9
+  %116 = load ptr, ptr %11, align 8, !tbaa !4
+  call void @base_auto_thp_switch(ptr noundef %115, ptr noundef %116)
+  %117 = load ptr, ptr %11, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw %struct.base_s, ptr %117, i32 0, i32 3
+  %119 = load i8, ptr %118, align 8, !tbaa !34, !range !19, !noundef !20
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %121, label %125
+
+121:                                              ; preds = %111
+  %122 = load ptr, ptr %27, align 8, !tbaa !47
+  %123 = load i64, ptr %24, align 8, !tbaa !17
+  %124 = call zeroext i1 @je_pages_huge(ptr noundef %122, i64 noundef %123)
+  br label %125
+
+125:                                              ; preds = %121, %111
+  %126 = load ptr, ptr %10, align 8, !tbaa !9
+  %127 = load ptr, ptr %11, align 8, !tbaa !4
+  %128 = getelementptr inbounds nuw %struct.base_s, ptr %127, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %126, ptr noundef %128)
+  br label %129
+
+129:                                              ; preds = %125, %108, %105
+  br label %130
+
+130:                                              ; preds = %129, %101
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #8
+  br label %131
+
+131:                                              ; preds = %130, %92
+  %132 = load i64, ptr %24, align 8, !tbaa !17
+  %133 = call i32 @sz_psz2ind(i64 noundef %132)
+  %134 = load ptr, ptr %14, align 8, !tbaa !43
+  store i32 %133, ptr %134, align 4, !tbaa !11
+  %135 = load i64, ptr %24, align 8, !tbaa !17
+  %136 = load ptr, ptr %25, align 8, !tbaa !21
+  %137 = getelementptr inbounds nuw %struct.base_block_s, ptr %136, i32 0, i32 0
+  store i64 %135, ptr %137, align 8, !tbaa !23
+  %138 = load ptr, ptr %25, align 8, !tbaa !21
+  %139 = getelementptr inbounds nuw %struct.base_block_s, ptr %138, i32 0, i32 1
+  store ptr null, ptr %139, align 8, !tbaa !48
+  br label %140
+
+140:                                              ; preds = %131
+  br label %141
+
+141:                                              ; preds = %140
+  br label %142
+
+142:                                              ; preds = %141
+  %143 = load ptr, ptr %15, align 8, !tbaa !45
+  %144 = load ptr, ptr %25, align 8, !tbaa !21
+  %145 = getelementptr inbounds nuw %struct.base_block_s, ptr %144, i32 0, i32 2
+  %146 = load ptr, ptr %25, align 8, !tbaa !21
+  %147 = ptrtoint ptr %146 to i64
+  %148 = load i64, ptr %19, align 8, !tbaa !17
+  %149 = add i64 %147, %148
+  %150 = inttoptr i64 %149 to ptr
+  %151 = load i64, ptr %24, align 8, !tbaa !17
+  %152 = load i64, ptr %19, align 8, !tbaa !17
+  %153 = sub i64 %151, %152
+  call void @base_edata_init(ptr noundef %143, ptr noundef %145, ptr noundef %150, i64 noundef %153)
+  %154 = load ptr, ptr %25, align 8, !tbaa !21
+  store ptr %154, ptr %9, align 8
+  store i32 1, ptr %26, align 4
+  br label %155
+
+155:                                              ; preds = %142, %91
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  %156 = load ptr, ptr %9, align 8
+  ret ptr %156
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_decommit(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %addr, i64 noundef %size, i64 noundef %offset, i64 noundef %length) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %tsdn.addr = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %length.addr = alloca i64, align 8
-  %extent_hooks = alloca ptr, align 8
-  %err = alloca i8, align 1
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %call = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %0)
-  store ptr %call, ptr %extent_hooks, align 8
-  %1 = load ptr, ptr %extent_hooks, align 8
-  %cmp = icmp eq ptr %1, @ehooks_default_extent_hooks
-  br i1 %cmp, label %if.then, label %if.else
+define internal ptr @base_extent_bump_alloc_helper(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !49
+  store ptr %1, ptr %6, align 8, !tbaa !45
+  store i64 %2, ptr %7, align 8, !tbaa !17
+  store i64 %3, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  br label %10
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %addr.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %4 = load i64, ptr %length.addr, align 8
-  %call1 = call zeroext i1 @ehooks_default_decommit_impl(ptr noundef %2, i64 noundef %3, i64 noundef %4)
-  store i1 %call1, ptr %retval, align 1
-  br label %return
+10:                                               ; preds = %4
+  br label %11
 
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %extent_hooks, align 8
-  %decommit = getelementptr inbounds %struct.extent_hooks_s, ptr %5, i32 0, i32 4
-  %6 = load ptr, ptr %decommit, align 8
-  %cmp2 = icmp eq ptr %6, null
-  br i1 %cmp2, label %if.then3, label %if.else4
+11:                                               ; preds = %10
+  br label %12
 
-if.then3:                                         ; preds = %if.else
-  store i1 true, ptr %retval, align 1
-  br label %return
+12:                                               ; preds = %11
+  br label %13
 
-if.else4:                                         ; preds = %if.else
-  %7 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_pre_reentrancy(ptr noundef %7)
-  %8 = load ptr, ptr %extent_hooks, align 8
-  %decommit5 = getelementptr inbounds %struct.extent_hooks_s, ptr %8, i32 0, i32 4
-  %9 = load ptr, ptr %decommit5, align 8
-  %10 = load ptr, ptr %extent_hooks, align 8
-  %11 = load ptr, ptr %addr.addr, align 8
-  %12 = load i64, ptr %size.addr, align 8
-  %13 = load i64, ptr %offset.addr, align 8
-  %14 = load i64, ptr %length.addr, align 8
-  %15 = load ptr, ptr %ehooks.addr, align 8
-  %call6 = call i32 @ehooks_ind_get(ptr noundef %15)
-  %call7 = call zeroext i1 %9(ptr noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i32 noundef %call6)
-  %frombool = zext i1 %call7 to i8
-  store i8 %frombool, ptr %err, align 1
-  %16 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_post_reentrancy(ptr noundef %16)
-  %17 = load i8, ptr %err, align 1
-  %tobool = trunc i8 %17 to i1
-  store i1 %tobool, ptr %retval, align 1
-  br label %return
+13:                                               ; preds = %12
+  br label %14
 
-return:                                           ; preds = %if.else4, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %5, align 8, !tbaa !49
+  %17 = call ptr @edata_addr_get(ptr noundef %16)
+  %18 = ptrtoint ptr %17 to i64
+  %19 = load i64, ptr %8, align 8, !tbaa !17
+  %20 = sub i64 %19, 1
+  %21 = add i64 %18, %20
+  %22 = load i64, ptr %8, align 8, !tbaa !17
+  %23 = xor i64 %22, -1
+  %24 = add i64 %23, 1
+  %25 = and i64 %21, %24
+  %26 = load ptr, ptr %5, align 8, !tbaa !49
+  %27 = call ptr @edata_addr_get(ptr noundef %26)
+  %28 = ptrtoint ptr %27 to i64
+  %29 = sub i64 %25, %28
+  %30 = load ptr, ptr %6, align 8, !tbaa !45
+  store i64 %29, ptr %30, align 8, !tbaa !17
+  %31 = load ptr, ptr %5, align 8, !tbaa !49
+  %32 = call ptr @edata_addr_get(ptr noundef %31)
+  %33 = ptrtoint ptr %32 to i64
+  %34 = load ptr, ptr %6, align 8, !tbaa !45
+  %35 = load i64, ptr %34, align 8, !tbaa !17
+  %36 = add i64 %33, %35
+  %37 = inttoptr i64 %36 to ptr
+  store ptr %37, ptr %9, align 8, !tbaa !47
+  br label %38
+
+38:                                               ; preds = %15
+  br label %39
+
+39:                                               ; preds = %38
+  br label %40
+
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %5, align 8, !tbaa !49
+  %42 = load ptr, ptr %5, align 8, !tbaa !49
+  %43 = call ptr @edata_addr_get(ptr noundef %42)
+  %44 = ptrtoint ptr %43 to i64
+  %45 = load ptr, ptr %6, align 8, !tbaa !45
+  %46 = load i64, ptr %45, align 8, !tbaa !17
+  %47 = add i64 %44, %46
+  %48 = load i64, ptr %7, align 8, !tbaa !17
+  %49 = add i64 %47, %48
+  %50 = inttoptr i64 %49 to ptr
+  %51 = load ptr, ptr %5, align 8, !tbaa !49
+  %52 = call i64 @edata_bsize_get(ptr noundef %51)
+  %53 = load ptr, ptr %6, align 8, !tbaa !45
+  %54 = load i64, ptr %53, align 8, !tbaa !17
+  %55 = sub i64 %52, %54
+  %56 = load i64, ptr %7, align 8, !tbaa !17
+  %57 = sub i64 %55, %56
+  %58 = load ptr, ptr %5, align 8, !tbaa !49
+  %59 = call i64 @edata_sn_get(ptr noundef %58)
+  call void @edata_binit(ptr noundef %41, ptr noundef %50, i64 noundef %57, i64 noundef %59)
+  %60 = load ptr, ptr %9, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret ptr %60
+}
+
+declare zeroext i1 @je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define internal void @base_unmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store ptr %1, ptr %7, align 8, !tbaa !41
+  store i32 %2, ptr %8, align 4, !tbaa !11
+  store ptr %3, ptr %9, align 8, !tbaa !47
+  store i64 %4, ptr %10, align 8, !tbaa !17
+  %11 = load ptr, ptr %7, align 8, !tbaa !41
+  %12 = call zeroext i1 @ehooks_are_default(ptr noundef %11)
+  br i1 %12, label %13, label %36
+
+13:                                               ; preds = %5
+  %14 = load ptr, ptr %9, align 8, !tbaa !47
+  %15 = load i64, ptr %10, align 8, !tbaa !17
+  %16 = call zeroext i1 @je_extent_dalloc_mmap(ptr noundef %14, i64 noundef %15)
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %13
+  br label %69
+
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %9, align 8, !tbaa !47
+  %20 = load i64, ptr %10, align 8, !tbaa !17
+  %21 = call zeroext i1 @je_pages_decommit(ptr noundef %19, i64 noundef %20)
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %18
+  br label %69
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %9, align 8, !tbaa !47
+  %25 = load i64, ptr %10, align 8, !tbaa !17
+  %26 = call zeroext i1 @je_pages_purge_forced(ptr noundef %24, i64 noundef %25)
+  br i1 %26, label %28, label %27
+
+27:                                               ; preds = %23
+  br label %69
+
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %9, align 8, !tbaa !47
+  %30 = load i64, ptr %10, align 8, !tbaa !17
+  %31 = call zeroext i1 @je_pages_purge_lazy(ptr noundef %29, i64 noundef %30)
+  br i1 %31, label %33, label %32
+
+32:                                               ; preds = %28
+  br label %69
+
+33:                                               ; preds = %28
+  br label %34
+
+34:                                               ; preds = %33
+  unreachable
+
+35:                                               ; No predecessors!
+  br label %68
+
+36:                                               ; preds = %5
+  %37 = load ptr, ptr %6, align 8, !tbaa !9
+  %38 = load ptr, ptr %7, align 8, !tbaa !41
+  %39 = load ptr, ptr %9, align 8, !tbaa !47
+  %40 = load i64, ptr %10, align 8, !tbaa !17
+  %41 = call zeroext i1 @ehooks_dalloc(ptr noundef %37, ptr noundef %38, ptr noundef %39, i64 noundef %40, i1 noundef zeroext true)
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %36
+  br label %69
+
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %6, align 8, !tbaa !9
+  %45 = load ptr, ptr %7, align 8, !tbaa !41
+  %46 = load ptr, ptr %9, align 8, !tbaa !47
+  %47 = load i64, ptr %10, align 8, !tbaa !17
+  %48 = load i64, ptr %10, align 8, !tbaa !17
+  %49 = call zeroext i1 @ehooks_decommit(ptr noundef %44, ptr noundef %45, ptr noundef %46, i64 noundef %47, i64 noundef 0, i64 noundef %48)
+  br i1 %49, label %51, label %50
+
+50:                                               ; preds = %43
+  br label %69
+
+51:                                               ; preds = %43
+  %52 = load ptr, ptr %6, align 8, !tbaa !9
+  %53 = load ptr, ptr %7, align 8, !tbaa !41
+  %54 = load ptr, ptr %9, align 8, !tbaa !47
+  %55 = load i64, ptr %10, align 8, !tbaa !17
+  %56 = load i64, ptr %10, align 8, !tbaa !17
+  %57 = call zeroext i1 @ehooks_purge_forced(ptr noundef %52, ptr noundef %53, ptr noundef %54, i64 noundef %55, i64 noundef 0, i64 noundef %56)
+  br i1 %57, label %59, label %58
+
+58:                                               ; preds = %51
+  br label %69
+
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %6, align 8, !tbaa !9
+  %61 = load ptr, ptr %7, align 8, !tbaa !41
+  %62 = load ptr, ptr %9, align 8, !tbaa !47
+  %63 = load i64, ptr %10, align 8, !tbaa !17
+  %64 = load i64, ptr %10, align 8, !tbaa !17
+  %65 = call zeroext i1 @ehooks_purge_lazy(ptr noundef %60, ptr noundef %61, ptr noundef %62, i64 noundef %63, i64 noundef 0, i64 noundef %64)
+  br i1 %65, label %67, label %66
+
+66:                                               ; preds = %59
+  br label %69
+
+67:                                               ; preds = %59
+  br label %68
+
+68:                                               ; preds = %67, %35
+  br label %69
+
+69:                                               ; preds = %68, %66, %58, %50, %42, %32, %27, %22, %17
+  %70 = call zeroext i1 @metadata_thp_madvise()
+  br i1 %70, label %71, label %77
+
+71:                                               ; preds = %69
+  br label %72
+
+72:                                               ; preds = %71
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %9, align 8, !tbaa !47
+  %75 = load i64, ptr %10, align 8, !tbaa !17
+  %76 = call zeroext i1 @je_pages_nohuge(ptr noundef %74, i64 noundef %75)
+  br label %77
+
+77:                                               ; preds = %73, %69
+  ret void
+}
+
+declare void @je_edata_heap_new(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @metadata_thp_madvise() #3 {
+  %1 = call zeroext i1 @metadata_thp_enabled()
+  br i1 %1, label %2, label %5
+
+2:                                                ; preds = %0
+  %3 = load i32, ptr @je_init_system_thp_mode, align 4, !tbaa !11
+  %4 = icmp eq i32 %3, 0
+  br label %5
+
+5:                                                ; preds = %2, %0
+  %6 = phi i1 [ false, %0 ], [ %4, %2 ]
+  ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %addr, i64 noundef %size, i64 noundef %offset, i64 noundef %length) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %tsdn.addr = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %length.addr = alloca i64, align 8
-  %extent_hooks = alloca ptr, align 8
-  %err = alloca i8, align 1
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %call = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %0)
-  store ptr %call, ptr %extent_hooks, align 8
-  %1 = load ptr, ptr %extent_hooks, align 8
-  %cmp = icmp eq ptr %1, @ehooks_default_extent_hooks
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @base_extent_bump_alloc_post(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !49
+  store i64 %2, ptr %8, align 8, !tbaa !17
+  store ptr %3, ptr %9, align 8, !tbaa !47
+  store i64 %4, ptr %10, align 8, !tbaa !17
+  %12 = load ptr, ptr %7, align 8, !tbaa !49
+  %13 = call i64 @edata_bsize_get(ptr noundef %12)
+  %14 = icmp ugt i64 %13, 0
+  br i1 %14, label %15, label %27
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %addr.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %4 = load i64, ptr %length.addr, align 8
-  %call1 = call zeroext i1 @ehooks_default_purge_forced_impl(ptr noundef %2, i64 noundef %3, i64 noundef %4)
-  store i1 %call1, ptr %retval, align 1
-  br label %return
+15:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %16 = load ptr, ptr %7, align 8, !tbaa !49
+  %17 = call i64 @edata_bsize_get(ptr noundef %16)
+  %18 = add i64 %17, 1
+  %19 = call i32 @sz_size2index(i64 noundef %18)
+  %20 = sub i32 %19, 1
+  store i32 %20, ptr %11, align 4, !tbaa !11
+  %21 = load ptr, ptr %6, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.base_s, ptr %21, i32 0, i32 7
+  %23 = load i32, ptr %11, align 4, !tbaa !11
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw [235 x %struct.edata_heap_t], ptr %22, i64 0, i64 %24
+  %26 = load ptr, ptr %7, align 8, !tbaa !49
+  call void @je_edata_heap_insert(ptr noundef %25, ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %extent_hooks, align 8
-  %purge_forced = getelementptr inbounds %struct.extent_hooks_s, ptr %5, i32 0, i32 6
-  %6 = load ptr, ptr %purge_forced, align 8
-  %cmp2 = icmp eq ptr %6, null
-  br i1 %cmp2, label %if.then3, label %if.else
+27:                                               ; preds = %15, %5
+  %28 = load i64, ptr %10, align 8, !tbaa !17
+  %29 = load ptr, ptr %6, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.base_s, ptr %29, i32 0, i32 8
+  %31 = load i64, ptr %30, align 8, !tbaa !37
+  %32 = add i64 %31, %28
+  store i64 %32, ptr %30, align 8, !tbaa !37
+  %33 = load ptr, ptr %9, align 8, !tbaa !47
+  %34 = ptrtoint ptr %33 to i64
+  %35 = load i64, ptr %10, align 8, !tbaa !17
+  %36 = add i64 %34, %35
+  %37 = add i64 %36, 4095
+  %38 = and i64 %37, -4096
+  %39 = load ptr, ptr %9, align 8, !tbaa !47
+  %40 = ptrtoint ptr %39 to i64
+  %41 = load i64, ptr %8, align 8, !tbaa !17
+  %42 = sub i64 %40, %41
+  %43 = add i64 %42, 4095
+  %44 = and i64 %43, -4096
+  %45 = sub i64 %38, %44
+  %46 = load ptr, ptr %6, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.base_s, ptr %46, i32 0, i32 9
+  %48 = load i64, ptr %47, align 8, !tbaa !38
+  %49 = add i64 %48, %45
+  store i64 %49, ptr %47, align 8, !tbaa !38
+  br label %50
 
-if.then3:                                         ; preds = %if.end
-  store i1 true, ptr %retval, align 1
-  br label %return
+50:                                               ; preds = %27
+  br label %51
 
-if.else:                                          ; preds = %if.end
-  %7 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_pre_reentrancy(ptr noundef %7)
-  %8 = load ptr, ptr %extent_hooks, align 8
-  %purge_forced4 = getelementptr inbounds %struct.extent_hooks_s, ptr %8, i32 0, i32 6
-  %9 = load ptr, ptr %purge_forced4, align 8
-  %10 = load ptr, ptr %extent_hooks, align 8
-  %11 = load ptr, ptr %addr.addr, align 8
-  %12 = load i64, ptr %size.addr, align 8
-  %13 = load i64, ptr %offset.addr, align 8
-  %14 = load i64, ptr %length.addr, align 8
-  %15 = load ptr, ptr %ehooks.addr, align 8
-  %call5 = call i32 @ehooks_ind_get(ptr noundef %15)
-  %call6 = call zeroext i1 %9(ptr noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i32 noundef %call5)
-  %frombool = zext i1 %call6 to i8
-  store i8 %frombool, ptr %err, align 1
-  %16 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_post_reentrancy(ptr noundef %16)
-  %17 = load i8, ptr %err, align 1
-  %tobool = trunc i8 %17 to i1
-  store i1 %tobool, ptr %retval, align 1
-  br label %return
+51:                                               ; preds = %50
+  br label %52
 
-return:                                           ; preds = %if.else, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = call zeroext i1 @metadata_thp_madvise()
+  br i1 %54, label %55, label %84
+
+55:                                               ; preds = %53
+  %56 = load i32, ptr @je_opt_metadata_thp, align 4, !tbaa !11
+  %57 = icmp eq i32 %56, 2
+  br i1 %57, label %63, label %58
+
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %6, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw %struct.base_s, ptr %59, i32 0, i32 3
+  %61 = load i8, ptr %60, align 8, !tbaa !34, !range !19, !noundef !20
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %84
+
+63:                                               ; preds = %58, %55
+  %64 = load ptr, ptr %9, align 8, !tbaa !47
+  %65 = ptrtoint ptr %64 to i64
+  %66 = load i64, ptr %10, align 8, !tbaa !17
+  %67 = add i64 %65, %66
+  %68 = add i64 %67, 2097151
+  %69 = and i64 %68, -2097152
+  %70 = load ptr, ptr %9, align 8, !tbaa !47
+  %71 = ptrtoint ptr %70 to i64
+  %72 = load i64, ptr %8, align 8, !tbaa !17
+  %73 = sub i64 %71, %72
+  %74 = add i64 %73, 2097151
+  %75 = and i64 %74, -2097152
+  %76 = sub i64 %69, %75
+  %77 = lshr i64 %76, 21
+  %78 = load ptr, ptr %6, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw %struct.base_s, ptr %78, i32 0, i32 11
+  %80 = load i64, ptr %79, align 8, !tbaa !40
+  %81 = add i64 %80, %77
+  store i64 %81, ptr %79, align 8, !tbaa !40
+  br label %82
+
+82:                                               ; preds = %63
+  br label %83
+
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83, %58, %53
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %addr, i64 noundef %size, i64 noundef %offset, i64 noundef %length) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %tsdn.addr = alloca ptr, align 8
-  %ehooks.addr = alloca ptr, align 8
-  %addr.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %length.addr = alloca i64, align 8
-  %extent_hooks = alloca ptr, align 8
-  %err = alloca i8, align 1
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %ehooks, ptr %ehooks.addr, align 8
-  store ptr %addr, ptr %addr.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %ehooks.addr, align 8
-  %call = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %0)
-  store ptr %call, ptr %extent_hooks, align 8
-  %1 = load ptr, ptr %extent_hooks, align 8
-  %cmp = icmp eq ptr %1, @ehooks_default_extent_hooks
-  br i1 %cmp, label %if.then, label %if.end
+define hidden void @je_base_delete(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = call ptr @je_base_ehooks_get_for_metadata(ptr noundef %8)
+  store ptr %9, ptr %5, align 8, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.base_s, ptr %10, i32 0, i32 6
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  store ptr %12, ptr %6, align 8, !tbaa !21
+  br label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %addr.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %4 = load i64, ptr %length.addr, align 8
-  %call1 = call zeroext i1 @ehooks_default_purge_lazy_impl(ptr noundef %2, i64 noundef %3, i64 noundef %4)
-  store i1 %call1, ptr %retval, align 1
-  br label %return
+13:                                               ; preds = %26, %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %14 = load ptr, ptr %6, align 8, !tbaa !21
+  store ptr %14, ptr %7, align 8, !tbaa !21
+  %15 = load ptr, ptr %7, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw %struct.base_block_s, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !48
+  store ptr %17, ptr %6, align 8, !tbaa !21
+  %18 = load ptr, ptr %3, align 8, !tbaa !9
+  %19 = load ptr, ptr %5, align 8, !tbaa !41
+  %20 = load ptr, ptr %4, align 8, !tbaa !4
+  %21 = call i32 @base_ind_get(ptr noundef %20)
+  %22 = load ptr, ptr %7, align 8, !tbaa !21
+  %23 = load ptr, ptr %7, align 8, !tbaa !21
+  %24 = getelementptr inbounds nuw %struct.base_block_s, ptr %23, i32 0, i32 0
+  %25 = load i64, ptr %24, align 8, !tbaa !23
+  call void @base_unmap(ptr noundef %18, ptr noundef %19, i32 noundef %21, ptr noundef %22, i64 noundef %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %26
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %extent_hooks, align 8
-  %purge_lazy = getelementptr inbounds %struct.extent_hooks_s, ptr %5, i32 0, i32 5
-  %6 = load ptr, ptr %purge_lazy, align 8
-  %cmp2 = icmp eq ptr %6, null
-  br i1 %cmp2, label %if.then3, label %if.else
+26:                                               ; preds = %13
+  %27 = load ptr, ptr %6, align 8, !tbaa !21
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %13, label %29, !llvm.loop !51
 
-if.then3:                                         ; preds = %if.end
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.else:                                          ; preds = %if.end
-  %7 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_pre_reentrancy(ptr noundef %7)
-  %8 = load ptr, ptr %extent_hooks, align 8
-  %purge_lazy4 = getelementptr inbounds %struct.extent_hooks_s, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %purge_lazy4, align 8
-  %10 = load ptr, ptr %extent_hooks, align 8
-  %11 = load ptr, ptr %addr.addr, align 8
-  %12 = load i64, ptr %size.addr, align 8
-  %13 = load i64, ptr %offset.addr, align 8
-  %14 = load i64, ptr %length.addr, align 8
-  %15 = load ptr, ptr %ehooks.addr, align 8
-  %call5 = call i32 @ehooks_ind_get(ptr noundef %15)
-  %call6 = call zeroext i1 %9(ptr noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i32 noundef %call5)
-  %frombool = zext i1 %call6 to i8
-  store i8 %frombool, ptr %err, align 1
-  %16 = load ptr, ptr %tsdn.addr, align 8
-  call void @ehooks_post_reentrancy(ptr noundef %16)
-  %17 = load i8, ptr %err, align 1
-  %tobool = trunc i8 %17 to i1
-  store i1 %tobool, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then3, %if.then
-  %18 = load i1, ptr %retval, align 1
-  ret i1 %18
+29:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret void
 }
 
-declare zeroext i1 @pages_nohuge(ptr noundef, i64 noundef) #1
-
-declare zeroext i1 @ehooks_default_dalloc_impl(ptr noundef, i64 noundef) #1
-
-declare zeroext i1 @ehooks_default_decommit_impl(ptr noundef, i64 noundef, i64 noundef) #1
-
-declare zeroext i1 @ehooks_default_purge_forced_impl(ptr noundef, i64 noundef, i64 noundef) #1
-
-declare zeroext i1 @ehooks_default_purge_lazy_impl(ptr noundef, i64 noundef, i64 noundef) #1
-
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @metadata_thp_enabled() #0 {
-entry:
-  %0 = load i32, ptr @opt_metadata_thp, align 4
-  %cmp = icmp ne i32 %0, 0
-  ret i1 %cmp
+define hidden ptr @je_base_ehooks_get_for_metadata(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.base_s, ptr %3, i32 0, i32 1
+  ret ptr %4
 }
 
-declare void @edata_heap_insert(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @sz_size2index_compute(i64 noundef %size) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %size.addr = alloca i64, align 8
-  %x = alloca i32, align 4
-  %shift = alloca i32, align 4
-  %grp = alloca i32, align 4
-  %lg_delta = alloca i32, align 4
-  %delta_inverse_mask = alloca i64, align 8
-  %mod = alloca i32, align 4
-  %index = alloca i32, align 4
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %cmp = icmp ugt i64 %0, 8070450532247928832
-  %lnot = xor i1 %cmp, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 235, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i64, ptr %size.addr, align 8
-  %cmp2 = icmp eq i64 %1, 0
-  br i1 %cmp2, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end5:                                          ; preds = %if.end
-  %2 = load i64, ptr %size.addr, align 8
-  %shl = shl i64 %2, 1
-  %sub = sub i64 %shl, 1
-  %call = call i32 @lg_floor(i64 noundef %sub)
-  store i32 %call, ptr %x, align 4
-  %3 = load i32, ptr %x, align 4
-  %cmp6 = icmp ult i32 %3, 5
-  br i1 %cmp6, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end5
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end5
-  %4 = load i32, ptr %x, align 4
-  %sub8 = sub i32 %4, 5
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %sub8, %cond.false ]
-  store i32 %cond, ptr %shift, align 4
-  %5 = load i32, ptr %shift, align 4
-  %shl9 = shl i32 %5, 2
-  store i32 %shl9, ptr %grp, align 4
-  %6 = load i32, ptr %x, align 4
-  %cmp10 = icmp ult i32 %6, 6
-  br i1 %cmp10, label %cond.true12, label %cond.false13
-
-cond.true12:                                      ; preds = %cond.end
-  br label %cond.end16
-
-cond.false13:                                     ; preds = %cond.end
-  %7 = load i32, ptr %x, align 4
-  %sub14 = sub i32 %7, 2
-  %sub15 = sub i32 %sub14, 1
-  br label %cond.end16
-
-cond.end16:                                       ; preds = %cond.false13, %cond.true12
-  %cond17 = phi i32 [ 3, %cond.true12 ], [ %sub15, %cond.false13 ]
-  store i32 %cond17, ptr %lg_delta, align 4
-  %8 = load i32, ptr %lg_delta, align 4
-  %sh_prom = zext i32 %8 to i64
-  %shl18 = shl i64 -1, %sh_prom
-  store i64 %shl18, ptr %delta_inverse_mask, align 8
-  %9 = load i64, ptr %size.addr, align 8
-  %sub19 = sub i64 %9, 1
-  %10 = load i64, ptr %delta_inverse_mask, align 8
-  %and = and i64 %sub19, %10
-  %11 = load i32, ptr %lg_delta, align 4
-  %sh_prom20 = zext i32 %11 to i64
-  %shr = lshr i64 %and, %sh_prom20
-  %and21 = and i64 %shr, 3
-  %conv22 = trunc i64 %and21 to i32
-  store i32 %conv22, ptr %mod, align 4
-  %12 = load i32, ptr %grp, align 4
-  %add = add i32 0, %12
-  %13 = load i32, ptr %mod, align 4
-  %add23 = add i32 %add, %13
-  store i32 %add23, ptr %index, align 4
-  %14 = load i32, ptr %index, align 4
-  store i32 %14, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %cond.end16, %if.then4, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @base_ind_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.base_s, ptr %3, i32 0, i32 0
+  %5 = call i32 @ehooks_ind_get(ptr noundef %4)
+  ret i32 %5
 }
 
-declare ptr @edata_heap_remove_first(ptr noundef) #1
+; Function Attrs: nounwind uwtable
+define hidden ptr @je_base_ehooks_get(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.base_s, ptr %3, i32 0, i32 0
+  ret ptr %4
+}
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @base_extent_alloc(ptr noundef %tsdn, ptr noundef %base, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %tsdn.addr = alloca ptr, align 8
-  %base.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %ehooks = alloca ptr, align 8
-  %block = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load ptr, ptr %tsdn.addr, align 8
-  %1 = load ptr, ptr %base.addr, align 8
-  %mtx = getelementptr inbounds %struct.base_s, ptr %1, i32 0, i32 2
-  call void @malloc_mutex_assert_owner(ptr noundef %0, ptr noundef %mtx)
-  %2 = load ptr, ptr %base.addr, align 8
-  %call = call ptr @base_ehooks_get_for_metadata(ptr noundef %2)
-  store ptr %call, ptr %ehooks, align 8
-  %3 = load ptr, ptr %tsdn.addr, align 8
-  %4 = load ptr, ptr %base.addr, align 8
-  %mtx1 = getelementptr inbounds %struct.base_s, ptr %4, i32 0, i32 2
-  call void @malloc_mutex_unlock(ptr noundef %3, ptr noundef %mtx1)
-  %5 = load ptr, ptr %tsdn.addr, align 8
-  %6 = load ptr, ptr %base.addr, align 8
-  %7 = load ptr, ptr %ehooks, align 8
-  %8 = load ptr, ptr %base.addr, align 8
-  %call2 = call i32 @base_ind_get(ptr noundef %8)
-  %9 = load ptr, ptr %base.addr, align 8
-  %pind_last = getelementptr inbounds %struct.base_s, ptr %9, i32 0, i32 4
-  %10 = load ptr, ptr %base.addr, align 8
-  %extent_sn_next = getelementptr inbounds %struct.base_s, ptr %10, i32 0, i32 5
-  %11 = load i64, ptr %size.addr, align 8
-  %12 = load i64, ptr %alignment.addr, align 8
-  %call3 = call ptr @base_block_alloc(ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %call2, ptr noundef %pind_last, ptr noundef %extent_sn_next, i64 noundef %11, i64 noundef %12)
-  store ptr %call3, ptr %block, align 8
-  %13 = load ptr, ptr %tsdn.addr, align 8
-  %14 = load ptr, ptr %base.addr, align 8
-  %mtx4 = getelementptr inbounds %struct.base_s, ptr %14, i32 0, i32 2
-  call void @malloc_mutex_lock(ptr noundef %13, ptr noundef %mtx4)
-  %15 = load ptr, ptr %block, align 8
-  %cmp = icmp eq ptr %15, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @je_base_extent_hooks_set(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.base_s, ptr %6, i32 0, i32 0
+  %8 = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %7)
+  store ptr %8, ptr %5, align 8, !tbaa !13
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw %struct.base_s, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %4, align 8, !tbaa !13
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
+  %13 = getelementptr inbounds nuw %struct.base_s, ptr %12, i32 0, i32 0
+  %14 = call i32 @ehooks_ind_get(ptr noundef %13)
+  call void @je_ehooks_init(ptr noundef %10, ptr noundef %11, i32 noundef %14)
+  %15 = load ptr, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %15
+}
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @ehooks_get_extent_hooks_ptr(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %4 = getelementptr inbounds nuw %struct.ehooks_s, ptr %3, i32 0, i32 1
+  %5 = call ptr @atomic_load_p(ptr noundef %4, i32 noundef 1)
+  ret ptr %5
+}
 
-if.end:                                           ; preds = %entry
-  %16 = load ptr, ptr %base.addr, align 8
-  %blocks = getelementptr inbounds %struct.base_s, ptr %16, i32 0, i32 6
-  %17 = load ptr, ptr %blocks, align 8
-  %18 = load ptr, ptr %block, align 8
-  %next = getelementptr inbounds %struct.base_block_s, ptr %18, i32 0, i32 1
-  store ptr %17, ptr %next, align 8
-  %19 = load ptr, ptr %block, align 8
-  %20 = load ptr, ptr %base.addr, align 8
-  %blocks5 = getelementptr inbounds %struct.base_s, ptr %20, i32 0, i32 6
-  store ptr %19, ptr %blocks5, align 8
-  %21 = load ptr, ptr %base.addr, align 8
-  %allocated = getelementptr inbounds %struct.base_s, ptr %21, i32 0, i32 8
-  %22 = load i64, ptr %allocated, align 8
-  %add = add i64 %22, 144
-  store i64 %add, ptr %allocated, align 8
-  %23 = load ptr, ptr %base.addr, align 8
-  %resident = getelementptr inbounds %struct.base_s, ptr %23, i32 0, i32 9
-  %24 = load i64, ptr %resident, align 8
-  %add6 = add i64 %24, 4096
-  store i64 %add6, ptr %resident, align 8
-  %25 = load ptr, ptr %block, align 8
-  %size7 = getelementptr inbounds %struct.base_block_s, ptr %25, i32 0, i32 0
-  %26 = load i64, ptr %size7, align 8
-  %27 = load ptr, ptr %base.addr, align 8
-  %mapped = getelementptr inbounds %struct.base_s, ptr %27, i32 0, i32 10
-  %28 = load i64, ptr %mapped, align 8
-  %add8 = add i64 %28, %26
-  store i64 %add8, ptr %mapped, align 8
-  %call9 = call zeroext i1 @metadata_thp_madvise()
-  br i1 %call9, label %land.lhs.true, label %if.end14
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ehooks_ind_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %4 = getelementptr inbounds nuw %struct.ehooks_s, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !52
+  ret i32 %5
+}
 
-land.lhs.true:                                    ; preds = %if.end
-  %29 = load i32, ptr @opt_metadata_thp, align 4
-  %cmp10 = icmp eq i32 %29, 1
-  br i1 %cmp10, label %land.lhs.true11, label %if.then12
+; Function Attrs: nounwind uwtable
+define hidden ptr @je_base_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i64 %2, ptr %7, align 8, !tbaa !17
+  store i64 %3, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %5, align 8, !tbaa !9
+  %10 = load ptr, ptr %6, align 8, !tbaa !4
+  %11 = load i64, ptr %7, align 8, !tbaa !17
+  %12 = load i64, ptr %8, align 8, !tbaa !17
+  %13 = call ptr @base_alloc_impl(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, ptr noundef null)
+  ret ptr %13
+}
 
-land.lhs.true11:                                  ; preds = %land.lhs.true
-  %30 = load ptr, ptr %base.addr, align 8
-  %auto_thp_switched = getelementptr inbounds %struct.base_s, ptr %30, i32 0, i32 3
-  %31 = load i8, ptr %auto_thp_switched, align 8
-  %tobool = trunc i8 %31 to i1
-  br i1 %tobool, label %if.then12, label %if.end14
+; Function Attrs: nounwind uwtable
+define internal ptr @base_alloc_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store i64 %2, ptr %8, align 8, !tbaa !17
+  store i64 %3, ptr %9, align 8, !tbaa !17
+  store ptr %4, ptr %10, align 8, !tbaa !45
+  %17 = load i64, ptr %9, align 8, !tbaa !17
+  %18 = add i64 %17, 7
+  %19 = and i64 %18, -8
+  store i64 %19, ptr %9, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %20 = load i64, ptr %8, align 8, !tbaa !17
+  %21 = load i64, ptr %9, align 8, !tbaa !17
+  %22 = sub i64 %21, 1
+  %23 = add i64 %20, %22
+  %24 = load i64, ptr %9, align 8, !tbaa !17
+  %25 = xor i64 %24, -1
+  %26 = add i64 %25, 1
+  %27 = and i64 %23, %26
+  store i64 %27, ptr %11, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %28 = load i64, ptr %11, align 8, !tbaa !17
+  %29 = load i64, ptr %9, align 8, !tbaa !17
+  %30 = add i64 %28, %29
+  %31 = sub i64 %30, 8
+  store i64 %31, ptr %12, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  store ptr null, ptr %13, align 8, !tbaa !49
+  %32 = load ptr, ptr %6, align 8, !tbaa !9
+  %33 = load ptr, ptr %7, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw %struct.base_s, ptr %33, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %32, ptr noundef %34)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  %35 = load i64, ptr %12, align 8, !tbaa !17
+  %36 = call i32 @sz_size2index(i64 noundef %35)
+  store i32 %36, ptr %14, align 4, !tbaa !11
+  br label %37
 
-if.then12:                                        ; preds = %land.lhs.true11, %land.lhs.true
-  br label %do.body
+37:                                               ; preds = %53, %5
+  %38 = load i32, ptr %14, align 4, !tbaa !11
+  %39 = zext i32 %38 to i64
+  %40 = icmp ult i64 %39, 235
+  br i1 %40, label %42, label %41
 
-do.body:                                          ; preds = %if.then12
-  br label %do.end
+41:                                               ; preds = %37
+  store i32 2, ptr %15, align 4
+  br label %56
 
-do.end:                                           ; preds = %do.body
-  %32 = load ptr, ptr %base.addr, align 8
-  %n_thp = getelementptr inbounds %struct.base_s, ptr %32, i32 0, i32 11
-  %33 = load i64, ptr %n_thp, align 8
-  %add13 = add i64 %33, 1
-  store i64 %add13, ptr %n_thp, align 8
-  br label %if.end14
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %7, align 8, !tbaa !4
+  %44 = getelementptr inbounds nuw %struct.base_s, ptr %43, i32 0, i32 7
+  %45 = load i32, ptr %14, align 4, !tbaa !11
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr inbounds nuw [235 x %struct.edata_heap_t], ptr %44, i64 0, i64 %46
+  %48 = call ptr @je_edata_heap_remove_first(ptr noundef %47)
+  store ptr %48, ptr %13, align 8, !tbaa !49
+  %49 = load ptr, ptr %13, align 8, !tbaa !49
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %52
 
-if.end14:                                         ; preds = %do.end, %land.lhs.true11, %if.end
-  br label %do.body15
+51:                                               ; preds = %42
+  store i32 2, ptr %15, align 4
+  br label %56
 
-do.body15:                                        ; preds = %if.end14
-  br label %do.end16
+52:                                               ; preds = %42
+  br label %53
 
-do.end16:                                         ; preds = %do.body15
-  br label %do.body17
+53:                                               ; preds = %52
+  %54 = load i32, ptr %14, align 4, !tbaa !11
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %14, align 4, !tbaa !11
+  br label %37, !llvm.loop !53
 
-do.body17:                                        ; preds = %do.end16
-  br label %do.end18
+56:                                               ; preds = %51, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  br label %57
 
-do.end18:                                         ; preds = %do.body17
-  br label %do.body19
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %13, align 8, !tbaa !49
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %66
 
-do.body19:                                        ; preds = %do.end18
-  br label %do.end20
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %6, align 8, !tbaa !9
+  %62 = load ptr, ptr %7, align 8, !tbaa !4
+  %63 = load i64, ptr %11, align 8, !tbaa !17
+  %64 = load i64, ptr %9, align 8, !tbaa !17
+  %65 = call ptr @base_extent_alloc(ptr noundef %61, ptr noundef %62, i64 noundef %63, i64 noundef %64)
+  store ptr %65, ptr %13, align 8, !tbaa !49
+  br label %66
 
-do.end20:                                         ; preds = %do.body19
-  %34 = load ptr, ptr %block, align 8
-  %edata = getelementptr inbounds %struct.base_block_s, ptr %34, i32 0, i32 2
-  store ptr %edata, ptr %retval, align 8
-  br label %return
+66:                                               ; preds = %60, %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  %67 = load ptr, ptr %13, align 8, !tbaa !49
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %70
 
-return:                                           ; preds = %do.end20, %if.then
-  %35 = load ptr, ptr %retval, align 8
+69:                                               ; preds = %66
+  store ptr null, ptr %16, align 8, !tbaa !47
+  br label %83
+
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %7, align 8, !tbaa !4
+  %72 = load ptr, ptr %13, align 8, !tbaa !49
+  %73 = load i64, ptr %11, align 8, !tbaa !17
+  %74 = load i64, ptr %9, align 8, !tbaa !17
+  %75 = call ptr @base_extent_bump_alloc(ptr noundef %71, ptr noundef %72, i64 noundef %73, i64 noundef %74)
+  store ptr %75, ptr %16, align 8, !tbaa !47
+  %76 = load ptr, ptr %10, align 8, !tbaa !45
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %82
+
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %13, align 8, !tbaa !49
+  %80 = call i64 @edata_sn_get(ptr noundef %79)
+  %81 = load ptr, ptr %10, align 8, !tbaa !45
+  store i64 %80, ptr %81, align 8, !tbaa !17
+  br label %82
+
+82:                                               ; preds = %78, %70
+  br label %83
+
+83:                                               ; preds = %82, %69
+  %84 = load ptr, ptr %6, align 8, !tbaa !9
+  %85 = load ptr, ptr %7, align 8, !tbaa !4
+  %86 = getelementptr inbounds nuw %struct.base_s, ptr %85, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %84, ptr noundef %86)
+  %87 = load ptr, ptr %16, align 8, !tbaa !47
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  ret ptr %87
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @je_base_alloc_edata(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !9
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  %10 = load ptr, ptr %5, align 8, !tbaa !4
+  %11 = call ptr @base_alloc_impl(ptr noundef %9, ptr noundef %10, i64 noundef 128, i64 noundef 128, ptr noundef %6)
+  store ptr %11, ptr %7, align 8, !tbaa !49
+  %12 = load ptr, ptr %7, align 8, !tbaa !49
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %19
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %7, align 8, !tbaa !49
+  %17 = load i64, ptr %6, align 8, !tbaa !17
+  call void @edata_esn_set(ptr noundef %16, i64 noundef %17)
+  %18 = load ptr, ptr %7, align 8, !tbaa !49
+  store ptr %18, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %19
+
+19:                                               ; preds = %15, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_esn_set(ptr noundef %0, i64 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8, !tbaa !49
+  %6 = getelementptr inbounds nuw %struct.edata_s, ptr %5, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !54
+  %8 = and i64 %7, -4096
+  %9 = load i64, ptr %4, align 8, !tbaa !17
+  %10 = and i64 %9, 4095
+  %11 = or i64 %8, %10
+  %12 = load ptr, ptr %3, align 8, !tbaa !49
+  %13 = getelementptr inbounds nuw %struct.edata_s, ptr %12, i32 0, i32 2
+  store i64 %11, ptr %13, align 8, !tbaa !54
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_base_stats_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !9
+  store ptr %1, ptr %8, align 8, !tbaa !4
+  store ptr %2, ptr %9, align 8, !tbaa !45
+  store ptr %3, ptr %10, align 8, !tbaa !45
+  store ptr %4, ptr %11, align 8, !tbaa !45
+  store ptr %5, ptr %12, align 8, !tbaa !45
+  br label %13
+
+13:                                               ; preds = %6
+  br label %14
+
+14:                                               ; preds = %13
+  %15 = load ptr, ptr %7, align 8, !tbaa !9
+  %16 = load ptr, ptr %8, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.base_s, ptr %16, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %15, ptr noundef %17)
+  br label %18
+
+18:                                               ; preds = %14
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %8, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.base_s, ptr %22, i32 0, i32 8
+  %24 = load i64, ptr %23, align 8, !tbaa !37
+  %25 = load ptr, ptr %9, align 8, !tbaa !45
+  store i64 %24, ptr %25, align 8, !tbaa !17
+  %26 = load ptr, ptr %8, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw %struct.base_s, ptr %26, i32 0, i32 9
+  %28 = load i64, ptr %27, align 8, !tbaa !38
+  %29 = load ptr, ptr %10, align 8, !tbaa !45
+  store i64 %28, ptr %29, align 8, !tbaa !17
+  %30 = load ptr, ptr %8, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw %struct.base_s, ptr %30, i32 0, i32 10
+  %32 = load i64, ptr %31, align 8, !tbaa !39
+  %33 = load ptr, ptr %11, align 8, !tbaa !45
+  store i64 %32, ptr %33, align 8, !tbaa !17
+  %34 = load ptr, ptr %8, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.base_s, ptr %34, i32 0, i32 11
+  %36 = load i64, ptr %35, align 8, !tbaa !40
+  %37 = load ptr, ptr %12, align 8, !tbaa !45
+  store i64 %36, ptr %37, align 8, !tbaa !17
+  %38 = load ptr, ptr %7, align 8, !tbaa !9
+  %39 = load ptr, ptr %8, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.base_s, ptr %39, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %38, ptr noundef %40)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_lock(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !55
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_assert_not_owner(ptr noundef %6, ptr noundef %8)
+  %9 = load ptr, ptr %4, align 8, !tbaa !55
+  %10 = call zeroext i1 @malloc_mutex_trylock_final(ptr noundef %9)
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !55
+  call void @je_malloc_mutex_lock_slow(ptr noundef %12)
+  %13 = load ptr, ptr %4, align 8, !tbaa !55
+  %14 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %struct.anon.5, ptr %14, i32 0, i32 2
+  call void @atomic_store_b(ptr noundef %15, i1 noundef zeroext true, i32 noundef 0)
+  br label %16
+
+16:                                               ; preds = %11, %2
+  %17 = load ptr, ptr %3, align 8, !tbaa !9
+  %18 = load ptr, ptr %4, align 8, !tbaa !55
+  call void @mutex_owner_stats_update(ptr noundef %17, ptr noundef %18)
+  %19 = load ptr, ptr %3, align 8, !tbaa !9
+  %20 = call ptr @tsdn_witness_tsdp_get(ptr noundef %19)
+  %21 = load ptr, ptr %4, align 8, !tbaa !55
+  %22 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %21, i32 0, i32 0
+  call void @witness_lock(ptr noundef %20, ptr noundef %22)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_unlock(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  %6 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.anon.5, ptr %6, i32 0, i32 2
+  call void @atomic_store_b(ptr noundef %7, i1 noundef zeroext false, i32 noundef 0)
+  %8 = load ptr, ptr %3, align 8, !tbaa !9
+  %9 = call ptr @tsdn_witness_tsdp_get(ptr noundef %8)
+  %10 = load ptr, ptr %4, align 8, !tbaa !55
+  %11 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %10, i32 0, i32 0
+  call void @witness_unlock(ptr noundef %9, ptr noundef %11)
+  %12 = load ptr, ptr %4, align 8, !tbaa !55
+  %13 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.anon.5, ptr %13, i32 0, i32 1
+  %15 = call i32 @pthread_mutex_unlock(ptr noundef %14) #8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_base_prefork(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = load ptr, ptr %4, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.base_s, ptr %6, i32 0, i32 2
+  call void @je_malloc_mutex_prefork(ptr noundef %5, ptr noundef %7)
+  ret void
+}
+
+declare void @je_malloc_mutex_prefork(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_base_postfork_parent(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = load ptr, ptr %4, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.base_s, ptr %6, i32 0, i32 2
+  call void @je_malloc_mutex_postfork_parent(ptr noundef %5, ptr noundef %7)
+  ret void
+}
+
+declare void @je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define hidden void @je_base_postfork_child(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = load ptr, ptr %4, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.base_s, ptr %6, i32 0, i32 2
+  call void @je_malloc_mutex_postfork_child(ptr noundef %5, ptr noundef %7)
+  ret void
+}
+
+declare void @je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define hidden zeroext i1 @je_base_boot(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = call ptr @je_base_new(ptr noundef %3, i32 noundef 0, ptr noundef @je_ehooks_default_extent_hooks, i1 noundef zeroext true)
+  store ptr %4, ptr @b0, align 8, !tbaa !4
+  %5 = load ptr, ptr @b0, align 8, !tbaa !4
+  %6 = icmp eq ptr %5, null
+  ret i1 %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @sz_psz2u(i64 noundef %0) #3 {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !17
+  %9 = load i64, ptr %3, align 8, !tbaa !17
+  %10 = icmp ugt i64 %9, 8070450532247928832
+  %11 = xor i1 %10, true
+  %12 = xor i1 %11, true
+  %13 = zext i1 %12 to i32
+  %14 = sext i32 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %1
+  store i64 8070450532247932928, ptr %2, align 8
+  br label %44
+
+18:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %19 = load i64, ptr %3, align 8, !tbaa !17
+  %20 = shl i64 %19, 1
+  %21 = sub i64 %20, 1
+  %22 = call i32 @lg_floor(i64 noundef %21)
+  %23 = zext i32 %22 to i64
+  store i64 %23, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %24 = load i64, ptr %4, align 8, !tbaa !17
+  %25 = icmp ult i64 %24, 15
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %18
+  br label %31
+
+27:                                               ; preds = %18
+  %28 = load i64, ptr %4, align 8, !tbaa !17
+  %29 = sub i64 %28, 2
+  %30 = sub i64 %29, 1
+  br label %31
+
+31:                                               ; preds = %27, %26
+  %32 = phi i64 [ 12, %26 ], [ %30, %27 ]
+  store i64 %32, ptr %5, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %33 = load i64, ptr %5, align 8, !tbaa !17
+  %34 = shl i64 1, %33
+  store i64 %34, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %35 = load i64, ptr %6, align 8, !tbaa !17
+  %36 = sub i64 %35, 1
+  store i64 %36, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %37 = load i64, ptr %3, align 8, !tbaa !17
+  %38 = load i64, ptr %7, align 8, !tbaa !17
+  %39 = add i64 %37, %38
+  %40 = load i64, ptr %7, align 8, !tbaa !17
+  %41 = xor i64 %40, -1
+  %42 = and i64 %39, %41
+  store i64 %42, ptr %8, align 8, !tbaa !17
+  %43 = load i64, ptr %8, align 8, !tbaa !17
+  store i64 %43, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %44
+
+44:                                               ; preds = %31, %17
+  %45 = load i64, ptr %2, align 8
+  ret i64 %45
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @sz_psz2ind(i64 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  %3 = alloca i64, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store i64 %0, ptr %3, align 8, !tbaa !17
+  br label %10
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
+  %12 = load i64, ptr %3, align 8, !tbaa !17
+  %13 = icmp ugt i64 %12, 8070450532247928832
+  %14 = xor i1 %13, true
+  %15 = xor i1 %14, true
+  %16 = zext i1 %15 to i32
+  %17 = sext i32 %16 to i64
+  %18 = call i64 @llvm.expect.i64(i64 %17, i64 0)
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %11
+  store i32 199, ptr %2, align 4
+  br label %54
+
+21:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  %22 = load i64, ptr %3, align 8, !tbaa !17
+  %23 = call i32 @lg_ceil(i64 noundef %22)
+  store i32 %23, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %24 = load i32, ptr %4, align 4, !tbaa !11
+  %25 = icmp ult i32 %24, 14
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %21
+  br label %30
+
+27:                                               ; preds = %21
+  %28 = load i32, ptr %4, align 4, !tbaa !11
+  %29 = sub i32 %28, 14
+  br label %30
+
+30:                                               ; preds = %27, %26
+  %31 = phi i32 [ 0, %26 ], [ %29, %27 ]
+  store i32 %31, ptr %5, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %32 = load i32, ptr %5, align 4, !tbaa !11
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %35
+
+34:                                               ; preds = %30
+  br label %39
+
+35:                                               ; preds = %30
+  %36 = load i32, ptr %5, align 4, !tbaa !11
+  %37 = sub i32 %36, 1
+  %38 = add i32 12, %37
+  br label %39
+
+39:                                               ; preds = %35, %34
+  %40 = phi i32 [ 12, %34 ], [ %38, %35 ]
+  store i32 %40, ptr %6, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %41 = load i64, ptr %3, align 8, !tbaa !17
+  %42 = sub i64 %41, 1
+  %43 = load i32, ptr %6, align 4, !tbaa !11
+  %44 = zext i32 %43 to i64
+  %45 = lshr i64 %42, %44
+  %46 = and i64 %45, 3
+  %47 = trunc i64 %46 to i32
+  store i32 %47, ptr %7, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %48 = load i32, ptr %5, align 4, !tbaa !11
+  %49 = shl i32 %48, 2
+  store i32 %49, ptr %8, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %50 = load i32, ptr %8, align 4, !tbaa !11
+  %51 = load i32, ptr %7, align 4, !tbaa !11
+  %52 = add i32 %50, %51
+  store i32 %52, ptr %9, align 4, !tbaa !11
+  %53 = load i32, ptr %9, align 4, !tbaa !11
+  store i32 %53, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  br label %54
+
+54:                                               ; preds = %39, %20
+  %55 = load i32, ptr %2, align 4
+  ret i32 %55
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @sz_pind2sz(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load i32, ptr %2, align 4, !tbaa !11
+  %6 = call i64 @sz_pind2sz_lookup(i32 noundef %5)
+  ret i64 %6
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @base_map(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store ptr %1, ptr %6, align 8, !tbaa !41
+  store i32 %2, ptr %7, align 4, !tbaa !11
+  store i64 %3, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
+  store i8 1, ptr %10, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #8
+  store i8 1, ptr %11, align 1, !tbaa !15
+  br label %13
+
+13:                                               ; preds = %4
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  store i64 2097152, ptr %12, align 8, !tbaa !17
+  %16 = load ptr, ptr %6, align 8, !tbaa !41
+  %17 = call zeroext i1 @ehooks_are_default(ptr noundef %16)
+  br i1 %17, label %18, label %28
+
+18:                                               ; preds = %15
+  %19 = load i64, ptr %8, align 8, !tbaa !17
+  %20 = load i64, ptr %12, align 8, !tbaa !17
+  %21 = call ptr @je_extent_alloc_mmap(ptr noundef null, i64 noundef %19, i64 noundef %20, ptr noundef %10, ptr noundef %11)
+  store ptr %21, ptr %9, align 8, !tbaa !47
+  %22 = load ptr, ptr %9, align 8, !tbaa !47
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %9, align 8, !tbaa !47
+  %26 = load i64, ptr %8, align 8, !tbaa !17
+  call void @je_pages_set_thp_state(ptr noundef %25, i64 noundef %26)
+  br label %27
+
+27:                                               ; preds = %24, %18
+  br label %34
+
+28:                                               ; preds = %15
+  %29 = load ptr, ptr %5, align 8, !tbaa !9
+  %30 = load ptr, ptr %6, align 8, !tbaa !41
+  %31 = load i64, ptr %8, align 8, !tbaa !17
+  %32 = load i64, ptr %12, align 8, !tbaa !17
+  %33 = call ptr @ehooks_alloc(ptr noundef %29, ptr noundef %30, ptr noundef null, i64 noundef %31, i64 noundef %32, ptr noundef %10, ptr noundef %11)
+  store ptr %33, ptr %9, align 8, !tbaa !47
+  br label %34
+
+34:                                               ; preds = %28, %27
+  %35 = load ptr, ptr %9, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret ptr %35
 }
 
+declare zeroext i1 @je_pages_huge(ptr noundef, i64 noundef) #2
+
 ; Function Attrs: nounwind uwtable
-define internal ptr @base_extent_bump_alloc(ptr noundef %base, ptr noundef %edata, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %edata.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %ret = alloca ptr, align 8
-  %gap_size = alloca i64, align 8
-  store ptr %base, ptr %base.addr, align 8
-  store ptr %edata, ptr %edata.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load ptr, ptr %edata.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %call = call ptr @base_extent_bump_alloc_helper(ptr noundef %0, ptr noundef %gap_size, i64 noundef %1, i64 noundef %2)
-  store ptr %call, ptr %ret, align 8
-  %3 = load ptr, ptr %base.addr, align 8
-  %4 = load ptr, ptr %edata.addr, align 8
-  %5 = load i64, ptr %gap_size, align 8
-  %6 = load ptr, ptr %ret, align 8
-  %7 = load i64, ptr %size.addr, align 8
-  call void @base_extent_bump_alloc_post(ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7)
-  %8 = load ptr, ptr %ret, align 8
-  ret ptr %8
+define internal void @base_auto_thp_switch(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  br label %8
+
+8:                                                ; preds = %2
+  br label %9
+
+9:                                                ; preds = %8
+  %10 = load ptr, ptr %3, align 8, !tbaa !9
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.base_s, ptr %11, i32 0, i32 2
+  call void @malloc_mutex_assert_owner(ptr noundef %10, ptr noundef %12)
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.base_s, ptr %13, i32 0, i32 3
+  %15 = load i8, ptr %14, align 8, !tbaa !34, !range !19, !noundef !20
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %9
+  br label %80
+
+18:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #8
+  %19 = load ptr, ptr %4, align 8, !tbaa !4
+  %20 = call i32 @base_ind_get(ptr noundef %19)
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %27
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %4, align 8, !tbaa !4
+  %24 = call i64 @base_get_num_blocks(ptr noundef %23, i1 noundef zeroext true)
+  %25 = icmp eq i64 %24, 2
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %5, align 1, !tbaa !15
+  br label %32
+
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = call i64 @base_get_num_blocks(ptr noundef %28, i1 noundef zeroext true)
+  %30 = icmp eq i64 %29, 5
+  %31 = zext i1 %30 to i8
+  store i8 %31, ptr %5, align 1, !tbaa !15
+  br label %32
+
+32:                                               ; preds = %27, %22
+  %33 = load i8, ptr %5, align 1, !tbaa !15, !range !19, !noundef !20
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %36, label %35
+
+35:                                               ; preds = %32
+  store i32 1, ptr %6, align 4
+  br label %78
+
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %4, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.base_s, ptr %37, i32 0, i32 3
+  store i8 1, ptr %38, align 8, !tbaa !34
+  br label %39
+
+39:                                               ; preds = %36
+  br label %40
+
+40:                                               ; preds = %39
+  br label %41
+
+41:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %42 = load ptr, ptr %4, align 8, !tbaa !4
+  %43 = getelementptr inbounds nuw %struct.base_s, ptr %42, i32 0, i32 6
+  %44 = load ptr, ptr %43, align 8, !tbaa !33
+  store ptr %44, ptr %7, align 8, !tbaa !21
+  br label %45
+
+45:                                               ; preds = %76, %41
+  %46 = load ptr, ptr %7, align 8, !tbaa !21
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %77
+
+48:                                               ; preds = %45
+  br label %49
+
+49:                                               ; preds = %48
+  br label %50
+
+50:                                               ; preds = %49
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %7, align 8, !tbaa !21
+  %53 = load ptr, ptr %7, align 8, !tbaa !21
+  %54 = getelementptr inbounds nuw %struct.base_block_s, ptr %53, i32 0, i32 0
+  %55 = load i64, ptr %54, align 8, !tbaa !23
+  %56 = call zeroext i1 @je_pages_huge(ptr noundef %52, i64 noundef %55)
+  %57 = load ptr, ptr %7, align 8, !tbaa !21
+  %58 = getelementptr inbounds nuw %struct.base_block_s, ptr %57, i32 0, i32 0
+  %59 = load i64, ptr %58, align 8, !tbaa !23
+  %60 = load ptr, ptr %7, align 8, !tbaa !21
+  %61 = getelementptr inbounds nuw %struct.base_block_s, ptr %60, i32 0, i32 2
+  %62 = call i64 @edata_bsize_get(ptr noundef %61)
+  %63 = sub i64 %59, %62
+  %64 = add i64 %63, 2097151
+  %65 = and i64 %64, -2097152
+  %66 = lshr i64 %65, 21
+  %67 = load ptr, ptr %4, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw %struct.base_s, ptr %67, i32 0, i32 11
+  %69 = load i64, ptr %68, align 8, !tbaa !40
+  %70 = add i64 %69, %66
+  store i64 %70, ptr %68, align 8, !tbaa !40
+  %71 = load ptr, ptr %7, align 8, !tbaa !21
+  %72 = getelementptr inbounds nuw %struct.base_block_s, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8, !tbaa !48
+  store ptr %73, ptr %7, align 8, !tbaa !21
+  br label %74
+
+74:                                               ; preds = %51
+  br label %75
+
+75:                                               ; preds = %74
+  br label %76
+
+76:                                               ; preds = %75
+  br label %45, !llvm.loop !57
+
+77:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  store i32 0, ptr %6, align 4
+  br label %78
+
+78:                                               ; preds = %77, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #8
+  %79 = load i32, ptr %6, align 4
+  switch i32 %79, label %81 [
+    i32 0, label %80
+    i32 1, label %80
+  ]
+
+80:                                               ; preds = %17, %78, %78
+  ret void
+
+81:                                               ; preds = %78
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @witness_assert_not_owner(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
+define internal void @base_edata_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !45
+  store ptr %1, ptr %6, align 8, !tbaa !49
+  store ptr %2, ptr %7, align 8, !tbaa !47
+  store i64 %3, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %10 = load ptr, ptr %5, align 8, !tbaa !45
+  %11 = load i64, ptr %10, align 8, !tbaa !17
+  store i64 %11, ptr %9, align 8, !tbaa !17
+  %12 = load ptr, ptr %5, align 8, !tbaa !45
+  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %12, align 8, !tbaa !17
+  %15 = load ptr, ptr %6, align 8, !tbaa !49
+  %16 = load ptr, ptr %7, align 8, !tbaa !47
+  %17 = load i64, ptr %8, align 8, !tbaa !17
+  %18 = load i64, ptr %9, align 8, !tbaa !17
+  call void @edata_binit(ptr noundef %15, ptr noundef %16, i64 noundef %17, i64 noundef %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @lg_floor(i64 noundef %0) #3 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %4 = icmp ne i64 %3, 0
+  call void @util_assume(i1 noundef zeroext %4)
+  %5 = load i64, ptr %2, align 8, !tbaa !17
+  %6 = call i32 @fls_u64(i64 noundef %5)
+  ret i32 %6
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @util_assume(i1 noundef zeroext %0) #4 {
+  %2 = alloca i8, align 1
+  %3 = zext i1 %0 to i8
+  store i8 %3, ptr %2, align 1, !tbaa !15
+  %4 = load i8, ptr %2, align 1, !tbaa !15, !range !19, !noundef !20
+  %5 = trunc i8 %4 to i1
+  br i1 %5, label %7, label %6
+
+6:                                                ; preds = %1
+  unreachable
+
+7:                                                ; preds = %1
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @fls_u64(i64 noundef %0) #3 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %4 = call i32 @fls_lu(i64 noundef %3)
+  ret i32 %4
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @fls_lu(i64 noundef %0) #3 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %4 = icmp ne i64 %3, 0
+  call void @util_assume(i1 noundef zeroext %4)
+  %5 = load i64, ptr %2, align 8, !tbaa !17
+  %6 = call i64 @llvm.ctlz.i64(i64 %5, i1 true)
+  %7 = trunc i64 %6 to i32
+  %8 = sext i32 %7 to i64
+  %9 = xor i64 63, %8
+  %10 = trunc i64 %9 to i32
+  ret i32 %10
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @lg_ceil(i64 noundef %0) #3 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %4 = call i32 @lg_floor(i64 noundef %3)
+  %5 = load i64, ptr %2, align 8, !tbaa !17
+  %6 = load i64, ptr %2, align 8, !tbaa !17
+  %7 = sub i64 %6, 1
+  %8 = and i64 %5, %7
+  %9 = icmp eq i64 %8, 0
+  %10 = select i1 %9, i32 0, i32 1
+  %11 = add i32 %4, %10
+  ret i32 %11
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @sz_pind2sz_lookup(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca i64, align 8
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load i32, ptr %2, align 4, !tbaa !11
+  %5 = zext i32 %4 to i64
+  %6 = getelementptr inbounds nuw [200 x i64], ptr @je_sz_pind2sz_tab, i64 0, i64 %5
+  %7 = load i64, ptr %6, align 8, !tbaa !17
+  store i64 %7, ptr %3, align 8, !tbaa !17
+  br label %8
+
+8:                                                ; preds = %1
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9
+  %11 = load i64, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %11
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @ehooks_are_default(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %4 = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %3)
+  %5 = icmp eq ptr %4, @je_ehooks_default_extent_hooks
+  ret i1 %5
+}
+
+declare ptr @je_extent_alloc_mmap(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #2
+
+declare void @je_pages_set_thp_state(ptr noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @ehooks_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) #3 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !9
+  store ptr %1, ptr %9, align 8, !tbaa !41
+  store ptr %2, ptr %10, align 8, !tbaa !47
+  store i64 %3, ptr %11, align 8, !tbaa !17
+  store i64 %4, ptr %12, align 8, !tbaa !17
+  store ptr %5, ptr %13, align 8, !tbaa !58
+  store ptr %6, ptr %14, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #8
+  %18 = load ptr, ptr %13, align 8, !tbaa !58
+  %19 = load i8, ptr %18, align 1, !tbaa !15, !range !19, !noundef !20
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i8
+  store i8 %21, ptr %15, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  %22 = load ptr, ptr %9, align 8, !tbaa !41
+  %23 = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %22)
+  store ptr %23, ptr %17, align 8, !tbaa !13
+  %24 = load ptr, ptr %17, align 8, !tbaa !13
+  %25 = icmp eq ptr %24, @je_ehooks_default_extent_hooks
+  br i1 %25, label %26, label %36
+
+26:                                               ; preds = %7
+  %27 = load ptr, ptr %8, align 8, !tbaa !9
+  %28 = load ptr, ptr %10, align 8, !tbaa !47
+  %29 = load i64, ptr %11, align 8, !tbaa !17
+  %30 = load i64, ptr %12, align 8, !tbaa !17
+  %31 = load ptr, ptr %13, align 8, !tbaa !58
+  %32 = load ptr, ptr %14, align 8, !tbaa !58
+  %33 = load ptr, ptr %9, align 8, !tbaa !41
+  %34 = call i32 @ehooks_ind_get(ptr noundef %33)
+  %35 = call ptr @je_ehooks_default_alloc_impl(ptr noundef %27, ptr noundef %28, i64 noundef %29, i64 noundef %30, ptr noundef %31, ptr noundef %32, i32 noundef %34)
+  store ptr %35, ptr %16, align 8, !tbaa !47
+  br label %51
+
+36:                                               ; preds = %7
+  %37 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @ehooks_pre_reentrancy(ptr noundef %37)
+  %38 = load ptr, ptr %17, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !60
+  %41 = load ptr, ptr %17, align 8, !tbaa !13
+  %42 = load ptr, ptr %10, align 8, !tbaa !47
+  %43 = load i64, ptr %11, align 8, !tbaa !17
+  %44 = load i64, ptr %12, align 8, !tbaa !17
+  %45 = load ptr, ptr %13, align 8, !tbaa !58
+  %46 = load ptr, ptr %14, align 8, !tbaa !58
+  %47 = load ptr, ptr %9, align 8, !tbaa !41
+  %48 = call i32 @ehooks_ind_get(ptr noundef %47)
+  %49 = call ptr %40(ptr noundef %41, ptr noundef %42, i64 noundef %43, i64 noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %48)
+  store ptr %49, ptr %16, align 8, !tbaa !47
+  %50 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @ehooks_post_reentrancy(ptr noundef %50)
+  br label %51
+
+51:                                               ; preds = %36, %26
+  br label %52
+
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
+  br label %54
+
+54:                                               ; preds = %53
+  br label %55
+
+55:                                               ; preds = %54
+  br label %56
+
+56:                                               ; preds = %55
+  br label %57
+
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %13, align 8, !tbaa !58
+  %59 = load i8, ptr %58, align 1, !tbaa !15, !range !19, !noundef !20
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %67
+
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %16, align 8, !tbaa !47
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %67
+
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %16, align 8, !tbaa !47
+  %66 = load i64, ptr %11, align 8, !tbaa !17
+  call void @ehooks_debug_zero_check(ptr noundef %65, i64 noundef %66)
+  br label %67
+
+67:                                               ; preds = %64, %61, %57
+  %68 = load ptr, ptr %16, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #8
+  ret ptr %68
+}
+
+declare ptr @je_ehooks_default_alloc_impl(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ehooks_pre_reentrancy(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  %5 = call zeroext i1 @tsdn_null(ptr noundef %4)
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %1
+  %7 = call ptr @tsd_fetch()
+  br label %11
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !9
+  %10 = call ptr @tsdn_tsd(ptr noundef %9)
+  br label %11
+
+11:                                               ; preds = %8, %6
+  %12 = phi ptr [ %7, %6 ], [ %10, %8 ]
+  store ptr %12, ptr %3, align 8, !tbaa !62
+  %13 = load ptr, ptr %3, align 8, !tbaa !62
+  call void @tsd_pre_reentrancy_raw(ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ehooks_post_reentrancy(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !9
+  %5 = call zeroext i1 @tsdn_null(ptr noundef %4)
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %1
+  %7 = call ptr @tsd_fetch()
+  br label %11
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !9
+  %10 = call ptr @tsdn_tsd(ptr noundef %9)
+  br label %11
+
+11:                                               ; preds = %8, %6
+  %12 = phi ptr [ %7, %6 ], [ %10, %8 ]
+  store ptr %12, ptr %3, align 8, !tbaa !62
+  %13 = load ptr, ptr %3, align 8, !tbaa !62
+  call void @tsd_post_reentrancy_raw(ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ehooks_debug_zero_check(ptr noundef %0, i64 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  br label %5
+
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %5
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  br label %10
+
+10:                                               ; preds = %9
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsdn_null(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = icmp eq ptr %3, null
+  ret i1 %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_fetch() #4 {
+  %1 = call ptr @tsd_fetch_impl(i1 noundef zeroext true, i1 noundef zeroext false)
+  ret ptr %1
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_tsd(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !9
+  %6 = getelementptr inbounds nuw %struct.tsdn_s, ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @tsd_pre_reentrancy_raw(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !62
+  %5 = call zeroext i1 @tsd_fast(ptr noundef %4)
+  %6 = zext i1 %5 to i8
+  store i8 %6, ptr %3, align 1, !tbaa !15
+  br label %7
+
+7:                                                ; preds = %1
+  br label %8
+
+8:                                                ; preds = %7
+  br label %9
+
+9:                                                ; preds = %8
+  %10 = load ptr, ptr %2, align 8, !tbaa !62
+  %11 = call ptr @tsd_reentrancy_levelp_get(ptr noundef %10)
+  %12 = load i8, ptr %11, align 1, !tbaa !54
+  %13 = add i8 %12, 1
+  store i8 %13, ptr %11, align 1, !tbaa !54
+  %14 = load i8, ptr %3, align 1, !tbaa !15, !range !19, !noundef !20
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %21
+
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %2, align 8, !tbaa !62
+  call void @je_tsd_slow_update(ptr noundef %17)
+  br label %18
+
+18:                                               ; preds = %16
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20, %9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #8
+  ret void
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_fetch_impl(i1 noundef zeroext %0, i1 noundef zeroext %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = zext i1 %0 to i8
+  store i8 %8, ptr %4, align 1, !tbaa !15
+  %9 = zext i1 %1 to i8
+  store i8 %9, ptr %5, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %10 = load i8, ptr %4, align 1, !tbaa !15, !range !19, !noundef !20
+  %11 = trunc i8 %10 to i1
+  %12 = call ptr @tsd_get(i1 noundef zeroext %11)
+  store ptr %12, ptr %6, align 8, !tbaa !62
+  %13 = load i8, ptr %4, align 1, !tbaa !15, !range !19, !noundef !20
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %21, label %15
+
+15:                                               ; preds = %2
+  %16 = call zeroext i1 @tsd_get_allocates()
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %15
+  %18 = load ptr, ptr %6, align 8, !tbaa !62
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %17
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
+
+21:                                               ; preds = %17, %15, %2
+  br label %22
+
+22:                                               ; preds = %21
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %6, align 8, !tbaa !62
+  %26 = call zeroext i8 @tsd_state_get(ptr noundef %25)
+  %27 = zext i8 %26 to i32
+  %28 = icmp ne i32 %27, 0
+  %29 = xor i1 %28, true
+  %30 = xor i1 %29, true
+  %31 = zext i1 %30 to i32
+  %32 = sext i32 %31 to i64
+  %33 = call i64 @llvm.expect.i64(i64 %32, i64 0)
+  %34 = icmp ne i64 %33, 0
+  br i1 %34, label %35, label %40
+
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %6, align 8, !tbaa !62
+  %37 = load i8, ptr %5, align 1, !tbaa !15, !range !19, !noundef !20
+  %38 = trunc i8 %37 to i1
+  %39 = call ptr @je_tsd_fetch_slow(ptr noundef %36, i1 noundef zeroext %38)
+  store ptr %39, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
+
+40:                                               ; preds = %24
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %6, align 8, !tbaa !62
+  call void @tsd_assert_fast(ptr noundef %44)
+  %45 = load ptr, ptr %6, align 8, !tbaa !62
+  store ptr %45, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
+
+46:                                               ; preds = %43, %35, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  %47 = load ptr, ptr %3, align 8
+  ret ptr %47
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_get(i1 noundef zeroext %0) #4 {
+  %2 = alloca i8, align 1
+  %3 = zext i1 %0 to i8
+  store i8 %3, ptr %2, align 1, !tbaa !15
+  %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsd_get_allocates() #4 {
+  ret i1 false
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i8 @tsd_state_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 29
+  %5 = load i8, ptr %4, align 8, !tbaa !54
+  ret i8 %5
+}
+
+declare ptr @je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @tsd_assert_fast(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @tsd_fast(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !62
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  %6 = zext i8 %5 to i32
+  %7 = icmp eq i32 %6, 0
+  %8 = zext i1 %7 to i8
+  store i8 %8, ptr %3, align 1, !tbaa !15
+  %9 = load i8, ptr %3, align 1, !tbaa !15, !range !19, !noundef !20
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8, !tbaa !62
+  call void @tsd_assert_fast(ptr noundef %12)
+  br label %13
+
+13:                                               ; preds = %11, %1
+  %14 = load i8, ptr %3, align 1, !tbaa !15, !range !19, !noundef !20
+  %15 = trunc i8 %14 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #8
+  ret i1 %15
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_reentrancy_levelp_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !62
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !54
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !62
+  %10 = call ptr @tsd_reentrancy_levelp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #8
+  ret ptr %10
+}
+
+declare void @je_tsd_slow_update(ptr noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_reentrancy_levelp_get_unsafe(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @tsd_post_reentrancy_raw(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !62
+  %5 = call ptr @tsd_reentrancy_levelp_get(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !64
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %3, align 8, !tbaa !64
+  %10 = load i8, ptr %9, align 1, !tbaa !54
+  %11 = add i8 %10, -1
+  store i8 %11, ptr %9, align 1, !tbaa !54
+  %12 = sext i8 %11 to i32
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %2, align 8, !tbaa !62
+  call void @je_tsd_slow_update(ptr noundef %15)
+  br label %16
+
+16:                                               ; preds = %14, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @malloc_mutex_assert_owner(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = call ptr @tsdn_witness_tsdp_get(ptr noundef %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !55
+  %8 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %7, i32 0, i32 0
+  call void @witness_assert_owner(ptr noundef %6, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @malloc_mutex_trylock_final(ptr noundef %mutex) #0 {
-entry:
-  %mutex.addr = alloca ptr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %lock = getelementptr inbounds %struct.anon.5, ptr %1, i32 0, i32 1
-  %call = call i32 @pthread_mutex_trylock(ptr noundef %lock) #4
-  %cmp = icmp ne i32 %call, 0
-  ret i1 %cmp
+define internal i64 @base_get_num_blocks(ptr noundef %0, i1 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %4, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.base_s, ptr %8, i32 0, i32 6
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  store ptr %10, ptr %5, align 8, !tbaa !21
+  br label %11
+
+11:                                               ; preds = %2
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %14 = load i8, ptr %4, align 1, !tbaa !15, !range !19, !noundef !20
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, i32 2, i32 1
+  %17 = sext i32 %16 to i64
+  store i64 %17, ptr %6, align 8, !tbaa !17
+  br label %18
+
+18:                                               ; preds = %23, %13
+  %19 = load ptr, ptr %5, align 8, !tbaa !21
+  %20 = getelementptr inbounds nuw %struct.base_block_s, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !48
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %29
+
+23:                                               ; preds = %18
+  %24 = load i64, ptr %6, align 8, !tbaa !17
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %6, align 8, !tbaa !17
+  %26 = load ptr, ptr %5, align 8, !tbaa !21
+  %27 = getelementptr inbounds nuw %struct.base_block_s, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !48
+  store ptr %28, ptr %5, align 8, !tbaa !21
+  br label %18, !llvm.loop !66
+
+29:                                               ; preds = %18
+  %30 = load i64, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret i64 %30
 }
 
-declare void @malloc_mutex_lock_slow(ptr noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @edata_bsize_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
+  %4 = getelementptr inbounds nuw %struct.edata_s, ptr %3, i32 0, i32 2
+  %5 = load i64, ptr %4, align 8, !tbaa !54
+  ret i64 %5
+}
 
-; Function Attrs: nounwind uwtable
-define internal void @mutex_owner_stats_update(ptr noundef %tsdn, ptr noundef %mutex) #0 {
-entry:
-  %tsdn.addr = alloca ptr, align 8
-  %mutex.addr = alloca ptr, align 8
-  %data = alloca ptr, align 8
-  store ptr %tsdn, ptr %tsdn.addr, align 8
-  store ptr %mutex, ptr %mutex.addr, align 8
-  %0 = load ptr, ptr %mutex.addr, align 8
-  %1 = getelementptr inbounds %struct.malloc_mutex_s, ptr %0, i32 0, i32 0
-  %prof_data = getelementptr inbounds %struct.anon.5, ptr %1, i32 0, i32 0
-  store ptr %prof_data, ptr %data, align 8
-  %2 = load ptr, ptr %data, align 8
-  %n_lock_ops = getelementptr inbounds %struct.mutex_prof_data_t, ptr %2, i32 0, i32 8
-  %3 = load i64, ptr %n_lock_ops, align 8
-  %inc = add i64 %3, 1
-  store i64 %inc, ptr %n_lock_ops, align 8
-  %4 = load ptr, ptr %data, align 8
-  %prev_owner = getelementptr inbounds %struct.mutex_prof_data_t, ptr %4, i32 0, i32 7
-  %5 = load ptr, ptr %prev_owner, align 8
-  %6 = load ptr, ptr %tsdn.addr, align 8
-  %cmp = icmp ne ptr %5, %6
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %tsdn.addr, align 8
-  %8 = load ptr, ptr %data, align 8
-  %prev_owner1 = getelementptr inbounds %struct.mutex_prof_data_t, ptr %8, i32 0, i32 7
-  store ptr %7, ptr %prev_owner1, align 8
-  %9 = load ptr, ptr %data, align 8
-  %n_owner_switches = getelementptr inbounds %struct.mutex_prof_data_t, ptr %9, i32 0, i32 6
-  %10 = load i64, ptr %n_owner_switches, align 8
-  %inc2 = add i64 %10, 1
-  store i64 %inc2, ptr %n_owner_switches, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_assert_owner(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !69
   ret void
 }
 
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsdn_witness_tsdp_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8, !tbaa !9
+  %6 = call zeroext i1 @tsdn_null(ptr noundef %5)
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %13
+
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !9
+  %10 = call ptr @tsdn_tsd(ptr noundef %9)
+  store ptr %10, ptr %4, align 8, !tbaa !62
+  %11 = load ptr, ptr %4, align 8, !tbaa !62
+  %12 = call ptr @tsd_witness_tsdp_get(ptr noundef %11)
+  store ptr %12, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  br label %13
+
+13:                                               ; preds = %8, %7
+  %14 = load ptr, ptr %2, align 8
+  ret ptr %14
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_witness_tsdp_get(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !62
+  %5 = call zeroext i8 @tsd_state_get(ptr noundef %4)
+  store i8 %5, ptr %3, align 1, !tbaa !54
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load ptr, ptr %2, align 8, !tbaa !62
+  %10 = call ptr @tsd_witness_tsdp_get_unsafe(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #8
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @tsd_witness_tsdp_get_unsafe(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %4 = getelementptr inbounds nuw %struct.tsd_s, ptr %3, i32 0, i32 35
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_binit(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #3 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !49
+  store ptr %1, ptr %6, align 8, !tbaa !47
+  store i64 %2, ptr %7, align 8, !tbaa !17
+  store i64 %3, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %5, align 8, !tbaa !49
+  call void @edata_arena_ind_set(ptr noundef %9, i32 noundef 4095)
+  %10 = load ptr, ptr %5, align 8, !tbaa !49
+  %11 = load ptr, ptr %6, align 8, !tbaa !47
+  call void @edata_addr_set(ptr noundef %10, ptr noundef %11)
+  %12 = load ptr, ptr %5, align 8, !tbaa !49
+  %13 = load i64, ptr %7, align 8, !tbaa !17
+  call void @edata_bsize_set(ptr noundef %12, i64 noundef %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !49
+  call void @edata_slab_set(ptr noundef %14, i1 noundef zeroext false)
+  %15 = load ptr, ptr %5, align 8, !tbaa !49
+  call void @edata_szind_set(ptr noundef %15, i32 noundef 235)
+  %16 = load ptr, ptr %5, align 8, !tbaa !49
+  %17 = load i64, ptr %8, align 8, !tbaa !17
+  call void @edata_sn_set(ptr noundef %16, i64 noundef %17)
+  %18 = load ptr, ptr %5, align 8, !tbaa !49
+  call void @edata_state_set(ptr noundef %18, i32 noundef 0)
+  %19 = load ptr, ptr %5, align 8, !tbaa !49
+  call void @edata_guarded_set(ptr noundef %19, i1 noundef zeroext false)
+  %20 = load ptr, ptr %5, align 8, !tbaa !49
+  call void @edata_zeroed_set(ptr noundef %20, i1 noundef zeroext true)
+  %21 = load ptr, ptr %5, align 8, !tbaa !49
+  call void @edata_committed_set(ptr noundef %21, i1 noundef zeroext true)
+  %22 = load ptr, ptr %5, align 8, !tbaa !49
+  call void @edata_pai_set(ptr noundef %22, i32 noundef 0)
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_arena_ind_set(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !49
+  %6 = getelementptr inbounds nuw %struct.edata_s, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8, !tbaa !71
+  %8 = and i64 %7, -4096
+  %9 = load i32, ptr %4, align 4, !tbaa !11
+  %10 = zext i32 %9 to i64
+  %11 = shl i64 %10, 0
+  %12 = or i64 %8, %11
+  %13 = load ptr, ptr %3, align 8, !tbaa !49
+  %14 = getelementptr inbounds nuw %struct.edata_s, ptr %13, i32 0, i32 0
+  store i64 %12, ptr %14, align 8, !tbaa !71
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_addr_set(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store ptr %1, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %6 = load ptr, ptr %3, align 8, !tbaa !49
+  %7 = getelementptr inbounds nuw %struct.edata_s, ptr %6, i32 0, i32 1
+  store ptr %5, ptr %7, align 8, !tbaa !72
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_bsize_set(ptr noundef %0, i64 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !49
+  %7 = getelementptr inbounds nuw %struct.edata_s, ptr %6, i32 0, i32 2
+  store i64 %5, ptr %7, align 8, !tbaa !54
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_slab_set(ptr noundef %0, i1 noundef zeroext %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !15
+  %6 = load ptr, ptr %3, align 8, !tbaa !49
+  %7 = getelementptr inbounds nuw %struct.edata_s, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !71
+  %9 = and i64 %8, -4097
+  %10 = load i8, ptr %4, align 1, !tbaa !15, !range !19, !noundef !20
+  %11 = trunc i8 %10 to i1
+  %12 = zext i1 %11 to i64
+  %13 = shl i64 %12, 12
+  %14 = or i64 %9, %13
+  %15 = load ptr, ptr %3, align 8, !tbaa !49
+  %16 = getelementptr inbounds nuw %struct.edata_s, ptr %15, i32 0, i32 0
+  store i64 %14, ptr %16, align 8, !tbaa !71
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_szind_set(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  br label %5
+
+5:                                                ; preds = %2
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %3, align 8, !tbaa !49
+  %8 = getelementptr inbounds nuw %struct.edata_s, ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %8, align 8, !tbaa !71
+  %10 = and i64 %9, -267386881
+  %11 = load i32, ptr %4, align 4, !tbaa !11
+  %12 = zext i32 %11 to i64
+  %13 = shl i64 %12, 20
+  %14 = or i64 %10, %13
+  %15 = load ptr, ptr %3, align 8, !tbaa !49
+  %16 = getelementptr inbounds nuw %struct.edata_s, ptr %15, i32 0, i32 0
+  store i64 %14, ptr %16, align 8, !tbaa !71
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_sn_set(ptr noundef %0, i64 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !49
+  %7 = getelementptr inbounds nuw %struct.edata_s, ptr %6, i32 0, i32 4
+  store i64 %5, ptr %7, align 8, !tbaa !73
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_state_set(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !49
+  %6 = getelementptr inbounds nuw %struct.edata_s, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8, !tbaa !71
+  %8 = and i64 %7, -917505
+  %9 = load i32, ptr %4, align 4, !tbaa !11
+  %10 = zext i32 %9 to i64
+  %11 = shl i64 %10, 17
+  %12 = or i64 %8, %11
+  %13 = load ptr, ptr %3, align 8, !tbaa !49
+  %14 = getelementptr inbounds nuw %struct.edata_s, ptr %13, i32 0, i32 0
+  store i64 %12, ptr %14, align 8, !tbaa !71
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_guarded_set(ptr noundef %0, i1 noundef zeroext %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !15
+  %6 = load ptr, ptr %3, align 8, !tbaa !49
+  %7 = getelementptr inbounds nuw %struct.edata_s, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !71
+  %9 = and i64 %8, -65537
+  %10 = load i8, ptr %4, align 1, !tbaa !15, !range !19, !noundef !20
+  %11 = trunc i8 %10 to i1
+  %12 = zext i1 %11 to i64
+  %13 = shl i64 %12, 16
+  %14 = or i64 %9, %13
+  %15 = load ptr, ptr %3, align 8, !tbaa !49
+  %16 = getelementptr inbounds nuw %struct.edata_s, ptr %15, i32 0, i32 0
+  store i64 %14, ptr %16, align 8, !tbaa !71
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_zeroed_set(ptr noundef %0, i1 noundef zeroext %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !15
+  %6 = load ptr, ptr %3, align 8, !tbaa !49
+  %7 = getelementptr inbounds nuw %struct.edata_s, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !71
+  %9 = and i64 %8, -32769
+  %10 = load i8, ptr %4, align 1, !tbaa !15, !range !19, !noundef !20
+  %11 = trunc i8 %10 to i1
+  %12 = zext i1 %11 to i64
+  %13 = shl i64 %12, 15
+  %14 = or i64 %9, %13
+  %15 = load ptr, ptr %3, align 8, !tbaa !49
+  %16 = getelementptr inbounds nuw %struct.edata_s, ptr %15, i32 0, i32 0
+  store i64 %14, ptr %16, align 8, !tbaa !71
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_committed_set(ptr noundef %0, i1 noundef zeroext %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !15
+  %6 = load ptr, ptr %3, align 8, !tbaa !49
+  %7 = getelementptr inbounds nuw %struct.edata_s, ptr %6, i32 0, i32 0
+  %8 = load i64, ptr %7, align 8, !tbaa !71
+  %9 = and i64 %8, -8193
+  %10 = load i8, ptr %4, align 1, !tbaa !15, !range !19, !noundef !20
+  %11 = trunc i8 %10 to i1
+  %12 = zext i1 %11 to i64
+  %13 = shl i64 %12, 13
+  %14 = or i64 %9, %13
+  %15 = load ptr, ptr %3, align 8, !tbaa !49
+  %16 = getelementptr inbounds nuw %struct.edata_s, ptr %15, i32 0, i32 0
+  store i64 %14, ptr %16, align 8, !tbaa !71
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @edata_pai_set(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !49
+  %6 = getelementptr inbounds nuw %struct.edata_s, ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %6, align 8, !tbaa !71
+  %8 = and i64 %7, -16385
+  %9 = load i32, ptr %4, align 4, !tbaa !11
+  %10 = zext i32 %9 to i64
+  %11 = shl i64 %10, 14
+  %12 = or i64 %8, %11
+  %13 = load ptr, ptr %3, align 8, !tbaa !49
+  %14 = getelementptr inbounds nuw %struct.edata_s, ptr %13, i32 0, i32 0
+  store i64 %12, ptr %14, align 8, !tbaa !71
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @edata_addr_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load ptr, ptr %2, align 8, !tbaa !49
+  %6 = getelementptr inbounds nuw %struct.edata_s, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !72
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @edata_sn_get(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
+  %4 = getelementptr inbounds nuw %struct.edata_s, ptr %3, i32 0, i32 4
+  %5 = load i64, ptr %4, align 8, !tbaa !73
+  ret i64 %5
+}
+
+declare zeroext i1 @je_extent_dalloc_mmap(ptr noundef, i64 noundef) #2
+
+declare zeroext i1 @je_pages_decommit(ptr noundef, i64 noundef) #2
+
+declare zeroext i1 @je_pages_purge_forced(ptr noundef, i64 noundef) #2
+
+declare zeroext i1 @je_pages_purge_lazy(ptr noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @ehooks_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) #3 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i8, align 1
+  store ptr %0, ptr %7, align 8, !tbaa !9
+  store ptr %1, ptr %8, align 8, !tbaa !41
+  store ptr %2, ptr %9, align 8, !tbaa !47
+  store i64 %3, ptr %10, align 8, !tbaa !17
+  %15 = zext i1 %4 to i8
+  store i8 %15, ptr %11, align 1, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %16 = load ptr, ptr %8, align 8, !tbaa !41
+  %17 = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %16)
+  store ptr %17, ptr %12, align 8, !tbaa !13
+  %18 = load ptr, ptr %12, align 8, !tbaa !13
+  %19 = icmp eq ptr %18, @je_ehooks_default_extent_hooks
+  br i1 %19, label %20, label %24
+
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %9, align 8, !tbaa !47
+  %22 = load i64, ptr %10, align 8, !tbaa !17
+  %23 = call zeroext i1 @je_ehooks_default_dalloc_impl(ptr noundef %21, i64 noundef %22)
+  store i1 %23, ptr %6, align 1
+  store i32 1, ptr %13, align 4
+  br label %47
+
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %12, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8, !tbaa !74
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %24
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %13, align 4
+  br label %47
+
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @ehooks_pre_reentrancy(ptr noundef %31)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #8
+  %32 = load ptr, ptr %12, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %35 = load ptr, ptr %12, align 8, !tbaa !13
+  %36 = load ptr, ptr %9, align 8, !tbaa !47
+  %37 = load i64, ptr %10, align 8, !tbaa !17
+  %38 = load i8, ptr %11, align 1, !tbaa !15, !range !19, !noundef !20
+  %39 = trunc i8 %38 to i1
+  %40 = load ptr, ptr %8, align 8, !tbaa !41
+  %41 = call i32 @ehooks_ind_get(ptr noundef %40)
+  %42 = call zeroext i1 %34(ptr noundef %35, ptr noundef %36, i64 noundef %37, i1 noundef zeroext %39, i32 noundef %41)
+  %43 = zext i1 %42 to i8
+  store i8 %43, ptr %14, align 1, !tbaa !15
+  %44 = load ptr, ptr %7, align 8, !tbaa !9
+  call void @ehooks_post_reentrancy(ptr noundef %44)
+  %45 = load i8, ptr %14, align 1, !tbaa !15, !range !19, !noundef !20
+  %46 = trunc i8 %45 to i1
+  store i1 %46, ptr %6, align 1
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #8
+  br label %47
+
+47:                                               ; preds = %30, %29, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %48 = load i1, ptr %6, align 1
+  ret i1 %48
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @ehooks_decommit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #3 {
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i8, align 1
+  store ptr %0, ptr %8, align 8, !tbaa !9
+  store ptr %1, ptr %9, align 8, !tbaa !41
+  store ptr %2, ptr %10, align 8, !tbaa !47
+  store i64 %3, ptr %11, align 8, !tbaa !17
+  store i64 %4, ptr %12, align 8, !tbaa !17
+  store i64 %5, ptr %13, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %17 = load ptr, ptr %9, align 8, !tbaa !41
+  %18 = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %17)
+  store ptr %18, ptr %14, align 8, !tbaa !13
+  %19 = load ptr, ptr %14, align 8, !tbaa !13
+  %20 = icmp eq ptr %19, @je_ehooks_default_extent_hooks
+  br i1 %20, label %21, label %26
+
+21:                                               ; preds = %6
+  %22 = load ptr, ptr %10, align 8, !tbaa !47
+  %23 = load i64, ptr %12, align 8, !tbaa !17
+  %24 = load i64, ptr %13, align 8, !tbaa !17
+  %25 = call zeroext i1 @je_ehooks_default_decommit_impl(ptr noundef %22, i64 noundef %23, i64 noundef %24)
+  store i1 %25, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  br label %49
+
+26:                                               ; preds = %6
+  %27 = load ptr, ptr %14, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %27, i32 0, i32 4
+  %29 = load ptr, ptr %28, align 8, !tbaa !75
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %26
+  store i1 true, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  br label %49
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @ehooks_pre_reentrancy(ptr noundef %33)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #8
+  %34 = load ptr, ptr %14, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %34, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8, !tbaa !75
+  %37 = load ptr, ptr %14, align 8, !tbaa !13
+  %38 = load ptr, ptr %10, align 8, !tbaa !47
+  %39 = load i64, ptr %11, align 8, !tbaa !17
+  %40 = load i64, ptr %12, align 8, !tbaa !17
+  %41 = load i64, ptr %13, align 8, !tbaa !17
+  %42 = load ptr, ptr %9, align 8, !tbaa !41
+  %43 = call i32 @ehooks_ind_get(ptr noundef %42)
+  %44 = call zeroext i1 %36(ptr noundef %37, ptr noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, i32 noundef %43)
+  %45 = zext i1 %44 to i8
+  store i8 %45, ptr %16, align 1, !tbaa !15
+  %46 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @ehooks_post_reentrancy(ptr noundef %46)
+  %47 = load i8, ptr %16, align 1, !tbaa !15, !range !19, !noundef !20
+  %48 = trunc i8 %47 to i1
+  store i1 %48, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #8
+  br label %49
+
+49:                                               ; preds = %32, %31, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %50 = load i1, ptr %7, align 1
+  ret i1 %50
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @ehooks_purge_forced(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #3 {
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i8, align 1
+  store ptr %0, ptr %8, align 8, !tbaa !9
+  store ptr %1, ptr %9, align 8, !tbaa !41
+  store ptr %2, ptr %10, align 8, !tbaa !47
+  store i64 %3, ptr %11, align 8, !tbaa !17
+  store i64 %4, ptr %12, align 8, !tbaa !17
+  store i64 %5, ptr %13, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %17 = load ptr, ptr %9, align 8, !tbaa !41
+  %18 = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %17)
+  store ptr %18, ptr %14, align 8, !tbaa !13
+  %19 = load ptr, ptr %14, align 8, !tbaa !13
+  %20 = icmp eq ptr %19, @je_ehooks_default_extent_hooks
+  br i1 %20, label %21, label %26
+
+21:                                               ; preds = %6
+  %22 = load ptr, ptr %10, align 8, !tbaa !47
+  %23 = load i64, ptr %12, align 8, !tbaa !17
+  %24 = load i64, ptr %13, align 8, !tbaa !17
+  %25 = call zeroext i1 @je_ehooks_default_purge_forced_impl(ptr noundef %22, i64 noundef %23, i64 noundef %24)
+  store i1 %25, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  br label %49
+
+26:                                               ; preds = %6
+  %27 = load ptr, ptr %14, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %27, i32 0, i32 6
+  %29 = load ptr, ptr %28, align 8, !tbaa !76
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %26
+  store i1 true, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  br label %49
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @ehooks_pre_reentrancy(ptr noundef %33)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #8
+  %34 = load ptr, ptr %14, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %34, i32 0, i32 6
+  %36 = load ptr, ptr %35, align 8, !tbaa !76
+  %37 = load ptr, ptr %14, align 8, !tbaa !13
+  %38 = load ptr, ptr %10, align 8, !tbaa !47
+  %39 = load i64, ptr %11, align 8, !tbaa !17
+  %40 = load i64, ptr %12, align 8, !tbaa !17
+  %41 = load i64, ptr %13, align 8, !tbaa !17
+  %42 = load ptr, ptr %9, align 8, !tbaa !41
+  %43 = call i32 @ehooks_ind_get(ptr noundef %42)
+  %44 = call zeroext i1 %36(ptr noundef %37, ptr noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, i32 noundef %43)
+  %45 = zext i1 %44 to i8
+  store i8 %45, ptr %16, align 1, !tbaa !15
+  %46 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @ehooks_post_reentrancy(ptr noundef %46)
+  %47 = load i8, ptr %16, align 1, !tbaa !15, !range !19, !noundef !20
+  %48 = trunc i8 %47 to i1
+  store i1 %48, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #8
+  br label %49
+
+49:                                               ; preds = %32, %31, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %50 = load i1, ptr %7, align 1
+  ret i1 %50
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @ehooks_purge_lazy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #3 {
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i8, align 1
+  store ptr %0, ptr %8, align 8, !tbaa !9
+  store ptr %1, ptr %9, align 8, !tbaa !41
+  store ptr %2, ptr %10, align 8, !tbaa !47
+  store i64 %3, ptr %11, align 8, !tbaa !17
+  store i64 %4, ptr %12, align 8, !tbaa !17
+  store i64 %5, ptr %13, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %17 = load ptr, ptr %9, align 8, !tbaa !41
+  %18 = call ptr @ehooks_get_extent_hooks_ptr(ptr noundef %17)
+  store ptr %18, ptr %14, align 8, !tbaa !13
+  %19 = load ptr, ptr %14, align 8, !tbaa !13
+  %20 = icmp eq ptr %19, @je_ehooks_default_extent_hooks
+  br i1 %20, label %21, label %26
+
+21:                                               ; preds = %6
+  %22 = load ptr, ptr %10, align 8, !tbaa !47
+  %23 = load i64, ptr %12, align 8, !tbaa !17
+  %24 = load i64, ptr %13, align 8, !tbaa !17
+  %25 = call zeroext i1 @je_ehooks_default_purge_lazy_impl(ptr noundef %22, i64 noundef %23, i64 noundef %24)
+  store i1 %25, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  br label %49
+
+26:                                               ; preds = %6
+  %27 = load ptr, ptr %14, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %27, i32 0, i32 5
+  %29 = load ptr, ptr %28, align 8, !tbaa !77
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %26
+  store i1 true, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  br label %49
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @ehooks_pre_reentrancy(ptr noundef %33)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #8
+  %34 = load ptr, ptr %14, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.extent_hooks_s, ptr %34, i32 0, i32 5
+  %36 = load ptr, ptr %35, align 8, !tbaa !77
+  %37 = load ptr, ptr %14, align 8, !tbaa !13
+  %38 = load ptr, ptr %10, align 8, !tbaa !47
+  %39 = load i64, ptr %11, align 8, !tbaa !17
+  %40 = load i64, ptr %12, align 8, !tbaa !17
+  %41 = load i64, ptr %13, align 8, !tbaa !17
+  %42 = load ptr, ptr %9, align 8, !tbaa !41
+  %43 = call i32 @ehooks_ind_get(ptr noundef %42)
+  %44 = call zeroext i1 %36(ptr noundef %37, ptr noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, i32 noundef %43)
+  %45 = zext i1 %44 to i8
+  store i8 %45, ptr %16, align 1, !tbaa !15
+  %46 = load ptr, ptr %8, align 8, !tbaa !9
+  call void @ehooks_post_reentrancy(ptr noundef %46)
+  %47 = load i8, ptr %16, align 1, !tbaa !15, !range !19, !noundef !20
+  %48 = trunc i8 %47 to i1
+  store i1 %48, ptr %7, align 1
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #8
+  br label %49
+
+49:                                               ; preds = %32, %31, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %50 = load i1, ptr %7, align 1
+  ret i1 %50
+}
+
+declare zeroext i1 @je_pages_nohuge(ptr noundef, i64 noundef) #2
+
+declare zeroext i1 @je_ehooks_default_dalloc_impl(ptr noundef, i64 noundef) #2
+
+declare zeroext i1 @je_ehooks_default_decommit_impl(ptr noundef, i64 noundef, i64 noundef) #2
+
+declare zeroext i1 @je_ehooks_default_purge_forced_impl(ptr noundef, i64 noundef, i64 noundef) #2
+
+declare zeroext i1 @je_ehooks_default_purge_lazy_impl(ptr noundef, i64 noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @metadata_thp_enabled() #3 {
+  %1 = load i32, ptr @je_opt_metadata_thp, align 4, !tbaa !11
+  %2 = icmp ne i32 %1, 0
+  ret i1 %2
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @sz_size2index(i64 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !17
+  %4 = load i64, ptr %3, align 8, !tbaa !17
+  %5 = icmp ule i64 %4, 4096
+  %6 = xor i1 %5, true
+  %7 = xor i1 %6, true
+  %8 = zext i1 %7 to i32
+  %9 = sext i32 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 1)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %1
+  %13 = load i64, ptr %3, align 8, !tbaa !17
+  %14 = call i32 @sz_size2index_lookup(i64 noundef %13)
+  store i32 %14, ptr %2, align 4
+  br label %18
+
+15:                                               ; preds = %1
+  %16 = load i64, ptr %3, align 8, !tbaa !17
+  %17 = call i32 @sz_size2index_compute(i64 noundef %16)
+  store i32 %17, ptr %2, align 4
+  br label %18
+
+18:                                               ; preds = %15, %12
+  %19 = load i32, ptr %2, align 4
+  ret i32 %19
+}
+
+declare void @je_edata_heap_insert(ptr noundef, ptr noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @sz_size2index_lookup(i64 noundef %0) #4 {
+  %2 = alloca i64, align 8
+  %3 = alloca i32, align 4
+  store i64 %0, ptr %2, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %4 = load i64, ptr %2, align 8, !tbaa !17
+  %5 = call i32 @sz_size2index_lookup_impl(i64 noundef %4)
+  store i32 %5, ptr %3, align 4, !tbaa !11
+  br label %6
+
+6:                                                ; preds = %1
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = load i32, ptr %3, align 4, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %9
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @sz_size2index_compute(i64 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  %3 = alloca i64, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store i64 %0, ptr %3, align 8, !tbaa !17
+  %11 = load i64, ptr %3, align 8, !tbaa !17
+  %12 = icmp ugt i64 %11, 8070450532247928832
+  %13 = xor i1 %12, true
+  %14 = xor i1 %13, true
+  %15 = zext i1 %14 to i32
+  %16 = sext i32 %15 to i64
+  %17 = call i64 @llvm.expect.i64(i64 %16, i64 0)
+  %18 = icmp ne i64 %17, 0
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %1
+  store i32 235, ptr %2, align 4
+  br label %65
+
+20:                                               ; preds = %1
+  %21 = load i64, ptr %3, align 8, !tbaa !17
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %20
+  store i32 0, ptr %2, align 4
+  br label %65
+
+24:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  %25 = load i64, ptr %3, align 8, !tbaa !17
+  %26 = shl i64 %25, 1
+  %27 = sub i64 %26, 1
+  %28 = call i32 @lg_floor(i64 noundef %27)
+  store i32 %28, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %29 = load i32, ptr %4, align 4, !tbaa !11
+  %30 = icmp ult i32 %29, 5
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %24
+  br label %35
+
+32:                                               ; preds = %24
+  %33 = load i32, ptr %4, align 4, !tbaa !11
+  %34 = sub i32 %33, 5
+  br label %35
+
+35:                                               ; preds = %32, %31
+  %36 = phi i32 [ 0, %31 ], [ %34, %32 ]
+  store i32 %36, ptr %5, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %37 = load i32, ptr %5, align 4, !tbaa !11
+  %38 = shl i32 %37, 2
+  store i32 %38, ptr %6, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %39 = load i32, ptr %4, align 4, !tbaa !11
+  %40 = icmp ult i32 %39, 6
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %35
+  br label %46
+
+42:                                               ; preds = %35
+  %43 = load i32, ptr %4, align 4, !tbaa !11
+  %44 = sub i32 %43, 2
+  %45 = sub i32 %44, 1
+  br label %46
+
+46:                                               ; preds = %42, %41
+  %47 = phi i32 [ 3, %41 ], [ %45, %42 ]
+  store i32 %47, ptr %7, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  %48 = load i32, ptr %7, align 4, !tbaa !11
+  %49 = zext i32 %48 to i64
+  %50 = shl i64 -1, %49
+  store i64 %50, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  %51 = load i64, ptr %3, align 8, !tbaa !17
+  %52 = sub i64 %51, 1
+  %53 = load i64, ptr %8, align 8, !tbaa !17
+  %54 = and i64 %52, %53
+  %55 = load i32, ptr %7, align 4, !tbaa !11
+  %56 = zext i32 %55 to i64
+  %57 = lshr i64 %54, %56
+  %58 = and i64 %57, 3
+  %59 = trunc i64 %58 to i32
+  store i32 %59, ptr %9, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %60 = load i32, ptr %6, align 4, !tbaa !11
+  %61 = add i32 0, %60
+  %62 = load i32, ptr %9, align 4, !tbaa !11
+  %63 = add i32 %61, %62
+  store i32 %63, ptr %10, align 4, !tbaa !11
+  %64 = load i32, ptr %10, align 4, !tbaa !11
+  store i32 %64, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  br label %65
+
+65:                                               ; preds = %46, %23, %19
+  %66 = load i32, ptr %2, align 4
+  ret i32 %66
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @sz_size2index_lookup_impl(i64 noundef %0) #4 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !17
+  br label %3
+
+3:                                                ; preds = %1
+  br label %4
+
+4:                                                ; preds = %3
+  %5 = load i64, ptr %2, align 8, !tbaa !17
+  %6 = add i64 %5, 8
+  %7 = sub i64 %6, 1
+  %8 = lshr i64 %7, 3
+  %9 = getelementptr inbounds nuw [0 x i8], ptr @je_sz_size2index_tab, i64 0, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !54
+  %11 = zext i8 %10 to i32
+  ret i32 %11
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal ptr @atomic_load_p(ptr noundef %0, i32 noundef %1) #4 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !47
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !47
+  %7 = getelementptr inbounds nuw %struct.atomic_p_t, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %4, align 4, !tbaa !11
+  %9 = call i32 @atomic_enum_to_builtin(i32 noundef %8)
+  switch i32 %9, label %10 [
+    i32 1, label %12
+    i32 2, label %12
+    i32 5, label %14
+  ]
+
+10:                                               ; preds = %2
+  %11 = load atomic i64, ptr %7 monotonic, align 8
+  store i64 %11, ptr %5, align 8
+  br label %16
+
+12:                                               ; preds = %2, %2
+  %13 = load atomic i64, ptr %7 acquire, align 8
+  store i64 %13, ptr %5, align 8
+  br label %16
+
+14:                                               ; preds = %2
+  %15 = load atomic i64, ptr %7 seq_cst, align 8
+  store i64 %15, ptr %5, align 8
+  br label %16
+
+16:                                               ; preds = %14, %12, %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %17
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @atomic_enum_to_builtin(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !11
+  %4 = load i32, ptr %3, align 4, !tbaa !11
+  switch i32 %4, label %10 [
+    i32 0, label %5
+    i32 1, label %6
+    i32 2, label %7
+    i32 3, label %8
+    i32 4, label %9
+  ]
+
+5:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %12
+
+6:                                                ; preds = %1
+  store i32 2, ptr %2, align 4
+  br label %12
+
+7:                                                ; preds = %1
+  store i32 3, ptr %2, align 4
+  br label %12
+
+8:                                                ; preds = %1
+  store i32 4, ptr %2, align 4
+  br label %12
+
+9:                                                ; preds = %1
+  store i32 5, ptr %2, align 4
+  br label %12
+
+10:                                               ; preds = %1
+  br label %11
+
+11:                                               ; preds = %10
+  unreachable
+
+12:                                               ; preds = %5, %6, %7, %8, %9
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
+}
+
+declare ptr @je_edata_heap_remove_first(ptr noundef) #2
+
 ; Function Attrs: nounwind uwtable
-define internal void @witness_lock(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
+define internal ptr @base_extent_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store i64 %2, ptr %8, align 8, !tbaa !17
+  store i64 %3, ptr %9, align 8, !tbaa !17
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = load ptr, ptr %7, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.base_s, ptr %14, i32 0, i32 2
+  call void @malloc_mutex_assert_owner(ptr noundef %13, ptr noundef %15)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %16 = load ptr, ptr %7, align 8, !tbaa !4
+  %17 = call ptr @je_base_ehooks_get_for_metadata(ptr noundef %16)
+  store ptr %17, ptr %10, align 8, !tbaa !41
+  %18 = load ptr, ptr %6, align 8, !tbaa !9
+  %19 = load ptr, ptr %7, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.base_s, ptr %19, i32 0, i32 2
+  call void @malloc_mutex_unlock(ptr noundef %18, ptr noundef %20)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %21 = load ptr, ptr %6, align 8, !tbaa !9
+  %22 = load ptr, ptr %7, align 8, !tbaa !4
+  %23 = load ptr, ptr %10, align 8, !tbaa !41
+  %24 = load ptr, ptr %7, align 8, !tbaa !4
+  %25 = call i32 @base_ind_get(ptr noundef %24)
+  %26 = load ptr, ptr %7, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw %struct.base_s, ptr %26, i32 0, i32 4
+  %28 = load ptr, ptr %7, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.base_s, ptr %28, i32 0, i32 5
+  %30 = load i64, ptr %8, align 8, !tbaa !17
+  %31 = load i64, ptr %9, align 8, !tbaa !17
+  %32 = call ptr @base_block_alloc(ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %25, ptr noundef %27, ptr noundef %29, i64 noundef %30, i64 noundef %31)
+  store ptr %32, ptr %11, align 8, !tbaa !21
+  %33 = load ptr, ptr %6, align 8, !tbaa !9
+  %34 = load ptr, ptr %7, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.base_s, ptr %34, i32 0, i32 2
+  call void @malloc_mutex_lock(ptr noundef %33, ptr noundef %35)
+  %36 = load ptr, ptr %11, align 8, !tbaa !21
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %92
+
+39:                                               ; preds = %4
+  %40 = load ptr, ptr %7, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.base_s, ptr %40, i32 0, i32 6
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
+  %43 = load ptr, ptr %11, align 8, !tbaa !21
+  %44 = getelementptr inbounds nuw %struct.base_block_s, ptr %43, i32 0, i32 1
+  store ptr %42, ptr %44, align 8, !tbaa !48
+  %45 = load ptr, ptr %11, align 8, !tbaa !21
+  %46 = load ptr, ptr %7, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.base_s, ptr %46, i32 0, i32 6
+  store ptr %45, ptr %47, align 8, !tbaa !33
+  %48 = load ptr, ptr %7, align 8, !tbaa !4
+  %49 = getelementptr inbounds nuw %struct.base_s, ptr %48, i32 0, i32 8
+  %50 = load i64, ptr %49, align 8, !tbaa !37
+  %51 = add i64 %50, 144
+  store i64 %51, ptr %49, align 8, !tbaa !37
+  %52 = load ptr, ptr %7, align 8, !tbaa !4
+  %53 = getelementptr inbounds nuw %struct.base_s, ptr %52, i32 0, i32 9
+  %54 = load i64, ptr %53, align 8, !tbaa !38
+  %55 = add i64 %54, 4096
+  store i64 %55, ptr %53, align 8, !tbaa !38
+  %56 = load ptr, ptr %11, align 8, !tbaa !21
+  %57 = getelementptr inbounds nuw %struct.base_block_s, ptr %56, i32 0, i32 0
+  %58 = load i64, ptr %57, align 8, !tbaa !23
+  %59 = load ptr, ptr %7, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw %struct.base_s, ptr %59, i32 0, i32 10
+  %61 = load i64, ptr %60, align 8, !tbaa !39
+  %62 = add i64 %61, %58
+  store i64 %62, ptr %60, align 8, !tbaa !39
+  %63 = call zeroext i1 @metadata_thp_madvise()
+  br i1 %63, label %64, label %80
+
+64:                                               ; preds = %39
+  %65 = load i32, ptr @je_opt_metadata_thp, align 4, !tbaa !11
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %67, label %72
+
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %7, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw %struct.base_s, ptr %68, i32 0, i32 3
+  %70 = load i8, ptr %69, align 8, !tbaa !34, !range !19, !noundef !20
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %80
+
+72:                                               ; preds = %67, %64
+  br label %73
+
+73:                                               ; preds = %72
+  br label %74
+
+74:                                               ; preds = %73
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %7, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw %struct.base_s, ptr %76, i32 0, i32 11
+  %78 = load i64, ptr %77, align 8, !tbaa !40
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %77, align 8, !tbaa !40
+  br label %80
+
+80:                                               ; preds = %75, %67, %39
+  br label %81
+
+81:                                               ; preds = %80
+  br label %82
+
+82:                                               ; preds = %81
+  br label %83
+
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83
+  br label %85
+
+85:                                               ; preds = %84
+  br label %86
+
+86:                                               ; preds = %85
+  br label %87
+
+87:                                               ; preds = %86
+  br label %88
+
+88:                                               ; preds = %87
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %11, align 8, !tbaa !21
+  %91 = getelementptr inbounds nuw %struct.base_block_s, ptr %90, i32 0, i32 2
+  store ptr %91, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %92
+
+92:                                               ; preds = %89, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  %93 = load ptr, ptr %5, align 8
+  ret ptr %93
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @base_extent_bump_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !49
+  store i64 %2, ptr %7, align 8, !tbaa !17
+  store i64 %3, ptr %8, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %11 = load ptr, ptr %6, align 8, !tbaa !49
+  %12 = load i64, ptr %7, align 8, !tbaa !17
+  %13 = load i64, ptr %8, align 8, !tbaa !17
+  %14 = call ptr @base_extent_bump_alloc_helper(ptr noundef %11, ptr noundef %10, i64 noundef %12, i64 noundef %13)
+  store ptr %14, ptr %9, align 8, !tbaa !47
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = load ptr, ptr %6, align 8, !tbaa !49
+  %17 = load i64, ptr %10, align 8, !tbaa !17
+  %18 = load ptr, ptr %9, align 8, !tbaa !47
+  %19 = load i64, ptr %7, align 8, !tbaa !17
+  call void @base_extent_bump_alloc_post(ptr noundef %15, ptr noundef %16, i64 noundef %17, ptr noundef %18, i64 noundef %19)
+  %20 = load ptr, ptr %9, align 8, !tbaa !47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret ptr %20
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_assert_not_owner(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !69
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @malloc_mutex_trylock_final(ptr noundef %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8, !tbaa !55
+  %4 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.anon.5, ptr %4, i32 0, i32 1
+  %6 = call i32 @pthread_mutex_trylock(ptr noundef %5) #8
+  %7 = icmp ne i32 %6, 0
+  ret i1 %7
+}
+
+declare void @je_malloc_mutex_lock_slow(ptr noundef) #2
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @atomic_store_b(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !47
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %5, align 1, !tbaa !15
+  store i32 %2, ptr %6, align 4, !tbaa !11
+  %8 = load ptr, ptr %4, align 8, !tbaa !47
+  %9 = getelementptr inbounds nuw %struct.atomic_b_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %6, align 4, !tbaa !11
+  %11 = call i32 @atomic_enum_to_builtin(i32 noundef %10)
+  switch i32 %11, label %12 [
+    i32 3, label %14
+    i32 5, label %16
+  ]
+
+12:                                               ; preds = %3
+  %13 = load i8, ptr %5, align 1
+  store atomic i8 %13, ptr %9 monotonic, align 1
+  br label %18
+
+14:                                               ; preds = %3
+  %15 = load i8, ptr %5, align 1
+  store atomic i8 %15, ptr %9 release, align 1
+  br label %18
+
+16:                                               ; preds = %3
+  %17 = load i8, ptr %5, align 1
+  store atomic i8 %17, ptr %9 seq_cst, align 1
+  br label %18
+
+18:                                               ; preds = %16, %14, %12
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @mutex_owner_stats_update(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !9
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %4, align 8, !tbaa !55
+  %7 = getelementptr inbounds nuw %struct.malloc_mutex_s, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.anon.5, ptr %7, i32 0, i32 0
+  store ptr %8, ptr %5, align 8, !tbaa !47
+  %9 = load ptr, ptr %5, align 8, !tbaa !47
+  %10 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %9, i32 0, i32 8
+  %11 = load i64, ptr %10, align 8, !tbaa !78
+  %12 = add i64 %11, 1
+  store i64 %12, ptr %10, align 8, !tbaa !78
+  %13 = load ptr, ptr %5, align 8, !tbaa !47
+  %14 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8, !tbaa !82
+  %16 = load ptr, ptr %3, align 8, !tbaa !9
+  %17 = icmp ne ptr %15, %16
+  br i1 %17, label %18, label %26
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !9
+  %20 = load ptr, ptr %5, align 8, !tbaa !47
+  %21 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %20, i32 0, i32 7
+  store ptr %19, ptr %21, align 8, !tbaa !82
+  %22 = load ptr, ptr %5, align 8, !tbaa !47
+  %23 = getelementptr inbounds nuw %struct.mutex_prof_data_t, ptr %22, i32 0, i32 6
+  %24 = load i64, ptr %23, align 8, !tbaa !83
+  %25 = add i64 %24, 1
+  store i64 %25, ptr %23, align 8, !tbaa !83
+  br label %26
+
+26:                                               ; preds = %18, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_lock(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) #3
+declare i32 @pthread_mutex_trylock(ptr noundef) #7
 
-; Function Attrs: nounwind uwtable
-define internal void @witness_unlock(ptr noundef %witness_tsdn, ptr noundef %witness) #0 {
-entry:
-  %witness_tsdn.addr = alloca ptr, align 8
-  %witness.addr = alloca ptr, align 8
-  store ptr %witness_tsdn, ptr %witness_tsdn.addr, align 8
-  store ptr %witness, ptr %witness.addr, align 8
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @witness_unlock(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #3
+declare i32 @pthread_mutex_unlock(ptr noundef) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS6base_s", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS6tsdn_s", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS14extent_hooks_s", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"_Bool", !7, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS12base_block_s", !6, i64 0}
+!23 = !{!24, !18, i64 0}
+!24 = !{!"base_block_s", !18, i64 0, !22, i64 8, !25, i64 16}
+!25 = !{!"edata_s", !18, i64 0, !6, i64 8, !7, i64 16, !26, i64 24, !18, i64 32, !7, i64 40, !7, i64 64}
+!26 = !{!"p1 _ZTS8hpdata_s", !6, i64 0}
+!27 = !{!28, !12, i64 148}
+!28 = !{!"base_s", !29, i64 0, !29, i64 16, !31, i64 32, !16, i64 144, !12, i64 148, !18, i64 152, !22, i64 160, !7, i64 168, !18, i64 3928, !18, i64 3936, !18, i64 3944, !18, i64 3952}
+!29 = !{!"ehooks_s", !12, i64 0, !30, i64 8}
+!30 = !{!"", !6, i64 0}
+!31 = !{!"malloc_mutex_s", !7, i64 0}
+!32 = !{!28, !18, i64 152}
+!33 = !{!28, !22, i64 160}
+!34 = !{!28, !16, i64 144}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.mustprogress"}
+!37 = !{!28, !18, i64 3928}
+!38 = !{!28, !18, i64 3936}
+!39 = !{!28, !18, i64 3944}
+!40 = !{!28, !18, i64 3952}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS8ehooks_s", !6, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 int", !6, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 long", !6, i64 0}
+!47 = !{!6, !6, i64 0}
+!48 = !{!24, !22, i64 8}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS7edata_s", !6, i64 0}
+!51 = distinct !{!51, !36}
+!52 = !{!29, !12, i64 0}
+!53 = distinct !{!53, !36}
+!54 = !{!7, !7, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS14malloc_mutex_s", !6, i64 0}
+!57 = distinct !{!57, !36}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _Bool", !6, i64 0}
+!60 = !{!61, !6, i64 0}
+!61 = !{!"extent_hooks_s", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS5tsd_s", !6, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 omnipotent char", !6, i64 0}
+!66 = distinct !{!66, !36}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS14witness_tsdn_s", !6, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTS9witness_s", !6, i64 0}
+!71 = !{!25, !18, i64 0}
+!72 = !{!25, !6, i64 8}
+!73 = !{!25, !18, i64 32}
+!74 = !{!61, !6, i64 8}
+!75 = !{!61, !6, i64 32}
+!76 = !{!61, !6, i64 48}
+!77 = !{!61, !6, i64 40}
+!78 = !{!79, !18, i64 56}
+!79 = !{!"", !80, i64 0, !80, i64 8, !18, i64 16, !18, i64 24, !12, i64 32, !81, i64 36, !18, i64 40, !10, i64 48, !18, i64 56}
+!80 = !{!"", !18, i64 0}
+!81 = !{!"", !12, i64 0}
+!82 = !{!79, !10, i64 48}
+!83 = !{!79, !18, i64 40}
