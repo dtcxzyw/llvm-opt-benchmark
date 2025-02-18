@@ -83,6 +83,7 @@ supported_project = [
     "draco",
     "duckdb",
     "entt",
+    "faiss",
 ]
 
 modify_only = [
