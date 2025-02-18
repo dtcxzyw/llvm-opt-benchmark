@@ -61,6 +61,7 @@ def guess_language(dir):
             subdir == "original"
             or subdir == "optimized"
             or subdir == "contrib"
+            or subdir == "bench_build"
             or subdir == "build.sh"
         ):
             continue
