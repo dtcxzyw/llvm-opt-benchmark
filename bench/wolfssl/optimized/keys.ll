@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/wolfssl/original/keys.ll'
 source_filename = "bench/wolfssl/original/keys.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 %struct.wc_Sha = type { i32, i32, i32, [16 x i32], [5 x i32], ptr }
@@ -13,2070 +13,2162 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [10 x i8] c"IIIIIIIII\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -500, 1) i32 @SetCipherSpecs(ptr noundef %ssl) local_unnamed_addr #0 {
-entry:
-  %options = getelementptr inbounds nuw i8, ptr %ssl, i64 1000
-  %side = getelementptr inbounds nuw i8, ptr %ssl, i64 1008
-  %bf.load = load i64, ptr %side, align 8
-  %0 = trunc i64 %bf.load to i16
-  %1 = lshr i16 %0, 4
-  %bf.cast = and i16 %1, 3
-  %cipherSuite0 = getelementptr inbounds nuw i8, ptr %ssl, i64 1017
-  %2 = load i8, ptr %cipherSuite0, align 1
-  %cipherSuite = getelementptr inbounds nuw i8, ptr %ssl, i64 1018
-  %3 = load i8, ptr %cipherSuite, align 2
-  %specs = getelementptr inbounds nuw i8, ptr %ssl, i64 698
-  %call = tail call i32 @GetCipherSpec(i16 noundef zeroext %bf.cast, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef nonnull %specs, ptr noundef nonnull %options)
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end48
+define range(i32 -500, 1) i32 @SetCipherSpecs(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %4 = load i64, ptr %3, align 8
+  %5 = trunc i64 %4 to i16
+  %6 = lshr i16 %5, 4
+  %7 = and i16 %6, 3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1037
+  %9 = load i8, ptr %8, align 1, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1038
+  %11 = load i8, ptr %10, align 2, !tbaa !43
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 714
+  %13 = tail call i32 @GetCipherSpec(i16 noundef zeroext %7, i8 noundef zeroext %9, i8 noundef zeroext %11, ptr noundef nonnull %12, ptr noundef nonnull %2)
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %40
 
-if.then:                                          ; preds = %entry
-  %version = getelementptr inbounds nuw i8, ptr %ssl, i64 694
-  %4 = load i8, ptr %version, align 2
-  %cmp4 = icmp eq i8 %4, 3
-  br i1 %cmp4, label %land.lhs.true, label %if.end35
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 710
+  %17 = load i8, ptr %16, align 2, !tbaa !44
+  %18 = icmp eq i8 %17, 3
+  br i1 %18, label %19, label %31
 
-land.lhs.true:                                    ; preds = %if.then
-  %minor = getelementptr inbounds nuw i8, ptr %ssl, i64 695
-  %5 = load i8, ptr %minor, align 1
-  %cmp8.not = icmp eq i8 %5, 0
-  br i1 %cmp8.not, label %if.end35, label %if.then10
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 711
+  %21 = load i8, ptr %20, align 1, !tbaa !45
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %31, label %22
 
-if.then10:                                        ; preds = %land.lhs.true
-  %bf.load12 = load i64, ptr %side, align 8
-  %bf.set = or i64 %bf.load12, 16384
-  store i64 %bf.set, ptr %side, align 8
-  %hmac = getelementptr inbounds nuw i8, ptr %ssl, i64 248
-  store ptr @TLS_hmac, ptr %hmac, align 8
-  %cmp17.not = icmp eq i8 %5, 1
-  br i1 %cmp17.not, label %if.end35, label %if.then19
+22:                                               ; preds = %19
+  %23 = load i64, ptr %3, align 8
+  %24 = or i64 %23, 16384
+  store i64 %24, ptr %3, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store ptr @TLS_hmac, ptr %25, align 16, !tbaa !46
+  %.not19 = icmp eq i8 %21, 1
+  br i1 %.not19, label %31, label %26
 
-if.then19:                                        ; preds = %if.then10
-  %bf.set23 = or i64 %bf.load12, 49152
-  store i64 %bf.set23, ptr %side, align 8
-  %cmp27 = icmp ugt i8 %5, 3
-  br i1 %cmp27, label %if.then29, label %if.end35
+26:                                               ; preds = %22
+  %27 = or i64 %23, 49152
+  store i64 %27, ptr %3, align 8
+  %28 = icmp ugt i8 %21, 3
+  br i1 %28, label %29, label %31
 
-if.then29:                                        ; preds = %if.then19
-  %bf.set33 = or i64 %bf.load12, 114688
-  store i64 %bf.set33, ptr %side, align 8
-  br label %if.end35
+29:                                               ; preds = %26
+  %30 = or i64 %23, 114688
+  store i64 %30, ptr %3, align 8
+  br label %31
 
-if.end35:                                         ; preds = %if.then10, %if.then29, %if.then19, %land.lhs.true, %if.then
-  %6 = load i16, ptr %version, align 2
-  %call37 = tail call i32 @IsAtLeastTLSv1_3(i16 %6) #7
-  %tobool.not = icmp eq i32 %call37, 0
-  br i1 %tobool.not, label %lor.lhs.false, label %if.then42
+31:                                               ; preds = %22, %29, %26, %19, %15
+  %32 = load i16, ptr %16, align 2
+  %33 = tail call i32 @IsAtLeastTLSv1_3(i16 %32) #7
+  %.not17 = icmp eq i32 %33, 0
+  br i1 %.not17, label %34, label %37
 
-lor.lhs.false:                                    ; preds = %if.end35
-  %cipher_type = getelementptr inbounds nuw i8, ptr %ssl, i64 707
-  %7 = load i8, ptr %cipher_type, align 1
-  %cmp40.not = icmp eq i8 %7, 1
-  br i1 %cmp40.not, label %if.end48, label %if.then42
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %36 = load i8, ptr %35, align 1, !tbaa !47
+  %.not18 = icmp eq i8 %36, 1
+  br i1 %.not18, label %40, label %37
 
-if.then42:                                        ; preds = %lor.lhs.false, %if.end35
-  %bf.load44 = load i64, ptr %side, align 8
-  %bf.clear45 = and i64 %bf.load44, -36028797018963969
-  store i64 %bf.clear45, ptr %side, align 8
-  br label %if.end48
+37:                                               ; preds = %34, %31
+  %38 = load i64, ptr %3, align 8
+  %39 = and i64 %38, -9007199254740993
+  store i64 %39, ptr %3, align 8
+  br label %40
 
-if.end48:                                         ; preds = %lor.lhs.false, %if.then42, %entry
-  ret i32 %call
+40:                                               ; preds = %34, %37, %1
+  ret i32 %13
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -500, 1) i32 @GetCipherSpec(i16 noundef zeroext %side, i8 noundef zeroext %cipherSuite0, i8 noundef zeroext %cipherSuite, ptr noundef %specs, ptr noundef captures(address_is_null) %opts) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq i16 %side, 1
-  br i1 %cmp, label %if.then, label %if.end5
+define range(i32 -500, 1) i32 @GetCipherSpec(i16 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+  %6 = icmp eq i16 %0, 1
+  br i1 %6, label %7, label %9
 
-if.then:                                          ; preds = %entry
-  %call = tail call i32 @VerifyClientSuite(i16 noundef zeroext 0, i8 noundef zeroext %cipherSuite0, i8 noundef zeroext %cipherSuite) #7
-  %cmp2.not = icmp eq i32 %call, 1
-  br i1 %cmp2.not, label %if.end5, label %return
+7:                                                ; preds = %5
+  %8 = tail call i32 @VerifyClientSuite(i16 noundef zeroext 0, i8 noundef zeroext %1, i8 noundef zeroext %2) #7
+  %.not = icmp eq i32 %8, 1
+  br i1 %.not, label %9, label %.thread
 
-if.end5:                                          ; preds = %if.then, %entry
-  switch i8 %cipherSuite0, label %if.then366 [
-    i8 -52, label %if.then9
-    i8 -64, label %if.then126
-    i8 19, label %if.then284
-    i8 -48, label %if.end446
+9:                                                ; preds = %7, %5
+  switch i8 %1, label %285 [
+    i8 -52, label %10
+    i8 -64, label %107
+    i8 19, label %244
+    i8 -48, label %354
   ]
 
-if.then9:                                         ; preds = %if.end5
-  switch i8 %cipherSuite, label %return [
-    i8 19, label %sw.bb
-    i8 20, label %sw.bb15
-    i8 21, label %sw.bb36
-    i8 -88, label %sw.bb57
-    i8 -87, label %sw.bb78
-    i8 -86, label %sw.bb99
+10:                                               ; preds = %9
+  switch i8 %2, label %.thread [
+    i8 19, label %11
+    i8 20, label %27
+    i8 21, label %43
+    i8 -88, label %59
+    i8 -87, label %75
+    i8 -86, label %91
   ]
 
-sw.bb:                                            ; preds = %if.then9
-  %bulk_cipher_algorithm = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 9, ptr %bulk_cipher_algorithm, align 2
-  %cipher_type = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type, align 1
-  %mac_algorithm = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm, align 2
-  %kea = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea, align 1
-  %sig_algo = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo, align 2
-  %hash_size = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size, align 1
-  %pad_size = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size, align 2
-  %static_ecdh = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size, align 2
-  %iv_size = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size, align 2
-  %aead_mac_size = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size, align 2
-  %cmp11.not = icmp eq ptr %opts, null
-  br i1 %cmp11.not, label %return, label %if.then13
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 9, ptr %12, align 2, !tbaa !48
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %13, align 1, !tbaa !49
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %14, align 2, !tbaa !50
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %15, align 1, !tbaa !51
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %16, align 2, !tbaa !52
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %17, align 1, !tbaa !53
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %18, align 2, !tbaa !54
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %19, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %20, align 2, !tbaa !57
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %21, align 2, !tbaa !58
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %22, align 2, !tbaa !59
+  %.not362 = icmp eq ptr %4, null
+  br i1 %.not362, label %.thread, label %23
 
-if.then13:                                        ; preds = %sw.bb
-  %oldPoly = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  %bf.load = load i64, ptr %oldPoly, align 8
-  %bf.set = or i64 %bf.load, 17592186044416
-  store i64 %bf.set, ptr %oldPoly, align 8
-  br label %if.end446
+23:                                               ; preds = %11
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = load i64, ptr %24, align 8
+  %26 = or i64 %25, 4398046511104
+  store i64 %26, ptr %24, align 8
+  br label %354
 
-sw.bb15:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm16 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 9, ptr %bulk_cipher_algorithm16, align 2
-  %cipher_type17 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type17, align 1
-  %mac_algorithm18 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm18, align 2
-  %kea19 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea19, align 1
-  %sig_algo20 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 3, ptr %sig_algo20, align 2
-  %hash_size21 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size21, align 1
-  %pad_size22 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size22, align 2
-  %static_ecdh23 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh23, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size25 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size25, align 2
-  %iv_size26 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size26, align 2
-  %aead_mac_size27 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size27, align 2
-  %cmp28.not = icmp eq ptr %opts, null
-  br i1 %cmp28.not, label %return, label %if.then30
+27:                                               ; preds = %10
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 9, ptr %28, align 2, !tbaa !48
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %29, align 1, !tbaa !49
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %30, align 2, !tbaa !50
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %31, align 1, !tbaa !51
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 3, ptr %32, align 2, !tbaa !52
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %33, align 1, !tbaa !53
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %34, align 2, !tbaa !54
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %35, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %36, align 2, !tbaa !57
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %37, align 2, !tbaa !58
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %38, align 2, !tbaa !59
+  %.not361 = icmp eq ptr %4, null
+  br i1 %.not361, label %.thread, label %39
 
-if.then30:                                        ; preds = %sw.bb15
-  %oldPoly31 = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  %bf.load32 = load i64, ptr %oldPoly31, align 8
-  %bf.set34 = or i64 %bf.load32, 17592186044416
-  store i64 %bf.set34, ptr %oldPoly31, align 8
-  br label %if.end446
+39:                                               ; preds = %27
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %41 = load i64, ptr %40, align 8
+  %42 = or i64 %41, 4398046511104
+  store i64 %42, ptr %40, align 8
+  br label %354
 
-sw.bb36:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm37 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 9, ptr %bulk_cipher_algorithm37, align 2
-  %cipher_type38 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type38, align 1
-  %mac_algorithm39 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm39, align 2
-  %kea40 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 2, ptr %kea40, align 1
-  %sig_algo41 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo41, align 2
-  %hash_size42 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size42, align 1
-  %pad_size43 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size43, align 2
-  %static_ecdh44 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh44, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size46 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size46, align 2
-  %iv_size47 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size47, align 2
-  %aead_mac_size48 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size48, align 2
-  %cmp49.not = icmp eq ptr %opts, null
-  br i1 %cmp49.not, label %return, label %if.then51
+43:                                               ; preds = %10
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 9, ptr %44, align 2, !tbaa !48
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %45, align 1, !tbaa !49
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %46, align 2, !tbaa !50
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 2, ptr %47, align 1, !tbaa !51
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %48, align 2, !tbaa !52
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %49, align 1, !tbaa !53
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %50, align 2, !tbaa !54
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %51, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %52, align 2, !tbaa !57
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %53, align 2, !tbaa !58
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %54, align 2, !tbaa !59
+  %.not360 = icmp eq ptr %4, null
+  br i1 %.not360, label %.thread, label %55
 
-if.then51:                                        ; preds = %sw.bb36
-  %oldPoly52 = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  %bf.load53 = load i64, ptr %oldPoly52, align 8
-  %bf.set55 = or i64 %bf.load53, 17592186044416
-  store i64 %bf.set55, ptr %oldPoly52, align 8
-  br label %if.end446
+55:                                               ; preds = %43
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %57 = load i64, ptr %56, align 8
+  %58 = or i64 %57, 4398046511104
+  store i64 %58, ptr %56, align 8
+  br label %354
 
-sw.bb57:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm58 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 9, ptr %bulk_cipher_algorithm58, align 2
-  %cipher_type59 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type59, align 1
-  %mac_algorithm60 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm60, align 2
-  %kea61 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea61, align 1
-  %sig_algo62 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo62, align 2
-  %hash_size63 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size63, align 1
-  %pad_size64 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size64, align 2
-  %static_ecdh65 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh65, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size67 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size67, align 2
-  %iv_size68 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size68, align 2
-  %aead_mac_size69 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size69, align 2
-  %cmp70.not = icmp eq ptr %opts, null
-  br i1 %cmp70.not, label %return, label %if.then72
+59:                                               ; preds = %10
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 9, ptr %60, align 2, !tbaa !48
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %61, align 1, !tbaa !49
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %62, align 2, !tbaa !50
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %63, align 1, !tbaa !51
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %64, align 2, !tbaa !52
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %65, align 1, !tbaa !53
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %66, align 2, !tbaa !54
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %67, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %68, align 2, !tbaa !57
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %69, align 2, !tbaa !58
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %70, align 2, !tbaa !59
+  %.not359 = icmp eq ptr %4, null
+  br i1 %.not359, label %.thread, label %71
 
-if.then72:                                        ; preds = %sw.bb57
-  %oldPoly73 = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  %bf.load74 = load i64, ptr %oldPoly73, align 8
-  %bf.clear75 = and i64 %bf.load74, -17592186044417
-  store i64 %bf.clear75, ptr %oldPoly73, align 8
-  br label %if.end446
+71:                                               ; preds = %59
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %73 = load i64, ptr %72, align 8
+  %74 = and i64 %73, -4398046511105
+  store i64 %74, ptr %72, align 8
+  br label %354
 
-sw.bb78:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm79 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 9, ptr %bulk_cipher_algorithm79, align 2
-  %cipher_type80 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type80, align 1
-  %mac_algorithm81 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm81, align 2
-  %kea82 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea82, align 1
-  %sig_algo83 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 3, ptr %sig_algo83, align 2
-  %hash_size84 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size84, align 1
-  %pad_size85 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size85, align 2
-  %static_ecdh86 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh86, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size88 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size88, align 2
-  %iv_size89 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size89, align 2
-  %aead_mac_size90 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size90, align 2
-  %cmp91.not = icmp eq ptr %opts, null
-  br i1 %cmp91.not, label %return, label %if.then93
+75:                                               ; preds = %10
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 9, ptr %76, align 2, !tbaa !48
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %77, align 1, !tbaa !49
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %78, align 2, !tbaa !50
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %79, align 1, !tbaa !51
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 3, ptr %80, align 2, !tbaa !52
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %81, align 1, !tbaa !53
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %82, align 2, !tbaa !54
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %83, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %84, align 2, !tbaa !57
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %85, align 2, !tbaa !58
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %86, align 2, !tbaa !59
+  %.not358 = icmp eq ptr %4, null
+  br i1 %.not358, label %.thread, label %87
 
-if.then93:                                        ; preds = %sw.bb78
-  %oldPoly94 = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  %bf.load95 = load i64, ptr %oldPoly94, align 8
-  %bf.clear96 = and i64 %bf.load95, -17592186044417
-  store i64 %bf.clear96, ptr %oldPoly94, align 8
-  br label %if.end446
+87:                                               ; preds = %75
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = and i64 %89, -4398046511105
+  store i64 %90, ptr %88, align 8
+  br label %354
 
-sw.bb99:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm100 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 9, ptr %bulk_cipher_algorithm100, align 2
-  %cipher_type101 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type101, align 1
-  %mac_algorithm102 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm102, align 2
-  %kea103 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 2, ptr %kea103, align 1
-  %sig_algo104 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo104, align 2
-  %hash_size105 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size105, align 1
-  %pad_size106 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size106, align 2
-  %static_ecdh107 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh107, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size109 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size109, align 2
-  %iv_size110 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size110, align 2
-  %aead_mac_size111 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size111, align 2
-  %cmp112.not = icmp eq ptr %opts, null
-  br i1 %cmp112.not, label %return, label %if.then114
+91:                                               ; preds = %10
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 9, ptr %92, align 2, !tbaa !48
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %93, align 1, !tbaa !49
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %94, align 2, !tbaa !50
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 2, ptr %95, align 1, !tbaa !51
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %96, align 2, !tbaa !52
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %97, align 1, !tbaa !53
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %98, align 2, !tbaa !54
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %99, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %100, align 2, !tbaa !57
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %101, align 2, !tbaa !58
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %102, align 2, !tbaa !59
+  %.not357 = icmp eq ptr %4, null
+  br i1 %.not357, label %.thread, label %103
 
-if.then114:                                       ; preds = %sw.bb99
-  %oldPoly115 = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  %bf.load116 = load i64, ptr %oldPoly115, align 8
-  %bf.clear117 = and i64 %bf.load116, -17592186044417
-  store i64 %bf.clear117, ptr %oldPoly115, align 8
-  br label %if.end446
+103:                                              ; preds = %91
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %105 = load i64, ptr %104, align 8
+  %106 = and i64 %105, -4398046511105
+  store i64 %106, ptr %104, align 8
+  br label %354
 
-if.then126:                                       ; preds = %if.end5
-  switch i8 %cipherSuite, label %return [
-    i8 39, label %sw.bb128
-    i8 40, label %sw.bb140
-    i8 19, label %sw.bb152
-    i8 20, label %sw.bb164
-    i8 47, label %sw.bb176
-    i8 48, label %sw.bb189
-    i8 35, label %sw.bb202
-    i8 36, label %sw.bb214
-    i8 9, label %sw.bb226
-    i8 10, label %sw.bb238
-    i8 43, label %sw.bb250
-    i8 44, label %sw.bb263
+107:                                              ; preds = %9
+  switch i8 %2, label %.thread [
+    i8 39, label %108
+    i8 40, label %119
+    i8 19, label %130
+    i8 20, label %141
+    i8 47, label %152
+    i8 48, label %164
+    i8 35, label %176
+    i8 36, label %187
+    i8 9, label %198
+    i8 10, label %209
+    i8 43, label %220
+    i8 44, label %232
   ]
 
-sw.bb128:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm129 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm129, align 2
-  %cipher_type130 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type130, align 1
-  %mac_algorithm131 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm131, align 2
-  %kea132 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea132, align 1
-  %sig_algo133 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo133, align 2
-  %hash_size134 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size134, align 1
-  %pad_size135 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size135, align 2
-  %static_ecdh136 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh136, align 1
-  store i16 16, ptr %specs, align 2
-  %iv_size138 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size138, align 2
-  %block_size139 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size139, align 2
-  br label %if.end446
+108:                                              ; preds = %107
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %109, align 2, !tbaa !48
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %110, align 1, !tbaa !49
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %111, align 2, !tbaa !50
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %112, align 1, !tbaa !51
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %113, align 2, !tbaa !52
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %114, align 1, !tbaa !53
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %115, align 2, !tbaa !54
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %116, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %117, align 2, !tbaa !58
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %118, align 2, !tbaa !57
+  br label %354
 
-sw.bb140:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm141 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm141, align 2
-  %cipher_type142 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type142, align 1
-  %mac_algorithm143 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 5, ptr %mac_algorithm143, align 2
-  %kea144 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea144, align 1
-  %sig_algo145 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo145, align 2
-  %hash_size146 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 48, ptr %hash_size146, align 1
-  %pad_size147 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size147, align 2
-  %static_ecdh148 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh148, align 1
-  store i16 32, ptr %specs, align 2
-  %iv_size150 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size150, align 2
-  %block_size151 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size151, align 2
-  br label %if.end446
+119:                                              ; preds = %107
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %120, align 2, !tbaa !48
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %121, align 1, !tbaa !49
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 5, ptr %122, align 2, !tbaa !50
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %123, align 1, !tbaa !51
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %124, align 2, !tbaa !52
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 48, ptr %125, align 1, !tbaa !53
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %126, align 2, !tbaa !54
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %127, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %128, align 2, !tbaa !58
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %129, align 2, !tbaa !57
+  br label %354
 
-sw.bb152:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm153 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm153, align 2
-  %cipher_type154 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type154, align 1
-  %mac_algorithm155 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 2, ptr %mac_algorithm155, align 2
-  %kea156 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea156, align 1
-  %sig_algo157 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo157, align 2
-  %hash_size158 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 20, ptr %hash_size158, align 1
-  %pad_size159 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size159, align 2
-  %static_ecdh160 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh160, align 1
-  store i16 16, ptr %specs, align 2
-  %block_size162 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size162, align 2
-  %iv_size163 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size163, align 2
-  br label %if.end446
+130:                                              ; preds = %107
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %131, align 2, !tbaa !48
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %132, align 1, !tbaa !49
+  %133 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 2, ptr %133, align 2, !tbaa !50
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %134, align 1, !tbaa !51
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %135, align 2, !tbaa !52
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 20, ptr %136, align 1, !tbaa !53
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %137, align 2, !tbaa !54
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %138, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %139, align 2, !tbaa !57
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %140, align 2, !tbaa !58
+  br label %354
 
-sw.bb164:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm165 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm165, align 2
-  %cipher_type166 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type166, align 1
-  %mac_algorithm167 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 2, ptr %mac_algorithm167, align 2
-  %kea168 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea168, align 1
-  %sig_algo169 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo169, align 2
-  %hash_size170 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 20, ptr %hash_size170, align 1
-  %pad_size171 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size171, align 2
-  %static_ecdh172 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh172, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size174 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size174, align 2
-  %iv_size175 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size175, align 2
-  br label %if.end446
+141:                                              ; preds = %107
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %142, align 2, !tbaa !48
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %143, align 1, !tbaa !49
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 2, ptr %144, align 2, !tbaa !50
+  %145 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %145, align 1, !tbaa !51
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %146, align 2, !tbaa !52
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 20, ptr %147, align 1, !tbaa !53
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %148, align 2, !tbaa !54
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %149, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %150, align 2, !tbaa !57
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %151, align 2, !tbaa !58
+  br label %354
 
-sw.bb176:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm177 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 7, ptr %bulk_cipher_algorithm177, align 2
-  %cipher_type178 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type178, align 1
-  %mac_algorithm179 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm179, align 2
-  %kea180 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea180, align 1
-  %sig_algo181 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo181, align 2
-  %hash_size182 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size182, align 1
-  %pad_size183 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size183, align 2
-  %static_ecdh184 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh184, align 1
-  store i16 16, ptr %specs, align 2
-  %block_size186 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size186, align 2
-  %iv_size187 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 4, ptr %iv_size187, align 2
-  %aead_mac_size188 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size188, align 2
-  br label %if.end446
+152:                                              ; preds = %107
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 7, ptr %153, align 2, !tbaa !48
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %154, align 1, !tbaa !49
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %155, align 2, !tbaa !50
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %156, align 1, !tbaa !51
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %157, align 2, !tbaa !52
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %158, align 1, !tbaa !53
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %159, align 2, !tbaa !54
+  %160 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %160, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %161, align 2, !tbaa !57
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 4, ptr %162, align 2, !tbaa !58
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %163, align 2, !tbaa !59
+  br label %354
 
-sw.bb189:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm190 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 7, ptr %bulk_cipher_algorithm190, align 2
-  %cipher_type191 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type191, align 1
-  %mac_algorithm192 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 5, ptr %mac_algorithm192, align 2
-  %kea193 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea193, align 1
-  %sig_algo194 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo194, align 2
-  %hash_size195 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 48, ptr %hash_size195, align 1
-  %pad_size196 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size196, align 2
-  %static_ecdh197 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh197, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size199 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size199, align 2
-  %iv_size200 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 4, ptr %iv_size200, align 2
-  %aead_mac_size201 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size201, align 2
-  br label %if.end446
+164:                                              ; preds = %107
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 7, ptr %165, align 2, !tbaa !48
+  %166 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %166, align 1, !tbaa !49
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 5, ptr %167, align 2, !tbaa !50
+  %168 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %168, align 1, !tbaa !51
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %169, align 2, !tbaa !52
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 48, ptr %170, align 1, !tbaa !53
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %171, align 2, !tbaa !54
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %172, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %173, align 2, !tbaa !57
+  %174 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 4, ptr %174, align 2, !tbaa !58
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %175, align 2, !tbaa !59
+  br label %354
 
-sw.bb202:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm203 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm203, align 2
-  %cipher_type204 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type204, align 1
-  %mac_algorithm205 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm205, align 2
-  %kea206 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea206, align 1
-  %sig_algo207 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 3, ptr %sig_algo207, align 2
-  %hash_size208 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size208, align 1
-  %pad_size209 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size209, align 2
-  %static_ecdh210 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh210, align 1
-  store i16 16, ptr %specs, align 2
-  %iv_size212 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size212, align 2
-  %block_size213 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size213, align 2
-  br label %if.end446
+176:                                              ; preds = %107
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %177, align 2, !tbaa !48
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %178, align 1, !tbaa !49
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %179, align 2, !tbaa !50
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %180, align 1, !tbaa !51
+  %181 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 3, ptr %181, align 2, !tbaa !52
+  %182 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %182, align 1, !tbaa !53
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %183, align 2, !tbaa !54
+  %184 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %184, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %185, align 2, !tbaa !58
+  %186 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %186, align 2, !tbaa !57
+  br label %354
 
-sw.bb214:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm215 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm215, align 2
-  %cipher_type216 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type216, align 1
-  %mac_algorithm217 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 5, ptr %mac_algorithm217, align 2
-  %kea218 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea218, align 1
-  %sig_algo219 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 3, ptr %sig_algo219, align 2
-  %hash_size220 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 48, ptr %hash_size220, align 1
-  %pad_size221 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size221, align 2
-  %static_ecdh222 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh222, align 1
-  store i16 32, ptr %specs, align 2
-  %iv_size224 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size224, align 2
-  %block_size225 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size225, align 2
-  br label %if.end446
+187:                                              ; preds = %107
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %188, align 2, !tbaa !48
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %189, align 1, !tbaa !49
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 5, ptr %190, align 2, !tbaa !50
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %191, align 1, !tbaa !51
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 3, ptr %192, align 2, !tbaa !52
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 48, ptr %193, align 1, !tbaa !53
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %194, align 2, !tbaa !54
+  %195 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %195, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %196, align 2, !tbaa !58
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %197, align 2, !tbaa !57
+  br label %354
 
-sw.bb226:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm227 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm227, align 2
-  %cipher_type228 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type228, align 1
-  %mac_algorithm229 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 2, ptr %mac_algorithm229, align 2
-  %kea230 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea230, align 1
-  %sig_algo231 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 3, ptr %sig_algo231, align 2
-  %hash_size232 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 20, ptr %hash_size232, align 1
-  %pad_size233 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size233, align 2
-  %static_ecdh234 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh234, align 1
-  store i16 16, ptr %specs, align 2
-  %block_size236 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size236, align 2
-  %iv_size237 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size237, align 2
-  br label %if.end446
+198:                                              ; preds = %107
+  %199 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %199, align 2, !tbaa !48
+  %200 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %200, align 1, !tbaa !49
+  %201 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 2, ptr %201, align 2, !tbaa !50
+  %202 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %202, align 1, !tbaa !51
+  %203 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 3, ptr %203, align 2, !tbaa !52
+  %204 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 20, ptr %204, align 1, !tbaa !53
+  %205 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %205, align 2, !tbaa !54
+  %206 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %206, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %207 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %207, align 2, !tbaa !57
+  %208 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %208, align 2, !tbaa !58
+  br label %354
 
-sw.bb238:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm239 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm239, align 2
-  %cipher_type240 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type240, align 1
-  %mac_algorithm241 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 2, ptr %mac_algorithm241, align 2
-  %kea242 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea242, align 1
-  %sig_algo243 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 3, ptr %sig_algo243, align 2
-  %hash_size244 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 20, ptr %hash_size244, align 1
-  %pad_size245 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size245, align 2
-  %static_ecdh246 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh246, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size248 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size248, align 2
-  %iv_size249 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size249, align 2
-  br label %if.end446
+209:                                              ; preds = %107
+  %210 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %210, align 2, !tbaa !48
+  %211 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %211, align 1, !tbaa !49
+  %212 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 2, ptr %212, align 2, !tbaa !50
+  %213 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %213, align 1, !tbaa !51
+  %214 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 3, ptr %214, align 2, !tbaa !52
+  %215 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 20, ptr %215, align 1, !tbaa !53
+  %216 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %216, align 2, !tbaa !54
+  %217 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %217, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %218 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %218, align 2, !tbaa !57
+  %219 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %219, align 2, !tbaa !58
+  br label %354
 
-sw.bb250:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm251 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 7, ptr %bulk_cipher_algorithm251, align 2
-  %cipher_type252 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type252, align 1
-  %mac_algorithm253 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm253, align 2
-  %kea254 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea254, align 1
-  %sig_algo255 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 3, ptr %sig_algo255, align 2
-  %hash_size256 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size256, align 1
-  %pad_size257 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size257, align 2
-  %static_ecdh258 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh258, align 1
-  store i16 16, ptr %specs, align 2
-  %block_size260 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size260, align 2
-  %iv_size261 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 4, ptr %iv_size261, align 2
-  %aead_mac_size262 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size262, align 2
-  br label %if.end446
+220:                                              ; preds = %107
+  %221 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 7, ptr %221, align 2, !tbaa !48
+  %222 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %222, align 1, !tbaa !49
+  %223 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %223, align 2, !tbaa !50
+  %224 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %224, align 1, !tbaa !51
+  %225 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 3, ptr %225, align 2, !tbaa !52
+  %226 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %226, align 1, !tbaa !53
+  %227 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %227, align 2, !tbaa !54
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %228, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %229 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %229, align 2, !tbaa !57
+  %230 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 4, ptr %230, align 2, !tbaa !58
+  %231 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %231, align 2, !tbaa !59
+  br label %354
 
-sw.bb263:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm264 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 7, ptr %bulk_cipher_algorithm264, align 2
-  %cipher_type265 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type265, align 1
-  %mac_algorithm266 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 5, ptr %mac_algorithm266, align 2
-  %kea267 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 7, ptr %kea267, align 1
-  %sig_algo268 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 3, ptr %sig_algo268, align 2
-  %hash_size269 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 48, ptr %hash_size269, align 1
-  %pad_size270 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size270, align 2
-  %static_ecdh271 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh271, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size273 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size273, align 2
-  %iv_size274 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 4, ptr %iv_size274, align 2
-  %aead_mac_size275 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size275, align 2
-  br label %if.end446
+232:                                              ; preds = %107
+  %233 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 7, ptr %233, align 2, !tbaa !48
+  %234 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %234, align 1, !tbaa !49
+  %235 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 5, ptr %235, align 2, !tbaa !50
+  %236 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 7, ptr %236, align 1, !tbaa !51
+  %237 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 3, ptr %237, align 2, !tbaa !52
+  %238 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 48, ptr %238, align 1, !tbaa !53
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %239, align 2, !tbaa !54
+  %240 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %240, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %241 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %241, align 2, !tbaa !57
+  %242 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 4, ptr %242, align 2, !tbaa !58
+  %243 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %243, align 2, !tbaa !59
+  br label %354
 
-if.then284:                                       ; preds = %if.end5
-  switch i8 %cipherSuite, label %if.end446 [
-    i8 1, label %sw.bb286
-    i8 2, label %sw.bb299
-    i8 3, label %sw.bb312
+244:                                              ; preds = %9
+  switch i8 %2, label %354 [
+    i8 1, label %245
+    i8 2, label %257
+    i8 3, label %269
   ]
 
-sw.bb286:                                         ; preds = %if.then284
-  %bulk_cipher_algorithm287 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 7, ptr %bulk_cipher_algorithm287, align 2
-  %cipher_type288 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type288, align 1
-  %mac_algorithm289 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm289, align 2
-  %kea290 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 0, ptr %kea290, align 1
-  %sig_algo291 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 0, ptr %sig_algo291, align 2
-  %hash_size292 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size292, align 1
-  %pad_size293 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size293, align 2
-  %static_ecdh294 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh294, align 1
-  store i16 16, ptr %specs, align 2
-  %block_size296 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size296, align 2
-  %iv_size297 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size297, align 2
-  %aead_mac_size298 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size298, align 2
-  br label %if.end446
+245:                                              ; preds = %244
+  %246 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 7, ptr %246, align 2, !tbaa !48
+  %247 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %247, align 1, !tbaa !49
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %248, align 2, !tbaa !50
+  %249 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 0, ptr %249, align 1, !tbaa !51
+  %250 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 0, ptr %250, align 2, !tbaa !52
+  %251 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %251, align 1, !tbaa !53
+  %252 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %252, align 2, !tbaa !54
+  %253 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %253, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %254 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %254, align 2, !tbaa !57
+  %255 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %255, align 2, !tbaa !58
+  %256 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %256, align 2, !tbaa !59
+  br label %354
 
-sw.bb299:                                         ; preds = %if.then284
-  %bulk_cipher_algorithm300 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 7, ptr %bulk_cipher_algorithm300, align 2
-  %cipher_type301 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type301, align 1
-  %mac_algorithm302 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 5, ptr %mac_algorithm302, align 2
-  %kea303 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 0, ptr %kea303, align 1
-  %sig_algo304 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 0, ptr %sig_algo304, align 2
-  %hash_size305 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 48, ptr %hash_size305, align 1
-  %pad_size306 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size306, align 2
-  %static_ecdh307 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh307, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size309 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size309, align 2
-  %iv_size310 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size310, align 2
-  %aead_mac_size311 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size311, align 2
-  br label %if.end446
+257:                                              ; preds = %244
+  %258 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 7, ptr %258, align 2, !tbaa !48
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %259, align 1, !tbaa !49
+  %260 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 5, ptr %260, align 2, !tbaa !50
+  %261 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 0, ptr %261, align 1, !tbaa !51
+  %262 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 0, ptr %262, align 2, !tbaa !52
+  %263 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 48, ptr %263, align 1, !tbaa !53
+  %264 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %264, align 2, !tbaa !54
+  %265 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %265, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %266 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %266, align 2, !tbaa !57
+  %267 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %267, align 2, !tbaa !58
+  %268 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %268, align 2, !tbaa !59
+  br label %354
 
-sw.bb312:                                         ; preds = %if.then284
-  %bulk_cipher_algorithm313 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 9, ptr %bulk_cipher_algorithm313, align 2
-  %cipher_type314 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type314, align 1
-  %mac_algorithm315 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm315, align 2
-  %kea316 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 0, ptr %kea316, align 1
-  %sig_algo317 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 0, ptr %sig_algo317, align 2
-  %hash_size318 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size318, align 1
-  %pad_size319 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size319, align 2
-  %static_ecdh320 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh320, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size322 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size322, align 2
-  %iv_size323 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 12, ptr %iv_size323, align 2
-  %aead_mac_size324 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size324, align 2
-  %cmp325.not = icmp eq ptr %opts, null
-  br i1 %cmp325.not, label %return, label %if.then327
+269:                                              ; preds = %244
+  %270 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 9, ptr %270, align 2, !tbaa !48
+  %271 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %271, align 1, !tbaa !49
+  %272 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %272, align 2, !tbaa !50
+  %273 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 0, ptr %273, align 1, !tbaa !51
+  %274 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 0, ptr %274, align 2, !tbaa !52
+  %275 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %275, align 1, !tbaa !53
+  %276 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %276, align 2, !tbaa !54
+  %277 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %277, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %278 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %278, align 2, !tbaa !57
+  %279 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 12, ptr %279, align 2, !tbaa !58
+  %280 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %280, align 2, !tbaa !59
+  %.not363 = icmp eq ptr %4, null
+  br i1 %.not363, label %.thread, label %281
 
-if.then327:                                       ; preds = %sw.bb312
-  %oldPoly328 = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  %bf.load329 = load i64, ptr %oldPoly328, align 8
-  %bf.clear330 = and i64 %bf.load329, -17592186044417
-  store i64 %bf.clear330, ptr %oldPoly328, align 8
-  br label %if.end446
+281:                                              ; preds = %269
+  %282 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %283 = load i64, ptr %282, align 8
+  %284 = and i64 %283, -4398046511105
+  store i64 %284, ptr %282, align 8
+  br label %354
 
-if.then366:                                       ; preds = %if.end5
-  switch i8 %cipherSuite, label %return [
-    i8 103, label %sw.bb368
-    i8 107, label %sw.bb380
-    i8 51, label %sw.bb392
-    i8 57, label %sw.bb404
-    i8 -98, label %sw.bb416
-    i8 -97, label %sw.bb429
+285:                                              ; preds = %9
+  switch i8 %2, label %.thread [
+    i8 103, label %286
+    i8 107, label %297
+    i8 51, label %308
+    i8 57, label %319
+    i8 -98, label %330
+    i8 -97, label %342
   ]
 
-sw.bb368:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm369 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm369, align 2
-  %cipher_type370 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type370, align 1
-  %mac_algorithm371 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm371, align 2
-  %kea372 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 2, ptr %kea372, align 1
-  %sig_algo373 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo373, align 2
-  %hash_size374 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size374, align 1
-  %pad_size375 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size375, align 2
-  %static_ecdh376 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh376, align 1
-  store i16 16, ptr %specs, align 2
-  %block_size378 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size378, align 2
-  %iv_size379 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size379, align 2
-  br label %if.end446
+286:                                              ; preds = %285
+  %287 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %287, align 2, !tbaa !48
+  %288 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %288, align 1, !tbaa !49
+  %289 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %289, align 2, !tbaa !50
+  %290 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 2, ptr %290, align 1, !tbaa !51
+  %291 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %291, align 2, !tbaa !52
+  %292 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %292, align 1, !tbaa !53
+  %293 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %293, align 2, !tbaa !54
+  %294 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %294, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %295 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %295, align 2, !tbaa !57
+  %296 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %296, align 2, !tbaa !58
+  br label %354
 
-sw.bb380:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm381 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm381, align 2
-  %cipher_type382 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type382, align 1
-  %mac_algorithm383 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm383, align 2
-  %kea384 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 2, ptr %kea384, align 1
-  %sig_algo385 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo385, align 2
-  %hash_size386 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size386, align 1
-  %pad_size387 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size387, align 2
-  %static_ecdh388 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh388, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size390 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size390, align 2
-  %iv_size391 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size391, align 2
-  br label %if.end446
+297:                                              ; preds = %285
+  %298 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %298, align 2, !tbaa !48
+  %299 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %299, align 1, !tbaa !49
+  %300 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %300, align 2, !tbaa !50
+  %301 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 2, ptr %301, align 1, !tbaa !51
+  %302 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %302, align 2, !tbaa !52
+  %303 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %303, align 1, !tbaa !53
+  %304 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %304, align 2, !tbaa !54
+  %305 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %305, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %306 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %306, align 2, !tbaa !57
+  %307 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %307, align 2, !tbaa !58
+  br label %354
 
-sw.bb392:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm393 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm393, align 2
-  %cipher_type394 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type394, align 1
-  %mac_algorithm395 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 2, ptr %mac_algorithm395, align 2
-  %kea396 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 2, ptr %kea396, align 1
-  %sig_algo397 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo397, align 2
-  %hash_size398 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 20, ptr %hash_size398, align 1
-  %pad_size399 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size399, align 2
-  %static_ecdh400 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh400, align 1
-  store i16 16, ptr %specs, align 2
-  %block_size402 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size402, align 2
-  %iv_size403 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size403, align 2
-  br label %if.end446
+308:                                              ; preds = %285
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %309, align 2, !tbaa !48
+  %310 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %310, align 1, !tbaa !49
+  %311 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 2, ptr %311, align 2, !tbaa !50
+  %312 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 2, ptr %312, align 1, !tbaa !51
+  %313 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %313, align 2, !tbaa !52
+  %314 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 20, ptr %314, align 1, !tbaa !53
+  %315 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %315, align 2, !tbaa !54
+  %316 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %316, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %317 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %317, align 2, !tbaa !57
+  %318 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %318, align 2, !tbaa !58
+  br label %354
 
-sw.bb404:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm405 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 6, ptr %bulk_cipher_algorithm405, align 2
-  %cipher_type406 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 1, ptr %cipher_type406, align 1
-  %mac_algorithm407 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 2, ptr %mac_algorithm407, align 2
-  %kea408 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 2, ptr %kea408, align 1
-  %sig_algo409 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo409, align 2
-  %hash_size410 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 20, ptr %hash_size410, align 1
-  %pad_size411 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size411, align 2
-  %static_ecdh412 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh412, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size414 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size414, align 2
-  %iv_size415 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 16, ptr %iv_size415, align 2
-  br label %if.end446
+319:                                              ; preds = %285
+  %320 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 6, ptr %320, align 2, !tbaa !48
+  %321 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 1, ptr %321, align 1, !tbaa !49
+  %322 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 2, ptr %322, align 2, !tbaa !50
+  %323 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 2, ptr %323, align 1, !tbaa !51
+  %324 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %324, align 2, !tbaa !52
+  %325 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 20, ptr %325, align 1, !tbaa !53
+  %326 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %326, align 2, !tbaa !54
+  %327 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %327, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %328 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %328, align 2, !tbaa !57
+  %329 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 16, ptr %329, align 2, !tbaa !58
+  br label %354
 
-sw.bb416:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm417 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 7, ptr %bulk_cipher_algorithm417, align 2
-  %cipher_type418 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type418, align 1
-  %mac_algorithm419 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 4, ptr %mac_algorithm419, align 2
-  %kea420 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 2, ptr %kea420, align 1
-  %sig_algo421 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo421, align 2
-  %hash_size422 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 32, ptr %hash_size422, align 1
-  %pad_size423 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size423, align 2
-  %static_ecdh424 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh424, align 1
-  store i16 16, ptr %specs, align 2
-  %block_size426 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size426, align 2
-  %iv_size427 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 4, ptr %iv_size427, align 2
-  %aead_mac_size428 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size428, align 2
-  br label %if.end446
+330:                                              ; preds = %285
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 7, ptr %331, align 2, !tbaa !48
+  %332 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %332, align 1, !tbaa !49
+  %333 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 4, ptr %333, align 2, !tbaa !50
+  %334 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 2, ptr %334, align 1, !tbaa !51
+  %335 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %335, align 2, !tbaa !52
+  %336 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 32, ptr %336, align 1, !tbaa !53
+  %337 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %337, align 2, !tbaa !54
+  %338 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %338, align 1, !tbaa !55
+  store i16 16, ptr %3, align 2, !tbaa !56
+  %339 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %339, align 2, !tbaa !57
+  %340 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 4, ptr %340, align 2, !tbaa !58
+  %341 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %341, align 2, !tbaa !59
+  br label %354
 
-sw.bb429:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm430 = getelementptr inbounds nuw i8, ptr %specs, i64 8
-  store i8 7, ptr %bulk_cipher_algorithm430, align 2
-  %cipher_type431 = getelementptr inbounds nuw i8, ptr %specs, i64 9
-  store i8 2, ptr %cipher_type431, align 1
-  %mac_algorithm432 = getelementptr inbounds nuw i8, ptr %specs, i64 10
-  store i8 5, ptr %mac_algorithm432, align 2
-  %kea433 = getelementptr inbounds nuw i8, ptr %specs, i64 11
-  store i8 2, ptr %kea433, align 1
-  %sig_algo434 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  store i8 1, ptr %sig_algo434, align 2
-  %hash_size435 = getelementptr inbounds nuw i8, ptr %specs, i64 13
-  store i8 48, ptr %hash_size435, align 1
-  %pad_size436 = getelementptr inbounds nuw i8, ptr %specs, i64 14
-  store i8 40, ptr %pad_size436, align 2
-  %static_ecdh437 = getelementptr inbounds nuw i8, ptr %specs, i64 15
-  store i8 0, ptr %static_ecdh437, align 1
-  store i16 32, ptr %specs, align 2
-  %block_size439 = getelementptr inbounds nuw i8, ptr %specs, i64 4
-  store i16 16, ptr %block_size439, align 2
-  %iv_size440 = getelementptr inbounds nuw i8, ptr %specs, i64 2
-  store i16 4, ptr %iv_size440, align 2
-  %aead_mac_size441 = getelementptr inbounds nuw i8, ptr %specs, i64 6
-  store i16 16, ptr %aead_mac_size441, align 2
-  br label %if.end446
+342:                                              ; preds = %285
+  %343 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 7, ptr %343, align 2, !tbaa !48
+  %344 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 2, ptr %344, align 1, !tbaa !49
+  %345 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 5, ptr %345, align 2, !tbaa !50
+  %346 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  store i8 2, ptr %346, align 1, !tbaa !51
+  %347 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 1, ptr %347, align 2, !tbaa !52
+  %348 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  store i8 48, ptr %348, align 1, !tbaa !53
+  %349 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  store i8 40, ptr %349, align 2, !tbaa !54
+  %350 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  store i8 0, ptr %350, align 1, !tbaa !55
+  store i16 32, ptr %3, align 2, !tbaa !56
+  %351 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 16, ptr %351, align 2, !tbaa !57
+  %352 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 4, ptr %352, align 2, !tbaa !58
+  %353 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 16, ptr %353, align 2, !tbaa !59
+  br label %354
 
-if.end446:                                        ; preds = %if.then284, %if.then327, %sw.bb299, %sw.bb286, %sw.bb263, %sw.bb250, %sw.bb238, %sw.bb226, %sw.bb214, %sw.bb202, %sw.bb189, %sw.bb176, %sw.bb164, %sw.bb152, %sw.bb140, %sw.bb128, %if.then114, %if.then93, %if.then72, %if.then51, %if.then30, %if.then13, %if.end5, %sw.bb368, %sw.bb380, %sw.bb392, %sw.bb404, %sw.bb416, %sw.bb429
-  %sig_algo447 = getelementptr inbounds nuw i8, ptr %specs, i64 12
-  %0 = load i8, ptr %sig_algo447, align 2
-  %cmp449 = icmp eq i8 %0, 0
-  %cmp452 = icmp ne ptr %opts, null
-  %or.cond3 = and i1 %cmp452, %cmp449
-  br i1 %or.cond3, label %if.then454, label %return
+354:                                              ; preds = %244, %281, %257, %245, %232, %220, %209, %198, %187, %176, %164, %152, %141, %130, %119, %108, %103, %87, %71, %55, %39, %23, %9, %286, %297, %308, %319, %330, %342
+  %355 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %356 = load i8, ptr %355, align 2, !tbaa !52
+  %357 = icmp eq i8 %356, 0
+  %358 = icmp ne ptr %4, null
+  %or.cond10 = and i1 %358, %357
+  br i1 %or.cond10, label %359, label %.thread
 
-if.then454:                                       ; preds = %if.end446
-  %peerAuthGood = getelementptr inbounds nuw i8, ptr %opts, i64 8
-  %bf.load455 = load i64, ptr %peerAuthGood, align 8
-  %bf.set457 = or i64 %bf.load455, 1125899906842624
-  store i64 %bf.set457, ptr %peerAuthGood, align 8
-  br label %return
+359:                                              ; preds = %354
+  %360 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %361 = load i64, ptr %360, align 8
+  %362 = or i64 %361, 281474976710656
+  store i64 %362, ptr %360, align 8
+  br label %.thread
 
-return:                                           ; preds = %sw.bb, %sw.bb15, %sw.bb36, %sw.bb57, %sw.bb78, %sw.bb99, %sw.bb312, %if.end446, %if.then454, %if.then366, %if.then126, %if.then9, %if.then
-  %retval.0 = phi i32 [ -500, %if.then ], [ -500, %if.then9 ], [ -500, %if.then126 ], [ -500, %if.then366 ], [ 0, %if.then454 ], [ 0, %if.end446 ], [ 0, %sw.bb312 ], [ 0, %sw.bb99 ], [ 0, %sw.bb78 ], [ 0, %sw.bb57 ], [ 0, %sw.bb36 ], [ 0, %sw.bb15 ], [ 0, %sw.bb ]
-  ret i32 %retval.0
+.thread:                                          ; preds = %11, %27, %43, %59, %75, %91, %269, %354, %359, %285, %107, %10, %7
+  %.0 = phi i32 [ -500, %7 ], [ -500, %10 ], [ -500, %107 ], [ -500, %285 ], [ 0, %359 ], [ 0, %354 ], [ 0, %269 ], [ 0, %91 ], [ 0, %75 ], [ 0, %59 ], [ 0, %43 ], [ 0, %27 ], [ 0, %11 ]
+  ret i32 %.0
 }
 
-declare i32 @TLS_hmac(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
+declare i32 @TLS_hmac(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @IsAtLeastTLSv1_3(i16) local_unnamed_addr #1
+declare i32 @IsAtLeastTLSv1_3(i16) local_unnamed_addr #2
 
-declare i32 @VerifyClientSuite(i16 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @VerifyClientSuite(i16 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @SetKeysSide(ptr noundef %ssl, i32 noundef %side) local_unnamed_addr #0 {
-entry:
-  %keys1 = getelementptr inbounds nuw i8, ptr %ssl, i64 716
-  switch i32 %side, label %return [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb3
-  ]
-
-sw.bb:                                            ; preds = %entry
-  %encrypt = getelementptr inbounds nuw i8, ptr %ssl, i64 256
-  br label %sw.epilog
-
-sw.bb2:                                           ; preds = %entry
-  %decrypt = getelementptr inbounds nuw i8, ptr %ssl, i64 296
-  br label %sw.epilog
-
-sw.bb3:                                           ; preds = %entry
-  %encrypt4 = getelementptr inbounds nuw i8, ptr %ssl, i64 256
-  %decrypt5 = getelementptr inbounds nuw i8, ptr %ssl, i64 296
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %sw.bb
-  %wc_encrypt.0 = phi ptr [ %encrypt4, %sw.bb3 ], [ null, %sw.bb2 ], [ %encrypt, %sw.bb ]
-  %wc_decrypt.0 = phi ptr [ %decrypt5, %sw.bb3 ], [ %decrypt, %sw.bb2 ], [ null, %sw.bb ]
-  %auth = getelementptr inbounds nuw i8, ptr %ssl, i64 1184
-  %setup = getelementptr inbounds nuw i8, ptr %ssl, i64 1192
-  %0 = load i8, ptr %setup, align 8
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %land.lhs.true, label %if.end12
-
-land.lhs.true:                                    ; preds = %sw.epilog
-  %bulk_cipher_algorithm = getelementptr inbounds nuw i8, ptr %ssl, i64 706
-  %1 = load i8, ptr %bulk_cipher_algorithm, align 2
-  %cmp = icmp eq i8 %1, 9
-  br i1 %cmp, label %if.then, label %if.end12
-
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %auth, align 8
-  %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %land.lhs.true3.i, label %SetAuthKeys.exit.thread
-
-land.lhs.true3.i:                                 ; preds = %if.then
-  %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 96) #7
-  store ptr %call.i, ptr %auth, align 8
-  %cmp5.i = icmp eq ptr %call.i, null
-  br i1 %cmp5.i, label %return, label %SetAuthKeys.exit.thread
-
-SetAuthKeys.exit.thread:                          ; preds = %if.then, %land.lhs.true3.i
-  store i8 1, ptr %setup, align 8
-  br label %if.end12
-
-if.end12:                                         ; preds = %SetAuthKeys.exit.thread, %land.lhs.true, %sw.epilog
-  %specs13 = getelementptr inbounds nuw i8, ptr %ssl, i64 698
-  %side14 = getelementptr inbounds nuw i8, ptr %ssl, i64 1008
-  %bf.load = load i64, ptr %side14, align 8
-  %3 = trunc i64 %bf.load to i32
-  %4 = lshr i32 %3, 4
-  %bf.cast = and i32 %4, 3
-  %heap16 = getelementptr inbounds nuw i8, ptr %ssl, i64 168
-  %5 = load ptr, ptr %heap16, align 8
-  %devId17 = getelementptr inbounds nuw i8, ptr %ssl, i64 1180
-  %6 = load i32, ptr %devId17, align 4
-  %rng = getelementptr inbounds nuw i8, ptr %ssl, i64 144
-  %7 = load ptr, ptr %rng, align 16
-  %8 = lshr i32 %3, 16
-  %bf.cast22 = and i32 %8, 1
-  %bulk_cipher_algorithm.i = getelementptr inbounds nuw i8, ptr %ssl, i64 706
-  %9 = load i8, ptr %bulk_cipher_algorithm.i, align 2
-  %cmp.i20 = icmp eq i8 %9, 9
-  br i1 %cmp.i20, label %if.then.i, label %if.end100.i
-
-if.then.i:                                        ; preds = %if.end12
-  %tobool.not.i = icmp eq ptr %wc_encrypt.0, null
-  br i1 %tobool.not.i, label %if.end12.i, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %if.then.i
-  %chacha.i = getelementptr inbounds nuw i8, ptr %wc_encrypt.0, i64 24
-  %10 = load ptr, ptr %chacha.i, align 8
-  %cmp2.i = icmp eq ptr %10, null
-  br i1 %cmp2.i, label %land.lhs.true7.i, label %if.end12.i
-
-land.lhs.true7.i:                                 ; preds = %land.lhs.true.i
-  %call.i23 = tail call ptr @wolfSSL_Malloc(i64 noundef 68) #7
-  store ptr %call.i23, ptr %chacha.i, align 8
-  %cmp9.i = icmp eq ptr %call.i23, null
-  br i1 %cmp9.i, label %return, label %if.end12.i
-
-if.end12.i:                                       ; preds = %land.lhs.true7.i, %land.lhs.true.i, %if.then.i
-  %tobool13.not.i = icmp eq ptr %wc_decrypt.0, null
-  br i1 %tobool13.not.i, label %if.end28.i, label %land.lhs.true14.i
-
-land.lhs.true14.i:                                ; preds = %if.end12.i
-  %chacha15.i = getelementptr inbounds nuw i8, ptr %wc_decrypt.0, i64 24
-  %11 = load ptr, ptr %chacha15.i, align 8
-  %cmp16.i = icmp eq ptr %11, null
-  br i1 %cmp16.i, label %land.lhs.true23.i, label %if.end28.i
-
-land.lhs.true23.i:                                ; preds = %land.lhs.true14.i
-  %call19.i = tail call ptr @wolfSSL_Malloc(i64 noundef 68) #7
-  store ptr %call19.i, ptr %chacha15.i, align 8
-  %cmp25.i = icmp eq ptr %call19.i, null
-  br i1 %cmp25.i, label %return, label %if.end28.i
-
-if.end28.i:                                       ; preds = %land.lhs.true23.i, %land.lhs.true14.i, %if.end12.i
-  %cmp29.i = icmp eq i32 %bf.cast, 1
-  br i1 %cmp29.i, label %if.then31.i, label %if.else.i
-
-if.then31.i:                                      ; preds = %if.end28.i
-  br i1 %tobool.not.i, label %if.end43.i, label %if.then33.i
-
-if.then33.i:                                      ; preds = %if.then31.i
-  %chacha34.i = getelementptr inbounds nuw i8, ptr %wc_encrypt.0, i64 24
-  %12 = load ptr, ptr %chacha34.i, align 8
-  %client_write_key.i = getelementptr inbounds nuw i8, ptr %ssl, i64 844
-  %13 = load i16, ptr %specs13, align 2
-  %conv35.i = zext i16 %13 to i32
-  %call36.i = tail call i32 @wc_Chacha_SetKey(ptr noundef %12, ptr noundef nonnull %client_write_key.i, i32 noundef %conv35.i) #7
-  %aead_enc_imp_IV.i = getelementptr inbounds nuw i8, ptr %ssl, i64 948
-  %client_write_IV.i = getelementptr inbounds nuw i8, ptr %ssl, i64 908
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV.i, ptr noundef nonnull align 4 dereferenceable(12) %client_write_IV.i, i64 12, i1 false)
-  %cmp39.not.i = icmp eq i32 %call36.i, 0
-  br i1 %cmp39.not.i, label %if.end43.i, label %return
-
-if.end43.i:                                       ; preds = %if.then33.i, %if.then31.i
-  br i1 %tobool13.not.i, label %if.end92.i, label %if.then45.i
-
-if.then45.i:                                      ; preds = %if.end43.i
-  %chacha46.i = getelementptr inbounds nuw i8, ptr %wc_decrypt.0, i64 24
-  %14 = load ptr, ptr %chacha46.i, align 8
-  %server_write_key.i = getelementptr inbounds nuw i8, ptr %ssl, i64 876
-  %15 = load i16, ptr %specs13, align 2
-  %conv49.i = zext i16 %15 to i32
-  %call50.i = tail call i32 @wc_Chacha_SetKey(ptr noundef %14, ptr noundef nonnull %server_write_key.i, i32 noundef %conv49.i) #7
-  %aead_dec_imp_IV.i = getelementptr inbounds nuw i8, ptr %ssl, i64 960
-  %server_write_IV.i = getelementptr inbounds nuw i8, ptr %ssl, i64 924
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_dec_imp_IV.i, ptr noundef nonnull align 4 dereferenceable(12) %server_write_IV.i, i64 12, i1 false)
-  %cmp53.not.i = icmp eq i32 %call50.i, 0
-  br i1 %cmp53.not.i, label %if.end92.i, label %return
-
-if.else.i:                                        ; preds = %if.end28.i
-  br i1 %tobool.not.i, label %if.end74.i, label %if.then59.i
-
-if.then59.i:                                      ; preds = %if.else.i
-  %chacha60.i = getelementptr inbounds nuw i8, ptr %wc_encrypt.0, i64 24
-  %16 = load ptr, ptr %chacha60.i, align 8
-  %server_write_key61.i = getelementptr inbounds nuw i8, ptr %ssl, i64 876
-  %17 = load i16, ptr %specs13, align 2
-  %conv64.i = zext i16 %17 to i32
-  %call65.i = tail call i32 @wc_Chacha_SetKey(ptr noundef %16, ptr noundef nonnull %server_write_key61.i, i32 noundef %conv64.i) #7
-  %aead_enc_imp_IV66.i = getelementptr inbounds nuw i8, ptr %ssl, i64 948
-  %server_write_IV68.i = getelementptr inbounds nuw i8, ptr %ssl, i64 924
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV66.i, ptr noundef nonnull align 4 dereferenceable(12) %server_write_IV68.i, i64 12, i1 false)
-  %cmp70.not.i = icmp eq i32 %call65.i, 0
-  br i1 %cmp70.not.i, label %if.end74.i, label %return
-
-if.end74.i:                                       ; preds = %if.then59.i, %if.else.i
-  br i1 %tobool13.not.i, label %if.end92.i, label %if.then76.i
-
-if.then76.i:                                      ; preds = %if.end74.i
-  %chacha77.i = getelementptr inbounds nuw i8, ptr %wc_decrypt.0, i64 24
-  %18 = load ptr, ptr %chacha77.i, align 8
-  %client_write_key78.i = getelementptr inbounds nuw i8, ptr %ssl, i64 844
-  %19 = load i16, ptr %specs13, align 2
-  %conv81.i = zext i16 %19 to i32
-  %call82.i = tail call i32 @wc_Chacha_SetKey(ptr noundef %18, ptr noundef nonnull %client_write_key78.i, i32 noundef %conv81.i) #7
-  %aead_dec_imp_IV83.i = getelementptr inbounds nuw i8, ptr %ssl, i64 960
-  %client_write_IV85.i = getelementptr inbounds nuw i8, ptr %ssl, i64 908
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_dec_imp_IV83.i, ptr noundef nonnull align 4 dereferenceable(12) %client_write_IV85.i, i64 12, i1 false)
-  %cmp87.not.i = icmp eq i32 %call82.i, 0
-  br i1 %cmp87.not.i, label %if.end92.i, label %return
-
-if.end92.i:                                       ; preds = %if.then76.i, %if.end74.i, %if.then45.i, %if.end43.i
-  br i1 %tobool.not.i, label %if.end95.i, label %if.then94.i
-
-if.then94.i:                                      ; preds = %if.end92.i
-  %setup.i22 = getelementptr inbounds nuw i8, ptr %wc_encrypt.0, i64 33
-  store i8 1, ptr %setup.i22, align 1
-  br label %if.end95.i
-
-if.end95.i:                                       ; preds = %if.then94.i, %if.end92.i
-  br i1 %tobool13.not.i, label %if.end100thread-pre-split.i, label %if.then97.i
-
-if.then97.i:                                      ; preds = %if.end95.i
-  %setup98.i = getelementptr inbounds nuw i8, ptr %wc_decrypt.0, i64 33
-  store i8 1, ptr %setup98.i, align 1
-  br label %if.end100thread-pre-split.i
-
-if.end100thread-pre-split.i:                      ; preds = %if.then97.i, %if.end95.i
-  %.pr.i = load i8, ptr %bulk_cipher_algorithm.i, align 2
-  br label %if.end100.i
-
-if.end100.i:                                      ; preds = %if.end100thread-pre-split.i, %if.end12
-  %20 = phi i8 [ %.pr.i, %if.end100thread-pre-split.i ], [ %9, %if.end12 ]
-  %cmp103.i = icmp eq i8 %20, 6
-  br i1 %cmp103.i, label %if.then105.i, label %if.end234.i
-
-if.then105.i:                                     ; preds = %if.end100.i
-  %tobool106.not.i = icmp eq ptr %wc_encrypt.0, null
-  br i1 %tobool106.not.i, label %if.end122.i, label %if.then107.i
-
-if.then107.i:                                     ; preds = %if.then105.i
-  %21 = load ptr, ptr %wc_encrypt.0, align 8
-  %cmp108.i = icmp eq ptr %21, null
-  br i1 %cmp108.i, label %if.then110.i, label %if.else118.i
-
-if.then110.i:                                     ; preds = %if.then107.i
-  %call111.i = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
-  store ptr %call111.i, ptr %wc_encrypt.0, align 8
-  %cmp114.i = icmp eq ptr %call111.i, null
-  br i1 %cmp114.i, label %return, label %if.end120.i
-
-if.else118.i:                                     ; preds = %if.then107.i
-  tail call void @wc_AesFree(ptr noundef nonnull %21) #7
-  %.pre.i = load ptr, ptr %wc_encrypt.0, align 8
-  br label %if.end120.i
-
-if.end120.i:                                      ; preds = %if.else118.i, %if.then110.i
-  %22 = phi ptr [ %call111.i, %if.then110.i ], [ %.pre.i, %if.else118.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %22, i8 0, i64 848, i1 false)
-  br label %if.end122.i
-
-if.end122.i:                                      ; preds = %if.end120.i, %if.then105.i
-  %tobool123.not.i = icmp eq ptr %wc_decrypt.0, null
-  br i1 %tobool123.not.i, label %if.end140.i, label %if.then124.i
-
-if.then124.i:                                     ; preds = %if.end122.i
-  %23 = load ptr, ptr %wc_decrypt.0, align 8
-  %cmp126.i = icmp eq ptr %23, null
-  br i1 %cmp126.i, label %if.then128.i, label %if.else136.i
-
-if.then128.i:                                     ; preds = %if.then124.i
-  %call129.i = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
-  store ptr %call129.i, ptr %wc_decrypt.0, align 8
-  %cmp132.i = icmp eq ptr %call129.i, null
-  br i1 %cmp132.i, label %return, label %if.end138.i
-
-if.else136.i:                                     ; preds = %if.then124.i
-  tail call void @wc_AesFree(ptr noundef nonnull %23) #7
-  %.pre172.i = load ptr, ptr %wc_decrypt.0, align 8
-  br label %if.end138.i
-
-if.end138.i:                                      ; preds = %if.else136.i, %if.then128.i
-  %24 = phi ptr [ %call129.i, %if.then128.i ], [ %.pre172.i, %if.else136.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %24, i8 0, i64 848, i1 false)
-  br label %if.end140.i
-
-if.end140.i:                                      ; preds = %if.end138.i, %if.end122.i
-  br i1 %tobool106.not.i, label %if.end149.i, label %if.then142.i
-
-if.then142.i:                                     ; preds = %if.end140.i
-  %25 = load ptr, ptr %wc_encrypt.0, align 8
-  %call144.i = tail call i32 @wc_AesInit(ptr noundef %25, ptr noundef %5, i32 noundef %6) #7
-  %cmp145.not.i = icmp eq i32 %call144.i, 0
-  br i1 %cmp145.not.i, label %if.end149.i, label %return
-
-if.end149.i:                                      ; preds = %if.then142.i, %if.end140.i
-  br i1 %tobool123.not.i, label %if.end160.i, label %if.then151.i
-
-if.then151.i:                                     ; preds = %if.end149.i
-  %26 = load ptr, ptr %wc_decrypt.0, align 8
-  %call153.i = tail call i32 @wc_AesInit(ptr noundef %26, ptr noundef %5, i32 noundef %6) #7
-  %cmp154.not.i = icmp eq i32 %call153.i, 0
-  br i1 %cmp154.not.i, label %if.end160.i, label %return
-
-if.end160.i:                                      ; preds = %if.then151.i, %if.end149.i
-  %cmp161.i = icmp eq i32 %bf.cast, 1
-  br i1 %cmp161.i, label %if.then163.i, label %if.else194.i
-
-if.then163.i:                                     ; preds = %if.end160.i
-  br i1 %tobool106.not.i, label %if.end178.i, label %if.then165.i
-
-if.then165.i:                                     ; preds = %if.then163.i
-  %27 = load ptr, ptr %wc_encrypt.0, align 8
-  %client_write_key167.i = getelementptr inbounds nuw i8, ptr %ssl, i64 844
-  %28 = load i16, ptr %specs13, align 2
-  %conv170.i = zext i16 %28 to i32
-  %client_write_IV171.i = getelementptr inbounds nuw i8, ptr %ssl, i64 908
-  %call173.i = tail call i32 @wc_AesSetKey(ptr noundef %27, ptr noundef nonnull %client_write_key167.i, i32 noundef %conv170.i, ptr noundef nonnull %client_write_IV171.i, i32 noundef 0) #7
-  %cmp174.not.i = icmp eq i32 %call173.i, 0
-  br i1 %cmp174.not.i, label %if.end178.i, label %return
-
-if.end178.i:                                      ; preds = %if.then165.i, %if.then163.i
-  br i1 %tobool123.not.i, label %if.end225.i, label %if.then180.i
-
-if.then180.i:                                     ; preds = %if.end178.i
-  %29 = load ptr, ptr %wc_decrypt.0, align 8
-  %server_write_key182.i = getelementptr inbounds nuw i8, ptr %ssl, i64 876
-  %30 = load i16, ptr %specs13, align 2
-  %conv185.i = zext i16 %30 to i32
-  %server_write_IV186.i = getelementptr inbounds nuw i8, ptr %ssl, i64 924
-  %call188.i = tail call i32 @wc_AesSetKey(ptr noundef %29, ptr noundef nonnull %server_write_key182.i, i32 noundef %conv185.i, ptr noundef nonnull %server_write_IV186.i, i32 noundef 1) #7
-  %cmp189.not.i = icmp eq i32 %call188.i, 0
-  br i1 %cmp189.not.i, label %if.end225.i, label %return
-
-if.else194.i:                                     ; preds = %if.end160.i
-  br i1 %tobool106.not.i, label %if.end209.i, label %if.then196.i
-
-if.then196.i:                                     ; preds = %if.else194.i
-  %31 = load ptr, ptr %wc_encrypt.0, align 8
-  %server_write_key198.i = getelementptr inbounds nuw i8, ptr %ssl, i64 876
-  %32 = load i16, ptr %specs13, align 2
-  %conv201.i = zext i16 %32 to i32
-  %server_write_IV202.i = getelementptr inbounds nuw i8, ptr %ssl, i64 924
-  %call204.i = tail call i32 @wc_AesSetKey(ptr noundef %31, ptr noundef nonnull %server_write_key198.i, i32 noundef %conv201.i, ptr noundef nonnull %server_write_IV202.i, i32 noundef 0) #7
-  %cmp205.not.i = icmp eq i32 %call204.i, 0
-  br i1 %cmp205.not.i, label %if.end209.i, label %return
-
-if.end209.i:                                      ; preds = %if.then196.i, %if.else194.i
-  br i1 %tobool123.not.i, label %if.end225.i, label %if.then211.i
-
-if.then211.i:                                     ; preds = %if.end209.i
-  %33 = load ptr, ptr %wc_decrypt.0, align 8
-  %client_write_key213.i = getelementptr inbounds nuw i8, ptr %ssl, i64 844
-  %34 = load i16, ptr %specs13, align 2
-  %conv216.i = zext i16 %34 to i32
-  %client_write_IV217.i = getelementptr inbounds nuw i8, ptr %ssl, i64 908
-  %call219.i = tail call i32 @wc_AesSetKey(ptr noundef %33, ptr noundef nonnull %client_write_key213.i, i32 noundef %conv216.i, ptr noundef nonnull %client_write_IV217.i, i32 noundef 1) #7
-  %cmp220.not.i = icmp eq i32 %call219.i, 0
-  br i1 %cmp220.not.i, label %if.end225.i, label %return
-
-if.end225.i:                                      ; preds = %if.then211.i, %if.end209.i, %if.then180.i, %if.end178.i
-  br i1 %tobool106.not.i, label %if.end229.i, label %if.then227.i
-
-if.then227.i:                                     ; preds = %if.end225.i
-  %setup228.i = getelementptr inbounds nuw i8, ptr %wc_encrypt.0, i64 33
-  store i8 1, ptr %setup228.i, align 1
-  br label %if.end229.i
-
-if.end229.i:                                      ; preds = %if.then227.i, %if.end225.i
-  br i1 %tobool123.not.i, label %if.end234.i, label %if.then231.i
-
-if.then231.i:                                     ; preds = %if.end229.i
-  %setup232.i = getelementptr inbounds nuw i8, ptr %wc_decrypt.0, i64 33
-  store i8 1, ptr %setup232.i, align 1
-  br label %if.end234.i
-
-if.end234.i:                                      ; preds = %if.then231.i, %if.end229.i, %if.end100.i
-  %35 = load i8, ptr %bulk_cipher_algorithm.i, align 2
-  %cmp237.i = icmp eq i8 %35, 7
-  br i1 %cmp237.i, label %if.then239.i, label %if.end401.i
-
-if.then239.i:                                     ; preds = %if.end234.i
-  %tobool240.not.i = icmp eq ptr %wc_encrypt.0, null
-  br i1 %tobool240.not.i, label %if.end257.i, label %if.then241.i
-
-if.then241.i:                                     ; preds = %if.then239.i
-  %36 = load ptr, ptr %wc_encrypt.0, align 8
-  %cmp243.i = icmp eq ptr %36, null
-  br i1 %cmp243.i, label %if.then245.i, label %if.else253.i
-
-if.then245.i:                                     ; preds = %if.then241.i
-  %call246.i = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
-  store ptr %call246.i, ptr %wc_encrypt.0, align 8
-  %cmp249.i = icmp eq ptr %call246.i, null
-  br i1 %cmp249.i, label %return, label %if.end255.i
-
-if.else253.i:                                     ; preds = %if.then241.i
-  tail call void @wc_AesFree(ptr noundef nonnull %36) #7
-  %.pre173.i = load ptr, ptr %wc_encrypt.0, align 8
-  br label %if.end255.i
-
-if.end255.i:                                      ; preds = %if.else253.i, %if.then245.i
-  %37 = phi ptr [ %call246.i, %if.then245.i ], [ %.pre173.i, %if.else253.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %37, i8 0, i64 848, i1 false)
-  br label %if.end257.i
-
-if.end257.i:                                      ; preds = %if.end255.i, %if.then239.i
-  %tobool258.not.i = icmp eq ptr %wc_decrypt.0, null
-  br i1 %tobool258.not.i, label %if.end275.i, label %if.then259.i
-
-if.then259.i:                                     ; preds = %if.end257.i
-  %38 = load ptr, ptr %wc_decrypt.0, align 8
-  %cmp261.i = icmp eq ptr %38, null
-  br i1 %cmp261.i, label %if.then263.i, label %if.else271.i
-
-if.then263.i:                                     ; preds = %if.then259.i
-  %call264.i = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
-  store ptr %call264.i, ptr %wc_decrypt.0, align 8
-  %cmp267.i = icmp eq ptr %call264.i, null
-  br i1 %cmp267.i, label %return, label %if.end273.i
-
-if.else271.i:                                     ; preds = %if.then259.i
-  tail call void @wc_AesFree(ptr noundef nonnull %38) #7
-  %.pre174.i = load ptr, ptr %wc_decrypt.0, align 8
-  br label %if.end273.i
-
-if.end273.i:                                      ; preds = %if.else271.i, %if.then263.i
-  %39 = phi ptr [ %call264.i, %if.then263.i ], [ %.pre174.i, %if.else271.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %39, i8 0, i64 848, i1 false)
-  br label %if.end275.i
-
-if.end275.i:                                      ; preds = %if.end273.i, %if.end257.i
-  br i1 %tobool240.not.i, label %if.end286.i, label %if.then277.i
-
-if.then277.i:                                     ; preds = %if.end275.i
-  %40 = load ptr, ptr %wc_encrypt.0, align 8
-  %call279.i = tail call i32 @wc_AesInit(ptr noundef %40, ptr noundef %5, i32 noundef %6) #7
-  %cmp280.not.i = icmp eq i32 %call279.i, 0
-  br i1 %cmp280.not.i, label %if.end286.i, label %return
-
-if.end286.i:                                      ; preds = %if.then277.i, %if.end275.i
-  br i1 %tobool258.not.i, label %if.end297.i, label %if.then288.i
-
-if.then288.i:                                     ; preds = %if.end286.i
-  %41 = load ptr, ptr %wc_decrypt.0, align 8
-  %call290.i = tail call i32 @wc_AesInit(ptr noundef %41, ptr noundef %5, i32 noundef %6) #7
-  %cmp291.not.i = icmp eq i32 %call290.i, 0
-  br i1 %cmp291.not.i, label %if.end297.i, label %return
-
-if.end297.i:                                      ; preds = %if.then288.i, %if.end286.i
-  %cmp298.i = icmp eq i32 %bf.cast, 1
-  br i1 %cmp298.i, label %if.then300.i, label %if.else346.i
-
-if.then300.i:                                     ; preds = %if.end297.i
-  br i1 %tobool240.not.i, label %if.end328.i, label %if.then302.i
-
-if.then302.i:                                     ; preds = %if.then300.i
-  %42 = load ptr, ptr %wc_encrypt.0, align 8
-  %client_write_key304.i = getelementptr inbounds nuw i8, ptr %ssl, i64 844
-  %43 = load i16, ptr %specs13, align 2
-  %conv307.i = zext i16 %43 to i32
-  %call308.i = tail call i32 @wc_AesGcmSetKey(ptr noundef %42, ptr noundef nonnull %client_write_key304.i, i32 noundef %conv307.i) #7
-  %cmp309.not.i = icmp eq i32 %call308.i, 0
-  br i1 %cmp309.not.i, label %if.end312.i, label %return
-
-if.end312.i:                                      ; preds = %if.then302.i
-  %aead_enc_imp_IV313.i = getelementptr inbounds nuw i8, ptr %ssl, i64 948
-  %client_write_IV315.i = getelementptr inbounds nuw i8, ptr %ssl, i64 908
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV313.i, ptr noundef nonnull align 4 dereferenceable(12) %client_write_IV315.i, i64 12, i1 false)
-  %tobool317.not.i = icmp eq i32 %bf.cast22, 0
-  br i1 %tobool317.not.i, label %if.then318.i, label %if.end328.i
-
-if.then318.i:                                     ; preds = %if.end312.i
-  %44 = load ptr, ptr %wc_encrypt.0, align 8
-  %call322.i = tail call i32 @wc_AesGcmSetIV(ptr noundef %44, i32 noundef 12, ptr noundef nonnull %client_write_IV315.i, i32 noundef 4, ptr noundef %7) #7
-  %cmp323.not.i = icmp eq i32 %call322.i, 0
-  br i1 %cmp323.not.i, label %if.end328.i, label %return
-
-if.end328.i:                                      ; preds = %if.then318.i, %if.end312.i, %if.then300.i
-  br i1 %tobool258.not.i, label %if.end392.i, label %if.then330.i
-
-if.then330.i:                                     ; preds = %if.end328.i
-  %45 = load ptr, ptr %wc_decrypt.0, align 8
-  %server_write_key332.i = getelementptr inbounds nuw i8, ptr %ssl, i64 876
-  %46 = load i16, ptr %specs13, align 2
-  %conv335.i = zext i16 %46 to i32
-  %call336.i = tail call i32 @wc_AesGcmSetKey(ptr noundef %45, ptr noundef nonnull %server_write_key332.i, i32 noundef %conv335.i) #7
-  %cmp337.not.i = icmp eq i32 %call336.i, 0
-  br i1 %cmp337.not.i, label %if.end392.sink.split.i, label %return
-
-if.else346.i:                                     ; preds = %if.end297.i
-  br i1 %tobool240.not.i, label %if.end374.i, label %if.then348.i
-
-if.then348.i:                                     ; preds = %if.else346.i
-  %47 = load ptr, ptr %wc_encrypt.0, align 8
-  %server_write_key350.i = getelementptr inbounds nuw i8, ptr %ssl, i64 876
-  %48 = load i16, ptr %specs13, align 2
-  %conv353.i = zext i16 %48 to i32
-  %call354.i = tail call i32 @wc_AesGcmSetKey(ptr noundef %47, ptr noundef nonnull %server_write_key350.i, i32 noundef %conv353.i) #7
-  %cmp355.not.i = icmp eq i32 %call354.i, 0
-  br i1 %cmp355.not.i, label %if.end358.i, label %return
-
-if.end358.i:                                      ; preds = %if.then348.i
-  %aead_enc_imp_IV359.i = getelementptr inbounds nuw i8, ptr %ssl, i64 948
-  %server_write_IV361.i = getelementptr inbounds nuw i8, ptr %ssl, i64 924
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV359.i, ptr noundef nonnull align 4 dereferenceable(12) %server_write_IV361.i, i64 12, i1 false)
-  %tobool363.not.i = icmp eq i32 %bf.cast22, 0
-  br i1 %tobool363.not.i, label %if.then364.i, label %if.end374.i
-
-if.then364.i:                                     ; preds = %if.end358.i
-  %49 = load ptr, ptr %wc_encrypt.0, align 8
-  %call368.i = tail call i32 @wc_AesGcmSetIV(ptr noundef %49, i32 noundef 12, ptr noundef nonnull %server_write_IV361.i, i32 noundef 4, ptr noundef %7) #7
-  %cmp369.not.i = icmp eq i32 %call368.i, 0
-  br i1 %cmp369.not.i, label %if.end374.i, label %return
-
-if.end374.i:                                      ; preds = %if.then364.i, %if.end358.i, %if.else346.i
-  br i1 %tobool258.not.i, label %if.end392.i, label %if.then376.i
-
-if.then376.i:                                     ; preds = %if.end374.i
-  %50 = load ptr, ptr %wc_decrypt.0, align 8
-  %client_write_key378.i = getelementptr inbounds nuw i8, ptr %ssl, i64 844
-  %51 = load i16, ptr %specs13, align 2
-  %conv381.i = zext i16 %51 to i32
-  %call382.i = tail call i32 @wc_AesGcmSetKey(ptr noundef %50, ptr noundef nonnull %client_write_key378.i, i32 noundef %conv381.i) #7
-  %cmp383.not.i = icmp eq i32 %call382.i, 0
-  br i1 %cmp383.not.i, label %if.end392.sink.split.i, label %return
-
-if.end392.sink.split.i:                           ; preds = %if.then376.i, %if.then330.i
-  %.sink.i = phi i64 [ 208, %if.then330.i ], [ 192, %if.then376.i ]
-  %aead_dec_imp_IV387.i = getelementptr inbounds nuw i8, ptr %ssl, i64 960
-  %client_write_IV389.i = getelementptr inbounds nuw i8, ptr %keys1, i64 %.sink.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_dec_imp_IV387.i, ptr noundef nonnull align 4 dereferenceable(12) %client_write_IV389.i, i64 12, i1 false)
-  br label %if.end392.i
-
-if.end392.i:                                      ; preds = %if.end392.sink.split.i, %if.end374.i, %if.end328.i
-  br i1 %tobool240.not.i, label %if.end396.i, label %if.then394.i
-
-if.then394.i:                                     ; preds = %if.end392.i
-  %setup395.i = getelementptr inbounds nuw i8, ptr %wc_encrypt.0, i64 33
-  store i8 1, ptr %setup395.i, align 1
-  br label %if.end396.i
-
-if.end396.i:                                      ; preds = %if.then394.i, %if.end392.i
-  br i1 %tobool258.not.i, label %if.end401.i, label %if.then398.i
-
-if.then398.i:                                     ; preds = %if.end396.i
-  %setup399.i = getelementptr inbounds nuw i8, ptr %wc_decrypt.0, i64 33
-  store i8 1, ptr %setup399.i, align 1
-  br label %if.end401.i
-
-if.end401.i:                                      ; preds = %if.then398.i, %if.end396.i, %if.end234.i
-  %tobool402.not.i = icmp eq ptr %wc_encrypt.0, null
-  br i1 %tobool402.not.i, label %if.end404.i, label %if.then403.i
-
-if.then403.i:                                     ; preds = %if.end401.i
-  %sequence_number_hi.i = getelementptr inbounds nuw i8, ptr %ssl, i64 980
-  store i32 0, ptr %sequence_number_hi.i, align 4
-  %sequence_number_lo.i = getelementptr inbounds nuw i8, ptr %ssl, i64 984
-  store i32 0, ptr %sequence_number_lo.i, align 4
-  br label %if.end404.i
-
-if.end404.i:                                      ; preds = %if.then403.i, %if.end401.i
-  %tobool405.not.i = icmp eq ptr %wc_decrypt.0, null
-  br i1 %tobool405.not.i, label %return, label %if.then406.i
-
-if.then406.i:                                     ; preds = %if.end404.i
-  %peer_sequence_number_hi.i = getelementptr inbounds nuw i8, ptr %ssl, i64 972
-  store i32 0, ptr %peer_sequence_number_hi.i, align 4
-  %peer_sequence_number_lo.i = getelementptr inbounds nuw i8, ptr %ssl, i64 976
-  store i32 0, ptr %peer_sequence_number_lo.i, align 4
-  br label %return
-
-return:                                           ; preds = %if.then406.i, %if.end404.i, %if.then376.i, %if.then364.i, %if.then348.i, %if.then330.i, %if.then318.i, %if.then302.i, %if.then288.i, %if.then277.i, %if.then263.i, %if.then245.i, %if.then211.i, %if.then196.i, %if.then180.i, %if.then165.i, %if.then151.i, %if.then142.i, %if.then128.i, %if.then110.i, %if.then76.i, %if.then59.i, %if.then45.i, %if.then33.i, %land.lhs.true23.i, %land.lhs.true7.i, %land.lhs.true3.i, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -125, %land.lhs.true3.i ], [ -125, %land.lhs.true7.i ], [ -125, %land.lhs.true23.i ], [ %call36.i, %if.then33.i ], [ %call50.i, %if.then45.i ], [ %call65.i, %if.then59.i ], [ %call82.i, %if.then76.i ], [ -125, %if.then110.i ], [ -125, %if.then128.i ], [ -182, %if.then142.i ], [ -182, %if.then151.i ], [ %call173.i, %if.then165.i ], [ %call188.i, %if.then180.i ], [ %call204.i, %if.then196.i ], [ %call219.i, %if.then211.i ], [ -125, %if.then245.i ], [ -125, %if.then263.i ], [ -182, %if.then277.i ], [ -182, %if.then288.i ], [ %call308.i, %if.then302.i ], [ %call322.i, %if.then318.i ], [ %call336.i, %if.then330.i ], [ %call354.i, %if.then348.i ], [ %call368.i, %if.then364.i ], [ %call382.i, %if.then376.i ], [ 0, %if.then406.i ], [ 0, %if.end404.i ]
-  ret i32 %retval.0
+define i32 @SetKeys(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = load i8, ptr %10, align 2, !tbaa !48
+  %12 = icmp eq i8 %11, 9
+  br i1 %12, label %13, label %75
+
+13:                                               ; preds = %9
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %.critedge, label %14
+
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !60
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %.critedge
+
+18:                                               ; preds = %14
+  %19 = tail call ptr @wolfSSL_Malloc(i64 noundef 68) #7
+  store ptr %19, ptr %15, align 8, !tbaa !60
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %.thread257, label %.critedge
+
+.critedge:                                        ; preds = %14, %13, %18
+  %.not223 = icmp eq ptr %1, null
+  br i1 %.not223, label %.critedge251, label %21
+
+21:                                               ; preds = %.critedge
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = load ptr, ptr %22, align 8, !tbaa !60
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %.critedge251
+
+25:                                               ; preds = %21
+  %26 = tail call ptr @wolfSSL_Malloc(i64 noundef 68) #7
+  store ptr %26, ptr %22, align 8, !tbaa !60
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.thread257, label %.critedge251
+
+.critedge251:                                     ; preds = %21, %.critedge, %25
+  %28 = icmp eq i32 %4, 1
+  br i1 %28, label %29, label %49
+
+29:                                               ; preds = %.critedge251
+  br i1 %.not, label %39, label %30
+
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !60
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %34 = load i16, ptr %3, align 2, !tbaa !56
+  %35 = zext i16 %34 to i32
+  %36 = tail call i32 @wc_Chacha_SetKey(ptr noundef %32, ptr noundef nonnull %33, i32 noundef %35) #7
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %37, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
+  %.not226 = icmp eq i32 %36, 0
+  br i1 %.not226, label %39, label %.thread257
+
+39:                                               ; preds = %30, %29
+  br i1 %.not223, label %69, label %40
+
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !60
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %44 = load i16, ptr %3, align 2, !tbaa !56
+  %45 = zext i16 %44 to i32
+  %46 = tail call i32 @wc_Chacha_SetKey(ptr noundef %42, ptr noundef nonnull %43, i32 noundef %45) #7
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 244
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false)
+  %.not227 = icmp eq i32 %46, 0
+  br i1 %.not227, label %69, label %.thread257
+
+49:                                               ; preds = %.critedge251
+  br i1 %.not, label %59, label %50
+
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %52 = load ptr, ptr %51, align 8, !tbaa !60
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %54 = load i16, ptr %3, align 2, !tbaa !56
+  %55 = zext i16 %54 to i32
+  %56 = tail call i32 @wc_Chacha_SetKey(ptr noundef %52, ptr noundef nonnull %53, i32 noundef %55) #7
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %58, i64 12, i1 false)
+  %.not224 = icmp eq i32 %56, 0
+  br i1 %.not224, label %59, label %.thread257
+
+59:                                               ; preds = %50, %49
+  br i1 %.not223, label %69, label %60
+
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %62 = load ptr, ptr %61, align 8, !tbaa !60
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %64 = load i16, ptr %3, align 2, !tbaa !56
+  %65 = zext i16 %64 to i32
+  %66 = tail call i32 @wc_Chacha_SetKey(ptr noundef %62, ptr noundef nonnull %63, i32 noundef %65) #7
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 244
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %67, ptr noundef nonnull align 4 dereferenceable(12) %68, i64 12, i1 false)
+  %.not225 = icmp eq i32 %66, 0
+  br i1 %.not225, label %69, label %.thread257
+
+69:                                               ; preds = %59, %60, %39, %40
+  br i1 %.not, label %72, label %70
+
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %71, align 1, !tbaa !61
+  br label %72
+
+72:                                               ; preds = %70, %69
+  br i1 %.not223, label %thread-pre-split, label %73
+
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  store i8 1, ptr %74, align 1, !tbaa !61
+  br label %thread-pre-split
+
+thread-pre-split:                                 ; preds = %72, %73
+  %.pr = load i8, ptr %10, align 2, !tbaa !48
+  br label %75
+
+75:                                               ; preds = %thread-pre-split, %9
+  %76 = phi i8 [ %.pr, %thread-pre-split ], [ %11, %9 ]
+  %77 = icmp eq i8 %76, 6
+  br i1 %77, label %78, label %146
+
+78:                                               ; preds = %75
+  %.not228 = icmp eq ptr %0, null
+  br i1 %.not228, label %88, label %79
+
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %0, align 8, !tbaa !62
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %82, label %85
+
+82:                                               ; preds = %79
+  %83 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
+  store ptr %83, ptr %0, align 8, !tbaa !62
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %.thread257, label %86
+
+85:                                               ; preds = %79
+  tail call void @wc_AesFree(ptr noundef nonnull %80) #7
+  %.pre = load ptr, ptr %0, align 8, !tbaa !62
+  br label %86
+
+86:                                               ; preds = %82, %85
+  %87 = phi ptr [ %83, %82 ], [ %.pre, %85 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %87, i8 0, i64 848, i1 false)
+  br label %88
+
+88:                                               ; preds = %86, %78
+  %.not229 = icmp eq ptr %1, null
+  br i1 %.not229, label %98, label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %1, align 8, !tbaa !62
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %95
+
+92:                                               ; preds = %89
+  %93 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
+  store ptr %93, ptr %1, align 8, !tbaa !62
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %.thread257, label %96
+
+95:                                               ; preds = %89
+  tail call void @wc_AesFree(ptr noundef nonnull %90) #7
+  %.pre271 = load ptr, ptr %1, align 8, !tbaa !62
+  br label %96
+
+96:                                               ; preds = %92, %95
+  %97 = phi ptr [ %93, %92 ], [ %.pre271, %95 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %97, i8 0, i64 848, i1 false)
+  br label %98
+
+98:                                               ; preds = %96, %88
+  br i1 %.not228, label %102, label %99
+
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %0, align 8, !tbaa !62
+  %101 = tail call i32 @wc_AesInit(ptr noundef %100, ptr noundef %5, i32 noundef %6) #7
+  %.not230 = icmp eq i32 %101, 0
+  br i1 %.not230, label %102, label %.thread257
+
+102:                                              ; preds = %99, %98
+  br i1 %.not229, label %106, label %103
+
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %1, align 8, !tbaa !62
+  %105 = tail call i32 @wc_AesInit(ptr noundef %104, ptr noundef %5, i32 noundef %6) #7
+  %.not231 = icmp eq i32 %105, 0
+  br i1 %.not231, label %106, label %.thread257
+
+106:                                              ; preds = %103, %102
+  %107 = icmp eq i32 %4, 1
+  br i1 %107, label %108, label %124
+
+108:                                              ; preds = %106
+  br i1 %.not228, label %116, label %109
+
+109:                                              ; preds = %108
+  %110 = load ptr, ptr %0, align 8, !tbaa !62
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %112 = load i16, ptr %3, align 2, !tbaa !56
+  %113 = zext i16 %112 to i32
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %115 = tail call i32 @wc_AesSetKey(ptr noundef %110, ptr noundef nonnull %111, i32 noundef %113, ptr noundef nonnull %114, i32 noundef 0) #7
+  %.not234 = icmp eq i32 %115, 0
+  br i1 %.not234, label %116, label %.thread257
+
+116:                                              ; preds = %109, %108
+  br i1 %.not229, label %140, label %117
+
+117:                                              ; preds = %116
+  %118 = load ptr, ptr %1, align 8, !tbaa !62
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %120 = load i16, ptr %3, align 2, !tbaa !56
+  %121 = zext i16 %120 to i32
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %123 = tail call i32 @wc_AesSetKey(ptr noundef %118, ptr noundef nonnull %119, i32 noundef %121, ptr noundef nonnull %122, i32 noundef 1) #7
+  %.not235 = icmp eq i32 %123, 0
+  br i1 %.not235, label %140, label %.thread257
+
+124:                                              ; preds = %106
+  br i1 %.not228, label %132, label %125
+
+125:                                              ; preds = %124
+  %126 = load ptr, ptr %0, align 8, !tbaa !62
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %128 = load i16, ptr %3, align 2, !tbaa !56
+  %129 = zext i16 %128 to i32
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %131 = tail call i32 @wc_AesSetKey(ptr noundef %126, ptr noundef nonnull %127, i32 noundef %129, ptr noundef nonnull %130, i32 noundef 0) #7
+  %.not232 = icmp eq i32 %131, 0
+  br i1 %.not232, label %132, label %.thread257
+
+132:                                              ; preds = %125, %124
+  br i1 %.not229, label %140, label %133
+
+133:                                              ; preds = %132
+  %134 = load ptr, ptr %1, align 8, !tbaa !62
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %136 = load i16, ptr %3, align 2, !tbaa !56
+  %137 = zext i16 %136 to i32
+  %138 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %139 = tail call i32 @wc_AesSetKey(ptr noundef %134, ptr noundef nonnull %135, i32 noundef %137, ptr noundef nonnull %138, i32 noundef 1) #7
+  %.not233 = icmp eq i32 %139, 0
+  br i1 %.not233, label %140, label %.thread257
+
+140:                                              ; preds = %132, %133, %116, %117
+  br i1 %.not228, label %143, label %141
+
+141:                                              ; preds = %140
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %142, align 1, !tbaa !61
+  br label %143
+
+143:                                              ; preds = %141, %140
+  br i1 %.not229, label %146, label %144
+
+144:                                              ; preds = %143
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  store i8 1, ptr %145, align 1, !tbaa !61
+  br label %146
+
+146:                                              ; preds = %144, %143, %75
+  %147 = load i8, ptr %10, align 2, !tbaa !48
+  %148 = icmp eq i8 %147, 7
+  br i1 %148, label %149, label %227
+
+149:                                              ; preds = %146
+  %.not236 = icmp eq ptr %0, null
+  br i1 %.not236, label %159, label %150
+
+150:                                              ; preds = %149
+  %151 = load ptr, ptr %0, align 8, !tbaa !62
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %153, label %156
+
+153:                                              ; preds = %150
+  %154 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
+  store ptr %154, ptr %0, align 8, !tbaa !62
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %.thread257, label %157
+
+156:                                              ; preds = %150
+  tail call void @wc_AesFree(ptr noundef nonnull %151) #7
+  %.pre272 = load ptr, ptr %0, align 8, !tbaa !62
+  br label %157
+
+157:                                              ; preds = %153, %156
+  %158 = phi ptr [ %154, %153 ], [ %.pre272, %156 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %158, i8 0, i64 848, i1 false)
+  br label %159
+
+159:                                              ; preds = %157, %149
+  %.not237 = icmp eq ptr %1, null
+  br i1 %.not237, label %169, label %160
+
+160:                                              ; preds = %159
+  %161 = load ptr, ptr %1, align 8, !tbaa !62
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %163, label %166
+
+163:                                              ; preds = %160
+  %164 = tail call ptr @wolfSSL_Malloc(i64 noundef 848) #7
+  store ptr %164, ptr %1, align 8, !tbaa !62
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %.thread257, label %167
+
+166:                                              ; preds = %160
+  tail call void @wc_AesFree(ptr noundef nonnull %161) #7
+  %.pre273 = load ptr, ptr %1, align 8, !tbaa !62
+  br label %167
+
+167:                                              ; preds = %163, %166
+  %168 = phi ptr [ %164, %163 ], [ %.pre273, %166 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %168, i8 0, i64 848, i1 false)
+  br label %169
+
+169:                                              ; preds = %167, %159
+  br i1 %.not236, label %173, label %170
+
+170:                                              ; preds = %169
+  %171 = load ptr, ptr %0, align 8, !tbaa !62
+  %172 = tail call i32 @wc_AesInit(ptr noundef %171, ptr noundef %5, i32 noundef %6) #7
+  %.not238 = icmp eq i32 %172, 0
+  br i1 %.not238, label %173, label %.thread257
+
+173:                                              ; preds = %170, %169
+  br i1 %.not237, label %177, label %174
+
+174:                                              ; preds = %173
+  %175 = load ptr, ptr %1, align 8, !tbaa !62
+  %176 = tail call i32 @wc_AesInit(ptr noundef %175, ptr noundef %5, i32 noundef %6) #7
+  %.not239 = icmp eq i32 %176, 0
+  br i1 %.not239, label %177, label %.thread257
+
+177:                                              ; preds = %174, %173
+  %178 = icmp eq i32 %4, 1
+  br i1 %178, label %179, label %199
+
+179:                                              ; preds = %177
+  br i1 %.not236, label %192, label %180
+
+180:                                              ; preds = %179
+  %181 = load ptr, ptr %0, align 8, !tbaa !62
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %183 = load i16, ptr %3, align 2, !tbaa !56
+  %184 = zext i16 %183 to i32
+  %185 = tail call i32 @wc_AesGcmSetKey(ptr noundef %181, ptr noundef nonnull %182, i32 noundef %184) #7
+  %.not244 = icmp eq i32 %185, 0
+  br i1 %.not244, label %186, label %.thread257
+
+186:                                              ; preds = %180
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %187, ptr noundef nonnull align 4 dereferenceable(12) %188, i64 12, i1 false)
+  %.not245 = icmp eq i32 %8, 0
+  br i1 %.not245, label %189, label %192
+
+189:                                              ; preds = %186
+  %190 = load ptr, ptr %0, align 8, !tbaa !62
+  %191 = tail call i32 @wc_AesGcmSetIV(ptr noundef %190, i32 noundef 12, ptr noundef nonnull %188, i32 noundef 4, ptr noundef %7) #7
+  %.not246 = icmp eq i32 %191, 0
+  br i1 %.not246, label %192, label %.thread257
+
+192:                                              ; preds = %186, %189, %179
+  br i1 %.not237, label %221, label %193
+
+193:                                              ; preds = %192
+  %194 = load ptr, ptr %1, align 8, !tbaa !62
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %196 = load i16, ptr %3, align 2, !tbaa !56
+  %197 = zext i16 %196 to i32
+  %198 = tail call i32 @wc_AesGcmSetKey(ptr noundef %194, ptr noundef nonnull %195, i32 noundef %197) #7
+  %.not247 = icmp eq i32 %198, 0
+  br i1 %.not247, label %.sink.split, label %.thread257
+
+199:                                              ; preds = %177
+  br i1 %.not236, label %212, label %200
+
+200:                                              ; preds = %199
+  %201 = load ptr, ptr %0, align 8, !tbaa !62
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %203 = load i16, ptr %3, align 2, !tbaa !56
+  %204 = zext i16 %203 to i32
+  %205 = tail call i32 @wc_AesGcmSetKey(ptr noundef %201, ptr noundef nonnull %202, i32 noundef %204) #7
+  %.not240 = icmp eq i32 %205, 0
+  br i1 %.not240, label %206, label %.thread257
+
+206:                                              ; preds = %200
+  %207 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %208 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %207, ptr noundef nonnull align 4 dereferenceable(12) %208, i64 12, i1 false)
+  %.not241 = icmp eq i32 %8, 0
+  br i1 %.not241, label %209, label %212
+
+209:                                              ; preds = %206
+  %210 = load ptr, ptr %0, align 8, !tbaa !62
+  %211 = tail call i32 @wc_AesGcmSetIV(ptr noundef %210, i32 noundef 12, ptr noundef nonnull %208, i32 noundef 4, ptr noundef %7) #7
+  %.not242 = icmp eq i32 %211, 0
+  br i1 %.not242, label %212, label %.thread257
+
+212:                                              ; preds = %206, %209, %199
+  br i1 %.not237, label %221, label %213
+
+213:                                              ; preds = %212
+  %214 = load ptr, ptr %1, align 8, !tbaa !62
+  %215 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %216 = load i16, ptr %3, align 2, !tbaa !56
+  %217 = zext i16 %216 to i32
+  %218 = tail call i32 @wc_AesGcmSetKey(ptr noundef %214, ptr noundef nonnull %215, i32 noundef %217) #7
+  %.not243 = icmp eq i32 %218, 0
+  br i1 %.not243, label %.sink.split, label %.thread257
+
+.sink.split:                                      ; preds = %213, %193
+  %.sink275 = phi i64 [ 208, %193 ], [ 192, %213 ]
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 244
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink275
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %219, ptr noundef nonnull align 4 dereferenceable(12) %220, i64 12, i1 false)
+  br label %221
+
+221:                                              ; preds = %.sink.split, %212, %192
+  br i1 %.not236, label %224, label %222
+
+222:                                              ; preds = %221
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %223, align 1, !tbaa !61
+  br label %224
+
+224:                                              ; preds = %222, %221
+  br i1 %.not237, label %227, label %225
+
+225:                                              ; preds = %224
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  store i8 1, ptr %226, align 1, !tbaa !61
+  br label %227
+
+227:                                              ; preds = %225, %224, %146
+  %.not248 = icmp eq ptr %0, null
+  br i1 %.not248, label %231, label %228
+
+228:                                              ; preds = %227
+  %229 = getelementptr inbounds nuw i8, ptr %2, i64 264
+  store i32 0, ptr %229, align 4, !tbaa !63
+  %230 = getelementptr inbounds nuw i8, ptr %2, i64 268
+  store i32 0, ptr %230, align 4, !tbaa !64
+  br label %231
+
+231:                                              ; preds = %228, %227
+  %.not249 = icmp eq ptr %1, null
+  br i1 %.not249, label %.thread257, label %232
+
+232:                                              ; preds = %231
+  %233 = getelementptr inbounds nuw i8, ptr %2, i64 256
+  store i32 0, ptr %233, align 4, !tbaa !65
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 260
+  store i32 0, ptr %234, align 4, !tbaa !66
+  br label %.thread257
+
+.thread257:                                       ; preds = %213, %209, %200, %193, %189, %180, %174, %170, %163, %153, %133, %125, %117, %109, %103, %99, %92, %82, %60, %50, %40, %30, %25, %18, %231, %232
+  %.2183 = phi i32 [ 0, %232 ], [ 0, %231 ], [ %66, %60 ], [ %56, %50 ], [ %46, %40 ], [ %36, %30 ], [ -125, %25 ], [ -125, %18 ], [ %139, %133 ], [ %131, %125 ], [ %123, %117 ], [ %115, %109 ], [ -182, %103 ], [ -182, %99 ], [ -125, %92 ], [ -125, %82 ], [ %218, %213 ], [ %211, %209 ], [ %205, %200 ], [ %198, %193 ], [ %191, %189 ], [ %185, %180 ], [ -182, %174 ], [ -182, %170 ], [ -125, %163 ], [ -125, %153 ]
+  ret i32 %.2183
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @StoreKeys(ptr noundef captures(none) %ssl, ptr noundef readonly captures(none) %keyData, i32 noundef %side) local_unnamed_addr #2 {
-entry:
-  %keys1 = getelementptr inbounds nuw i8, ptr %ssl, i64 716
-  %specs = getelementptr inbounds nuw i8, ptr %ssl, i64 698
-  %cipher_type = getelementptr inbounds nuw i8, ptr %ssl, i64 707
-  %0 = load i8, ptr %cipher_type, align 1
-  %cmp.not = icmp eq i8 %0, 2
-  br i1 %cmp.not, label %entry.if.end16_crit_edge, label %if.then
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
 
-entry.if.end16_crit_edge:                         ; preds = %entry
-  %.pre = and i32 %side, 1
-  br label %if.end16
-
-if.then:                                          ; preds = %entry
-  %hash_size = getelementptr inbounds nuw i8, ptr %ssl, i64 711
-  %1 = load i8, ptr %hash_size, align 1
-  %conv4 = zext i8 %1 to i32
-  %and = and i32 %side, 1
-  %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.end, label %if.then5
-
-if.then5:                                         ; preds = %if.then
-  %conv6 = zext i8 %1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1, ptr align 1 %keyData, i64 %conv6, i1 false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then5, %if.then
-  %i.1 = phi i32 [ %conv4, %if.then5 ], [ 0, %if.then ]
-  %and7 = and i32 %side, 2
-  %tobool8.not = icmp eq i32 %and7, 0
-  br i1 %tobool8.not, label %if.end16, label %if.then9
-
-if.then9:                                         ; preds = %if.end
-  %server_write_MAC_secret = getelementptr inbounds nuw i8, ptr %ssl, i64 780
-  %idxprom11 = zext nneg i32 %i.1 to i64
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom11
-  %conv13 = zext i8 %1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret, ptr align 1 %arrayidx12, i64 %conv13, i1 false)
-  %add14 = add nuw nsw i32 %i.1, %conv4
-  br label %if.end16
-
-if.end16:                                         ; preds = %entry.if.end16_crit_edge, %if.end, %if.then9
-  %and19.pre-phi = phi i32 [ %.pre, %entry.if.end16_crit_edge ], [ %and, %if.end ], [ %and, %if.then9 ]
-  %i.0 = phi i32 [ 0, %entry.if.end16_crit_edge ], [ %i.1, %if.end ], [ %add14, %if.then9 ]
-  %2 = load i16, ptr %specs, align 2
-  %conv18 = zext i16 %2 to i32
-  %tobool20.not = icmp eq i32 %and19.pre-phi, 0
-  br i1 %tobool20.not, label %if.end27, label %if.then21
-
-if.then21:                                        ; preds = %if.end16
-  %client_write_key = getelementptr inbounds nuw i8, ptr %ssl, i64 844
-  %idxprom23 = zext nneg i32 %i.0 to i64
-  %arrayidx24 = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom23
-  %conv25 = zext i16 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key, ptr align 1 %arrayidx24, i64 %conv25, i1 false)
-  %add26 = add nuw nsw i32 %i.0, %conv18
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.then21, %if.end16
-  %i.2 = phi i32 [ %add26, %if.then21 ], [ %i.0, %if.end16 ]
-  %and28 = and i32 %side, 2
-  %tobool29.not = icmp eq i32 %and28, 0
-  br i1 %tobool29.not, label %if.end36, label %if.then30
-
-if.then30:                                        ; preds = %if.end27
-  %server_write_key = getelementptr inbounds nuw i8, ptr %ssl, i64 876
-  %idxprom32 = zext nneg i32 %i.2 to i64
-  %arrayidx33 = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom32
-  %conv34 = zext i16 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key, ptr align 1 %arrayidx33, i64 %conv34, i1 false)
-  %add35 = add nuw nsw i32 %i.2, %conv18
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.then30, %if.end27
-  %i.3 = phi i32 [ %add35, %if.then30 ], [ %i.2, %if.end27 ]
-  %iv_size = getelementptr inbounds nuw i8, ptr %ssl, i64 700
-  %3 = load i16, ptr %iv_size, align 2
-  br i1 %tobool20.not, label %if.end47, label %if.then41
-
-if.then41:                                        ; preds = %if.end36
-  %conv38 = zext i16 %3 to i32
-  %client_write_IV = getelementptr inbounds nuw i8, ptr %ssl, i64 908
-  %idxprom43 = zext nneg i32 %i.3 to i64
-  %arrayidx44 = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom43
-  %conv45 = zext i16 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV, ptr align 1 %arrayidx44, i64 %conv45, i1 false)
-  %add46 = add nuw nsw i32 %i.3, %conv38
-  br label %if.end47
-
-if.end47:                                         ; preds = %if.then41, %if.end36
-  %i.4 = phi i32 [ %add46, %if.then41 ], [ %i.3, %if.end36 ]
-  br i1 %tobool29.not, label %if.end55, label %if.then50
-
-if.then50:                                        ; preds = %if.end47
-  %server_write_IV = getelementptr inbounds nuw i8, ptr %ssl, i64 924
-  %idxprom52 = zext nneg i32 %i.4 to i64
-  %arrayidx53 = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom52
-  %conv54 = zext i16 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV, ptr align 1 %arrayidx53, i64 %conv54, i1 false)
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.then50, %if.end47
-  br i1 %cmp.not, label %if.then61, label %if.end63
-
-if.then61:                                        ; preds = %if.end55
-  %aead_exp_IV = getelementptr inbounds nuw i8, ptr %ssl, i64 940
-  store i64 0, ptr %aead_exp_IV, align 4
-  br label %if.end63
-
-if.end63:                                         ; preds = %if.then61, %if.end55
-  ret i32 0
-}
+declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
+declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
+declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @wc_AesGcmSetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @wc_AesGcmSetIV(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: nounwind uwtable
-define i32 @DeriveKeys(ptr noundef captures(none) %ssl) local_unnamed_addr #0 {
-entry:
-  %shaOutput = alloca [20 x i8], align 16
-  %md5Input = alloca [68 x i8], align 16
-  %shaInput = alloca [121 x i8], align 16
-  %keyData = alloca [144 x i8], align 16
-  %md5 = alloca [1 x %struct.wc_Md5], align 16
-  %sha = alloca [1 x %struct.wc_Sha], align 16
-  %specs = getelementptr inbounds nuw i8, ptr %ssl, i64 698
-  %hash_size = getelementptr inbounds nuw i8, ptr %ssl, i64 711
-  %0 = load i8, ptr %hash_size, align 1
-  %conv = zext i8 %0 to i32
-  %1 = load i16, ptr %specs, align 2
-  %conv2 = zext i16 %1 to i32
-  %mul24 = add nuw nsw i32 %conv2, %conv
-  %iv_size = getelementptr inbounds nuw i8, ptr %ssl, i64 700
-  %2 = load i16, ptr %iv_size, align 2
-  %conv5 = zext i16 %2 to i32
-  %add25 = add nuw nsw i32 %mul24, %conv5
-  %add7 = shl nuw nsw i32 %add25, 1
-  %sub = add nuw nsw i32 %add7, 15
-  %div26 = lshr i32 %sub, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %shaOutput, i8 0, i64 20, i1 false)
-  %call = call i32 @wc_InitMd5(ptr noundef nonnull %md5) #7
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.end, label %if.end82
-
-if.end:                                           ; preds = %entry
-  %call12 = call i32 @wc_InitSha(ptr noundef nonnull %sha) #7
-  %cmp13 = icmp eq i32 %call12, 0
-  br i1 %cmp13, label %if.then15, label %if.end82
-
-if.then15:                                        ; preds = %if.end
-  %arrays = getelementptr inbounds nuw i8, ptr %ssl, i64 16
-  %3 = load ptr, ptr %arrays, align 16
-  %masterSecret = getelementptr inbounds nuw i8, ptr %3, i64 173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %md5Input, ptr noundef nonnull align 1 dereferenceable(48) %masterSecret, i64 48, i1 false)
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %shaInput, i64 49
-  %invariant.gep41 = getelementptr inbounds nuw i8, ptr %shaInput, i64 81
-  %cmp1843.not = icmp eq i32 %add25, 0
-  br i1 %cmp1843.not, label %if.then78, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.then15
-  %add.ptr5734 = getelementptr inbounds nuw i8, ptr %md5Input, i64 48
-  %umax = call i32 @llvm.umax.i32(i32 %div26, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %ret.245 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.7, %for.inc ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %4, label %if.end82 [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb2.i
-    i32 3, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
-    i32 5, label %sw.bb5.i
-    i32 6, label %sw.bb6.i
-    i32 7, label %sw.bb7.i
-    i32 8, label %sw.bb8.i
+define i32 @SetKeysSide(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  switch i32 %1, label %SetAuthKeys.exit [
+    i32 1, label %4
+    i32 2, label %6
+    i32 3, label %8
   ]
 
-sw.bb.i:                                          ; preds = %for.body
-  store i8 65, ptr %shaInput, align 16
-  br label %if.end24
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  br label %11
 
-sw.bb1.i:                                         ; preds = %for.body
-  store i16 16962, ptr %shaInput, align 16
-  br label %if.end24
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  br label %11
 
-sw.bb2.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %shaInput, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
-  br label %if.end24
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  br label %11
 
-sw.bb3.i:                                         ; preds = %for.body
-  store i32 1145324612, ptr %shaInput, align 16
-  br label %if.end24
+11:                                               ; preds = %8, %6, %4
+  %.026 = phi ptr [ %9, %8 ], [ null, %6 ], [ %5, %4 ]
+  %.025 = phi ptr [ %10, %8 ], [ %7, %6 ], [ null, %4 ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %14 = load i8, ptr %13, align 8, !tbaa !67
+  %.not = icmp eq i8 %14, 0
+  br i1 %.not, label %15, label %25
 
-sw.bb4.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %shaInput, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
-  br label %if.end24
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 722
+  %17 = load i8, ptr %16, align 2, !tbaa !68
+  %18 = icmp eq i8 %17, 9
+  br i1 %18, label %19, label %25
 
-sw.bb5.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %shaInput, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
-  br label %if.end24
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %12, align 8, !tbaa !69
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %SetAuthKeys.exit.thread
 
-sw.bb6.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %shaInput, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, i64 7, i1 false)
-  br label %if.end24
+22:                                               ; preds = %19
+  %23 = tail call ptr @wolfSSL_Malloc(i64 noundef 96) #7
+  store ptr %23, ptr %12, align 8, !tbaa !69
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %SetAuthKeys.exit, label %SetAuthKeys.exit.thread
 
-sw.bb7.i:                                         ; preds = %for.body
-  store i64 5208492444341520456, ptr %shaInput, align 16
-  br label %if.end24
+SetAuthKeys.exit.thread:                          ; preds = %19, %22
+  store i8 1, ptr %13, align 8, !tbaa !70
+  br label %25
 
-sw.bb8.i:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %shaInput, ptr noundef nonnull align 1 dereferenceable(9) @.str.8, i64 9, i1 false)
-  br label %if.end24
+25:                                               ; preds = %SetAuthKeys.exit.thread, %15, %11
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 714
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %28 = load i64, ptr %27, align 8
+  %29 = trunc i64 %28 to i32
+  %30 = lshr i32 %29, 4
+  %31 = and i32 %30, 3
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %33 = load ptr, ptr %32, align 16, !tbaa !71
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1204
+  %35 = load i32, ptr %34, align 4, !tbaa !72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %37 = load ptr, ptr %36, align 8, !tbaa !73
+  %38 = lshr i32 %29, 16
+  %39 = and i32 %38, 1
+  %40 = tail call i32 @SetKeys(ptr noundef %.026, ptr noundef %.025, ptr noundef nonnull %3, ptr noundef nonnull %26, i32 noundef %31, ptr noundef %33, i32 noundef %35, ptr noundef %37, i32 noundef %39)
+  br label %SetAuthKeys.exit
 
-if.end24:                                         ; preds = %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %add.ptr = getelementptr inbounds nuw i8, ptr %shaInput, i64 %indvars.iv.next
-  %5 = load ptr, ptr %arrays, align 16
-  %masterSecret27 = getelementptr inbounds nuw i8, ptr %5, i64 173
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %add.ptr, ptr noundef nonnull align 1 dereferenceable(48) %masterSecret27, i64 48, i1 false)
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %serverRandom = getelementptr inbounds nuw i8, ptr %5, i64 60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep, ptr noundef nonnull align 4 dereferenceable(32) %serverRandom, i64 32, i1 false)
-  %gep42 = getelementptr inbounds nuw i8, ptr %invariant.gep41, i64 %indvars.iv
-  %clientRandom = getelementptr inbounds nuw i8, ptr %5, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep42, ptr noundef nonnull align 4 dereferenceable(32) %clientRandom, i64 32, i1 false)
-  %cmp41 = icmp eq i32 %ret.245, 0
-  br i1 %cmp41, label %if.end48, label %if.end55.thread
-
-if.end48:                                         ; preds = %if.end24
-  %6 = trunc i64 %indvars.iv to i32
-  %7 = add i32 %6, 113
-  %call47 = call i32 @wc_ShaUpdate(ptr noundef nonnull %sha, ptr noundef nonnull %shaInput, i32 noundef %7) #7
-  %cmp49 = icmp eq i32 %call47, 0
-  br i1 %cmp49, label %if.end55, label %if.end55.thread
-
-if.end55.thread:                                  ; preds = %if.end48, %if.end24
-  %ret.5.ph = phi i32 [ %call47, %if.end48 ], [ %ret.245, %if.end24 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %add.ptr5734, ptr noundef nonnull align 16 dereferenceable(20) %shaOutput, i64 20, i1 false)
-  br label %for.inc
-
-if.end55:                                         ; preds = %if.end48
-  %call54 = call i32 @wc_ShaFinal(ptr noundef nonnull %sha, ptr noundef nonnull %shaOutput) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %add.ptr5734, ptr noundef nonnull align 16 dereferenceable(20) %shaOutput, i64 20, i1 false)
-  %cmp59 = icmp eq i32 %call54, 0
-  br i1 %cmp59, label %if.end65, label %for.inc
-
-if.end65:                                         ; preds = %if.end55
-  %call64 = call i32 @wc_Md5Update(ptr noundef nonnull %md5, ptr noundef nonnull %md5Input, i32 noundef 68) #7
-  %cmp66 = icmp eq i32 %call64, 0
-  br i1 %cmp66, label %if.then68, label %for.inc
-
-if.then68:                                        ; preds = %if.end65
-  %8 = shl nuw nsw i64 %indvars.iv, 4
-  %add.ptr73 = getelementptr inbounds nuw i8, ptr %keyData, i64 %8
-  %call74 = call i32 @wc_Md5Final(ptr noundef nonnull %md5, ptr noundef nonnull %add.ptr73) #7
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end55.thread, %if.end55, %if.end65, %if.then68
-  %ret.7 = phi i32 [ %call74, %if.then68 ], [ %call64, %if.end65 ], [ %ret.5.ph, %if.end55.thread ], [ %call54, %if.end55 ]
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
-
-for.end:                                          ; preds = %for.inc
-  %cmp76 = icmp eq i32 %ret.7, 0
-  br i1 %cmp76, label %if.then78, label %if.end82
-
-if.then78:                                        ; preds = %if.then15, %for.end
-  %cipher_type.i = getelementptr inbounds nuw i8, ptr %ssl, i64 707
-  %9 = load i8, ptr %cipher_type.i, align 1
-  %cmp.not.i = icmp eq i8 %9, 2
-  br i1 %cmp.not.i, label %if.end16.i, label %if.then.i
-
-if.then.i:                                        ; preds = %if.then78
-  %keys1.i = getelementptr inbounds nuw i8, ptr %ssl, i64 716
-  %10 = load i8, ptr %hash_size, align 1
-  %conv4.i = zext i8 %10 to i32
-  %conv6.i = zext i8 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1.i, ptr nonnull readonly align 16 %keyData, i64 %conv6.i, i1 false)
-  %server_write_MAC_secret.i = getelementptr inbounds nuw i8, ptr %ssl, i64 780
-  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %keyData, i64 %conv6.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret.i, ptr nonnull readonly align 1 %arrayidx12.i, i64 %conv6.i, i1 false)
-  %add14.i = shl nuw nsw i32 %conv4.i, 1
-  br label %if.end16.i
-
-if.end16.i:                                       ; preds = %if.then78, %if.then.i
-  %i.0.i = phi i32 [ %add14.i, %if.then.i ], [ 0, %if.then78 ]
-  %11 = load i16, ptr %specs, align 2
-  %conv18.i = zext i16 %11 to i32
-  %client_write_key.i = getelementptr inbounds nuw i8, ptr %ssl, i64 844
-  %idxprom23.i = zext nneg i32 %i.0.i to i64
-  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom23.i
-  %conv25.i = zext i16 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull readonly align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
-  %add26.i = add nuw nsw i32 %i.0.i, %conv18.i
-  %server_write_key.i = getelementptr inbounds nuw i8, ptr %ssl, i64 876
-  %idxprom32.i = zext nneg i32 %add26.i to i64
-  %arrayidx33.i = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom32.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key.i, ptr nonnull readonly align 1 %arrayidx33.i, i64 %conv25.i, i1 false)
-  %add35.i = add nuw nsw i32 %add26.i, %conv18.i
-  %12 = load i16, ptr %iv_size, align 2
-  %conv38.i = zext i16 %12 to i32
-  %client_write_IV.i = getelementptr inbounds nuw i8, ptr %ssl, i64 908
-  %idxprom43.i = zext nneg i32 %add35.i to i64
-  %arrayidx44.i = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom43.i
-  %conv45.i = zext i16 %12 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV.i, ptr nonnull readonly align 1 %arrayidx44.i, i64 %conv45.i, i1 false)
-  %add46.i = add nuw nsw i32 %add35.i, %conv38.i
-  %server_write_IV.i = getelementptr inbounds nuw i8, ptr %ssl, i64 924
-  %idxprom52.i = zext nneg i32 %add46.i to i64
-  %arrayidx53.i = getelementptr inbounds nuw i8, ptr %keyData, i64 %idxprom52.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV.i, ptr nonnull readonly align 1 %arrayidx53.i, i64 %conv45.i, i1 false)
-  br i1 %cmp.not.i, label %if.then61.i, label %if.end82
-
-if.then61.i:                                      ; preds = %if.end16.i
-  %aead_exp_IV.i = getelementptr inbounds nuw i8, ptr %ssl, i64 940
-  store i64 0, ptr %aead_exp_IV.i, align 4
-  br label %if.end82
-
-if.end82:                                         ; preds = %for.body, %entry, %if.then61.i, %if.end16.i, %for.end, %if.end
-  %ret.1 = phi i32 [ %ret.7, %for.end ], [ %call12, %if.end ], [ 0, %if.end16.i ], [ 0, %if.then61.i ], [ %call, %entry ], [ -302, %for.body ]
-  ret i32 %ret.1
+SetAuthKeys.exit:                                 ; preds = %22, %2, %25
+  %.0 = phi i32 [ %40, %25 ], [ -173, %2 ], [ -125, %22 ]
+  ret i32 %.0
 }
 
-declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define noundef i32 @StoreKeys(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 714
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %7 = load i8, ptr %6, align 1, !tbaa !47
+  %.not = icmp eq i8 %7, 2
+  br i1 %.not, label %._crit_edge, label %8
 
-declare i32 @wc_InitSha(ptr noundef) local_unnamed_addr #1
+._crit_edge:                                      ; preds = %3
+  %.pre = and i32 %2, 1
+  br label %23
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 727
+  %10 = load i8, ptr %9, align 1, !tbaa !74
+  %11 = zext i8 %10 to i64
+  %12 = and i32 %2, 1
+  %.not46 = icmp eq i32 %12, 0
+  br i1 %.not46, label %15, label %13
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
+13:                                               ; preds = %8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4, ptr align 1 %1, i64 %11, i1 false)
+  %14 = zext i8 %10 to i32
+  br label %15
 
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+15:                                               ; preds = %13, %8
+  %.1 = phi i32 [ %14, %13 ], [ 0, %8 ]
+  %16 = and i32 %2, 2
+  %.not47 = icmp eq i32 %16, 0
+  br i1 %.not47, label %23, label %17
 
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #1
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 796
+  %19 = zext nneg i32 %.1 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 1 %20, i64 %11, i1 false)
+  %21 = zext i8 %10 to i32
+  %22 = add nuw nsw i32 %.1, %21
+  br label %23
+
+23:                                               ; preds = %._crit_edge, %15, %17
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %12, %15 ], [ %12, %17 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ %.1, %15 ], [ %22, %17 ]
+  %24 = load i16, ptr %5, align 2, !tbaa !75
+  %25 = zext i16 %24 to i64
+  %.not48 = icmp eq i32 %.pre-phi, 0
+  br i1 %.not48, label %32, label %26
+
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 860
+  %28 = zext nneg i32 %.0 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %27, ptr align 1 %29, i64 %25, i1 false)
+  %30 = zext i16 %24 to i32
+  %31 = add nuw nsw i32 %.0, %30
+  br label %32
+
+32:                                               ; preds = %26, %23
+  %.2 = phi i32 [ %31, %26 ], [ %.0, %23 ]
+  %33 = and i32 %2, 2
+  %.not49 = icmp eq i32 %33, 0
+  br i1 %.not49, label %40, label %34
+
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 892
+  %36 = zext nneg i32 %.2 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %35, ptr align 1 %37, i64 %25, i1 false)
+  %38 = zext i16 %24 to i32
+  %39 = add nuw nsw i32 %.2, %38
+  br label %40
+
+40:                                               ; preds = %34, %32
+  %.3 = phi i32 [ %39, %34 ], [ %.2, %32 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  %42 = load i16, ptr %41, align 2, !tbaa !76
+  %43 = zext i16 %42 to i64
+  br i1 %.not48, label %50, label %44
+
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 924
+  %46 = zext nneg i32 %.3 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %45, ptr align 1 %47, i64 %43, i1 false)
+  %48 = zext i16 %42 to i32
+  %49 = add nuw nsw i32 %.3, %48
+  br label %50
+
+50:                                               ; preds = %44, %40
+  %.4 = phi i32 [ %49, %44 ], [ %.3, %40 ]
+  br i1 %.not49, label %55, label %51
+
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  %53 = zext nneg i32 %.4 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %52, ptr align 1 %54, i64 %43, i1 false)
+  br label %55
+
+55:                                               ; preds = %51, %50
+  br i1 %.not, label %56, label %58
+
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 956
+  store i64 0, ptr %57, align 4
+  br label %58
+
+58:                                               ; preds = %56, %55
+  ret i32 0
+}
 
 ; Function Attrs: nounwind uwtable
-define i32 @MakeMasterSecret(ptr noundef %ssl) local_unnamed_addr #0 {
-entry:
-  %shaOutput.i = alloca [20 x i8], align 16
-  %md5Input.i = alloca [532 x i8], align 16
-  %shaInput.i = alloca [579 x i8], align 16
-  %md5.i = alloca [1 x %struct.wc_Md5], align 16
-  %sha.i = alloca [1 x %struct.wc_Sha], align 16
-  %prefix.i = alloca [9 x i8], align 2
-  %tls = getelementptr inbounds nuw i8, ptr %ssl, i64 1008
-  %bf.load = load i64, ptr %tls, align 8
-  %0 = and i64 %bf.load, 16384
-  %tobool.not = icmp eq i64 %0, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = alloca [20 x i8], align 16
+  %3 = alloca [68 x i8], align 16
+  %4 = alloca [121 x i8], align 16
+  %5 = alloca [144 x i8], align 16
+  %6 = alloca [1 x %struct.wc_Md5], align 16
+  %7 = alloca [1 x %struct.wc_Sha], align 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 714
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 727
+  %10 = load i8, ptr %9, align 1, !tbaa !74
+  %11 = zext i8 %10 to i32
+  %12 = load i16, ptr %8, align 2, !tbaa !75
+  %13 = zext i16 %12 to i32
+  %14 = add nuw nsw i32 %13, %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  %16 = load i16, ptr %15, align 2, !tbaa !76
+  %17 = zext i16 %16 to i32
+  %18 = add nuw nsw i32 %14, %17
+  %19 = shl nuw nsw i32 %18, 1
+  %20 = add nuw nsw i32 %19, 15
+  %21 = lshr i32 %20, 4
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 121, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  %22 = call i32 @wc_InitMd5(ptr noundef nonnull %6) #7
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %StoreKeys.exit
 
-if.then:                                          ; preds = %entry
-  %call = tail call i32 @MakeTlsMasterSecret(ptr noundef nonnull %ssl) #7
-  br label %return
+24:                                               ; preds = %1
+  %25 = call i32 @wc_InitSha(ptr noundef nonnull %7) #7
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %StoreKeys.exit
 
-if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %shaOutput.i)
-  call void @llvm.lifetime.start.p0(i64 532, ptr nonnull %md5Input.i)
-  call void @llvm.lifetime.start.p0(i64 579, ptr nonnull %shaInput.i)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %md5.i)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %sha.i)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %prefix.i)
-  %arrays.i = getelementptr inbounds nuw i8, ptr %ssl, i64 16
-  %1 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2 = load i32, ptr %preMasterSz.i, align 8
-  %preMasterSecret.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load ptr, ptr %preMasterSecret.i, align 8
-  %cmp.i = icmp eq ptr %3, null
-  br i1 %cmp.i, label %MakeSslMasterSecret.exit, label %if.end.i
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !77
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 173
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, ptr noundef nonnull align 1 dereferenceable(48) %30, i64 48, i1 false)
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 49
+  %invariant.gep51 = getelementptr inbounds nuw i8, ptr %4, i64 81
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-if.end.i:                                         ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %shaOutput.i, i8 0, i64 20, i1 false)
-  %call.i = call i32 @wc_InitMd5(ptr noundef nonnull %md5.i) #7
-  %cmp3.i = icmp eq i32 %call.i, 0
-  br i1 %cmp3.i, label %if.end7.i, label %if.end79.i
+.lr.ph:                                           ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %umax = call i32 @llvm.umax.i32(i32 %21, i32 1)
+  %wide.trip.count = zext nneg i32 %umax to i64
+  br label %32
 
-if.end7.i:                                        ; preds = %if.end.i
-  %call6.i = call i32 @wc_InitSha(ptr noundef nonnull %sha.i) #7
-  %cmp8.i = icmp eq i32 %call6.i, 0
-  br i1 %cmp8.i, label %if.then9.i, label %if.end79.i
-
-if.then9.i:                                       ; preds = %if.end7.i
-  %4 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret12.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %5 = load ptr, ptr %preMasterSecret12.i, align 8
-  %conv.i = zext i32 %2 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %md5Input.i, ptr align 1 %5, i64 %conv.i, i1 false)
-  %add.ptr5744.i = getelementptr inbounds nuw i8, ptr %md5Input.i, i64 %conv.i
-  %add59.i = add i32 %2, 20
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.inc.i, %if.then9.i
-  %indvars.iv.i = phi i64 [ 0, %if.then9.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %ret.252.i = phi i32 [ 0, %if.then9.i ], [ %ret.7.i, %for.inc.i ]
-  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
-  switch i32 %6, label %default.unreachable.i [
-    i32 0, label %sw.bb.i.i
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb2.i.i
+32:                                               ; preds = %.lr.ph, %SetPrefix.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %SetPrefix.exit ]
+  %.254 = phi i32 [ 0, %.lr.ph ], [ %.4, %SetPrefix.exit ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %33, label %StoreKeys.exit [
+    i32 0, label %34
+    i32 1, label %35
+    i32 2, label %36
+    i32 3, label %37
+    i32 4, label %38
+    i32 5, label %39
+    i32 6, label %40
+    i32 7, label %41
+    i32 8, label %42
   ]
 
-sw.bb.i.i:                                        ; preds = %for.body.i
-  store i8 65, ptr %prefix.i, align 2
-  br label %if.end18.i
+34:                                               ; preds = %32
+  store i8 65, ptr %4, align 16
+  br label %43
 
-sw.bb1.i.i:                                       ; preds = %for.body.i
-  store i16 16962, ptr %prefix.i, align 2
-  br label %if.end18.i
+35:                                               ; preds = %32
+  store i16 16962, ptr %4, align 16
+  br label %43
 
-sw.bb2.i.i:                                       ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %prefix.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
-  br label %if.end18.i
+36:                                               ; preds = %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  br label %43
 
-if.end18.i:                                       ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
+37:                                               ; preds = %32
+  store i32 1145324612, ptr %4, align 16
+  br label %43
+
+38:                                               ; preds = %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
+  br label %43
+
+39:                                               ; preds = %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
+  br label %43
+
+40:                                               ; preds = %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, i64 7, i1 false)
+  br label %43
+
+41:                                               ; preds = %32
+  store i64 5208492444341520456, ptr %4, align 16
+  br label %43
+
+42:                                               ; preds = %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %4, ptr noundef nonnull align 1 dereferenceable(9) @.str.8, i64 9, i1 false)
+  br label %43
+
+43:                                               ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next
+  %45 = load ptr, ptr %28, align 8, !tbaa !77
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 173
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %44, ptr noundef nonnull align 1 dereferenceable(48) %46, i64 48, i1 false)
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep, ptr noundef nonnull align 4 dereferenceable(32) %47, i64 32, i1 false)
+  %gep52 = getelementptr inbounds nuw i8, ptr %invariant.gep51, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep52, ptr noundef nonnull align 4 dereferenceable(32) %48, i64 32, i1 false)
+  %49 = icmp eq i32 %.254, 0
+  br i1 %49, label %50, label %.thread39
+
+50:                                               ; preds = %43
+  %51 = trunc i64 %indvars.iv to i32
+  %52 = add i32 %51, 113
+  %53 = call i32 @wc_ShaUpdate(ptr noundef nonnull %7, ptr noundef nonnull %4, i32 noundef %52) #7
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %.thread39
+
+.thread39:                                        ; preds = %50, %43
+  %.6.ph = phi i32 [ %53, %50 ], [ %.254, %43 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %31, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
+  br label %SetPrefix.exit
+
+55:                                               ; preds = %50
+  %56 = call i32 @wc_ShaFinal(ptr noundef nonnull %7, ptr noundef nonnull %2) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %31, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %SetPrefix.exit
+
+58:                                               ; preds = %55
+  %59 = call i32 @wc_Md5Update(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 68) #7
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %SetPrefix.exit
+
+61:                                               ; preds = %58
+  %62 = shl nuw nsw i64 %indvars.iv, 4
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 %62
+  %64 = call i32 @wc_Md5Final(ptr noundef nonnull %6, ptr noundef nonnull %63) #7
+  br label %SetPrefix.exit
+
+SetPrefix.exit:                                   ; preds = %.thread39, %55, %58, %61
+  %.4 = phi i32 [ %64, %61 ], [ %59, %58 ], [ %.6.ph, %.thread39 ], [ %56, %55 ]
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !78
+
+._crit_edge:                                      ; preds = %SetPrefix.exit
+  %65 = icmp eq i32 %.4, 0
+  br i1 %65, label %._crit_edge.thread, label %StoreKeys.exit
+
+._crit_edge.thread:                               ; preds = %27, %._crit_edge
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 723
+  %67 = load i8, ptr %66, align 1, !tbaa !47
+  %.not.i = icmp eq i8 %67, 2
+  br i1 %.not.i, label %._crit_edge.i, label %68
+
+68:                                               ; preds = %._crit_edge.thread
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  %70 = load i8, ptr %9, align 1, !tbaa !74
+  %71 = zext i8 %70 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %69, ptr nonnull readonly align 16 %5, i64 %71, i1 false)
+  %72 = zext i8 %70 to i32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 796
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 %71
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %73, ptr nonnull readonly align 1 %74, i64 %71, i1 false)
+  %75 = shl nuw nsw i32 %72, 1
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.thread, %68
+  %.0.i33 = phi i32 [ %75, %68 ], [ 0, %._crit_edge.thread ]
+  %76 = load i16, ptr %8, align 2, !tbaa !75
+  %77 = zext i16 %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 860
+  %79 = zext nneg i32 %.0.i33 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 %79
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %78, ptr nonnull readonly align 2 %80, i64 %77, i1 false)
+  %81 = zext i16 %76 to i32
+  %82 = add nuw nsw i32 %.0.i33, %81
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 892
+  %84 = zext nneg i32 %82 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 %84
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr nonnull readonly align 1 %85, i64 %77, i1 false)
+  %86 = add nuw nsw i32 %82, %81
+  %87 = load i16, ptr %15, align 2, !tbaa !76
+  %88 = zext i16 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 924
+  %90 = zext nneg i32 %86 to i64
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 %90
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %89, ptr nonnull readonly align 1 %91, i64 %88, i1 false)
+  %92 = zext i16 %87 to i32
+  %93 = add nuw nsw i32 %86, %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  %95 = zext nneg i32 %93 to i64
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 %95
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %94, ptr nonnull readonly align 1 %96, i64 %88, i1 false)
+  br i1 %.not.i, label %97, label %StoreKeys.exit
+
+97:                                               ; preds = %._crit_edge.i
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 956
+  store i64 0, ptr %98, align 4
+  br label %StoreKeys.exit
+
+StoreKeys.exit:                                   ; preds = %32, %1, %97, %._crit_edge.i, %._crit_edge, %24
+  %.1 = phi i32 [ %25, %24 ], [ %.4, %._crit_edge ], [ 0, %._crit_edge.i ], [ 0, %97 ], [ %22, %1 ], [ -302, %32 ]
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 121, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #7
+  ret i32 %.1
+}
+
+declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #2
+
+declare i32 @wc_InitSha(ptr noundef) local_unnamed_addr #2
+
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca [20 x i8], align 16
+  %3 = alloca [532 x i8], align 16
+  %4 = alloca [579 x i8], align 16
+  %5 = alloca [1 x %struct.wc_Md5], align 16
+  %6 = alloca [1 x %struct.wc_Sha], align 16
+  %7 = alloca [9 x i8], align 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %9 = load i64, ptr %8, align 8
+  %10 = and i64 %9, 16384
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %13, label %11
+
+11:                                               ; preds = %1
+  %12 = tail call i32 @MakeTlsMasterSecret(ptr noundef nonnull %0) #7
+  br label %99
+
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8, !tbaa !77
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load i32, ptr %16, align 8, !tbaa !80
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(i64 532, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 579, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #7
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !82
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %MakeSslMasterSecret.exit, label %21
+
+21:                                               ; preds = %13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false)
+  %22 = call i32 @wc_InitMd5(ptr noundef nonnull %5) #7
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %.thread.i
+
+24:                                               ; preds = %21
+  %25 = call i32 @wc_InitSha(ptr noundef nonnull %6) #7
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %.thread.i
+
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %14, align 8, !tbaa !77
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !82
+  %31 = zext i32 %17 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %30, i64 %31, i1 false)
+  %invariant.op.i = add i32 %17, 1
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %31
+  %33 = add i32 %17, 20
+  br label %34
+
+34:                                               ; preds = %.thread54.i, %27
+  %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %.thread54.i ]
+  %.267.i = phi i32 [ 0, %27 ], [ %.4.ph.i, %.thread54.i ]
+  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7)
+  %35 = trunc nuw nsw i64 %indvars.iv.i to i32
+  switch i32 %35, label %default.unreachable.i [
+    i32 0, label %36
+    i32 1, label %37
+    i32 2, label %38
+  ]
+
+36:                                               ; preds = %34
+  store i8 65, ptr %7, align 2
+  br label %39
+
+37:                                               ; preds = %34
+  store i16 16962, ptr %7, align 2
+  br label %39
+
+38:                                               ; preds = %34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %7, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
+  br label %39
+
+39:                                               ; preds = %38, %37, %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %shaInput.i, ptr noundef nonnull align 2 dereferenceable(1) %prefix.i, i64 %indvars.iv.next.i, i1 false)
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %shaInput.i, i64 %indvars.iv.next.i
-  %7 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret26.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %8 = load ptr, ptr %preMasterSecret26.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %8, i64 %conv.i, i1 false)
-  %9 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %add28.i = add i32 %2, %9
-  %idx.ext30.i = zext i32 %add28.i to i64
-  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %shaInput.i, i64 %idx.ext30.i
-  %clientRandom.i = getelementptr inbounds nuw i8, ptr %7, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr31.i, ptr noundef nonnull align 4 dereferenceable(32) %clientRandom.i, i64 32, i1 false)
-  %add34.i = add i32 %add28.i, 32
-  %idx.ext36.i = zext i32 %add34.i to i64
-  %add.ptr37.i = getelementptr inbounds nuw i8, ptr %shaInput.i, i64 %idx.ext36.i
-  %serverRandom.i = getelementptr inbounds nuw i8, ptr %7, i64 60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr37.i, ptr noundef nonnull align 4 dereferenceable(32) %serverRandom.i, i64 32, i1 false)
-  %cmp41.i = icmp eq i32 %ret.252.i, 0
-  br i1 %cmp41.i, label %if.end47.i, label %if.end54.thread.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 2 dereferenceable(1) %7, i64 %indvars.iv.next.i, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next.i
+  %41 = load ptr, ptr %14, align 8, !tbaa !77
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !82
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %43, i64 %31, i1 false)
+  %.reass.i = add i32 %invariant.op.i, %35
+  %44 = zext i32 %.reass.i to i64
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %45, ptr noundef nonnull align 4 dereferenceable(32) %46, i64 32, i1 false)
+  %47 = add i32 %.reass.i, 32
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %49, ptr noundef nonnull align 4 dereferenceable(32) %50, i64 32, i1 false)
+  %51 = icmp eq i32 %.267.i, 0
+  br i1 %51, label %52, label %.thread51.i
 
-if.end47.i:                                       ; preds = %if.end18.i
-  %add40.i = add i32 %add28.i, 64
-  %call46.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %sha.i, ptr noundef nonnull %shaInput.i, i32 noundef %add40.i) #7
-  %cmp48.i = icmp eq i32 %call46.i, 0
-  br i1 %cmp48.i, label %if.end54.i, label %if.end54.thread.i
+52:                                               ; preds = %39
+  %53 = add i32 %.reass.i, 64
+  %54 = call i32 @wc_ShaUpdate(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %53) #7
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %.thread51.i
 
-if.end54.thread.i:                                ; preds = %if.end47.i, %if.end18.i
-  %ret.5.ph.i = phi i32 [ %call46.i, %if.end47.i ], [ %ret.252.i, %if.end18.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %add.ptr5744.i, ptr noundef nonnull align 16 dereferenceable(20) %shaOutput.i, i64 20, i1 false)
-  br label %for.inc.i
+.thread51.i:                                      ; preds = %52, %39
+  %.6.ph.i = phi i32 [ %54, %52 ], [ %.267.i, %39 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %32, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
+  br label %.thread54.i
 
-if.end54.i:                                       ; preds = %if.end47.i
-  %call53.i = call i32 @wc_ShaFinal(ptr noundef nonnull %sha.i, ptr noundef nonnull %shaOutput.i) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %add.ptr5744.i, ptr noundef nonnull align 16 dereferenceable(20) %shaOutput.i, i64 20, i1 false)
-  %cmp60.i = icmp eq i32 %call53.i, 0
-  br i1 %cmp60.i, label %if.end66.i, label %for.inc.i
+56:                                               ; preds = %52
+  %57 = call i32 @wc_ShaFinal(ptr noundef nonnull %6, ptr noundef nonnull %2) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %32, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %.thread54.i
 
-if.end66.i:                                       ; preds = %if.end54.i
-  %call65.i = call i32 @wc_Md5Update(ptr noundef nonnull %md5.i, ptr noundef nonnull %md5Input.i, i32 noundef %add59.i) #7
-  %cmp67.i = icmp eq i32 %call65.i, 0
-  br i1 %cmp67.i, label %if.then69.i, label %for.inc.i
+59:                                               ; preds = %56
+  %60 = call i32 @wc_Md5Update(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef %33) #7
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %.thread54.i
 
-if.then69.i:                                      ; preds = %if.end66.i
-  %10 = load ptr, ptr %arrays.i, align 16
-  %masterSecret.i = getelementptr inbounds nuw i8, ptr %10, i64 173
-  %11 = shl nuw nsw i64 %indvars.iv.i, 4
-  %arrayidx.i = getelementptr inbounds nuw [48 x i8], ptr %masterSecret.i, i64 0, i64 %11
-  %call72.i = call i32 @wc_Md5Final(ptr noundef nonnull %md5.i, ptr noundef nonnull %arrayidx.i) #7
-  br label %for.inc.i
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %14, align 8, !tbaa !77
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 173
+  %65 = shl nuw nsw i64 %indvars.iv.i, 4
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %64, i64 0, i64 %65
+  %67 = call i32 @wc_Md5Final(ptr noundef nonnull %5, ptr noundef nonnull %66) #7
+  br label %.thread54.i
 
-for.inc.i:                                        ; preds = %if.then69.i, %if.end66.i, %if.end54.i, %if.end54.thread.i
-  %ret.7.i = phi i32 [ %call72.i, %if.then69.i ], [ %call65.i, %if.end66.i ], [ %ret.5.ph.i, %if.end54.thread.i ], [ %call53.i, %if.end54.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
-
-for.end.i:                                        ; preds = %for.inc.i
-  %cmp74.i = icmp eq i32 %ret.7.i, 0
-  br i1 %cmp74.i, label %if.then76.i, label %if.end79.i
-
-if.then76.i:                                      ; preds = %for.end.i
-  %call77.i = call i32 @DeriveKeys(ptr noundef nonnull %ssl)
-  br label %if.end79.i
-
-default.unreachable.i:                            ; preds = %for.body.i
+default.unreachable.i:                            ; preds = %34
   unreachable
 
-if.end79.i:                                       ; preds = %if.then76.i, %for.end.i, %if.end7.i, %if.end.i
-  %ret.1.i = phi i32 [ %call77.i, %if.then76.i ], [ %ret.7.i, %for.end.i ], [ %call6.i, %if.end7.i ], [ %call.i, %if.end.i ]
-  %cmp80.i = icmp eq i32 %ret.1.i, 0
-  %12 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %13 = load i32, ptr %preMasterSz.i.i, align 8
-  %cmp18.i.i = icmp sgt i32 %13, 0
-  br i1 %cmp18.i.i, label %for.body.preheader.i.i, label %for.end.i.i
+.thread54.i:                                      ; preds = %62, %59, %56, %.thread51.i
+  %.4.ph.i = phi i32 [ %60, %59 ], [ %67, %62 ], [ %.6.ph.i, %.thread51.i ], [ %57, %56 ]
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7)
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond.not.i, label %68, label %34, !llvm.loop !83
 
-for.body.preheader.i.i:                           ; preds = %if.end79.i
-  %wide.trip.count.i.i = zext nneg i32 %13 to i64
-  br label %for.body.i.i
+68:                                               ; preds = %.thread54.i
+  %69 = icmp eq i32 %.4.ph.i, 0
+  br i1 %69, label %70, label %.thread.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %14 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %15 = load ptr, ptr %preMasterSecret.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
-  store i8 0, ptr %arrayidx.i.i, align 1
+70:                                               ; preds = %68
+  %71 = call i32 @DeriveKeys(ptr noundef nonnull %0)
+  br label %.thread.i
+
+.thread.i:                                        ; preds = %70, %68, %24, %21
+  %.1.i = phi i32 [ %71, %70 ], [ %.4.ph.i, %68 ], [ %25, %24 ], [ %22, %21 ]
+  %72 = icmp eq i32 %.1.i, 0
+  %73 = load ptr, ptr %14, align 8, !tbaa !77
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load i32, ptr %74, align 8, !tbaa !80
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %.thread.i
+  %wide.trip.count.i.i = zext nneg i32 %75 to i64
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %77 = load ptr, ptr %14, align 8, !tbaa !77
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !82
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv.i.i
+  store i8 0, ptr %80, align 1, !tbaa !84
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !85
 
-for.end.loopexit.i.i:                             ; preds = %for.body.i.i
-  %.pre.i.i = load ptr, ptr %arrays.i, align 16
-  br label %for.end.i.i
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+  %.pre.i.i = load ptr, ptr %14, align 8, !tbaa !77
+  br label %._crit_edge.i.i
 
-for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.end79.i
-  %16 = phi ptr [ %.pre.i.i, %for.end.loopexit.i.i ], [ %12, %if.end79.i ]
-  %rng.i.i = getelementptr inbounds nuw i8, ptr %ssl, i64 144
-  %17 = load ptr, ptr %rng.i.i, align 16
-  %preMasterSecret3.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %preMasterSecret3.i.i, align 8
-  %call.i.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %17, ptr noundef %18, i32 noundef %13) #7
-  %cmp4.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %cmp4.not.i.i, label %for.cond5.preheader.i.i, label %CleanPreMaster.exit.i
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.thread.i
+  %81 = phi ptr [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %73, %.thread.i ]
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %83 = load ptr, ptr %82, align 8, !tbaa !73
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !82
+  %86 = call i32 @wc_RNG_GenerateBlock(ptr noundef %83, ptr noundef %85, i32 noundef %75) #7
+  %.not.i.i = icmp eq i32 %86, 0
+  br i1 %.not.i.i, label %.preheader.i.i, label %CleanPreMaster.exit.i
 
-for.cond5.preheader.i.i:                          ; preds = %for.end.i.i
-  br i1 %cmp18.i.i, label %for.body7.preheader.i.i, label %for.end14.i.i
+.preheader.i.i:                                   ; preds = %._crit_edge.i.i
+  br i1 %76, label %.lr.ph28.preheader.i.i, label %._crit_edge29.i.i
 
-for.body7.preheader.i.i:                          ; preds = %for.cond5.preheader.i.i
-  %wide.trip.count26.i.i = zext nneg i32 %13 to i64
-  br label %for.body7.i.i
+.lr.ph28.preheader.i.i:                           ; preds = %.preheader.i.i
+  %wide.trip.count34.i.i = zext nneg i32 %75 to i64
+  br label %.lr.ph28.i.i
 
-for.body7.i.i:                                    ; preds = %for.body7.i.i, %for.body7.preheader.i.i
-  %indvars.iv23.i.i = phi i64 [ 0, %for.body7.preheader.i.i ], [ %indvars.iv.next24.i.i, %for.body7.i.i ]
-  %19 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret9.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %20 = load ptr, ptr %preMasterSecret9.i.i, align 8
-  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv23.i.i
-  store i8 0, ptr %arrayidx11.i.i, align 1
-  %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
-  %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next24.i.i, %wide.trip.count26.i.i
-  br i1 %exitcond27.not.i.i, label %for.end14.i.i, label %for.body7.i.i, !llvm.loop !8
+.lr.ph28.i.i:                                     ; preds = %.lr.ph28.i.i, %.lr.ph28.preheader.i.i
+  %indvars.iv31.i.i = phi i64 [ 0, %.lr.ph28.preheader.i.i ], [ %indvars.iv.next32.i.i, %.lr.ph28.i.i ]
+  %87 = load ptr, ptr %14, align 8, !tbaa !77
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !82
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv31.i.i
+  store i8 0, ptr %90, align 1, !tbaa !84
+  %indvars.iv.next32.i.i = add nuw nsw i64 %indvars.iv31.i.i, 1
+  %exitcond35.not.i.i = icmp eq i64 %indvars.iv.next32.i.i, %wide.trip.count34.i.i
+  br i1 %exitcond35.not.i.i, label %._crit_edge29.i.i, label %.lr.ph28.i.i, !llvm.loop !86
 
-for.end14.i.i:                                    ; preds = %for.body7.i.i, %for.cond5.preheader.i.i
-  %21 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret16.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %22 = load ptr, ptr %preMasterSecret16.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i, label %if.end18.i.i, label %if.then17.i.i
+._crit_edge29.i.i:                                ; preds = %.lr.ph28.i.i, %.preheader.i.i
+  %91 = load ptr, ptr %14, align 8, !tbaa !77
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !82
+  %.not25.i.i = icmp eq ptr %93, null
+  br i1 %.not25.i.i, label %95, label %94
 
-if.then17.i.i:                                    ; preds = %for.end14.i.i
-  call void @wolfSSL_Free(ptr noundef nonnull %22) #7
-  %.pre28.i.i = load ptr, ptr %arrays.i, align 16
-  br label %if.end18.i.i
+94:                                               ; preds = %._crit_edge29.i.i
+  call void @wolfSSL_Free(ptr noundef nonnull %93) #7
+  %.pre36.i.i = load ptr, ptr %14, align 8, !tbaa !77
+  br label %95
 
-if.end18.i.i:                                     ; preds = %if.then17.i.i, %for.end14.i.i
-  %23 = phi ptr [ %.pre28.i.i, %if.then17.i.i ], [ %21, %for.end14.i.i ]
-  %preMasterSecret20.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr null, ptr %preMasterSecret20.i.i, align 8
-  %24 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz22.i.i = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 0, ptr %preMasterSz22.i.i, align 8
+95:                                               ; preds = %94, %._crit_edge29.i.i
+  %96 = phi ptr [ %.pre36.i.i, %94 ], [ %91, %._crit_edge29.i.i ]
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store ptr null, ptr %97, align 8, !tbaa !82
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  store i32 0, ptr %98, align 8, !tbaa !80
   br label %CleanPreMaster.exit.i
 
-CleanPreMaster.exit.i:                            ; preds = %if.end18.i.i, %for.end.i.i
-  %retval.0.i36.i = phi i32 [ 0, %if.end18.i.i ], [ %call.i.i, %for.end.i.i ]
-  %call83.ret.1.i = select i1 %cmp80.i, i32 %retval.0.i36.i, i32 %ret.1.i
+CleanPreMaster.exit.i:                            ; preds = %95, %._crit_edge.i.i
+  %.0.i45.i = phi i32 [ 0, %95 ], [ %86, %._crit_edge.i.i ]
+  %..1.i = select i1 %72, i32 %.0.i45.i, i32 %.1.i
   br label %MakeSslMasterSecret.exit
 
-MakeSslMasterSecret.exit:                         ; preds = %if.end, %CleanPreMaster.exit.i
-  %retval.0.i = phi i32 [ %call83.ret.1.i, %CleanPreMaster.exit.i ], [ -173, %if.end ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %shaOutput.i)
-  call void @llvm.lifetime.end.p0(i64 532, ptr nonnull %md5Input.i)
-  call void @llvm.lifetime.end.p0(i64 579, ptr nonnull %shaInput.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %md5.i)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %sha.i)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %prefix.i)
-  br label %return
+MakeSslMasterSecret.exit:                         ; preds = %13, %CleanPreMaster.exit.i
+  %.041.i = phi i32 [ %..1.i, %CleanPreMaster.exit.i ], [ -173, %13 ]
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 579, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 532, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #7
+  br label %99
 
-return:                                           ; preds = %MakeSslMasterSecret.exit, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %retval.0.i, %MakeSslMasterSecret.exit ]
-  ret i32 %retval.0
+99:                                               ; preds = %MakeSslMasterSecret.exit, %11
+  %.0 = phi i32 [ %12, %11 ], [ %.041.i, %MakeSslMasterSecret.exit ]
+  ret i32 %.0
 }
 
-declare i32 @MakeTlsMasterSecret(ptr noundef) local_unnamed_addr #1
+declare i32 @MakeTlsMasterSecret(ptr noundef) local_unnamed_addr #2
 
-declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
+declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare void @wc_AesFree(ptr noundef) local_unnamed_addr #1
-
-declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare i32 @wc_AesGcmSetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare i32 @wc_AesGcmSetIV(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
+declare i32 @llvm.umax.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !7, i64 1037}
+!4 = !{!"WOLFSSL", !5, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !7, i64 32, !7, i64 80, !11, i64 128, !6, i64 136, !6, i64 144, !12, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !13, i64 216, !6, i64 224, !14, i64 232, !15, i64 240, !6, i64 256, !17, i64 264, !17, i64 304, !21, i64 352, !26, i64 624, !27, i64 632, !28, i64 640, !29, i64 656, !14, i64 664, !14, i64 668, !14, i64 672, !14, i64 676, !14, i64 680, !14, i64 684, !14, i64 688, !30, i64 692, !14, i64 696, !7, i64 700, !31, i64 701, !32, i64 706, !33, i64 710, !33, i64 712, !34, i64 714, !35, i64 732, !36, i64 1016, !38, i64 1072, !7, i64 1080, !30, i64 1082, !7, i64 1084, !7, i64 1104, !30, i64 1106, !30, i64 1108, !7, i64 1110, !14, i64 1148, !14, i64 1152, !39, i64 1160, !7, i64 1168, !7, i64 1169, !39, i64 1176, !39, i64 1184, !30, i64 1192, !7, i64 1194, !14, i64 1196, !7, i64 1200, !14, i64 1204, !40, i64 1208, !42, i64 1224}
+!5 = !{!"p1 _ZTS11WOLFSSL_CTX", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"p1 _ZTS6Suites", !6, i64 0}
+!10 = !{!"p1 _ZTS6Arrays", !6, i64 0}
+!11 = !{!"p1 _ZTS9HS_Hashes", !6, i64 0}
+!12 = !{!"p1 _ZTS6WC_RNG", !6, i64 0}
+!13 = !{!"p1 _ZTS13WOLFSSL_ASYNC", !6, i64 0}
+!14 = !{!"int", !7, i64 0}
+!15 = !{!"WOLFSSL_CIPHER", !7, i64 0, !7, i64 1, !16, i64 8}
+!16 = !{!"p1 _ZTS7WOLFSSL", !6, i64 0}
+!17 = !{!"Ciphers", !18, i64 0, !19, i64 8, !19, i64 16, !20, i64 24, !7, i64 32, !7, i64 33}
+!18 = !{!"p1 _ZTS3Aes", !6, i64 0}
+!19 = !{!"p1 omnipotent char", !6, i64 0}
+!20 = !{!"p1 _ZTS6ChaCha", !6, i64 0}
+!21 = !{!"Buffers", !22, i64 0, !22, i64 32, !23, i64 64, !23, i64 80, !23, i64 96, !23, i64 112, !14, i64 128, !14, i64 132, !7, i64 136, !7, i64 137, !7, i64 138, !7, i64 139, !23, i64 144, !23, i64 160, !23, i64 176, !23, i64 192, !24, i64 208, !25, i64 216, !25, i64 224, !7, i64 232, !7, i64 233, !7, i64 233, !14, i64 236, !14, i64 240, !25, i64 248, !14, i64 256, !7, i64 264}
+!22 = !{!"", !7, i64 0, !19, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 29}
+!23 = !{!"WOLFSSL_BUFFER_INFO", !19, i64 0, !14, i64 8}
+!24 = !{!"p1 _ZTS5DhKey", !6, i64 0}
+!25 = !{!"p1 _ZTS9DerBuffer", !6, i64 0}
+!26 = !{!"p1 _ZTS15WOLFSSL_SESSION", !6, i64 0}
+!27 = !{!"p1 _ZTS13ClientSession", !6, i64 0}
+!28 = !{!"WOLFSSL_ALERT_HISTORY", !29, i64 0, !29, i64 8}
+!29 = !{!"WOLFSSL_ALERT", !14, i64 0, !14, i64 4}
+!30 = !{!"short", !7, i64 0}
+!31 = !{!"RecordLayerHeader", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3}
+!32 = !{!"MsgsReceived", !30, i64 0, !30, i64 0, !30, i64 0, !30, i64 0, !30, i64 0, !30, i64 0, !30, i64 0, !30, i64 1, !30, i64 1, !30, i64 1, !30, i64 1, !30, i64 1, !30, i64 1, !30, i64 1, !30, i64 1, !30, i64 2, !30, i64 2, !30, i64 2}
+!33 = !{!"ProtocolVersion", !7, i64 0, !7, i64 1}
+!34 = !{!"CipherSpecs", !30, i64 0, !30, i64 2, !30, i64 4, !30, i64 6, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !7, i64 12, !7, i64 13, !7, i64 14, !7, i64 15}
+!35 = !{!"Keys", !7, i64 0, !7, i64 64, !7, i64 128, !7, i64 160, !7, i64 192, !7, i64 208, !7, i64 224, !7, i64 232, !7, i64 244, !14, i64 256, !14, i64 260, !14, i64 264, !14, i64 268, !14, i64 272, !14, i64 276, !7, i64 280, !7, i64 281, !7, i64 282, !7, i64 283}
+!36 = !{!"Options", !37, i64 0, !30, i64 8, !30, i64 8, !30, i64 8, !30, i64 8, !30, i64 8, !30, i64 8, !30, i64 9, !30, i64 9, !30, i64 9, !30, i64 9, !30, i64 9, !30, i64 9, !30, i64 9, !30, i64 9, !30, i64 10, !30, i64 10, !30, i64 10, !30, i64 10, !30, i64 10, !30, i64 10, !30, i64 10, !30, i64 10, !30, i64 11, !30, i64 11, !30, i64 11, !30, i64 11, !30, i64 11, !30, i64 11, !30, i64 11, !30, i64 11, !30, i64 12, !30, i64 12, !30, i64 12, !30, i64 12, !30, i64 12, !30, i64 12, !30, i64 12, !30, i64 12, !30, i64 13, !30, i64 13, !30, i64 13, !30, i64 13, !30, i64 13, !30, i64 13, !30, i64 13, !30, i64 13, !30, i64 14, !30, i64 14, !30, i64 14, !30, i64 14, !30, i64 14, !30, i64 14, !30, i64 14, !30, i64 14, !30, i64 15, !30, i64 15, !7, i64 16, !7, i64 17, !7, i64 18, !7, i64 19, !7, i64 20, !7, i64 21, !7, i64 22, !7, i64 23, !7, i64 24, !7, i64 25, !7, i64 26, !7, i64 27, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31, !7, i64 32, !7, i64 33, !7, i64 34, !7, i64 35, !7, i64 36, !30, i64 38, !30, i64 40, !30, i64 42, !30, i64 44, !30, i64 46, !7, i64 48}
+!37 = !{!"long", !7, i64 0}
+!38 = !{!"p1 _ZTS6RsaKey", !6, i64 0}
+!39 = !{!"p1 _ZTS7ecc_key", !6, i64 0}
+!40 = !{!"OneTimeAuth", !41, i64 0, !7, i64 8}
+!41 = !{!"p1 _ZTS8Poly1305", !6, i64 0}
+!42 = !{!"p1 _ZTS4TLSX", !6, i64 0}
+!43 = !{!4, !7, i64 1038}
+!44 = !{!4, !7, i64 710}
+!45 = !{!4, !7, i64 711}
+!46 = !{!4, !6, i64 256}
+!47 = !{!4, !7, i64 723}
+!48 = !{!34, !7, i64 8}
+!49 = !{!34, !7, i64 9}
+!50 = !{!34, !7, i64 10}
+!51 = !{!34, !7, i64 11}
+!52 = !{!34, !7, i64 12}
+!53 = !{!34, !7, i64 13}
+!54 = !{!34, !7, i64 14}
+!55 = !{!34, !7, i64 15}
+!56 = !{!34, !30, i64 0}
+!57 = !{!34, !30, i64 4}
+!58 = !{!34, !30, i64 2}
+!59 = !{!34, !30, i64 6}
+!60 = !{!17, !20, i64 24}
+!61 = !{!17, !7, i64 33}
+!62 = !{!17, !18, i64 0}
+!63 = !{!35, !14, i64 264}
+!64 = !{!35, !14, i64 268}
+!65 = !{!35, !14, i64 256}
+!66 = !{!35, !14, i64 260}
+!67 = !{!4, !7, i64 1216}
+!68 = !{!4, !7, i64 722}
+!69 = !{!40, !41, i64 0}
+!70 = !{!40, !7, i64 8}
+!71 = !{!4, !6, i64 176}
+!72 = !{!4, !14, i64 1204}
+!73 = !{!4, !12, i64 152}
+!74 = !{!4, !7, i64 727}
+!75 = !{!4, !30, i64 714}
+!76 = !{!4, !30, i64 716}
+!77 = !{!4, !10, i64 24}
+!78 = distinct !{!78, !79}
+!79 = !{!"llvm.loop.mustprogress"}
+!80 = !{!81, !14, i64 16}
+!81 = !{!"Arrays", !19, i64 0, !19, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 60, !7, i64 92, !7, i64 124, !7, i64 125, !7, i64 173, !7, i64 221}
+!82 = !{!81, !19, i64 8}
+!83 = distinct !{!83, !79}
+!84 = !{!7, !7, i64 0}
+!85 = distinct !{!85, !79}
+!86 = distinct !{!86, !79}

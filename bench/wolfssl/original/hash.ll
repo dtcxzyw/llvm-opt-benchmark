@@ -1,13 +1,13 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 %struct.testVector = type { ptr, ptr, i64, i64 }
 %struct.wc_Sha = type { i32, i32, i32, [16 x i32], [5 x i32], ptr }
 %struct.wc_Sha256 = type { [8 x i32], [16 x i32], i32, i32, i32, ptr, [8 x i8] }
 %struct.wc_Sha512 = type { [8 x i64], [16 x i64], i32, i64, i64, ptr }
-%struct.Hmac = type { %union.wc_HmacHash, [36 x i32], [36 x i32], [16 x i32], ptr, i8, i8 }
-%union.wc_HmacHash = type { %struct.wc_Sha3 }
+%struct.Hmac = type { %union.wc_Hashes, [36 x i32], [36 x i32], [16 x i32], ptr, i8, i8 }
+%union.wc_Hashes = type { %struct.wc_Sha3 }
 %struct.wc_Sha3 = type { [25 x i64], [200 x i8], i8, ptr }
 
 @.str = private unnamed_addr constant [19 x i8] c" Begin HASH Tests\0A\00", align 1
@@ -91,2038 +91,2338 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @HashTest() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ret = alloca i32, align 4
-  store i32 0, ptr %ret, align 4
-  %call = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  %call1 = call i32 @md5_test()
-  store i32 %call1, ptr %ret, align 4
-  %tobool = icmp ne i32 %call1, 0
-  br i1 %tobool, label %if.then, label %if.else
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #5
+  store i32 0, ptr %2, align 4, !tbaa !4
+  %4 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+  %5 = call i32 @md5_test()
+  store i32 %5, ptr %2, align 4, !tbaa !4
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %10
 
-if.then:                                          ; preds = %entry
-  %call2 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
-  %0 = load i32, ptr %ret, align 4
-  store i32 %0, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %0
+  %8 = call i32 (ptr, ...) @printf(ptr noundef @.str.1)
+  %9 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %9, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else:                                          ; preds = %entry
-  %call3 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
-  br label %if.end
+10:                                               ; preds = %0
+  %11 = call i32 (ptr, ...) @printf(ptr noundef @.str.2)
+  br label %12
 
-if.end:                                           ; preds = %if.else
-  %call4 = call i32 @sha_test()
-  store i32 %call4, ptr %ret, align 4
-  %tobool5 = icmp ne i32 %call4, 0
-  br i1 %tobool5, label %if.then6, label %if.else8
+12:                                               ; preds = %10
+  %13 = call i32 @sha_test()
+  store i32 %13, ptr %2, align 4, !tbaa !4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %18
 
-if.then6:                                         ; preds = %if.end
-  %call7 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
-  %1 = load i32, ptr %ret, align 4
-  store i32 %1, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %12
+  %16 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  %17 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %17, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else8:                                         ; preds = %if.end
-  %call9 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
-  br label %if.end10
+18:                                               ; preds = %12
+  %19 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
+  br label %20
 
-if.end10:                                         ; preds = %if.else8
-  %call11 = call i32 @sha224_test()
-  store i32 %call11, ptr %ret, align 4
-  %tobool12 = icmp ne i32 %call11, 0
-  br i1 %tobool12, label %if.then13, label %if.else15
+20:                                               ; preds = %18
+  %21 = call i32 @sha224_test()
+  store i32 %21, ptr %2, align 4, !tbaa !4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %26
 
-if.then13:                                        ; preds = %if.end10
-  %call14 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
-  %2 = load i32, ptr %ret, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %20
+  %24 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
+  %25 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %25, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else15:                                        ; preds = %if.end10
-  %call16 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
-  br label %if.end17
+26:                                               ; preds = %20
+  %27 = call i32 (ptr, ...) @printf(ptr noundef @.str.6)
+  br label %28
 
-if.end17:                                         ; preds = %if.else15
-  %call18 = call i32 @sha256_test()
-  store i32 %call18, ptr %ret, align 4
-  %tobool19 = icmp ne i32 %call18, 0
-  br i1 %tobool19, label %if.then20, label %if.else22
+28:                                               ; preds = %26
+  %29 = call i32 @sha256_test()
+  store i32 %29, ptr %2, align 4, !tbaa !4
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %34
 
-if.then20:                                        ; preds = %if.end17
-  %call21 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
-  %3 = load i32, ptr %ret, align 4
-  store i32 %3, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %28
+  %32 = call i32 (ptr, ...) @printf(ptr noundef @.str.7)
+  %33 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %33, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else22:                                        ; preds = %if.end17
-  %call23 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
-  br label %if.end24
+34:                                               ; preds = %28
+  %35 = call i32 (ptr, ...) @printf(ptr noundef @.str.8)
+  br label %36
 
-if.end24:                                         ; preds = %if.else22
-  %call25 = call i32 @sha512_test()
-  store i32 %call25, ptr %ret, align 4
-  %tobool26 = icmp ne i32 %call25, 0
-  br i1 %tobool26, label %if.then27, label %if.else29
+36:                                               ; preds = %34
+  %37 = call i32 @sha512_test()
+  store i32 %37, ptr %2, align 4, !tbaa !4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %42
 
-if.then27:                                        ; preds = %if.end24
-  %call28 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
-  %4 = load i32, ptr %ret, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %36
+  %40 = call i32 (ptr, ...) @printf(ptr noundef @.str.9)
+  %41 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %41, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else29:                                        ; preds = %if.end24
-  %call30 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
-  br label %if.end31
+42:                                               ; preds = %36
+  %43 = call i32 (ptr, ...) @printf(ptr noundef @.str.10)
+  br label %44
 
-if.end31:                                         ; preds = %if.else29
-  %call32 = call i32 @sha384_test()
-  store i32 %call32, ptr %ret, align 4
-  %tobool33 = icmp ne i32 %call32, 0
-  br i1 %tobool33, label %if.then34, label %if.else36
+44:                                               ; preds = %42
+  %45 = call i32 @sha384_test()
+  store i32 %45, ptr %2, align 4, !tbaa !4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %50
 
-if.then34:                                        ; preds = %if.end31
-  %call35 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
-  %5 = load i32, ptr %ret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+47:                                               ; preds = %44
+  %48 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
+  %49 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %49, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else36:                                        ; preds = %if.end31
-  %call37 = call i32 (ptr, ...) @printf(ptr noundef @.str.12)
-  br label %if.end38
+50:                                               ; preds = %44
+  %51 = call i32 (ptr, ...) @printf(ptr noundef @.str.12)
+  br label %52
 
-if.end38:                                         ; preds = %if.else36
-  %call39 = call i32 @hmac_md5_test()
-  store i32 %call39, ptr %ret, align 4
-  %tobool40 = icmp ne i32 %call39, 0
-  br i1 %tobool40, label %if.then41, label %if.else43
+52:                                               ; preds = %50
+  %53 = call i32 @hmac_md5_test()
+  store i32 %53, ptr %2, align 4, !tbaa !4
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %58
 
-if.then41:                                        ; preds = %if.end38
-  %call42 = call i32 (ptr, ...) @printf(ptr noundef @.str.13)
-  %6 = load i32, ptr %ret, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %52
+  %56 = call i32 (ptr, ...) @printf(ptr noundef @.str.13)
+  %57 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %57, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else43:                                        ; preds = %if.end38
-  %call44 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
-  br label %if.end45
+58:                                               ; preds = %52
+  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
+  br label %60
 
-if.end45:                                         ; preds = %if.else43
-  %call46 = call i32 @hmac_sha_test()
-  store i32 %call46, ptr %ret, align 4
-  %tobool47 = icmp ne i32 %call46, 0
-  br i1 %tobool47, label %if.then48, label %if.else50
+60:                                               ; preds = %58
+  %61 = call i32 @hmac_sha_test()
+  store i32 %61, ptr %2, align 4, !tbaa !4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %66
 
-if.then48:                                        ; preds = %if.end45
-  %call49 = call i32 (ptr, ...) @printf(ptr noundef @.str.15)
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
+63:                                               ; preds = %60
+  %64 = call i32 (ptr, ...) @printf(ptr noundef @.str.15)
+  %65 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %65, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else50:                                        ; preds = %if.end45
-  %call51 = call i32 (ptr, ...) @printf(ptr noundef @.str.16)
-  br label %if.end52
+66:                                               ; preds = %60
+  %67 = call i32 (ptr, ...) @printf(ptr noundef @.str.16)
+  br label %68
 
-if.end52:                                         ; preds = %if.else50
-  %call53 = call i32 @hmac_sha224_test()
-  store i32 %call53, ptr %ret, align 4
-  %tobool54 = icmp ne i32 %call53, 0
-  br i1 %tobool54, label %if.then55, label %if.else57
+68:                                               ; preds = %66
+  %69 = call i32 @hmac_sha224_test()
+  store i32 %69, ptr %2, align 4, !tbaa !4
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %74
 
-if.then55:                                        ; preds = %if.end52
-  %call56 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
-  %8 = load i32, ptr %ret, align 4
-  store i32 %8, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %68
+  %72 = call i32 (ptr, ...) @printf(ptr noundef @.str.17)
+  %73 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %73, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else57:                                        ; preds = %if.end52
-  %call58 = call i32 (ptr, ...) @printf(ptr noundef @.str.18)
-  br label %if.end59
+74:                                               ; preds = %68
+  %75 = call i32 (ptr, ...) @printf(ptr noundef @.str.18)
+  br label %76
 
-if.end59:                                         ; preds = %if.else57
-  %call60 = call i32 @hmac_sha256_test()
-  store i32 %call60, ptr %ret, align 4
-  %tobool61 = icmp ne i32 %call60, 0
-  br i1 %tobool61, label %if.then62, label %if.else64
+76:                                               ; preds = %74
+  %77 = call i32 @hmac_sha256_test()
+  store i32 %77, ptr %2, align 4, !tbaa !4
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %82
 
-if.then62:                                        ; preds = %if.end59
-  %call63 = call i32 (ptr, ...) @printf(ptr noundef @.str.19)
-  %9 = load i32, ptr %ret, align 4
-  store i32 %9, ptr %retval, align 4
-  br label %return
+79:                                               ; preds = %76
+  %80 = call i32 (ptr, ...) @printf(ptr noundef @.str.19)
+  %81 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %81, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else64:                                        ; preds = %if.end59
-  %call65 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
-  br label %if.end66
+82:                                               ; preds = %76
+  %83 = call i32 (ptr, ...) @printf(ptr noundef @.str.20)
+  br label %84
 
-if.end66:                                         ; preds = %if.else64
-  %call67 = call i32 @hmac_sha384_test()
-  store i32 %call67, ptr %ret, align 4
-  %tobool68 = icmp ne i32 %call67, 0
-  br i1 %tobool68, label %if.then69, label %if.else71
+84:                                               ; preds = %82
+  %85 = call i32 @hmac_sha384_test()
+  store i32 %85, ptr %2, align 4, !tbaa !4
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %90
 
-if.then69:                                        ; preds = %if.end66
-  %call70 = call i32 (ptr, ...) @printf(ptr noundef @.str.21)
-  %10 = load i32, ptr %ret, align 4
-  store i32 %10, ptr %retval, align 4
-  br label %return
+87:                                               ; preds = %84
+  %88 = call i32 (ptr, ...) @printf(ptr noundef @.str.21)
+  %89 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %89, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-if.else71:                                        ; preds = %if.end66
-  %call72 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
-  br label %if.end73
+90:                                               ; preds = %84
+  %91 = call i32 (ptr, ...) @printf(ptr noundef @.str.22)
+  br label %92
 
-if.end73:                                         ; preds = %if.else71
-  %call74 = call i32 (ptr, ...) @printf(ptr noundef @.str.23)
-  store i32 0, ptr %retval, align 4
-  br label %return
+92:                                               ; preds = %90
+  %93 = call i32 (ptr, ...) @printf(ptr noundef @.str.23)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %3, align 4
+  br label %94
 
-return:                                           ; preds = %if.end73, %if.then69, %if.then62, %if.then55, %if.then48, %if.then41, %if.then34, %if.then27, %if.then20, %if.then13, %if.then6, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+94:                                               ; preds = %92, %87, %79, %71, %63, %55, %47, %39, %31, %23, %15, %7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #5
+  %95 = load i32, ptr %1, align 4
+  ret i32 %95
 }
 
-declare i32 @printf(ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @printf(ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @md5_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %md5 = alloca %struct.wc_Md5, align 8
-  %hash = alloca [16 x i8], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %c = alloca %struct.testVector, align 8
-  %d = alloca %struct.testVector, align 8
-  %e = alloca %struct.testVector, align 8
-  %test_md5 = alloca [5 x %struct.testVector], align 16
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  store i32 5, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.24, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.25, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.26, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.27, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %input12 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  store ptr @.str.28, ptr %input12, align 8
-  %output13 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  store ptr @.str.29, ptr %output13, align 8
-  %input14 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  %4 = load ptr, ptr %input14, align 8
-  %call15 = call i64 @strlen(ptr noundef %4) #4
-  %inLen16 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 2
-  store i64 %call15, ptr %inLen16, align 8
-  %output17 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  %5 = load ptr, ptr %output17, align 8
-  %call18 = call i64 @strlen(ptr noundef %5) #4
-  %outLen19 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 3
-  store i64 %call18, ptr %outLen19, align 8
-  %input20 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 0
-  store ptr @.str.30, ptr %input20, align 8
-  %output21 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 1
-  store ptr @.str.31, ptr %output21, align 8
-  %input22 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 0
-  %6 = load ptr, ptr %input22, align 8
-  %call23 = call i64 @strlen(ptr noundef %6) #4
-  %inLen24 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 2
-  store i64 %call23, ptr %inLen24, align 8
-  %output25 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 1
-  %7 = load ptr, ptr %output25, align 8
-  %call26 = call i64 @strlen(ptr noundef %7) #4
-  %outLen27 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 3
-  store i64 %call26, ptr %outLen27, align 8
-  %input28 = getelementptr inbounds %struct.testVector, ptr %e, i32 0, i32 0
-  store ptr @.str.32, ptr %input28, align 8
-  %output29 = getelementptr inbounds %struct.testVector, ptr %e, i32 0, i32 1
-  store ptr @.str.33, ptr %output29, align 8
-  %input30 = getelementptr inbounds %struct.testVector, ptr %e, i32 0, i32 0
-  %8 = load ptr, ptr %input30, align 8
-  %call31 = call i64 @strlen(ptr noundef %8) #4
-  %inLen32 = getelementptr inbounds %struct.testVector, ptr %e, i32 0, i32 2
-  store i64 %call31, ptr %inLen32, align 8
-  %output33 = getelementptr inbounds %struct.testVector, ptr %e, i32 0, i32 1
-  %9 = load ptr, ptr %output33, align 8
-  %call34 = call i64 @strlen(ptr noundef %9) #4
-  %outLen35 = getelementptr inbounds %struct.testVector, ptr %e, i32 0, i32 3
-  store i64 %call34, ptr %outLen35, align 8
-  %arrayidx = getelementptr inbounds [5 x %struct.testVector], ptr %test_md5, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx36 = getelementptr inbounds [5 x %struct.testVector], ptr %test_md5, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx36, ptr align 8 %b, i64 32, i1 false)
-  %arrayidx37 = getelementptr inbounds [5 x %struct.testVector], ptr %test_md5, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx37, ptr align 8 %c, i64 32, i1 false)
-  %arrayidx38 = getelementptr inbounds [5 x %struct.testVector], ptr %test_md5, i64 0, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx38, ptr align 8 %d, i64 32, i1 false)
-  %arrayidx39 = getelementptr inbounds [5 x %struct.testVector], ptr %test_md5, i64 0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx39, ptr align 8 %e, i64 32, i1 false)
-  %call40 = call i32 @wc_InitMd5(ptr noundef %md5)
-  store i32 %call40, ptr %ret, align 4
-  %10 = load i32, ptr %ret, align 4
-  %tobool = icmp ne i32 %10, 0
-  br i1 %tobool, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca %struct.wc_Md5, align 8
+  %4 = alloca [16 x i8], align 16
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca %struct.testVector, align 8
+  %7 = alloca %struct.testVector, align 8
+  %8 = alloca %struct.testVector, align 8
+  %9 = alloca %struct.testVector, align 8
+  %10 = alloca [5 x %struct.testVector], align 16
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 104, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 160, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 5, ptr %11, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  %14 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.24, ptr %14, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.25, ptr %15, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !8
+  %18 = call i64 @strlen(ptr noundef %17) #6
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %18, ptr %19, align 8, !tbaa !14
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !13
+  %22 = call i64 @strlen(ptr noundef %21) #6
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %22, ptr %23, align 8, !tbaa !15
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  store ptr @.str.26, ptr %24, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  store ptr @.str.27, ptr %25, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !8
+  %28 = call i64 @strlen(ptr noundef %27) #6
+  %29 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 2
+  store i64 %28, ptr %29, align 8, !tbaa !14
+  %30 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8, !tbaa !13
+  %32 = call i64 @strlen(ptr noundef %31) #6
+  %33 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 3
+  store i64 %32, ptr %33, align 8, !tbaa !15
+  %34 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  store ptr @.str.28, ptr %34, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  store ptr @.str.29, ptr %35, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !8
+  %38 = call i64 @strlen(ptr noundef %37) #6
+  %39 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 2
+  store i64 %38, ptr %39, align 8, !tbaa !14
+  %40 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !13
+  %42 = call i64 @strlen(ptr noundef %41) #6
+  %43 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 3
+  store i64 %42, ptr %43, align 8, !tbaa !15
+  %44 = getelementptr inbounds nuw %struct.testVector, ptr %8, i32 0, i32 0
+  store ptr @.str.30, ptr %44, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.testVector, ptr %8, i32 0, i32 1
+  store ptr @.str.31, ptr %45, align 8, !tbaa !13
+  %46 = getelementptr inbounds nuw %struct.testVector, ptr %8, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8, !tbaa !8
+  %48 = call i64 @strlen(ptr noundef %47) #6
+  %49 = getelementptr inbounds nuw %struct.testVector, ptr %8, i32 0, i32 2
+  store i64 %48, ptr %49, align 8, !tbaa !14
+  %50 = getelementptr inbounds nuw %struct.testVector, ptr %8, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !13
+  %52 = call i64 @strlen(ptr noundef %51) #6
+  %53 = getelementptr inbounds nuw %struct.testVector, ptr %8, i32 0, i32 3
+  store i64 %52, ptr %53, align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw %struct.testVector, ptr %9, i32 0, i32 0
+  store ptr @.str.32, ptr %54, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw %struct.testVector, ptr %9, i32 0, i32 1
+  store ptr @.str.33, ptr %55, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw %struct.testVector, ptr %9, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !8
+  %58 = call i64 @strlen(ptr noundef %57) #6
+  %59 = getelementptr inbounds nuw %struct.testVector, ptr %9, i32 0, i32 2
+  store i64 %58, ptr %59, align 8, !tbaa !14
+  %60 = getelementptr inbounds nuw %struct.testVector, ptr %9, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8, !tbaa !13
+  %62 = call i64 @strlen(ptr noundef %61) #6
+  %63 = getelementptr inbounds nuw %struct.testVector, ptr %9, i32 0, i32 3
+  store i64 %62, ptr %63, align 8, !tbaa !15
+  %64 = getelementptr inbounds [5 x %struct.testVector], ptr %10, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %64, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %65 = getelementptr inbounds [5 x %struct.testVector], ptr %10, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %65, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !16
+  %66 = getelementptr inbounds [5 x %struct.testVector], ptr %10, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %66, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !16
+  %67 = getelementptr inbounds [5 x %struct.testVector], ptr %10, i64 0, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %67, ptr align 8 %8, i64 32, i1 false), !tbaa.struct !16
+  %68 = getelementptr inbounds [5 x %struct.testVector], ptr %10, i64 0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %68, ptr align 8 %9, i64 32, i1 false), !tbaa.struct !16
+  %69 = call i32 @wc_InitMd5(ptr noundef %3)
+  store i32 %69, ptr %2, align 4, !tbaa !4
+  %70 = load i32, ptr %2, align 4, !tbaa !4
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %74
 
-if.then:                                          ; preds = %entry
-  %11 = load i32, ptr %ret, align 4
-  store i32 %11, ptr %retval, align 4
-  br label %return
+72:                                               ; preds = %0
+  %73 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %73, ptr %1, align 4
+  store i32 1, ptr %13, align 4
+  br label %120
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+74:                                               ; preds = %0
+  store i32 0, ptr %12, align 4, !tbaa !4
+  br label %75
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %12 = load i32, ptr %i, align 4
-  %13 = load i32, ptr %times, align 4
-  %cmp = icmp slt i32 %12, %13
-  br i1 %cmp, label %for.body, label %for.end
+75:                                               ; preds = %116, %74
+  %76 = load i32, ptr %12, align 4, !tbaa !4
+  %77 = load i32, ptr %11, align 4, !tbaa !4
+  %78 = icmp slt i32 %76, %77
+  br i1 %78, label %79, label %119
 
-for.body:                                         ; preds = %for.cond
-  %14 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %14 to i64
-  %arrayidx41 = getelementptr inbounds [5 x %struct.testVector], ptr %test_md5, i64 0, i64 %idxprom
-  %input42 = getelementptr inbounds %struct.testVector, ptr %arrayidx41, i32 0, i32 0
-  %15 = load ptr, ptr %input42, align 16
-  %16 = load i32, ptr %i, align 4
-  %idxprom43 = sext i32 %16 to i64
-  %arrayidx44 = getelementptr inbounds [5 x %struct.testVector], ptr %test_md5, i64 0, i64 %idxprom43
-  %inLen45 = getelementptr inbounds %struct.testVector, ptr %arrayidx44, i32 0, i32 2
-  %17 = load i64, ptr %inLen45, align 16
-  %conv = trunc i64 %17 to i32
-  %call46 = call i32 @wc_Md5Update(ptr noundef %md5, ptr noundef %15, i32 noundef %conv)
-  store i32 %call46, ptr %ret, align 4
-  %18 = load i32, ptr %ret, align 4
-  %tobool47 = icmp ne i32 %18, 0
-  br i1 %tobool47, label %if.then48, label %if.end49
+79:                                               ; preds = %75
+  %80 = load i32, ptr %12, align 4, !tbaa !4
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds [5 x %struct.testVector], ptr %10, i64 0, i64 %81
+  %83 = getelementptr inbounds nuw %struct.testVector, ptr %82, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 16, !tbaa !8
+  %85 = load i32, ptr %12, align 4, !tbaa !4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds [5 x %struct.testVector], ptr %10, i64 0, i64 %86
+  %88 = getelementptr inbounds nuw %struct.testVector, ptr %87, i32 0, i32 2
+  %89 = load i64, ptr %88, align 16, !tbaa !14
+  %90 = trunc i64 %89 to i32
+  %91 = call i32 @wc_Md5Update(ptr noundef %3, ptr noundef %84, i32 noundef %90)
+  store i32 %91, ptr %2, align 4, !tbaa !4
+  %92 = load i32, ptr %2, align 4, !tbaa !4
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %96
 
-if.then48:                                        ; preds = %for.body
-  %19 = load i32, ptr %ret, align 4
-  store i32 %19, ptr %retval, align 4
-  br label %return
+94:                                               ; preds = %79
+  %95 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %95, ptr %1, align 4
+  store i32 1, ptr %13, align 4
+  br label %120
 
-if.end49:                                         ; preds = %for.body
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %hash, i64 0, i64 0
-  %call50 = call i32 @wc_Md5Final(ptr noundef %md5, ptr noundef %arraydecay)
-  store i32 %call50, ptr %ret, align 4
-  %20 = load i32, ptr %ret, align 4
-  %tobool51 = icmp ne i32 %20, 0
-  br i1 %tobool51, label %if.then52, label %if.end53
+96:                                               ; preds = %79
+  %97 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %98 = call i32 @wc_Md5Final(ptr noundef %3, ptr noundef %97)
+  store i32 %98, ptr %2, align 4, !tbaa !4
+  %99 = load i32, ptr %2, align 4, !tbaa !4
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %103
 
-if.then52:                                        ; preds = %if.end49
-  %21 = load i32, ptr %ret, align 4
-  store i32 %21, ptr %retval, align 4
-  br label %return
+101:                                              ; preds = %96
+  %102 = load i32, ptr %2, align 4, !tbaa !4
+  store i32 %102, ptr %1, align 4
+  store i32 1, ptr %13, align 4
+  br label %120
 
-if.end53:                                         ; preds = %if.end49
-  %arraydecay54 = getelementptr inbounds [16 x i8], ptr %hash, i64 0, i64 0
-  %22 = load i32, ptr %i, align 4
-  %idxprom55 = sext i32 %22 to i64
-  %arrayidx56 = getelementptr inbounds [5 x %struct.testVector], ptr %test_md5, i64 0, i64 %idxprom55
-  %output57 = getelementptr inbounds %struct.testVector, ptr %arrayidx56, i32 0, i32 1
-  %23 = load ptr, ptr %output57, align 8
-  %call58 = call i32 @memcmp(ptr noundef %arraydecay54, ptr noundef %23, i64 noundef 16) #4
-  %cmp59 = icmp ne i32 %call58, 0
-  br i1 %cmp59, label %if.then61, label %if.end62
+103:                                              ; preds = %96
+  %104 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %105 = load i32, ptr %12, align 4, !tbaa !4
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds [5 x %struct.testVector], ptr %10, i64 0, i64 %106
+  %108 = getelementptr inbounds nuw %struct.testVector, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8, !tbaa !13
+  %110 = call i32 @memcmp(ptr noundef %104, ptr noundef %109, i64 noundef 16) #6
+  %111 = icmp ne i32 %110, 0
+  br i1 %111, label %112, label %115
 
-if.then61:                                        ; preds = %if.end53
-  %24 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -5, %24
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+112:                                              ; preds = %103
+  %113 = load i32, ptr %12, align 4, !tbaa !4
+  %114 = sub nsw i32 -5, %113
+  store i32 %114, ptr %1, align 4
+  store i32 1, ptr %13, align 4
+  br label %120
 
-if.end62:                                         ; preds = %if.end53
-  br label %for.inc
+115:                                              ; preds = %103
+  br label %116
 
-for.inc:                                          ; preds = %if.end62
-  %25 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %25, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+116:                                              ; preds = %115
+  %117 = load i32, ptr %12, align 4, !tbaa !4
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %12, align 4, !tbaa !4
+  br label %75, !llvm.loop !19
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_Md5Free(ptr noundef %md5)
-  store i32 0, ptr %retval, align 4
-  br label %return
+119:                                              ; preds = %75
+  call void @wc_Md5Free(ptr noundef %3)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %13, align 4
+  br label %120
 
-return:                                           ; preds = %for.end, %if.then61, %if.then52, %if.then48, %if.then
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+120:                                              ; preds = %119, %112, %101, %94, %72
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 160, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 104, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #5
+  %121 = load i32, ptr %1, align 4
+  ret i32 %121
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha = alloca %struct.wc_Sha, align 8
-  %hash = alloca [20 x i8], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %c = alloca %struct.testVector, align 8
-  %d = alloca %struct.testVector, align 8
-  %test_sha = alloca [4 x %struct.testVector], align 16
-  %ret = alloca i32, align 4
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  store i32 0, ptr %ret, align 4
-  store i32 4, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.24, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.34, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.35, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.36, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %input12 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  store ptr @.str.37, ptr %input12, align 8
-  %output13 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  store ptr @.str.38, ptr %output13, align 8
-  %input14 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  %4 = load ptr, ptr %input14, align 8
-  %call15 = call i64 @strlen(ptr noundef %4) #4
-  %inLen16 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 2
-  store i64 %call15, ptr %inLen16, align 8
-  %output17 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  %5 = load ptr, ptr %output17, align 8
-  %call18 = call i64 @strlen(ptr noundef %5) #4
-  %outLen19 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 3
-  store i64 %call18, ptr %outLen19, align 8
-  %input20 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 0
-  store ptr @.str.39, ptr %input20, align 8
-  %output21 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 1
-  store ptr @.str.40, ptr %output21, align 8
-  %input22 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 0
-  %6 = load ptr, ptr %input22, align 8
-  %call23 = call i64 @strlen(ptr noundef %6) #4
-  %inLen24 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 2
-  store i64 %call23, ptr %inLen24, align 8
-  %output25 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 1
-  %7 = load ptr, ptr %output25, align 8
-  %call26 = call i64 @strlen(ptr noundef %7) #4
-  %outLen27 = getelementptr inbounds %struct.testVector, ptr %d, i32 0, i32 3
-  store i64 %call26, ptr %outLen27, align 8
-  %arrayidx = getelementptr inbounds [4 x %struct.testVector], ptr %test_sha, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx28 = getelementptr inbounds [4 x %struct.testVector], ptr %test_sha, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx28, ptr align 8 %b, i64 32, i1 false)
-  %arrayidx29 = getelementptr inbounds [4 x %struct.testVector], ptr %test_sha, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx29, ptr align 8 %c, i64 32, i1 false)
-  %arrayidx30 = getelementptr inbounds [4 x %struct.testVector], ptr %test_sha, i64 0, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx30, ptr align 8 %d, i64 32, i1 false)
-  %call31 = call i32 @wc_InitSha(ptr noundef %sha)
-  store i32 %call31, ptr %ret, align 4
-  %8 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %8, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.wc_Sha, align 8
+  %3 = alloca [20 x i8], align 16
+  %4 = alloca %struct.testVector, align 8
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca %struct.testVector, align 8
+  %7 = alloca %struct.testVector, align 8
+  %8 = alloca [4 x %struct.testVector], align 16
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 104, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 20, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 128, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  store i32 0, ptr %9, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 4, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  store ptr @.str.24, ptr %13, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  store ptr @.str.34, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !8
+  %17 = call i64 @strlen(ptr noundef %16) #6
+  %18 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 2
+  store i64 %17, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !13
+  %21 = call i64 @strlen(ptr noundef %20) #6
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 3
+  store i64 %21, ptr %22, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.35, ptr %23, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.36, ptr %24, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !8
+  %27 = call i64 @strlen(ptr noundef %26) #6
+  %28 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %27, ptr %28, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !13
+  %31 = call i64 @strlen(ptr noundef %30) #6
+  %32 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %31, ptr %32, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  store ptr @.str.37, ptr %33, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  store ptr @.str.38, ptr %34, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !8
+  %37 = call i64 @strlen(ptr noundef %36) #6
+  %38 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 2
+  store i64 %37, ptr %38, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
+  %41 = call i64 @strlen(ptr noundef %40) #6
+  %42 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  store ptr @.str.39, ptr %43, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  store ptr @.str.40, ptr %44, align 8, !tbaa !13
+  %45 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !8
+  %47 = call i64 @strlen(ptr noundef %46) #6
+  %48 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 2
+  store i64 %47, ptr %48, align 8, !tbaa !14
+  %49 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8, !tbaa !13
+  %51 = call i64 @strlen(ptr noundef %50) #6
+  %52 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 3
+  store i64 %51, ptr %52, align 8, !tbaa !15
+  %53 = getelementptr inbounds [4 x %struct.testVector], ptr %8, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %53, ptr align 8 %4, i64 32, i1 false), !tbaa.struct !16
+  %54 = getelementptr inbounds [4 x %struct.testVector], ptr %8, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %54, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %55 = getelementptr inbounds [4 x %struct.testVector], ptr %8, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %55, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !16
+  %56 = getelementptr inbounds [4 x %struct.testVector], ptr %8, i64 0, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %56, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !16
+  %57 = call i32 @wc_InitSha(ptr noundef %2)
+  store i32 %57, ptr %9, align 4, !tbaa !4
+  %58 = load i32, ptr %9, align 4, !tbaa !4
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %62
 
-if.then:                                          ; preds = %entry
-  %9 = load i32, ptr %ret, align 4
-  store i32 %9, ptr %retval, align 4
-  br label %return
+60:                                               ; preds = %0
+  %61 = load i32, ptr %9, align 4, !tbaa !4
+  store i32 %61, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %98
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+62:                                               ; preds = %0
+  store i32 0, ptr %11, align 4, !tbaa !4
+  br label %63
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %10 = load i32, ptr %i, align 4
-  %11 = load i32, ptr %times, align 4
-  %cmp32 = icmp slt i32 %10, %11
-  br i1 %cmp32, label %for.body, label %for.end
+63:                                               ; preds = %94, %62
+  %64 = load i32, ptr %11, align 4, !tbaa !4
+  %65 = load i32, ptr %10, align 4, !tbaa !4
+  %66 = icmp slt i32 %64, %65
+  br i1 %66, label %67, label %97
 
-for.body:                                         ; preds = %for.cond
-  %12 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %12 to i64
-  %arrayidx33 = getelementptr inbounds [4 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom
-  %input34 = getelementptr inbounds %struct.testVector, ptr %arrayidx33, i32 0, i32 0
-  %13 = load ptr, ptr %input34, align 16
-  %14 = load i32, ptr %i, align 4
-  %idxprom35 = sext i32 %14 to i64
-  %arrayidx36 = getelementptr inbounds [4 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom35
-  %inLen37 = getelementptr inbounds %struct.testVector, ptr %arrayidx36, i32 0, i32 2
-  %15 = load i64, ptr %inLen37, align 16
-  %conv = trunc i64 %15 to i32
-  %call38 = call i32 @wc_ShaUpdate(ptr noundef %sha, ptr noundef %13, i32 noundef %conv)
-  %arraydecay = getelementptr inbounds [20 x i8], ptr %hash, i64 0, i64 0
-  %call39 = call i32 @wc_ShaFinal(ptr noundef %sha, ptr noundef %arraydecay)
-  %arraydecay40 = getelementptr inbounds [20 x i8], ptr %hash, i64 0, i64 0
-  %16 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %16 to i64
-  %arrayidx42 = getelementptr inbounds [4 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom41
-  %output43 = getelementptr inbounds %struct.testVector, ptr %arrayidx42, i32 0, i32 1
-  %17 = load ptr, ptr %output43, align 8
-  %call44 = call i32 @memcmp(ptr noundef %arraydecay40, ptr noundef %17, i64 noundef 20) #4
-  %cmp45 = icmp ne i32 %call44, 0
-  br i1 %cmp45, label %if.then47, label %if.end48
+67:                                               ; preds = %63
+  %68 = load i32, ptr %11, align 4, !tbaa !4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds [4 x %struct.testVector], ptr %8, i64 0, i64 %69
+  %71 = getelementptr inbounds nuw %struct.testVector, ptr %70, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 16, !tbaa !8
+  %73 = load i32, ptr %11, align 4, !tbaa !4
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds [4 x %struct.testVector], ptr %8, i64 0, i64 %74
+  %76 = getelementptr inbounds nuw %struct.testVector, ptr %75, i32 0, i32 2
+  %77 = load i64, ptr %76, align 16, !tbaa !14
+  %78 = trunc i64 %77 to i32
+  %79 = call i32 @wc_ShaUpdate(ptr noundef %2, ptr noundef %72, i32 noundef %78)
+  %80 = getelementptr inbounds [20 x i8], ptr %3, i64 0, i64 0
+  %81 = call i32 @wc_ShaFinal(ptr noundef %2, ptr noundef %80)
+  %82 = getelementptr inbounds [20 x i8], ptr %3, i64 0, i64 0
+  %83 = load i32, ptr %11, align 4, !tbaa !4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds [4 x %struct.testVector], ptr %8, i64 0, i64 %84
+  %86 = getelementptr inbounds nuw %struct.testVector, ptr %85, i32 0, i32 1
+  %87 = load ptr, ptr %86, align 8, !tbaa !13
+  %88 = call i32 @memcmp(ptr noundef %82, ptr noundef %87, i64 noundef 20) #6
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %93
 
-if.then47:                                        ; preds = %for.body
-  %18 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -10, %18
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+90:                                               ; preds = %67
+  %91 = load i32, ptr %11, align 4, !tbaa !4
+  %92 = sub nsw i32 -10, %91
+  store i32 %92, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %98
 
-if.end48:                                         ; preds = %for.body
-  br label %for.inc
+93:                                               ; preds = %67
+  br label %94
 
-for.inc:                                          ; preds = %if.end48
-  %19 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %19, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+94:                                               ; preds = %93
+  %95 = load i32, ptr %11, align 4, !tbaa !4
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %11, align 4, !tbaa !4
+  br label %63, !llvm.loop !21
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_ShaFree(ptr noundef %sha)
-  store i32 0, ptr %retval, align 4
-  br label %return
+97:                                               ; preds = %63
+  call void @wc_ShaFree(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %98
 
-return:                                           ; preds = %for.end, %if.then47, %if.then
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+98:                                               ; preds = %97, %90, %60
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 20, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 104, ptr %2) #5
+  %99 = load i32, ptr %1, align 4
+  ret i32 %99
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha224_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha = alloca %struct.wc_Sha256, align 16
-  %hash = alloca [28 x i8], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %test_sha = alloca [2 x %struct.testVector], align 16
-  %ret = alloca i32, align 4
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  store i32 2, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.24, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.41, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 28, ptr %outLen, align 8
-  %input2 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.35, ptr %input2, align 8
-  %output3 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.42, ptr %output3, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %1 = load ptr, ptr %input4, align 8
-  %call5 = call i64 @strlen(ptr noundef %1) #4
-  %inLen6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call5, ptr %inLen6, align 8
-  %outLen7 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 28, ptr %outLen7, align 8
-  %arrayidx = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx8 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx8, ptr align 8 %b, i64 32, i1 false)
-  %call9 = call i32 @wc_InitSha224(ptr noundef %sha)
-  store i32 %call9, ptr %ret, align 4
-  %2 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.wc_Sha256, align 16
+  %3 = alloca [28 x i8], align 16
+  %4 = alloca %struct.testVector, align 8
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca [2 x %struct.testVector], align 16
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 128, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 28, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 2, ptr %8, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %11 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  store ptr @.str.24, ptr %11, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  store ptr @.str.41, ptr %12, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !8
+  %15 = call i64 @strlen(ptr noundef %14) #6
+  %16 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 2
+  store i64 %15, ptr %16, align 8, !tbaa !14
+  %17 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 3
+  store i64 28, ptr %17, align 8, !tbaa !15
+  %18 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.35, ptr %18, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.42, ptr %19, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !8
+  %22 = call i64 @strlen(ptr noundef %21) #6
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %22, ptr %23, align 8, !tbaa !14
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 28, ptr %24, align 8, !tbaa !15
+  %25 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %25, ptr align 8 %4, i64 32, i1 false), !tbaa.struct !16
+  %26 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %26, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %27 = call i32 @wc_InitSha224(ptr noundef %2)
+  store i32 %27, ptr %7, align 4, !tbaa !4
+  %28 = load i32, ptr %7, align 4, !tbaa !4
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
 
-if.then:                                          ; preds = %entry
-  store i32 -4005, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %0
+  store i32 -4005, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %77
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+31:                                               ; preds = %0
+  store i32 0, ptr %9, align 4, !tbaa !4
+  br label %32
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %times, align 4
-  %cmp10 = icmp slt i32 %3, %4
-  br i1 %cmp10, label %for.body, label %for.end
+32:                                               ; preds = %73, %31
+  %33 = load i32, ptr %9, align 4, !tbaa !4
+  %34 = load i32, ptr %8, align 4, !tbaa !4
+  %35 = icmp slt i32 %33, %34
+  br i1 %35, label %36, label %76
 
-for.body:                                         ; preds = %for.cond
-  %5 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx11 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom
-  %input12 = getelementptr inbounds %struct.testVector, ptr %arrayidx11, i32 0, i32 0
-  %6 = load ptr, ptr %input12, align 16
-  %7 = load i32, ptr %i, align 4
-  %idxprom13 = sext i32 %7 to i64
-  %arrayidx14 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom13
-  %inLen15 = getelementptr inbounds %struct.testVector, ptr %arrayidx14, i32 0, i32 2
-  %8 = load i64, ptr %inLen15, align 16
-  %conv = trunc i64 %8 to i32
-  %call16 = call i32 @wc_Sha224Update(ptr noundef %sha, ptr noundef %6, i32 noundef %conv)
-  store i32 %call16, ptr %ret, align 4
-  %9 = load i32, ptr %ret, align 4
-  %cmp17 = icmp ne i32 %9, 0
-  br i1 %cmp17, label %if.then19, label %if.end20
+36:                                               ; preds = %32
+  %37 = load i32, ptr %9, align 4, !tbaa !4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %38
+  %40 = getelementptr inbounds nuw %struct.testVector, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 16, !tbaa !8
+  %42 = load i32, ptr %9, align 4, !tbaa !4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw %struct.testVector, ptr %44, i32 0, i32 2
+  %46 = load i64, ptr %45, align 16, !tbaa !14
+  %47 = trunc i64 %46 to i32
+  %48 = call i32 @wc_Sha224Update(ptr noundef %2, ptr noundef %41, i32 noundef %47)
+  store i32 %48, ptr %7, align 4, !tbaa !4
+  %49 = load i32, ptr %7, align 4, !tbaa !4
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %53
 
-if.then19:                                        ; preds = %for.body
-  %10 = load i32, ptr %ret, align 4
-  store i32 %10, ptr %retval, align 4
-  br label %return
+51:                                               ; preds = %36
+  %52 = load i32, ptr %7, align 4, !tbaa !4
+  store i32 %52, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %77
 
-if.end20:                                         ; preds = %for.body
-  %arraydecay = getelementptr inbounds [28 x i8], ptr %hash, i64 0, i64 0
-  %call21 = call i32 @wc_Sha224Final(ptr noundef %sha, ptr noundef %arraydecay)
-  store i32 %call21, ptr %ret, align 4
-  %11 = load i32, ptr %ret, align 4
-  %cmp22 = icmp ne i32 %11, 0
-  br i1 %cmp22, label %if.then24, label %if.end25
+53:                                               ; preds = %36
+  %54 = getelementptr inbounds [28 x i8], ptr %3, i64 0, i64 0
+  %55 = call i32 @wc_Sha224Final(ptr noundef %2, ptr noundef %54)
+  store i32 %55, ptr %7, align 4, !tbaa !4
+  %56 = load i32, ptr %7, align 4, !tbaa !4
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %60
 
-if.then24:                                        ; preds = %if.end20
-  %12 = load i32, ptr %ret, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %53
+  %59 = load i32, ptr %7, align 4, !tbaa !4
+  store i32 %59, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %77
 
-if.end25:                                         ; preds = %if.end20
-  %arraydecay26 = getelementptr inbounds [28 x i8], ptr %hash, i64 0, i64 0
-  %13 = load i32, ptr %i, align 4
-  %idxprom27 = sext i32 %13 to i64
-  %arrayidx28 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom27
-  %output29 = getelementptr inbounds %struct.testVector, ptr %arrayidx28, i32 0, i32 1
-  %14 = load ptr, ptr %output29, align 8
-  %call30 = call i32 @memcmp(ptr noundef %arraydecay26, ptr noundef %14, i64 noundef 28) #4
-  %cmp31 = icmp ne i32 %call30, 0
-  br i1 %cmp31, label %if.then33, label %if.end34
+60:                                               ; preds = %53
+  %61 = getelementptr inbounds [28 x i8], ptr %3, i64 0, i64 0
+  %62 = load i32, ptr %9, align 4, !tbaa !4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %63
+  %65 = getelementptr inbounds nuw %struct.testVector, ptr %64, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8, !tbaa !13
+  %67 = call i32 @memcmp(ptr noundef %61, ptr noundef %66, i64 noundef 28) #6
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %72
 
-if.then33:                                        ; preds = %if.end25
-  %15 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -10, %15
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %60
+  %70 = load i32, ptr %9, align 4, !tbaa !4
+  %71 = sub nsw i32 -10, %70
+  store i32 %71, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %77
 
-if.end34:                                         ; preds = %if.end25
-  br label %for.inc
+72:                                               ; preds = %60
+  br label %73
 
-for.inc:                                          ; preds = %if.end34
-  %16 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+73:                                               ; preds = %72
+  %74 = load i32, ptr %9, align 4, !tbaa !4
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %9, align 4, !tbaa !4
+  br label %32, !llvm.loop !22
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_Sha224Free(ptr noundef %sha)
-  store i32 0, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %32
+  call void @wc_Sha224Free(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %77
 
-return:                                           ; preds = %for.end, %if.then33, %if.then24, %if.then19, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
+77:                                               ; preds = %76, %69, %58, %51, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 28, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr %2) #5
+  %78 = load i32, ptr %1, align 4
+  ret i32 %78
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha256_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha = alloca %struct.wc_Sha256, align 16
-  %hash = alloca [32 x i8], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %test_sha = alloca [2 x %struct.testVector], align 16
-  %ret = alloca i32, align 4
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  store i32 2, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.24, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.43, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.35, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.44, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %arrayidx = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx12 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx12, ptr align 8 %b, i64 32, i1 false)
-  %call13 = call i32 @wc_InitSha256(ptr noundef %sha)
-  store i32 %call13, ptr %ret, align 4
-  %4 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %4, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.wc_Sha256, align 16
+  %3 = alloca [32 x i8], align 16
+  %4 = alloca %struct.testVector, align 8
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca [2 x %struct.testVector], align 16
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 128, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 2, ptr %8, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %11 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  store ptr @.str.24, ptr %11, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  store ptr @.str.43, ptr %12, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !8
+  %15 = call i64 @strlen(ptr noundef %14) #6
+  %16 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 2
+  store i64 %15, ptr %16, align 8, !tbaa !14
+  %17 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %19 = call i64 @strlen(ptr noundef %18) #6
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 3
+  store i64 %19, ptr %20, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.35, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.44, ptr %22, align 8, !tbaa !13
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !8
+  %25 = call i64 @strlen(ptr noundef %24) #6
+  %26 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %25, ptr %26, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !13
+  %29 = call i64 @strlen(ptr noundef %28) #6
+  %30 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %29, ptr %30, align 8, !tbaa !15
+  %31 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %31, ptr align 8 %4, i64 32, i1 false), !tbaa.struct !16
+  %32 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %32, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %33 = call i32 @wc_InitSha256(ptr noundef %2)
+  store i32 %33, ptr %7, align 4, !tbaa !4
+  %34 = load i32, ptr %7, align 4, !tbaa !4
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %38
 
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %ret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %0
+  %37 = load i32, ptr %7, align 4, !tbaa !4
+  store i32 %37, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+38:                                               ; preds = %0
+  store i32 0, ptr %9, align 4, !tbaa !4
+  br label %39
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %6 = load i32, ptr %i, align 4
-  %7 = load i32, ptr %times, align 4
-  %cmp14 = icmp slt i32 %6, %7
-  br i1 %cmp14, label %for.body, label %for.end
+39:                                               ; preds = %80, %38
+  %40 = load i32, ptr %9, align 4, !tbaa !4
+  %41 = load i32, ptr %8, align 4, !tbaa !4
+  %42 = icmp slt i32 %40, %41
+  br i1 %42, label %43, label %83
 
-for.body:                                         ; preds = %for.cond
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx15 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom
-  %input16 = getelementptr inbounds %struct.testVector, ptr %arrayidx15, i32 0, i32 0
-  %9 = load ptr, ptr %input16, align 16
-  %10 = load i32, ptr %i, align 4
-  %idxprom17 = sext i32 %10 to i64
-  %arrayidx18 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom17
-  %inLen19 = getelementptr inbounds %struct.testVector, ptr %arrayidx18, i32 0, i32 2
-  %11 = load i64, ptr %inLen19, align 16
-  %conv = trunc i64 %11 to i32
-  %call20 = call i32 @wc_Sha256Update(ptr noundef %sha, ptr noundef %9, i32 noundef %conv)
-  store i32 %call20, ptr %ret, align 4
-  %12 = load i32, ptr %ret, align 4
-  %cmp21 = icmp ne i32 %12, 0
-  br i1 %cmp21, label %if.then23, label %if.end24
+43:                                               ; preds = %39
+  %44 = load i32, ptr %9, align 4, !tbaa !4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw %struct.testVector, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 16, !tbaa !8
+  %49 = load i32, ptr %9, align 4, !tbaa !4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw %struct.testVector, ptr %51, i32 0, i32 2
+  %53 = load i64, ptr %52, align 16, !tbaa !14
+  %54 = trunc i64 %53 to i32
+  %55 = call i32 @wc_Sha256Update(ptr noundef %2, ptr noundef %48, i32 noundef %54)
+  store i32 %55, ptr %7, align 4, !tbaa !4
+  %56 = load i32, ptr %7, align 4, !tbaa !4
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %60
 
-if.then23:                                        ; preds = %for.body
-  %13 = load i32, ptr %ret, align 4
-  store i32 %13, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %43
+  %59 = load i32, ptr %7, align 4, !tbaa !4
+  store i32 %59, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end24:                                         ; preds = %for.body
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %hash, i64 0, i64 0
-  %call25 = call i32 @wc_Sha256Final(ptr noundef %sha, ptr noundef %arraydecay)
-  store i32 %call25, ptr %ret, align 4
-  %14 = load i32, ptr %ret, align 4
-  %cmp26 = icmp ne i32 %14, 0
-  br i1 %cmp26, label %if.then28, label %if.end29
+60:                                               ; preds = %43
+  %61 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
+  %62 = call i32 @wc_Sha256Final(ptr noundef %2, ptr noundef %61)
+  store i32 %62, ptr %7, align 4, !tbaa !4
+  %63 = load i32, ptr %7, align 4, !tbaa !4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %67
 
-if.then28:                                        ; preds = %if.end24
-  %15 = load i32, ptr %ret, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %60
+  %66 = load i32, ptr %7, align 4, !tbaa !4
+  store i32 %66, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end29:                                         ; preds = %if.end24
-  %arraydecay30 = getelementptr inbounds [32 x i8], ptr %hash, i64 0, i64 0
-  %16 = load i32, ptr %i, align 4
-  %idxprom31 = sext i32 %16 to i64
-  %arrayidx32 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom31
-  %output33 = getelementptr inbounds %struct.testVector, ptr %arrayidx32, i32 0, i32 1
-  %17 = load ptr, ptr %output33, align 8
-  %call34 = call i32 @memcmp(ptr noundef %arraydecay30, ptr noundef %17, i64 noundef 32) #4
-  %cmp35 = icmp ne i32 %call34, 0
-  br i1 %cmp35, label %if.then37, label %if.end38
+67:                                               ; preds = %60
+  %68 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
+  %69 = load i32, ptr %9, align 4, !tbaa !4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %70
+  %72 = getelementptr inbounds nuw %struct.testVector, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8, !tbaa !13
+  %74 = call i32 @memcmp(ptr noundef %68, ptr noundef %73, i64 noundef 32) #6
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %79
 
-if.then37:                                        ; preds = %if.end29
-  %18 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -10, %18
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %67
+  %77 = load i32, ptr %9, align 4, !tbaa !4
+  %78 = sub nsw i32 -10, %77
+  store i32 %78, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end38:                                         ; preds = %if.end29
-  br label %for.inc
+79:                                               ; preds = %67
+  br label %80
 
-for.inc:                                          ; preds = %if.end38
-  %19 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %19, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+80:                                               ; preds = %79
+  %81 = load i32, ptr %9, align 4, !tbaa !4
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %9, align 4, !tbaa !4
+  br label %39, !llvm.loop !23
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_Sha256Free(ptr noundef %sha)
-  store i32 0, ptr %retval, align 4
-  br label %return
+83:                                               ; preds = %39
+  call void @wc_Sha256Free(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-return:                                           ; preds = %for.end, %if.then37, %if.then28, %if.then23, %if.then
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+84:                                               ; preds = %83, %76, %65, %58, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 128, ptr %2) #5
+  %85 = load i32, ptr %1, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha512_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha = alloca %struct.wc_Sha512, align 8
-  %hash = alloca [64 x i8], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %test_sha = alloca [2 x %struct.testVector], align 16
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ret = alloca i32, align 4
-  store i32 2, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.24, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.45, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.46, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.47, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %arrayidx = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx12 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx12, ptr align 8 %b, i64 32, i1 false)
-  %call13 = call i32 @wc_InitSha512(ptr noundef %sha)
-  store i32 %call13, ptr %ret, align 4
-  %4 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %4, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.wc_Sha512, align 8
+  %3 = alloca [64 x i8], align 16
+  %4 = alloca %struct.testVector, align 8
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca [2 x %struct.testVector], align 16
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 224, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  store i32 2, ptr %7, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %11 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  store ptr @.str.24, ptr %11, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  store ptr @.str.45, ptr %12, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !8
+  %15 = call i64 @strlen(ptr noundef %14) #6
+  %16 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 2
+  store i64 %15, ptr %16, align 8, !tbaa !14
+  %17 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %19 = call i64 @strlen(ptr noundef %18) #6
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 3
+  store i64 %19, ptr %20, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.46, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.47, ptr %22, align 8, !tbaa !13
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !8
+  %25 = call i64 @strlen(ptr noundef %24) #6
+  %26 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %25, ptr %26, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !13
+  %29 = call i64 @strlen(ptr noundef %28) #6
+  %30 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %29, ptr %30, align 8, !tbaa !15
+  %31 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %31, ptr align 8 %4, i64 32, i1 false), !tbaa.struct !16
+  %32 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %32, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %33 = call i32 @wc_InitSha512(ptr noundef %2)
+  store i32 %33, ptr %9, align 4, !tbaa !4
+  %34 = load i32, ptr %9, align 4, !tbaa !4
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %38
 
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %ret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %0
+  %37 = load i32, ptr %9, align 4, !tbaa !4
+  store i32 %37, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+38:                                               ; preds = %0
+  store i32 0, ptr %8, align 4, !tbaa !4
+  br label %39
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %6 = load i32, ptr %i, align 4
-  %7 = load i32, ptr %times, align 4
-  %cmp14 = icmp slt i32 %6, %7
-  br i1 %cmp14, label %for.body, label %for.end
+39:                                               ; preds = %80, %38
+  %40 = load i32, ptr %8, align 4, !tbaa !4
+  %41 = load i32, ptr %7, align 4, !tbaa !4
+  %42 = icmp slt i32 %40, %41
+  br i1 %42, label %43, label %83
 
-for.body:                                         ; preds = %for.cond
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx15 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom
-  %input16 = getelementptr inbounds %struct.testVector, ptr %arrayidx15, i32 0, i32 0
-  %9 = load ptr, ptr %input16, align 16
-  %10 = load i32, ptr %i, align 4
-  %idxprom17 = sext i32 %10 to i64
-  %arrayidx18 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom17
-  %inLen19 = getelementptr inbounds %struct.testVector, ptr %arrayidx18, i32 0, i32 2
-  %11 = load i64, ptr %inLen19, align 16
-  %conv = trunc i64 %11 to i32
-  %call20 = call i32 @wc_Sha512Update(ptr noundef %sha, ptr noundef %9, i32 noundef %conv)
-  store i32 %call20, ptr %ret, align 4
-  %12 = load i32, ptr %ret, align 4
-  %cmp21 = icmp ne i32 %12, 0
-  br i1 %cmp21, label %if.then23, label %if.end24
+43:                                               ; preds = %39
+  %44 = load i32, ptr %8, align 4, !tbaa !4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw %struct.testVector, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 16, !tbaa !8
+  %49 = load i32, ptr %8, align 4, !tbaa !4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw %struct.testVector, ptr %51, i32 0, i32 2
+  %53 = load i64, ptr %52, align 16, !tbaa !14
+  %54 = trunc i64 %53 to i32
+  %55 = call i32 @wc_Sha512Update(ptr noundef %2, ptr noundef %48, i32 noundef %54)
+  store i32 %55, ptr %9, align 4, !tbaa !4
+  %56 = load i32, ptr %9, align 4, !tbaa !4
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %60
 
-if.then23:                                        ; preds = %for.body
-  %13 = load i32, ptr %ret, align 4
-  store i32 %13, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %43
+  %59 = load i32, ptr %9, align 4, !tbaa !4
+  store i32 %59, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end24:                                         ; preds = %for.body
-  %arraydecay = getelementptr inbounds [64 x i8], ptr %hash, i64 0, i64 0
-  %call25 = call i32 @wc_Sha512Final(ptr noundef %sha, ptr noundef %arraydecay)
-  store i32 %call25, ptr %ret, align 4
-  %14 = load i32, ptr %ret, align 4
-  %cmp26 = icmp ne i32 %14, 0
-  br i1 %cmp26, label %if.then28, label %if.end29
+60:                                               ; preds = %43
+  %61 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 0
+  %62 = call i32 @wc_Sha512Final(ptr noundef %2, ptr noundef %61)
+  store i32 %62, ptr %9, align 4, !tbaa !4
+  %63 = load i32, ptr %9, align 4, !tbaa !4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %67
 
-if.then28:                                        ; preds = %if.end24
-  %15 = load i32, ptr %ret, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %60
+  %66 = load i32, ptr %9, align 4, !tbaa !4
+  store i32 %66, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end29:                                         ; preds = %if.end24
-  %arraydecay30 = getelementptr inbounds [64 x i8], ptr %hash, i64 0, i64 0
-  %16 = load i32, ptr %i, align 4
-  %idxprom31 = sext i32 %16 to i64
-  %arrayidx32 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom31
-  %output33 = getelementptr inbounds %struct.testVector, ptr %arrayidx32, i32 0, i32 1
-  %17 = load ptr, ptr %output33, align 8
-  %call34 = call i32 @memcmp(ptr noundef %arraydecay30, ptr noundef %17, i64 noundef 64) #4
-  %cmp35 = icmp ne i32 %call34, 0
-  br i1 %cmp35, label %if.then37, label %if.end38
+67:                                               ; preds = %60
+  %68 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 0
+  %69 = load i32, ptr %8, align 4, !tbaa !4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %70
+  %72 = getelementptr inbounds nuw %struct.testVector, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8, !tbaa !13
+  %74 = call i32 @memcmp(ptr noundef %68, ptr noundef %73, i64 noundef 64) #6
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %79
 
-if.then37:                                        ; preds = %if.end29
-  %18 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -10, %18
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %67
+  %77 = load i32, ptr %8, align 4, !tbaa !4
+  %78 = sub nsw i32 -10, %77
+  store i32 %78, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end38:                                         ; preds = %if.end29
-  br label %for.inc
+79:                                               ; preds = %67
+  br label %80
 
-for.inc:                                          ; preds = %if.end38
-  %19 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %19, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
+80:                                               ; preds = %79
+  %81 = load i32, ptr %8, align 4, !tbaa !4
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %8, align 4, !tbaa !4
+  br label %39, !llvm.loop !24
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_Sha512Free(ptr noundef %sha)
-  store i32 0, ptr %retval, align 4
-  br label %return
+83:                                               ; preds = %39
+  call void @wc_Sha512Free(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-return:                                           ; preds = %for.end, %if.then37, %if.then28, %if.then23, %if.then
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+84:                                               ; preds = %83, %76, %65, %58, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 224, ptr %2) #5
+  %85 = load i32, ptr %1, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha384_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha = alloca %struct.wc_Sha512, align 8
-  %hash = alloca [48 x i8], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %test_sha = alloca [2 x %struct.testVector], align 16
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  %ret = alloca i32, align 4
-  store i32 2, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.24, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.48, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.46, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.49, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %arrayidx = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx12 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx12, ptr align 8 %b, i64 32, i1 false)
-  %call13 = call i32 @wc_InitSha384(ptr noundef %sha)
-  store i32 %call13, ptr %ret, align 4
-  %4 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %4, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.wc_Sha512, align 8
+  %3 = alloca [48 x i8], align 16
+  %4 = alloca %struct.testVector, align 8
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca [2 x %struct.testVector], align 16
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 224, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 48, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  store i32 2, ptr %7, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  %11 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  store ptr @.str.24, ptr %11, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  store ptr @.str.48, ptr %12, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !8
+  %15 = call i64 @strlen(ptr noundef %14) #6
+  %16 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 2
+  store i64 %15, ptr %16, align 8, !tbaa !14
+  %17 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %19 = call i64 @strlen(ptr noundef %18) #6
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %4, i32 0, i32 3
+  store i64 %19, ptr %20, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.46, ptr %21, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.49, ptr %22, align 8, !tbaa !13
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !8
+  %25 = call i64 @strlen(ptr noundef %24) #6
+  %26 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %25, ptr %26, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !13
+  %29 = call i64 @strlen(ptr noundef %28) #6
+  %30 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %29, ptr %30, align 8, !tbaa !15
+  %31 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %31, ptr align 8 %4, i64 32, i1 false), !tbaa.struct !16
+  %32 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %32, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %33 = call i32 @wc_InitSha384(ptr noundef %2)
+  store i32 %33, ptr %9, align 4, !tbaa !4
+  %34 = load i32, ptr %9, align 4, !tbaa !4
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %38
 
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %ret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %0
+  %37 = load i32, ptr %9, align 4, !tbaa !4
+  store i32 %37, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+38:                                               ; preds = %0
+  store i32 0, ptr %8, align 4, !tbaa !4
+  br label %39
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %6 = load i32, ptr %i, align 4
-  %7 = load i32, ptr %times, align 4
-  %cmp14 = icmp slt i32 %6, %7
-  br i1 %cmp14, label %for.body, label %for.end
+39:                                               ; preds = %80, %38
+  %40 = load i32, ptr %8, align 4, !tbaa !4
+  %41 = load i32, ptr %7, align 4, !tbaa !4
+  %42 = icmp slt i32 %40, %41
+  br i1 %42, label %43, label %83
 
-for.body:                                         ; preds = %for.cond
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx15 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom
-  %input16 = getelementptr inbounds %struct.testVector, ptr %arrayidx15, i32 0, i32 0
-  %9 = load ptr, ptr %input16, align 16
-  %10 = load i32, ptr %i, align 4
-  %idxprom17 = sext i32 %10 to i64
-  %arrayidx18 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom17
-  %inLen19 = getelementptr inbounds %struct.testVector, ptr %arrayidx18, i32 0, i32 2
-  %11 = load i64, ptr %inLen19, align 16
-  %conv = trunc i64 %11 to i32
-  %call20 = call i32 @wc_Sha384Update(ptr noundef %sha, ptr noundef %9, i32 noundef %conv)
-  store i32 %call20, ptr %ret, align 4
-  %12 = load i32, ptr %ret, align 4
-  %cmp21 = icmp ne i32 %12, 0
-  br i1 %cmp21, label %if.then23, label %if.end24
+43:                                               ; preds = %39
+  %44 = load i32, ptr %8, align 4, !tbaa !4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw %struct.testVector, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 16, !tbaa !8
+  %49 = load i32, ptr %8, align 4, !tbaa !4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw %struct.testVector, ptr %51, i32 0, i32 2
+  %53 = load i64, ptr %52, align 16, !tbaa !14
+  %54 = trunc i64 %53 to i32
+  %55 = call i32 @wc_Sha384Update(ptr noundef %2, ptr noundef %48, i32 noundef %54)
+  store i32 %55, ptr %9, align 4, !tbaa !4
+  %56 = load i32, ptr %9, align 4, !tbaa !4
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %60
 
-if.then23:                                        ; preds = %for.body
-  %13 = load i32, ptr %ret, align 4
-  store i32 %13, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %43
+  %59 = load i32, ptr %9, align 4, !tbaa !4
+  store i32 %59, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end24:                                         ; preds = %for.body
-  %arraydecay = getelementptr inbounds [48 x i8], ptr %hash, i64 0, i64 0
-  %call25 = call i32 @wc_Sha384Final(ptr noundef %sha, ptr noundef %arraydecay)
-  store i32 %call25, ptr %ret, align 4
-  %14 = load i32, ptr %ret, align 4
-  %cmp26 = icmp ne i32 %14, 0
-  br i1 %cmp26, label %if.then28, label %if.end29
+60:                                               ; preds = %43
+  %61 = getelementptr inbounds [48 x i8], ptr %3, i64 0, i64 0
+  %62 = call i32 @wc_Sha384Final(ptr noundef %2, ptr noundef %61)
+  store i32 %62, ptr %9, align 4, !tbaa !4
+  %63 = load i32, ptr %9, align 4, !tbaa !4
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %65, label %67
 
-if.then28:                                        ; preds = %if.end24
-  %15 = load i32, ptr %ret, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
+65:                                               ; preds = %60
+  %66 = load i32, ptr %9, align 4, !tbaa !4
+  store i32 %66, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end29:                                         ; preds = %if.end24
-  %arraydecay30 = getelementptr inbounds [48 x i8], ptr %hash, i64 0, i64 0
-  %16 = load i32, ptr %i, align 4
-  %idxprom31 = sext i32 %16 to i64
-  %arrayidx32 = getelementptr inbounds [2 x %struct.testVector], ptr %test_sha, i64 0, i64 %idxprom31
-  %output33 = getelementptr inbounds %struct.testVector, ptr %arrayidx32, i32 0, i32 1
-  %17 = load ptr, ptr %output33, align 8
-  %call34 = call i32 @memcmp(ptr noundef %arraydecay30, ptr noundef %17, i64 noundef 48) #4
-  %cmp35 = icmp ne i32 %call34, 0
-  br i1 %cmp35, label %if.then37, label %if.end38
+67:                                               ; preds = %60
+  %68 = getelementptr inbounds [48 x i8], ptr %3, i64 0, i64 0
+  %69 = load i32, ptr %8, align 4, !tbaa !4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds [2 x %struct.testVector], ptr %6, i64 0, i64 %70
+  %72 = getelementptr inbounds nuw %struct.testVector, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8, !tbaa !13
+  %74 = call i32 @memcmp(ptr noundef %68, ptr noundef %73, i64 noundef 48) #6
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %79
 
-if.then37:                                        ; preds = %if.end29
-  %18 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -10, %18
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %67
+  %77 = load i32, ptr %8, align 4, !tbaa !4
+  %78 = sub nsw i32 -10, %77
+  store i32 %78, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-if.end38:                                         ; preds = %if.end29
-  br label %for.inc
+79:                                               ; preds = %67
+  br label %80
 
-for.inc:                                          ; preds = %if.end38
-  %19 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %19, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
+80:                                               ; preds = %79
+  %81 = load i32, ptr %8, align 4, !tbaa !4
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %8, align 4, !tbaa !4
+  br label %39, !llvm.loop !25
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_Sha384Free(ptr noundef %sha)
-  store i32 0, ptr %retval, align 4
-  br label %return
+83:                                               ; preds = %39
+  call void @wc_Sha384Free(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
 
-return:                                           ; preds = %for.end, %if.then37, %if.then28, %if.then23, %if.then
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+84:                                               ; preds = %83, %76, %65, %58, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 48, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 224, ptr %2) #5
+  %85 = load i32, ptr %1, align 4
+  ret i32 %85
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @hmac_md5_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [16 x i8], align 16
-  %keys = alloca [3 x ptr], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %c = alloca %struct.testVector, align 8
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  %ret = alloca i32, align 4
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %keys, ptr align 16 @__const.hmac_md5_test.keys, i64 24, i1 false)
-  store i32 3, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.53, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.54, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.55, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.56, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %input12 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  store ptr @.str.57, ptr %input12, align 8
-  %output13 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  store ptr @.str.58, ptr %output13, align 8
-  %input14 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  %4 = load ptr, ptr %input14, align 8
-  %call15 = call i64 @strlen(ptr noundef %4) #4
-  %inLen16 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 2
-  store i64 %call15, ptr %inLen16, align 8
-  %output17 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  %5 = load ptr, ptr %output17, align 8
-  %call18 = call i64 @strlen(ptr noundef %5) #4
-  %outLen19 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 3
-  store i64 %call18, ptr %outLen19, align 8
-  %arrayidx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx20 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx20, ptr align 8 %b, i64 32, i1 false)
-  %arrayidx21 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx21, ptr align 8 %c, i64 32, i1 false)
-  %call22 = call i32 @wc_HmacInit(ptr noundef %hmac, ptr noundef null, i32 noundef -2)
-  store i32 %call22, ptr %ret, align 4
-  %6 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %6, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.Hmac, align 16
+  %3 = alloca [16 x i8], align 16
+  %4 = alloca [3 x ptr], align 16
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca %struct.testVector, align 8
+  %7 = alloca %struct.testVector, align 8
+  %8 = alloca [3 x %struct.testVector], align 16
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 784, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @__const.hmac_md5_test.keys, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 3, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.53, ptr %13, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.54, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !8
+  %17 = call i64 @strlen(ptr noundef %16) #6
+  %18 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %17, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !13
+  %21 = call i64 @strlen(ptr noundef %20) #6
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %21, ptr %22, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  store ptr @.str.55, ptr %23, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  store ptr @.str.56, ptr %24, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !8
+  %27 = call i64 @strlen(ptr noundef %26) #6
+  %28 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 2
+  store i64 %27, ptr %28, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !13
+  %31 = call i64 @strlen(ptr noundef %30) #6
+  %32 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 3
+  store i64 %31, ptr %32, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  store ptr @.str.57, ptr %33, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  store ptr @.str.58, ptr %34, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !8
+  %37 = call i64 @strlen(ptr noundef %36) #6
+  %38 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 2
+  store i64 %37, ptr %38, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
+  %41 = call i64 @strlen(ptr noundef %40) #6
+  %42 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !15
+  %43 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %43, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %44 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %44, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !16
+  %45 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %45, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !16
+  %46 = call i32 @wc_HmacInit(ptr noundef %2, ptr noundef null, i32 noundef -2)
+  store i32 %46, ptr %9, align 4, !tbaa !4
+  %47 = load i32, ptr %9, align 4, !tbaa !4
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %50
 
-if.then:                                          ; preds = %entry
-  store i32 -20009, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %0
+  store i32 -20009, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+50:                                               ; preds = %0
+  store i32 0, ptr %11, align 4, !tbaa !4
+  br label %51
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %times, align 4
-  %cmp23 = icmp slt i32 %7, %8
-  br i1 %cmp23, label %for.body, label %for.end
+51:                                               ; preds = %105, %50
+  %52 = load i32, ptr %11, align 4, !tbaa !4
+  %53 = load i32, ptr %10, align 4, !tbaa !4
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %108
 
-for.body:                                         ; preds = %for.cond
-  %9 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx24 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx24, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %11 to i64
-  %arrayidx26 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom25
-  %12 = load ptr, ptr %arrayidx26, align 8
-  %call27 = call i64 @strlen(ptr noundef %12) #4
-  %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef %hmac, i32 noundef 3, ptr noundef %10, i32 noundef %conv)
-  store i32 %call28, ptr %ret, align 4
-  %13 = load i32, ptr %ret, align 4
-  %cmp29 = icmp ne i32 %13, 0
-  br i1 %cmp29, label %if.then31, label %if.end32
+55:                                               ; preds = %51
+  %56 = load i32, ptr %11, align 4, !tbaa !4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !17
+  %60 = load i32, ptr %11, align 4, !tbaa !4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %64 = call i64 @strlen(ptr noundef %63) #6
+  %65 = trunc i64 %64 to i32
+  %66 = call i32 @wc_HmacSetKey(ptr noundef %2, i32 noundef 3, ptr noundef %59, i32 noundef %65)
+  store i32 %66, ptr %9, align 4, !tbaa !4
+  %67 = load i32, ptr %9, align 4, !tbaa !4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %70
 
-if.then31:                                        ; preds = %for.body
-  store i32 -4014, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %55
+  store i32 -4014, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end32:                                         ; preds = %for.body
-  %14 = load i32, ptr %i, align 4
-  %idxprom33 = sext i32 %14 to i64
-  %arrayidx34 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom33
-  %input35 = getelementptr inbounds %struct.testVector, ptr %arrayidx34, i32 0, i32 0
-  %15 = load ptr, ptr %input35, align 16
-  %16 = load i32, ptr %i, align 4
-  %idxprom36 = sext i32 %16 to i64
-  %arrayidx37 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom36
-  %inLen38 = getelementptr inbounds %struct.testVector, ptr %arrayidx37, i32 0, i32 2
-  %17 = load i64, ptr %inLen38, align 16
-  %conv39 = trunc i64 %17 to i32
-  %call40 = call i32 @wc_HmacUpdate(ptr noundef %hmac, ptr noundef %15, i32 noundef %conv39)
-  store i32 %call40, ptr %ret, align 4
-  %18 = load i32, ptr %ret, align 4
-  %cmp41 = icmp ne i32 %18, 0
-  br i1 %cmp41, label %if.then43, label %if.end44
+70:                                               ; preds = %55
+  %71 = load i32, ptr %11, align 4, !tbaa !4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %72
+  %74 = getelementptr inbounds nuw %struct.testVector, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 16, !tbaa !8
+  %76 = load i32, ptr %11, align 4, !tbaa !4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %77
+  %79 = getelementptr inbounds nuw %struct.testVector, ptr %78, i32 0, i32 2
+  %80 = load i64, ptr %79, align 16, !tbaa !14
+  %81 = trunc i64 %80 to i32
+  %82 = call i32 @wc_HmacUpdate(ptr noundef %2, ptr noundef %75, i32 noundef %81)
+  store i32 %82, ptr %9, align 4, !tbaa !4
+  %83 = load i32, ptr %9, align 4, !tbaa !4
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %86
 
-if.then43:                                        ; preds = %if.end32
-  store i32 -4015, ptr %retval, align 4
-  br label %return
+85:                                               ; preds = %70
+  store i32 -4015, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end44:                                         ; preds = %if.end32
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %hash, i64 0, i64 0
-  %call45 = call i32 @wc_HmacFinal(ptr noundef %hmac, ptr noundef %arraydecay)
-  store i32 %call45, ptr %ret, align 4
-  %19 = load i32, ptr %ret, align 4
-  %cmp46 = icmp ne i32 %19, 0
-  br i1 %cmp46, label %if.then48, label %if.end49
+86:                                               ; preds = %70
+  %87 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 0
+  %88 = call i32 @wc_HmacFinal(ptr noundef %2, ptr noundef %87)
+  store i32 %88, ptr %9, align 4, !tbaa !4
+  %89 = load i32, ptr %9, align 4, !tbaa !4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %92
 
-if.then48:                                        ; preds = %if.end44
-  store i32 -4016, ptr %retval, align 4
-  br label %return
+91:                                               ; preds = %86
+  store i32 -4016, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end49:                                         ; preds = %if.end44
-  %arraydecay50 = getelementptr inbounds [16 x i8], ptr %hash, i64 0, i64 0
-  %20 = load i32, ptr %i, align 4
-  %idxprom51 = sext i32 %20 to i64
-  %arrayidx52 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom51
-  %output53 = getelementptr inbounds %struct.testVector, ptr %arrayidx52, i32 0, i32 1
-  %21 = load ptr, ptr %output53, align 8
-  %call54 = call i32 @memcmp(ptr noundef %arraydecay50, ptr noundef %21, i64 noundef 16) #4
-  %cmp55 = icmp ne i32 %call54, 0
-  br i1 %cmp55, label %if.then57, label %if.end58
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 0
+  %94 = load i32, ptr %11, align 4, !tbaa !4
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %95
+  %97 = getelementptr inbounds nuw %struct.testVector, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8, !tbaa !13
+  %99 = call i32 @memcmp(ptr noundef %93, ptr noundef %98, i64 noundef 16) #6
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %104
 
-if.then57:                                        ; preds = %if.end49
-  %22 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -20, %22
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+101:                                              ; preds = %92
+  %102 = load i32, ptr %11, align 4, !tbaa !4
+  %103 = sub nsw i32 -20, %102
+  store i32 %103, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end58:                                         ; preds = %if.end49
-  br label %for.inc
+104:                                              ; preds = %92
+  br label %105
 
-for.inc:                                          ; preds = %if.end58
-  %23 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %23, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !12
+105:                                              ; preds = %104
+  %106 = load i32, ptr %11, align 4, !tbaa !4
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %11, align 4, !tbaa !4
+  br label %51, !llvm.loop !26
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_HmacFree(ptr noundef %hmac)
-  store i32 0, ptr %retval, align 4
-  br label %return
+108:                                              ; preds = %51
+  call void @wc_HmacFree(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-return:                                           ; preds = %for.end, %if.then57, %if.then48, %if.then43, %if.then31, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+109:                                              ; preds = %108, %101, %91, %85, %69, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 784, ptr %2) #5
+  %110 = load i32, ptr %1, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @hmac_sha_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [20 x i8], align 16
-  %keys = alloca [3 x ptr], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %c = alloca %struct.testVector, align 8
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  %ret = alloca i32, align 4
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %keys, ptr align 16 @__const.hmac_sha_test.keys, i64 24, i1 false)
-  store i32 3, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.53, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.61, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.55, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.62, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %input12 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  store ptr @.str.57, ptr %input12, align 8
-  %output13 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  store ptr @.str.63, ptr %output13, align 8
-  %input14 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  %4 = load ptr, ptr %input14, align 8
-  %call15 = call i64 @strlen(ptr noundef %4) #4
-  %inLen16 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 2
-  store i64 %call15, ptr %inLen16, align 8
-  %output17 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  %5 = load ptr, ptr %output17, align 8
-  %call18 = call i64 @strlen(ptr noundef %5) #4
-  %outLen19 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 3
-  store i64 %call18, ptr %outLen19, align 8
-  %arrayidx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx20 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx20, ptr align 8 %b, i64 32, i1 false)
-  %arrayidx21 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx21, ptr align 8 %c, i64 32, i1 false)
-  %call22 = call i32 @wc_HmacInit(ptr noundef %hmac, ptr noundef null, i32 noundef -2)
-  store i32 %call22, ptr %ret, align 4
-  %6 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %6, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.Hmac, align 16
+  %3 = alloca [20 x i8], align 16
+  %4 = alloca [3 x ptr], align 16
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca %struct.testVector, align 8
+  %7 = alloca %struct.testVector, align 8
+  %8 = alloca [3 x %struct.testVector], align 16
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 784, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 20, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @__const.hmac_sha_test.keys, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 3, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.53, ptr %13, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.61, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !8
+  %17 = call i64 @strlen(ptr noundef %16) #6
+  %18 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %17, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !13
+  %21 = call i64 @strlen(ptr noundef %20) #6
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %21, ptr %22, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  store ptr @.str.55, ptr %23, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  store ptr @.str.62, ptr %24, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !8
+  %27 = call i64 @strlen(ptr noundef %26) #6
+  %28 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 2
+  store i64 %27, ptr %28, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !13
+  %31 = call i64 @strlen(ptr noundef %30) #6
+  %32 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 3
+  store i64 %31, ptr %32, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  store ptr @.str.57, ptr %33, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  store ptr @.str.63, ptr %34, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !8
+  %37 = call i64 @strlen(ptr noundef %36) #6
+  %38 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 2
+  store i64 %37, ptr %38, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
+  %41 = call i64 @strlen(ptr noundef %40) #6
+  %42 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !15
+  %43 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %43, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %44 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %44, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !16
+  %45 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %45, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !16
+  %46 = call i32 @wc_HmacInit(ptr noundef %2, ptr noundef null, i32 noundef -2)
+  store i32 %46, ptr %9, align 4, !tbaa !4
+  %47 = load i32, ptr %9, align 4, !tbaa !4
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %50
 
-if.then:                                          ; preds = %entry
-  store i32 -20009, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %0
+  store i32 -20009, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+50:                                               ; preds = %0
+  store i32 0, ptr %11, align 4, !tbaa !4
+  br label %51
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %times, align 4
-  %cmp23 = icmp slt i32 %7, %8
-  br i1 %cmp23, label %for.body, label %for.end
+51:                                               ; preds = %105, %50
+  %52 = load i32, ptr %11, align 4, !tbaa !4
+  %53 = load i32, ptr %10, align 4, !tbaa !4
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %108
 
-for.body:                                         ; preds = %for.cond
-  %9 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx24 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx24, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %11 to i64
-  %arrayidx26 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom25
-  %12 = load ptr, ptr %arrayidx26, align 8
-  %call27 = call i64 @strlen(ptr noundef %12) #4
-  %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef %hmac, i32 noundef 4, ptr noundef %10, i32 noundef %conv)
-  store i32 %call28, ptr %ret, align 4
-  %13 = load i32, ptr %ret, align 4
-  %cmp29 = icmp ne i32 %13, 0
-  br i1 %cmp29, label %if.then31, label %if.end32
+55:                                               ; preds = %51
+  %56 = load i32, ptr %11, align 4, !tbaa !4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !17
+  %60 = load i32, ptr %11, align 4, !tbaa !4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %64 = call i64 @strlen(ptr noundef %63) #6
+  %65 = trunc i64 %64 to i32
+  %66 = call i32 @wc_HmacSetKey(ptr noundef %2, i32 noundef 4, ptr noundef %59, i32 noundef %65)
+  store i32 %66, ptr %9, align 4, !tbaa !4
+  %67 = load i32, ptr %9, align 4, !tbaa !4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %70
 
-if.then31:                                        ; preds = %for.body
-  store i32 -4017, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %55
+  store i32 -4017, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end32:                                         ; preds = %for.body
-  %14 = load i32, ptr %i, align 4
-  %idxprom33 = sext i32 %14 to i64
-  %arrayidx34 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom33
-  %input35 = getelementptr inbounds %struct.testVector, ptr %arrayidx34, i32 0, i32 0
-  %15 = load ptr, ptr %input35, align 16
-  %16 = load i32, ptr %i, align 4
-  %idxprom36 = sext i32 %16 to i64
-  %arrayidx37 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom36
-  %inLen38 = getelementptr inbounds %struct.testVector, ptr %arrayidx37, i32 0, i32 2
-  %17 = load i64, ptr %inLen38, align 16
-  %conv39 = trunc i64 %17 to i32
-  %call40 = call i32 @wc_HmacUpdate(ptr noundef %hmac, ptr noundef %15, i32 noundef %conv39)
-  store i32 %call40, ptr %ret, align 4
-  %18 = load i32, ptr %ret, align 4
-  %cmp41 = icmp ne i32 %18, 0
-  br i1 %cmp41, label %if.then43, label %if.end44
+70:                                               ; preds = %55
+  %71 = load i32, ptr %11, align 4, !tbaa !4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %72
+  %74 = getelementptr inbounds nuw %struct.testVector, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 16, !tbaa !8
+  %76 = load i32, ptr %11, align 4, !tbaa !4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %77
+  %79 = getelementptr inbounds nuw %struct.testVector, ptr %78, i32 0, i32 2
+  %80 = load i64, ptr %79, align 16, !tbaa !14
+  %81 = trunc i64 %80 to i32
+  %82 = call i32 @wc_HmacUpdate(ptr noundef %2, ptr noundef %75, i32 noundef %81)
+  store i32 %82, ptr %9, align 4, !tbaa !4
+  %83 = load i32, ptr %9, align 4, !tbaa !4
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %86
 
-if.then43:                                        ; preds = %if.end32
-  store i32 -4018, ptr %retval, align 4
-  br label %return
+85:                                               ; preds = %70
+  store i32 -4018, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end44:                                         ; preds = %if.end32
-  %arraydecay = getelementptr inbounds [20 x i8], ptr %hash, i64 0, i64 0
-  %call45 = call i32 @wc_HmacFinal(ptr noundef %hmac, ptr noundef %arraydecay)
-  store i32 %call45, ptr %ret, align 4
-  %19 = load i32, ptr %ret, align 4
-  %cmp46 = icmp ne i32 %19, 0
-  br i1 %cmp46, label %if.then48, label %if.end49
+86:                                               ; preds = %70
+  %87 = getelementptr inbounds [20 x i8], ptr %3, i64 0, i64 0
+  %88 = call i32 @wc_HmacFinal(ptr noundef %2, ptr noundef %87)
+  store i32 %88, ptr %9, align 4, !tbaa !4
+  %89 = load i32, ptr %9, align 4, !tbaa !4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %92
 
-if.then48:                                        ; preds = %if.end44
-  store i32 -4019, ptr %retval, align 4
-  br label %return
+91:                                               ; preds = %86
+  store i32 -4019, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end49:                                         ; preds = %if.end44
-  %arraydecay50 = getelementptr inbounds [20 x i8], ptr %hash, i64 0, i64 0
-  %20 = load i32, ptr %i, align 4
-  %idxprom51 = sext i32 %20 to i64
-  %arrayidx52 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom51
-  %output53 = getelementptr inbounds %struct.testVector, ptr %arrayidx52, i32 0, i32 1
-  %21 = load ptr, ptr %output53, align 8
-  %call54 = call i32 @memcmp(ptr noundef %arraydecay50, ptr noundef %21, i64 noundef 20) #4
-  %cmp55 = icmp ne i32 %call54, 0
-  br i1 %cmp55, label %if.then57, label %if.end58
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds [20 x i8], ptr %3, i64 0, i64 0
+  %94 = load i32, ptr %11, align 4, !tbaa !4
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %95
+  %97 = getelementptr inbounds nuw %struct.testVector, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8, !tbaa !13
+  %99 = call i32 @memcmp(ptr noundef %93, ptr noundef %98, i64 noundef 20) #6
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %104
 
-if.then57:                                        ; preds = %if.end49
-  %22 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -20, %22
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+101:                                              ; preds = %92
+  %102 = load i32, ptr %11, align 4, !tbaa !4
+  %103 = sub nsw i32 -20, %102
+  store i32 %103, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end58:                                         ; preds = %if.end49
-  br label %for.inc
+104:                                              ; preds = %92
+  br label %105
 
-for.inc:                                          ; preds = %if.end58
-  %23 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %23, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
+105:                                              ; preds = %104
+  %106 = load i32, ptr %11, align 4, !tbaa !4
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %11, align 4, !tbaa !4
+  br label %51, !llvm.loop !27
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_HmacFree(ptr noundef %hmac)
-  store i32 0, ptr %retval, align 4
-  br label %return
+108:                                              ; preds = %51
+  call void @wc_HmacFree(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-return:                                           ; preds = %for.end, %if.then57, %if.then48, %if.then43, %if.then31, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+109:                                              ; preds = %108, %101, %91, %85, %69, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 20, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 784, ptr %2) #5
+  %110 = load i32, ptr %1, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @hmac_sha224_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [28 x i8], align 16
-  %keys = alloca [3 x ptr], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %c = alloca %struct.testVector, align 8
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  %ret = alloca i32, align 4
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %keys, ptr align 16 @__const.hmac_sha224_test.keys, i64 24, i1 false)
-  store i32 3, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.53, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.64, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 28, ptr %outLen, align 8
-  %input2 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.55, ptr %input2, align 8
-  %output3 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.65, ptr %output3, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %1 = load ptr, ptr %input4, align 8
-  %call5 = call i64 @strlen(ptr noundef %1) #4
-  %inLen6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call5, ptr %inLen6, align 8
-  %outLen7 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 28, ptr %outLen7, align 8
-  %input8 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  store ptr @.str.57, ptr %input8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  store ptr @.str.66, ptr %output9, align 8
-  %input10 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  %2 = load ptr, ptr %input10, align 8
-  %call11 = call i64 @strlen(ptr noundef %2) #4
-  %inLen12 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 2
-  store i64 %call11, ptr %inLen12, align 8
-  %outLen13 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 3
-  store i64 28, ptr %outLen13, align 8
-  %arrayidx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx14 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx14, ptr align 8 %b, i64 32, i1 false)
-  %arrayidx15 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx15, ptr align 8 %c, i64 32, i1 false)
-  %call16 = call i32 @wc_HmacInit(ptr noundef %hmac, ptr noundef null, i32 noundef -2)
-  store i32 %call16, ptr %ret, align 4
-  %3 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.Hmac, align 16
+  %3 = alloca [28 x i8], align 16
+  %4 = alloca [3 x ptr], align 16
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca %struct.testVector, align 8
+  %7 = alloca %struct.testVector, align 8
+  %8 = alloca [3 x %struct.testVector], align 16
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 784, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 28, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @__const.hmac_sha224_test.keys, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 3, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.53, ptr %13, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.64, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !8
+  %17 = call i64 @strlen(ptr noundef %16) #6
+  %18 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %17, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 28, ptr %19, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  store ptr @.str.55, ptr %20, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  store ptr @.str.65, ptr %21, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !8
+  %24 = call i64 @strlen(ptr noundef %23) #6
+  %25 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 2
+  store i64 %24, ptr %25, align 8, !tbaa !14
+  %26 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 3
+  store i64 28, ptr %26, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  store ptr @.str.57, ptr %27, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  store ptr @.str.66, ptr %28, align 8, !tbaa !13
+  %29 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8, !tbaa !8
+  %31 = call i64 @strlen(ptr noundef %30) #6
+  %32 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 2
+  store i64 %31, ptr %32, align 8, !tbaa !14
+  %33 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 3
+  store i64 28, ptr %33, align 8, !tbaa !15
+  %34 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %34, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %35 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %35, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !16
+  %36 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %36, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !16
+  %37 = call i32 @wc_HmacInit(ptr noundef %2, ptr noundef null, i32 noundef -2)
+  store i32 %37, ptr %9, align 4, !tbaa !4
+  %38 = load i32, ptr %9, align 4, !tbaa !4
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
 
-if.then:                                          ; preds = %entry
-  store i32 -20009, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %0
+  store i32 -20009, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %100
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+41:                                               ; preds = %0
+  store i32 0, ptr %11, align 4, !tbaa !4
+  br label %42
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %4 = load i32, ptr %i, align 4
-  %5 = load i32, ptr %times, align 4
-  %cmp17 = icmp slt i32 %4, %5
-  br i1 %cmp17, label %for.body, label %for.end
+42:                                               ; preds = %96, %41
+  %43 = load i32, ptr %11, align 4, !tbaa !4
+  %44 = load i32, ptr %10, align 4, !tbaa !4
+  %45 = icmp slt i32 %43, %44
+  br i1 %45, label %46, label %99
 
-for.body:                                         ; preds = %for.cond
-  %6 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx18 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom
-  %7 = load ptr, ptr %arrayidx18, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom19 = sext i32 %8 to i64
-  %arrayidx20 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom19
-  %9 = load ptr, ptr %arrayidx20, align 8
-  %call21 = call i64 @strlen(ptr noundef %9) #4
-  %conv = trunc i64 %call21 to i32
-  %call22 = call i32 @wc_HmacSetKey(ptr noundef %hmac, i32 noundef 5, ptr noundef %7, i32 noundef %conv)
-  store i32 %call22, ptr %ret, align 4
-  %10 = load i32, ptr %ret, align 4
-  %cmp23 = icmp ne i32 %10, 0
-  br i1 %cmp23, label %if.then25, label %if.end26
+46:                                               ; preds = %42
+  %47 = load i32, ptr %11, align 4, !tbaa !4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %48
+  %50 = load ptr, ptr %49, align 8, !tbaa !17
+  %51 = load i32, ptr %11, align 4, !tbaa !4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %52
+  %54 = load ptr, ptr %53, align 8, !tbaa !17
+  %55 = call i64 @strlen(ptr noundef %54) #6
+  %56 = trunc i64 %55 to i32
+  %57 = call i32 @wc_HmacSetKey(ptr noundef %2, i32 noundef 5, ptr noundef %50, i32 noundef %56)
+  store i32 %57, ptr %9, align 4, !tbaa !4
+  %58 = load i32, ptr %9, align 4, !tbaa !4
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %61
 
-if.then25:                                        ; preds = %for.body
-  store i32 -4021, ptr %retval, align 4
-  br label %return
+60:                                               ; preds = %46
+  store i32 -4021, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %100
 
-if.end26:                                         ; preds = %for.body
-  %11 = load i32, ptr %i, align 4
-  %idxprom27 = sext i32 %11 to i64
-  %arrayidx28 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom27
-  %input29 = getelementptr inbounds %struct.testVector, ptr %arrayidx28, i32 0, i32 0
-  %12 = load ptr, ptr %input29, align 16
-  %13 = load i32, ptr %i, align 4
-  %idxprom30 = sext i32 %13 to i64
-  %arrayidx31 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom30
-  %inLen32 = getelementptr inbounds %struct.testVector, ptr %arrayidx31, i32 0, i32 2
-  %14 = load i64, ptr %inLen32, align 16
-  %conv33 = trunc i64 %14 to i32
-  %call34 = call i32 @wc_HmacUpdate(ptr noundef %hmac, ptr noundef %12, i32 noundef %conv33)
-  store i32 %call34, ptr %ret, align 4
-  %15 = load i32, ptr %ret, align 4
-  %cmp35 = icmp ne i32 %15, 0
-  br i1 %cmp35, label %if.then37, label %if.end38
+61:                                               ; preds = %46
+  %62 = load i32, ptr %11, align 4, !tbaa !4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %63
+  %65 = getelementptr inbounds nuw %struct.testVector, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 16, !tbaa !8
+  %67 = load i32, ptr %11, align 4, !tbaa !4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %68
+  %70 = getelementptr inbounds nuw %struct.testVector, ptr %69, i32 0, i32 2
+  %71 = load i64, ptr %70, align 16, !tbaa !14
+  %72 = trunc i64 %71 to i32
+  %73 = call i32 @wc_HmacUpdate(ptr noundef %2, ptr noundef %66, i32 noundef %72)
+  store i32 %73, ptr %9, align 4, !tbaa !4
+  %74 = load i32, ptr %9, align 4, !tbaa !4
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %76, label %77
 
-if.then37:                                        ; preds = %if.end26
-  store i32 -4022, ptr %retval, align 4
-  br label %return
+76:                                               ; preds = %61
+  store i32 -4022, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %100
 
-if.end38:                                         ; preds = %if.end26
-  %arraydecay = getelementptr inbounds [28 x i8], ptr %hash, i64 0, i64 0
-  %call39 = call i32 @wc_HmacFinal(ptr noundef %hmac, ptr noundef %arraydecay)
-  store i32 %call39, ptr %ret, align 4
-  %16 = load i32, ptr %ret, align 4
-  %cmp40 = icmp ne i32 %16, 0
-  br i1 %cmp40, label %if.then42, label %if.end43
+77:                                               ; preds = %61
+  %78 = getelementptr inbounds [28 x i8], ptr %3, i64 0, i64 0
+  %79 = call i32 @wc_HmacFinal(ptr noundef %2, ptr noundef %78)
+  store i32 %79, ptr %9, align 4, !tbaa !4
+  %80 = load i32, ptr %9, align 4, !tbaa !4
+  %81 = icmp ne i32 %80, 0
+  br i1 %81, label %82, label %83
 
-if.then42:                                        ; preds = %if.end38
-  store i32 -4023, ptr %retval, align 4
-  br label %return
+82:                                               ; preds = %77
+  store i32 -4023, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %100
 
-if.end43:                                         ; preds = %if.end38
-  %arraydecay44 = getelementptr inbounds [28 x i8], ptr %hash, i64 0, i64 0
-  %17 = load i32, ptr %i, align 4
-  %idxprom45 = sext i32 %17 to i64
-  %arrayidx46 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom45
-  %output47 = getelementptr inbounds %struct.testVector, ptr %arrayidx46, i32 0, i32 1
-  %18 = load ptr, ptr %output47, align 8
-  %call48 = call i32 @memcmp(ptr noundef %arraydecay44, ptr noundef %18, i64 noundef 28) #4
-  %cmp49 = icmp ne i32 %call48, 0
-  br i1 %cmp49, label %if.then51, label %if.end52
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds [28 x i8], ptr %3, i64 0, i64 0
+  %85 = load i32, ptr %11, align 4, !tbaa !4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %86
+  %88 = getelementptr inbounds nuw %struct.testVector, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !13
+  %90 = call i32 @memcmp(ptr noundef %84, ptr noundef %89, i64 noundef 28) #6
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %95
 
-if.then51:                                        ; preds = %if.end43
-  %19 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -20, %19
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+92:                                               ; preds = %83
+  %93 = load i32, ptr %11, align 4, !tbaa !4
+  %94 = sub nsw i32 -20, %93
+  store i32 %94, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %100
 
-if.end52:                                         ; preds = %if.end43
-  br label %for.inc
+95:                                               ; preds = %83
+  br label %96
 
-for.inc:                                          ; preds = %if.end52
-  %20 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %20, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !14
+96:                                               ; preds = %95
+  %97 = load i32, ptr %11, align 4, !tbaa !4
+  %98 = add nsw i32 %97, 1
+  store i32 %98, ptr %11, align 4, !tbaa !4
+  br label %42, !llvm.loop !28
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_HmacFree(ptr noundef %hmac)
-  store i32 0, ptr %retval, align 4
-  br label %return
+99:                                               ; preds = %42
+  call void @wc_HmacFree(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %100
 
-return:                                           ; preds = %for.end, %if.then51, %if.then42, %if.then37, %if.then25, %if.then
-  %21 = load i32, ptr %retval, align 4
-  ret i32 %21
+100:                                              ; preds = %99, %92, %82, %76, %60, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 28, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 784, ptr %2) #5
+  %101 = load i32, ptr %1, align 4
+  ret i32 %101
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @hmac_sha256_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [32 x i8], align 16
-  %keys = alloca [3 x ptr], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %c = alloca %struct.testVector, align 8
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  %ret = alloca i32, align 4
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %keys, ptr align 16 @__const.hmac_sha256_test.keys, i64 24, i1 false)
-  store i32 3, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.53, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.67, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.55, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.68, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %input12 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  store ptr @.str.57, ptr %input12, align 8
-  %output13 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  store ptr @.str.69, ptr %output13, align 8
-  %input14 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  %4 = load ptr, ptr %input14, align 8
-  %call15 = call i64 @strlen(ptr noundef %4) #4
-  %inLen16 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 2
-  store i64 %call15, ptr %inLen16, align 8
-  %output17 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  %5 = load ptr, ptr %output17, align 8
-  %call18 = call i64 @strlen(ptr noundef %5) #4
-  %outLen19 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 3
-  store i64 %call18, ptr %outLen19, align 8
-  %arrayidx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx20 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx20, ptr align 8 %b, i64 32, i1 false)
-  %arrayidx21 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx21, ptr align 8 %c, i64 32, i1 false)
-  %call22 = call i32 @wc_HmacInit(ptr noundef %hmac, ptr noundef null, i32 noundef -2)
-  store i32 %call22, ptr %ret, align 4
-  %6 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %6, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.Hmac, align 16
+  %3 = alloca [32 x i8], align 16
+  %4 = alloca [3 x ptr], align 16
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca %struct.testVector, align 8
+  %7 = alloca %struct.testVector, align 8
+  %8 = alloca [3 x %struct.testVector], align 16
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 784, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @__const.hmac_sha256_test.keys, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 3, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.53, ptr %13, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.67, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !8
+  %17 = call i64 @strlen(ptr noundef %16) #6
+  %18 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %17, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !13
+  %21 = call i64 @strlen(ptr noundef %20) #6
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %21, ptr %22, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  store ptr @.str.55, ptr %23, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  store ptr @.str.68, ptr %24, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !8
+  %27 = call i64 @strlen(ptr noundef %26) #6
+  %28 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 2
+  store i64 %27, ptr %28, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !13
+  %31 = call i64 @strlen(ptr noundef %30) #6
+  %32 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 3
+  store i64 %31, ptr %32, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  store ptr @.str.57, ptr %33, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  store ptr @.str.69, ptr %34, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !8
+  %37 = call i64 @strlen(ptr noundef %36) #6
+  %38 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 2
+  store i64 %37, ptr %38, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
+  %41 = call i64 @strlen(ptr noundef %40) #6
+  %42 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !15
+  %43 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %43, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %44 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %44, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !16
+  %45 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %45, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !16
+  %46 = call i32 @wc_HmacInit(ptr noundef %2, ptr noundef null, i32 noundef -2)
+  store i32 %46, ptr %9, align 4, !tbaa !4
+  %47 = load i32, ptr %9, align 4, !tbaa !4
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %50
 
-if.then:                                          ; preds = %entry
-  store i32 -20009, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %0
+  store i32 -20009, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+50:                                               ; preds = %0
+  store i32 0, ptr %11, align 4, !tbaa !4
+  br label %51
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %times, align 4
-  %cmp23 = icmp slt i32 %7, %8
-  br i1 %cmp23, label %for.body, label %for.end
+51:                                               ; preds = %105, %50
+  %52 = load i32, ptr %11, align 4, !tbaa !4
+  %53 = load i32, ptr %10, align 4, !tbaa !4
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %108
 
-for.body:                                         ; preds = %for.cond
-  %9 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx24 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx24, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %11 to i64
-  %arrayidx26 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom25
-  %12 = load ptr, ptr %arrayidx26, align 8
-  %call27 = call i64 @strlen(ptr noundef %12) #4
-  %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef %hmac, i32 noundef 6, ptr noundef %10, i32 noundef %conv)
-  store i32 %call28, ptr %ret, align 4
-  %13 = load i32, ptr %ret, align 4
-  %cmp29 = icmp ne i32 %13, 0
-  br i1 %cmp29, label %if.then31, label %if.end32
+55:                                               ; preds = %51
+  %56 = load i32, ptr %11, align 4, !tbaa !4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !17
+  %60 = load i32, ptr %11, align 4, !tbaa !4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %64 = call i64 @strlen(ptr noundef %63) #6
+  %65 = trunc i64 %64 to i32
+  %66 = call i32 @wc_HmacSetKey(ptr noundef %2, i32 noundef 6, ptr noundef %59, i32 noundef %65)
+  store i32 %66, ptr %9, align 4, !tbaa !4
+  %67 = load i32, ptr %9, align 4, !tbaa !4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %70
 
-if.then31:                                        ; preds = %for.body
-  store i32 -4020, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %55
+  store i32 -4020, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end32:                                         ; preds = %for.body
-  %14 = load i32, ptr %i, align 4
-  %idxprom33 = sext i32 %14 to i64
-  %arrayidx34 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom33
-  %input35 = getelementptr inbounds %struct.testVector, ptr %arrayidx34, i32 0, i32 0
-  %15 = load ptr, ptr %input35, align 16
-  %16 = load i32, ptr %i, align 4
-  %idxprom36 = sext i32 %16 to i64
-  %arrayidx37 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom36
-  %inLen38 = getelementptr inbounds %struct.testVector, ptr %arrayidx37, i32 0, i32 2
-  %17 = load i64, ptr %inLen38, align 16
-  %conv39 = trunc i64 %17 to i32
-  %call40 = call i32 @wc_HmacUpdate(ptr noundef %hmac, ptr noundef %15, i32 noundef %conv39)
-  store i32 %call40, ptr %ret, align 4
-  %18 = load i32, ptr %ret, align 4
-  %cmp41 = icmp ne i32 %18, 0
-  br i1 %cmp41, label %if.then43, label %if.end44
+70:                                               ; preds = %55
+  %71 = load i32, ptr %11, align 4, !tbaa !4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %72
+  %74 = getelementptr inbounds nuw %struct.testVector, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 16, !tbaa !8
+  %76 = load i32, ptr %11, align 4, !tbaa !4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %77
+  %79 = getelementptr inbounds nuw %struct.testVector, ptr %78, i32 0, i32 2
+  %80 = load i64, ptr %79, align 16, !tbaa !14
+  %81 = trunc i64 %80 to i32
+  %82 = call i32 @wc_HmacUpdate(ptr noundef %2, ptr noundef %75, i32 noundef %81)
+  store i32 %82, ptr %9, align 4, !tbaa !4
+  %83 = load i32, ptr %9, align 4, !tbaa !4
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %86
 
-if.then43:                                        ; preds = %if.end32
-  store i32 -4021, ptr %retval, align 4
-  br label %return
+85:                                               ; preds = %70
+  store i32 -4021, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end44:                                         ; preds = %if.end32
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %hash, i64 0, i64 0
-  %call45 = call i32 @wc_HmacFinal(ptr noundef %hmac, ptr noundef %arraydecay)
-  store i32 %call45, ptr %ret, align 4
-  %19 = load i32, ptr %ret, align 4
-  %cmp46 = icmp ne i32 %19, 0
-  br i1 %cmp46, label %if.then48, label %if.end49
+86:                                               ; preds = %70
+  %87 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
+  %88 = call i32 @wc_HmacFinal(ptr noundef %2, ptr noundef %87)
+  store i32 %88, ptr %9, align 4, !tbaa !4
+  %89 = load i32, ptr %9, align 4, !tbaa !4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %92
 
-if.then48:                                        ; preds = %if.end44
-  store i32 -4022, ptr %retval, align 4
-  br label %return
+91:                                               ; preds = %86
+  store i32 -4022, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end49:                                         ; preds = %if.end44
-  %arraydecay50 = getelementptr inbounds [32 x i8], ptr %hash, i64 0, i64 0
-  %20 = load i32, ptr %i, align 4
-  %idxprom51 = sext i32 %20 to i64
-  %arrayidx52 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom51
-  %output53 = getelementptr inbounds %struct.testVector, ptr %arrayidx52, i32 0, i32 1
-  %21 = load ptr, ptr %output53, align 8
-  %call54 = call i32 @memcmp(ptr noundef %arraydecay50, ptr noundef %21, i64 noundef 32) #4
-  %cmp55 = icmp ne i32 %call54, 0
-  br i1 %cmp55, label %if.then57, label %if.end58
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
+  %94 = load i32, ptr %11, align 4, !tbaa !4
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %95
+  %97 = getelementptr inbounds nuw %struct.testVector, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8, !tbaa !13
+  %99 = call i32 @memcmp(ptr noundef %93, ptr noundef %98, i64 noundef 32) #6
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %104
 
-if.then57:                                        ; preds = %if.end49
-  %22 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -20, %22
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+101:                                              ; preds = %92
+  %102 = load i32, ptr %11, align 4, !tbaa !4
+  %103 = sub nsw i32 -20, %102
+  store i32 %103, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end58:                                         ; preds = %if.end49
-  br label %for.inc
+104:                                              ; preds = %92
+  br label %105
 
-for.inc:                                          ; preds = %if.end58
-  %23 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %23, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !15
+105:                                              ; preds = %104
+  %106 = load i32, ptr %11, align 4, !tbaa !4
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %11, align 4, !tbaa !4
+  br label %51, !llvm.loop !29
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_HmacFree(ptr noundef %hmac)
-  store i32 0, ptr %retval, align 4
-  br label %return
+108:                                              ; preds = %51
+  call void @wc_HmacFree(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-return:                                           ; preds = %for.end, %if.then57, %if.then48, %if.then43, %if.then31, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+109:                                              ; preds = %108, %101, %91, %85, %69, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 784, ptr %2) #5
+  %110 = load i32, ptr %1, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @hmac_sha384_test() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [48 x i8], align 16
-  %keys = alloca [3 x ptr], align 16
-  %a = alloca %struct.testVector, align 8
-  %b = alloca %struct.testVector, align 8
-  %c = alloca %struct.testVector, align 8
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  %ret = alloca i32, align 4
-  %times = alloca i32, align 4
-  %i = alloca i32, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %keys, ptr align 16 @__const.hmac_sha384_test.keys, i64 24, i1 false)
-  store i32 3, ptr %times, align 4
-  %input = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  store ptr @.str.53, ptr %input, align 8
-  %output = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  store ptr @.str.70, ptr %output, align 8
-  %input1 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 0
-  %0 = load ptr, ptr %input1, align 8
-  %call = call i64 @strlen(ptr noundef %0) #4
-  %inLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 2
-  store i64 %call, ptr %inLen, align 8
-  %output2 = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 1
-  %1 = load ptr, ptr %output2, align 8
-  %call3 = call i64 @strlen(ptr noundef %1) #4
-  %outLen = getelementptr inbounds %struct.testVector, ptr %a, i32 0, i32 3
-  store i64 %call3, ptr %outLen, align 8
-  %input4 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  store ptr @.str.55, ptr %input4, align 8
-  %output5 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  store ptr @.str.71, ptr %output5, align 8
-  %input6 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 0
-  %2 = load ptr, ptr %input6, align 8
-  %call7 = call i64 @strlen(ptr noundef %2) #4
-  %inLen8 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 2
-  store i64 %call7, ptr %inLen8, align 8
-  %output9 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 1
-  %3 = load ptr, ptr %output9, align 8
-  %call10 = call i64 @strlen(ptr noundef %3) #4
-  %outLen11 = getelementptr inbounds %struct.testVector, ptr %b, i32 0, i32 3
-  store i64 %call10, ptr %outLen11, align 8
-  %input12 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  store ptr @.str.57, ptr %input12, align 8
-  %output13 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  store ptr @.str.72, ptr %output13, align 8
-  %input14 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 0
-  %4 = load ptr, ptr %input14, align 8
-  %call15 = call i64 @strlen(ptr noundef %4) #4
-  %inLen16 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 2
-  store i64 %call15, ptr %inLen16, align 8
-  %output17 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 1
-  %5 = load ptr, ptr %output17, align 8
-  %call18 = call i64 @strlen(ptr noundef %5) #4
-  %outLen19 = getelementptr inbounds %struct.testVector, ptr %c, i32 0, i32 3
-  store i64 %call18, ptr %outLen19, align 8
-  %arrayidx = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx, ptr align 8 %a, i64 32, i1 false)
-  %arrayidx20 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx20, ptr align 8 %b, i64 32, i1 false)
-  %arrayidx21 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arrayidx21, ptr align 8 %c, i64 32, i1 false)
-  %call22 = call i32 @wc_HmacInit(ptr noundef %hmac, ptr noundef null, i32 noundef -2)
-  store i32 %call22, ptr %ret, align 4
-  %6 = load i32, ptr %ret, align 4
-  %cmp = icmp ne i32 %6, 0
-  br i1 %cmp, label %if.then, label %if.end
+  %1 = alloca i32, align 4
+  %2 = alloca %struct.Hmac, align 16
+  %3 = alloca [48 x i8], align 16
+  %4 = alloca [3 x ptr], align 16
+  %5 = alloca %struct.testVector, align 8
+  %6 = alloca %struct.testVector, align 8
+  %7 = alloca %struct.testVector, align 8
+  %8 = alloca [3 x %struct.testVector], align 16
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 784, ptr %2) #5
+  call void @llvm.lifetime.start.p0(i64 48, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %4) #5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %4, ptr align 16 @__const.hmac_sha384_test.keys, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 3, ptr %10, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %13 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  store ptr @.str.53, ptr %13, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  store ptr @.str.70, ptr %14, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !8
+  %17 = call i64 @strlen(ptr noundef %16) #6
+  %18 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 2
+  store i64 %17, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !13
+  %21 = call i64 @strlen(ptr noundef %20) #6
+  %22 = getelementptr inbounds nuw %struct.testVector, ptr %5, i32 0, i32 3
+  store i64 %21, ptr %22, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  store ptr @.str.55, ptr %23, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  store ptr @.str.71, ptr %24, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !8
+  %27 = call i64 @strlen(ptr noundef %26) #6
+  %28 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 2
+  store i64 %27, ptr %28, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8, !tbaa !13
+  %31 = call i64 @strlen(ptr noundef %30) #6
+  %32 = getelementptr inbounds nuw %struct.testVector, ptr %6, i32 0, i32 3
+  store i64 %31, ptr %32, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  store ptr @.str.57, ptr %33, align 8, !tbaa !8
+  %34 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  store ptr @.str.72, ptr %34, align 8, !tbaa !13
+  %35 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !8
+  %37 = call i64 @strlen(ptr noundef %36) #6
+  %38 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 2
+  store i64 %37, ptr %38, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
+  %41 = call i64 @strlen(ptr noundef %40) #6
+  %42 = getelementptr inbounds nuw %struct.testVector, ptr %7, i32 0, i32 3
+  store i64 %41, ptr %42, align 8, !tbaa !15
+  %43 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %43, ptr align 8 %5, i64 32, i1 false), !tbaa.struct !16
+  %44 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %44, ptr align 8 %6, i64 32, i1 false), !tbaa.struct !16
+  %45 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %45, ptr align 8 %7, i64 32, i1 false), !tbaa.struct !16
+  %46 = call i32 @wc_HmacInit(ptr noundef %2, ptr noundef null, i32 noundef -2)
+  store i32 %46, ptr %9, align 4, !tbaa !4
+  %47 = load i32, ptr %9, align 4, !tbaa !4
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %50
 
-if.then:                                          ; preds = %entry
-  store i32 -20009, ptr %retval, align 4
-  br label %return
+49:                                               ; preds = %0
+  store i32 -20009, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+50:                                               ; preds = %0
+  store i32 0, ptr %11, align 4, !tbaa !4
+  br label %51
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %7 = load i32, ptr %i, align 4
-  %8 = load i32, ptr %times, align 4
-  %cmp23 = icmp slt i32 %7, %8
-  br i1 %cmp23, label %for.body, label %for.end
+51:                                               ; preds = %105, %50
+  %52 = load i32, ptr %11, align 4, !tbaa !4
+  %53 = load i32, ptr %10, align 4, !tbaa !4
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %108
 
-for.body:                                         ; preds = %for.cond
-  %9 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx24 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom
-  %10 = load ptr, ptr %arrayidx24, align 8
-  %11 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %11 to i64
-  %arrayidx26 = getelementptr inbounds [3 x ptr], ptr %keys, i64 0, i64 %idxprom25
-  %12 = load ptr, ptr %arrayidx26, align 8
-  %call27 = call i64 @strlen(ptr noundef %12) #4
-  %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef %hmac, i32 noundef 7, ptr noundef %10, i32 noundef %conv)
-  store i32 %call28, ptr %ret, align 4
-  %13 = load i32, ptr %ret, align 4
-  %cmp29 = icmp ne i32 %13, 0
-  br i1 %cmp29, label %if.then31, label %if.end32
+55:                                               ; preds = %51
+  %56 = load i32, ptr %11, align 4, !tbaa !4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !17
+  %60 = load i32, ptr %11, align 4, !tbaa !4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %64 = call i64 @strlen(ptr noundef %63) #6
+  %65 = trunc i64 %64 to i32
+  %66 = call i32 @wc_HmacSetKey(ptr noundef %2, i32 noundef 7, ptr noundef %59, i32 noundef %65)
+  store i32 %66, ptr %9, align 4, !tbaa !4
+  %67 = load i32, ptr %9, align 4, !tbaa !4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %70
 
-if.then31:                                        ; preds = %for.body
-  store i32 -4023, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %55
+  store i32 -4023, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end32:                                         ; preds = %for.body
-  %14 = load i32, ptr %i, align 4
-  %idxprom33 = sext i32 %14 to i64
-  %arrayidx34 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom33
-  %input35 = getelementptr inbounds %struct.testVector, ptr %arrayidx34, i32 0, i32 0
-  %15 = load ptr, ptr %input35, align 16
-  %16 = load i32, ptr %i, align 4
-  %idxprom36 = sext i32 %16 to i64
-  %arrayidx37 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom36
-  %inLen38 = getelementptr inbounds %struct.testVector, ptr %arrayidx37, i32 0, i32 2
-  %17 = load i64, ptr %inLen38, align 16
-  %conv39 = trunc i64 %17 to i32
-  %call40 = call i32 @wc_HmacUpdate(ptr noundef %hmac, ptr noundef %15, i32 noundef %conv39)
-  store i32 %call40, ptr %ret, align 4
-  %18 = load i32, ptr %ret, align 4
-  %cmp41 = icmp ne i32 %18, 0
-  br i1 %cmp41, label %if.then43, label %if.end44
+70:                                               ; preds = %55
+  %71 = load i32, ptr %11, align 4, !tbaa !4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %72
+  %74 = getelementptr inbounds nuw %struct.testVector, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 16, !tbaa !8
+  %76 = load i32, ptr %11, align 4, !tbaa !4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %77
+  %79 = getelementptr inbounds nuw %struct.testVector, ptr %78, i32 0, i32 2
+  %80 = load i64, ptr %79, align 16, !tbaa !14
+  %81 = trunc i64 %80 to i32
+  %82 = call i32 @wc_HmacUpdate(ptr noundef %2, ptr noundef %75, i32 noundef %81)
+  store i32 %82, ptr %9, align 4, !tbaa !4
+  %83 = load i32, ptr %9, align 4, !tbaa !4
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %86
 
-if.then43:                                        ; preds = %if.end32
-  store i32 -4024, ptr %retval, align 4
-  br label %return
+85:                                               ; preds = %70
+  store i32 -4024, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end44:                                         ; preds = %if.end32
-  %arraydecay = getelementptr inbounds [48 x i8], ptr %hash, i64 0, i64 0
-  %call45 = call i32 @wc_HmacFinal(ptr noundef %hmac, ptr noundef %arraydecay)
-  store i32 %call45, ptr %ret, align 4
-  %19 = load i32, ptr %ret, align 4
-  %cmp46 = icmp ne i32 %19, 0
-  br i1 %cmp46, label %if.then48, label %if.end49
+86:                                               ; preds = %70
+  %87 = getelementptr inbounds [48 x i8], ptr %3, i64 0, i64 0
+  %88 = call i32 @wc_HmacFinal(ptr noundef %2, ptr noundef %87)
+  store i32 %88, ptr %9, align 4, !tbaa !4
+  %89 = load i32, ptr %9, align 4, !tbaa !4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %92
 
-if.then48:                                        ; preds = %if.end44
-  store i32 -4025, ptr %retval, align 4
-  br label %return
+91:                                               ; preds = %86
+  store i32 -4025, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end49:                                         ; preds = %if.end44
-  %arraydecay50 = getelementptr inbounds [48 x i8], ptr %hash, i64 0, i64 0
-  %20 = load i32, ptr %i, align 4
-  %idxprom51 = sext i32 %20 to i64
-  %arrayidx52 = getelementptr inbounds [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %idxprom51
-  %output53 = getelementptr inbounds %struct.testVector, ptr %arrayidx52, i32 0, i32 1
-  %21 = load ptr, ptr %output53, align 8
-  %call54 = call i32 @memcmp(ptr noundef %arraydecay50, ptr noundef %21, i64 noundef 48) #4
-  %cmp55 = icmp ne i32 %call54, 0
-  br i1 %cmp55, label %if.then57, label %if.end58
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds [48 x i8], ptr %3, i64 0, i64 0
+  %94 = load i32, ptr %11, align 4, !tbaa !4
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds [3 x %struct.testVector], ptr %8, i64 0, i64 %95
+  %97 = getelementptr inbounds nuw %struct.testVector, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8, !tbaa !13
+  %99 = call i32 @memcmp(ptr noundef %93, ptr noundef %98, i64 noundef 48) #6
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %104
 
-if.then57:                                        ; preds = %if.end49
-  %22 = load i32, ptr %i, align 4
-  %sub = sub nsw i32 -20, %22
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+101:                                              ; preds = %92
+  %102 = load i32, ptr %11, align 4, !tbaa !4
+  %103 = sub nsw i32 -20, %102
+  store i32 %103, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-if.end58:                                         ; preds = %if.end49
-  br label %for.inc
+104:                                              ; preds = %92
+  br label %105
 
-for.inc:                                          ; preds = %if.end58
-  %23 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %23, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !16
+105:                                              ; preds = %104
+  %106 = load i32, ptr %11, align 4, !tbaa !4
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %11, align 4, !tbaa !4
+  br label %51, !llvm.loop !30
 
-for.end:                                          ; preds = %for.cond
-  call void @wc_HmacFree(ptr noundef %hmac)
-  store i32 0, ptr %retval, align 4
-  br label %return
+108:                                              ; preds = %51
+  call void @wc_HmacFree(ptr noundef %2)
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %12, align 4
+  br label %109
 
-return:                                           ; preds = %for.end, %if.then57, %if.then48, %if.then43, %if.then31, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+109:                                              ; preds = %108, %101, %91, %85, %69, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 96, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 48, ptr %3) #5
+  call void @llvm.lifetime.end.p0(i64 784, ptr %2) #5
+  %110 = load i32, ptr %1, align 4
+  ret i32 %110
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @wc_InitMd5(ptr noundef) #1
+declare i32 @wc_InitMd5(ptr noundef) #2
 
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) #1
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare void @wc_Md5Free(ptr noundef) #1
+declare void @wc_Md5Free(ptr noundef) #2
 
-declare i32 @wc_InitSha(ptr noundef) #1
+declare i32 @wc_InitSha(ptr noundef) #2
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) #1
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) #2
 
-declare void @wc_ShaFree(ptr noundef) #1
+declare void @wc_ShaFree(ptr noundef) #2
 
-declare i32 @wc_InitSha224(ptr noundef) #1
+declare i32 @wc_InitSha224(ptr noundef) #2
 
-declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) #1
+declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) #2
 
-declare void @wc_Sha224Free(ptr noundef) #1
+declare void @wc_Sha224Free(ptr noundef) #2
 
-declare i32 @wc_InitSha256(ptr noundef) #1
+declare i32 @wc_InitSha256(ptr noundef) #2
 
-declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) #1
+declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) #2
 
-declare void @wc_Sha256Free(ptr noundef) #1
+declare void @wc_Sha256Free(ptr noundef) #2
 
-declare i32 @wc_InitSha512(ptr noundef) #1
+declare i32 @wc_InitSha512(ptr noundef) #2
 
-declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) #1
+declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) #2
 
-declare void @wc_Sha512Free(ptr noundef) #1
+declare void @wc_Sha512Free(ptr noundef) #2
 
-declare i32 @wc_InitSha384(ptr noundef) #1
+declare i32 @wc_InitSha384(ptr noundef) #2
 
-declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) #1
+declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) #2
 
-declare void @wc_Sha384Free(ptr noundef) #1
+declare void @wc_Sha384Free(ptr noundef) #2
 
-declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) #1
+declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) #2
 
-declare void @wc_HmacFree(ptr noundef) #1
+declare void @wc_HmacFree(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"testVector", !10, i64 0, !10, i64 8, !12, i64 16, !12, i64 24}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"long", !6, i64 0}
+!13 = !{!9, !10, i64 8}
+!14 = !{!9, !12, i64 16}
+!15 = !{!9, !12, i64 24}
+!16 = !{i64 0, i64 8, !17, i64 8, i64 8, !17, i64 16, i64 8, !18, i64 24, i64 8, !18}
+!17 = !{!10, !10, i64 0}
+!18 = !{!12, !12, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}
+!30 = distinct !{!30, !20}

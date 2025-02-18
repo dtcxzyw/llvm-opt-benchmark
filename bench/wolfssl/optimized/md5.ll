@@ -1,896 +1,922 @@
 ; ModuleID = 'bench/wolfssl/original/md5.ll'
 source_filename = "bench/wolfssl/original/md5.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitMd5_ex(ptr noundef writeonly captures(address_is_null) %md5, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %md5, null
-  br i1 %cmp, label %return, label %if.end
+define range(i32 -173, 1) i32 @wc_InitMd5_ex(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %13, label %5
 
-if.end:                                           ; preds = %entry
-  %heap1 = getelementptr inbounds nuw i8, ptr %md5, i64 96
-  store ptr %heap, ptr %heap1, align 8
-  %digest.i = getelementptr inbounds nuw i8, ptr %md5, i64 76
-  store i32 1732584193, ptr %digest.i, align 4
-  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %md5, i64 80
-  store i32 -271733879, ptr %arrayidx2.i, align 4
-  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %md5, i64 84
-  store i32 -1732584194, ptr %arrayidx4.i, align 4
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %md5, i64 88
-  store i32 271733878, ptr %arrayidx6.i, align 4
-  store i32 0, ptr %md5, align 8
-  %loLen.i = getelementptr inbounds nuw i8, ptr %md5, i64 4
-  store i32 0, ptr %loLen.i, align 4
-  %hiLen.i = getelementptr inbounds nuw i8, ptr %md5, i64 8
-  store i32 0, ptr %hiLen.i, align 8
-  br label %return
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 1732584193, ptr %7, align 4, !tbaa !9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 -271733879, ptr %8, align 4, !tbaa !9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 -1732584194, ptr %9, align 4, !tbaa !9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 271733878, ptr %10, align 4, !tbaa !9
+  store i32 0, ptr %0, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %11, align 4, !tbaa !11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %12, align 8, !tbaa !12
+  br label %13
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ -173, %entry ]
-  ret i32 %retval.0
+13:                                               ; preds = %3, %5
+  %.0 = phi i32 [ 0, %5 ], [ -173, %3 ]
+  ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Md5Update(ptr noundef captures(address_is_null) %md5, ptr noundef readonly captures(address_is_null) %data, i32 noundef %len) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %md5, null
-  br i1 %cmp, label %return, label %lor.lhs.false
+define range(i32 -173, 1) i32 @wc_Md5Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %41, label %5
 
-lor.lhs.false:                                    ; preds = %entry
-  %cmp1 = icmp eq ptr %data, null
-  %cmp2 = icmp ne i32 %len, 0
-  %or.cond = and i1 %cmp1, %cmp2
-  br i1 %or.cond, label %return, label %if.end
+5:                                                ; preds = %3
+  %6 = icmp eq ptr %1, null
+  %7 = icmp ne i32 %2, 0
+  %or.cond = and i1 %6, %7
+  br i1 %or.cond, label %41, label %8
 
-if.end:                                           ; preds = %lor.lhs.false
-  %0 = load i32, ptr %md5, align 8
-  %cmp3 = icmp ugt i32 %0, 63
-  br i1 %cmp3, label %return, label %if.end5
+8:                                                ; preds = %5
+  %9 = load i32, ptr %0, align 8, !tbaa !10
+  %10 = icmp ugt i32 %9, 63
+  br i1 %10, label %41, label %11
 
-if.end5:                                          ; preds = %if.end
-  %cmp8 = icmp eq i32 %len, 0
-  %or.cond1 = and i1 %cmp1, %cmp8
-  br i1 %or.cond1, label %return, label %if.end10
+11:                                               ; preds = %8
+  %12 = icmp eq i32 %2, 0
+  %or.cond3 = and i1 %6, %12
+  br i1 %or.cond3, label %41, label %13
 
-if.end10:                                         ; preds = %if.end5
-  %loLen.i = getelementptr inbounds nuw i8, ptr %md5, i64 4
-  %1 = load i32, ptr %loLen.i, align 4
-  %add.i = add i32 %1, %len
-  store i32 %add.i, ptr %loLen.i, align 4
-  %cmp.i = icmp ult i32 %add.i, %1
-  br i1 %cmp.i, label %if.then.i, label %AddLength.exit
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = load i32, ptr %14, align 4, !tbaa !11
+  %16 = add i32 %15, %2
+  store i32 %16, ptr %14, align 4, !tbaa !11
+  %17 = icmp ult i32 %16, %15
+  br i1 %17, label %18, label %AddLength.exit
 
-if.then.i:                                        ; preds = %if.end10
-  %hiLen.i = getelementptr inbounds nuw i8, ptr %md5, i64 8
-  %2 = load i32, ptr %hiLen.i, align 8
-  %inc.i = add i32 %2, 1
-  store i32 %inc.i, ptr %hiLen.i, align 8
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i32, ptr %19, align 8, !tbaa !12
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %19, align 8, !tbaa !12
   br label %AddLength.exit
 
-AddLength.exit:                                   ; preds = %if.end10, %if.then.i
-  %buffer = getelementptr inbounds nuw i8, ptr %md5, i64 12
-  %cmp12.not = icmp eq i32 %0, 0
-  br i1 %cmp12.not, label %if.end29, label %if.then13
+AddLength.exit:                                   ; preds = %13, %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %34, label %23
 
-if.then13:                                        ; preds = %AddLength.exit
-  %sub = sub nuw nsw i32 64, %0
-  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %len, i32 range(i32 65, 64) %sub)
-  %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 %idxprom
-  %conv = zext nneg i32 %cond.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx, ptr align 1 %data, i64 %conv, i1 false)
-  %add = add nuw nsw i32 %cond.i, %0
-  store i32 %add, ptr %md5, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %conv
-  %sub17 = sub i32 %len, %cond.i
-  %cmp19 = icmp eq i32 %add, 64
-  br i1 %cmp19, label %if.then21, label %if.end29
+23:                                               ; preds = %AddLength.exit
+  %24 = sub nuw nsw i32 64, %9
+  %25 = tail call noundef i32 @llvm.umin.i32(i32 %2, i32 range(i32 65, 64) %24)
+  %26 = zext nneg i32 %9 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 %26
+  %28 = zext nneg i32 %25 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %1, i64 %28, i1 false)
+  %29 = add nuw nsw i32 %25, %9
+  store i32 %29, ptr %0, align 8, !tbaa !10
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %28
+  %31 = sub i32 %2, %25
+  %32 = icmp eq i32 %29, 64
+  br i1 %32, label %33, label %34
 
-if.then21:                                        ; preds = %if.then13
-  tail call fastcc void @Transform(ptr noundef %md5, ptr noundef %buffer)
-  store i32 0, ptr %md5, align 8
-  br label %if.end29
+33:                                               ; preds = %23
+  tail call fastcc void @Transform(ptr noundef %0, ptr noundef %22)
+  store i32 0, ptr %0, align 8, !tbaa !10
+  br label %34
 
-if.end29:                                         ; preds = %if.then13, %if.then21, %AddLength.exit
-  %len.addr.0 = phi i32 [ %sub17, %if.then21 ], [ %sub17, %if.then13 ], [ %len, %AddLength.exit ]
-  %data.addr.0 = phi ptr [ %add.ptr, %if.then21 ], [ %add.ptr, %if.then13 ], [ %data, %AddLength.exit ]
-  %cmp3038 = icmp ugt i32 %len.addr.0, 63
-  br i1 %cmp3038, label %while.body, label %while.end
+34:                                               ; preds = %23, %33, %AddLength.exit
+  %.047 = phi i32 [ %31, %33 ], [ %31, %23 ], [ %2, %AddLength.exit ]
+  %.046 = phi ptr [ %30, %33 ], [ %30, %23 ], [ %1, %AddLength.exit ]
+  %35 = icmp ugt i32 %.047, 63
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
-while.body:                                       ; preds = %if.end29, %while.body
-  %data.addr.140 = phi ptr [ %add.ptr34, %while.body ], [ %data.addr.0, %if.end29 ]
-  %len.addr.139 = phi i32 [ %sub35, %while.body ], [ %len.addr.0, %if.end29 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %buffer, ptr noundef nonnull align 1 dereferenceable(64) %data.addr.140, i64 64, i1 false)
-  %add.ptr34 = getelementptr inbounds nuw i8, ptr %data.addr.140, i64 64
-  %sub35 = add i32 %len.addr.139, -64
-  tail call fastcc void @Transform(ptr noundef %md5, ptr noundef %buffer)
-  %cmp30 = icmp ugt i32 %sub35, 63
-  br i1 %cmp30, label %while.body, label %while.end, !llvm.loop !4
+.lr.ph:                                           ; preds = %34, %.lr.ph
+  %.157 = phi ptr [ %36, %.lr.ph ], [ %.046, %34 ]
+  %.14856 = phi i32 [ %37, %.lr.ph ], [ %.047, %34 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %22, ptr noundef nonnull align 1 dereferenceable(64) %.157, i64 64, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %.157, i64 64
+  %37 = add i32 %.14856, -64
+  tail call fastcc void @Transform(ptr noundef %0, ptr noundef %22)
+  %38 = icmp ugt i32 %37, 63
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-while.end:                                        ; preds = %while.body, %if.end29
-  %len.addr.1.lcssa = phi i32 [ %len.addr.0, %if.end29 ], [ %sub35, %while.body ]
-  %data.addr.1.lcssa = phi ptr [ %data.addr.0, %if.end29 ], [ %add.ptr34, %while.body ]
-  %cmp37.not = icmp eq i32 %len.addr.1.lcssa, 0
-  br i1 %cmp37.not, label %return, label %if.then39
+._crit_edge:                                      ; preds = %.lr.ph, %34
+  %.148.lcssa = phi i32 [ %.047, %34 ], [ %37, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.046, %34 ], [ %36, %.lr.ph ]
+  %.not55 = icmp eq i32 %.148.lcssa, 0
+  br i1 %.not55, label %41, label %39
 
-if.then39:                                        ; preds = %while.end
-  %conv40 = zext nneg i32 %len.addr.1.lcssa to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer, ptr align 1 %data.addr.1.lcssa, i64 %conv40, i1 false)
-  store i32 %len.addr.1.lcssa, ptr %md5, align 8
-  br label %return
+39:                                               ; preds = %._crit_edge
+  %40 = zext nneg i32 %.148.lcssa to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %.1.lcssa, i64 %40, i1 false)
+  store i32 %.148.lcssa, ptr %0, align 8, !tbaa !10
+  br label %41
 
-return:                                           ; preds = %while.end, %if.then39, %if.end5, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ -173, %lor.lhs.false ], [ -173, %entry ], [ -132, %if.end ], [ 0, %if.end5 ], [ 0, %if.then39 ], [ 0, %while.end ]
-  ret i32 %retval.0
+41:                                               ; preds = %._crit_edge, %39, %11, %8, %3, %5
+  %.0 = phi i32 [ -173, %5 ], [ -173, %3 ], [ -132, %8 ], [ 0, %11 ], [ 0, %39 ], [ 0, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @Transform(ptr noundef nonnull captures(none) %md5, ptr noundef nonnull readonly captures(none) %data) unnamed_addr #3 {
-entry:
-  %digest = getelementptr inbounds nuw i8, ptr %md5, i64 76
-  %0 = load i32, ptr %digest, align 4
-  %arrayidx2 = getelementptr inbounds nuw i8, ptr %md5, i64 80
-  %1 = load i32, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %md5, i64 84
-  %2 = load i32, ptr %arrayidx4, align 4
-  %arrayidx6 = getelementptr inbounds nuw i8, ptr %md5, i64 88
-  %3 = load i32, ptr %arrayidx6, align 4
-  %xor = xor i32 %3, %2
-  %and = and i32 %xor, %1
-  %xor7 = xor i32 %and, %3
-  %4 = load i32, ptr %data, align 4
-  %add = add i32 %0, -680876936
-  %add9 = add i32 %add, %4
-  %add10 = add i32 %add9, %xor7
-  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %add10, i32 %add10, i32 7)
-  %add11 = add i32 %or.i, %1
-  %xor12 = xor i32 %2, %1
-  %and13 = and i32 %add11, %xor12
-  %xor14 = xor i32 %and13, %2
-  %arrayidx16 = getelementptr inbounds nuw i8, ptr %data, i64 4
-  %5 = load i32, ptr %arrayidx16, align 4
-  %add15 = add i32 %3, -389564586
-  %add17 = add i32 %add15, %5
-  %add18 = add i32 %add17, %xor14
-  %or.i423 = tail call noundef i32 @llvm.fshl.i32(i32 %add18, i32 %add18, i32 12)
-  %add20 = add i32 %or.i423, %add11
-  %xor21 = xor i32 %add11, %1
-  %and22 = and i32 %add20, %xor21
-  %xor23 = xor i32 %and22, %1
-  %arrayidx25 = getelementptr inbounds nuw i8, ptr %data, i64 8
-  %6 = load i32, ptr %arrayidx25, align 4
-  %add24 = add i32 %2, 606105819
-  %add26 = add i32 %add24, %6
-  %add27 = add i32 %add26, %xor23
-  %or.i424 = tail call noundef i32 @llvm.fshl.i32(i32 %add27, i32 %add27, i32 17)
-  %add29 = add i32 %or.i424, %add20
-  %xor30 = xor i32 %add20, %add11
-  %and31 = and i32 %add29, %xor30
-  %xor32 = xor i32 %and31, %add11
-  %arrayidx34 = getelementptr inbounds nuw i8, ptr %data, i64 12
-  %7 = load i32, ptr %arrayidx34, align 4
-  %add33 = add i32 %1, -1044525330
-  %add35 = add i32 %add33, %7
-  %add36 = add i32 %add35, %xor32
-  %or.i425 = tail call noundef i32 @llvm.fshl.i32(i32 %add36, i32 %add36, i32 22)
-  %add38 = add i32 %or.i425, %add29
-  %xor39 = xor i32 %add29, %add20
-  %and40 = and i32 %add38, %xor39
-  %xor41 = xor i32 %and40, %add20
-  %arrayidx43 = getelementptr inbounds nuw i8, ptr %data, i64 16
-  %8 = load i32, ptr %arrayidx43, align 4
-  %add42 = add i32 %8, -176418897
-  %add44 = add i32 %add42, %add11
-  %add45 = add i32 %add44, %xor41
-  %or.i426 = tail call noundef i32 @llvm.fshl.i32(i32 %add45, i32 %add45, i32 7)
-  %add47 = add i32 %or.i426, %add38
-  %xor48 = xor i32 %add38, %add29
-  %and49 = and i32 %add47, %xor48
-  %xor50 = xor i32 %and49, %add29
-  %arrayidx52 = getelementptr inbounds nuw i8, ptr %data, i64 20
-  %9 = load i32, ptr %arrayidx52, align 4
-  %add51 = add i32 %9, 1200080426
-  %add53 = add i32 %add51, %add20
-  %add54 = add i32 %add53, %xor50
-  %or.i427 = tail call noundef i32 @llvm.fshl.i32(i32 %add54, i32 %add54, i32 12)
-  %add56 = add i32 %or.i427, %add47
-  %xor57 = xor i32 %add47, %add38
-  %and58 = and i32 %add56, %xor57
-  %xor59 = xor i32 %and58, %add38
-  %arrayidx61 = getelementptr inbounds nuw i8, ptr %data, i64 24
-  %10 = load i32, ptr %arrayidx61, align 4
-  %add60 = add i32 %10, -1473231341
-  %add62 = add i32 %add60, %add29
-  %add63 = add i32 %add62, %xor59
-  %or.i428 = tail call noundef i32 @llvm.fshl.i32(i32 %add63, i32 %add63, i32 17)
-  %add65 = add i32 %or.i428, %add56
-  %xor66 = xor i32 %add56, %add47
-  %and67 = and i32 %add65, %xor66
-  %xor68 = xor i32 %and67, %add47
-  %arrayidx70 = getelementptr inbounds nuw i8, ptr %data, i64 28
-  %11 = load i32, ptr %arrayidx70, align 4
-  %add69 = add i32 %11, -45705983
-  %add71 = add i32 %add69, %add38
-  %add72 = add i32 %add71, %xor68
-  %or.i429 = tail call noundef i32 @llvm.fshl.i32(i32 %add72, i32 %add72, i32 22)
-  %add74 = add i32 %or.i429, %add65
-  %xor75 = xor i32 %add65, %add56
-  %and76 = and i32 %add74, %xor75
-  %xor77 = xor i32 %and76, %add56
-  %arrayidx79 = getelementptr inbounds nuw i8, ptr %data, i64 32
-  %12 = load i32, ptr %arrayidx79, align 4
-  %add78 = add i32 %12, 1770035416
-  %add80 = add i32 %add78, %add47
-  %add81 = add i32 %add80, %xor77
-  %or.i430 = tail call noundef i32 @llvm.fshl.i32(i32 %add81, i32 %add81, i32 7)
-  %add83 = add i32 %or.i430, %add74
-  %xor84 = xor i32 %add74, %add65
-  %and85 = and i32 %add83, %xor84
-  %xor86 = xor i32 %and85, %add65
-  %arrayidx88 = getelementptr inbounds nuw i8, ptr %data, i64 36
-  %13 = load i32, ptr %arrayidx88, align 4
-  %add87 = add i32 %13, -1958414417
-  %add89 = add i32 %add87, %add56
-  %add90 = add i32 %add89, %xor86
-  %or.i431 = tail call noundef i32 @llvm.fshl.i32(i32 %add90, i32 %add90, i32 12)
-  %add92 = add i32 %or.i431, %add83
-  %xor93 = xor i32 %add83, %add74
-  %and94 = and i32 %add92, %xor93
-  %xor95 = xor i32 %and94, %add74
-  %arrayidx97 = getelementptr inbounds nuw i8, ptr %data, i64 40
-  %14 = load i32, ptr %arrayidx97, align 4
-  %add96 = add i32 %14, -42063
-  %add98 = add i32 %add96, %add65
-  %add99 = add i32 %add98, %xor95
-  %or.i432 = tail call noundef i32 @llvm.fshl.i32(i32 %add99, i32 %add99, i32 17)
-  %add101 = add i32 %or.i432, %add92
-  %xor102 = xor i32 %add92, %add83
-  %and103 = and i32 %add101, %xor102
-  %xor104 = xor i32 %and103, %add83
-  %arrayidx106 = getelementptr inbounds nuw i8, ptr %data, i64 44
-  %15 = load i32, ptr %arrayidx106, align 4
-  %add105 = add i32 %15, -1990404162
-  %add107 = add i32 %add105, %add74
-  %add108 = add i32 %add107, %xor104
-  %or.i433 = tail call noundef i32 @llvm.fshl.i32(i32 %add108, i32 %add108, i32 22)
-  %add110 = add i32 %or.i433, %add101
-  %xor111 = xor i32 %add101, %add92
-  %and112 = and i32 %add110, %xor111
-  %xor113 = xor i32 %and112, %add92
-  %arrayidx115 = getelementptr inbounds nuw i8, ptr %data, i64 48
-  %16 = load i32, ptr %arrayidx115, align 4
-  %add114 = add i32 %16, 1804603682
-  %add116 = add i32 %add114, %add83
-  %add117 = add i32 %add116, %xor113
-  %or.i434 = tail call noundef i32 @llvm.fshl.i32(i32 %add117, i32 %add117, i32 7)
-  %add119 = add i32 %or.i434, %add110
-  %xor120 = xor i32 %add110, %add101
-  %and121 = and i32 %add119, %xor120
-  %xor122 = xor i32 %and121, %add101
-  %arrayidx124 = getelementptr inbounds nuw i8, ptr %data, i64 52
-  %17 = load i32, ptr %arrayidx124, align 4
-  %add123 = add i32 %17, -40341101
-  %add125 = add i32 %add123, %add92
-  %add126 = add i32 %add125, %xor122
-  %or.i435 = tail call noundef i32 @llvm.fshl.i32(i32 %add126, i32 %add126, i32 12)
-  %add128 = add i32 %or.i435, %add119
-  %xor129 = xor i32 %add119, %add110
-  %and130 = and i32 %add128, %xor129
-  %xor131 = xor i32 %and130, %add110
-  %arrayidx133 = getelementptr inbounds nuw i8, ptr %data, i64 56
-  %18 = load i32, ptr %arrayidx133, align 4
-  %add132 = add i32 %18, -1502002290
-  %add134 = add i32 %add132, %add101
-  %add135 = add i32 %add134, %xor131
-  %or.i436 = tail call noundef i32 @llvm.fshl.i32(i32 %add135, i32 %add135, i32 17)
-  %add137 = add i32 %or.i436, %add128
-  %xor138 = xor i32 %add128, %add119
-  %and139 = and i32 %add137, %xor138
-  %xor140 = xor i32 %and139, %add119
-  %arrayidx142 = getelementptr inbounds nuw i8, ptr %data, i64 60
-  %19 = load i32, ptr %arrayidx142, align 4
-  %add141 = add i32 %19, 1236535329
-  %add143 = add i32 %add141, %add110
-  %add144 = add i32 %add143, %xor140
-  %or.i437 = tail call noundef i32 @llvm.fshl.i32(i32 %add144, i32 %add144, i32 22)
-  %add146 = add i32 %or.i437, %add137
-  %xor147 = xor i32 %add146, %add137
-  %and148 = and i32 %xor147, %add128
-  %xor149 = xor i32 %and148, %add137
-  %add150 = add i32 %5, -165796510
-  %add152 = add i32 %add150, %add119
-  %add153 = add i32 %add152, %xor149
-  %or.i438 = tail call noundef i32 @llvm.fshl.i32(i32 %add153, i32 %add153, i32 5)
-  %add155 = add i32 %or.i438, %add146
-  %xor156 = xor i32 %add155, %add146
-  %and157 = and i32 %xor156, %add137
-  %xor158 = xor i32 %and157, %add146
-  %add159 = add i32 %10, -1069501632
-  %add161 = add i32 %add159, %add128
-  %add162 = add i32 %add161, %xor158
-  %or.i439 = tail call noundef i32 @llvm.fshl.i32(i32 %add162, i32 %add162, i32 9)
-  %add164 = add i32 %or.i439, %add155
-  %xor165 = xor i32 %add164, %add155
-  %and166 = and i32 %xor165, %add146
-  %xor167 = xor i32 %and166, %add155
-  %add168 = add i32 %15, 643717713
-  %add170 = add i32 %add168, %add137
-  %add171 = add i32 %add170, %xor167
-  %or.i440 = tail call noundef i32 @llvm.fshl.i32(i32 %add171, i32 %add171, i32 14)
-  %add173 = add i32 %or.i440, %add164
-  %xor174 = xor i32 %add173, %add164
-  %and175 = and i32 %xor174, %add155
-  %xor176 = xor i32 %and175, %add164
-  %add177 = add i32 %4, -373897302
-  %add179 = add i32 %add177, %add146
-  %add180 = add i32 %add179, %xor176
-  %or.i441 = tail call noundef i32 @llvm.fshl.i32(i32 %add180, i32 %add180, i32 20)
-  %add182 = add i32 %or.i441, %add173
-  %xor183 = xor i32 %add182, %add173
-  %and184 = and i32 %xor183, %add164
-  %xor185 = xor i32 %and184, %add173
-  %add186 = add i32 %9, -701558691
-  %add188 = add i32 %add186, %add155
-  %add189 = add i32 %add188, %xor185
-  %or.i442 = tail call noundef i32 @llvm.fshl.i32(i32 %add189, i32 %add189, i32 5)
-  %add191 = add i32 %or.i442, %add182
-  %xor192 = xor i32 %add191, %add182
-  %and193 = and i32 %xor192, %add173
-  %xor194 = xor i32 %and193, %add182
-  %add195 = add i32 %14, 38016083
-  %add197 = add i32 %add195, %add164
-  %add198 = add i32 %add197, %xor194
-  %or.i443 = tail call noundef i32 @llvm.fshl.i32(i32 %add198, i32 %add198, i32 9)
-  %add200 = add i32 %or.i443, %add191
-  %xor201 = xor i32 %add200, %add191
-  %and202 = and i32 %xor201, %add182
-  %xor203 = xor i32 %and202, %add191
-  %add204 = add i32 %19, -660478335
-  %add206 = add i32 %add204, %add173
-  %add207 = add i32 %add206, %xor203
-  %or.i444 = tail call noundef i32 @llvm.fshl.i32(i32 %add207, i32 %add207, i32 14)
-  %add209 = add i32 %or.i444, %add200
-  %xor210 = xor i32 %add209, %add200
-  %and211 = and i32 %xor210, %add191
-  %xor212 = xor i32 %and211, %add200
-  %add213 = add i32 %8, -405537848
-  %add215 = add i32 %add213, %add182
-  %add216 = add i32 %add215, %xor212
-  %or.i445 = tail call noundef i32 @llvm.fshl.i32(i32 %add216, i32 %add216, i32 20)
-  %add218 = add i32 %or.i445, %add209
-  %xor219 = xor i32 %add218, %add209
-  %and220 = and i32 %xor219, %add200
-  %xor221 = xor i32 %and220, %add209
-  %add222 = add i32 %13, 568446438
-  %add224 = add i32 %add222, %add191
-  %add225 = add i32 %add224, %xor221
-  %or.i446 = tail call noundef i32 @llvm.fshl.i32(i32 %add225, i32 %add225, i32 5)
-  %add227 = add i32 %or.i446, %add218
-  %xor228 = xor i32 %add227, %add218
-  %and229 = and i32 %xor228, %add209
-  %xor230 = xor i32 %and229, %add218
-  %add231 = add i32 %18, -1019803690
-  %add233 = add i32 %add231, %add200
-  %add234 = add i32 %add233, %xor230
-  %or.i447 = tail call noundef i32 @llvm.fshl.i32(i32 %add234, i32 %add234, i32 9)
-  %add236 = add i32 %or.i447, %add227
-  %xor237 = xor i32 %add236, %add227
-  %and238 = and i32 %xor237, %add218
-  %xor239 = xor i32 %and238, %add227
-  %add240 = add i32 %7, -187363961
-  %add242 = add i32 %add240, %add209
-  %add243 = add i32 %add242, %xor239
-  %or.i448 = tail call noundef i32 @llvm.fshl.i32(i32 %add243, i32 %add243, i32 14)
-  %add245 = add i32 %or.i448, %add236
-  %xor246 = xor i32 %add245, %add236
-  %and247 = and i32 %xor246, %add227
-  %xor248 = xor i32 %and247, %add236
-  %add249 = add i32 %12, 1163531501
-  %add251 = add i32 %add249, %add218
-  %add252 = add i32 %add251, %xor248
-  %or.i449 = tail call noundef i32 @llvm.fshl.i32(i32 %add252, i32 %add252, i32 20)
-  %add254 = add i32 %or.i449, %add245
-  %xor255 = xor i32 %add254, %add245
-  %and256 = and i32 %xor255, %add236
-  %xor257 = xor i32 %and256, %add245
-  %add258 = add i32 %17, -1444681467
-  %add260 = add i32 %add258, %add227
-  %add261 = add i32 %add260, %xor257
-  %or.i450 = tail call noundef i32 @llvm.fshl.i32(i32 %add261, i32 %add261, i32 5)
-  %add263 = add i32 %or.i450, %add254
-  %xor264 = xor i32 %add263, %add254
-  %and265 = and i32 %xor264, %add245
-  %xor266 = xor i32 %and265, %add254
-  %add267 = add i32 %6, -51403784
-  %add269 = add i32 %add267, %add236
-  %add270 = add i32 %add269, %xor266
-  %or.i451 = tail call noundef i32 @llvm.fshl.i32(i32 %add270, i32 %add270, i32 9)
-  %add272 = add i32 %or.i451, %add263
-  %xor273 = xor i32 %add272, %add263
-  %and274 = and i32 %xor273, %add254
-  %xor275 = xor i32 %and274, %add263
-  %add276 = add i32 %11, 1735328473
-  %add278 = add i32 %add276, %add245
-  %add279 = add i32 %add278, %xor275
-  %or.i452 = tail call noundef i32 @llvm.fshl.i32(i32 %add279, i32 %add279, i32 14)
-  %add281 = add i32 %or.i452, %add272
-  %xor282 = xor i32 %add281, %add272
-  %and283 = and i32 %xor282, %add263
-  %xor284 = xor i32 %and283, %add272
-  %add285 = add i32 %16, -1926607734
-  %add287 = add i32 %add285, %add254
-  %add288 = add i32 %add287, %xor284
-  %or.i453 = tail call noundef i32 @llvm.fshl.i32(i32 %add288, i32 %add288, i32 20)
-  %add290 = add i32 %or.i453, %add281
-  %xor292 = xor i32 %xor282, %add290
-  %add293 = add i32 %9, -378558
-  %add295 = add i32 %add293, %add263
-  %add296 = add i32 %add295, %xor292
-  %or.i454 = tail call noundef i32 @llvm.fshl.i32(i32 %add296, i32 %add296, i32 4)
-  %add298 = add i32 %or.i454, %add290
-  %xor299 = xor i32 %add290, %add281
-  %xor300 = xor i32 %xor299, %add298
-  %add301 = add i32 %12, -2022574463
-  %add303 = add i32 %add301, %add272
-  %add304 = add i32 %add303, %xor300
-  %or.i455 = tail call noundef i32 @llvm.fshl.i32(i32 %add304, i32 %add304, i32 11)
-  %add306 = add i32 %or.i455, %add298
-  %xor307 = xor i32 %add298, %add290
-  %xor308 = xor i32 %xor307, %add306
-  %add309 = add i32 %15, 1839030562
-  %add311 = add i32 %add309, %add281
-  %add312 = add i32 %add311, %xor308
-  %or.i456 = tail call noundef i32 @llvm.fshl.i32(i32 %add312, i32 %add312, i32 16)
-  %add314 = add i32 %or.i456, %add306
-  %xor315 = xor i32 %add306, %add298
-  %xor316 = xor i32 %xor315, %add314
-  %add317 = add i32 %18, -35309556
-  %add319 = add i32 %add317, %add290
-  %add320 = add i32 %add319, %xor316
-  %or.i457 = tail call noundef i32 @llvm.fshl.i32(i32 %add320, i32 %add320, i32 23)
-  %add322 = add i32 %or.i457, %add314
-  %xor323 = xor i32 %add314, %add306
-  %xor324 = xor i32 %xor323, %add322
-  %add325 = add i32 %5, -1530992060
-  %add327 = add i32 %add325, %add298
-  %add328 = add i32 %add327, %xor324
-  %or.i458 = tail call noundef i32 @llvm.fshl.i32(i32 %add328, i32 %add328, i32 4)
-  %add330 = add i32 %or.i458, %add322
-  %xor331 = xor i32 %add322, %add314
-  %xor332 = xor i32 %xor331, %add330
-  %add333 = add i32 %8, 1272893353
-  %add335 = add i32 %add333, %add306
-  %add336 = add i32 %add335, %xor332
-  %or.i459 = tail call noundef i32 @llvm.fshl.i32(i32 %add336, i32 %add336, i32 11)
-  %add338 = add i32 %or.i459, %add330
-  %xor339 = xor i32 %add330, %add322
-  %xor340 = xor i32 %xor339, %add338
-  %add341 = add i32 %11, -155497632
-  %add343 = add i32 %add341, %add314
-  %add344 = add i32 %add343, %xor340
-  %or.i460 = tail call noundef i32 @llvm.fshl.i32(i32 %add344, i32 %add344, i32 16)
-  %add346 = add i32 %or.i460, %add338
-  %xor347 = xor i32 %add338, %add330
-  %xor348 = xor i32 %xor347, %add346
-  %add349 = add i32 %14, -1094730640
-  %add351 = add i32 %add349, %add322
-  %add352 = add i32 %add351, %xor348
-  %or.i461 = tail call noundef i32 @llvm.fshl.i32(i32 %add352, i32 %add352, i32 23)
-  %add354 = add i32 %or.i461, %add346
-  %xor355 = xor i32 %add346, %add338
-  %xor356 = xor i32 %xor355, %add354
-  %add357 = add i32 %17, 681279174
-  %add359 = add i32 %add357, %add330
-  %add360 = add i32 %add359, %xor356
-  %or.i462 = tail call noundef i32 @llvm.fshl.i32(i32 %add360, i32 %add360, i32 4)
-  %add362 = add i32 %or.i462, %add354
-  %xor363 = xor i32 %add354, %add346
-  %xor364 = xor i32 %xor363, %add362
-  %add365 = add i32 %4, -358537222
-  %add367 = add i32 %add365, %add338
-  %add368 = add i32 %add367, %xor364
-  %or.i463 = tail call noundef i32 @llvm.fshl.i32(i32 %add368, i32 %add368, i32 11)
-  %add370 = add i32 %or.i463, %add362
-  %xor371 = xor i32 %add362, %add354
-  %xor372 = xor i32 %xor371, %add370
-  %add373 = add i32 %7, -722521979
-  %add375 = add i32 %add373, %add346
-  %add376 = add i32 %add375, %xor372
-  %or.i464 = tail call noundef i32 @llvm.fshl.i32(i32 %add376, i32 %add376, i32 16)
-  %add378 = add i32 %or.i464, %add370
-  %xor379 = xor i32 %add370, %add362
-  %xor380 = xor i32 %xor379, %add378
-  %add381 = add i32 %10, 76029189
-  %add383 = add i32 %add381, %add354
-  %add384 = add i32 %add383, %xor380
-  %or.i465 = tail call noundef i32 @llvm.fshl.i32(i32 %add384, i32 %add384, i32 23)
-  %add386 = add i32 %or.i465, %add378
-  %xor387 = xor i32 %add378, %add370
-  %xor388 = xor i32 %xor387, %add386
-  %add389 = add i32 %13, -640364487
-  %add391 = add i32 %add389, %add362
-  %add392 = add i32 %add391, %xor388
-  %or.i466 = tail call noundef i32 @llvm.fshl.i32(i32 %add392, i32 %add392, i32 4)
-  %add394 = add i32 %or.i466, %add386
-  %xor395 = xor i32 %add386, %add378
-  %xor396 = xor i32 %xor395, %add394
-  %add397 = add i32 %16, -421815835
-  %add399 = add i32 %add397, %add370
-  %add400 = add i32 %add399, %xor396
-  %or.i467 = tail call noundef i32 @llvm.fshl.i32(i32 %add400, i32 %add400, i32 11)
-  %add402 = add i32 %or.i467, %add394
-  %xor403 = xor i32 %add394, %add386
-  %xor404 = xor i32 %xor403, %add402
-  %add405 = add i32 %19, 530742520
-  %add407 = add i32 %add405, %add378
-  %add408 = add i32 %add407, %xor404
-  %or.i468 = tail call noundef i32 @llvm.fshl.i32(i32 %add408, i32 %add408, i32 16)
-  %add410 = add i32 %or.i468, %add402
-  %xor411 = xor i32 %add402, %add394
-  %xor412 = xor i32 %xor411, %add410
-  %add413 = add i32 %6, -995338651
-  %add415 = add i32 %add413, %add386
-  %add416 = add i32 %add415, %xor412
-  %or.i469 = tail call noundef i32 @llvm.fshl.i32(i32 %add416, i32 %add416, i32 23)
-  %add418 = add i32 %or.i469, %add410
-  %not = xor i32 %add402, -1
-  %or = or i32 %add418, %not
-  %xor419 = xor i32 %or, %add410
-  %add420 = add i32 %4, -198630844
-  %add422 = add i32 %add420, %add394
-  %add423 = add i32 %add422, %xor419
-  %or.i470 = tail call noundef i32 @llvm.fshl.i32(i32 %add423, i32 %add423, i32 6)
-  %add425 = add i32 %or.i470, %add418
-  %not426 = xor i32 %add410, -1
-  %or427 = or i32 %add425, %not426
-  %xor428 = xor i32 %or427, %add418
-  %add429 = add i32 %11, 1126891415
-  %add431 = add i32 %add429, %add402
-  %add432 = add i32 %add431, %xor428
-  %or.i471 = tail call noundef i32 @llvm.fshl.i32(i32 %add432, i32 %add432, i32 10)
-  %add434 = add i32 %or.i471, %add425
-  %not435 = xor i32 %add418, -1
-  %or436 = or i32 %add434, %not435
-  %xor437 = xor i32 %or436, %add425
-  %add438 = add i32 %18, -1416354905
-  %add440 = add i32 %add438, %add410
-  %add441 = add i32 %add440, %xor437
-  %or.i472 = tail call noundef i32 @llvm.fshl.i32(i32 %add441, i32 %add441, i32 15)
-  %add443 = add i32 %or.i472, %add434
-  %not444 = xor i32 %add425, -1
-  %or445 = or i32 %add443, %not444
-  %xor446 = xor i32 %or445, %add434
-  %add447 = add i32 %9, -57434055
-  %add449 = add i32 %add447, %add418
-  %add450 = add i32 %add449, %xor446
-  %or.i473 = tail call noundef i32 @llvm.fshl.i32(i32 %add450, i32 %add450, i32 21)
-  %add452 = add i32 %or.i473, %add443
-  %not453 = xor i32 %add434, -1
-  %or454 = or i32 %add452, %not453
-  %xor455 = xor i32 %or454, %add443
-  %add456 = add i32 %16, 1700485571
-  %add458 = add i32 %add456, %add425
-  %add459 = add i32 %add458, %xor455
-  %or.i474 = tail call noundef i32 @llvm.fshl.i32(i32 %add459, i32 %add459, i32 6)
-  %add461 = add i32 %or.i474, %add452
-  %not462 = xor i32 %add443, -1
-  %or463 = or i32 %add461, %not462
-  %xor464 = xor i32 %or463, %add452
-  %add465 = add i32 %7, -1894986606
-  %add467 = add i32 %add465, %add434
-  %add468 = add i32 %add467, %xor464
-  %or.i475 = tail call noundef i32 @llvm.fshl.i32(i32 %add468, i32 %add468, i32 10)
-  %add470 = add i32 %or.i475, %add461
-  %not471 = xor i32 %add452, -1
-  %or472 = or i32 %add470, %not471
-  %xor473 = xor i32 %or472, %add461
-  %add474 = add i32 %14, -1051523
-  %add476 = add i32 %add474, %add443
-  %add477 = add i32 %add476, %xor473
-  %or.i476 = tail call noundef i32 @llvm.fshl.i32(i32 %add477, i32 %add477, i32 15)
-  %add479 = add i32 %or.i476, %add470
-  %not480 = xor i32 %add461, -1
-  %or481 = or i32 %add479, %not480
-  %xor482 = xor i32 %or481, %add470
-  %add483 = add i32 %5, -2054922799
-  %add485 = add i32 %add483, %add452
-  %add486 = add i32 %add485, %xor482
-  %or.i477 = tail call noundef i32 @llvm.fshl.i32(i32 %add486, i32 %add486, i32 21)
-  %add488 = add i32 %or.i477, %add479
-  %not489 = xor i32 %add470, -1
-  %or490 = or i32 %add488, %not489
-  %xor491 = xor i32 %or490, %add479
-  %add492 = add i32 %12, 1873313359
-  %add494 = add i32 %add492, %add461
-  %add495 = add i32 %add494, %xor491
-  %or.i478 = tail call noundef i32 @llvm.fshl.i32(i32 %add495, i32 %add495, i32 6)
-  %add497 = add i32 %or.i478, %add488
-  %not498 = xor i32 %add479, -1
-  %or499 = or i32 %add497, %not498
-  %xor500 = xor i32 %or499, %add488
-  %add501 = add i32 %19, -30611744
-  %add503 = add i32 %add501, %add470
-  %add504 = add i32 %add503, %xor500
-  %or.i479 = tail call noundef i32 @llvm.fshl.i32(i32 %add504, i32 %add504, i32 10)
-  %add506 = add i32 %or.i479, %add497
-  %not507 = xor i32 %add488, -1
-  %or508 = or i32 %add506, %not507
-  %xor509 = xor i32 %or508, %add497
-  %add510 = add i32 %10, -1560198380
-  %add512 = add i32 %add510, %add479
-  %add513 = add i32 %add512, %xor509
-  %or.i480 = tail call noundef i32 @llvm.fshl.i32(i32 %add513, i32 %add513, i32 15)
-  %add515 = add i32 %or.i480, %add506
-  %not516 = xor i32 %add497, -1
-  %or517 = or i32 %add515, %not516
-  %xor518 = xor i32 %or517, %add506
-  %add519 = add i32 %17, 1309151649
-  %add521 = add i32 %add519, %add488
-  %add522 = add i32 %add521, %xor518
-  %or.i481 = tail call noundef i32 @llvm.fshl.i32(i32 %add522, i32 %add522, i32 21)
-  %add524 = add i32 %or.i481, %add515
-  %not525 = xor i32 %add506, -1
-  %or526 = or i32 %add524, %not525
-  %xor527 = xor i32 %or526, %add515
-  %add528 = add i32 %8, -145523070
-  %add530 = add i32 %add528, %add497
-  %add531 = add i32 %add530, %xor527
-  %or.i482 = tail call noundef i32 @llvm.fshl.i32(i32 %add531, i32 %add531, i32 6)
-  %add533 = add i32 %or.i482, %add524
-  %not534 = xor i32 %add515, -1
-  %or535 = or i32 %add533, %not534
-  %xor536 = xor i32 %or535, %add524
-  %add537 = add i32 %15, -1120210379
-  %add539 = add i32 %add537, %add506
-  %add540 = add i32 %add539, %xor536
-  %or.i483 = tail call noundef i32 @llvm.fshl.i32(i32 %add540, i32 %add540, i32 10)
-  %add542 = add i32 %or.i483, %add533
-  %not543 = xor i32 %add524, -1
-  %or544 = or i32 %add542, %not543
-  %xor545 = xor i32 %or544, %add533
-  %add546 = add i32 %6, 718787259
-  %add548 = add i32 %add546, %add515
-  %add549 = add i32 %add548, %xor545
-  %or.i484 = tail call noundef i32 @llvm.fshl.i32(i32 %add549, i32 %add549, i32 15)
-  %add551 = add i32 %or.i484, %add542
-  %not552 = xor i32 %add533, -1
-  %or553 = or i32 %add551, %not552
-  %xor554 = xor i32 %or553, %add542
-  %add555 = add i32 %13, -343485551
-  %add557 = add i32 %add555, %add524
-  %add558 = add i32 %add557, %xor554
-  %or.i485 = tail call noundef i32 @llvm.fshl.i32(i32 %add558, i32 %add558, i32 21)
-  %add563 = add i32 %add533, %0
-  store i32 %add563, ptr %digest, align 4
-  %add560 = add i32 %add551, %1
-  %add566 = add i32 %add560, %or.i485
-  store i32 %add566, ptr %arrayidx2, align 4
-  %add569 = add i32 %add551, %2
-  store i32 %add569, ptr %arrayidx4, align 4
-  %add572 = add i32 %add542, %3
-  store i32 %add572, ptr %arrayidx6, align 4
+define internal fastcc void @Transform(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %4 = load i32, ptr %3, align 4, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %6 = load i32, ptr %5, align 4, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %8 = load i32, ptr %7, align 4, !tbaa !9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = xor i32 %10, %8
+  %12 = and i32 %11, %6
+  %13 = xor i32 %12, %10
+  %14 = load i32, ptr %1, align 4, !tbaa !9
+  %15 = add i32 %4, -680876936
+  %16 = add i32 %15, %14
+  %17 = add i32 %16, %13
+  %18 = tail call noundef i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 7)
+  %19 = add i32 %18, %6
+  %20 = xor i32 %8, %6
+  %21 = and i32 %19, %20
+  %22 = xor i32 %21, %8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = add i32 %10, -389564586
+  %26 = add i32 %25, %24
+  %27 = add i32 %26, %22
+  %28 = tail call noundef i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 12)
+  %29 = add i32 %28, %19
+  %30 = xor i32 %19, %6
+  %31 = and i32 %29, %30
+  %32 = xor i32 %31, %6
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = load i32, ptr %33, align 4, !tbaa !9
+  %35 = add i32 %8, 606105819
+  %36 = add i32 %35, %34
+  %37 = add i32 %36, %32
+  %38 = tail call noundef i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 17)
+  %39 = add i32 %38, %29
+  %40 = xor i32 %29, %19
+  %41 = and i32 %39, %40
+  %42 = xor i32 %41, %19
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !9
+  %45 = add i32 %6, -1044525330
+  %46 = add i32 %45, %44
+  %47 = add i32 %46, %42
+  %48 = tail call noundef i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 22)
+  %49 = add i32 %48, %39
+  %50 = xor i32 %39, %29
+  %51 = and i32 %49, %50
+  %52 = xor i32 %51, %29
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %54 = load i32, ptr %53, align 4, !tbaa !9
+  %55 = add i32 %54, -176418897
+  %56 = add i32 %55, %19
+  %57 = add i32 %56, %52
+  %58 = tail call noundef i32 @llvm.fshl.i32(i32 %57, i32 %57, i32 7)
+  %59 = add i32 %58, %49
+  %60 = xor i32 %49, %39
+  %61 = and i32 %59, %60
+  %62 = xor i32 %61, %39
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %64 = load i32, ptr %63, align 4, !tbaa !9
+  %65 = add i32 %64, 1200080426
+  %66 = add i32 %65, %29
+  %67 = add i32 %66, %62
+  %68 = tail call noundef i32 @llvm.fshl.i32(i32 %67, i32 %67, i32 12)
+  %69 = add i32 %68, %59
+  %70 = xor i32 %59, %49
+  %71 = and i32 %69, %70
+  %72 = xor i32 %71, %49
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %74 = load i32, ptr %73, align 4, !tbaa !9
+  %75 = add i32 %74, -1473231341
+  %76 = add i32 %75, %39
+  %77 = add i32 %76, %72
+  %78 = tail call noundef i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 17)
+  %79 = add i32 %78, %69
+  %80 = xor i32 %69, %59
+  %81 = and i32 %79, %80
+  %82 = xor i32 %81, %59
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %84 = load i32, ptr %83, align 4, !tbaa !9
+  %85 = add i32 %84, -45705983
+  %86 = add i32 %85, %49
+  %87 = add i32 %86, %82
+  %88 = tail call noundef i32 @llvm.fshl.i32(i32 %87, i32 %87, i32 22)
+  %89 = add i32 %88, %79
+  %90 = xor i32 %79, %69
+  %91 = and i32 %89, %90
+  %92 = xor i32 %91, %69
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %94 = load i32, ptr %93, align 4, !tbaa !9
+  %95 = add i32 %94, 1770035416
+  %96 = add i32 %95, %59
+  %97 = add i32 %96, %92
+  %98 = tail call noundef i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 7)
+  %99 = add i32 %98, %89
+  %100 = xor i32 %89, %79
+  %101 = and i32 %99, %100
+  %102 = xor i32 %101, %79
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %104 = load i32, ptr %103, align 4, !tbaa !9
+  %105 = add i32 %104, -1958414417
+  %106 = add i32 %105, %69
+  %107 = add i32 %106, %102
+  %108 = tail call noundef i32 @llvm.fshl.i32(i32 %107, i32 %107, i32 12)
+  %109 = add i32 %108, %99
+  %110 = xor i32 %99, %89
+  %111 = and i32 %109, %110
+  %112 = xor i32 %111, %89
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %114 = load i32, ptr %113, align 4, !tbaa !9
+  %115 = add i32 %114, -42063
+  %116 = add i32 %115, %79
+  %117 = add i32 %116, %112
+  %118 = tail call noundef i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 17)
+  %119 = add i32 %118, %109
+  %120 = xor i32 %109, %99
+  %121 = and i32 %119, %120
+  %122 = xor i32 %121, %99
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %124 = load i32, ptr %123, align 4, !tbaa !9
+  %125 = add i32 %124, -1990404162
+  %126 = add i32 %125, %89
+  %127 = add i32 %126, %122
+  %128 = tail call noundef i32 @llvm.fshl.i32(i32 %127, i32 %127, i32 22)
+  %129 = add i32 %128, %119
+  %130 = xor i32 %119, %109
+  %131 = and i32 %129, %130
+  %132 = xor i32 %131, %109
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %134 = load i32, ptr %133, align 4, !tbaa !9
+  %135 = add i32 %134, 1804603682
+  %136 = add i32 %135, %99
+  %137 = add i32 %136, %132
+  %138 = tail call noundef i32 @llvm.fshl.i32(i32 %137, i32 %137, i32 7)
+  %139 = add i32 %138, %129
+  %140 = xor i32 %129, %119
+  %141 = and i32 %139, %140
+  %142 = xor i32 %141, %119
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %144 = load i32, ptr %143, align 4, !tbaa !9
+  %145 = add i32 %144, -40341101
+  %146 = add i32 %145, %109
+  %147 = add i32 %146, %142
+  %148 = tail call noundef i32 @llvm.fshl.i32(i32 %147, i32 %147, i32 12)
+  %149 = add i32 %148, %139
+  %150 = xor i32 %139, %129
+  %151 = and i32 %149, %150
+  %152 = xor i32 %151, %129
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %154 = load i32, ptr %153, align 4, !tbaa !9
+  %155 = add i32 %154, -1502002290
+  %156 = add i32 %155, %119
+  %157 = add i32 %156, %152
+  %158 = tail call noundef i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 17)
+  %159 = add i32 %158, %149
+  %160 = xor i32 %149, %139
+  %161 = and i32 %159, %160
+  %162 = xor i32 %161, %139
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %164 = load i32, ptr %163, align 4, !tbaa !9
+  %165 = add i32 %164, 1236535329
+  %166 = add i32 %165, %129
+  %167 = add i32 %166, %162
+  %168 = tail call noundef i32 @llvm.fshl.i32(i32 %167, i32 %167, i32 22)
+  %169 = add i32 %168, %159
+  %170 = xor i32 %169, %159
+  %171 = and i32 %170, %149
+  %172 = xor i32 %171, %159
+  %173 = add i32 %24, -165796510
+  %174 = add i32 %173, %139
+  %175 = add i32 %174, %172
+  %176 = tail call noundef i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 5)
+  %177 = add i32 %176, %169
+  %178 = xor i32 %177, %169
+  %179 = and i32 %178, %159
+  %180 = xor i32 %179, %169
+  %181 = add i32 %74, -1069501632
+  %182 = add i32 %181, %149
+  %183 = add i32 %182, %180
+  %184 = tail call noundef i32 @llvm.fshl.i32(i32 %183, i32 %183, i32 9)
+  %185 = add i32 %184, %177
+  %186 = xor i32 %185, %177
+  %187 = and i32 %186, %169
+  %188 = xor i32 %187, %177
+  %189 = add i32 %124, 643717713
+  %190 = add i32 %189, %159
+  %191 = add i32 %190, %188
+  %192 = tail call noundef i32 @llvm.fshl.i32(i32 %191, i32 %191, i32 14)
+  %193 = add i32 %192, %185
+  %194 = xor i32 %193, %185
+  %195 = and i32 %194, %177
+  %196 = xor i32 %195, %185
+  %197 = add i32 %14, -373897302
+  %198 = add i32 %197, %169
+  %199 = add i32 %198, %196
+  %200 = tail call noundef i32 @llvm.fshl.i32(i32 %199, i32 %199, i32 20)
+  %201 = add i32 %200, %193
+  %202 = xor i32 %201, %193
+  %203 = and i32 %202, %185
+  %204 = xor i32 %203, %193
+  %205 = add i32 %64, -701558691
+  %206 = add i32 %205, %177
+  %207 = add i32 %206, %204
+  %208 = tail call noundef i32 @llvm.fshl.i32(i32 %207, i32 %207, i32 5)
+  %209 = add i32 %208, %201
+  %210 = xor i32 %209, %201
+  %211 = and i32 %210, %193
+  %212 = xor i32 %211, %201
+  %213 = add i32 %114, 38016083
+  %214 = add i32 %213, %185
+  %215 = add i32 %214, %212
+  %216 = tail call noundef i32 @llvm.fshl.i32(i32 %215, i32 %215, i32 9)
+  %217 = add i32 %216, %209
+  %218 = xor i32 %217, %209
+  %219 = and i32 %218, %201
+  %220 = xor i32 %219, %209
+  %221 = add i32 %164, -660478335
+  %222 = add i32 %221, %193
+  %223 = add i32 %222, %220
+  %224 = tail call noundef i32 @llvm.fshl.i32(i32 %223, i32 %223, i32 14)
+  %225 = add i32 %224, %217
+  %226 = xor i32 %225, %217
+  %227 = and i32 %226, %209
+  %228 = xor i32 %227, %217
+  %229 = add i32 %54, -405537848
+  %230 = add i32 %229, %201
+  %231 = add i32 %230, %228
+  %232 = tail call noundef i32 @llvm.fshl.i32(i32 %231, i32 %231, i32 20)
+  %233 = add i32 %232, %225
+  %234 = xor i32 %233, %225
+  %235 = and i32 %234, %217
+  %236 = xor i32 %235, %225
+  %237 = add i32 %104, 568446438
+  %238 = add i32 %237, %209
+  %239 = add i32 %238, %236
+  %240 = tail call noundef i32 @llvm.fshl.i32(i32 %239, i32 %239, i32 5)
+  %241 = add i32 %240, %233
+  %242 = xor i32 %241, %233
+  %243 = and i32 %242, %225
+  %244 = xor i32 %243, %233
+  %245 = add i32 %154, -1019803690
+  %246 = add i32 %245, %217
+  %247 = add i32 %246, %244
+  %248 = tail call noundef i32 @llvm.fshl.i32(i32 %247, i32 %247, i32 9)
+  %249 = add i32 %248, %241
+  %250 = xor i32 %249, %241
+  %251 = and i32 %250, %233
+  %252 = xor i32 %251, %241
+  %253 = add i32 %44, -187363961
+  %254 = add i32 %253, %225
+  %255 = add i32 %254, %252
+  %256 = tail call noundef i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 14)
+  %257 = add i32 %256, %249
+  %258 = xor i32 %257, %249
+  %259 = and i32 %258, %241
+  %260 = xor i32 %259, %249
+  %261 = add i32 %94, 1163531501
+  %262 = add i32 %261, %233
+  %263 = add i32 %262, %260
+  %264 = tail call noundef i32 @llvm.fshl.i32(i32 %263, i32 %263, i32 20)
+  %265 = add i32 %264, %257
+  %266 = xor i32 %265, %257
+  %267 = and i32 %266, %249
+  %268 = xor i32 %267, %257
+  %269 = add i32 %144, -1444681467
+  %270 = add i32 %269, %241
+  %271 = add i32 %270, %268
+  %272 = tail call noundef i32 @llvm.fshl.i32(i32 %271, i32 %271, i32 5)
+  %273 = add i32 %272, %265
+  %274 = xor i32 %273, %265
+  %275 = and i32 %274, %257
+  %276 = xor i32 %275, %265
+  %277 = add i32 %34, -51403784
+  %278 = add i32 %277, %249
+  %279 = add i32 %278, %276
+  %280 = tail call noundef i32 @llvm.fshl.i32(i32 %279, i32 %279, i32 9)
+  %281 = add i32 %280, %273
+  %282 = xor i32 %281, %273
+  %283 = and i32 %282, %265
+  %284 = xor i32 %283, %273
+  %285 = add i32 %84, 1735328473
+  %286 = add i32 %285, %257
+  %287 = add i32 %286, %284
+  %288 = tail call noundef i32 @llvm.fshl.i32(i32 %287, i32 %287, i32 14)
+  %289 = add i32 %288, %281
+  %290 = xor i32 %289, %281
+  %291 = and i32 %290, %273
+  %292 = xor i32 %291, %281
+  %293 = add i32 %134, -1926607734
+  %294 = add i32 %293, %265
+  %295 = add i32 %294, %292
+  %296 = tail call noundef i32 @llvm.fshl.i32(i32 %295, i32 %295, i32 20)
+  %297 = add i32 %296, %289
+  %298 = xor i32 %290, %297
+  %299 = add i32 %64, -378558
+  %300 = add i32 %299, %273
+  %301 = add i32 %300, %298
+  %302 = tail call noundef i32 @llvm.fshl.i32(i32 %301, i32 %301, i32 4)
+  %303 = add i32 %302, %297
+  %304 = xor i32 %297, %289
+  %305 = xor i32 %304, %303
+  %306 = add i32 %94, -2022574463
+  %307 = add i32 %306, %281
+  %308 = add i32 %307, %305
+  %309 = tail call noundef i32 @llvm.fshl.i32(i32 %308, i32 %308, i32 11)
+  %310 = add i32 %309, %303
+  %311 = xor i32 %303, %297
+  %312 = xor i32 %311, %310
+  %313 = add i32 %124, 1839030562
+  %314 = add i32 %313, %289
+  %315 = add i32 %314, %312
+  %316 = tail call noundef i32 @llvm.fshl.i32(i32 %315, i32 %315, i32 16)
+  %317 = add i32 %316, %310
+  %318 = xor i32 %310, %303
+  %319 = xor i32 %318, %317
+  %320 = add i32 %154, -35309556
+  %321 = add i32 %320, %297
+  %322 = add i32 %321, %319
+  %323 = tail call noundef i32 @llvm.fshl.i32(i32 %322, i32 %322, i32 23)
+  %324 = add i32 %323, %317
+  %325 = xor i32 %317, %310
+  %326 = xor i32 %325, %324
+  %327 = add i32 %24, -1530992060
+  %328 = add i32 %327, %303
+  %329 = add i32 %328, %326
+  %330 = tail call noundef i32 @llvm.fshl.i32(i32 %329, i32 %329, i32 4)
+  %331 = add i32 %330, %324
+  %332 = xor i32 %324, %317
+  %333 = xor i32 %332, %331
+  %334 = add i32 %54, 1272893353
+  %335 = add i32 %334, %310
+  %336 = add i32 %335, %333
+  %337 = tail call noundef i32 @llvm.fshl.i32(i32 %336, i32 %336, i32 11)
+  %338 = add i32 %337, %331
+  %339 = xor i32 %331, %324
+  %340 = xor i32 %339, %338
+  %341 = add i32 %84, -155497632
+  %342 = add i32 %341, %317
+  %343 = add i32 %342, %340
+  %344 = tail call noundef i32 @llvm.fshl.i32(i32 %343, i32 %343, i32 16)
+  %345 = add i32 %344, %338
+  %346 = xor i32 %338, %331
+  %347 = xor i32 %346, %345
+  %348 = add i32 %114, -1094730640
+  %349 = add i32 %348, %324
+  %350 = add i32 %349, %347
+  %351 = tail call noundef i32 @llvm.fshl.i32(i32 %350, i32 %350, i32 23)
+  %352 = add i32 %351, %345
+  %353 = xor i32 %345, %338
+  %354 = xor i32 %353, %352
+  %355 = add i32 %144, 681279174
+  %356 = add i32 %355, %331
+  %357 = add i32 %356, %354
+  %358 = tail call noundef i32 @llvm.fshl.i32(i32 %357, i32 %357, i32 4)
+  %359 = add i32 %358, %352
+  %360 = xor i32 %352, %345
+  %361 = xor i32 %360, %359
+  %362 = add i32 %14, -358537222
+  %363 = add i32 %362, %338
+  %364 = add i32 %363, %361
+  %365 = tail call noundef i32 @llvm.fshl.i32(i32 %364, i32 %364, i32 11)
+  %366 = add i32 %365, %359
+  %367 = xor i32 %359, %352
+  %368 = xor i32 %367, %366
+  %369 = add i32 %44, -722521979
+  %370 = add i32 %369, %345
+  %371 = add i32 %370, %368
+  %372 = tail call noundef i32 @llvm.fshl.i32(i32 %371, i32 %371, i32 16)
+  %373 = add i32 %372, %366
+  %374 = xor i32 %366, %359
+  %375 = xor i32 %374, %373
+  %376 = add i32 %74, 76029189
+  %377 = add i32 %376, %352
+  %378 = add i32 %377, %375
+  %379 = tail call noundef i32 @llvm.fshl.i32(i32 %378, i32 %378, i32 23)
+  %380 = add i32 %379, %373
+  %381 = xor i32 %373, %366
+  %382 = xor i32 %381, %380
+  %383 = add i32 %104, -640364487
+  %384 = add i32 %383, %359
+  %385 = add i32 %384, %382
+  %386 = tail call noundef i32 @llvm.fshl.i32(i32 %385, i32 %385, i32 4)
+  %387 = add i32 %386, %380
+  %388 = xor i32 %380, %373
+  %389 = xor i32 %388, %387
+  %390 = add i32 %134, -421815835
+  %391 = add i32 %390, %366
+  %392 = add i32 %391, %389
+  %393 = tail call noundef i32 @llvm.fshl.i32(i32 %392, i32 %392, i32 11)
+  %394 = add i32 %393, %387
+  %395 = xor i32 %387, %380
+  %396 = xor i32 %395, %394
+  %397 = add i32 %164, 530742520
+  %398 = add i32 %397, %373
+  %399 = add i32 %398, %396
+  %400 = tail call noundef i32 @llvm.fshl.i32(i32 %399, i32 %399, i32 16)
+  %401 = add i32 %400, %394
+  %402 = xor i32 %394, %387
+  %403 = xor i32 %402, %401
+  %404 = add i32 %34, -995338651
+  %405 = add i32 %404, %380
+  %406 = add i32 %405, %403
+  %407 = tail call noundef i32 @llvm.fshl.i32(i32 %406, i32 %406, i32 23)
+  %408 = add i32 %407, %401
+  %409 = xor i32 %394, -1
+  %410 = or i32 %408, %409
+  %411 = xor i32 %410, %401
+  %412 = add i32 %14, -198630844
+  %413 = add i32 %412, %387
+  %414 = add i32 %413, %411
+  %415 = tail call noundef i32 @llvm.fshl.i32(i32 %414, i32 %414, i32 6)
+  %416 = add i32 %415, %408
+  %417 = xor i32 %401, -1
+  %418 = or i32 %416, %417
+  %419 = xor i32 %418, %408
+  %420 = add i32 %84, 1126891415
+  %421 = add i32 %420, %394
+  %422 = add i32 %421, %419
+  %423 = tail call noundef i32 @llvm.fshl.i32(i32 %422, i32 %422, i32 10)
+  %424 = add i32 %423, %416
+  %425 = xor i32 %408, -1
+  %426 = or i32 %424, %425
+  %427 = xor i32 %426, %416
+  %428 = add i32 %154, -1416354905
+  %429 = add i32 %428, %401
+  %430 = add i32 %429, %427
+  %431 = tail call noundef i32 @llvm.fshl.i32(i32 %430, i32 %430, i32 15)
+  %432 = add i32 %431, %424
+  %433 = xor i32 %416, -1
+  %434 = or i32 %432, %433
+  %435 = xor i32 %434, %424
+  %436 = add i32 %64, -57434055
+  %437 = add i32 %436, %408
+  %438 = add i32 %437, %435
+  %439 = tail call noundef i32 @llvm.fshl.i32(i32 %438, i32 %438, i32 21)
+  %440 = add i32 %439, %432
+  %441 = xor i32 %424, -1
+  %442 = or i32 %440, %441
+  %443 = xor i32 %442, %432
+  %444 = add i32 %134, 1700485571
+  %445 = add i32 %444, %416
+  %446 = add i32 %445, %443
+  %447 = tail call noundef i32 @llvm.fshl.i32(i32 %446, i32 %446, i32 6)
+  %448 = add i32 %447, %440
+  %449 = xor i32 %432, -1
+  %450 = or i32 %448, %449
+  %451 = xor i32 %450, %440
+  %452 = add i32 %44, -1894986606
+  %453 = add i32 %452, %424
+  %454 = add i32 %453, %451
+  %455 = tail call noundef i32 @llvm.fshl.i32(i32 %454, i32 %454, i32 10)
+  %456 = add i32 %455, %448
+  %457 = xor i32 %440, -1
+  %458 = or i32 %456, %457
+  %459 = xor i32 %458, %448
+  %460 = add i32 %114, -1051523
+  %461 = add i32 %460, %432
+  %462 = add i32 %461, %459
+  %463 = tail call noundef i32 @llvm.fshl.i32(i32 %462, i32 %462, i32 15)
+  %464 = add i32 %463, %456
+  %465 = xor i32 %448, -1
+  %466 = or i32 %464, %465
+  %467 = xor i32 %466, %456
+  %468 = add i32 %24, -2054922799
+  %469 = add i32 %468, %440
+  %470 = add i32 %469, %467
+  %471 = tail call noundef i32 @llvm.fshl.i32(i32 %470, i32 %470, i32 21)
+  %472 = add i32 %471, %464
+  %473 = xor i32 %456, -1
+  %474 = or i32 %472, %473
+  %475 = xor i32 %474, %464
+  %476 = add i32 %94, 1873313359
+  %477 = add i32 %476, %448
+  %478 = add i32 %477, %475
+  %479 = tail call noundef i32 @llvm.fshl.i32(i32 %478, i32 %478, i32 6)
+  %480 = add i32 %479, %472
+  %481 = xor i32 %464, -1
+  %482 = or i32 %480, %481
+  %483 = xor i32 %482, %472
+  %484 = add i32 %164, -30611744
+  %485 = add i32 %484, %456
+  %486 = add i32 %485, %483
+  %487 = tail call noundef i32 @llvm.fshl.i32(i32 %486, i32 %486, i32 10)
+  %488 = add i32 %487, %480
+  %489 = xor i32 %472, -1
+  %490 = or i32 %488, %489
+  %491 = xor i32 %490, %480
+  %492 = add i32 %74, -1560198380
+  %493 = add i32 %492, %464
+  %494 = add i32 %493, %491
+  %495 = tail call noundef i32 @llvm.fshl.i32(i32 %494, i32 %494, i32 15)
+  %496 = add i32 %495, %488
+  %497 = xor i32 %480, -1
+  %498 = or i32 %496, %497
+  %499 = xor i32 %498, %488
+  %500 = add i32 %144, 1309151649
+  %501 = add i32 %500, %472
+  %502 = add i32 %501, %499
+  %503 = tail call noundef i32 @llvm.fshl.i32(i32 %502, i32 %502, i32 21)
+  %504 = add i32 %503, %496
+  %505 = xor i32 %488, -1
+  %506 = or i32 %504, %505
+  %507 = xor i32 %506, %496
+  %508 = add i32 %54, -145523070
+  %509 = add i32 %508, %480
+  %510 = add i32 %509, %507
+  %511 = tail call noundef i32 @llvm.fshl.i32(i32 %510, i32 %510, i32 6)
+  %512 = add i32 %511, %504
+  %513 = xor i32 %496, -1
+  %514 = or i32 %512, %513
+  %515 = xor i32 %514, %504
+  %516 = add i32 %124, -1120210379
+  %517 = add i32 %516, %488
+  %518 = add i32 %517, %515
+  %519 = tail call noundef i32 @llvm.fshl.i32(i32 %518, i32 %518, i32 10)
+  %520 = add i32 %519, %512
+  %521 = xor i32 %504, -1
+  %522 = or i32 %520, %521
+  %523 = xor i32 %522, %512
+  %524 = add i32 %34, 718787259
+  %525 = add i32 %524, %496
+  %526 = add i32 %525, %523
+  %527 = tail call noundef i32 @llvm.fshl.i32(i32 %526, i32 %526, i32 15)
+  %528 = add i32 %527, %520
+  %529 = xor i32 %512, -1
+  %530 = or i32 %528, %529
+  %531 = xor i32 %530, %520
+  %532 = add i32 %104, -343485551
+  %533 = add i32 %532, %504
+  %534 = add i32 %533, %531
+  %535 = tail call noundef i32 @llvm.fshl.i32(i32 %534, i32 %534, i32 21)
+  %536 = add i32 %512, %4
+  store i32 %536, ptr %3, align 4, !tbaa !9
+  %537 = add i32 %528, %6
+  %538 = add i32 %537, %535
+  store i32 %538, ptr %5, align 4, !tbaa !9
+  %539 = add i32 %528, %8
+  store i32 %539, ptr %7, align 4, !tbaa !9
+  %540 = add i32 %520, %10
+  store i32 %540, ptr %9, align 4, !tbaa !9
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Md5Final(ptr noundef captures(address_is_null) %md5, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %md5, null
-  %cmp1 = icmp eq ptr %hash, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define range(i32 -173, 1) i32 @wc_Md5Final(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %39, label %5
 
-if.end:                                           ; preds = %entry
-  %buffer = getelementptr inbounds nuw i8, ptr %md5, i64 12
-  %0 = load i32, ptr %md5, align 8
-  %cmp2 = icmp ugt i32 %0, 63
-  br i1 %cmp2, label %return, label %if.end4
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %7 = load i32, ptr %0, align 8, !tbaa !10
+  %8 = icmp ugt i32 %7, 63
+  br i1 %8, label %39, label %9
 
-if.end4:                                          ; preds = %if.end
-  %inc = add nuw nsw i32 %0, 1
-  store i32 %inc, ptr %md5, align 8
-  %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 %idxprom
-  store i8 -128, ptr %arrayidx, align 1
-  %cmp7 = icmp samesign ugt i32 %0, 55
-  br i1 %cmp7, label %if.then8, label %if.end17
+9:                                                ; preds = %5
+  %10 = add nuw nsw i32 %7, 1
+  store i32 %10, ptr %0, align 8, !tbaa !10
+  %11 = zext nneg i32 %7 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
+  store i8 -128, ptr %12, align 1, !tbaa !15
+  %13 = icmp samesign ugt i32 %7, 55
+  br i1 %13, label %14, label %21
 
-if.then8:                                         ; preds = %if.end4
-  %idxprom10 = zext nneg i32 %inc to i64
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idxprom10
-  %sub = sub nuw nsw i32 63, %0
-  %conv = zext nneg i32 %sub to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx11, i8 0, i64 %conv, i1 false)
-  store i32 64, ptr %md5, align 8
-  tail call fastcc void @Transform(ptr noundef %md5, ptr noundef %buffer)
-  store i32 0, ptr %md5, align 8
-  br label %if.end17
+14:                                               ; preds = %9
+  %.not = icmp eq i32 %7, 63
+  br i1 %.not, label %20, label %15
 
-if.end17:                                         ; preds = %if.then8, %if.end4
-  %1 = phi i32 [ 0, %if.then8 ], [ %inc, %if.end4 ]
-  %idxprom19 = zext nneg i32 %1 to i64
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idxprom19
-  %sub22 = sub nuw nsw i32 56, %1
-  %conv23 = zext nneg i32 %sub22 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx20, i8 0, i64 %conv23, i1 false)
-  %loLen = getelementptr inbounds nuw i8, ptr %md5, i64 4
-  %2 = load i32, ptr %loLen, align 4
-  %hiLen = getelementptr inbounds nuw i8, ptr %md5, i64 8
-  %3 = load i32, ptr %hiLen, align 8
-  %add24 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %2, i32 3)
-  store i32 %add24, ptr %hiLen, align 8
-  %shl27 = shl i32 %2, 3
-  store i32 %shl27, ptr %loLen, align 4
-  %arrayidx29 = getelementptr inbounds nuw i8, ptr %md5, i64 68
-  store i32 %shl27, ptr %arrayidx29, align 1
-  %arrayidx31 = getelementptr inbounds nuw i8, ptr %md5, i64 72
-  store i32 %add24, ptr %arrayidx31, align 1
-  tail call fastcc void @Transform(ptr noundef %md5, ptr noundef %buffer)
-  %digest = getelementptr inbounds nuw i8, ptr %md5, i64 76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hash, ptr noundef nonnull align 4 dereferenceable(16) %digest, i64 16, i1 false)
-  store i32 1732584193, ptr %digest, align 4
-  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %md5, i64 80
-  store i32 -271733879, ptr %arrayidx2.i, align 4
-  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %md5, i64 84
-  store i32 -1732584194, ptr %arrayidx4.i, align 4
-  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %md5, i64 88
-  store i32 271733878, ptr %arrayidx6.i, align 4
-  store i32 0, ptr %md5, align 8
-  store i32 0, ptr %loLen, align 4
-  store i32 0, ptr %hiLen, align 8
-  br label %return
+15:                                               ; preds = %14
+  %16 = zext nneg i32 %10 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %16
+  %18 = sub nuw nsw i32 63, %7
+  %19 = zext nneg i32 %18 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %19, i1 false)
+  br label %20
 
-return:                                           ; preds = %if.end, %entry, %if.end17
-  %retval.0 = phi i32 [ 0, %if.end17 ], [ -173, %entry ], [ -132, %if.end ]
-  ret i32 %retval.0
+20:                                               ; preds = %15, %14
+  store i32 64, ptr %0, align 8, !tbaa !10
+  tail call fastcc void @Transform(ptr noundef %0, ptr noundef %6)
+  store i32 0, ptr %0, align 8, !tbaa !10
+  br label %21
+
+21:                                               ; preds = %20, %9
+  %22 = phi i32 [ 0, %20 ], [ %10, %9 ]
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %23
+  %25 = sub nuw nsw i32 56, %22
+  %26 = zext nneg i32 %25 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 0, i64 %26, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !11
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !12
+  %31 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %28, i32 3)
+  store i32 %31, ptr %29, align 8, !tbaa !12
+  %32 = shl i32 %28, 3
+  store i32 %32, ptr %27, align 4, !tbaa !11
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %32, ptr %33, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %31, ptr %34, align 1
+  tail call fastcc void @Transform(ptr noundef %0, ptr noundef %6)
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %35, i64 16, i1 false)
+  store i32 1732584193, ptr %35, align 4, !tbaa !9
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 -271733879, ptr %36, align 4, !tbaa !9
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 -1732584194, ptr %37, align 4, !tbaa !9
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 271733878, ptr %38, align 4, !tbaa !9
+  store i32 0, ptr %0, align 8, !tbaa !10
+  store i32 0, ptr %27, align 4, !tbaa !11
+  store i32 0, ptr %29, align 8, !tbaa !12
+  br label %39
+
+39:                                               ; preds = %5, %2, %21
+  %.0 = phi i32 [ 0, %21 ], [ -173, %2 ], [ -132, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitMd5(ptr noundef writeonly captures(address_is_null) %md5) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %md5, null
-  br i1 %cmp, label %return, label %wc_InitMd5_ex.exit
+define range(i32 -173, 1) i32 @wc_InitMd5(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %10, label %wc_InitMd5_ex.exit
 
-wc_InitMd5_ex.exit:                               ; preds = %entry
-  %heap1.i = getelementptr inbounds nuw i8, ptr %md5, i64 96
-  store ptr null, ptr %heap1.i, align 8
-  %digest.i.i = getelementptr inbounds nuw i8, ptr %md5, i64 76
-  store i32 1732584193, ptr %digest.i.i, align 4
-  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %md5, i64 80
-  store i32 -271733879, ptr %arrayidx2.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %md5, i64 84
-  store i32 -1732584194, ptr %arrayidx4.i.i, align 4
-  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %md5, i64 88
-  store i32 271733878, ptr %arrayidx6.i.i, align 4
-  store i32 0, ptr %md5, align 8
-  %loLen.i.i = getelementptr inbounds nuw i8, ptr %md5, i64 4
-  store i32 0, ptr %loLen.i.i, align 4
-  %hiLen.i.i = getelementptr inbounds nuw i8, ptr %md5, i64 8
-  store i32 0, ptr %hiLen.i.i, align 8
-  br label %return
+wc_InitMd5_ex.exit:                               ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr null, ptr %3, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 1732584193, ptr %4, align 4, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 -271733879, ptr %5, align 4, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 -1732584194, ptr %6, align 4, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 271733878, ptr %7, align 4, !tbaa !9
+  store i32 0, ptr %0, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %8, align 4, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %9, align 8, !tbaa !12
+  br label %10
 
-return:                                           ; preds = %entry, %wc_InitMd5_ex.exit
-  %retval.0 = phi i32 [ 0, %wc_InitMd5_ex.exit ], [ -173, %entry ]
-  ret i32 %retval.0
+10:                                               ; preds = %1, %wc_InitMd5_ex.exit
+  %.0 = phi i32 [ 0, %wc_InitMd5_ex.exit ], [ -173, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wc_Md5Free(ptr noundef readnone captures(none) %md5) local_unnamed_addr #5 {
-entry:
+define void @wc_Md5Free(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Md5GetHash(ptr noundef readonly captures(address_is_null) %md5, ptr noundef writeonly captures(address_is_null) %hash) local_unnamed_addr #3 {
-entry:
-  %tmpMd5 = alloca %struct.wc_Md5, align 8
-  %cmp = icmp eq ptr %md5, null
-  %cmp1 = icmp eq ptr %hash, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end.i5
+define range(i32 -173, 1) i32 @wc_Md5GetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+  %3 = alloca %struct.wc_Md5, align 8
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #8
+  %4 = icmp eq ptr %0, null
+  %5 = icmp eq ptr %1, null
+  %or.cond = or i1 %4, %5
+  br i1 %or.cond, label %wc_Md5Final.exit, label %6
 
-if.end.i5:                                        ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %tmpMd5, ptr noundef nonnull readonly align 8 dereferenceable(104) %md5, i64 104, i1 false)
-  %buffer.i = getelementptr inbounds nuw i8, ptr %tmpMd5, i64 12
-  %0 = load i32, ptr %tmpMd5, align 8
-  %cmp2.i = icmp ugt i32 %0, 63
-  br i1 %cmp2.i, label %return, label %if.end4.i
+6:                                                ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i64 104, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %8 = load i32, ptr %3, align 8, !tbaa !10
+  %9 = icmp ugt i32 %8, 63
+  br i1 %9, label %wc_Md5Final.exit, label %10
 
-if.end4.i:                                        ; preds = %if.end.i5
-  %inc.i = add nuw nsw i32 %0, 1
-  store i32 %inc.i, ptr %tmpMd5, align 8
-  %idxprom.i = zext nneg i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idxprom.i
-  store i8 -128, ptr %arrayidx.i, align 1
-  %cmp7.i = icmp samesign ugt i32 %0, 55
-  br i1 %cmp7.i, label %if.then8.i, label %if.end17.i
+10:                                               ; preds = %6
+  %11 = add nuw nsw i32 %8, 1
+  store i32 %11, ptr %3, align 8, !tbaa !10
+  %12 = zext nneg i32 %8 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
+  store i8 -128, ptr %13, align 1, !tbaa !15
+  %14 = icmp samesign ugt i32 %8, 55
+  br i1 %14, label %15, label %22
 
-if.then8.i:                                       ; preds = %if.end4.i
-  %idxprom10.i = zext nneg i32 %inc.i to i64
-  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idxprom10.i
-  %sub.i = sub nuw nsw i32 63, %0
-  %conv.i = zext nneg i32 %sub.i to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx11.i, i8 0, i64 %conv.i, i1 false)
-  store i32 64, ptr %tmpMd5, align 8
-  call fastcc void @Transform(ptr noundef nonnull %tmpMd5, ptr noundef %buffer.i)
-  store i32 0, ptr %tmpMd5, align 8
-  br label %if.end17.i
+15:                                               ; preds = %10
+  %.not.i = icmp eq i32 %8, 63
+  br i1 %.not.i, label %21, label %16
 
-if.end17.i:                                       ; preds = %if.then8.i, %if.end4.i
-  %1 = phi i32 [ 0, %if.then8.i ], [ %inc.i, %if.end4.i ]
-  %idxprom19.i = zext nneg i32 %1 to i64
-  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idxprom19.i
-  %sub22.i = sub nuw nsw i32 56, %1
-  %conv23.i = zext nneg i32 %sub22.i to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx20.i, i8 0, i64 %conv23.i, i1 false)
-  %loLen.i = getelementptr inbounds nuw i8, ptr %tmpMd5, i64 4
-  %2 = load i32, ptr %loLen.i, align 4
-  %hiLen.i = getelementptr inbounds nuw i8, ptr %tmpMd5, i64 8
-  %3 = load i32, ptr %hiLen.i, align 8
-  %add24.i = tail call i32 @llvm.fshl.i32(i32 %3, i32 %2, i32 3)
-  store i32 %add24.i, ptr %hiLen.i, align 8
-  %shl27.i = shl i32 %2, 3
-  store i32 %shl27.i, ptr %loLen.i, align 4
-  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %tmpMd5, i64 68
-  store i32 %shl27.i, ptr %arrayidx29.i, align 4
-  %arrayidx31.i = getelementptr inbounds nuw i8, ptr %tmpMd5, i64 72
-  store i32 %add24.i, ptr %arrayidx31.i, align 8
-  call fastcc void @Transform(ptr noundef nonnull %tmpMd5, ptr noundef %buffer.i)
-  %digest.i = getelementptr inbounds nuw i8, ptr %tmpMd5, i64 76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %hash, ptr noundef nonnull align 4 dereferenceable(16) %digest.i, i64 16, i1 false)
-  br label %return
+16:                                               ; preds = %15
+  %17 = zext nneg i32 %11 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
+  %19 = sub nuw nsw i32 63, %8
+  %20 = zext nneg i32 %19 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %20, i1 false)
+  br label %21
 
-return:                                           ; preds = %if.end17.i, %if.end.i5, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.end17.i ], [ -132, %if.end.i5 ]
-  ret i32 %retval.0
+21:                                               ; preds = %16, %15
+  store i32 64, ptr %3, align 8, !tbaa !10
+  call fastcc void @Transform(ptr noundef nonnull %3, ptr noundef %7)
+  store i32 0, ptr %3, align 8, !tbaa !10
+  br label %22
+
+22:                                               ; preds = %21, %10
+  %23 = phi i32 [ 0, %21 ], [ %11, %10 ]
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 %24
+  %26 = sub nuw nsw i32 56, %23
+  %27 = zext nneg i32 %26 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %25, i8 0, i64 %27, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !11
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !12
+  %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %29, i32 3)
+  store i32 %32, ptr %30, align 8, !tbaa !12
+  %33 = shl i32 %29, 3
+  store i32 %33, ptr %28, align 4, !tbaa !11
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 68
+  store i32 %33, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store i32 %32, ptr %35, align 8
+  call fastcc void @Transform(ptr noundef nonnull %3, ptr noundef %7)
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false)
+  br label %wc_Md5Final.exit
+
+wc_Md5Final.exit:                                 ; preds = %22, %6, %2
+  %.07 = phi i32 [ -173, %2 ], [ 0, %22 ], [ -132, %6 ]
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #8
+  ret i32 %.07
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Md5Copy(ptr noundef readonly captures(address_is_null) %src, ptr noundef writeonly captures(address_is_null) %dst) local_unnamed_addr #3 {
-entry:
-  %cmp = icmp eq ptr %src, null
-  %cmp1 = icmp eq ptr %dst, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define range(i32 -173, 1) i32 @wc_Md5Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %6, label %5
 
-if.end:                                           ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %dst, ptr noundef nonnull align 8 dereferenceable(104) %src, i64 104, i1 false)
-  br label %return
+5:                                                ; preds = %2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %0, i64 104, i1 false)
+  br label %6
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ -173, %entry ]
-  ret i32 %retval.0
+6:                                                ; preds = %2, %5
+  %.0 = phi i32 [ 0, %5 ], [ -173, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #7
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !8, i64 96}
+!4 = !{!"wc_Md5", !5, i64 0, !5, i64 4, !5, i64 8, !6, i64 12, !6, i64 76, !8, i64 96}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"any pointer", !6, i64 0}
+!9 = !{!5, !5, i64 0}
+!10 = !{!4, !5, i64 0}
+!11 = !{!4, !5, i64 4}
+!12 = !{!4, !5, i64 8}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = !{!6, !6, i64 0}

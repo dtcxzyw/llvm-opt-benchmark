@@ -1,15 +1,15 @@
 ; ModuleID = 'bench/wolfssl/original/hash.ll'
 source_filename = "bench/wolfssl/original/hash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 %struct.testVector = type { ptr, ptr, i64, i64 }
 %struct.wc_Sha = type { i32, i32, i32, [16 x i32], [5 x i32], ptr }
 %struct.wc_Sha256 = type { [8 x i32], [16 x i32], i32, i32, i32, ptr, [8 x i8] }
 %struct.wc_Sha512 = type { [8 x i64], [16 x i64], i32, i64, i64, ptr }
-%struct.Hmac = type { %union.wc_HmacHash, [36 x i32], [36 x i32], [16 x i32], ptr, i8, i8 }
-%union.wc_HmacHash = type { %struct.wc_Sha3 }
+%struct.Hmac = type { %union.wc_Hashes, [36 x i32], [36 x i32], [16 x i32], ptr, i8, i8 }
+%union.wc_Hashes = type { %struct.wc_Sha3 }
 %struct.wc_Sha3 = type { [25 x i64], [200 x i8], i8, ptr }
 
 @.str.24 = private unnamed_addr constant [4 x i8] c"abc\00", align 1
@@ -90,944 +90,1015 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @HashTest() local_unnamed_addr #0 {
-entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %call1 = tail call i32 @md5_test()
-  %tobool.not = icmp eq i32 %call1, 0
-  br i1 %tobool.not, label %if.else, label %return
+  %1 = tail call i32 @md5_test()
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %2, label %23
 
-if.else:                                          ; preds = %entry
-  %puts11 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %call4 = tail call i32 @sha_test()
-  %tobool5.not = icmp eq i32 %call4, 0
-  br i1 %tobool5.not, label %if.else8, label %return
+2:                                                ; preds = %0
+  %puts23 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  %3 = tail call i32 @sha_test()
+  %.not24 = icmp eq i32 %3, 0
+  br i1 %.not24, label %4, label %23
 
-if.else8:                                         ; preds = %if.else
-  %puts12 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %call11 = tail call i32 @sha224_test()
-  %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %if.else15, label %return
+4:                                                ; preds = %2
+  %puts25 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
+  %5 = tail call i32 @sha224_test()
+  %.not26 = icmp eq i32 %5, 0
+  br i1 %.not26, label %6, label %23
 
-if.else15:                                        ; preds = %if.else8
-  %puts13 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %call18 = tail call i32 @sha256_test()
-  %tobool19.not = icmp eq i32 %call18, 0
-  br i1 %tobool19.not, label %if.else22, label %return
+6:                                                ; preds = %4
+  %puts27 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
+  %7 = tail call i32 @sha256_test()
+  %.not28 = icmp eq i32 %7, 0
+  br i1 %.not28, label %8, label %23
 
-if.else22:                                        ; preds = %if.else15
-  %puts14 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %call25 = tail call i32 @sha512_test()
-  %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %if.else29, label %return
+8:                                                ; preds = %6
+  %puts29 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
+  %9 = tail call i32 @sha512_test()
+  %.not30 = icmp eq i32 %9, 0
+  br i1 %.not30, label %10, label %23
 
-if.else29:                                        ; preds = %if.else22
-  %puts15 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %call32 = tail call i32 @sha384_test()
-  %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %if.else36, label %return
+10:                                               ; preds = %8
+  %puts31 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
+  %11 = tail call i32 @sha384_test()
+  %.not32 = icmp eq i32 %11, 0
+  br i1 %.not32, label %12, label %23
 
-if.else36:                                        ; preds = %if.else29
-  %puts16 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  %call39 = tail call i32 @hmac_md5_test()
-  %tobool40.not = icmp eq i32 %call39, 0
-  br i1 %tobool40.not, label %if.else43, label %return
+12:                                               ; preds = %10
+  %puts33 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
+  %13 = tail call i32 @hmac_md5_test()
+  %.not34 = icmp eq i32 %13, 0
+  br i1 %.not34, label %14, label %23
 
-if.else43:                                        ; preds = %if.else36
-  %puts17 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  %call46 = tail call i32 @hmac_sha_test()
-  %tobool47.not = icmp eq i32 %call46, 0
-  br i1 %tobool47.not, label %if.else50, label %return
+14:                                               ; preds = %12
+  %puts35 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
+  %15 = tail call i32 @hmac_sha_test()
+  %.not36 = icmp eq i32 %15, 0
+  br i1 %.not36, label %16, label %23
 
-if.else50:                                        ; preds = %if.else43
-  %puts18 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  %call53 = tail call i32 @hmac_sha224_test()
-  %tobool54.not = icmp eq i32 %call53, 0
-  br i1 %tobool54.not, label %if.else57, label %return
+16:                                               ; preds = %14
+  %puts37 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
+  %17 = tail call i32 @hmac_sha224_test()
+  %.not38 = icmp eq i32 %17, 0
+  br i1 %.not38, label %18, label %23
 
-if.else57:                                        ; preds = %if.else50
-  %puts19 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  %call60 = tail call i32 @hmac_sha256_test()
-  %tobool61.not = icmp eq i32 %call60, 0
-  br i1 %tobool61.not, label %if.else64, label %return
+18:                                               ; preds = %16
+  %puts39 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
+  %19 = tail call i32 @hmac_sha256_test()
+  %.not40 = icmp eq i32 %19, 0
+  br i1 %.not40, label %20, label %23
 
-if.else64:                                        ; preds = %if.else57
-  %puts20 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
-  %call67 = tail call i32 @hmac_sha384_test()
-  %tobool68.not = icmp eq i32 %call67, 0
-  br i1 %tobool68.not, label %if.else71, label %return
+20:                                               ; preds = %18
+  %puts41 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
+  %21 = tail call i32 @hmac_sha384_test()
+  %.not42 = icmp eq i32 %21, 0
+  br i1 %.not42, label %22, label %23
 
-if.else71:                                        ; preds = %if.else64
-  %puts21 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
-  br label %return
+22:                                               ; preds = %20
+  %puts43 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
+  br label %23
 
-return:                                           ; preds = %if.else64, %if.else57, %if.else50, %if.else43, %if.else36, %if.else29, %if.else22, %if.else15, %if.else8, %if.else, %entry, %if.else71
-  %str.12.sink = phi ptr [ @str.12, %if.else71 ], [ @str.23, %entry ], [ @str.22, %if.else ], [ @str.21, %if.else8 ], [ @str.20, %if.else15 ], [ @str.19, %if.else22 ], [ @str.18, %if.else29 ], [ @str.17, %if.else36 ], [ @str.16, %if.else43 ], [ @str.15, %if.else50 ], [ @str.14, %if.else57 ], [ @str.13, %if.else64 ]
-  %retval.0 = phi i32 [ 0, %if.else71 ], [ %call1, %entry ], [ %call4, %if.else ], [ %call11, %if.else8 ], [ %call18, %if.else15 ], [ %call25, %if.else22 ], [ %call32, %if.else29 ], [ %call39, %if.else36 ], [ %call46, %if.else43 ], [ %call53, %if.else50 ], [ %call60, %if.else57 ], [ %call67, %if.else64 ]
-  %puts22 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.12.sink)
-  ret i32 %retval.0
+23:                                               ; preds = %20, %18, %16, %14, %12, %10, %8, %6, %4, %2, %0, %22
+  %str.12.sink = phi ptr [ @str.12, %22 ], [ @str.23, %0 ], [ @str.22, %2 ], [ @str.21, %4 ], [ @str.20, %6 ], [ @str.19, %8 ], [ @str.18, %10 ], [ @str.17, %12 ], [ @str.16, %14 ], [ @str.15, %16 ], [ @str.14, %18 ], [ @str.13, %20 ]
+  %.0 = phi i32 [ 0, %22 ], [ %1, %0 ], [ %3, %2 ], [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ]
+  %puts44 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.12.sink)
+  ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @md5_test() local_unnamed_addr #0 {
-entry:
-  %md5 = alloca %struct.wc_Md5, align 8
-  %hash = alloca [16 x i8], align 16
-  %test_md5 = alloca [5 x %struct.testVector], align 16
-  store ptr @.str.24, ptr %test_md5, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 8
-  store ptr @.str.25, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 16
-  store i64 3, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx36 = getelementptr inbounds nuw i8, ptr %test_md5, i64 32
-  store ptr @.str.26, ptr %arrayidx36, align 16
-  %b.sroa.3.0.arrayidx36.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 40
-  store ptr @.str.27, ptr %b.sroa.3.0.arrayidx36.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx36.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 48
-  store i64 14, ptr %b.sroa.5.0.arrayidx36.sroa_idx, align 16
-  %arrayidx37 = getelementptr inbounds nuw i8, ptr %test_md5, i64 64
-  store ptr @.str.28, ptr %arrayidx37, align 16
-  %c.sroa.3.0.arrayidx37.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 72
-  store ptr @.str.29, ptr %c.sroa.3.0.arrayidx37.sroa_idx, align 8
-  %c.sroa.5.0.arrayidx37.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 80
-  store i64 26, ptr %c.sroa.5.0.arrayidx37.sroa_idx, align 16
-  %arrayidx38 = getelementptr inbounds nuw i8, ptr %test_md5, i64 96
-  store ptr @.str.30, ptr %arrayidx38, align 16
-  %d.sroa.3.0.arrayidx38.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 104
-  store ptr @.str.31, ptr %d.sroa.3.0.arrayidx38.sroa_idx, align 8
-  %d.sroa.5.0.arrayidx38.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 112
-  store i64 62, ptr %d.sroa.5.0.arrayidx38.sroa_idx, align 16
-  %arrayidx39 = getelementptr inbounds nuw i8, ptr %test_md5, i64 128
-  store ptr @.str.32, ptr %arrayidx39, align 16
-  %e.sroa.3.0.arrayidx39.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 136
-  store ptr @.str.33, ptr %e.sroa.3.0.arrayidx39.sroa_idx, align 8
-  %e.sroa.5.0.arrayidx39.sroa_idx = getelementptr inbounds nuw i8, ptr %test_md5, i64 144
-  store i64 80, ptr %e.sroa.5.0.arrayidx39.sroa_idx, align 16
-  %call40 = call i32 @wc_InitMd5(ptr noundef nonnull %md5) #5
-  %tobool.not = icmp eq i32 %call40, 0
-  br i1 %tobool.not, label %for.body, label %return
+  %1 = alloca %struct.wc_Md5, align 8
+  %2 = alloca [16 x i8], align 16
+  %3 = alloca [5 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #6
+  store ptr @.str.24, ptr %3, align 16, !tbaa !4
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.25, ptr %.sroa.520.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 3, ptr %.sroa.721.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.26, ptr %4, align 16, !tbaa !4
+  %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.27, ptr %.sroa.516.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 14, ptr %.sroa.717.0..sroa_idx, align 16, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr @.str.28, ptr %5, align 16, !tbaa !4
+  %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @.str.29, ptr %.sroa.512.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 26, ptr %.sroa.713.0..sroa_idx, align 16, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store ptr @.str.30, ptr %6, align 16, !tbaa !4
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store ptr @.str.31, ptr %.sroa.58.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.79.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store i64 62, ptr %.sroa.79.0..sroa_idx, align 16, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store ptr @.str.32, ptr %7, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store ptr @.str.33, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 144
+  store i64 80, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %8 = call i32 @wc_InitMd5(ptr noundef nonnull %1) #6
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx41 = getelementptr inbounds nuw [5 x %struct.testVector], ptr %test_md5, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx41, align 16
-  %inLen45 = getelementptr inbounds nuw i8, ptr %arrayidx41, i64 16
-  %1 = load i64, ptr %inLen45, align 16
-  %conv = trunc i64 %1 to i32
-  %call46 = call i32 @wc_Md5Update(ptr noundef nonnull %md5, ptr noundef %0, i32 noundef %conv) #5
-  %tobool47.not = icmp eq i32 %call46, 0
-  br i1 %tobool47.not, label %if.end49, label %return
+.preheader:                                       ; preds = %0, %23
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %0 ]
+  %9 = getelementptr inbounds nuw [5 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 16, !tbaa !11
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %12 = load i64, ptr %11, align 16, !tbaa !13
+  %13 = trunc i64 %12 to i32
+  %14 = call i32 @wc_Md5Update(ptr noundef nonnull %1, ptr noundef %10, i32 noundef %13) #6
+  %.not34 = icmp eq i32 %14, 0
+  br i1 %.not34, label %15, label %.loopexit
 
-if.end49:                                         ; preds = %for.body
-  %call50 = call i32 @wc_Md5Final(ptr noundef nonnull %md5, ptr noundef nonnull %hash) #5
-  %tobool51.not = icmp eq i32 %call50, 0
-  br i1 %tobool51.not, label %if.end53, label %return
+15:                                               ; preds = %.preheader
+  %16 = call i32 @wc_Md5Final(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not35 = icmp eq i32 %16, 0
+  br i1 %.not35, label %17, label %.loopexit
 
-if.end53:                                         ; preds = %if.end49
-  %output57 = getelementptr inbounds nuw i8, ptr %arrayidx41, i64 8
-  %2 = load ptr, ptr %output57, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hash, ptr noundef nonnull dereferenceable(16) %2, i64 16)
-  %cmp59.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp59.not, label %for.inc, label %if.then61
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %19, i64 16)
+  %.not36 = icmp eq i32 %bcmp, 0
+  br i1 %.not36, label %23, label %20
 
-if.then61:                                        ; preds = %if.end53
-  %3 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub = sub nuw nsw i32 -5, %3
-  br label %return
+20:                                               ; preds = %17
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
+  %22 = sub nuw nsw i32 -5, %21
+  br label %.loopexit
 
-for.inc:                                          ; preds = %if.end53
+23:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %24, label %.preheader, !llvm.loop !15
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_Md5Free(ptr noundef nonnull %md5) #5
-  br label %return
+24:                                               ; preds = %23
+  call void @wc_Md5Free(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end49, %for.body, %entry, %for.end, %if.then61
-  %retval.0 = phi i32 [ %sub, %if.then61 ], [ 0, %for.end ], [ %call40, %entry ], [ %call50, %if.end49 ], [ %call46, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %15, %.preheader, %0, %24, %20
+  %.030 = phi i32 [ %22, %20 ], [ 0, %24 ], [ %8, %0 ], [ %16, %15 ], [ %14, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1) #6
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha_test() local_unnamed_addr #0 {
-entry:
-  %sha = alloca %struct.wc_Sha, align 8
-  %hash = alloca [20 x i8], align 16
-  %test_sha = alloca [4 x %struct.testVector], align 16
-  store ptr @.str.24, ptr %test_sha, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 8
-  store ptr @.str.34, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 16
-  store i64 3, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx28 = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  store ptr @.str.35, ptr %arrayidx28, align 16
-  %b.sroa.3.0.arrayidx28.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 40
-  store ptr @.str.36, ptr %b.sroa.3.0.arrayidx28.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx28.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 48
-  store i64 56, ptr %b.sroa.5.0.arrayidx28.sroa_idx, align 16
-  %arrayidx29 = getelementptr inbounds nuw i8, ptr %test_sha, i64 64
-  store ptr @.str.37, ptr %arrayidx29, align 16
-  %c.sroa.3.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 72
-  store ptr @.str.38, ptr %c.sroa.3.0.arrayidx29.sroa_idx, align 8
-  %c.sroa.5.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 80
-  store i64 64, ptr %c.sroa.5.0.arrayidx29.sroa_idx, align 16
-  %arrayidx30 = getelementptr inbounds nuw i8, ptr %test_sha, i64 96
-  store ptr @.str.39, ptr %arrayidx30, align 16
-  %d.sroa.3.0.arrayidx30.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 104
-  store ptr @.str.40, ptr %d.sroa.3.0.arrayidx30.sroa_idx, align 8
-  %d.sroa.5.0.arrayidx30.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 112
-  store i64 128, ptr %d.sroa.5.0.arrayidx30.sroa_idx, align 16
-  %call31 = call i32 @wc_InitSha(ptr noundef nonnull %sha) #5
-  %cmp.not = icmp eq i32 %call31, 0
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.wc_Sha, align 8
+  %2 = alloca [20 x i8], align 16
+  %3 = alloca [4 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
+  store ptr @.str.24, ptr %3, align 16, !tbaa !4
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.34, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 3, ptr %.sroa.719.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.35, ptr %4, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.36, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 56, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr @.str.37, ptr %5, align 16, !tbaa !4
+  %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @.str.38, ptr %.sroa.510.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 64, ptr %.sroa.711.0..sroa_idx, align 16, !tbaa !9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store ptr @.str.39, ptr %6, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store ptr @.str.40, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store i64 128, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %7 = call i32 @wc_InitSha(ptr noundef nonnull %1) #6
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %.preheader, label %22
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx33 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %test_sha, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx33, align 16
-  %inLen37 = getelementptr inbounds nuw i8, ptr %arrayidx33, i64 16
-  %1 = load i64, ptr %inLen37, align 16
-  %conv = trunc i64 %1 to i32
-  %call38 = call i32 @wc_ShaUpdate(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
-  %call39 = call i32 @wc_ShaFinal(ptr noundef nonnull %sha, ptr noundef nonnull %hash) #5
-  %output43 = getelementptr inbounds nuw i8, ptr %arrayidx33, i64 8
-  %2 = load ptr, ptr %output43, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %hash, ptr noundef nonnull dereferenceable(20) %2, i64 20)
-  %cmp45.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp45.not, label %for.inc, label %if.then47
+.preheader:                                       ; preds = %0, %20
+  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %0 ]
+  %8 = getelementptr inbounds nuw [4 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 16, !tbaa !11
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %11 = load i64, ptr %10, align 16, !tbaa !13
+  %12 = trunc i64 %11 to i32
+  %13 = call i32 @wc_ShaUpdate(ptr noundef nonnull %1, ptr noundef %9, i32 noundef %12) #6
+  %14 = call i32 @wc_ShaFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %2, ptr noundef nonnull dereferenceable(20) %16, i64 20)
+  %.not24 = icmp eq i32 %bcmp, 0
+  br i1 %.not24, label %20, label %17
 
-if.then47:                                        ; preds = %for.body
-  %3 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub = sub nuw nsw i32 -10, %3
-  br label %return
+17:                                               ; preds = %.preheader
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
+  %19 = sub nuw nsw i32 -10, %18
+  br label %22
 
-for.inc:                                          ; preds = %for.body
+20:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !17
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_ShaFree(ptr noundef nonnull %sha) #5
-  br label %return
+21:                                               ; preds = %20
+  call void @wc_ShaFree(ptr noundef nonnull %1) #6
+  br label %22
 
-return:                                           ; preds = %entry, %for.end, %if.then47
-  %retval.0 = phi i32 [ %sub, %if.then47 ], [ 0, %for.end ], [ %call31, %entry ]
-  ret i32 %retval.0
+22:                                               ; preds = %0, %21, %17
+  %.022 = phi i32 [ %19, %17 ], [ 0, %21 ], [ %7, %0 ]
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1) #6
+  ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha224_test() local_unnamed_addr #0 {
-entry:
-  %sha = alloca %struct.wc_Sha256, align 16
-  %hash = alloca [28 x i8], align 16
-  %test_sha = alloca [2 x %struct.testVector], align 16
-  store ptr @.str.24, ptr %test_sha, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 8
-  store ptr @.str.41, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 16
-  store i64 3, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx8 = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  store ptr @.str.35, ptr %arrayidx8, align 16
-  %b.sroa.3.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 40
-  store ptr @.str.42, ptr %b.sroa.3.0.arrayidx8.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 48
-  store i64 56, ptr %b.sroa.4.0.arrayidx8.sroa_idx, align 16
-  %call9 = call i32 @wc_InitSha224(ptr noundef nonnull %sha) #5
-  %cmp.not = icmp eq i32 %call9, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.wc_Sha256, align 16
+  %2 = alloca [28 x i8], align 16
+  %3 = alloca [2 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  store ptr @.str.24, ptr %3, align 16, !tbaa !4
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.41, ptr %.sroa.513.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 3, ptr %.sroa.614.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.35, ptr %4, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.42, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 56, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !9
+  %5 = call i32 @wc_InitSha224(ptr noundef nonnull %1) #6
+  %.not = icmp eq i32 %5, 0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %cmp10 = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv = phi i32 [ -11, %for.inc ], [ -10, %entry ]
-  %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
-  %inLen15 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
-  %1 = load i64, ptr %inLen15, align 16
-  %conv = trunc i64 %1 to i32
-  %call16 = call i32 @wc_Sha224Update(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
-  %cmp17.not = icmp eq i32 %call16, 0
-  br i1 %cmp17.not, label %if.end20, label %return
+.preheader:                                       ; preds = %0, %17
+  %6 = phi i1 [ false, %17 ], [ true, %0 ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %0 ]
+  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %0 ]
+  %7 = load ptr, ptr %indvars.iv.sroa.phi, align 16, !tbaa !11
+  %8 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
+  %9 = load i64, ptr %8, align 16, !tbaa !13
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_Sha224Update(ptr noundef nonnull %1, ptr noundef %7, i32 noundef %10) #6
+  %.not20 = icmp eq i32 %11, 0
+  br i1 %.not20, label %12, label %.loopexit
 
-if.end20:                                         ; preds = %for.body
-  %call21 = call i32 @wc_Sha224Final(ptr noundef nonnull %sha, ptr noundef nonnull %hash) #5
-  %cmp22.not = icmp eq i32 %call21, 0
-  br i1 %cmp22.not, label %if.end25, label %return
+12:                                               ; preds = %.preheader
+  %13 = call i32 @wc_Sha224Final(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not21 = icmp eq i32 %13, 0
+  br i1 %.not21, label %14, label %.loopexit
 
-if.end25:                                         ; preds = %if.end20
-  %output29 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
-  %2 = load ptr, ptr %output29, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %hash, ptr noundef nonnull dereferenceable(28) %2, i64 28)
-  %cmp31.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp31.not, label %for.inc, label %return
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %2, ptr noundef nonnull dereferenceable(28) %16, i64 28)
+  %.not22 = icmp eq i32 %bcmp, 0
+  br i1 %.not22, label %17, label %.loopexit
 
-for.inc:                                          ; preds = %if.end25
-  br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !8
+17:                                               ; preds = %14
+  br i1 %6, label %.preheader, label %18, !llvm.loop !18
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_Sha224Free(ptr noundef nonnull %sha) #5
-  br label %return
+18:                                               ; preds = %17
+  call void @wc_Sha224Free(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end20, %for.body, %if.end25, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ -4005, %entry ], [ %indvars.iv, %if.end25 ], [ %call21, %if.end20 ], [ %call16, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %12, %.preheader, %14, %0, %18
+  %.017 = phi i32 [ 0, %18 ], [ -4005, %0 ], [ %indvars.iv, %14 ], [ %13, %12 ], [ %11, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha256_test() local_unnamed_addr #0 {
-entry:
-  %sha = alloca %struct.wc_Sha256, align 16
-  %hash = alloca [32 x i8], align 16
-  %test_sha = alloca [2 x %struct.testVector], align 16
-  store ptr @.str.24, ptr %test_sha, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 8
-  store ptr @.str.43, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 16
-  store i64 3, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  store ptr @.str.35, ptr %arrayidx12, align 16
-  %b.sroa.3.0.arrayidx12.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 40
-  store ptr @.str.44, ptr %b.sroa.3.0.arrayidx12.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx12.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 48
-  store i64 56, ptr %b.sroa.5.0.arrayidx12.sroa_idx, align 16
-  %call13 = call i32 @wc_InitSha256(ptr noundef nonnull %sha) #5
-  %cmp.not = icmp eq i32 %call13, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.wc_Sha256, align 16
+  %2 = alloca [32 x i8], align 16
+  %3 = alloca [2 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  store ptr @.str.24, ptr %3, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.43, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 3, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.35, ptr %4, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.44, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 56, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %5 = call i32 @wc_InitSha256(ptr noundef nonnull %1) #6
+  %.not = icmp eq i32 %5, 0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv = phi i32 [ -11, %for.inc ], [ -10, %entry ]
-  %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
-  %inLen19 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
-  %1 = load i64, ptr %inLen19, align 16
-  %conv = trunc i64 %1 to i32
-  %call20 = call i32 @wc_Sha256Update(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
-  %cmp21.not = icmp eq i32 %call20, 0
-  br i1 %cmp21.not, label %if.end24, label %return
+.preheader:                                       ; preds = %0, %17
+  %6 = phi i1 [ false, %17 ], [ true, %0 ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %0 ]
+  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %0 ]
+  %7 = load ptr, ptr %indvars.iv.sroa.phi, align 16, !tbaa !11
+  %8 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
+  %9 = load i64, ptr %8, align 16, !tbaa !13
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_Sha256Update(ptr noundef nonnull %1, ptr noundef %7, i32 noundef %10) #6
+  %.not22 = icmp eq i32 %11, 0
+  br i1 %.not22, label %12, label %.loopexit
 
-if.end24:                                         ; preds = %for.body
-  %call25 = call i32 @wc_Sha256Final(ptr noundef nonnull %sha, ptr noundef nonnull %hash) #5
-  %cmp26.not = icmp eq i32 %call25, 0
-  br i1 %cmp26.not, label %if.end29, label %return
+12:                                               ; preds = %.preheader
+  %13 = call i32 @wc_Sha256Final(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not23 = icmp eq i32 %13, 0
+  br i1 %.not23, label %14, label %.loopexit
 
-if.end29:                                         ; preds = %if.end24
-  %output33 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
-  %2 = load ptr, ptr %output33, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash, ptr noundef nonnull dereferenceable(32) %2, i64 32)
-  %cmp35.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp35.not, label %for.inc, label %return
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %2, ptr noundef nonnull dereferenceable(32) %16, i64 32)
+  %.not24 = icmp eq i32 %bcmp, 0
+  br i1 %.not24, label %17, label %.loopexit
 
-for.inc:                                          ; preds = %if.end29
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !9
+17:                                               ; preds = %14
+  br i1 %6, label %.preheader, label %18, !llvm.loop !19
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_Sha256Free(ptr noundef nonnull %sha) #5
-  br label %return
+18:                                               ; preds = %17
+  call void @wc_Sha256Free(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %12, %.preheader, %14, %0, %18
+  %.018 = phi i32 [ 0, %18 ], [ %5, %0 ], [ %indvars.iv, %14 ], [ %13, %12 ], [ %11, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha512_test() local_unnamed_addr #0 {
-entry:
-  %sha = alloca %struct.wc_Sha512, align 8
-  %hash = alloca [64 x i8], align 16
-  %test_sha = alloca [2 x %struct.testVector], align 16
-  store ptr @.str.24, ptr %test_sha, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 8
-  store ptr @.str.45, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 16
-  store i64 3, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  store ptr @.str.46, ptr %arrayidx12, align 16
-  %b.sroa.3.0.arrayidx12.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 40
-  store ptr @.str.47, ptr %b.sroa.3.0.arrayidx12.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx12.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 48
-  store i64 112, ptr %b.sroa.5.0.arrayidx12.sroa_idx, align 16
-  %call13 = call i32 @wc_InitSha512(ptr noundef nonnull %sha) #5
-  %cmp.not = icmp eq i32 %call13, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.wc_Sha512, align 8
+  %2 = alloca [64 x i8], align 16
+  %3 = alloca [2 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  store ptr @.str.24, ptr %3, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.45, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 3, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.46, ptr %4, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.47, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 112, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %5 = call i32 @wc_InitSha512(ptr noundef nonnull %1) #6
+  %.not = icmp eq i32 %5, 0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv = phi i32 [ -11, %for.inc ], [ -10, %entry ]
-  %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
-  %inLen19 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
-  %1 = load i64, ptr %inLen19, align 16
-  %conv = trunc i64 %1 to i32
-  %call20 = call i32 @wc_Sha512Update(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
-  %cmp21.not = icmp eq i32 %call20, 0
-  br i1 %cmp21.not, label %if.end24, label %return
+.preheader:                                       ; preds = %0, %17
+  %6 = phi i1 [ false, %17 ], [ true, %0 ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %0 ]
+  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %0 ]
+  %7 = load ptr, ptr %indvars.iv.sroa.phi, align 16, !tbaa !11
+  %8 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
+  %9 = load i64, ptr %8, align 16, !tbaa !13
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_Sha512Update(ptr noundef nonnull %1, ptr noundef %7, i32 noundef %10) #6
+  %.not22 = icmp eq i32 %11, 0
+  br i1 %.not22, label %12, label %.loopexit
 
-if.end24:                                         ; preds = %for.body
-  %call25 = call i32 @wc_Sha512Final(ptr noundef nonnull %sha, ptr noundef nonnull %hash) #5
-  %cmp26.not = icmp eq i32 %call25, 0
-  br i1 %cmp26.not, label %if.end29, label %return
+12:                                               ; preds = %.preheader
+  %13 = call i32 @wc_Sha512Final(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not23 = icmp eq i32 %13, 0
+  br i1 %.not23, label %14, label %.loopexit
 
-if.end29:                                         ; preds = %if.end24
-  %output33 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
-  %2 = load ptr, ptr %output33, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %hash, ptr noundef nonnull dereferenceable(64) %2, i64 64)
-  %cmp35.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp35.not, label %for.inc, label %return
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %2, ptr noundef nonnull dereferenceable(64) %16, i64 64)
+  %.not24 = icmp eq i32 %bcmp, 0
+  br i1 %.not24, label %17, label %.loopexit
 
-for.inc:                                          ; preds = %if.end29
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !10
+17:                                               ; preds = %14
+  br i1 %6, label %.preheader, label %18, !llvm.loop !20
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_Sha512Free(ptr noundef nonnull %sha) #5
-  br label %return
+18:                                               ; preds = %17
+  call void @wc_Sha512Free(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %12, %.preheader, %14, %0, %18
+  %.018 = phi i32 [ 0, %18 ], [ %5, %0 ], [ %indvars.iv, %14 ], [ %13, %12 ], [ %11, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %1) #6
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @sha384_test() local_unnamed_addr #0 {
-entry:
-  %sha = alloca %struct.wc_Sha512, align 8
-  %hash = alloca [48 x i8], align 16
-  %test_sha = alloca [2 x %struct.testVector], align 16
-  store ptr @.str.24, ptr %test_sha, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 8
-  store ptr @.str.48, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 16
-  store i64 3, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  store ptr @.str.46, ptr %arrayidx12, align 16
-  %b.sroa.3.0.arrayidx12.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 40
-  store ptr @.str.49, ptr %b.sroa.3.0.arrayidx12.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx12.sroa_idx = getelementptr inbounds nuw i8, ptr %test_sha, i64 48
-  store i64 112, ptr %b.sroa.5.0.arrayidx12.sroa_idx, align 16
-  %call13 = call i32 @wc_InitSha384(ptr noundef nonnull %sha) #5
-  %cmp.not = icmp eq i32 %call13, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %test_sha, i64 32
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.wc_Sha512, align 8
+  %2 = alloca [48 x i8], align 16
+  %3 = alloca [2 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  store ptr @.str.24, ptr %3, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.48, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 3, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.46, ptr %4, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.49, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 112, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %5 = call i32 @wc_InitSha384(ptr noundef nonnull %1) #6
+  %.not = icmp eq i32 %5, 0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %cmp14 = phi i1 [ false, %for.inc ], [ true, %entry ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %test_sha, %entry ]
-  %indvars.iv = phi i32 [ -11, %for.inc ], [ -10, %entry ]
-  %0 = load ptr, ptr %indvars.iv.sroa.phi, align 16
-  %inLen19 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
-  %1 = load i64, ptr %inLen19, align 16
-  %conv = trunc i64 %1 to i32
-  %call20 = call i32 @wc_Sha384Update(ptr noundef nonnull %sha, ptr noundef %0, i32 noundef %conv) #5
-  %cmp21.not = icmp eq i32 %call20, 0
-  br i1 %cmp21.not, label %if.end24, label %return
+.preheader:                                       ; preds = %0, %17
+  %6 = phi i1 [ false, %17 ], [ true, %0 ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %0 ]
+  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %0 ]
+  %7 = load ptr, ptr %indvars.iv.sroa.phi, align 16, !tbaa !11
+  %8 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
+  %9 = load i64, ptr %8, align 16, !tbaa !13
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_Sha384Update(ptr noundef nonnull %1, ptr noundef %7, i32 noundef %10) #6
+  %.not22 = icmp eq i32 %11, 0
+  br i1 %.not22, label %12, label %.loopexit
 
-if.end24:                                         ; preds = %for.body
-  %call25 = call i32 @wc_Sha384Final(ptr noundef nonnull %sha, ptr noundef nonnull %hash) #5
-  %cmp26.not = icmp eq i32 %call25, 0
-  br i1 %cmp26.not, label %if.end29, label %return
+12:                                               ; preds = %.preheader
+  %13 = call i32 @wc_Sha384Final(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not23 = icmp eq i32 %13, 0
+  br i1 %.not23, label %14, label %.loopexit
 
-if.end29:                                         ; preds = %if.end24
-  %output33 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
-  %2 = load ptr, ptr %output33, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %hash, ptr noundef nonnull dereferenceable(48) %2, i64 48)
-  %cmp35.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp35.not, label %for.inc, label %return
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %2, ptr noundef nonnull dereferenceable(48) %16, i64 48)
+  %.not24 = icmp eq i32 %bcmp, 0
+  br i1 %.not24, label %17, label %.loopexit
 
-for.inc:                                          ; preds = %if.end29
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !11
+17:                                               ; preds = %14
+  br i1 %6, label %.preheader, label %18, !llvm.loop !21
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_Sha384Free(ptr noundef nonnull %sha) #5
-  br label %return
+18:                                               ; preds = %17
+  call void @wc_Sha384Free(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end24, %for.body, %if.end29, %entry, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %call13, %entry ], [ %indvars.iv, %if.end29 ], [ %call25, %if.end24 ], [ %call20, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %12, %.preheader, %14, %0, %18
+  %.018 = phi i32 [ 0, %18 ], [ %5, %0 ], [ %indvars.iv, %14 ], [ %13, %12 ], [ %11, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %1) #6
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -20009, 1) i32 @hmac_md5_test() local_unnamed_addr #0 {
-entry:
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [16 x i8], align 16
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  store ptr @.str.53, ptr %test_hmac, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 8
-  store ptr @.str.54, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 16
-  store i64 8, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 32
-  store ptr @.str.55, ptr %arrayidx20, align 16
-  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 40
-  store ptr @.str.56, ptr %b.sroa.3.0.arrayidx20.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 48
-  store i64 28, ptr %b.sroa.5.0.arrayidx20.sroa_idx, align 16
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 64
-  store ptr @.str.57, ptr %arrayidx21, align 16
-  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 72
-  store ptr @.str.58, ptr %c.sroa.3.0.arrayidx21.sroa_idx, align 8
-  %c.sroa.5.0.arrayidx21.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 80
-  store i64 50, ptr %c.sroa.5.0.arrayidx21.sroa_idx, align 16
-  %call22 = call i32 @wc_HmacInit(ptr noundef nonnull %hmac, ptr noundef null, i32 noundef -2) #5
-  %cmp.not = icmp eq i32 %call22, 0
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.Hmac, align 16
+  %2 = alloca [16 x i8], align 16
+  %3 = alloca [3 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  store ptr @.str.53, ptr %3, align 16, !tbaa !4
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.54, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 8, ptr %.sroa.719.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.55, ptr %4, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.56, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 28, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr @.str.57, ptr %5, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @.str.58, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 50, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %6 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #6
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx24 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_md5_test.keys, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx24, align 8
-  %call27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
-  %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 3, ptr noundef nonnull %0, i32 noundef %conv) #5
-  %cmp29.not = icmp eq i32 %call28, 0
-  br i1 %cmp29.not, label %if.end32, label %return
+.preheader:                                       ; preds = %0, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
+  %7 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_md5_test.keys, i64 0, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !4
+  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull %8, i32 noundef %10) #6
+  %.not23 = icmp eq i32 %11, 0
+  br i1 %.not23, label %12, label %.loopexit
 
-if.end32:                                         ; preds = %for.body
-  %arrayidx34 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx34, align 16
-  %inLen38 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 16
-  %2 = load i64, ptr %inLen38, align 16
-  %conv39 = trunc i64 %2 to i32
-  %call40 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %1, i32 noundef %conv39) #5
-  %cmp41.not = icmp eq i32 %call40, 0
-  br i1 %cmp41.not, label %if.end44, label %return
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 16, !tbaa !11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %16 = load i64, ptr %15, align 16, !tbaa !13
+  %17 = trunc i64 %16 to i32
+  %18 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef %14, i32 noundef %17) #6
+  %.not24 = icmp eq i32 %18, 0
+  br i1 %.not24, label %19, label %.loopexit
 
-if.end44:                                         ; preds = %if.end32
-  %call45 = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #5
-  %cmp46.not = icmp eq i32 %call45, 0
-  br i1 %cmp46.not, label %if.end49, label %return
+19:                                               ; preds = %12
+  %20 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not25 = icmp eq i32 %20, 0
+  br i1 %.not25, label %21, label %.loopexit
 
-if.end49:                                         ; preds = %if.end44
-  %output53 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 8
-  %3 = load ptr, ptr %output53, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %hash, ptr noundef nonnull dereferenceable(16) %3, i64 16)
-  %cmp55.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp55.not, label %for.inc, label %if.then57
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %23, i64 16)
+  %.not26 = icmp eq i32 %bcmp, 0
+  br i1 %.not26, label %27, label %24
 
-if.then57:                                        ; preds = %if.end49
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub = sub nuw nsw i32 -20, %4
-  br label %return
+24:                                               ; preds = %21
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = sub nuw nsw i32 -20, %25
+  br label %.loopexit
 
-for.inc:                                          ; preds = %if.end49
+27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !22
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
-  br label %return
+28:                                               ; preds = %27
+  call void @wc_HmacFree(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end44, %if.end32, %for.body, %entry, %for.end, %if.then57
-  %retval.0 = phi i32 [ %sub, %if.then57 ], [ 0, %for.end ], [ -20009, %entry ], [ -4016, %if.end44 ], [ -4015, %if.end32 ], [ -4014, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
+  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4016, %19 ], [ -4015, %12 ], [ -4014, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -20009, 1) i32 @hmac_sha_test() local_unnamed_addr #0 {
-entry:
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [20 x i8], align 16
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  store ptr @.str.53, ptr %test_hmac, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 8
-  store ptr @.str.61, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 16
-  store i64 8, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 32
-  store ptr @.str.55, ptr %arrayidx20, align 16
-  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 40
-  store ptr @.str.62, ptr %b.sroa.3.0.arrayidx20.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 48
-  store i64 28, ptr %b.sroa.5.0.arrayidx20.sroa_idx, align 16
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 64
-  store ptr @.str.57, ptr %arrayidx21, align 16
-  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 72
-  store ptr @.str.63, ptr %c.sroa.3.0.arrayidx21.sroa_idx, align 8
-  %c.sroa.5.0.arrayidx21.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 80
-  store i64 50, ptr %c.sroa.5.0.arrayidx21.sroa_idx, align 16
-  %call22 = call i32 @wc_HmacInit(ptr noundef nonnull %hmac, ptr noundef null, i32 noundef -2) #5
-  %cmp.not = icmp eq i32 %call22, 0
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.Hmac, align 16
+  %2 = alloca [20 x i8], align 16
+  %3 = alloca [3 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  store ptr @.str.53, ptr %3, align 16, !tbaa !4
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.61, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 8, ptr %.sroa.719.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.55, ptr %4, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.62, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 28, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr @.str.57, ptr %5, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @.str.63, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 50, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %6 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #6
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx24 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_sha384_test.keys, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx24, align 8
-  %call27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
-  %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 4, ptr noundef nonnull %0, i32 noundef %conv) #5
-  %cmp29.not = icmp eq i32 %call28, 0
-  br i1 %cmp29.not, label %if.end32, label %return
+.preheader:                                       ; preds = %0, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
+  %7 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_sha384_test.keys, i64 0, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !4
+  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull %8, i32 noundef %10) #6
+  %.not23 = icmp eq i32 %11, 0
+  br i1 %.not23, label %12, label %.loopexit
 
-if.end32:                                         ; preds = %for.body
-  %arrayidx34 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx34, align 16
-  %inLen38 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 16
-  %2 = load i64, ptr %inLen38, align 16
-  %conv39 = trunc i64 %2 to i32
-  %call40 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %1, i32 noundef %conv39) #5
-  %cmp41.not = icmp eq i32 %call40, 0
-  br i1 %cmp41.not, label %if.end44, label %return
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 16, !tbaa !11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %16 = load i64, ptr %15, align 16, !tbaa !13
+  %17 = trunc i64 %16 to i32
+  %18 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef %14, i32 noundef %17) #6
+  %.not24 = icmp eq i32 %18, 0
+  br i1 %.not24, label %19, label %.loopexit
 
-if.end44:                                         ; preds = %if.end32
-  %call45 = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #5
-  %cmp46.not = icmp eq i32 %call45, 0
-  br i1 %cmp46.not, label %if.end49, label %return
+19:                                               ; preds = %12
+  %20 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not25 = icmp eq i32 %20, 0
+  br i1 %.not25, label %21, label %.loopexit
 
-if.end49:                                         ; preds = %if.end44
-  %output53 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 8
-  %3 = load ptr, ptr %output53, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %hash, ptr noundef nonnull dereferenceable(20) %3, i64 20)
-  %cmp55.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp55.not, label %for.inc, label %if.then57
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %2, ptr noundef nonnull dereferenceable(20) %23, i64 20)
+  %.not26 = icmp eq i32 %bcmp, 0
+  br i1 %.not26, label %27, label %24
 
-if.then57:                                        ; preds = %if.end49
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub = sub nuw nsw i32 -20, %4
-  br label %return
+24:                                               ; preds = %21
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = sub nuw nsw i32 -20, %25
+  br label %.loopexit
 
-for.inc:                                          ; preds = %if.end49
+27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !23
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
-  br label %return
+28:                                               ; preds = %27
+  call void @wc_HmacFree(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end44, %if.end32, %for.body, %entry, %for.end, %if.then57
-  %retval.0 = phi i32 [ %sub, %if.then57 ], [ 0, %for.end ], [ -20009, %entry ], [ -4019, %if.end44 ], [ -4018, %if.end32 ], [ -4017, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
+  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4019, %19 ], [ -4018, %12 ], [ -4017, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -20009, 1) i32 @hmac_sha224_test() local_unnamed_addr #0 {
-entry:
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [28 x i8], align 16
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  store ptr @.str.53, ptr %test_hmac, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 8
-  store ptr @.str.64, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 16
-  store i64 8, ptr %a.sroa.4.0.arrayidx.sroa_idx, align 16
-  %arrayidx14 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 32
-  store ptr @.str.55, ptr %arrayidx14, align 16
-  %b.sroa.3.0.arrayidx14.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 40
-  store ptr @.str.65, ptr %b.sroa.3.0.arrayidx14.sroa_idx, align 8
-  %b.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 48
-  store i64 28, ptr %b.sroa.4.0.arrayidx14.sroa_idx, align 16
-  %arrayidx15 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 64
-  store ptr @.str.57, ptr %arrayidx15, align 16
-  %c.sroa.3.0.arrayidx15.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 72
-  store ptr @.str.66, ptr %c.sroa.3.0.arrayidx15.sroa_idx, align 8
-  %c.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 80
-  store i64 50, ptr %c.sroa.4.0.arrayidx15.sroa_idx, align 16
-  %call16 = call i32 @wc_HmacInit(ptr noundef nonnull %hmac, ptr noundef null, i32 noundef -2) #5
-  %cmp.not = icmp eq i32 %call16, 0
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.Hmac, align 16
+  %2 = alloca [28 x i8], align 16
+  %3 = alloca [3 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  store ptr @.str.53, ptr %3, align 16, !tbaa !4
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.64, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 8, ptr %.sroa.619.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.55, ptr %4, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.65, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 28, ptr %.sroa.615.0..sroa_idx, align 16, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr @.str.57, ptr %5, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @.str.66, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 50, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !9
+  %6 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #6
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx18 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_sha384_test.keys, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx18, align 8
-  %call21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
-  %conv = trunc i64 %call21 to i32
-  %call22 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 5, ptr noundef nonnull %0, i32 noundef %conv) #5
-  %cmp23.not = icmp eq i32 %call22, 0
-  br i1 %cmp23.not, label %if.end26, label %return
+.preheader:                                       ; preds = %0, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
+  %7 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_sha384_test.keys, i64 0, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !4
+  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull %8, i32 noundef %10) #6
+  %.not23 = icmp eq i32 %11, 0
+  br i1 %.not23, label %12, label %.loopexit
 
-if.end26:                                         ; preds = %for.body
-  %arrayidx28 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx28, align 16
-  %inLen32 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 16
-  %2 = load i64, ptr %inLen32, align 16
-  %conv33 = trunc i64 %2 to i32
-  %call34 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %1, i32 noundef %conv33) #5
-  %cmp35.not = icmp eq i32 %call34, 0
-  br i1 %cmp35.not, label %if.end38, label %return
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 16, !tbaa !11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %16 = load i64, ptr %15, align 16, !tbaa !13
+  %17 = trunc i64 %16 to i32
+  %18 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef %14, i32 noundef %17) #6
+  %.not24 = icmp eq i32 %18, 0
+  br i1 %.not24, label %19, label %.loopexit
 
-if.end38:                                         ; preds = %if.end26
-  %call39 = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #5
-  %cmp40.not = icmp eq i32 %call39, 0
-  br i1 %cmp40.not, label %if.end43, label %return
+19:                                               ; preds = %12
+  %20 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not25 = icmp eq i32 %20, 0
+  br i1 %.not25, label %21, label %.loopexit
 
-if.end43:                                         ; preds = %if.end38
-  %output47 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 8
-  %3 = load ptr, ptr %output47, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %hash, ptr noundef nonnull dereferenceable(28) %3, i64 28)
-  %cmp49.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp49.not, label %for.inc, label %if.then51
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %2, ptr noundef nonnull dereferenceable(28) %23, i64 28)
+  %.not26 = icmp eq i32 %bcmp, 0
+  br i1 %.not26, label %27, label %24
 
-if.then51:                                        ; preds = %if.end43
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub = sub nuw nsw i32 -20, %4
-  br label %return
+24:                                               ; preds = %21
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = sub nuw nsw i32 -20, %25
+  br label %.loopexit
 
-for.inc:                                          ; preds = %if.end43
+27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !24
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
-  br label %return
+28:                                               ; preds = %27
+  call void @wc_HmacFree(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end38, %if.end26, %for.body, %entry, %for.end, %if.then51
-  %retval.0 = phi i32 [ %sub, %if.then51 ], [ 0, %for.end ], [ -20009, %entry ], [ -4023, %if.end38 ], [ -4022, %if.end26 ], [ -4021, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
+  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4023, %19 ], [ -4022, %12 ], [ -4021, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -20009, 1) i32 @hmac_sha256_test() local_unnamed_addr #0 {
-entry:
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [32 x i8], align 16
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  store ptr @.str.53, ptr %test_hmac, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 8
-  store ptr @.str.67, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 16
-  store i64 8, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 32
-  store ptr @.str.55, ptr %arrayidx20, align 16
-  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 40
-  store ptr @.str.68, ptr %b.sroa.3.0.arrayidx20.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 48
-  store i64 28, ptr %b.sroa.5.0.arrayidx20.sroa_idx, align 16
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 64
-  store ptr @.str.57, ptr %arrayidx21, align 16
-  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 72
-  store ptr @.str.69, ptr %c.sroa.3.0.arrayidx21.sroa_idx, align 8
-  %c.sroa.5.0.arrayidx21.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 80
-  store i64 50, ptr %c.sroa.5.0.arrayidx21.sroa_idx, align 16
-  %call22 = call i32 @wc_HmacInit(ptr noundef nonnull %hmac, ptr noundef null, i32 noundef -2) #5
-  %cmp.not = icmp eq i32 %call22, 0
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.Hmac, align 16
+  %2 = alloca [32 x i8], align 16
+  %3 = alloca [3 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  store ptr @.str.53, ptr %3, align 16, !tbaa !4
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.67, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 8, ptr %.sroa.719.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.55, ptr %4, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.68, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 28, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr @.str.57, ptr %5, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @.str.69, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 50, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %6 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #6
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx24 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_sha384_test.keys, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx24, align 8
-  %call27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
-  %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 6, ptr noundef nonnull %0, i32 noundef %conv) #5
-  %cmp29.not = icmp eq i32 %call28, 0
-  br i1 %cmp29.not, label %if.end32, label %return
+.preheader:                                       ; preds = %0, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
+  %7 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_sha384_test.keys, i64 0, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !4
+  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef 6, ptr noundef nonnull %8, i32 noundef %10) #6
+  %.not23 = icmp eq i32 %11, 0
+  br i1 %.not23, label %12, label %.loopexit
 
-if.end32:                                         ; preds = %for.body
-  %arrayidx34 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx34, align 16
-  %inLen38 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 16
-  %2 = load i64, ptr %inLen38, align 16
-  %conv39 = trunc i64 %2 to i32
-  %call40 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %1, i32 noundef %conv39) #5
-  %cmp41.not = icmp eq i32 %call40, 0
-  br i1 %cmp41.not, label %if.end44, label %return
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 16, !tbaa !11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %16 = load i64, ptr %15, align 16, !tbaa !13
+  %17 = trunc i64 %16 to i32
+  %18 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef %14, i32 noundef %17) #6
+  %.not24 = icmp eq i32 %18, 0
+  br i1 %.not24, label %19, label %.loopexit
 
-if.end44:                                         ; preds = %if.end32
-  %call45 = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #5
-  %cmp46.not = icmp eq i32 %call45, 0
-  br i1 %cmp46.not, label %if.end49, label %return
+19:                                               ; preds = %12
+  %20 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not25 = icmp eq i32 %20, 0
+  br i1 %.not25, label %21, label %.loopexit
 
-if.end49:                                         ; preds = %if.end44
-  %output53 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 8
-  %3 = load ptr, ptr %output53, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %hash, ptr noundef nonnull dereferenceable(32) %3, i64 32)
-  %cmp55.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp55.not, label %for.inc, label %if.then57
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %2, ptr noundef nonnull dereferenceable(32) %23, i64 32)
+  %.not26 = icmp eq i32 %bcmp, 0
+  br i1 %.not26, label %27, label %24
 
-if.then57:                                        ; preds = %if.end49
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub = sub nuw nsw i32 -20, %4
-  br label %return
+24:                                               ; preds = %21
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = sub nuw nsw i32 -20, %25
+  br label %.loopexit
 
-for.inc:                                          ; preds = %if.end49
+27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !25
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
-  br label %return
+28:                                               ; preds = %27
+  call void @wc_HmacFree(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end44, %if.end32, %for.body, %entry, %for.end, %if.then57
-  %retval.0 = phi i32 [ %sub, %if.then57 ], [ 0, %for.end ], [ -20009, %entry ], [ -4022, %if.end44 ], [ -4021, %if.end32 ], [ -4020, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
+  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4022, %19 ], [ -4021, %12 ], [ -4020, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -20009, 1) i32 @hmac_sha384_test() local_unnamed_addr #0 {
-entry:
-  %hmac = alloca %struct.Hmac, align 16
-  %hash = alloca [48 x i8], align 16
-  %test_hmac = alloca [3 x %struct.testVector], align 16
-  store ptr @.str.53, ptr %test_hmac, align 16
-  %a.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 8
-  store ptr @.str.70, ptr %a.sroa.3.0.arrayidx.sroa_idx, align 8
-  %a.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 16
-  store i64 8, ptr %a.sroa.5.0.arrayidx.sroa_idx, align 16
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 32
-  store ptr @.str.55, ptr %arrayidx20, align 16
-  %b.sroa.3.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 40
-  store ptr @.str.71, ptr %b.sroa.3.0.arrayidx20.sroa_idx, align 8
-  %b.sroa.5.0.arrayidx20.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 48
-  store i64 28, ptr %b.sroa.5.0.arrayidx20.sroa_idx, align 16
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %test_hmac, i64 64
-  store ptr @.str.57, ptr %arrayidx21, align 16
-  %c.sroa.3.0.arrayidx21.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 72
-  store ptr @.str.72, ptr %c.sroa.3.0.arrayidx21.sroa_idx, align 8
-  %c.sroa.5.0.arrayidx21.sroa_idx = getelementptr inbounds nuw i8, ptr %test_hmac, i64 80
-  store i64 50, ptr %c.sroa.5.0.arrayidx21.sroa_idx, align 16
-  %call22 = call i32 @wc_HmacInit(ptr noundef nonnull %hmac, ptr noundef null, i32 noundef -2) #5
-  %cmp.not = icmp eq i32 %call22, 0
-  br i1 %cmp.not, label %for.body, label %return
+  %1 = alloca %struct.Hmac, align 16
+  %2 = alloca [48 x i8], align 16
+  %3 = alloca [3 x %struct.testVector], align 16
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  store ptr @.str.53, ptr %3, align 16, !tbaa !4
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @.str.70, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 8, ptr %.sroa.719.0..sroa_idx, align 16, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.55, ptr %4, align 16, !tbaa !4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @.str.71, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 28, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !9
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr @.str.57, ptr %5, align 16, !tbaa !4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @.str.72, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 50, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
+  %6 = call i32 @wc_HmacInit(ptr noundef nonnull %1, ptr noundef null, i32 noundef -2) #6
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx24 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_sha384_test.keys, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx24, align 8
-  %call27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
-  %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 7, ptr noundef nonnull %0, i32 noundef %conv) #5
-  %cmp29.not = icmp eq i32 %call28, 0
-  br i1 %cmp29.not, label %if.end32, label %return
+.preheader:                                       ; preds = %0, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
+  %7 = getelementptr inbounds nuw [3 x ptr], ptr @__const.hmac_sha384_test.keys, i64 0, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !4
+  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %1, i32 noundef 7, ptr noundef nonnull %8, i32 noundef %10) #6
+  %.not23 = icmp eq i32 %11, 0
+  br i1 %.not23, label %12, label %.loopexit
 
-if.end32:                                         ; preds = %for.body
-  %arrayidx34 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %test_hmac, i64 0, i64 %indvars.iv
-  %1 = load ptr, ptr %arrayidx34, align 16
-  %inLen38 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 16
-  %2 = load i64, ptr %inLen38, align 16
-  %conv39 = trunc i64 %2 to i32
-  %call40 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %1, i32 noundef %conv39) #5
-  %cmp41.not = icmp eq i32 %call40, 0
-  br i1 %cmp41.not, label %if.end44, label %return
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds nuw [3 x %struct.testVector], ptr %3, i64 0, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 16, !tbaa !11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %16 = load i64, ptr %15, align 16, !tbaa !13
+  %17 = trunc i64 %16 to i32
+  %18 = call i32 @wc_HmacUpdate(ptr noundef nonnull %1, ptr noundef %14, i32 noundef %17) #6
+  %.not24 = icmp eq i32 %18, 0
+  br i1 %.not24, label %19, label %.loopexit
 
-if.end44:                                         ; preds = %if.end32
-  %call45 = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #5
-  %cmp46.not = icmp eq i32 %call45, 0
-  br i1 %cmp46.not, label %if.end49, label %return
+19:                                               ; preds = %12
+  %20 = call i32 @wc_HmacFinal(ptr noundef nonnull %1, ptr noundef nonnull %2) #6
+  %.not25 = icmp eq i32 %20, 0
+  br i1 %.not25, label %21, label %.loopexit
 
-if.end49:                                         ; preds = %if.end44
-  %output53 = getelementptr inbounds nuw i8, ptr %arrayidx34, i64 8
-  %3 = load ptr, ptr %output53, align 8
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %hash, ptr noundef nonnull dereferenceable(48) %3, i64 48)
-  %cmp55.not = icmp eq i32 %bcmp, 0
-  br i1 %cmp55.not, label %for.inc, label %if.then57
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %2, ptr noundef nonnull dereferenceable(48) %23, i64 48)
+  %.not26 = icmp eq i32 %bcmp, 0
+  br i1 %.not26, label %27, label %24
 
-if.then57:                                        ; preds = %if.end49
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub = sub nuw nsw i32 -20, %4
-  br label %return
+24:                                               ; preds = %21
+  %25 = trunc nuw nsw i64 %indvars.iv to i32
+  %26 = sub nuw nsw i32 -20, %25
+  br label %.loopexit
 
-for.inc:                                          ; preds = %if.end49
+27:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !26
 
-for.end:                                          ; preds = %for.inc
-  call void @wc_HmacFree(ptr noundef nonnull %hmac) #5
-  br label %return
+28:                                               ; preds = %27
+  call void @wc_HmacFree(ptr noundef nonnull %1) #6
+  br label %.loopexit
 
-return:                                           ; preds = %if.end44, %if.end32, %for.body, %entry, %for.end, %if.then57
-  %retval.0 = phi i32 [ %sub, %if.then57 ], [ 0, %for.end ], [ -20009, %entry ], [ -4025, %if.end44 ], [ -4024, %if.end32 ], [ -4023, %for.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
+  %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4025, %19 ], [ -4024, %12 ], [ -4023, %.preheader ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  ret i32 %.022
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Md5Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Md5Free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha224(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha224(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha256(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha256(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha512(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha512(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_InitSha384(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha384(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind }
-attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind }
+attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !7, i64 0}
+!11 = !{!12, !5, i64 0}
+!12 = !{!"testVector", !5, i64 0, !5, i64 8, !10, i64 16, !10, i64 24}
+!13 = !{!12, !10, i64 16}
+!14 = !{!12, !5, i64 8}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}
+!24 = distinct !{!24, !16}
+!25 = distinct !{!25, !16}
+!26 = distinct !{!26, !16}

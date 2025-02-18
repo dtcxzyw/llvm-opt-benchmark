@@ -1,534 +1,553 @@
 ; ModuleID = 'bench/wolfssl/original/chacha20_poly1305.ll'
 source_filename = "bench/wolfssl/original/chacha20_poly1305.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.ChaChaPoly_Aead = type { %struct.ChaCha, %struct.Poly1305, i32, i32, i8, i8 }
 %struct.ChaCha = type { [16 x i32], i32 }
 %struct.Poly1305 = type { [3 x i64], [3 x i64], [2 x i64], i64, [16 x i8], i8 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef %inKey, ptr noundef %inIV, ptr noundef %inAAD, i32 noundef %inAADLen, ptr noundef %inPlaintext, i32 noundef %inPlaintextLen, ptr noundef %outCiphertext, ptr noundef %outAuthTag) local_unnamed_addr #0 {
-entry:
-  %aead = alloca %struct.ChaChaPoly_Aead, align 8
-  %tobool = icmp ne ptr %inKey, null
-  %tobool1 = icmp ne ptr %inIV, null
-  %or.cond = and i1 %tobool, %tobool1
-  br i1 %or.cond, label %lor.lhs.false2, label %return
+define i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+  %9 = alloca [1 x %struct.ChaChaPoly_Aead], align 16
+  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %9) #5
+  %10 = icmp ne ptr %0, null
+  %11 = icmp ne ptr %1, null
+  %or.cond = and i1 %10, %11
+  br i1 %or.cond, label %12, label %.thread
 
-lor.lhs.false2:                                   ; preds = %entry
-  %cmp = icmp eq i32 %inPlaintextLen, 0
-  %cmp3 = icmp ne ptr %inPlaintext, null
-  %or.cond1.not13 = or i1 %cmp3, %cmp
-  %tobool5 = icmp ne ptr %outCiphertext, null
-  %or.cond2 = and i1 %or.cond1.not13, %tobool5
-  %tobool7 = icmp ne ptr %outAuthTag, null
-  %or.cond3 = and i1 %or.cond2, %tobool7
-  br i1 %or.cond3, label %if.end, label %return
+12:                                               ; preds = %8
+  %13 = icmp eq i32 %5, 0
+  %14 = icmp ne ptr %4, null
+  %or.cond3.not32 = or i1 %14, %13
+  %15 = icmp ne ptr %6, null
+  %or.cond5 = and i1 %or.cond3.not32, %15
+  %16 = icmp ne ptr %7, null
+  %or.cond7 = and i1 %or.cond5, %16
+  br i1 %or.cond7, label %17, label %.thread
 
-if.end:                                           ; preds = %lor.lhs.false2
-  %call = call i32 @wc_ChaCha20Poly1305_Init(ptr noundef nonnull %aead, ptr noundef nonnull %inKey, ptr noundef nonnull %inIV, i32 noundef 1)
-  %cmp8 = icmp eq i32 %call, 0
-  br i1 %cmp8, label %if.then9, label %return
+17:                                               ; preds = %12
+  %18 = call i32 @wc_ChaCha20Poly1305_Init(ptr noundef nonnull %9, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1)
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.thread
 
-if.then9:                                         ; preds = %if.end
-  %cmp1.i = icmp eq ptr %inAAD, null
-  %cmp2.i = icmp ne i32 %inAADLen, 0
-  %or.cond.i = and i1 %cmp1.i, %cmp2.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+20:                                               ; preds = %17
+  %21 = icmp eq ptr %2, null
+  %22 = icmp ne i32 %3, 0
+  %or.cond.i = and i1 %21, %22
+  br i1 %or.cond.i, label %.thread, label %23
 
-if.end.i:                                         ; preds = %if.then9
-  %state.i = getelementptr inbounds nuw i8, ptr %aead, i64 176
-  %0 = load i8, ptr %state.i, align 8
-  %.off.i = add i8 %0, -1
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 176
+  %25 = load i8, ptr %24, align 16, !tbaa !3
+  %.off.i = add i8 %25, -1
   %switch.i = icmp ult i8 %.off.i, 2
-  br i1 %switch.i, label %if.end11.i, label %return
+  br i1 %switch.i, label %26, label %.thread
 
-if.end11.i:                                       ; preds = %if.end.i
-  %aadLen.i = getelementptr inbounds nuw i8, ptr %aead, i64 168
-  %1 = load i32, ptr %aadLen.i, align 8
-  %sub.i = xor i32 %1, -1
-  %cmp12.i = icmp ugt i32 %inAADLen, %sub.i
-  br i1 %cmp12.i, label %return, label %if.end15.i
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 168
+  %28 = load i32, ptr %27, align 8, !tbaa !11
+  %29 = xor i32 %28, -1
+  %30 = icmp ugt i32 %3, %29
+  br i1 %30, label %.thread, label %31
 
-if.end15.i:                                       ; preds = %if.end11.i
-  %tobool.i = icmp ne ptr %inAAD, null
-  %or.cond1.i = and i1 %tobool.i, %cmp2.i
-  br i1 %or.cond1.i, label %if.then19.i, label %if.end15
+31:                                               ; preds = %26
+  %32 = icmp ne ptr %2, null
+  %or.cond3.i = and i1 %32, %22
+  br i1 %or.cond3.i, label %33, label %40
 
-if.then19.i:                                      ; preds = %if.end15.i
-  %poly.i = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %call.i = call i32 @wc_Poly1305Update(ptr noundef nonnull %poly.i, ptr noundef nonnull %inAAD, i32 noundef %inAADLen) #4
-  %cmp20.i = icmp eq i32 %call.i, 0
-  br i1 %cmp20.i, label %if.then22.i, label %return
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %35 = call i32 @wc_Poly1305Update(ptr noundef nonnull %34, ptr noundef nonnull %2, i32 noundef %3) #5
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %.thread
 
-if.then22.i:                                      ; preds = %if.then19.i
-  %2 = load i32, ptr %aadLen.i, align 8
-  %add.i = add i32 %2, %inAADLen
-  store i32 %add.i, ptr %aadLen.i, align 8
-  store i8 2, ptr %state.i, align 8
-  br label %if.end15
+37:                                               ; preds = %33
+  %38 = load i32, ptr %27, align 8, !tbaa !11
+  %39 = add i32 %38, %3
+  store i32 %39, ptr %27, align 8, !tbaa !11
+  store i8 2, ptr %24, align 16, !tbaa !3
+  br label %40
 
-if.end15:                                         ; preds = %if.then22.i, %if.end15.i
-  %call14 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %aead, ptr noundef %inPlaintext, ptr noundef nonnull %outCiphertext, i32 noundef %inPlaintextLen)
-  %cmp16 = icmp eq i32 %call14, 0
-  br i1 %cmp16, label %if.then17, label %return
+40:                                               ; preds = %37, %31
+  %41 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull %6, i32 noundef %5)
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %.thread
 
-if.then17:                                        ; preds = %if.end15
-  %call18 = call i32 @wc_ChaCha20Poly1305_Final(ptr noundef nonnull %aead, ptr noundef nonnull %outAuthTag)
-  br label %return
+43:                                               ; preds = %40
+  %44 = call i32 @wc_ChaCha20Poly1305_Final(ptr noundef nonnull %9, ptr noundef nonnull %7)
+  br label %.thread
 
-return:                                           ; preds = %if.end, %if.then9, %if.end.i, %if.end11.i, %if.then19.i, %if.end15, %if.then17, %entry, %lor.lhs.false2
-  %retval.0 = phi i32 [ -173, %lor.lhs.false2 ], [ -173, %entry ], [ %call18, %if.then17 ], [ %call14, %if.end15 ], [ %call.i, %if.then19.i ], [ -274, %if.end11.i ], [ -192, %if.end.i ], [ -173, %if.then9 ], [ %call, %if.end ]
-  ret i32 %retval.0
+.thread:                                          ; preds = %17, %20, %23, %26, %33, %40, %43, %8, %12
+  %.025 = phi i32 [ -173, %12 ], [ -173, %8 ], [ %44, %43 ], [ %41, %40 ], [ %35, %33 ], [ -274, %26 ], [ -192, %23 ], [ -173, %20 ], [ %18, %17 ]
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %9) #5
+  ret i32 %.025
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @wc_ChaCha20Poly1305_Init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = alloca [32 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  %6 = icmp eq ptr %0, null
+  %7 = icmp eq ptr %1, null
+  %or.cond = or i1 %6, %7
+  %8 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %or.cond, %8
+  br i1 %or.cond3, label %.thread36, label %9
+
+9:                                                ; preds = %4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, i8 0, i64 184, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  %.not = icmp ne i32 %3, 0
+  %10 = zext i1 %.not to i8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  store i8 %10, ptr %11, align 1
+  %12 = tail call i32 @wc_Chacha_SetKey(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 32) #5
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %.thread36
+
+14:                                               ; preds = %9
+  %15 = tail call i32 @wc_Chacha_SetIV(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #5
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %.thread36
+
+17:                                               ; preds = %14
+  %18 = call i32 @wc_Chacha_Process(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %5, i32 noundef 32) #5
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.thread36
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %22 = call i32 @wc_Poly1305SetKey(ptr noundef nonnull %21, ptr noundef nonnull %5, i32 noundef 32) #5
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %.thread36
+
+24:                                               ; preds = %20
+  %25 = call i32 @wc_Chacha_SetIV(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1) #5
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %.thread36
+
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i8 1, ptr %28, align 8, !tbaa !3
+  br label %.thread36
+
+.thread36:                                        ; preds = %9, %14, %17, %20, %24, %27, %4
+  %.024 = phi i32 [ -173, %4 ], [ 0, %27 ], [ %25, %24 ], [ %22, %20 ], [ %18, %17 ], [ %15, %14 ], [ %12, %9 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ChaCha20Poly1305_Init(ptr noundef %aead, ptr noundef %inKey, ptr noundef %inIV, i32 noundef %isEncrypt) local_unnamed_addr #0 {
-entry:
-  %authKey = alloca [32 x i8], align 16
-  %cmp = icmp eq ptr %aead, null
-  %cmp1 = icmp eq ptr %inKey, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %inIV, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  br i1 %or.cond1, label %return, label %if.end
+define i32 @wc_ChaCha20Poly1305_UpdateAad(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %25, label %5
 
-if.end:                                           ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %aead, i8 0, i64 184, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %authKey, i8 0, i64 32, i1 false)
-  %tobool.not = icmp ne i32 %isEncrypt, 0
-  %conv = zext i1 %tobool.not to i8
-  %isEncrypt4 = getelementptr inbounds nuw i8, ptr %aead, i64 177
-  store i8 %conv, ptr %isEncrypt4, align 1
-  %call = tail call i32 @wc_Chacha_SetKey(ptr noundef nonnull %aead, ptr noundef nonnull %inKey, i32 noundef 32) #4
-  %cmp5 = icmp eq i32 %call, 0
-  br i1 %cmp5, label %if.end10, label %return
+5:                                                ; preds = %3
+  %6 = icmp eq ptr %1, null
+  %7 = icmp ne i32 %2, 0
+  %or.cond = and i1 %6, %7
+  br i1 %or.cond, label %25, label %8
 
-if.end10:                                         ; preds = %if.end
-  %call9 = tail call i32 @wc_Chacha_SetIV(ptr noundef nonnull %aead, ptr noundef nonnull %inIV, i32 noundef 0) #4
-  %cmp11 = icmp eq i32 %call9, 0
-  br i1 %cmp11, label %if.end18, label %return
-
-if.end18:                                         ; preds = %if.end10
-  %call17 = call i32 @wc_Chacha_Process(ptr noundef nonnull %aead, ptr noundef nonnull %authKey, ptr noundef nonnull %authKey, i32 noundef 32) #4
-  %cmp19 = icmp eq i32 %call17, 0
-  br i1 %cmp19, label %if.end24, label %return
-
-if.end24:                                         ; preds = %if.end18
-  %poly = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %call23 = call i32 @wc_Poly1305SetKey(ptr noundef nonnull %poly, ptr noundef nonnull %authKey, i32 noundef 32) #4
-  %cmp25 = icmp eq i32 %call23, 0
-  br i1 %cmp25, label %if.end30, label %return
-
-if.end30:                                         ; preds = %if.end24
-  %call29 = call i32 @wc_Chacha_SetIV(ptr noundef nonnull %aead, ptr noundef nonnull %inIV, i32 noundef 1) #4
-  %cmp31 = icmp eq i32 %call29, 0
-  br i1 %cmp31, label %if.then33, label %return
-
-if.then33:                                        ; preds = %if.end30
-  %state = getelementptr inbounds nuw i8, ptr %aead, i64 176
-  store i8 1, ptr %state, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.end10, %if.end18, %if.end24, %if.end30, %if.then33, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ 0, %if.then33 ], [ %call29, %if.end30 ], [ %call23, %if.end24 ], [ %call17, %if.end18 ], [ %call9, %if.end10 ], [ %call, %if.end ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_ChaCha20Poly1305_UpdateAad(ptr noundef %aead, ptr noundef %inAAD, i32 noundef %inAADLen) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %aead, null
-  br i1 %cmp, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %cmp1 = icmp eq ptr %inAAD, null
-  %cmp2 = icmp ne i32 %inAADLen, 0
-  %or.cond = and i1 %cmp1, %cmp2
-  br i1 %or.cond, label %return, label %if.end
-
-if.end:                                           ; preds = %lor.lhs.false
-  %state = getelementptr inbounds nuw i8, ptr %aead, i64 176
-  %0 = load i8, ptr %state, align 8
-  %.off = add i8 %0, -1
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %10 = load i8, ptr %9, align 8, !tbaa !3
+  %.off = add i8 %10, -1
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %if.end11, label %return
+  br i1 %switch, label %11, label %25
 
-if.end11:                                         ; preds = %if.end
-  %aadLen = getelementptr inbounds nuw i8, ptr %aead, i64 168
-  %1 = load i32, ptr %aadLen, align 8
-  %sub = xor i32 %1, -1
-  %cmp12 = icmp ugt i32 %inAADLen, %sub
-  br i1 %cmp12, label %return, label %if.end15
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %13 = load i32, ptr %12, align 8, !tbaa !11
+  %14 = xor i32 %13, -1
+  %15 = icmp ugt i32 %2, %14
+  br i1 %15, label %25, label %16
 
-if.end15:                                         ; preds = %if.end11
-  %tobool = icmp ne ptr %inAAD, null
-  %or.cond1 = and i1 %tobool, %cmp2
-  br i1 %or.cond1, label %if.then19, label %return
+16:                                               ; preds = %11
+  %17 = icmp ne ptr %1, null
+  %or.cond3 = and i1 %17, %7
+  br i1 %or.cond3, label %18, label %25
 
-if.then19:                                        ; preds = %if.end15
-  %poly = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %call = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %poly, ptr noundef nonnull %inAAD, i32 noundef %inAADLen) #4
-  %cmp20 = icmp eq i32 %call, 0
-  br i1 %cmp20, label %if.then22, label %return
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %20 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %19, ptr noundef nonnull %1, i32 noundef %2) #5
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %25
 
-if.then22:                                        ; preds = %if.then19
-  %2 = load i32, ptr %aadLen, align 8
-  %add = add i32 %2, %inAADLen
-  store i32 %add, ptr %aadLen, align 8
-  store i8 2, ptr %state, align 8
-  br label %return
+22:                                               ; preds = %18
+  %23 = load i32, ptr %12, align 8, !tbaa !11
+  %24 = add i32 %23, %2
+  store i32 %24, ptr %12, align 8, !tbaa !11
+  store i8 2, ptr %9, align 8, !tbaa !3
+  br label %25
 
-return:                                           ; preds = %if.end, %if.end15, %if.then22, %if.then19, %if.end11, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ -173, %lor.lhs.false ], [ -173, %entry ], [ -192, %if.end ], [ -274, %if.end11 ], [ 0, %if.then22 ], [ %call, %if.then19 ], [ 0, %if.end15 ]
-  ret i32 %retval.0
+25:                                               ; preds = %8, %16, %22, %18, %11, %3, %5
+  %.020 = phi i32 [ -173, %5 ], [ -173, %3 ], [ -192, %8 ], [ -274, %11 ], [ 0, %22 ], [ %20, %18 ], [ 0, %16 ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef %aead, ptr noundef %inData, ptr noundef %outData, i32 noundef %dataLen) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %aead, null
-  %cmp1 = icmp eq ptr %inData, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %outData, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  br i1 %or.cond1, label %return, label %if.end
+define i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp eq ptr %0, null
+  %6 = icmp eq ptr %1, null
+  %or.cond = or i1 %5, %6
+  %7 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %or.cond, %7
+  br i1 %or.cond3, label %.thread49, label %8
 
-if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds nuw i8, ptr %aead, i64 176
-  %0 = load i8, ptr %state, align 8
-  %.off = add i8 %0, -1
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %10 = load i8, ptr %9, align 8, !tbaa !3
+  %.off = add i8 %10, -1
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %if.end16, label %return
+  br i1 %switch, label %11, label %.thread49
 
-if.end16:                                         ; preds = %if.end
-  %dataLen17 = getelementptr inbounds nuw i8, ptr %aead, i64 172
-  %1 = load i32, ptr %dataLen17, align 4
-  %sub = xor i32 %1, -1
-  %cmp18 = icmp ugt i32 %dataLen, %sub
-  br i1 %cmp18, label %return, label %if.end21
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %13 = load i32, ptr %12, align 4, !tbaa !12
+  %14 = xor i32 %13, -1
+  %15 = icmp ugt i32 %3, %14
+  br i1 %15, label %.thread49, label %16
 
-if.end21:                                         ; preds = %if.end16
-  %cmp24 = icmp eq i8 %0, 2
-  br i1 %cmp24, label %if.end27, label %if.end27.thread
+16:                                               ; preds = %11
+  %17 = icmp eq i8 %10, 2
+  br i1 %17, label %18, label %.thread
 
-if.end27.thread:                                  ; preds = %if.end21
-  store i8 3, ptr %state, align 8
-  br label %if.then31
+.thread:                                          ; preds = %16
+  store i8 3, ptr %9, align 8, !tbaa !3
+  br label %24
 
-if.end27:                                         ; preds = %if.end21
-  %poly = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %aadLen = getelementptr inbounds nuw i8, ptr %aead, i64 168
-  %2 = load i32, ptr %aadLen, align 8
-  %call = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %poly, i32 noundef %2) #4
-  store i8 3, ptr %state, align 8
-  %cmp29 = icmp eq i32 %call, 0
-  br i1 %cmp29, label %if.then31, label %return
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %21 = load i32, ptr %20, align 8, !tbaa !11
+  %22 = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %19, i32 noundef %21) #5
+  store i8 3, ptr %9, align 8, !tbaa !3
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %.thread49
 
-if.then31:                                        ; preds = %if.end27.thread, %if.end27
-  %isEncrypt = getelementptr inbounds nuw i8, ptr %aead, i64 177
-  %bf.load = load i8, ptr %isEncrypt, align 1
-  %bf.clear = and i8 %bf.load, 1
-  %tobool.not = icmp eq i8 %bf.clear, 0
-  br i1 %tobool.not, label %if.else, label %if.then32
+24:                                               ; preds = %.thread, %18
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  %26 = load i8, ptr %25, align 1
+  %27 = and i8 %26, 1
+  %.not47 = icmp eq i8 %27, 0
+  br i1 %.not47, label %34, label %28
 
-if.then32:                                        ; preds = %if.then31
-  %call33 = tail call i32 @wc_Chacha_Process(ptr noundef nonnull %aead, ptr noundef nonnull %outData, ptr noundef nonnull %inData, i32 noundef %dataLen) #4
-  %cmp34 = icmp eq i32 %call33, 0
-  br i1 %cmp34, label %if.then36, label %return
+28:                                               ; preds = %24
+  %29 = tail call i32 @wc_Chacha_Process(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef %3) #5
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %.thread49
 
-if.then36:                                        ; preds = %if.then32
-  %poly37 = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %call38 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %poly37, ptr noundef nonnull %outData, i32 noundef %dataLen) #4
-  br label %if.end49
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %33 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %32, ptr noundef nonnull %2, i32 noundef %3) #5
+  br label %40
 
-if.else:                                          ; preds = %if.then31
-  %poly40 = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %call41 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %poly40, ptr noundef nonnull %inData, i32 noundef %dataLen) #4
-  %cmp42 = icmp eq i32 %call41, 0
-  br i1 %cmp42, label %if.then44, label %return
+34:                                               ; preds = %24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %35, ptr noundef nonnull %1, i32 noundef %3) #5
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %.thread49
 
-if.then44:                                        ; preds = %if.else
-  %call46 = tail call i32 @wc_Chacha_Process(ptr noundef nonnull %aead, ptr noundef nonnull %outData, ptr noundef nonnull %inData, i32 noundef %dataLen) #4
-  br label %if.end49
+38:                                               ; preds = %34
+  %39 = tail call i32 @wc_Chacha_Process(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef %3) #5
+  br label %40
 
-if.end49:                                         ; preds = %if.then36, %if.then44
-  %ret.1 = phi i32 [ %call38, %if.then36 ], [ %call46, %if.then44 ]
-  %cmp50 = icmp eq i32 %ret.1, 0
-  br i1 %cmp50, label %if.then52, label %return
+40:                                               ; preds = %31, %38
+  %.1 = phi i32 [ %33, %31 ], [ %39, %38 ]
+  %41 = icmp eq i32 %.1, 0
+  br i1 %41, label %42, label %.thread49
 
-if.then52:                                        ; preds = %if.end49
-  %3 = load i32, ptr %dataLen17, align 4
-  %add = add i32 %3, %dataLen
-  store i32 %add, ptr %dataLen17, align 4
-  br label %return
+42:                                               ; preds = %40
+  %43 = load i32, ptr %12, align 4, !tbaa !12
+  %44 = add i32 %43, %3
+  store i32 %44, ptr %12, align 4, !tbaa !12
+  br label %.thread49
 
-return:                                           ; preds = %if.end27, %if.else, %if.then32, %if.end, %if.end49, %if.then52, %if.end16, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -192, %if.end ], [ -274, %if.end16 ], [ 0, %if.then52 ], [ %ret.1, %if.end49 ], [ %call, %if.end27 ], [ %call41, %if.else ], [ %call33, %if.then32 ]
-  ret i32 %retval.0
+.thread49:                                        ; preds = %18, %34, %28, %8, %40, %42, %11, %4
+  %.037 = phi i32 [ -173, %4 ], [ -192, %8 ], [ -274, %11 ], [ 0, %42 ], [ %.1, %40 ], [ %22, %18 ], [ %36, %34 ], [ %29, %28 ]
+  ret i32 %.037
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ChaCha20Poly1305_Final(ptr noundef %aead, ptr noundef %outAuthTag) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %aead, null
-  %cmp1 = icmp eq ptr %outAuthTag, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define i32 @wc_ChaCha20Poly1305_Final(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %ForceZero.exit, label %5
 
-if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds nuw i8, ptr %aead, i64 176
-  %0 = load i8, ptr %state, align 8
-  %1 = and i8 %0, -2
-  %switch = icmp eq i8 %1, 2
-  br i1 %switch, label %if.end9, label %return
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %7 = load i8, ptr %6, align 8, !tbaa !3
+  %8 = and i8 %7, -2
+  %switch = icmp eq i8 %8, 2
+  br i1 %switch, label %9, label %ForceZero.exit
 
-if.end9:                                          ; preds = %if.end
-  %cmp12 = icmp eq i8 %0, 2
-  br i1 %cmp12, label %if.end15, label %if.end21
+9:                                                ; preds = %5
+  %10 = icmp eq i8 %7, 2
+  br i1 %10, label %11, label %.thread
 
-if.end15:                                         ; preds = %if.end9
-  %poly = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %aadLen = getelementptr inbounds nuw i8, ptr %aead, i64 168
-  %2 = load i32, ptr %aadLen, align 8
-  %call = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %poly, i32 noundef %2) #4
-  %cmp16 = icmp eq i32 %call, 0
-  br i1 %cmp16, label %if.end21, label %if.end35
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %14 = load i32, ptr %13, align 8, !tbaa !11
+  %15 = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %12, i32 noundef %14) #5
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.thread, label %.thread28
 
-if.end21:                                         ; preds = %if.end9, %if.end15
-  %poly19 = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %dataLen = getelementptr inbounds nuw i8, ptr %aead, i64 172
-  %3 = load i32, ptr %dataLen, align 4
-  %call20 = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %poly19, i32 noundef %3) #4
-  %cmp22 = icmp eq i32 %call20, 0
-  br i1 %cmp22, label %if.end29, label %if.end35
+.thread:                                          ; preds = %9, %11
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %19 = load i32, ptr %18, align 4, !tbaa !12
+  %20 = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %17, i32 noundef %19) #5
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %.thread28
 
-if.end29:                                         ; preds = %if.end21
-  %aadLen26 = getelementptr inbounds nuw i8, ptr %aead, i64 168
-  %4 = load i32, ptr %aadLen26, align 8
-  %5 = load i32, ptr %dataLen, align 4
-  %call28 = tail call i32 @wc_Poly1305_EncodeSizes(ptr noundef nonnull %poly19, i32 noundef %4, i32 noundef %5) #4
-  %cmp30 = icmp eq i32 %call28, 0
-  br i1 %cmp30, label %if.then32, label %if.end35
+22:                                               ; preds = %.thread
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %24 = load i32, ptr %23, align 8, !tbaa !11
+  %25 = load i32, ptr %18, align 4, !tbaa !12
+  %26 = tail call i32 @wc_Poly1305_EncodeSizes(ptr noundef nonnull %17, i32 noundef %24, i32 noundef %25) #5
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %.thread28
 
-if.then32:                                        ; preds = %if.end29
-  %call34 = tail call i32 @wc_Poly1305Final(ptr noundef nonnull %poly19, ptr noundef nonnull %outAuthTag) #4
-  br label %if.end35
+28:                                               ; preds = %22
+  %29 = tail call i32 @wc_Poly1305Final(ptr noundef nonnull %17, ptr noundef nonnull %1) #5
+  br label %.thread28
 
-if.end35:                                         ; preds = %if.end15, %if.end21, %if.then32, %if.end29
-  %ret.3 = phi i32 [ %call34, %if.then32 ], [ %call28, %if.end29 ], [ %call20, %if.end21 ], [ %call, %if.end15 ]
-  %6 = ptrtoint ptr %aead to i64
-  %7 = trunc i64 %6 to i32
-  %8 = sub i32 0, %7
-  %conv.i = and i32 %8, 7
-  %sub3.i = sub nuw nsw i32 184, %conv.i
-  %tobool.not12.i = icmp eq i32 %conv.i, 0
-  br i1 %tobool.not12.i, label %for.body.i.preheader, label %while.body.i
+.thread28:                                        ; preds = %11, %.thread, %28, %22
+  %.3 = phi i32 [ %29, %28 ], [ %26, %22 ], [ %20, %.thread ], [ %15, %11 ]
+  %30 = ptrtoint ptr %0 to i64
+  %31 = trunc i64 %30 to i32
+  %32 = sub i32 0, %31
+  %33 = and i32 %32, 7
+  %34 = sub nuw nsw i32 184, %33
+  %.not24.i = icmp eq i32 %33, 0
+  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
 
-for.body.i.preheader:                             ; preds = %while.body.i, %if.end35
-  %w.017.i.ph = phi ptr [ %aead, %if.end35 ], [ %incdec.ptr.i, %while.body.i ]
-  br label %for.body.i
+.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %.thread28
+  %.01528.i.ph = phi ptr [ %0, %.thread28 ], [ %36, %.lr.ph.i ]
+  br label %.lr.ph29.i
 
-while.body.i:                                     ; preds = %if.end35, %while.body.i
-  %l.114.i = phi i32 [ %dec.i, %while.body.i ], [ %conv.i, %if.end35 ]
-  %z.013.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %aead, %if.end35 ]
-  %dec.i = add nsw i32 %l.114.i, -1
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %z.013.i, i64 1
-  store volatile i8 0, ptr %z.013.i, align 1
-  %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !4
+.lr.ph.i:                                         ; preds = %.thread28, %.lr.ph.i
+  %.126.i = phi i32 [ %35, %.lr.ph.i ], [ %33, %.thread28 ]
+  %.01625.i = phi ptr [ %36, %.lr.ph.i ], [ %0, %.thread28 ]
+  %35 = add nsw i32 %.126.i, -1
+  %36 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
+  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !13
+  %.not.i = icmp eq i32 %35, 0
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !14
 
-while.cond9.preheader.i:                          ; preds = %for.body.i
-  %tobool11.not20.i = icmp eq i32 %sub8.i, 0
-  br i1 %tobool11.not20.i, label %return, label %while.body12.i
+.preheader.i:                                     ; preds = %.lr.ph29.i
+  %.not2232.i = icmp eq i32 %38, 0
+  br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %w.017.i.ph, %for.body.i.preheader ]
-  %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.body.i.preheader ]
-  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %w.017.i, i64 8
-  store volatile i64 0, ptr %w.017.i, align 8
-  %sub8.i = add nsw i32 %len.addr.016.i, -8
-  %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !6
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
+  %.01528.i = phi ptr [ %37, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
+  %.01827.i = phi i32 [ %38, %.lr.ph29.i ], [ %34, %.lr.ph29.i.preheader ]
+  %37 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !16
+  %38 = add nsw i32 %.01827.i, -8
+  %39 = icmp ugt i32 %38, 7
+  br i1 %39, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !17
 
-while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
-  %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
-  %len.addr.121.i = phi i32 [ %dec10.i, %while.body12.i ], [ %sub8.i, %while.cond9.preheader.i ]
-  %dec10.i = add i32 %len.addr.121.i, -1
-  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %z.122.i, i64 1
-  store volatile i8 0, ptr %z.122.i, align 1
-  %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !7
+.lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
+  %.11734.i = phi ptr [ %41, %.lr.ph35.i ], [ %37, %.preheader.i ]
+  %.11933.i = phi i32 [ %40, %.lr.ph35.i ], [ %38, %.preheader.i ]
+  %40 = add i32 %.11933.i, -1
+  %41 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !13
+  %.not22.i = icmp eq i32 %40, 0
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !18
 
-return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %if.end, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -192, %if.end ], [ %ret.3, %while.cond9.preheader.i ], [ %ret.3, %while.body12.i ]
-  ret i32 %retval.0
+ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %5, %2
+  %.020 = phi i32 [ -173, %2 ], [ -192, %5 ], [ %.3, %.preheader.i ], [ %.3, %.lr.ph35.i ]
+  ret i32 %.020
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define i32 @wc_ChaCha20Poly1305_Decrypt(ptr noundef %inKey, ptr noundef %inIV, ptr noundef %inAAD, i32 noundef %inAADLen, ptr noundef %inCiphertext, i32 noundef %inCiphertextLen, ptr noundef readonly captures(address_is_null) %inAuthTag, ptr noundef %outPlaintext) local_unnamed_addr #0 {
-entry:
-  %aead = alloca %struct.ChaChaPoly_Aead, align 8
-  %calculatedAuthTag = alloca [16 x i8], align 16
-  %tobool = icmp ne ptr %inKey, null
-  %tobool1 = icmp ne ptr %inIV, null
-  %or.cond = and i1 %tobool, %tobool1
-  br i1 %or.cond, label %lor.lhs.false2, label %return
+define i32 @wc_ChaCha20Poly1305_Decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #0 {
+  %9 = alloca [1 x %struct.ChaChaPoly_Aead], align 16
+  %10 = alloca [16 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #5
+  %11 = icmp ne ptr %0, null
+  %12 = icmp ne ptr %1, null
+  %or.cond = and i1 %11, %12
+  br i1 %or.cond, label %13, label %.thread37
 
-lor.lhs.false2:                                   ; preds = %entry
-  %cmp = icmp eq i32 %inCiphertextLen, 0
-  %cmp3 = icmp ne ptr %inCiphertext, null
-  %or.cond1.not14 = or i1 %cmp3, %cmp
-  %tobool5 = icmp ne ptr %inAuthTag, null
-  %or.cond2 = and i1 %or.cond1.not14, %tobool5
-  %tobool7 = icmp ne ptr %outPlaintext, null
-  %or.cond3 = and i1 %or.cond2, %tobool7
-  br i1 %or.cond3, label %if.end, label %return
+13:                                               ; preds = %8
+  %14 = icmp eq i32 %5, 0
+  %15 = icmp ne ptr %4, null
+  %or.cond3.not33 = or i1 %15, %14
+  %16 = icmp ne ptr %6, null
+  %or.cond5 = and i1 %or.cond3.not33, %16
+  %17 = icmp ne ptr %7, null
+  %or.cond7 = and i1 %or.cond5, %17
+  br i1 %or.cond7, label %18, label %.thread37
 
-if.end:                                           ; preds = %lor.lhs.false2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %calculatedAuthTag, i8 0, i64 16, i1 false)
-  %call = call i32 @wc_ChaCha20Poly1305_Init(ptr noundef nonnull %aead, ptr noundef nonnull %inKey, ptr noundef nonnull %inIV, i32 noundef 0)
-  %cmp8 = icmp eq i32 %call, 0
-  br i1 %cmp8, label %if.then9, label %return
+18:                                               ; preds = %13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  %19 = call i32 @wc_ChaCha20Poly1305_Init(ptr noundef nonnull %9, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %.thread37
 
-if.then9:                                         ; preds = %if.end
-  %cmp1.i = icmp eq ptr %inAAD, null
-  %cmp2.i = icmp ne i32 %inAADLen, 0
-  %or.cond.i = and i1 %cmp1.i, %cmp2.i
-  br i1 %or.cond.i, label %return, label %if.end.i
+21:                                               ; preds = %18
+  %22 = icmp eq ptr %2, null
+  %23 = icmp ne i32 %3, 0
+  %or.cond.i = and i1 %22, %23
+  br i1 %or.cond.i, label %.thread37, label %24
 
-if.end.i:                                         ; preds = %if.then9
-  %state.i = getelementptr inbounds nuw i8, ptr %aead, i64 176
-  %0 = load i8, ptr %state.i, align 8
-  %.off.i = add i8 %0, -1
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 176
+  %26 = load i8, ptr %25, align 16, !tbaa !3
+  %.off.i = add i8 %26, -1
   %switch.i = icmp ult i8 %.off.i, 2
-  br i1 %switch.i, label %if.end11.i, label %return
+  br i1 %switch.i, label %27, label %.thread37
 
-if.end11.i:                                       ; preds = %if.end.i
-  %aadLen.i = getelementptr inbounds nuw i8, ptr %aead, i64 168
-  %1 = load i32, ptr %aadLen.i, align 8
-  %sub.i = xor i32 %1, -1
-  %cmp12.i = icmp ugt i32 %inAADLen, %sub.i
-  br i1 %cmp12.i, label %return, label %if.end15.i
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 168
+  %29 = load i32, ptr %28, align 8, !tbaa !11
+  %30 = xor i32 %29, -1
+  %31 = icmp ugt i32 %3, %30
+  br i1 %31, label %.thread37, label %32
 
-if.end15.i:                                       ; preds = %if.end11.i
-  %tobool.i = icmp ne ptr %inAAD, null
-  %or.cond1.i = and i1 %tobool.i, %cmp2.i
-  br i1 %or.cond1.i, label %if.then19.i, label %if.end15
+32:                                               ; preds = %27
+  %33 = icmp ne ptr %2, null
+  %or.cond3.i = and i1 %33, %23
+  br i1 %or.cond3.i, label %34, label %41
 
-if.then19.i:                                      ; preds = %if.end15.i
-  %poly.i = getelementptr inbounds nuw i8, ptr %aead, i64 72
-  %call.i = call i32 @wc_Poly1305Update(ptr noundef nonnull %poly.i, ptr noundef nonnull %inAAD, i32 noundef %inAADLen) #4
-  %cmp20.i = icmp eq i32 %call.i, 0
-  br i1 %cmp20.i, label %if.then22.i, label %return
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %36 = call i32 @wc_Poly1305Update(ptr noundef nonnull %35, ptr noundef nonnull %2, i32 noundef %3) #5
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %.thread37
 
-if.then22.i:                                      ; preds = %if.then19.i
-  %2 = load i32, ptr %aadLen.i, align 8
-  %add.i = add i32 %2, %inAADLen
-  store i32 %add.i, ptr %aadLen.i, align 8
-  store i8 2, ptr %state.i, align 8
-  br label %if.end15
+38:                                               ; preds = %34
+  %39 = load i32, ptr %28, align 8, !tbaa !11
+  %40 = add i32 %39, %3
+  store i32 %40, ptr %28, align 8, !tbaa !11
+  store i8 2, ptr %25, align 16, !tbaa !3
+  br label %41
 
-if.end15:                                         ; preds = %if.then22.i, %if.end15.i
-  %call14 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %aead, ptr noundef %inCiphertext, ptr noundef nonnull %outPlaintext, i32 noundef %inCiphertextLen)
-  %cmp16 = icmp eq i32 %call14, 0
-  br i1 %cmp16, label %if.end20, label %return
+41:                                               ; preds = %38, %32
+  %42 = call i32 @wc_ChaCha20Poly1305_UpdateData(ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull %7, i32 noundef %5)
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %.thread37
 
-if.end20:                                         ; preds = %if.end15
-  %call19 = call i32 @wc_ChaCha20Poly1305_Final(ptr noundef nonnull %aead, ptr noundef nonnull %calculatedAuthTag)
-  %cmp21 = icmp eq i32 %call19, 0
-  br i1 %cmp21, label %for.body.i.i, label %return
+44:                                               ; preds = %41
+  %45 = call i32 @wc_ChaCha20Poly1305_Final(ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %.preheader.i, label %.thread37
 
-for.body.i.i:                                     ; preds = %if.end20, %for.body.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end20 ]
-  %compareSum.07.i.i = phi i32 [ %or.i.i, %for.body.i.i ], [ 0, %if.end20 ]
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %inAuthTag, i64 %indvars.iv.i.i
-  %3 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %calculatedAuthTag, i64 %indvars.iv.i.i
-  %4 = load i8, ptr %arrayidx2.i.i, align 1
-  %xor5.i.i = xor i8 %4, %3
-  %xor.i.i = zext i8 %xor5.i.i to i32
-  %or.i.i = or i32 %compareSum.07.i.i, %xor.i.i
+.preheader.i:                                     ; preds = %44, %.preheader.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 0, %44 ]
+  %.010.i.i = phi i32 [ %53, %.preheader.i ], [ 0, %44 ]
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
+  %48 = load i8, ptr %47, align 1, !tbaa !13
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i.i
+  %50 = load i8, ptr %49, align 1, !tbaa !13
+  %51 = xor i8 %50, %48
+  %52 = zext i8 %51 to i32
+  %53 = or i32 %.010.i.i, %52
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %wc_ChaCha20Poly1305_CheckTag.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %wc_ChaCha20Poly1305_CheckTag.exit, label %.preheader.i, !llvm.loop !19
 
-wc_ChaCha20Poly1305_CheckTag.exit:                ; preds = %for.body.i.i
-  %cmp2.not.i = icmp eq i32 %or.i.i, 0
-  %spec.select.i = select i1 %cmp2.not.i, i32 0, i32 -213
-  br label %return
+wc_ChaCha20Poly1305_CheckTag.exit:                ; preds = %.preheader.i
+  %.not.i = icmp eq i32 %53, 0
+  %spec.select.i = select i1 %.not.i, i32 0, i32 -213
+  br label %.thread37
 
-return:                                           ; preds = %if.end, %if.then9, %if.end.i, %if.end11.i, %if.then19.i, %if.end15, %if.end20, %wc_ChaCha20Poly1305_CheckTag.exit, %entry, %lor.lhs.false2
-  %retval.0 = phi i32 [ -173, %lor.lhs.false2 ], [ -173, %entry ], [ %spec.select.i, %wc_ChaCha20Poly1305_CheckTag.exit ], [ %call19, %if.end20 ], [ %call14, %if.end15 ], [ %call.i, %if.then19.i ], [ -274, %if.end11.i ], [ -192, %if.end.i ], [ -173, %if.then9 ], [ %call, %if.end ]
-  ret i32 %retval.0
+.thread37:                                        ; preds = %18, %21, %24, %27, %34, %41, %44, %wc_ChaCha20Poly1305_CheckTag.exit, %8, %13
+  %.026 = phi i32 [ -173, %13 ], [ -173, %8 ], [ %spec.select.i, %wc_ChaCha20Poly1305_CheckTag.exit ], [ %45, %44 ], [ %42, %41 ], [ %36, %34 ], [ -274, %27 ], [ -192, %24 ], [ -173, %21 ], [ %19, %18 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %9) #5
+  ret i32 %.026
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly captures(address_is_null) %authTag, ptr noundef readonly captures(address_is_null) %authTagChk) local_unnamed_addr #2 {
-entry:
-  %cmp = icmp eq ptr %authTag, null
-  %cmp1 = icmp eq ptr %authTagChk, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %for.body.i
+define range(i32 -213, 1) i32 @wc_ChaCha20Poly1305_CheckTag(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %12, label %.preheader
 
-for.body.i:                                       ; preds = %entry, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
-  %compareSum.07.i = phi i32 [ %or.i, %for.body.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %authTag, i64 %indvars.iv.i
-  %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %authTagChk, i64 %indvars.iv.i
-  %1 = load i8, ptr %arrayidx2.i, align 1
-  %xor5.i = xor i8 %1, %0
-  %xor.i = zext i8 %xor5.i to i32
-  %or.i = or i32 %compareSum.07.i, %xor.i
+.preheader:                                       ; preds = %2, %.preheader
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %2 ]
+  %.010.i = phi i32 [ %11, %.preheader ], [ 0, %2 ]
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
+  %6 = load i8, ptr %5, align 1, !tbaa !13
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
+  %8 = load i8, ptr %7, align 1, !tbaa !13
+  %9 = xor i8 %8, %6
+  %10 = zext i8 %9 to i32
+  %11 = or i32 %.010.i, %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %ConstantCompare.exit, label %.preheader, !llvm.loop !19
 
-ConstantCompare.exit:                             ; preds = %for.body.i
-  %cmp2.not = icmp eq i32 %or.i, 0
-  %spec.select = select i1 %cmp2.not, i32 0, i32 -213
-  br label %return
+ConstantCompare.exit:                             ; preds = %.preheader
+  %.not = icmp eq i32 %11, 0
+  %spec.select = select i1 %.not, i32 0, i32 -213
+  br label %12
 
-return:                                           ; preds = %entry, %ConstantCompare.exit
-  %retval.0 = phi i32 [ %spec.select, %ConstantCompare.exit ], [ -173, %entry ]
-  ret i32 %retval.0
+12:                                               ; preds = %2, %ConstantCompare.exit
+  %.06 = phi i32 [ %spec.select, %ConstantCompare.exit ], [ -173, %2 ]
+  ret i32 %.06
 }
 
-declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Chacha_SetIV(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Chacha_SetIV(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Chacha_Process(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Chacha_Process(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Poly1305SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Poly1305SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Poly1305Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Poly1305Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Poly1305_Pad(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Poly1305_Pad(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Poly1305_EncodeSizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Poly1305_EncodeSizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Poly1305Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wc_Poly1305Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !6, i64 176}
+!4 = !{!"ChaChaPoly_Aead", !5, i64 0, !9, i64 72, !8, i64 168, !8, i64 172, !6, i64 176, !6, i64 177}
+!5 = !{!"ChaCha", !6, i64 0, !8, i64 64}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"int", !6, i64 0}
+!9 = !{!"Poly1305", !6, i64 0, !6, i64 24, !6, i64 48, !10, i64 64, !6, i64 72, !6, i64 88}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!4, !8, i64 168}
+!12 = !{!4, !8, i64 172}
+!13 = !{!6, !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!10, !10, i64 0}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}

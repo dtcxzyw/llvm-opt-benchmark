@@ -1,14 +1,14 @@
 ; ModuleID = 'bench/wolfssl/original/server.ll'
 source_filename = "bench/wolfssl/original/server.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.mygetopt_long_config = type { ptr, i32, i32 }
-%struct.group_info = type { i16, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.fd_set = type { [16 x i64] }
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
+%struct.group_info = type { i16, ptr }
 
 @runWithErrors = dso_local local_unnamed_addr global i32 0, align 4
 @catastrophic = dso_local local_unnamed_addr global i32 0, align 4
@@ -20,217 +20,218 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [25 x i8] c"SSL_write echo error %d\0A\00", align 1
 @.str.4 = private unnamed_addr constant [17 x i8] c"SSL_write failed\00", align 1
 @.str.5 = private unnamed_addr constant [98 x i8] c"wolfSSL Server Benchmark %zu bytes\0A\09RX      %8.3f ms (%8.3f MBps)\0A\09TX      %8.3f ms (%8.3f MBps)\0A\00", align 1
-@server_test.long_options = internal unnamed_addr constant [6 x %struct.mygetopt_long_config] [%struct.mygetopt_long_config { ptr @.str.6, i32 0, i32 257 }, %struct.mygetopt_long_config { ptr @.str.7, i32 0, i32 258 }, %struct.mygetopt_long_config { ptr @.str.8, i32 2, i32 262 }, %struct.mygetopt_long_config { ptr @.str.9, i32 2, i32 264 }, %struct.mygetopt_long_config { ptr @.str.10, i32 0, i32 266 }, %struct.mygetopt_long_config zeroinitializer], align 16
-@.str.6 = private unnamed_addr constant [5 x i8] c"help\00", align 1
-@.str.7 = private unnamed_addr constant [10 x i8] c"\E3\83\98\E3\83\AB\E3\83\97\00", align 1
-@.str.8 = private unnamed_addr constant [12 x i8] c"force-curve\00", align 1
-@.str.9 = private unnamed_addr constant [13 x i8] c"onlyPskDheKe\00", align 1
-@.str.10 = private unnamed_addr constant [8 x i8] c"quieter\00", align 1
-@.str.11 = private unnamed_addr constant [19 x i8] c"./certs/dh2048.pem\00", align 1
-@.str.12 = private unnamed_addr constant [24 x i8] c"./certs/client-cert.pem\00", align 1
-@.str.13 = private unnamed_addr constant [24 x i8] c"./certs/server-cert.pem\00", align 1
-@.str.14 = private unnamed_addr constant [23 x i8] c"./certs/server-key.pem\00", align 1
+@.str.6 = private unnamed_addr constant [36 x i8] c"Invalid rx_time: %f or tx_time: %f\0A\00", align 1
+@server_test.long_options = internal unnamed_addr constant [6 x %struct.mygetopt_long_config] [%struct.mygetopt_long_config { ptr @.str.7, i32 0, i32 257 }, %struct.mygetopt_long_config { ptr @.str.8, i32 0, i32 258 }, %struct.mygetopt_long_config { ptr @.str.9, i32 2, i32 262 }, %struct.mygetopt_long_config { ptr @.str.10, i32 2, i32 264 }, %struct.mygetopt_long_config { ptr @.str.11, i32 0, i32 266 }, %struct.mygetopt_long_config zeroinitializer], align 16
+@.str.7 = private unnamed_addr constant [5 x i8] c"help\00", align 1
+@.str.8 = private unnamed_addr constant [10 x i8] c"\E3\83\98\E3\83\AB\E3\83\97\00", align 1
+@.str.9 = private unnamed_addr constant [12 x i8] c"force-curve\00", align 1
+@.str.10 = private unnamed_addr constant [13 x i8] c"onlyPskDheKe\00", align 1
+@.str.11 = private unnamed_addr constant [8 x i8] c"quieter\00", align 1
+@.str.12 = private unnamed_addr constant [19 x i8] c"./certs/dh2048.pem\00", align 1
+@.str.13 = private unnamed_addr constant [24 x i8] c"./certs/client-cert.pem\00", align 1
+@.str.14 = private unnamed_addr constant [24 x i8] c"./certs/server-cert.pem\00", align 1
+@.str.15 = private unnamed_addr constant [23 x i8] c"./certs/server-key.pem\00", align 1
 @myVerifyAction = internal thread_local unnamed_addr global i32 0, align 4
-@.str.15 = private unnamed_addr constant [86 x i8] c"?:abc:defgijk:l:mop:q:rstu;v:wxyA:B:C:D:E:FGH:IJ;KL:MNO:PQR:S:T;UVYZ:01:23:4:567:89@#\00", align 1
+@.str.16 = private unnamed_addr constant [86 x i8] c"?:abc:defgijk:l:mop:q:rstu;v:wxyA:B:C:D:E:FGH:IJ;KL:MNO:PQR:S:T;UVYZ:01:23:4:567:89@#\00", align 1
 @myoptarg = external local_unnamed_addr global ptr, align 8
 @lng_index = internal unnamed_addr global i32 0, align 4
-@.str.16 = private unnamed_addr constant [14 x i8] c"defCipherList\00", align 1
-@.str.18 = private unnamed_addr constant [12 x i8] c"exitWithRet\00", align 1
-@.str.20 = private unnamed_addr constant [11 x i8] c"verifyFail\00", align 1
-@.str.22 = private unnamed_addr constant [11 x i8] c"verifyInfo\00", align 1
-@.str.24 = private unnamed_addr constant [8 x i8] c"loadSSL\00", align 1
-@.str.26 = private unnamed_addr constant [12 x i8] c"loadSSLOnly\00", align 1
-@.str.28 = private unnamed_addr constant [12 x i8] c"disallowETM\00", align 1
-@.str.30 = private unnamed_addr constant [16 x i8] c"overrideDateErr\00", align 1
-@.str.31 = private unnamed_addr constant [39 x i8] c"compiled without BUILD_INTROSPECTION.\0A\00", align 1
-@group_id_to_text = internal unnamed_addr constant [15 x %struct.group_info] [%struct.group_info { i16 15, ptr @.str.159 }, %struct.group_info { i16 16, ptr @.str.160 }, %struct.group_info { i16 17, ptr @.str.161 }, %struct.group_info { i16 18, ptr @.str.162 }, %struct.group_info { i16 19, ptr @.str.163 }, %struct.group_info { i16 20, ptr @.str.164 }, %struct.group_info { i16 21, ptr @.str.165 }, %struct.group_info { i16 22, ptr @.str.166 }, %struct.group_info { i16 23, ptr @.str.167 }, %struct.group_info { i16 24, ptr @.str.168 }, %struct.group_info { i16 25, ptr @.str.169 }, %struct.group_info { i16 26, ptr @.str.170 }, %struct.group_info { i16 27, ptr @.str.171 }, %struct.group_info { i16 28, ptr @.str.172 }, %struct.group_info zeroinitializer], align 16
-@.str.33 = private unnamed_addr constant [5 x i8] c"\09%s\0A\00", align 1
-@.str.35 = private unnamed_addr constant [20 x i8] c"Invalid curve '%s'\0A\00", align 1
+@.str.17 = private unnamed_addr constant [14 x i8] c"defCipherList\00", align 1
+@.str.19 = private unnamed_addr constant [12 x i8] c"exitWithRet\00", align 1
+@.str.21 = private unnamed_addr constant [11 x i8] c"verifyFail\00", align 1
+@.str.23 = private unnamed_addr constant [11 x i8] c"verifyInfo\00", align 1
+@.str.25 = private unnamed_addr constant [8 x i8] c"loadSSL\00", align 1
+@.str.27 = private unnamed_addr constant [12 x i8] c"loadSSLOnly\00", align 1
+@.str.29 = private unnamed_addr constant [12 x i8] c"disallowETM\00", align 1
+@.str.31 = private unnamed_addr constant [16 x i8] c"overrideDateErr\00", align 1
+@.str.32 = private unnamed_addr constant [39 x i8] c"compiled without BUILD_INTROSPECTION.\0A\00", align 1
+@.str.34 = private unnamed_addr constant [5 x i8] c"\09%s\0A\00", align 1
+@.str.36 = private unnamed_addr constant [20 x i8] c"Invalid curve '%s'\0A\00", align 1
 @myoptind = external local_unnamed_addr global i32, align 4
-@.str.37 = private unnamed_addr constant [17 x i8] c"Bad DTLS version\00", align 1
-@.str.38 = private unnamed_addr constant [52 x i8] c"Can't do TLS 1.3 resumption; need session tickets!\0A\00", align 1
-@.str.39 = private unnamed_addr constant [22 x i8] c"version not supported\00", align 1
-@.str.40 = private unnamed_addr constant [16 x i8] c"Bad SSL version\00", align 1
-@.str.41 = private unnamed_addr constant [21 x i8] c"unable to get method\00", align 1
-@.str.42 = private unnamed_addr constant [18 x i8] c"unable to get ctx\00", align 1
-@.str.43 = private unnamed_addr constant [36 x i8] c"can't set minimum downgrade version\00", align 1
-@.str.44 = private unnamed_addr constant [36 x i8] c"server can't set custom cipher list\00", align 1
-@.str.45 = private unnamed_addr constant [70 x i8] c"can't load server cert file, check file and run from wolfSSL home dir\00", align 1
-@.str.46 = private unnamed_addr constant [34 x i8] c"Error setting minimum DH key size\00", align 1
-@.str.47 = private unnamed_addr constant [35 x i8] c"Error setting minimum RSA key size\00", align 1
-@.str.48 = private unnamed_addr constant [35 x i8] c"Error setting minimum ECC key size\00", align 1
-@.str.49 = private unnamed_addr constant [77 x i8] c"can't load server private key file, check file and run from wolfSSL home dir\00", align 1
-@.str.50 = private unnamed_addr constant [25 x i8] c"Error setting ECDHE size\00", align 1
-@.str.51 = private unnamed_addr constant [53 x i8] c"can't load ca file, Please run from wolfSSL home dir\00", align 1
-@.str.52 = private unnamed_addr constant [14 x i8] c"UseSNI failed\00", align 1
-@.str.53 = private unnamed_addr constant [18 x i8] c"tcp accept failed\00", align 1
-@.str.54 = private unnamed_addr constant [31 x i8] c"unable to create an SSL object\00", align 1
-@.str.55 = private unnamed_addr constant [76 x i8] c"can't load server private key file, checkfile and run from wolfSSL home dir\00", align 1
-@.str.56 = private unnamed_addr constant [42 x i8] c"Failed wolfSSL_UseKeyShare in force-curve\00", align 1
-@.str.57 = private unnamed_addr constant [41 x i8] c"Failed wolfSSL_set_groups in force-curve\00", align 1
-@.str.58 = private unnamed_addr constant [20 x i8] c"error in setting fd\00", align 1
-@.str.59 = private unnamed_addr constant [25 x i8] c"SSL_accept error %d, %s\0A\00", align 1
-@.str.60 = private unnamed_addr constant [18 x i8] c"SSL_accept failed\00", align 1
-@.str.61 = private unnamed_addr constant [19 x i8] c"SSL in error state\00", align 1
-@.str.63 = private unnamed_addr constant [44 x i8] c"error looking up name of established cipher\00", align 1
-@.str.64 = private unnamed_addr constant [72 x i8] c"Unexpected mismatch between names of requested and established ciphers.\00", align 1
-@.str.65 = private unnamed_addr constant [59 x i8] c"Mismatch between IDs of requested and established ciphers.\00", align 1
+@.str.38 = private unnamed_addr constant [17 x i8] c"Bad DTLS version\00", align 1
+@.str.39 = private unnamed_addr constant [52 x i8] c"Can't do TLS 1.3 resumption; need session tickets!\0A\00", align 1
+@.str.40 = private unnamed_addr constant [22 x i8] c"version not supported\00", align 1
+@.str.41 = private unnamed_addr constant [16 x i8] c"Bad SSL version\00", align 1
+@.str.42 = private unnamed_addr constant [21 x i8] c"unable to get method\00", align 1
+@.str.43 = private unnamed_addr constant [18 x i8] c"unable to get ctx\00", align 1
+@.str.44 = private unnamed_addr constant [36 x i8] c"can't set minimum downgrade version\00", align 1
+@.str.45 = private unnamed_addr constant [36 x i8] c"server can't set custom cipher list\00", align 1
+@.str.46 = private unnamed_addr constant [70 x i8] c"can't load server cert file, check file and run from wolfSSL home dir\00", align 1
+@.str.47 = private unnamed_addr constant [34 x i8] c"Error setting minimum DH key size\00", align 1
+@.str.48 = private unnamed_addr constant [35 x i8] c"Error setting minimum RSA key size\00", align 1
+@.str.49 = private unnamed_addr constant [35 x i8] c"Error setting minimum ECC key size\00", align 1
+@.str.50 = private unnamed_addr constant [77 x i8] c"can't load server private key file, check file and run from wolfSSL home dir\00", align 1
+@.str.51 = private unnamed_addr constant [25 x i8] c"Error setting ECDHE size\00", align 1
+@.str.52 = private unnamed_addr constant [53 x i8] c"can't load ca file, Please run from wolfSSL home dir\00", align 1
+@.str.53 = private unnamed_addr constant [14 x i8] c"UseSNI failed\00", align 1
+@.str.54 = private unnamed_addr constant [18 x i8] c"tcp accept failed\00", align 1
+@.str.55 = private unnamed_addr constant [31 x i8] c"unable to create an SSL object\00", align 1
+@.str.56 = private unnamed_addr constant [76 x i8] c"can't load server private key file, checkfile and run from wolfSSL home dir\00", align 1
+@.str.57 = private unnamed_addr constant [42 x i8] c"Failed wolfSSL_UseKeyShare in force-curve\00", align 1
+@.str.58 = private unnamed_addr constant [41 x i8] c"Failed wolfSSL_set_groups in force-curve\00", align 1
+@.str.59 = private unnamed_addr constant [20 x i8] c"error in setting fd\00", align 1
+@.str.60 = private unnamed_addr constant [25 x i8] c"SSL_accept error %d, %s\0A\00", align 1
+@.str.61 = private unnamed_addr constant [18 x i8] c"SSL_accept failed\00", align 1
+@.str.62 = private unnamed_addr constant [19 x i8] c"SSL in error state\00", align 1
+@.str.64 = private unnamed_addr constant [44 x i8] c"error looking up name of established cipher\00", align 1
+@.str.65 = private unnamed_addr constant [72 x i8] c"Unexpected mismatch between names of requested and established ciphers.\00", align 1
+@.str.66 = private unnamed_addr constant [59 x i8] c"Mismatch between IDs of requested and established ciphers.\00", align 1
 @kReplyMsg = internal constant [23 x i8] c"I hear you fa shizzle!\00", align 16
 @kHttpServerMsg = internal constant [226 x i8] c"HTTP/1.1 200 OK\0D\0AContent-Type: text/html\0D\0AConnection: close\0D\0AContent-Length: 141\0D\0A\0D\0A<html>\0D\0A<head>\0D\0A<title>Welcome to wolfSSL!</title>\0D\0A</head>\0D\0A<body>\0D\0A<p>wolfSSL has successfully performed handshake!</p>\0D\0A</body>\0D\0A</html>\0D\0A\00", align 16
-@.str.67 = private unnamed_addr constant [31 x i8] c"Bidirectional shutdown failed\0A\00", align 1
-@.str.68 = private unnamed_addr constant [19 x i8] c"wolfSSL error: %s\0A\00", align 1
-@.str.69 = private unnamed_addr constant [33 x i8] c"Continuing server execution...\0A\0A\00", align 1
-@.str.70 = private unnamed_addr constant [13 x i8] c"gettimeofday\00", align 1
-@.str.71 = private unnamed_addr constant [23 x i8] c"wolfSSL error: %s: %s\0A\00", align 1
+@.str.68 = private unnamed_addr constant [31 x i8] c"Bidirectional shutdown failed\0A\00", align 1
+@.str.69 = private unnamed_addr constant [19 x i8] c"wolfSSL error: %s\0A\00", align 1
+@.str.70 = private unnamed_addr constant [33 x i8] c"Continuing server execution...\0A\0A\00", align 1
+@.str.71 = private unnamed_addr constant [13 x i8] c"gettimeofday\00", align 1
+@.str.72 = private unnamed_addr constant [23 x i8] c"wolfSSL error: %s: %s\0A\00", align 1
 @mygetopt_long.next = internal unnamed_addr global ptr null, align 8
-@.str.73 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.74 = private unnamed_addr constant [7 x i8] c"%s%s%s\00", align 1
-@.str.75 = private unnamed_addr constant [8 x i8] c"server \00", align 1
-@.str.76 = private unnamed_addr constant [6 x i8] c"5.6.6\00", align 1
-@.str.77 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.78 = private unnamed_addr constant [7 x i8] c"%s %d\0A\00", align 1
-@.str.79 = private unnamed_addr constant [7 x i8] c"%s %s\0A\00", align 1
-@.str.81 = private unnamed_addr constant [47 x i8] c" NOTE: All files relative to wolfSSL home dir\0A\00", align 1
-@.str.82 = private unnamed_addr constant [101 x i8] c"-? <num>    Help, print this usage\0A            0: English, 1: Japanese\0A--help      Help, in English\0A\00", align 1
-@.str.83 = private unnamed_addr constant [46 x i8] c"-p <num>    Port to listen on, not 0, default\00", align 1
-@.str.84 = private unnamed_addr constant [62 x i8] c"-v <num>    SSL version [0-4], SSLv3(0) - TLS1.3(4)), default\00", align 1
-@.str.85 = private unnamed_addr constant [45 x i8] c"-l <str>    Cipher suite list (: delimited)\0A\00", align 1
-@.str.86 = private unnamed_addr constant [48 x i8] c"-c <file>   Certificate file,           default\00", align 1
-@.str.87 = private unnamed_addr constant [48 x i8] c"-k <file>   Key file,                   default\00", align 1
-@.str.88 = private unnamed_addr constant [48 x i8] c"-A <file>   Certificate Authority file, default\00", align 1
-@.str.89 = private unnamed_addr constant [65 x i8] c"-R <file>   Create Ready file for external monitor default none\0A\00", align 1
-@.str.90 = private unnamed_addr constant [48 x i8] c"-D <file>   Diffie-Hellman Params file, default\00", align 1
-@.str.91 = private unnamed_addr constant [48 x i8] c"-Z <num>    Minimum DH key bits,        default\00", align 1
-@.str.92 = private unnamed_addr constant [39 x i8] c"-d          Disable client cert check\0A\00", align 1
-@.str.93 = private unnamed_addr constant [61 x i8] c"-b          Bind to any interface instead of localhost only\0A\00", align 1
-@.str.94 = private unnamed_addr constant [33 x i8] c"-s          Use pre Shared keys\0A\00", align 1
-@.str.95 = private unnamed_addr constant [76 x i8] c"-u          Use UDP DTLS, add -v 2 for DTLSv1, -v 3 for DTLSv1.2 (default)\0A\00", align 1
-@.str.96 = private unnamed_addr constant [42 x i8] c"-f          Fewer packets/group messages\0A\00", align 1
-@.str.97 = private unnamed_addr constant [41 x i8] c"-r          Allow one client Resumption\0A\00", align 1
-@.str.98 = private unnamed_addr constant [38 x i8] c"-N          Use Non-blocking sockets\0A\00", align 1
-@.str.99 = private unnamed_addr constant [38 x i8] c"-S <str>    Use Host Name Indication\0A\00", align 1
-@.str.100 = private unnamed_addr constant [45 x i8] c"-w          Wait for bidirectional shutdown\0A\00", align 1
-@.str.101 = private unnamed_addr constant [61 x i8] c"-x          Print server errors but do not close connection\0A\00", align 1
-@.str.102 = private unnamed_addr constant [60 x i8] c"-i          Loop indefinitely (allow repeated connections)\0A\00", align 1
-@.str.103 = private unnamed_addr constant [56 x i8] c"-e          Echo data mode (return raw bytes received)\0A\00", align 1
-@.str.104 = private unnamed_addr constant [68 x i8] c"-B <num>    Benchmark throughput using <num> bytes and print stats\0A\00", align 1
-@.str.105 = private unnamed_addr constant [40 x i8] c"-g          Return basic HTML web page\0A\00", align 1
-@.str.106 = private unnamed_addr constant [61 x i8] c"-C <num>    The number of connections to accept, default: 1\0A\00", align 1
-@.str.107 = private unnamed_addr constant [82 x i8] c"-H <arg>    Internal tests [defCipherList, exitWithRet, verifyFail, useSupCurve,\0A\00", align 1
-@.str.108 = private unnamed_addr constant [51 x i8] c"                            loadSSL, disallowETM]\0A\00", align 1
-@.str.109 = private unnamed_addr constant [48 x i8] c"-U          Update keys and IVs before sending\0A\00", align 1
-@.str.110 = private unnamed_addr constant [52 x i8] c"-K          Key Exchange for PSK not using (EC)DHE\0A\00", align 1
-@.str.111 = private unnamed_addr constant [58 x i8] c"-y          Pre-generate Key Share using FFDHE_2048 only\0A\00", align 1
-@.str.112 = private unnamed_addr constant [54 x i8] c"-Y          Pre-generate Key Share using P-256 only \0A\00", align 1
-@.str.113 = private unnamed_addr constant [52 x i8] c"-F          Send alert if no mutual authentication\0A\00", align 1
-@.str.114 = private unnamed_addr constant [89 x i8] c"-1 <num>    Display a result by specified language.\0A            0: English, 1: Japanese\0A\00", align 1
-@.str.115 = private unnamed_addr constant [63 x i8] c"-6          Simulate WANT_WRITE errors on every other IO send\0A\00", align 1
-@.str.116 = private unnamed_addr constant [80 x i8] c"-7          Set minimum downgrade protocol version [0-4]  SSLv3(0) - TLS1.3(4)\0A\00", align 1
-@.str.117 = private unnamed_addr constant [175 x i8] c"--force-curve [<curve>] Pre-generate a Key Share using <curve>.\0A                        Leave <curve> blank to list all curves.\0A                        Note: requires TLS1.3\0A\00", align 1
-@.str.118 = private unnamed_addr constant [51 x i8] c"--onlyPskDheKe Must use DHE key exchange with PSK\0A\00", align 1
-@.str.119 = private unnamed_addr constant [109 x i8] c"\0AFor simpler wolfSSL TLS server examples, visit\0Ahttps://github.com/wolfSSL/wolfssl-examples/tree/master/tls\0A\00", align 1
-@.str.120 = private unnamed_addr constant [99 x i8] c" \E6\B3\A8\E6\84\8F : \E5\85\A8\E3\81\A6\E3\81\AE\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB\E3\81\AF wolfSSL \E3\83\9B\E3\83\BC\E3\83\A0\E3\83\BB\E3\83\87\E3\82\A3\E3\83\AC\E3\82\AF\E3\83\88\E3\83\AA\E3\81\8B\E3\82\89\E3\81\AE\E7\9B\B8\E5\AF\BE\E3\81\A7\E3\81\99\E3\80\82\0A\00", align 1
-@.str.121 = private unnamed_addr constant [127 x i8] c"-? <num>    \E3\83\98\E3\83\AB\E3\83\97, \E4\BD\BF\E3\81\84\E6\96\B9\E3\82\92\E8\A1\A8\E7\A4\BA\0A            0: \E8\8B\B1\E8\AA\9E\E3\80\81 1: \E6\97\A5\E6\9C\AC\E8\AA\9E\0A--\E3\83\98\E3\83\AB\E3\83\97    \E6\97\A5\E6\9C\AC\E8\AA\9E\E3\81\A7\E4\BD\BF\E3\81\84\E6\96\B9\E3\82\92\E8\A1\A8\E7\A4\BA\0A\00", align 1
-@.str.122 = private unnamed_addr constant [54 x i8] c"-p <num>    \E6\8E\A5\E7\B6\9A\E5\85\88\E3\83\9D\E3\83\BC\E3\83\88, 0\E3\81\AF\E7\84\A1\E5\8A\B9, \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
-@.str.123 = private unnamed_addr constant [72 x i8] c"-v <num>    SSL \E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3 [0-4], SSLv3(0) - TLS1.3(4)), \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
-@.str.124 = private unnamed_addr constant [61 x i8] c"-l <str>    \E6\9A\97\E5\8F\B7\E3\82\B9\E3\82\A4\E3\83\BC\E3\83\88\E3\83\AA\E3\82\B9\E3\83\88 (\E5\8C\BA\E5\88\87\E3\82\8A\E6\96\87\E5\AD\97 :)\0A\00", align 1
-@.str.125 = private unnamed_addr constant [46 x i8] c"-c <file>   \E8\A8\BC\E6\98\8E\E6\9B\B8\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB,  \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
-@.str.126 = private unnamed_addr constant [44 x i8] c"-k <file>   \E9\8D\B5\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB,      \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
-@.str.127 = private unnamed_addr constant [46 x i8] c"-A <file>   \E8\AA\8D\E8\A8\BC\E5\B1\80\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB,  \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
-@.str.128 = private unnamed_addr constant [94 x i8] c"-R <file>   \E5\A4\96\E9\83\A8\E3\83\A2\E3\83\8B\E3\82\BF\E7\94\A8\E3\81\AE\E6\BA\96\E5\82\99\E5\AE\8C\E4\BA\86\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB\E3\82\92\E4\BD\9C\E6\88\90\E3\81\99\E3\82\8B\E3\80\82\E6\97\A2\E5\AE\9A\E5\80\A4  \E3\81\AA\E3\81\97\0A\00", align 1
-@.str.129 = private unnamed_addr constant [84 x i8] c"-D <file>   \E3\83\87\E3\82\A3\E3\83\95\E3\82\A3\E3\83\BC\E3\83\BB\E3\83\98\E3\83\AB\E3\83\9E\E3\83\B3\E3\81\AE\E3\83\91\E3\83\A9\E3\83\A1\E3\83\BC\E3\82\BF\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB, \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
-@.str.130 = private unnamed_addr constant [47 x i8] c"-Z <num>    \E6\9C\80\E5\B0\8F DH \E9\8D\B5 \E3\83\93\E3\83\83\E3\83\88, \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
-@.str.131 = private unnamed_addr constant [56 x i8] c"-d          \E3\82\AF\E3\83\A9\E3\82\A4\E3\82\A2\E3\83\B3\E3\83\88\E8\AA\8D\E8\A8\BC\E3\82\92\E7\84\A1\E5\8A\B9\E3\81\A8\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.132 = private unnamed_addr constant [92 x i8] c"-b          \E3\83\AD\E3\83\BC\E3\82\AB\E3\83\AB\E3\83\9B\E3\82\B9\E3\83\88\E4\BB\A5\E5\A4\96\E3\81\AE\E3\82\A4\E3\83\B3\E3\82\BF\E3\83\BC\E3\83\95\E3\82\A7\E3\83\BC\E3\82\B9\E3\81\B8\E3\82\82\E3\83\90\E3\82\A4\E3\83\B3\E3\83\89\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.133 = private unnamed_addr constant [44 x i8] c"-s          \E4\BA\8B\E5\89\8D\E5\85\B1\E6\9C\89\E9\8D\B5\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.134 = private unnamed_addr constant [139 x i8] c"-u          UDP DTLS\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\E3\80\82\0A           -v 2 \E3\82\92\E8\BF\BD\E5\8A\A0\E6\8C\87\E5\AE\9A\E3\81\99\E3\82\8B\E3\81\A8DTLSv1, -v 3 \E3\82\92\E8\BF\BD\E5\8A\A0\E6\8C\87\E5\AE\9A\E3\81\99\E3\82\8B\E3\81\A8 DTLSv1.2 (\E6\97\A2\E5\AE\9A\E5\80\A4)\0A\00", align 1
-@.str.135 = private unnamed_addr constant [84 x i8] c"-f          \E3\82\88\E3\82\8A\E5\B0\91\E3\81\AA\E3\81\84\E3\83\91\E3\82\B1\E3\83\83\E3\83\88/\E3\82\B0\E3\83\AB\E3\83\BC\E3\83\97\E3\83\A1\E3\83\83\E3\82\BB\E3\83\BC\E3\82\B8\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.136 = private unnamed_addr constant [56 x i8] c"-r          \E3\82\AF\E3\83\A9\E3\82\A4\E3\82\A2\E3\83\B3\E3\83\88\E3\81\AE\E5\86\8D\E9\96\8B\E3\82\92\E8\A8\B1\E5\8F\AF\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.137 = private unnamed_addr constant [68 x i8] c"-N          \E3\83\8E\E3\83\B3\E3\83\96\E3\83\AD\E3\83\83\E3\82\AD\E3\83\B3\E3\82\B0\E3\83\BB\E3\82\BD\E3\82\B1\E3\83\83\E3\83\88\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.138 = private unnamed_addr constant [47 x i8] c"-S <str>    \E3\83\9B\E3\82\B9\E3\83\88\E5\90\8D\E8\A1\A8\E7\A4\BA\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.139 = private unnamed_addr constant [53 x i8] c"-w          \E5\8F\8C\E6\96\B9\E5\90\91\E3\82\B7\E3\83\A3\E3\83\83\E3\83\88\E3\83\80\E3\82\A6\E3\83\B3\E3\82\92\E5\BE\85\E3\81\A4\0A\00", align 1
-@.str.140 = private unnamed_addr constant [77 x i8] c"-x          \E3\82\B5\E3\83\BC\E3\83\90\E3\83\BC\E3\82\A8\E3\83\A9\E3\83\BC\E3\82\92\E5\87\BA\E5\8A\9B\E3\81\99\E3\82\8B\E3\81\8C\E6\8E\A5\E7\B6\9A\E3\82\92\E5\88\87\E6\96\AD\E3\81\97\E3\81\AA\E3\81\84\0A\00", align 1
-@.str.141 = private unnamed_addr constant [70 x i8] c"-i          \E7\84\A1\E6\9C\9F\E9\99\90\E3\81\AB\E3\83\AB\E3\83\BC\E3\83\97\E3\81\99\E3\82\8B(\E7\B9\B0\E3\82\8A\E8\BF\94\E3\81\97\E6\8E\A5\E7\B6\9A\E3\82\92\E8\A8\B1\E5\8F\AF)\0A\00", align 1
-@.str.142 = private unnamed_addr constant [88 x i8] c"-e          \E3\82\A8\E3\82\B3\E3\83\BC\E3\83\BB\E3\83\87\E3\83\BC\E3\82\BF\E3\83\A2\E3\83\BC\E3\83\89(\E5\8F\97\E3\81\91\E5\8F\96\E3\81\A3\E3\81\9F\E3\83\90\E3\82\A4\E3\83\88\E3\83\87\E3\83\BC\E3\82\BF\E3\82\92\E8\BF\94\E3\81\99)\0A\00", align 1
-@.str.143 = private unnamed_addr constant [113 x i8] c"-B <num>    <num> \E3\83\90\E3\82\A4\E3\83\88\E3\82\92\E7\94\A8\E3\81\84\E3\81\A6\E3\81\AE\E3\83\99\E3\83\B3\E3\83\81\E3\83\9E\E3\83\BC\E3\82\AF\E3\83\BB\E3\82\B9\E3\83\AB\E3\83\BC\E3\83\97\E3\83\83\E3\83\88\E6\B8\AC\E5\AE\9A\E3\81\A8\E7\B5\90\E6\9E\9C\E3\82\92\E5\87\BA\E5\8A\9B\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.144 = private unnamed_addr constant [49 x i8] c"-g          \E5\9F\BA\E6\9C\AC\E7\9A\84\E3\81\AA Web \E3\83\9A\E3\83\BC\E3\82\B8\E3\82\92\E8\BF\94\E3\81\99\0A\00", align 1
-@.str.145 = private unnamed_addr constant [77 x i8] c"-C <num>    \E3\82\A2\E3\82\AF\E3\82\BB\E3\83\97\E3\83\88\E5\8F\AF\E8\83\BD\E3\81\AA\E6\8E\A5\E7\B6\9A\E6\95\B0\E3\82\92\E6\8C\87\E5\AE\9A\E3\81\99\E3\82\8B\E3\80\82\E6\97\A2\E5\AE\9A\E5\80\A4: 1\0A\00", align 1
-@.str.146 = private unnamed_addr constant [83 x i8] c"-H <arg>    \E5\86\85\E9\83\A8\E3\83\86\E3\82\B9\E3\83\88 [defCipherList, exitWithRet, verifyFail, useSupCurve,\0A\00", align 1
-@.str.147 = private unnamed_addr constant [61 x i8] c"-U          \E3\83\87\E3\83\BC\E3\82\BF\E9\80\81\E4\BF\A1\E5\89\8D\E3\81\AB\E3\80\81\E9\8D\B5\E3\81\A8IV\E3\82\92\E6\9B\B4\E6\96\B0\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.148 = private unnamed_addr constant [66 x i8] c"-K          \E9\8D\B5\E4\BA\A4\E6\8F\9B\E3\81\ABPSK\E3\82\92\E4\BD\BF\E7\94\A8\E3\80\81(EC)DHE\E3\81\AF\E4\BD\BF\E7\94\A8\E3\81\97\E3\81\AA\E3\81\84\0A\00", align 1
-@.str.149 = private unnamed_addr constant [75 x i8] c"-y          FFDHE_2048\E3\81\AE\E3\81\BF\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\97\E3\81\A6\E9\8D\B5\E5\85\B1\E6\9C\89\E3\82\92\E4\BA\8B\E5\89\8D\E7\94\9F\E6\88\90\E3\81\99\E3\82\8B\0A\00", align 1
-@.str.150 = private unnamed_addr constant [67 x i8] c"-Y          P-256\E3\81\AE\E3\81\BF\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\97\E3\81\9F\E3\82\AD\E3\83\BC\E5\85\B1\E6\9C\89\E3\81\AE\E4\BA\8B\E5\89\8D\E7\94\9F\E6\88\90\0A\00", align 1
-@.str.151 = private unnamed_addr constant [59 x i8] c"-T [aon]    \E3\82\BB\E3\83\83\E3\82\B7\E3\83\A7\E3\83\B3\E3\83\81\E3\82\B1\E3\83\83\E3\83\88\E3\82\92\E7\94\9F\E6\88\90\E3\81\97\E3\81\AA\E3\81\84\0A\00", align 1
-@.str.152 = private unnamed_addr constant [335 x i8] c"            \E3\82\AA\E3\83\97\E3\82\B7\E3\83\A7\E3\83\B3\E6\8C\87\E5\AE\9A\E3\81\AA\E3\81\97\E3\81\AE\E5\A0\B4\E5\90\88\E3\80\81TLS 1.3 \E3\81\AB\E3\81\A0\E3\81\91\E6\9C\89\E5\8A\B9\0A           'a' \E3\82\92\E6\8C\87\E5\AE\9A\E3\81\97\E3\81\9F\E5\A0\B4\E5\90\88\E3\80\81\E5\85\A8\E3\81\A6\E3\81\AE\E3\83\97\E3\83\AD\E3\83\88\E3\82\B3\E3\83\AB\E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3\E3\81\AB\E6\9C\89\E5\8A\B9\0A           'o' \E3\82\92\E6\8C\87\E5\AE\9A\E3\81\97\E3\81\9F\E5\A0\B4\E5\90\88\E3\80\81TLS 1.2 \E5\8F\8A\E3\81\B3\E3\81\9D\E3\82\8C\E4\BB\A5\E4\B8\8B\E3\81\AE\E3\83\97\E3\83\AD\E3\83\88\E3\82\B3\E3\83\AB\E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3\E3\81\AB\E6\9C\89\E5\8A\B9\0A           'n' \E3\82\92\E6\8C\87\E5\AE\9A\E3\81\97\E3\81\9F\E5\A0\B4\E5\90\88\E3\80\81TLS 1.3 \E3\81\AB\E3\81\AE\E3\81\BF\E6\9C\89\E5\8A\B9\0A\00", align 1
-@.str.153 = private unnamed_addr constant [59 x i8] c"-F          \E7\9B\B8\E4\BA\92\E8\AA\8D\E8\A8\BC\E3\81\8C\E7\84\A1\E3\81\84\E5\A0\B4\E5\90\88\E3\81\ABalert \E3\82\92\E9\80\81\E4\BF\A1\0A\00", align 1
-@.str.154 = private unnamed_addr constant [103 x i8] c"-1 <num>    \E6\8C\87\E5\AE\9A\E3\81\95\E3\82\8C\E3\81\9F\E8\A8\80\E8\AA\9E\E3\81\A7\E7\B5\90\E6\9E\9C\E3\82\92\E8\A1\A8\E7\A4\BA\E3\81\97\E3\81\BE\E3\81\99\E3\80\82\0A            0: \E8\8B\B1\E8\AA\9E\E3\80\81 1: \E6\97\A5\E6\9C\AC\E8\AA\9E\0A\00", align 1
-@.str.155 = private unnamed_addr constant [78 x i8] c"-6          \E4\BA\A4\E4\BA\92\E3\81\AE IO \E9\80\81\E4\BF\A1\E3\81\A7 WANT_WRITE \E3\82\A8\E3\83\A9\E3\83\BC\E3\82\92\E3\82\B7\E3\83\A5\E3\83\9F\E3\83\AC\E3\83\BC\E3\83\88\0A\00", align 1
-@.str.156 = private unnamed_addr constant [126 x i8] c"-7          \E6\9C\80\E5\B0\8F\E3\83\80\E3\82\A6\E3\83\B3\E3\82\B0\E3\83\AC\E3\83\BC\E3\83\89\E5\8F\AF\E8\83\BD\E3\81\AA\E3\83\97\E3\83\AD\E3\83\88\E3\82\B3\E3\83\AB\E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3\E3\82\92\E8\A8\AD\E5\AE\9A\E3\81\97\E3\81\BE\E3\81\99 [0-4]  SSLv3(0) - TLS1.3(4)\0A\00", align 1
-@.str.157 = private unnamed_addr constant [168 x i8] c"\0A\E3\82\88\E3\82\8A\E7\B0\A1\E5\8D\98\E3\81\AAwolfSSL TSL \E3\82\AF\E3\83\A9\E3\82\A4\E3\82\A2\E3\83\B3\E3\83\88\E3\81\AE\E4\BE\8B\E3\81\AB\E3\81\A4\E3\81\84\E3\81\A6\E3\81\AF\E4\B8\8B\E8\A8\98\E3\81\AB\E3\82\A2\E3\82\AF\E3\82\BB\E3\82\B9\E3\81\97\E3\81\A6\E3\81\8F\E3\81\A0\E3\81\95\E3\81\84\0Ahttps://github.com/wolfSSL/wolfssl-examples/tree/master/tls\0A\00", align 1
-@server_usage_msg = internal unnamed_addr constant <{ <{ [39 x ptr], [26 x ptr] }>, <{ [41 x ptr], [24 x ptr] }> }> <{ <{ [39 x ptr], [26 x ptr] }> <{ [39 x ptr] [ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119], [26 x ptr] zeroinitializer }>, <{ [41 x ptr], [24 x ptr] }> <{ [41 x ptr] [ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143, ptr @.str.144, ptr @.str.145, ptr @.str.146, ptr @.str.108, ptr @.str.147, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.117, ptr @.str.118, ptr @.str.157], [24 x ptr] zeroinitializer }> }>, align 16
-@.str.159 = private unnamed_addr constant [10 x i8] c"SECP160K1\00", align 1
-@.str.160 = private unnamed_addr constant [10 x i8] c"SECP160R1\00", align 1
-@.str.161 = private unnamed_addr constant [10 x i8] c"SECP160R2\00", align 1
-@.str.162 = private unnamed_addr constant [10 x i8] c"SECP192K1\00", align 1
-@.str.163 = private unnamed_addr constant [10 x i8] c"SECP192R1\00", align 1
-@.str.164 = private unnamed_addr constant [10 x i8] c"SECP224K1\00", align 1
-@.str.165 = private unnamed_addr constant [10 x i8] c"SECP224R1\00", align 1
-@.str.166 = private unnamed_addr constant [10 x i8] c"SECP256K1\00", align 1
-@.str.167 = private unnamed_addr constant [10 x i8] c"SECP256R1\00", align 1
-@.str.168 = private unnamed_addr constant [10 x i8] c"SECP384R1\00", align 1
-@.str.169 = private unnamed_addr constant [10 x i8] c"SECP521R1\00", align 1
-@.str.170 = private unnamed_addr constant [16 x i8] c"BRAINPOOLP256R1\00", align 1
-@.str.171 = private unnamed_addr constant [16 x i8] c"BRAINPOOLP384R1\00", align 1
-@.str.172 = private unnamed_addr constant [16 x i8] c"BRAINPOOLP512R1\00", align 1
+@.str.74 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.75 = private unnamed_addr constant [7 x i8] c"%s%s%s\00", align 1
+@.str.76 = private unnamed_addr constant [8 x i8] c"server \00", align 1
+@.str.77 = private unnamed_addr constant [6 x i8] c"5.7.6\00", align 1
+@.str.78 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.79 = private unnamed_addr constant [7 x i8] c"%s %d\0A\00", align 1
+@.str.80 = private unnamed_addr constant [7 x i8] c"%s %s\0A\00", align 1
+@.str.82 = private unnamed_addr constant [47 x i8] c" NOTE: All files relative to wolfSSL home dir\0A\00", align 1
+@.str.83 = private unnamed_addr constant [101 x i8] c"-? <num>    Help, print this usage\0A            0: English, 1: Japanese\0A--help      Help, in English\0A\00", align 1
+@.str.84 = private unnamed_addr constant [46 x i8] c"-p <num>    Port to listen on, not 0, default\00", align 1
+@.str.85 = private unnamed_addr constant [62 x i8] c"-v <num>    SSL version [0-4], SSLv3(0) - TLS1.3(4)), default\00", align 1
+@.str.86 = private unnamed_addr constant [45 x i8] c"-l <str>    Cipher suite list (: delimited)\0A\00", align 1
+@.str.87 = private unnamed_addr constant [48 x i8] c"-c <file>   Certificate file,           default\00", align 1
+@.str.88 = private unnamed_addr constant [48 x i8] c"-k <file>   Key file,                   default\00", align 1
+@.str.89 = private unnamed_addr constant [48 x i8] c"-A <file>   Certificate Authority file, default\00", align 1
+@.str.90 = private unnamed_addr constant [65 x i8] c"-R <file>   Create Ready file for external monitor default none\0A\00", align 1
+@.str.91 = private unnamed_addr constant [48 x i8] c"-D <file>   Diffie-Hellman Params file, default\00", align 1
+@.str.92 = private unnamed_addr constant [48 x i8] c"-Z <num>    Minimum DH key bits,        default\00", align 1
+@.str.93 = private unnamed_addr constant [39 x i8] c"-d          Disable client cert check\0A\00", align 1
+@.str.94 = private unnamed_addr constant [61 x i8] c"-b          Bind to any interface instead of localhost only\0A\00", align 1
+@.str.95 = private unnamed_addr constant [33 x i8] c"-s          Use pre Shared keys\0A\00", align 1
+@.str.96 = private unnamed_addr constant [76 x i8] c"-u          Use UDP DTLS, add -v 2 for DTLSv1, -v 3 for DTLSv1.2 (default)\0A\00", align 1
+@.str.97 = private unnamed_addr constant [42 x i8] c"-f          Fewer packets/group messages\0A\00", align 1
+@.str.98 = private unnamed_addr constant [41 x i8] c"-r          Allow one client Resumption\0A\00", align 1
+@.str.99 = private unnamed_addr constant [38 x i8] c"-N          Use Non-blocking sockets\0A\00", align 1
+@.str.100 = private unnamed_addr constant [38 x i8] c"-S <str>    Use Host Name Indication\0A\00", align 1
+@.str.101 = private unnamed_addr constant [45 x i8] c"-w          Wait for bidirectional shutdown\0A\00", align 1
+@.str.102 = private unnamed_addr constant [61 x i8] c"-x          Print server errors but do not close connection\0A\00", align 1
+@.str.103 = private unnamed_addr constant [60 x i8] c"-i          Loop indefinitely (allow repeated connections)\0A\00", align 1
+@.str.104 = private unnamed_addr constant [56 x i8] c"-e          Echo data mode (return raw bytes received)\0A\00", align 1
+@.str.105 = private unnamed_addr constant [68 x i8] c"-B <num>    Benchmark throughput using <num> bytes and print stats\0A\00", align 1
+@.str.106 = private unnamed_addr constant [40 x i8] c"-g          Return basic HTML web page\0A\00", align 1
+@.str.107 = private unnamed_addr constant [61 x i8] c"-C <num>    The number of connections to accept, default: 1\0A\00", align 1
+@.str.108 = private unnamed_addr constant [82 x i8] c"-H <arg>    Internal tests [defCipherList, exitWithRet, verifyFail, useSupCurve,\0A\00", align 1
+@.str.109 = private unnamed_addr constant [51 x i8] c"                            loadSSL, disallowETM]\0A\00", align 1
+@.str.110 = private unnamed_addr constant [48 x i8] c"-U          Update keys and IVs before sending\0A\00", align 1
+@.str.111 = private unnamed_addr constant [52 x i8] c"-K          Key Exchange for PSK not using (EC)DHE\0A\00", align 1
+@.str.112 = private unnamed_addr constant [58 x i8] c"-y          Pre-generate Key Share using FFDHE_2048 only\0A\00", align 1
+@.str.113 = private unnamed_addr constant [54 x i8] c"-Y          Pre-generate Key Share using P-256 only \0A\00", align 1
+@.str.114 = private unnamed_addr constant [52 x i8] c"-F          Send alert if no mutual authentication\0A\00", align 1
+@.str.115 = private unnamed_addr constant [89 x i8] c"-1 <num>    Display a result by specified language.\0A            0: English, 1: Japanese\0A\00", align 1
+@.str.116 = private unnamed_addr constant [63 x i8] c"-6          Simulate WANT_WRITE errors on every other IO send\0A\00", align 1
+@.str.117 = private unnamed_addr constant [80 x i8] c"-7          Set minimum downgrade protocol version [0-4]  SSLv3(0) - TLS1.3(4)\0A\00", align 1
+@.str.118 = private unnamed_addr constant [175 x i8] c"--force-curve [<curve>] Pre-generate a Key Share using <curve>.\0A                        Leave <curve> blank to list all curves.\0A                        Note: requires TLS1.3\0A\00", align 1
+@.str.119 = private unnamed_addr constant [51 x i8] c"--onlyPskDheKe Must use DHE key exchange with PSK\0A\00", align 1
+@.str.120 = private unnamed_addr constant [109 x i8] c"\0AFor simpler wolfSSL TLS server examples, visit\0Ahttps://github.com/wolfSSL/wolfssl-examples/tree/master/tls\0A\00", align 1
+@.str.121 = private unnamed_addr constant [99 x i8] c" \E6\B3\A8\E6\84\8F : \E5\85\A8\E3\81\A6\E3\81\AE\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB\E3\81\AF wolfSSL \E3\83\9B\E3\83\BC\E3\83\A0\E3\83\BB\E3\83\87\E3\82\A3\E3\83\AC\E3\82\AF\E3\83\88\E3\83\AA\E3\81\8B\E3\82\89\E3\81\AE\E7\9B\B8\E5\AF\BE\E3\81\A7\E3\81\99\E3\80\82\0A\00", align 1
+@.str.122 = private unnamed_addr constant [127 x i8] c"-? <num>    \E3\83\98\E3\83\AB\E3\83\97, \E4\BD\BF\E3\81\84\E6\96\B9\E3\82\92\E8\A1\A8\E7\A4\BA\0A            0: \E8\8B\B1\E8\AA\9E\E3\80\81 1: \E6\97\A5\E6\9C\AC\E8\AA\9E\0A--\E3\83\98\E3\83\AB\E3\83\97    \E6\97\A5\E6\9C\AC\E8\AA\9E\E3\81\A7\E4\BD\BF\E3\81\84\E6\96\B9\E3\82\92\E8\A1\A8\E7\A4\BA\0A\00", align 1
+@.str.123 = private unnamed_addr constant [54 x i8] c"-p <num>    \E6\8E\A5\E7\B6\9A\E5\85\88\E3\83\9D\E3\83\BC\E3\83\88, 0\E3\81\AF\E7\84\A1\E5\8A\B9, \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
+@.str.124 = private unnamed_addr constant [72 x i8] c"-v <num>    SSL \E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3 [0-4], SSLv3(0) - TLS1.3(4)), \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
+@.str.125 = private unnamed_addr constant [61 x i8] c"-l <str>    \E6\9A\97\E5\8F\B7\E3\82\B9\E3\82\A4\E3\83\BC\E3\83\88\E3\83\AA\E3\82\B9\E3\83\88 (\E5\8C\BA\E5\88\87\E3\82\8A\E6\96\87\E5\AD\97 :)\0A\00", align 1
+@.str.126 = private unnamed_addr constant [46 x i8] c"-c <file>   \E8\A8\BC\E6\98\8E\E6\9B\B8\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB,  \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
+@.str.127 = private unnamed_addr constant [44 x i8] c"-k <file>   \E9\8D\B5\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB,      \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
+@.str.128 = private unnamed_addr constant [46 x i8] c"-A <file>   \E8\AA\8D\E8\A8\BC\E5\B1\80\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB,  \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
+@.str.129 = private unnamed_addr constant [94 x i8] c"-R <file>   \E5\A4\96\E9\83\A8\E3\83\A2\E3\83\8B\E3\82\BF\E7\94\A8\E3\81\AE\E6\BA\96\E5\82\99\E5\AE\8C\E4\BA\86\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB\E3\82\92\E4\BD\9C\E6\88\90\E3\81\99\E3\82\8B\E3\80\82\E6\97\A2\E5\AE\9A\E5\80\A4  \E3\81\AA\E3\81\97\0A\00", align 1
+@.str.130 = private unnamed_addr constant [84 x i8] c"-D <file>   \E3\83\87\E3\82\A3\E3\83\95\E3\82\A3\E3\83\BC\E3\83\BB\E3\83\98\E3\83\AB\E3\83\9E\E3\83\B3\E3\81\AE\E3\83\91\E3\83\A9\E3\83\A1\E3\83\BC\E3\82\BF\E3\83\95\E3\82\A1\E3\82\A4\E3\83\AB, \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
+@.str.131 = private unnamed_addr constant [47 x i8] c"-Z <num>    \E6\9C\80\E5\B0\8F DH \E9\8D\B5 \E3\83\93\E3\83\83\E3\83\88, \E6\97\A2\E5\AE\9A\E5\80\A4\00", align 1
+@.str.132 = private unnamed_addr constant [56 x i8] c"-d          \E3\82\AF\E3\83\A9\E3\82\A4\E3\82\A2\E3\83\B3\E3\83\88\E8\AA\8D\E8\A8\BC\E3\82\92\E7\84\A1\E5\8A\B9\E3\81\A8\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.133 = private unnamed_addr constant [92 x i8] c"-b          \E3\83\AD\E3\83\BC\E3\82\AB\E3\83\AB\E3\83\9B\E3\82\B9\E3\83\88\E4\BB\A5\E5\A4\96\E3\81\AE\E3\82\A4\E3\83\B3\E3\82\BF\E3\83\BC\E3\83\95\E3\82\A7\E3\83\BC\E3\82\B9\E3\81\B8\E3\82\82\E3\83\90\E3\82\A4\E3\83\B3\E3\83\89\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.134 = private unnamed_addr constant [44 x i8] c"-s          \E4\BA\8B\E5\89\8D\E5\85\B1\E6\9C\89\E9\8D\B5\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.135 = private unnamed_addr constant [139 x i8] c"-u          UDP DTLS\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\E3\80\82\0A           -v 2 \E3\82\92\E8\BF\BD\E5\8A\A0\E6\8C\87\E5\AE\9A\E3\81\99\E3\82\8B\E3\81\A8DTLSv1, -v 3 \E3\82\92\E8\BF\BD\E5\8A\A0\E6\8C\87\E5\AE\9A\E3\81\99\E3\82\8B\E3\81\A8 DTLSv1.2 (\E6\97\A2\E5\AE\9A\E5\80\A4)\0A\00", align 1
+@.str.136 = private unnamed_addr constant [84 x i8] c"-f          \E3\82\88\E3\82\8A\E5\B0\91\E3\81\AA\E3\81\84\E3\83\91\E3\82\B1\E3\83\83\E3\83\88/\E3\82\B0\E3\83\AB\E3\83\BC\E3\83\97\E3\83\A1\E3\83\83\E3\82\BB\E3\83\BC\E3\82\B8\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.137 = private unnamed_addr constant [56 x i8] c"-r          \E3\82\AF\E3\83\A9\E3\82\A4\E3\82\A2\E3\83\B3\E3\83\88\E3\81\AE\E5\86\8D\E9\96\8B\E3\82\92\E8\A8\B1\E5\8F\AF\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.138 = private unnamed_addr constant [68 x i8] c"-N          \E3\83\8E\E3\83\B3\E3\83\96\E3\83\AD\E3\83\83\E3\82\AD\E3\83\B3\E3\82\B0\E3\83\BB\E3\82\BD\E3\82\B1\E3\83\83\E3\83\88\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.139 = private unnamed_addr constant [47 x i8] c"-S <str>    \E3\83\9B\E3\82\B9\E3\83\88\E5\90\8D\E8\A1\A8\E7\A4\BA\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.140 = private unnamed_addr constant [53 x i8] c"-w          \E5\8F\8C\E6\96\B9\E5\90\91\E3\82\B7\E3\83\A3\E3\83\83\E3\83\88\E3\83\80\E3\82\A6\E3\83\B3\E3\82\92\E5\BE\85\E3\81\A4\0A\00", align 1
+@.str.141 = private unnamed_addr constant [77 x i8] c"-x          \E3\82\B5\E3\83\BC\E3\83\90\E3\83\BC\E3\82\A8\E3\83\A9\E3\83\BC\E3\82\92\E5\87\BA\E5\8A\9B\E3\81\99\E3\82\8B\E3\81\8C\E6\8E\A5\E7\B6\9A\E3\82\92\E5\88\87\E6\96\AD\E3\81\97\E3\81\AA\E3\81\84\0A\00", align 1
+@.str.142 = private unnamed_addr constant [70 x i8] c"-i          \E7\84\A1\E6\9C\9F\E9\99\90\E3\81\AB\E3\83\AB\E3\83\BC\E3\83\97\E3\81\99\E3\82\8B(\E7\B9\B0\E3\82\8A\E8\BF\94\E3\81\97\E6\8E\A5\E7\B6\9A\E3\82\92\E8\A8\B1\E5\8F\AF)\0A\00", align 1
+@.str.143 = private unnamed_addr constant [88 x i8] c"-e          \E3\82\A8\E3\82\B3\E3\83\BC\E3\83\BB\E3\83\87\E3\83\BC\E3\82\BF\E3\83\A2\E3\83\BC\E3\83\89(\E5\8F\97\E3\81\91\E5\8F\96\E3\81\A3\E3\81\9F\E3\83\90\E3\82\A4\E3\83\88\E3\83\87\E3\83\BC\E3\82\BF\E3\82\92\E8\BF\94\E3\81\99)\0A\00", align 1
+@.str.144 = private unnamed_addr constant [113 x i8] c"-B <num>    <num> \E3\83\90\E3\82\A4\E3\83\88\E3\82\92\E7\94\A8\E3\81\84\E3\81\A6\E3\81\AE\E3\83\99\E3\83\B3\E3\83\81\E3\83\9E\E3\83\BC\E3\82\AF\E3\83\BB\E3\82\B9\E3\83\AB\E3\83\BC\E3\83\97\E3\83\83\E3\83\88\E6\B8\AC\E5\AE\9A\E3\81\A8\E7\B5\90\E6\9E\9C\E3\82\92\E5\87\BA\E5\8A\9B\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.145 = private unnamed_addr constant [49 x i8] c"-g          \E5\9F\BA\E6\9C\AC\E7\9A\84\E3\81\AA Web \E3\83\9A\E3\83\BC\E3\82\B8\E3\82\92\E8\BF\94\E3\81\99\0A\00", align 1
+@.str.146 = private unnamed_addr constant [77 x i8] c"-C <num>    \E3\82\A2\E3\82\AF\E3\82\BB\E3\83\97\E3\83\88\E5\8F\AF\E8\83\BD\E3\81\AA\E6\8E\A5\E7\B6\9A\E6\95\B0\E3\82\92\E6\8C\87\E5\AE\9A\E3\81\99\E3\82\8B\E3\80\82\E6\97\A2\E5\AE\9A\E5\80\A4: 1\0A\00", align 1
+@.str.147 = private unnamed_addr constant [83 x i8] c"-H <arg>    \E5\86\85\E9\83\A8\E3\83\86\E3\82\B9\E3\83\88 [defCipherList, exitWithRet, verifyFail, useSupCurve,\0A\00", align 1
+@.str.148 = private unnamed_addr constant [61 x i8] c"-U          \E3\83\87\E3\83\BC\E3\82\BF\E9\80\81\E4\BF\A1\E5\89\8D\E3\81\AB\E3\80\81\E9\8D\B5\E3\81\A8IV\E3\82\92\E6\9B\B4\E6\96\B0\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.149 = private unnamed_addr constant [66 x i8] c"-K          \E9\8D\B5\E4\BA\A4\E6\8F\9B\E3\81\ABPSK\E3\82\92\E4\BD\BF\E7\94\A8\E3\80\81(EC)DHE\E3\81\AF\E4\BD\BF\E7\94\A8\E3\81\97\E3\81\AA\E3\81\84\0A\00", align 1
+@.str.150 = private unnamed_addr constant [75 x i8] c"-y          FFDHE_2048\E3\81\AE\E3\81\BF\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\97\E3\81\A6\E9\8D\B5\E5\85\B1\E6\9C\89\E3\82\92\E4\BA\8B\E5\89\8D\E7\94\9F\E6\88\90\E3\81\99\E3\82\8B\0A\00", align 1
+@.str.151 = private unnamed_addr constant [67 x i8] c"-Y          P-256\E3\81\AE\E3\81\BF\E3\82\92\E4\BD\BF\E7\94\A8\E3\81\97\E3\81\9F\E3\82\AD\E3\83\BC\E5\85\B1\E6\9C\89\E3\81\AE\E4\BA\8B\E5\89\8D\E7\94\9F\E6\88\90\0A\00", align 1
+@.str.152 = private unnamed_addr constant [59 x i8] c"-T [aon]    \E3\82\BB\E3\83\83\E3\82\B7\E3\83\A7\E3\83\B3\E3\83\81\E3\82\B1\E3\83\83\E3\83\88\E3\82\92\E7\94\9F\E6\88\90\E3\81\97\E3\81\AA\E3\81\84\0A\00", align 1
+@.str.153 = private unnamed_addr constant [335 x i8] c"            \E3\82\AA\E3\83\97\E3\82\B7\E3\83\A7\E3\83\B3\E6\8C\87\E5\AE\9A\E3\81\AA\E3\81\97\E3\81\AE\E5\A0\B4\E5\90\88\E3\80\81TLS 1.3 \E3\81\AB\E3\81\A0\E3\81\91\E6\9C\89\E5\8A\B9\0A           'a' \E3\82\92\E6\8C\87\E5\AE\9A\E3\81\97\E3\81\9F\E5\A0\B4\E5\90\88\E3\80\81\E5\85\A8\E3\81\A6\E3\81\AE\E3\83\97\E3\83\AD\E3\83\88\E3\82\B3\E3\83\AB\E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3\E3\81\AB\E6\9C\89\E5\8A\B9\0A           'o' \E3\82\92\E6\8C\87\E5\AE\9A\E3\81\97\E3\81\9F\E5\A0\B4\E5\90\88\E3\80\81TLS 1.2 \E5\8F\8A\E3\81\B3\E3\81\9D\E3\82\8C\E4\BB\A5\E4\B8\8B\E3\81\AE\E3\83\97\E3\83\AD\E3\83\88\E3\82\B3\E3\83\AB\E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3\E3\81\AB\E6\9C\89\E5\8A\B9\0A           'n' \E3\82\92\E6\8C\87\E5\AE\9A\E3\81\97\E3\81\9F\E5\A0\B4\E5\90\88\E3\80\81TLS 1.3 \E3\81\AB\E3\81\AE\E3\81\BF\E6\9C\89\E5\8A\B9\0A\00", align 1
+@.str.154 = private unnamed_addr constant [59 x i8] c"-F          \E7\9B\B8\E4\BA\92\E8\AA\8D\E8\A8\BC\E3\81\8C\E7\84\A1\E3\81\84\E5\A0\B4\E5\90\88\E3\81\ABalert \E3\82\92\E9\80\81\E4\BF\A1\0A\00", align 1
+@.str.155 = private unnamed_addr constant [103 x i8] c"-1 <num>    \E6\8C\87\E5\AE\9A\E3\81\95\E3\82\8C\E3\81\9F\E8\A8\80\E8\AA\9E\E3\81\A7\E7\B5\90\E6\9E\9C\E3\82\92\E8\A1\A8\E7\A4\BA\E3\81\97\E3\81\BE\E3\81\99\E3\80\82\0A            0: \E8\8B\B1\E8\AA\9E\E3\80\81 1: \E6\97\A5\E6\9C\AC\E8\AA\9E\0A\00", align 1
+@.str.156 = private unnamed_addr constant [78 x i8] c"-6          \E4\BA\A4\E4\BA\92\E3\81\AE IO \E9\80\81\E4\BF\A1\E3\81\A7 WANT_WRITE \E3\82\A8\E3\83\A9\E3\83\BC\E3\82\92\E3\82\B7\E3\83\A5\E3\83\9F\E3\83\AC\E3\83\BC\E3\83\88\0A\00", align 1
+@.str.157 = private unnamed_addr constant [126 x i8] c"-7          \E6\9C\80\E5\B0\8F\E3\83\80\E3\82\A6\E3\83\B3\E3\82\B0\E3\83\AC\E3\83\BC\E3\83\89\E5\8F\AF\E8\83\BD\E3\81\AA\E3\83\97\E3\83\AD\E3\83\88\E3\82\B3\E3\83\AB\E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3\E3\82\92\E8\A8\AD\E5\AE\9A\E3\81\97\E3\81\BE\E3\81\99 [0-4]  SSLv3(0) - TLS1.3(4)\0A\00", align 1
+@.str.158 = private unnamed_addr constant [168 x i8] c"\0A\E3\82\88\E3\82\8A\E7\B0\A1\E5\8D\98\E3\81\AAwolfSSL TSL \E3\82\AF\E3\83\A9\E3\82\A4\E3\82\A2\E3\83\B3\E3\83\88\E3\81\AE\E4\BE\8B\E3\81\AB\E3\81\A4\E3\81\84\E3\81\A6\E3\81\AF\E4\B8\8B\E8\A8\98\E3\81\AB\E3\82\A2\E3\82\AF\E3\82\BB\E3\82\B9\E3\81\97\E3\81\A6\E3\81\8F\E3\81\A0\E3\81\95\E3\81\84\0Ahttps://github.com/wolfSSL/wolfssl-examples/tree/master/tls\0A\00", align 1
+@server_usage_msg = internal unnamed_addr constant <{ <{ [39 x ptr], [27 x ptr] }>, <{ [41 x ptr], [25 x ptr] }> }> <{ <{ [39 x ptr], [27 x ptr] }> <{ [39 x ptr] [ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120], [27 x ptr] zeroinitializer }>, <{ [41 x ptr], [25 x ptr] }> <{ [41 x ptr] [ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143, ptr @.str.144, ptr @.str.145, ptr @.str.146, ptr @.str.147, ptr @.str.109, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.118, ptr @.str.119, ptr @.str.158], [25 x ptr] zeroinitializer }> }>, align 16
+@.str.160 = private unnamed_addr constant [10 x i8] c"SECP160K1\00", align 1
+@.str.161 = private unnamed_addr constant [10 x i8] c"SECP160R1\00", align 1
+@.str.162 = private unnamed_addr constant [10 x i8] c"SECP160R2\00", align 1
+@.str.163 = private unnamed_addr constant [10 x i8] c"SECP192K1\00", align 1
+@.str.164 = private unnamed_addr constant [10 x i8] c"SECP192R1\00", align 1
+@.str.165 = private unnamed_addr constant [10 x i8] c"SECP224K1\00", align 1
+@.str.166 = private unnamed_addr constant [10 x i8] c"SECP224R1\00", align 1
+@.str.167 = private unnamed_addr constant [10 x i8] c"SECP256K1\00", align 1
+@.str.168 = private unnamed_addr constant [10 x i8] c"SECP256R1\00", align 1
+@.str.169 = private unnamed_addr constant [10 x i8] c"SECP384R1\00", align 1
+@.str.170 = private unnamed_addr constant [10 x i8] c"SECP521R1\00", align 1
+@.str.171 = private unnamed_addr constant [16 x i8] c"BRAINPOOLP256R1\00", align 1
+@.str.172 = private unnamed_addr constant [16 x i8] c"BRAINPOOLP384R1\00", align 1
+@.str.173 = private unnamed_addr constant [16 x i8] c"BRAINPOOLP512R1\00", align 1
+@group_id_to_text = internal unnamed_addr constant [15 x { i16, [6 x i8], ptr }] [{ i16, [6 x i8], ptr } { i16 15, [6 x i8] zeroinitializer, ptr @.str.160 }, { i16, [6 x i8], ptr } { i16 16, [6 x i8] zeroinitializer, ptr @.str.161 }, { i16, [6 x i8], ptr } { i16 17, [6 x i8] zeroinitializer, ptr @.str.162 }, { i16, [6 x i8], ptr } { i16 18, [6 x i8] zeroinitializer, ptr @.str.163 }, { i16, [6 x i8], ptr } { i16 19, [6 x i8] zeroinitializer, ptr @.str.164 }, { i16, [6 x i8], ptr } { i16 20, [6 x i8] zeroinitializer, ptr @.str.165 }, { i16, [6 x i8], ptr } { i16 21, [6 x i8] zeroinitializer, ptr @.str.166 }, { i16, [6 x i8], ptr } { i16 22, [6 x i8] zeroinitializer, ptr @.str.167 }, { i16, [6 x i8], ptr } { i16 23, [6 x i8] zeroinitializer, ptr @.str.168 }, { i16, [6 x i8], ptr } { i16 24, [6 x i8] zeroinitializer, ptr @.str.169 }, { i16, [6 x i8], ptr } { i16 25, [6 x i8] zeroinitializer, ptr @.str.170 }, { i16, [6 x i8], ptr } { i16 26, [6 x i8] zeroinitializer, ptr @.str.171 }, { i16, [6 x i8], ptr } { i16 27, [6 x i8] zeroinitializer, ptr @.str.172 }, { i16, [6 x i8], ptr } { i16 28, [6 x i8] zeroinitializer, ptr @.str.173 }, { i16, [6 x i8], ptr } zeroinitializer], align 16
 @SimulateWantWriteIOSendCb.wantWriteFlag = internal unnamed_addr global i1 false, align 4
-@.str.173 = private unnamed_addr constant [42 x i8] c"In verification callback, error = %d, %s\0A\00", align 1
-@.str.174 = private unnamed_addr constant [17 x i8] c"\09Peer certs: %d\0A\00", align 1
-@.str.175 = private unnamed_addr constant [36 x i8] c"\09Subject's domain name at %d is %s\0A\00", align 1
-@.str.178 = private unnamed_addr constant [10 x i8] c"127.0.0.1\00", align 1
-@.str.179 = private unnamed_addr constant [32 x i8] c"setsockopt SO_REUSEADDR failed\0A\00", align 1
-@.str.180 = private unnamed_addr constant [32 x i8] c"setsockopt SO_REUSEPORT failed\0A\00", align 1
-@.str.181 = private unnamed_addr constant [16 x i8] c"tcp bind failed\00", align 1
-@.str.182 = private unnamed_addr constant [18 x i8] c"tcp listen failed\00", align 1
-@.str.184 = private unnamed_addr constant [18 x i8] c"no entry for host\00", align 1
-@.str.185 = private unnamed_addr constant [15 x i8] c"socket failed\0A\00", align 1
-@.str.186 = private unnamed_addr constant [31 x i8] c"setsockopt TCP_NODELAY failed\0A\00", align 1
-@.str.187 = private unnamed_addr constant [30 x i8] c"unable to use curve secp256r1\00", align 1
-@.str.188 = private unnamed_addr constant [37 x i8] c"unable to use DH 2048-bit parameters\00", align 1
-@.str.190 = private unnamed_addr constant [21 x i8] c"unable to set groups\00", align 1
-@.str.191 = private unnamed_addr constant [26 x i8] c"%s L%d error %d for \22%s\22\0A\00", align 1
-@.str.192 = private unnamed_addr constant [108 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/wolfssl/wolfssl/wolfssl/test.h\00", align 1
-@.str.193 = private unnamed_addr constant [32 x i8] c"wolfSSL_CondStart(&ready->cond)\00", align 1
-@.str.194 = private unnamed_addr constant [19 x i8] c"thread call failed\00", align 1
-@.str.195 = private unnamed_addr constant [33 x i8] c"wolfSSL_CondSignal(&ready->cond)\00", align 1
-@.str.196 = private unnamed_addr constant [30 x i8] c"wolfSSL_CondEnd(&ready->cond)\00", align 1
-@.str.197 = private unnamed_addr constant [2 x i8] c"w\00", align 1
-@.str.198 = private unnamed_addr constant [4 x i8] c"%d\0A\00", align 1
-@.str.199 = private unnamed_addr constant [32 x i8] c"fprintf(srf, \22%d\\n\22, (int)port)\00", align 1
-@.str.200 = private unnamed_addr constant [27 x i8] c"library/system call failed\00", align 1
-@.str.201 = private unnamed_addr constant [55 x i8] c"args or args->signal was NULL. Not setting ready info.\00", align 1
-@.str.202 = private unnamed_addr constant [17 x i8] c"fcntl get failed\00", align 1
-@.str.203 = private unnamed_addr constant [17 x i8] c"fcntl set failed\00", align 1
-@client_showpeer_msg = internal unnamed_addr constant [2 x [9 x ptr]] [[9 x ptr] [ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr null], [9 x ptr] [ptr @.str.214, ptr @.str.215, ptr @.str.208, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr null]], align 16
-@.str.204 = private unnamed_addr constant [12 x i8] c"%s %d bits\0A\00", align 1
-@.str.206 = private unnamed_addr constant [15 x i8] c"SSL version is\00", align 1
-@.str.207 = private unnamed_addr constant [20 x i8] c"SSL cipher suite is\00", align 1
-@.str.208 = private unnamed_addr constant [27 x i8] c"SSL signature algorithm is\00", align 1
-@.str.209 = private unnamed_addr constant [18 x i8] c"SSL curve name is\00", align 1
-@.str.210 = private unnamed_addr constant [15 x i8] c"SSL DH size is\00", align 1
-@.str.211 = private unnamed_addr constant [19 x i8] c"SSL reused session\00", align 1
-@.str.212 = private unnamed_addr constant [26 x i8] c"Alternate cert chain used\00", align 1
-@.str.213 = private unnamed_addr constant [18 x i8] c"peer's cert info:\00", align 1
-@.str.214 = private unnamed_addr constant [23 x i8] c"SSL \E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3\E3\81\AF\00", align 1
-@.str.215 = private unnamed_addr constant [26 x i8] c"SSL \E6\9A\97\E5\8F\B7\E3\82\B9\E3\82\A4\E3\83\BC\E3\83\88\E3\81\AF\00", align 1
-@.str.216 = private unnamed_addr constant [17 x i8] c"SSL \E6\9B\B2\E7\B7\9A\E5\90\8D\E3\81\AF\00", align 1
-@.str.217 = private unnamed_addr constant [20 x i8] c"SSL DH \E3\82\B5\E3\82\A4\E3\82\BA\E3\81\AF\00", align 1
-@.str.218 = private unnamed_addr constant [29 x i8] c"SSL \E5\86\8D\E5\88\A9\E7\94\A8\E3\82\BB\E3\83\83\E3\82\B7\E3\83\A7\E3\83\B3\00", align 1
-@.str.219 = private unnamed_addr constant [34 x i8] c"\E4\BB\A3\E6\9B\BF\E8\A8\BC\E6\98\8E\E3\83\81\E3\82\A7\E3\83\BC\E3\83\B3\E3\82\92\E4\BD\BF\E7\94\A8\00", align 1
-@.str.220 = private unnamed_addr constant [25 x i8] c"\E7\9B\B8\E6\89\8B\E6\96\B9\E8\A8\BC\E6\98\8E\E6\9B\B8\E6\83\85\E5\A0\B1\00", align 1
-@.str.221 = private unnamed_addr constant [29 x i8] c"SSL_read input error %d, %s\0A\00", align 1
-@.str.222 = private unnamed_addr constant [20 x i8] c"wolfSSL_peek failed\00", align 1
-@.str.223 = private unnamed_addr constant [20 x i8] c"Client message: %s\0A\00", align 1
-@.str.224 = private unnamed_addr constant [28 x i8] c"SSL_write msg error %d, %s\0A\00", align 1
+@.str.175 = private unnamed_addr constant [42 x i8] c"In verification callback, error = %d, %s\0A\00", align 1
+@.str.176 = private unnamed_addr constant [17 x i8] c"\09Peer certs: %d\0A\00", align 1
+@.str.177 = private unnamed_addr constant [36 x i8] c"\09Subject's domain name at %d is %s\0A\00", align 1
+@.str.180 = private unnamed_addr constant [10 x i8] c"127.0.0.1\00", align 1
+@.str.181 = private unnamed_addr constant [32 x i8] c"setsockopt SO_REUSEADDR failed\0A\00", align 1
+@.str.182 = private unnamed_addr constant [32 x i8] c"setsockopt SO_REUSEPORT failed\0A\00", align 1
+@.str.183 = private unnamed_addr constant [16 x i8] c"tcp bind failed\00", align 1
+@.str.184 = private unnamed_addr constant [18 x i8] c"tcp listen failed\00", align 1
+@.str.186 = private unnamed_addr constant [18 x i8] c"no entry for host\00", align 1
+@.str.187 = private unnamed_addr constant [15 x i8] c"socket failed\0A\00", align 1
+@.str.188 = private unnamed_addr constant [31 x i8] c"setsockopt TCP_NODELAY failed\0A\00", align 1
+@.str.189 = private unnamed_addr constant [30 x i8] c"unable to use curve secp256r1\00", align 1
+@.str.190 = private unnamed_addr constant [37 x i8] c"unable to use DH 2048-bit parameters\00", align 1
+@.str.192 = private unnamed_addr constant [21 x i8] c"unable to set groups\00", align 1
+@.str.193 = private unnamed_addr constant [26 x i8] c"%s L%d error %d for \22%s\22\0A\00", align 1
+@.str.194 = private unnamed_addr constant [108 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/wolfssl/wolfssl/wolfssl/test.h\00", align 1
+@.str.195 = private unnamed_addr constant [32 x i8] c"wolfSSL_CondStart(&ready->cond)\00", align 1
+@.str.196 = private unnamed_addr constant [19 x i8] c"thread call failed\00", align 1
+@.str.197 = private unnamed_addr constant [33 x i8] c"wolfSSL_CondSignal(&ready->cond)\00", align 1
+@.str.198 = private unnamed_addr constant [30 x i8] c"wolfSSL_CondEnd(&ready->cond)\00", align 1
+@.str.199 = private unnamed_addr constant [2 x i8] c"w\00", align 1
+@.str.200 = private unnamed_addr constant [4 x i8] c"%d\0A\00", align 1
+@.str.201 = private unnamed_addr constant [32 x i8] c"fprintf(srf, \22%d\\n\22, (int)port)\00", align 1
+@.str.202 = private unnamed_addr constant [27 x i8] c"library/system call failed\00", align 1
+@.str.203 = private unnamed_addr constant [55 x i8] c"args or args->signal was NULL. Not setting ready info.\00", align 1
+@.str.204 = private unnamed_addr constant [17 x i8] c"fcntl get failed\00", align 1
+@.str.205 = private unnamed_addr constant [17 x i8] c"fcntl set failed\00", align 1
+@client_showpeer_msg = internal unnamed_addr constant [2 x [9 x ptr]] [[9 x ptr] [ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.215, ptr null], [9 x ptr] [ptr @.str.216, ptr @.str.217, ptr @.str.210, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr null]], align 16
+@.str.206 = private unnamed_addr constant [12 x i8] c"%s %d bits\0A\00", align 1
+@.str.208 = private unnamed_addr constant [15 x i8] c"SSL version is\00", align 1
+@.str.209 = private unnamed_addr constant [20 x i8] c"SSL cipher suite is\00", align 1
+@.str.210 = private unnamed_addr constant [27 x i8] c"SSL signature algorithm is\00", align 1
+@.str.211 = private unnamed_addr constant [18 x i8] c"SSL curve name is\00", align 1
+@.str.212 = private unnamed_addr constant [15 x i8] c"SSL DH size is\00", align 1
+@.str.213 = private unnamed_addr constant [19 x i8] c"SSL reused session\00", align 1
+@.str.214 = private unnamed_addr constant [26 x i8] c"Alternate cert chain used\00", align 1
+@.str.215 = private unnamed_addr constant [18 x i8] c"peer's cert info:\00", align 1
+@.str.216 = private unnamed_addr constant [23 x i8] c"SSL \E3\83\90\E3\83\BC\E3\82\B8\E3\83\A7\E3\83\B3\E3\81\AF\00", align 1
+@.str.217 = private unnamed_addr constant [26 x i8] c"SSL \E6\9A\97\E5\8F\B7\E3\82\B9\E3\82\A4\E3\83\BC\E3\83\88\E3\81\AF\00", align 1
+@.str.218 = private unnamed_addr constant [17 x i8] c"SSL \E6\9B\B2\E7\B7\9A\E5\90\8D\E3\81\AF\00", align 1
+@.str.219 = private unnamed_addr constant [20 x i8] c"SSL DH \E3\82\B5\E3\82\A4\E3\82\BA\E3\81\AF\00", align 1
+@.str.220 = private unnamed_addr constant [29 x i8] c"SSL \E5\86\8D\E5\88\A9\E7\94\A8\E3\82\BB\E3\83\83\E3\82\B7\E3\83\A7\E3\83\B3\00", align 1
+@.str.221 = private unnamed_addr constant [34 x i8] c"\E4\BB\A3\E6\9B\BF\E8\A8\BC\E6\98\8E\E3\83\81\E3\82\A7\E3\83\BC\E3\83\B3\E3\82\92\E4\BD\BF\E7\94\A8\00", align 1
+@.str.222 = private unnamed_addr constant [25 x i8] c"\E7\9B\B8\E6\89\8B\E6\96\B9\E8\A8\BC\E6\98\8E\E6\9B\B8\E6\83\85\E5\A0\B1\00", align 1
+@.str.223 = private unnamed_addr constant [29 x i8] c"SSL_read input error %d, %s\0A\00", align 1
+@.str.224 = private unnamed_addr constant [20 x i8] c"wolfSSL_peek failed\00", align 1
+@.str.225 = private unnamed_addr constant [20 x i8] c"Client message: %s\0A\00", align 1
+@.str.226 = private unnamed_addr constant [28 x i8] c"SSL_write msg error %d, %s\0A\00", align 1
 @str = private unnamed_addr constant [32 x i8] c"Bidirectional shutdown complete\00", align 1
 @str.1 = private unnamed_addr constant [38 x i8] c"\0AAvailable choices for --force-curve:\00", align 1
 @str.2 = private unnamed_addr constant [26 x i8] c"Disallow Encrypt-Then-MAC\00", align 1
@@ -246,388 +247,408 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.13 = private unnamed_addr constant [50 x i8] c"                            loadSSL, disallowETM]\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @ServerEchoData(ptr noundef %ssl, i32 noundef %clientfd, i32 noundef %echoData, i32 noundef %block, i64 noundef %throughput) local_unnamed_addr #0 {
-entry:
-  %tv.i95 = alloca %struct.timeval, align 8
-  %tv.i74 = alloca %struct.timeval, align 8
-  %tv.i64 = alloca %struct.timeval, align 8
-  %tv.i = alloca %struct.timeval, align 8
-  %fds.i.i = alloca %struct.fd_set, align 8
-  %errfds.i.i = alloca %struct.fd_set, align 8
-  %timeout.i.i = alloca %struct.timeval, align 8
-  %conv = sext i32 %block to i64
-  %call = tail call noalias ptr @malloc(i64 noundef %conv) #22
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.then, label %if.end
+define dso_local range(i32 0, 7) i32 @ServerEchoData(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+  %6 = alloca %struct.timeval, align 8
+  %7 = alloca %struct.timeval, align 8
+  %8 = alloca %struct.timeval, align 8
+  %9 = alloca %struct.timeval, align 8
+  %10 = alloca %struct.fd_set, align 8
+  %11 = alloca %struct.fd_set, align 8
+  %12 = alloca %struct.timeval, align 8
+  %13 = sext i32 %3 to i64
+  %14 = tail call ptr @wolfSSL_Malloc(i64 noundef %13) #21
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %15, label %err_sys_ex.exit
 
-if.then:                                          ; preds = %entry
-  %0 = load i32, ptr @runWithErrors, align 4
-  %cmp.i = icmp eq i32 %0, 1
-  br i1 %cmp.i, label %do.body.i, label %if.else.i
+15:                                               ; preds = %5
+  %16 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %25
 
-do.body.i:                                        ; preds = %if.then
+18:                                               ; preds = %15
   %.b2.i = load i1, ptr @quieter, align 4
-  br i1 %.b2.i, label %if.end, label %do.body2.i
+  br i1 %.b2.i, label %err_sys_ex.exit, label %19
 
-do.body2.i:                                       ; preds = %do.body.i
-  %1 = load ptr, ptr @stderr, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str) #23
+19:                                               ; preds = %18
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str) #22
   %.b.pr.i = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i, label %if.end, label %if.then4.i
+  br i1 %.b.pr.i, label %err_sys_ex.exit, label %22
 
-if.then4.i:                                       ; preds = %do.body2.i
-  %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %2) #23
-  br label %if.end
+22:                                               ; preds = %19
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %23) #23
+  br label %err_sys_ex.exit
 
-if.else.i:                                        ; preds = %if.then
+25:                                               ; preds = %15
   tail call fastcc void @err_sys(ptr noundef nonnull @.str) #24
   unreachable
 
-if.end:                                           ; preds = %if.then4.i, %do.body2.i, %do.body.i, %entry
-  %tobool1.not = icmp eq i32 %echoData, 0
-  %cmp = icmp ne i64 %throughput, 0
-  %or.cond52168 = xor i1 %tobool1.not, %cmp
-  br i1 %or.cond52168, label %while.end94, label %while.body.lr.ph
+err_sys_ex.exit:                                  ; preds = %22, %19, %18, %5
+  %.not137 = icmp eq i32 %2, 0
+  %26 = icmp ne i64 %4, 0
+  %or.cond112191 = xor i1 %.not137, %26
+  br i1 %or.cond112191, label %._crit_edge, label %.critedge.lr.ph
 
-while.body.lr.ph:                                 ; preds = %if.end
-  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %timeout.i.i, i64 8
-  %rem.i.i = srem i32 %clientfd, 64
-  %sh_prom.i.i = zext nneg i32 %rem.i.i to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %div.i.i = sdiv i32 %clientfd, 64
-  %idxprom5.i.i = sext i32 %div.i.i to i64
-  %arrayidx6.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
-  %add.i.i = add nsw i32 %clientfd, 1
-  %arrayidx28.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
-  %tv_usec.i = getelementptr inbounds nuw i8, ptr %tv.i, i64 8
-  %tv_usec.i68 = getelementptr inbounds nuw i8, ptr %tv.i64, i64 8
-  %tv_usec.i78 = getelementptr inbounds nuw i8, ptr %tv.i74, i64 8
-  %tv_usec.i99 = getelementptr inbounds nuw i8, ptr %tv.i95, i64 8
-  %cmp20141190 = icmp sgt i32 %block, 0
-  br label %while.body
+.critedge.lr.ph:                                  ; preds = %err_sys_ex.exit
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %28 = srem i32 %1, 64
+  %29 = zext nneg i32 %28 to i64
+  %30 = shl nuw i64 1, %29
+  %31 = sdiv i32 %1, 64
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds [16 x i64], ptr %10, i64 0, i64 %32
+  %34 = add nsw i32 %1, 1
+  %35 = getelementptr inbounds [16 x i64], ptr %11, i64 0, i64 %32
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %40 = icmp sgt i32 %3, 0
+  br label %.critedge
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end93
-  %xfer_bytes.0175 = phi i64 [ 0, %while.body.lr.ph ], [ %xfer_bytes.1, %if.end93 ]
-  %tx_time.0174 = phi double [ 0.000000e+00, %while.body.lr.ph ], [ %tx_time.1, %if.end93 ]
-  %rx_time.0170 = phi double [ 0.000000e+00, %while.body.lr.ph ], [ %rx_time.1, %if.end93 ]
-  %start.0169 = phi double [ 0.000000e+00, %while.body.lr.ph ], [ %start.1, %if.end93 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i.i)
-  store i64 1, ptr %timeout.i.i, align 8
-  store i64 0, ptr %tv_usec.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %fds.i.i, i8 0, i64 128, i1 false)
-  %4 = load i64, ptr %arrayidx6.i.i, align 8
-  %or.i.i = or i64 %4, %shl.i.i
-  store i64 %or.i.i, ptr %arrayidx6.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i, i8 0, i64 128, i1 false)
-  %5 = load i64, ptr %arrayidx28.i.i, align 8
-  %or29.i.i = or i64 %5, %shl.i.i
-  store i64 %or29.i.i, ptr %arrayidx28.i.i, align 8
-  %call.i.i = call i32 @select(i32 noundef %add.i.i, ptr noundef nonnull %fds.i.i, ptr noundef null, ptr noundef nonnull %errfds.i.i, ptr noundef nonnull %timeout.i.i) #25
-  %cmp34.i.i = icmp sgt i32 %call.i.i, 0
-  br i1 %cmp34.i.i, label %if.then36.i.i, label %tcp_select.exit.thread
+.critedge:                                        ; preds = %.critedge.lr.ph, %155
+  %.082198 = phi double [ 0.000000e+00, %.critedge.lr.ph ], [ %.3, %155 ]
+  %.085197 = phi i64 [ 0, %.critedge.lr.ph ], [ %.287, %155 ]
+  %.092196 = phi double [ 0.000000e+00, %.critedge.lr.ph ], [ %.294, %155 ]
+  %.096192 = phi double [ 0.000000e+00, %.critedge.lr.ph ], [ %.298, %155 ]
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #21
+  store i64 1, ptr %12, align 8, !tbaa !11
+  store i64 0, ptr %27, align 8, !tbaa !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, i8 0, i64 128, i1 false), !tbaa !15
+  %41 = load i64, ptr %33, align 8, !tbaa !15
+  %42 = or i64 %41, %30
+  store i64 %42, ptr %33, align 8, !tbaa !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, i8 0, i64 128, i1 false), !tbaa !15
+  %43 = load i64, ptr %35, align 8, !tbaa !15
+  %44 = or i64 %43, %30
+  store i64 %44, ptr %35, align 8, !tbaa !15
+  %45 = call i32 @select(i32 noundef %34, ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %12) #21
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %tcp_select.exit.thread
 
-if.then36.i.i:                                    ; preds = %while.body
-  %6 = load i64, ptr %arrayidx6.i.i, align 8
-  %and.i.i = and i64 %6, %shl.i.i
-  %cmp44.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp44.not.i.i, label %tcp_select.exit.thread, label %if.then9
+47:                                               ; preds = %.critedge
+  %48 = load i64, ptr %33, align 8, !tbaa !15
+  %49 = and i64 %48, %30
+  %.not33.i.i = icmp eq i64 %49, 0
+  br i1 %.not33.i.i, label %tcp_select.exit.thread, label %50
 
-tcp_select.exit.thread:                           ; preds = %if.then36.i.i, %while.body
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i)
-  br label %if.end93
+tcp_select.exit.thread:                           ; preds = %47, %.critedge
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #21
+  br label %155
 
-if.then9:                                         ; preds = %if.then36.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i)
-  br i1 %cmp, label %if.then16, label %if.end18.thread
+50:                                               ; preds = %47
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #21
+  br i1 %26, label %51, label %.thread.thread
 
-if.then16:                                        ; preds = %if.then9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
-  %call.i53 = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #25
-  %cmp.i54 = icmp slt i32 %call.i53, 0
-  br i1 %cmp.i54, label %if.then.i, label %if.end18
+51:                                               ; preds = %50
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
+  %52 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #21
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %54, label %.thread
 
-if.then.i:                                        ; preds = %if.then16
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.70) #24
+54:                                               ; preds = %51
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.71) #24
   unreachable
 
-if.end18:                                         ; preds = %if.then16
-  %sub = sub i64 %throughput, %xfer_bytes.0175
-  %conv12 = trunc i64 %sub to i32
-  %cond.i = call noundef i32 @llvm.umin.i32(i32 %block, i32 %conv12)
-  %7 = load i64, ptr %tv.i, align 8
-  %conv.i = sitofp i64 %7 to double
-  %8 = load i64, ptr %tv_usec.i, align 8
-  %conv1.i = sitofp i64 %8 to double
-  %div.i = fdiv double %conv1.i, 1.000000e+06
-  %add.i = fadd double %div.i, %conv.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  %cmp20141 = icmp sgt i32 %cond.i, 0
-  br i1 %cmp20141, label %while.body22.us, label %while.end
+.thread:                                          ; preds = %51
+  %55 = sub i64 %4, %.085197
+  %56 = trunc i64 %55 to i32
+  %57 = call noundef i32 @llvm.umin.i32(i32 %3, i32 %56)
+  %58 = load i64, ptr %9, align 8, !tbaa !11
+  %59 = sitofp i64 %58 to double
+  %60 = load i64, ptr %36, align 8, !tbaa !14
+  %61 = sitofp i64 %60 to double
+  %62 = fdiv double %61, 1.000000e+06
+  %63 = fadd double %62, %59
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #21
+  %64 = icmp sgt i32 %57, 0
+  br i1 %64, label %.lr.ph.split.us, label %err_sys_ex.exit115
 
-if.end18.thread:                                  ; preds = %if.then9
-  br i1 %cmp20141190, label %while.body22.lr.ph.split.split.us, label %if.end61
+.thread.thread:                                   ; preds = %50
+  br i1 %40, label %.lr.ph.split.split.us, label %err_sys_ex.exit115.thread
 
-while.body22.us:                                  ; preds = %if.end18, %if.end54.us
-  %rx_pos.0142.us = phi i32 [ %rx_pos.2.us, %if.end54.us ], [ 0, %if.end18 ]
-  %idxprom.us = zext nneg i32 %rx_pos.0142.us to i64
-  %arrayidx.us = getelementptr inbounds nuw i8, ptr %call, i64 %idxprom.us
-  %sub23.us = sub nsw i32 %cond.i, %rx_pos.0142.us
-  %call24.us = call i32 @wolfSSL_read(ptr noundef %ssl, ptr noundef %arrayidx.us, i32 noundef %sub23.us) #25
-  %cmp25.us = icmp slt i32 %call24.us, 1
-  br i1 %cmp25.us, label %if.then27.us, label %if.else50.us
+.lr.ph.split.us:                                  ; preds = %.thread, %74
+  %.088168.us = phi i32 [ %.290.us, %74 ], [ 0, %.thread ]
+  %65 = zext nneg i32 %.088168.us to i64
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 %65
+  %67 = sub nsw i32 %57, %.088168.us
+  %68 = call i32 @wolfSSL_read(ptr noundef %0, ptr noundef %66, i32 noundef %67) #21
+  %69 = icmp slt i32 %68, 1
+  br i1 %69, label %72, label %70
 
-if.else50.us:                                     ; preds = %while.body22.us
-  %add.us = add nuw nsw i32 %call24.us, %rx_pos.0142.us
-  br label %if.end54.us
+70:                                               ; preds = %.lr.ph.split.us
+  %71 = add nuw nsw i32 %68, %.088168.us
+  br label %74
 
-if.then27.us:                                     ; preds = %while.body22.us
-  %call28.us = call i32 @wolfSSL_get_error(ptr noundef %ssl, i32 noundef 0) #25
-  switch i32 %call28.us, label %do.body [
-    i32 6, label %if.then48
-    i32 2, label %if.end54.us
-    i32 3, label %if.end54.us
-    i32 -441, label %if.end54.us
+72:                                               ; preds = %.lr.ph.split.us
+  %73 = call i32 @wolfSSL_get_error(ptr noundef %0, i32 noundef 0) #21
+  switch i32 %73, label %.split.us [
+    i32 6, label %.split171.us
+    i32 2, label %74
+    i32 3, label %74
+    i32 -441, label %74
   ]
 
-if.end54.us:                                      ; preds = %if.else50.us, %if.then27.us, %if.then27.us, %if.then27.us
-  %rx_pos.2.us = phi i32 [ %add.us, %if.else50.us ], [ %rx_pos.0142.us, %if.then27.us ], [ %rx_pos.0142.us, %if.then27.us ], [ %rx_pos.0142.us, %if.then27.us ]
-  %cmp20.us = icmp slt i32 %rx_pos.2.us, %cond.i
-  br i1 %cmp20.us, label %while.body22.us, label %while.end, !llvm.loop !5
+74:                                               ; preds = %70, %72, %72, %72
+  %.290.us = phi i32 [ %71, %70 ], [ %.088168.us, %72 ], [ %.088168.us, %72 ], [ %.088168.us, %72 ]
+  %75 = icmp slt i32 %.290.us, %57
+  br i1 %75, label %.lr.ph.split.us, label %err_sys_ex.exit115, !llvm.loop !16
 
-while.body22.lr.ph.split.split.us:                ; preds = %if.end18.thread
-  %call24.us152163 = call i32 @wolfSSL_read(ptr noundef %ssl, ptr noundef %call, i32 noundef %block) #25
-  %cmp25.us153164 = icmp slt i32 %call24.us152163, 1
-  br i1 %cmp25.us153164, label %if.then27.us154, label %if.end61
+.lr.ph.split.split.us:                            ; preds = %.thread.thread
+  %76 = call i32 @wolfSSL_read(ptr noundef %0, ptr noundef %14, i32 noundef %3) #21
+  %77 = icmp slt i32 %76, 1
+  br i1 %77, label %.lr.ph188, label %err_sys_ex.exit115.thread
 
-if.then27.us154:                                  ; preds = %while.body22.lr.ph.split.split.us, %if.end54.us156
-  %call28.us155 = call i32 @wolfSSL_get_error(ptr noundef %ssl, i32 noundef 0) #25
-  switch i32 %call28.us155, label %do.body [
-    i32 6, label %if.then48
-    i32 2, label %if.end54.us156
-    i32 3, label %if.end54.us156
-    i32 -441, label %if.end54.us156
+.lr.ph188:                                        ; preds = %.lr.ph.split.split.us, %79
+  %78 = call i32 @wolfSSL_get_error(ptr noundef %0, i32 noundef 0) #21
+  switch i32 %78, label %.split.us [
+    i32 6, label %.split171.us
+    i32 2, label %79
+    i32 3, label %79
+    i32 -441, label %79
   ]
 
-if.end54.us156:                                   ; preds = %if.then27.us154, %if.then27.us154, %if.then27.us154
-  %call24.us152 = call i32 @wolfSSL_read(ptr noundef %ssl, ptr noundef %call, i32 noundef %block) #25
-  %cmp25.us153 = icmp slt i32 %call24.us152, 1
-  br i1 %cmp25.us153, label %if.then27.us154, label %if.end61
+79:                                               ; preds = %.lr.ph188, %.lr.ph188, %.lr.ph188
+  %80 = call i32 @wolfSSL_read(ptr noundef %0, ptr noundef %14, i32 noundef %3) #21
+  %81 = icmp slt i32 %80, 1
+  br i1 %81, label %.lr.ph188, label %err_sys_ex.exit115.thread
 
-do.body:                                          ; preds = %if.then27.us154, %if.then27.us
-  %len.0108193200 = phi i32 [ %cond.i, %if.then27.us ], [ %block, %if.then27.us154 ]
-  %start.2195198 = phi double [ %add.i, %if.then27.us ], [ %start.0169, %if.then27.us154 ]
-  %.us-phi = phi i32 [ %call28.us, %if.then27.us ], [ %call28.us155, %if.then27.us154 ]
-  %.us-phi143 = phi i32 [ %rx_pos.0142.us, %if.then27.us ], [ 0, %if.then27.us154 ]
-  %.b51 = load i1, ptr @quieter, align 4
-  br i1 %.b51, label %do.end, label %if.then42
+.split.us:                                        ; preds = %.lr.ph188, %72
+  %.091124218225 = phi i32 [ %57, %72 ], [ %3, %.lr.ph188 ]
+  %.284220223 = phi double [ %63, %72 ], [ %.082198, %.lr.ph188 ]
+  %.us-phi = phi i32 [ %73, %72 ], [ %78, %.lr.ph188 ]
+  %.us-phi169 = phi i32 [ %.088168.us, %72 ], [ 0, %.lr.ph188 ]
+  %.b106 = load i1, ptr @quieter, align 4
+  br i1 %.b106, label %85, label %82
 
-if.then42:                                        ; preds = %do.body
-  %9 = load ptr, ptr @stderr, align 8
-  %call43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.1, i32 noundef %.us-phi) #23
-  br label %do.end
+82:                                               ; preds = %.split.us
+  %83 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.1, i32 noundef %.us-phi) #22
+  br label %85
 
-do.end:                                           ; preds = %do.body, %if.then42
-  %10 = load i32, ptr @runWithErrors, align 4
-  %cmp.i55 = icmp eq i32 %10, 1
-  br i1 %cmp.i55, label %do.body.i57, label %if.else.i56
+85:                                               ; preds = %82, %.split.us
+  %86 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %87 = icmp eq i32 %86, 1
+  br i1 %87, label %88, label %95
 
-do.body.i57:                                      ; preds = %do.end
-  %.b2.i58 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i58, label %while.end, label %do.body2.i59
+88:                                               ; preds = %85
+  %.b2.i113 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i113, label %err_sys_ex.exit115, label %89
 
-do.body2.i59:                                     ; preds = %do.body.i57
-  %11 = load ptr, ptr @stderr, align 8
-  %call.i60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.2) #23
-  %.b.pr.i61 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i61, label %while.end, label %if.then4.i62
+89:                                               ; preds = %88
+  %90 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.2) #22
+  %.b.pr.i114 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i114, label %err_sys_ex.exit115, label %92
 
-if.then4.i62:                                     ; preds = %do.body2.i59
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %12) #23
-  br label %while.end
+92:                                               ; preds = %89
+  %93 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %94 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %93) #23
+  br label %err_sys_ex.exit115
 
-if.else.i56:                                      ; preds = %do.end
+95:                                               ; preds = %85
   call fastcc void @err_sys(ptr noundef nonnull @.str.2) #24
   unreachable
 
-if.then48:                                        ; preds = %if.then27.us154, %if.then27.us
-  call void @free(ptr noundef %call) #25
-  br label %return
+.split171.us:                                     ; preds = %.lr.ph188, %72
+  br i1 %.not, label %.thread130, label %96
 
-while.end:                                        ; preds = %if.end54.us, %if.end18, %if.then4.i62, %do.body2.i59, %do.body.i57
-  %start.2194 = phi double [ %start.2195198, %if.then4.i62 ], [ %start.2195198, %do.body2.i59 ], [ %start.2195198, %do.body.i57 ], [ %add.i, %if.end18 ], [ %add.i, %if.end54.us ]
-  %len.0108192 = phi i32 [ %len.0108193200, %if.then4.i62 ], [ %len.0108193200, %do.body2.i59 ], [ %len.0108193200, %do.body.i57 ], [ %cond.i, %if.end18 ], [ %cond.i, %if.end54.us ]
-  %rx_pos.0118 = phi i32 [ %.us-phi143, %if.then4.i62 ], [ %.us-phi143, %do.body2.i59 ], [ %.us-phi143, %do.body.i57 ], [ 0, %if.end18 ], [ %rx_pos.2.us, %if.end54.us ]
-  br i1 %cmp, label %if.then56, label %if.end61
+96:                                               ; preds = %.split171.us
+  call void @wolfSSL_Free(ptr noundef nonnull %14) #21
+  br label %.thread130
 
-if.then56:                                        ; preds = %while.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i64)
-  %call.i65 = call i32 @gettimeofday(ptr noundef nonnull %tv.i64, ptr noundef null) #25
-  %cmp.i66 = icmp slt i32 %call.i65, 0
-  br i1 %cmp.i66, label %if.then.i72, label %current_time.exit73
+err_sys_ex.exit115:                               ; preds = %74, %.thread, %92, %89, %88
+  %.284219 = phi double [ %.284220223, %92 ], [ %.284220223, %89 ], [ %.284220223, %88 ], [ %63, %.thread ], [ %63, %74 ]
+  %.091124217 = phi i32 [ %.091124218225, %92 ], [ %.091124218225, %89 ], [ %.091124218225, %88 ], [ %57, %.thread ], [ %57, %74 ]
+  %.088141 = phi i32 [ %.us-phi169, %92 ], [ %.us-phi169, %89 ], [ %.us-phi169, %88 ], [ 0, %.thread ], [ %.290.us, %74 ]
+  br i1 %26, label %97, label %err_sys_ex.exit115.thread
 
-if.then.i72:                                      ; preds = %if.then56
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.70) #24
+97:                                               ; preds = %err_sys_ex.exit115
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
+  %98 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #21
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %100, label %current_time.exit116
+
+100:                                              ; preds = %97
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.71) #24
   unreachable
 
-current_time.exit73:                              ; preds = %if.then56
-  %14 = load i64, ptr %tv.i64, align 8
-  %15 = load i64, ptr %tv_usec.i68, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i64)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i74)
-  %call.i75 = call i32 @gettimeofday(ptr noundef nonnull %tv.i74, ptr noundef null) #25
-  %cmp.i76 = icmp slt i32 %call.i75, 0
-  br i1 %cmp.i76, label %if.then.i82, label %current_time.exit83
+current_time.exit116:                             ; preds = %97
+  %101 = load i64, ptr %8, align 8, !tbaa !11
+  %102 = load i64, ptr %37, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
+  %103 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #21
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %current_time.exit117
 
-if.then.i82:                                      ; preds = %current_time.exit73
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.70) #24
+105:                                              ; preds = %current_time.exit116
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.71) #24
   unreachable
 
-current_time.exit83:                              ; preds = %current_time.exit73
-  %conv1.i69 = sitofp i64 %15 to double
-  %div.i70 = fdiv double %conv1.i69, 1.000000e+06
-  %conv.i67 = sitofp i64 %14 to double
-  %add.i71 = fadd double %div.i70, %conv.i67
-  %sub58 = fsub double %add.i71, %start.2194
-  %add59 = fadd double %rx_time.0170, %sub58
-  %16 = load i64, ptr %tv.i74, align 8
-  %conv.i77 = sitofp i64 %16 to double
-  %17 = load i64, ptr %tv_usec.i78, align 8
-  %conv1.i79 = sitofp i64 %17 to double
-  %div.i80 = fdiv double %conv1.i79, 1.000000e+06
-  %add.i81 = fadd double %div.i80, %conv.i77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i74)
-  br label %if.end61
+current_time.exit117:                             ; preds = %current_time.exit116
+  %106 = sitofp i64 %102 to double
+  %107 = fdiv double %106, 1.000000e+06
+  %108 = sitofp i64 %101 to double
+  %109 = fadd double %107, %108
+  %110 = fsub double %109, %.284219
+  %111 = fadd double %.096192, %110
+  %112 = load i64, ptr %7, align 8, !tbaa !11
+  %113 = sitofp i64 %112 to double
+  %114 = load i64, ptr %38, align 8, !tbaa !14
+  %115 = sitofp i64 %114 to double
+  %116 = fdiv double %115, 1.000000e+06
+  %117 = fadd double %116, %113
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
+  br label %err_sys_ex.exit115.thread
 
-if.end61:                                         ; preds = %if.end54.us156, %if.end18.thread, %while.body22.lr.ph.split.split.us, %current_time.exit83, %while.end
-  %len.0108191 = phi i32 [ %len.0108192, %current_time.exit83 ], [ %len.0108192, %while.end ], [ %block, %while.body22.lr.ph.split.split.us ], [ %block, %if.end18.thread ], [ %block, %if.end54.us156 ]
-  %rx_pos.1110 = phi i32 [ %rx_pos.0118, %current_time.exit83 ], [ %rx_pos.0118, %while.end ], [ %call24.us152163, %while.body22.lr.ph.split.split.us ], [ 0, %if.end18.thread ], [ %call24.us152, %if.end54.us156 ]
-  %start.3 = phi double [ %add.i81, %current_time.exit83 ], [ %start.2194, %while.end ], [ %start.0169, %while.body22.lr.ph.split.split.us ], [ %start.0169, %if.end18.thread ], [ %start.0169, %if.end54.us156 ]
-  %rx_time.2 = phi double [ %add59, %current_time.exit83 ], [ %rx_time.0170, %while.end ], [ %rx_time.0170, %while.body22.lr.ph.split.split.us ], [ %rx_time.0170, %if.end18.thread ], [ %rx_time.0170, %if.end54.us156 ]
-  %cond.i84 = call noundef i32 @llvm.umin.i32(i32 %len.0108191, i32 %rx_pos.1110)
-  br label %do.body62
+err_sys_ex.exit115.thread:                        ; preds = %79, %.thread.thread, %.lr.ph.split.split.us, %current_time.exit117, %err_sys_ex.exit115
+  %.091124216 = phi i32 [ %.091124217, %current_time.exit117 ], [ %.091124217, %err_sys_ex.exit115 ], [ %3, %.lr.ph.split.split.us ], [ %3, %.thread.thread ], [ %3, %79 ]
+  %.189126 = phi i32 [ %.088141, %current_time.exit117 ], [ %.088141, %err_sys_ex.exit115 ], [ %76, %.lr.ph.split.split.us ], [ 0, %.thread.thread ], [ %80, %79 ]
+  %.399 = phi double [ %111, %current_time.exit117 ], [ %.096192, %err_sys_ex.exit115 ], [ %.096192, %.lr.ph.split.split.us ], [ %.096192, %.thread.thread ], [ %.096192, %79 ]
+  %.4 = phi double [ %117, %current_time.exit117 ], [ %.284219, %err_sys_ex.exit115 ], [ %.082198, %.lr.ph.split.split.us ], [ %.082198, %.thread.thread ], [ %.082198, %79 ]
+  %118 = call noundef i32 @llvm.umin.i32(i32 %.091124216, i32 %.189126)
+  br label %119
 
-do.body62:                                        ; preds = %do.cond, %if.end61
-  %call64 = call i32 @wolfSSL_write(ptr noundef %ssl, ptr noundef %call, i32 noundef %cond.i84) #25
-  %cmp65 = icmp slt i32 %call64, 1
-  br i1 %cmp65, label %do.cond, label %do.end72
+119:                                              ; preds = %122, %err_sys_ex.exit115.thread
+  %120 = call i32 @wolfSSL_write(ptr noundef %0, ptr noundef %14, i32 noundef %118) #21
+  %121 = icmp slt i32 %120, 1
+  br i1 %121, label %122, label %.thread127
 
-do.cond:                                          ; preds = %do.body62
-  %call68 = call i32 @wolfSSL_get_error(ptr noundef %ssl, i32 noundef 0) #25
-  %cmp70 = icmp eq i32 %call68, -108
-  br i1 %cmp70, label %do.body62, label %do.end72, !llvm.loop !7
+122:                                              ; preds = %119
+  %123 = call i32 @wolfSSL_get_error(ptr noundef %0, i32 noundef 0) #21
+  %124 = icmp eq i32 %123, -108
+  br i1 %124, label %119, label %.thread127, !llvm.loop !18
 
-do.end72:                                         ; preds = %do.body62, %do.cond
-  %err.0113 = phi i32 [ %call68, %do.cond ], [ 0, %do.body62 ]
-  %cmp74.not = icmp eq i32 %call64, %cond.i84
-  br i1 %cmp74.not, label %if.end84, label %do.body77
+.thread127:                                       ; preds = %119, %122
+  %.081129 = phi i32 [ %123, %122 ], [ 0, %119 ]
+  %.not111 = icmp eq i32 %120, %118
+  br i1 %.not111, label %err_sys_ex.exit120, label %125
 
-do.body77:                                        ; preds = %do.end72
+125:                                              ; preds = %.thread127
   %.b = load i1, ptr @quieter, align 4
-  br i1 %.b, label %do.end83, label %if.then79
+  br i1 %.b, label %129, label %126
 
-if.then79:                                        ; preds = %do.body77
-  %18 = load ptr, ptr @stderr, align 8
-  %call80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.3, i32 noundef %err.0113) #23
-  br label %do.end83
+126:                                              ; preds = %125
+  %127 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.3, i32 noundef %.081129) #22
+  br label %129
 
-do.end83:                                         ; preds = %do.body77, %if.then79
-  %19 = load i32, ptr @runWithErrors, align 4
-  %cmp.i86 = icmp eq i32 %19, 1
-  br i1 %cmp.i86, label %do.body.i88, label %if.else.i87
+129:                                              ; preds = %126, %125
+  %130 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %131 = icmp eq i32 %130, 1
+  br i1 %131, label %132, label %139
 
-do.body.i88:                                      ; preds = %do.end83
-  %.b2.i89 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i89, label %if.end84, label %do.body2.i90
+132:                                              ; preds = %129
+  %.b2.i118 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i118, label %err_sys_ex.exit120, label %133
 
-do.body2.i90:                                     ; preds = %do.body.i88
-  %20 = load ptr, ptr @stderr, align 8
-  %call.i91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.4) #23
-  %.b.pr.i92 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i92, label %if.end84, label %if.then4.i93
+133:                                              ; preds = %132
+  %134 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.4) #22
+  %.b.pr.i119 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i119, label %err_sys_ex.exit120, label %136
 
-if.then4.i93:                                     ; preds = %do.body2.i90
-  %21 = load ptr, ptr @stderr, align 8
-  %22 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %21) #23
-  br label %if.end84
+136:                                              ; preds = %133
+  %137 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %138 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %137) #23
+  br label %err_sys_ex.exit120
 
-if.else.i87:                                      ; preds = %do.end83
+139:                                              ; preds = %129
   call fastcc void @err_sys(ptr noundef nonnull @.str.4) #24
   unreachable
 
-if.end84:                                         ; preds = %if.then4.i93, %do.body2.i90, %do.body.i88, %do.end72
-  br i1 %cmp, label %if.then86, label %if.end90
+err_sys_ex.exit120:                               ; preds = %136, %133, %132, %.thread127
+  br i1 %26, label %140, label %152
 
-if.then86:                                        ; preds = %if.end84
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i95)
-  %call.i96 = call i32 @gettimeofday(ptr noundef nonnull %tv.i95, ptr noundef null) #25
-  %cmp.i97 = icmp slt i32 %call.i96, 0
-  br i1 %cmp.i97, label %if.then.i103, label %current_time.exit104
+140:                                              ; preds = %err_sys_ex.exit120
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
+  %141 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #21
+  %142 = icmp slt i32 %141, 0
+  br i1 %142, label %143, label %current_time.exit121
 
-if.then.i103:                                     ; preds = %if.then86
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.70) #24
+143:                                              ; preds = %140
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.71) #24
   unreachable
 
-current_time.exit104:                             ; preds = %if.then86
-  %23 = load i64, ptr %tv.i95, align 8
-  %conv.i98 = sitofp i64 %23 to double
-  %24 = load i64, ptr %tv_usec.i99, align 8
-  %conv1.i100 = sitofp i64 %24 to double
-  %div.i101 = fdiv double %conv1.i100, 1.000000e+06
-  %add.i102 = fadd double %div.i101, %conv.i98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i95)
-  %sub88 = fsub double %add.i102, %start.3
-  %add89 = fadd double %tx_time.0174, %sub88
-  br label %if.end90
+current_time.exit121:                             ; preds = %140
+  %144 = load i64, ptr %6, align 8, !tbaa !11
+  %145 = sitofp i64 %144 to double
+  %146 = load i64, ptr %39, align 8, !tbaa !14
+  %147 = sitofp i64 %146 to double
+  %148 = fdiv double %147, 1.000000e+06
+  %149 = fadd double %148, %145
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
+  %150 = fsub double %149, %.4
+  %151 = fadd double %.092196, %150
+  br label %152
 
-if.end90:                                         ; preds = %current_time.exit104, %if.end84
-  %tx_time.2 = phi double [ %add89, %current_time.exit104 ], [ %tx_time.0174, %if.end84 ]
-  %conv91 = sext i32 %len.0108191 to i64
-  %add92 = add i64 %xfer_bytes.0175, %conv91
-  br label %if.end93
+152:                                              ; preds = %current_time.exit121, %err_sys_ex.exit120
+  %.395 = phi double [ %151, %current_time.exit121 ], [ %.092196, %err_sys_ex.exit120 ]
+  %153 = sext i32 %.091124216 to i64
+  %154 = add i64 %.085197, %153
+  br label %155
 
-if.end93:                                         ; preds = %tcp_select.exit.thread, %if.end90
-  %start.1 = phi double [ %start.3, %if.end90 ], [ %start.0169, %tcp_select.exit.thread ]
-  %rx_time.1 = phi double [ %rx_time.2, %if.end90 ], [ %rx_time.0170, %tcp_select.exit.thread ]
-  %tx_time.1 = phi double [ %tx_time.2, %if.end90 ], [ %tx_time.0174, %tcp_select.exit.thread ]
-  %xfer_bytes.1 = phi i64 [ %add92, %if.end90 ], [ %xfer_bytes.0175, %tcp_select.exit.thread ]
-  %cmp4 = icmp uge i64 %xfer_bytes.1, %throughput
-  %or.cond52 = select i1 %tobool1.not, i1 %cmp4, i1 %cmp
-  br i1 %or.cond52, label %while.end94, label %while.body, !llvm.loop !8
+155:                                              ; preds = %tcp_select.exit.thread, %152
+  %.298 = phi double [ %.399, %152 ], [ %.096192, %tcp_select.exit.thread ]
+  %.294 = phi double [ %.395, %152 ], [ %.092196, %tcp_select.exit.thread ]
+  %.287 = phi i64 [ %154, %152 ], [ %.085197, %tcp_select.exit.thread ]
+  %.3 = phi double [ %.4, %152 ], [ %.082198, %tcp_select.exit.thread ]
+  %156 = icmp uge i64 %.287, %4
+  %or.cond112 = select i1 %.not137, i1 %156, i1 %26
+  br i1 %or.cond112, label %._crit_edge, label %.critedge, !llvm.loop !19
 
-while.end94:                                      ; preds = %if.end93, %if.end
-  %rx_time.0.lcssa = phi double [ 0.000000e+00, %if.end ], [ %rx_time.1, %if.end93 ]
-  %tx_time.0.lcssa = phi double [ 0.000000e+00, %if.end ], [ %tx_time.1, %if.end93 ]
-  call void @free(ptr noundef %call) #25
-  br i1 %cmp, label %if.then96, label %return
+._crit_edge:                                      ; preds = %155, %err_sys_ex.exit
+  %.096.lcssa = phi double [ 0.000000e+00, %err_sys_ex.exit ], [ %.298, %155 ]
+  %.092.lcssa = phi double [ 0.000000e+00, %err_sys_ex.exit ], [ %.294, %155 ]
+  br i1 %.not, label %158, label %157
 
-if.then96:                                        ; preds = %while.end94
-  %mul = fmul double %rx_time.0.lcssa, 1.000000e+03
-  %conv97 = uitofp i64 %throughput to double
-  %div = fdiv double %conv97, %rx_time.0.lcssa
-  %div98 = fmul double %div, 0x3F50000000000000
-  %div99 = fmul double %div98, 0x3F50000000000000
-  %mul100 = fmul double %tx_time.0.lcssa, 1.000000e+03
-  %div102 = fdiv double %conv97, %tx_time.0.lcssa
-  %div103 = fmul double %div102, 0x3F50000000000000
-  %div104 = fmul double %div103, 0x3F50000000000000
-  %call105 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %throughput, double noundef %mul, double noundef %div99, double noundef %mul100, double noundef %div104)
-  br label %return
+157:                                              ; preds = %._crit_edge
+  call void @wolfSSL_Free(ptr noundef nonnull %14) #21
+  br label %158
 
-return:                                           ; preds = %while.end94, %if.then96, %if.then48
-  %retval.0 = phi i32 [ 6, %if.then48 ], [ 0, %if.then96 ], [ 0, %while.end94 ]
-  ret i32 %retval.0
+158:                                              ; preds = %157, %._crit_edge
+  br i1 %26, label %159, label %.thread130
+
+159:                                              ; preds = %158
+  %160 = fcmp ogt double %.096.lcssa, 0.000000e+00
+  %161 = fcmp ogt double %.092.lcssa, 0.000000e+00
+  %or.cond9 = select i1 %160, i1 %161, i1 false
+  br i1 %or.cond9, label %162, label %173
+
+162:                                              ; preds = %159
+  %163 = fmul double %.096.lcssa, 1.000000e+03
+  %164 = uitofp i64 %4 to double
+  %165 = fdiv double %164, %.096.lcssa
+  %166 = fmul double %165, 0x3F50000000000000
+  %167 = fmul double %166, 0x3F50000000000000
+  %168 = fmul double %.092.lcssa, 1.000000e+03
+  %169 = fdiv double %164, %.092.lcssa
+  %170 = fmul double %169, 0x3F50000000000000
+  %171 = fmul double %170, 0x3F50000000000000
+  %172 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %4, double noundef %163, double noundef %167, double noundef %168, double noundef %171)
+  br label %.thread130
+
+173:                                              ; preds = %159
+  %174 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %.096.lcssa, double noundef %.092.lcssa)
+  br label %.thread130
+
+.thread130:                                       ; preds = %.split171.us, %96, %158, %173, %162
+  %.2 = phi i32 [ 0, %162 ], [ 0, %173 ], [ 0, %158 ], [ 6, %96 ], [ 6, %.split171.us ]
+  ret i32 %.2
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
 
 declare i32 @wolfSSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -636,8 +657,10 @@ declare i32 @wolfSSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @wolfSSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -645,2797 +668,2909 @@ declare i32 @wolfSSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @server_test(ptr noundef captures(none) initializes((16, 20)) %args) local_unnamed_addr #0 {
-entry:
-  %fds.i.i = alloca %struct.fd_set, align 8
-  %errfds.i.i = alloca %struct.fd_set, align 8
-  %timeout.i.i = alloca %struct.timeval, align 8
-  %fds.i.i17.i = alloca %struct.fd_set, align 8
-  %errfds.i.i18.i = alloca %struct.fd_set, align 8
-  %timeout.i.i19.i = alloca %struct.timeval, align 8
-  %fds.i.i.i = alloca %struct.fd_set, align 8
-  %errfds.i.i.i = alloca %struct.fd_set, align 8
-  %timeout.i.i.i = alloca %struct.timeval, align 8
-  %on.i.i.i = alloca i32, align 4
-  %addr.i26.i = alloca %struct.sockaddr_in, align 4
-  %on.i27.i = alloca i32, align 4
-  %on2.i28.i = alloca i32, align 4
-  %len22.i.i = alloca i32, align 4
-  %addr.i.i = alloca %struct.sockaddr_in, align 4
-  %on.i.i = alloca i32, align 4
-  %on2.i.i = alloca i32, align 4
-  %len15.i.i = alloca i32, align 4
-  %groups.i = alloca [4 x i32], align 16
-  %client_addr = alloca %struct.sockaddr_in, align 4
-  %client_len = alloca i32, align 4
-  %input = alloca [32 x i8], align 16
-  %buffer = alloca [80 x i8], align 16
-  %force_curve_group_id = alloca i32, align 4
-  %requested_cipherSuite0 = alloca i8, align 1
-  %requested_cipherSuite = alloca i8, align 1
-  %requested_cipherFlags = alloca i32, align 4
-  %0 = load i32, ptr %args, align 8
-  %argv2 = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %1 = load ptr, ptr %argv2, align 8
-  store i32 0, ptr %force_curve_group_id, align 4
-  %return_code = getelementptr inbounds nuw i8, ptr %args, i64 16
-  store i32 -1, ptr %return_code, align 8
-  %2 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @myVerifyAction)
-  store i32 0, ptr %2, align 4
-  %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %if.end312.thread, label %if.end.i
+define dso_local noundef ptr @server_test(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.fd_set, align 8
+  %3 = alloca %struct.fd_set, align 8
+  %4 = alloca %struct.timeval, align 8
+  %5 = alloca %struct.fd_set, align 8
+  %6 = alloca %struct.fd_set, align 8
+  %7 = alloca %struct.timeval, align 8
+  %8 = alloca %struct.fd_set, align 8
+  %9 = alloca %struct.fd_set, align 8
+  %10 = alloca %struct.timeval, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %struct.sockaddr_in, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca %struct.sockaddr_in, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca [4 x i32], align 16
+  %21 = alloca %struct.sockaddr_in, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca [32 x i8], align 16
+  %24 = alloca [80 x i8], align 16
+  %25 = alloca i32, align 4
+  %26 = alloca i8, align 1
+  %27 = alloca i8, align 1
+  %28 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #21
+  %29 = load i32, ptr %0, align 8, !tbaa !20
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #21
+  store i32 0, ptr %25, align 4, !tbaa !4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 -1, ptr %32, align 8, !tbaa !26
+  %33 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @myVerifyAction)
+  store i32 0, ptr %33, align 4, !tbaa !4
+  %34 = icmp eq ptr %31, null
+  br i1 %34, label %err_sys_ex.exit.thread.thread2816, label %.lr.ph
 
-if.end312.thread:                                 ; preds = %entry
-  store ptr null, ptr @myoptarg, align 8
-  store i32 0, ptr @myoptind, align 4
-  br label %if.end332
+err_sys_ex.exit.thread.thread2816:                ; preds = %1
+  store ptr null, ptr @myoptarg, align 8, !tbaa !27
+  store i32 0, ptr @myoptind, align 4, !tbaa !4
+  br label %err_sys_ex.exit511
 
-if.end.i:                                         ; preds = %entry, %if.end.i.backedge
-  %minVersion.01450 = phi i32 [ %minVersion.01450.be, %if.end.i.backedge ], [ -99, %entry ]
-  %useWebServerMsg.01448 = phi i32 [ %useWebServerMsg.01448.be, %if.end.i.backedge ], [ 0, %entry ]
-  %version.01446 = phi i32 [ %version.01446.be, %if.end.i.backedge ], [ 3, %entry ]
-  %doCliCertCheck.01444 = phi i32 [ %doCliCertCheck.01444.be, %if.end.i.backedge ], [ 1, %entry ]
-  %useAnyAddr.01442 = phi i32 [ %useAnyAddr.01442.be, %if.end.i.backedge ], [ 0, %entry ]
-  %disallowETM.01440 = phi i32 [ %disallowETM.01440.be, %if.end.i.backedge ], [ 0, %entry ]
-  %loadCertKeyIntoSSLObj.01438 = phi i32 [ %loadCertKeyIntoSSLObj.01438.be, %if.end.i.backedge ], [ 0, %entry ]
-  %exitWithRet.01436 = phi i32 [ %exitWithRet.01436.be, %if.end.i.backedge ], [ 0, %entry ]
-  %usePsk.01434 = phi i32 [ %usePsk.01434.be, %if.end.i.backedge ], [ 0, %entry ]
-  %usePskPlus.01432 = phi i32 [ %usePskPlus.01432.be, %if.end.i.backedge ], [ 0, %entry ]
-  %doDTLS.01430 = phi i32 [ %doDTLS.01430.be, %if.end.i.backedge ], [ 0, %entry ]
-  %dtlsUDP.01428 = phi i32 [ %dtlsUDP.01428.be, %if.end.i.backedge ], [ 0, %entry ]
-  %nonBlocking.01426 = phi i32 [ %nonBlocking.01426.be, %if.end.i.backedge ], [ 0, %entry ]
-  %onlyKeyShare.01424 = phi i32 [ %onlyKeyShare.01424.be, %if.end.i.backedge ], [ 0, %entry ]
-  %doDhKeyCheck.01422 = phi i32 [ %doDhKeyCheck.01422.be, %if.end.i.backedge ], [ 1, %entry ]
-  %simulateWantWrite.01420 = phi i32 [ %simulateWantWrite.01420.be, %if.end.i.backedge ], [ 0, %entry ]
-  %fewerPackets.01418 = phi i32 [ %fewerPackets.01418.be, %if.end.i.backedge ], [ 0, %entry ]
-  %wc_shutdown.01416 = phi i32 [ %wc_shutdown.01416.be, %if.end.i.backedge ], [ 0, %entry ]
-  %mutualAuth.01414 = phi i32 [ %mutualAuth.01414.be, %if.end.i.backedge ], [ 0, %entry ]
-  %updateKeysIVs.01412 = phi i32 [ %updateKeysIVs.01412.be, %if.end.i.backedge ], [ 0, %entry ]
-  %onlyPskDheKe.01410 = phi i32 [ %onlyPskDheKe.01410.be, %if.end.i.backedge ], [ 0, %entry ]
-  %noPskDheKe.01408 = phi i32 [ %noPskDheKe.01408.be, %if.end.i.backedge ], [ 0, %entry ]
-  %sniHostName.01406 = phi ptr [ %sniHostName.01406.be, %if.end.i.backedge ], [ null, %entry ]
-  %resume.01404 = phi i32 [ %resume.01404.be, %if.end.i.backedge ], [ 0, %entry ]
-  %ourDhParam.01402 = phi ptr [ %ourDhParam.01402.be, %if.end.i.backedge ], [ @.str.11, %entry ]
-  %ourKey.01400 = phi ptr [ %ourKey.01400.be, %if.end.i.backedge ], [ @.str.14, %entry ]
-  %ourCert.01398 = phi ptr [ %ourCert.01398.be, %if.end.i.backedge ], [ @.str.13, %entry ]
-  %verifyCert.01396 = phi ptr [ %verifyCert.01396.be, %if.end.i.backedge ], [ @.str.12, %entry ]
-  %useDefCipherList.01394 = phi i32 [ %useDefCipherList.01394.be, %if.end.i.backedge ], [ 0, %entry ]
-  %cipherList.01392 = phi ptr [ %cipherList.01392.be, %if.end.i.backedge ], [ null, %entry ]
-  %loops.01390 = phi i32 [ %loops.01390.be, %if.end.i.backedge ], [ 1, %entry ]
-  %serverReadyFile.01388 = phi ptr [ %serverReadyFile.01388.be, %if.end.i.backedge ], [ null, %entry ]
-  %echoData.01386 = phi i32 [ %echoData.01386.be, %if.end.i.backedge ], [ 0, %entry ]
-  %block.01384 = phi i32 [ %block.01384.be, %if.end.i.backedge ], [ 16384, %entry ]
-  %throughput.01382 = phi i64 [ %throughput.01382.be, %if.end.i.backedge ], [ 0, %entry ]
-  %minDhKeyBits.01380 = phi i32 [ %minDhKeyBits.01380.be, %if.end.i.backedge ], [ 1024, %entry ]
-  %port.01378 = phi i16 [ %port.01378.be, %if.end.i.backedge ], [ 11111, %entry ]
-  %3 = phi i32 [ %.be, %if.end.i.backedge ], [ 0, %entry ]
-  %4 = load i32, ptr @myoptind, align 4
-  %cmp1.i = icmp eq i32 %4, 0
-  br i1 %cmp1.i, label %if.then10.i, label %if.end3.i
+.lr.ph:                                           ; preds = %1, %.lr.ph.backedge
+  %.03261565 = phi i32 [ %.03261565.be, %.lr.ph.backedge ], [ -99, %1 ]
+  %.03271563 = phi i32 [ %.03271563.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03291561 = phi i32 [ %.03291561.be, %.lr.ph.backedge ], [ 3, %1 ]
+  %.03311559 = phi i32 [ %.03311559.be, %.lr.ph.backedge ], [ 1, %1 ]
+  %.03341557 = phi i32 [ %.03341557.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03391555 = phi i32 [ %.03391555.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03411553 = phi i32 [ %.03411553.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03431551 = phi i32 [ %.03431551.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03451549 = phi i32 [ %.03451549.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03471547 = phi i32 [ %.03471547.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03491545 = phi i32 [ %.03491545.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03511543 = phi i32 [ %.03511543.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03531541 = phi i32 [ %.03531541.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03551539 = phi i32 [ %.03551539.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03571537 = phi i32 [ %.03571537.be, %.lr.ph.backedge ], [ 1, %1 ]
+  %.03591535 = phi i32 [ %.03591535.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03611533 = phi i32 [ %.03611533.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03631531 = phi i32 [ %.03631531.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03651529 = phi i32 [ %.03651529.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03671527 = phi i32 [ %.03671527.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03691525 = phi i32 [ %.03691525.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03711523 = phi i32 [ %.03711523.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03731521 = phi ptr [ %.03731521.be, %.lr.ph.backedge ], [ null, %1 ]
+  %.03751519 = phi i32 [ %.03751519.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03781517 = phi ptr [ %.03781517.be, %.lr.ph.backedge ], [ @.str.12, %1 ]
+  %.03801515 = phi ptr [ %.03801515.be, %.lr.ph.backedge ], [ @.str.15, %1 ]
+  %.03821513 = phi ptr [ %.03821513.be, %.lr.ph.backedge ], [ @.str.14, %1 ]
+  %.03841511 = phi ptr [ %.03841511.be, %.lr.ph.backedge ], [ @.str.13, %1 ]
+  %.03861509 = phi i32 [ %.03861509.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.03881507 = phi ptr [ %.03881507.be, %.lr.ph.backedge ], [ null, %1 ]
+  %.03901505 = phi i32 [ %.03901505.be, %.lr.ph.backedge ], [ 1, %1 ]
+  %.03941503 = phi ptr [ %.03941503.be, %.lr.ph.backedge ], [ null, %1 ]
+  %.04031501 = phi i32 [ %.04031501.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.04061499 = phi i32 [ %.04061499.be, %.lr.ph.backedge ], [ 16384, %1 ]
+  %.04091497 = phi i64 [ %.04091497.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %.04111495 = phi i32 [ %.04111495.be, %.lr.ph.backedge ], [ 1024, %1 ]
+  %.01493 = phi i16 [ %.01493.be, %.lr.ph.backedge ], [ 11111, %1 ]
+  %35 = phi i32 [ %.be, %.lr.ph.backedge ], [ 0, %1 ]
+  %36 = load i32, ptr @myoptind, align 4, !tbaa !4
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %43, label %38
 
-if.end3.i:                                        ; preds = %if.end.i
-  %.pr.i = load ptr, ptr @mygetopt_long.next, align 8
-  %cmp4.i = icmp eq ptr %.pr.i, null
-  br i1 %cmp4.i, label %if.end11.i, label %lor.lhs.false.i
+38:                                               ; preds = %.lr.ph
+  %.pr.i = load ptr, ptr @mygetopt_long.next, align 8, !tbaa !27
+  %39 = icmp eq ptr %.pr.i, null
+  br i1 %39, label %.thread1.i, label %40
 
-lor.lhs.false.i:                                  ; preds = %if.end3.i
-  %5 = load i8, ptr %.pr.i, align 1
-  %cmp5.i = icmp eq i8 %5, 0
-  br i1 %cmp5.i, label %if.end11.i, label %if.end102.i
+40:                                               ; preds = %38
+  %41 = load i8, ptr %.pr.i, align 1, !tbaa !29
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %.thread1.i, label %92
 
-if.then10.i:                                      ; preds = %if.end.i
-  store ptr null, ptr @mygetopt_long.next, align 8
-  store i32 1, ptr @myoptind, align 4
-  br label %if.end11.i
+43:                                               ; preds = %.lr.ph
+  store ptr null, ptr @mygetopt_long.next, align 8, !tbaa !27
+  store i32 1, ptr @myoptind, align 4, !tbaa !4
+  br label %.thread1.i
 
-if.end11.i:                                       ; preds = %if.then10.i, %lor.lhs.false.i, %if.end3.i
-  %6 = phi i32 [ %4, %if.end3.i ], [ %4, %lor.lhs.false.i ], [ 1, %if.then10.i ]
-  %cmp12.not.i = icmp slt i32 %6, %0
-  br i1 %cmp12.not.i, label %lor.lhs.false14.i, label %while.end.sink.split
+.thread1.i:                                       ; preds = %43, %40, %38
+  %44 = phi i32 [ %36, %38 ], [ %36, %40 ], [ 1, %43 ]
+  %.not.i = icmp slt i32 %44, %29
+  br i1 %.not.i, label %45, label %mygetopt_long.exit.thread611.sink.split
 
-lor.lhs.false14.i:                                ; preds = %if.end11.i
-  %idxprom.i = sext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
-  %7 = load ptr, ptr %arrayidx.i, align 8
-  %cmp15.i = icmp eq ptr %7, null
-  br i1 %cmp15.i, label %if.then34.i, label %lor.lhs.false17.i
+45:                                               ; preds = %.thread1.i
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr inbounds ptr, ptr %31, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !27
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %55, label %50
 
-lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
-  %8 = load i8, ptr %7, align 1
-  %cmp22.not.i = icmp eq i8 %8, 45
-  br i1 %cmp22.not.i, label %lor.lhs.false24.i, label %if.then34.i
+50:                                               ; preds = %45
+  %51 = load i8, ptr %48, align 1, !tbaa !29
+  %.not67.i = icmp eq i8 %51, 45
+  br i1 %.not67.i, label %52, label %55
 
-lor.lhs.false24.i:                                ; preds = %lor.lhs.false17.i
-  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %9 = load i8, ptr %arrayidx27.i, align 1
-  switch i8 %9, label %if.end97.i [
-    i8 0, label %if.then34.i
-    i8 45, label %if.end38.tail.i
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !29
+  switch i8 %54, label %90 [
+    i8 0, label %55
+    i8 45, label %.tail.i
   ]
 
-if.then34.i:                                      ; preds = %lor.lhs.false24.i, %lor.lhs.false17.i, %lor.lhs.false14.i
-  store ptr null, ptr @myoptarg, align 8
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  br label %while.end.sink.split
+55:                                               ; preds = %52, %50, %45
+  store ptr null, ptr @myoptarg, align 8, !tbaa !27
+  %56 = load ptr, ptr %47, align 8, !tbaa !27
+  br label %mygetopt_long.exit.thread611.sink.split
 
-if.end38.tail.i:                                  ; preds = %lor.lhs.false24.i
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %12 = load i8, ptr %11, align 1
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %if.then43.i, label %if.then57.i
+.tail.i:                                          ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 2
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %60, label %67
 
-if.then43.i:                                      ; preds = %if.end38.tail.i
-  %inc44.i = add nsw i32 %6, 1
-  store i32 %inc44.i, ptr @myoptind, align 4
-  store ptr null, ptr @myoptarg, align 8
-  %cmp45.i = icmp slt i32 %inc44.i, %0
-  br i1 %cmp45.i, label %if.then47.i, label %while.end
+60:                                               ; preds = %.tail.i
+  %61 = add nsw i32 %44, 1
+  store ptr null, ptr @myoptarg, align 8, !tbaa !27
+  %62 = icmp slt i32 %61, %29
+  br i1 %62, label %63, label %mygetopt_long.exit.thread611
 
-if.then47.i:                                      ; preds = %if.then43.i
-  %idxprom48.i = sext i32 %inc44.i to i64
-  %arrayidx49.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom48.i
-  %14 = load ptr, ptr %arrayidx49.i, align 8
-  br label %while.end.sink.split
+63:                                               ; preds = %60
+  %64 = sext i32 %61 to i64
+  %65 = getelementptr inbounds ptr, ptr %31, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !27
+  br label %mygetopt_long.exit.thread611.sink.split
 
-if.then57.i:                                      ; preds = %if.end38.tail.i
-  store ptr null, ptr @myoptarg, align 8
-  %15 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 2
-  br label %for.body.i
+67:                                               ; preds = %.tail.i
+  store ptr null, ptr @myoptarg, align 8, !tbaa !27
+  %68 = load ptr, ptr %47, align 8, !tbaa !27
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
+  br label %70
 
-for.body.i:                                       ; preds = %for.inc.i, %if.then57.i
-  %16 = phi ptr [ @.str.6, %if.then57.i ], [ %20, %for.inc.i ]
-  %i.07.i = phi ptr [ @server_test.long_options, %if.then57.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %call61.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %16) #26
-  %tobool62.not.i = icmp eq i32 %call61.i, 0
-  br i1 %tobool62.not.i, label %if.then63.i, label %for.inc.i
+70:                                               ; preds = %87, %67
+  %71 = phi ptr [ @.str.7, %67 ], [ %89, %87 ]
+  %.09.i = phi ptr [ @server_test.long_options, %67 ], [ %88, %87 ]
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %71) #25
+  %.not73.i = icmp eq i32 %72, 0
+  br i1 %.not73.i, label %73, label %87
 
-if.then63.i:                                      ; preds = %for.body.i
-  %value.i = getelementptr inbounds nuw i8, ptr %i.07.i, i64 12
-  %17 = load i32, ptr %value.i, align 4
-  %inc64.i = add nsw i32 %6, 1
-  store i32 %inc64.i, ptr @myoptind, align 4
-  %takes_arg.i = getelementptr inbounds nuw i8, ptr %i.07.i, i64 8
-  %18 = load i32, ptr %takes_arg.i, align 8
-  %tobool69.not.i = icmp eq i32 %18, 0
-  br i1 %tobool69.not.i, label %mygetopt_long.exit, label %if.then70.i
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %.09.i, i64 12
+  %75 = load i32, ptr %74, align 4, !tbaa !30
+  %76 = add nsw i32 %44, 1
+  store i32 %76, ptr @myoptind, align 4, !tbaa !4
+  %77 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
+  %78 = load i32, ptr %77, align 8, !tbaa !32
+  %.not74.i = icmp eq i32 %78, 0
+  br i1 %.not74.i, label %mygetopt_long.exit, label %79
 
-if.then70.i:                                      ; preds = %if.then63.i
-  %cmp71.i = icmp slt i32 %inc64.i, %0
-  br i1 %cmp71.i, label %if.then73.i, label %if.else.i
+79:                                               ; preds = %73
+  %80 = icmp slt i32 %76, %29
+  br i1 %80, label %81, label %86
 
-if.then73.i:                                      ; preds = %if.then70.i
-  %cmp75.i = icmp eq i32 %18, 1
-  %idxprom85.phi.trans.insert.i = sext i32 %inc64.i to i64
-  %arrayidx86.phi.trans.insert.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom85.phi.trans.insert.i
-  %.pre11.i = load ptr, ptr %arrayidx86.phi.trans.insert.i, align 8
-  br i1 %cmp75.i, label %if.then84.i, label %lor.lhs.false77.i
+81:                                               ; preds = %79
+  %82 = icmp eq i32 %78, 1
+  %.phi.trans.insert.i = sext i32 %76 to i64
+  %.phi.trans.insert14.i = getelementptr inbounds ptr, ptr %31, i64 %.phi.trans.insert.i
+  %.pre15.i = load ptr, ptr %.phi.trans.insert14.i, align 8, !tbaa !27
+  br i1 %82, label %._crit_edge.i, label %83
 
-lor.lhs.false77.i:                                ; preds = %if.then73.i
-  %19 = load i8, ptr %.pre11.i, align 1
-  %cmp82.not.i = icmp eq i8 %19, 45
-  br i1 %cmp82.not.i, label %mygetopt_long.exit, label %if.then84.i
+83:                                               ; preds = %81
+  %84 = load i8, ptr %.pre15.i, align 1, !tbaa !29
+  %.not76.i = icmp eq i8 %84, 45
+  br i1 %.not76.i, label %mygetopt_long.exit, label %._crit_edge.i
 
-if.then84.i:                                      ; preds = %lor.lhs.false77.i, %if.then73.i
-  store ptr %.pre11.i, ptr @myoptarg, align 8
-  %inc87.i = add nsw i32 %6, 2
-  store i32 %inc87.i, ptr @myoptind, align 4
+._crit_edge.i:                                    ; preds = %83, %81
+  store ptr %.pre15.i, ptr @myoptarg, align 8, !tbaa !27
+  %85 = add nsw i32 %44, 2
+  store i32 %85, ptr @myoptind, align 4, !tbaa !4
   br label %mygetopt_long.exit
 
-if.else.i:                                        ; preds = %if.then70.i
-  %cmp90.not.i = icmp ne i32 %18, 2
-  %cmp.not = icmp eq i32 %17, -1
-  %or.cond546 = select i1 %cmp90.not.i, i1 true, i1 %cmp.not
-  br i1 %or.cond546, label %while.end, label %while.body
+86:                                               ; preds = %79
+  %.not75.i = icmp ne i32 %78, 2
+  %.not = icmp eq i32 %75, -1
+  %or.cond647 = select i1 %.not75.i, i1 true, i1 %.not
+  br i1 %or.cond647, label %mygetopt_long.exit.thread611, label %mygetopt_long.exit.thread
 
-for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %i.07.i, i64 16
-  %20 = load ptr, ptr %incdec.ptr.i, align 8
-  %tobool.not.i = icmp eq ptr %20, null
-  br i1 %tobool.not.i, label %while.end, label %for.body.i, !llvm.loop !9
+87:                                               ; preds = %70
+  %88 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
+  %89 = load ptr, ptr %88, align 8, !tbaa !33
+  %.not72.i = icmp eq ptr %89, null
+  br i1 %.not72.i, label %mygetopt_long.exit.thread611, label %70, !llvm.loop !34
 
-if.end97.i:                                       ; preds = %lor.lhs.false24.i
-  %inc101.i = add nsw i32 %6, 1
-  store i32 %inc101.i, ptr @myoptind, align 4
-  %.pre.i = load i8, ptr %arrayidx27.i, align 1
-  br label %if.end102.i
+90:                                               ; preds = %52
+  %91 = add nsw i32 %44, 1
+  store i32 %91, ptr @myoptind, align 4, !tbaa !4
+  %.pre.i = load i8, ptr %53, align 1, !tbaa !29
+  br label %92
 
-if.end102.i:                                      ; preds = %if.end97.i, %lor.lhs.false.i
-  %21 = phi i32 [ %inc101.i, %if.end97.i ], [ %4, %lor.lhs.false.i ]
-  %22 = phi i8 [ %.pre.i, %if.end97.i ], [ %5, %lor.lhs.false.i ]
-  %23 = phi ptr [ %arrayidx27.i, %if.end97.i ], [ %.pr.i, %lor.lhs.false.i ]
-  %incdec.ptr103.i = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %incdec.ptr103.i, ptr @mygetopt_long.next, align 8
-  %conv104.i = zext i8 %22 to i32
-  %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.15, i32 %conv104.i, i64 86)
-  %cmp106.i = icmp eq ptr %memchr.i, null
-  %24 = and i8 %22, -2
-  %25 = icmp eq i8 %24, 58
-  %or.cond1.i = select i1 %cmp106.i, i1 true, i1 %25
-  br i1 %or.cond1.i, label %sw.bb, label %if.end115.i
+92:                                               ; preds = %90, %40
+  %93 = phi i32 [ %91, %90 ], [ %36, %40 ]
+  %94 = phi i8 [ %.pre.i, %90 ], [ %41, %40 ]
+  %95 = phi ptr [ %53, %90 ], [ %.pr.i, %40 ]
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
+  store ptr %96, ptr @mygetopt_long.next, align 8, !tbaa !27
+  %97 = zext i8 %94 to i32
+  %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.16, i32 %97, i64 86)
+  %98 = icmp eq ptr %memchr.i, null
+  %99 = and i8 %94, -2
+  %100 = icmp eq i8 %99, 58
+  %or.cond3.i = select i1 %98, i1 true, i1 %100
+  br i1 %or.cond3.i, label %mygetopt_long.exit.thread.thread, label %101
 
-if.end115.i:                                      ; preds = %if.end102.i
-  %incdec.ptr116.i = getelementptr inbounds nuw i8, ptr %memchr.i, i64 1
-  %26 = load i8, ptr %incdec.ptr116.i, align 1
-  switch i8 %26, label %while.body [
-    i8 58, label %if.then120.i
-    i8 59, label %if.then139.i
+101:                                              ; preds = %92
+  %102 = getelementptr inbounds nuw i8, ptr %memchr.i, i64 1
+  %103 = load i8, ptr %102, align 1, !tbaa !29
+  switch i8 %103, label %mygetopt_long.exit.thread [
+    i8 58, label %104
+    i8 59, label %114
   ]
 
-if.then120.i:                                     ; preds = %if.end115.i
-  %27 = load i8, ptr %incdec.ptr103.i, align 1
-  %cmp122.not.i = icmp eq i8 %27, 0
-  br i1 %cmp122.not.i, label %if.else125.i, label %if.then124.i
+104:                                              ; preds = %101
+  %105 = load i8, ptr %96, align 1, !tbaa !29
+  %.not71.i = icmp eq i8 %105, 0
+  br i1 %.not71.i, label %107, label %106
 
-if.then124.i:                                     ; preds = %if.then120.i
-  store ptr %incdec.ptr103.i, ptr @myoptarg, align 8
-  store ptr null, ptr @mygetopt_long.next, align 8
-  br label %while.body
+106:                                              ; preds = %104
+  store ptr %96, ptr @myoptarg, align 8, !tbaa !27
+  store ptr null, ptr @mygetopt_long.next, align 8, !tbaa !27
+  br label %mygetopt_long.exit.thread
 
-if.else125.i:                                     ; preds = %if.then120.i
-  %cmp126.i = icmp slt i32 %21, %0
-  br i1 %cmp126.i, label %if.then128.i, label %sw.bb
+107:                                              ; preds = %104
+  %108 = icmp slt i32 %93, %29
+  br i1 %108, label %109, label %mygetopt_long.exit.thread.thread
 
-if.then128.i:                                     ; preds = %if.else125.i
-  %idxprom129.i = sext i32 %21 to i64
-  %arrayidx130.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom129.i
-  %28 = load ptr, ptr %arrayidx130.i, align 8
-  store ptr %28, ptr @myoptarg, align 8
-  %inc131.i = add nsw i32 %21, 1
-  store i32 %inc131.i, ptr @myoptind, align 4
-  br label %while.body
+109:                                              ; preds = %107
+  %110 = sext i32 %93 to i64
+  %111 = getelementptr inbounds ptr, ptr %31, i64 %110
+  %112 = load ptr, ptr %111, align 8, !tbaa !27
+  store ptr %112, ptr @myoptarg, align 8, !tbaa !27
+  %113 = add nsw i32 %93, 1
+  store i32 %113, ptr @myoptind, align 4, !tbaa !4
+  br label %mygetopt_long.exit.thread
 
-if.then139.i:                                     ; preds = %if.end115.i
-  store ptr @.str.73, ptr @myoptarg, align 8
-  %29 = load i8, ptr %incdec.ptr103.i, align 1
-  %cmp141.not.i = icmp eq i8 %29, 0
-  br i1 %cmp141.not.i, label %if.else144.i, label %if.then143.i
+114:                                              ; preds = %101
+  store ptr @.str.74, ptr @myoptarg, align 8, !tbaa !27
+  %115 = load i8, ptr %96, align 1, !tbaa !29
+  %.not68.i = icmp eq i8 %115, 0
+  br i1 %.not68.i, label %117, label %116
 
-if.then143.i:                                     ; preds = %if.then139.i
-  store ptr %incdec.ptr103.i, ptr @myoptarg, align 8
-  store ptr null, ptr @mygetopt_long.next, align 8
-  br label %while.body
+116:                                              ; preds = %114
+  store ptr %96, ptr @myoptarg, align 8, !tbaa !27
+  store ptr null, ptr @mygetopt_long.next, align 8, !tbaa !27
+  br label %mygetopt_long.exit.thread
 
-if.else144.i:                                     ; preds = %if.then139.i
-  %cmp145.i = icmp slt i32 %21, %0
-  br i1 %cmp145.i, label %if.then147.i, label %while.body
+117:                                              ; preds = %114
+  %118 = icmp slt i32 %93, %29
+  br i1 %118, label %119, label %mygetopt_long.exit.thread
 
-if.then147.i:                                     ; preds = %if.else144.i
-  %idxprom148.i = sext i32 %21 to i64
-  %arrayidx149.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom148.i
-  %30 = load ptr, ptr %arrayidx149.i, align 8
-  %tobool150.not.i = icmp eq ptr %30, null
-  br i1 %tobool150.not.i, label %while.body, label %land.lhs.true.i
+119:                                              ; preds = %117
+  %120 = sext i32 %93 to i64
+  %121 = getelementptr inbounds ptr, ptr %31, i64 %120
+  %122 = load ptr, ptr %121, align 8, !tbaa !27
+  %.not69.i = icmp eq ptr %122, null
+  br i1 %.not69.i, label %mygetopt_long.exit.thread, label %123
 
-land.lhs.true.i:                                  ; preds = %if.then147.i
-  %31 = load i8, ptr %30, align 1
-  %cmp155.not.i = icmp eq i8 %31, 45
-  br i1 %cmp155.not.i, label %while.body, label %if.then157.i
+123:                                              ; preds = %119
+  %124 = load i8, ptr %122, align 1, !tbaa !29
+  %.not70.i = icmp eq i8 %124, 45
+  br i1 %.not70.i, label %mygetopt_long.exit.thread, label %125
 
-if.then157.i:                                     ; preds = %land.lhs.true.i
-  store ptr %30, ptr @myoptarg, align 8
-  %inc160.i = add nsw i32 %21, 1
-  store i32 %inc160.i, ptr @myoptind, align 4
-  br label %while.body
+125:                                              ; preds = %123
+  store ptr %122, ptr @myoptarg, align 8, !tbaa !27
+  %126 = add nsw i32 %93, 1
+  store i32 %126, ptr @myoptind, align 4, !tbaa !4
+  br label %mygetopt_long.exit.thread
 
-mygetopt_long.exit:                               ; preds = %if.then63.i, %lor.lhs.false77.i, %if.then84.i
-  %cmp.not.old = icmp eq i32 %17, -1
-  br i1 %cmp.not.old, label %while.end, label %while.body
+mygetopt_long.exit:                               ; preds = %73, %83, %._crit_edge.i
+  %.not.old = icmp eq i32 %75, -1
+  br i1 %.not.old, label %mygetopt_long.exit.thread611, label %mygetopt_long.exit.thread
 
-while.body:                                       ; preds = %if.else.i, %if.then128.i, %if.then124.i, %if.then143.i, %if.then147.i, %land.lhs.true.i, %if.then157.i, %if.else144.i, %if.end115.i, %mygetopt_long.exit
-  %retval.0.i493 = phi i32 [ %17, %mygetopt_long.exit ], [ %conv104.i, %if.then128.i ], [ %conv104.i, %if.then124.i ], [ %conv104.i, %if.then143.i ], [ %conv104.i, %if.then147.i ], [ %conv104.i, %land.lhs.true.i ], [ %conv104.i, %if.then157.i ], [ %conv104.i, %if.else144.i ], [ %conv104.i, %if.end115.i ], [ %17, %if.else.i ]
-  switch i32 %retval.0.i493, label %sw.default [
-    i32 63, label %sw.bb
-    i32 257, label %sw.bb9
-    i32 258, label %sw.bb10
-    i32 120, label %sw.bb11
-    i32 100, label %sw.bb12
-    i32 86, label %if.end.i.backedge
-    i32 98, label %sw.bb14
-    i32 115, label %sw.bb15
-    i32 106, label %sw.bb16
-    i32 117, label %sw.bb17
-    i32 71, label %if.end.i.backedge
-    i32 102, label %sw.bb19
-    i32 82, label %sw.bb20
-    i32 114, label %sw.bb21
-    i32 80, label %if.end.i.backedge
-    i32 112, label %sw.bb23
-    i32 119, label %sw.bb25
-    i32 118, label %sw.bb26
-    i32 108, label %sw.bb40
-    i32 72, label %sw.bb41
-    i32 65, label %sw.bb96
-    i32 99, label %sw.bb97
-    i32 107, label %sw.bb98
-    i32 68, label %sw.bb99
-    i32 90, label %sw.bb100
-    i32 78, label %sw.bb109
-    i32 83, label %sw.bb110
-    i32 111, label %if.end.i.backedge
-    i32 79, label %if.end.i.backedge
-    i32 97, label %if.end.i.backedge
-    i32 73, label %if.end.i.backedge
-    i32 76, label %if.end.i.backedge
-    i32 105, label %sw.bb116
-    i32 67, label %sw.bb117
-    i32 101, label %sw.bb123
-    i32 66, label %sw.bb124
-    i32 113, label %if.end.i.backedge
-    i32 103, label %sw.bb143
-    i32 121, label %sw.bb144
-    i32 89, label %sw.bb145
-    i32 116, label %if.end.i.backedge
-    i32 75, label %sw.bb147
-    i32 84, label %if.end.i.backedge
-    i32 85, label %sw.bb149
-    i32 70, label %sw.bb150
-    i32 81, label %if.end.i.backedge
-    i32 74, label %if.end.i.backedge
-    i32 77, label %if.end.i.backedge
-    i32 109, label %if.end.i.backedge
-    i32 48, label %if.end.i.backedge
-    i32 49, label %sw.bb156
-    i32 50, label %sw.bb165
-    i32 51, label %if.end.i.backedge
-    i32 52, label %if.end.i.backedge
-    i32 53, label %if.end.i.backedge
-    i32 54, label %sw.bb169
-    i32 55, label %sw.bb170
-    i32 56, label %if.end.i.backedge
-    i32 57, label %sw.bb180
-    i32 64, label %sw.bb180
-    i32 35, label %sw.bb182
-    i32 262, label %sw.bb184
-    i32 264, label %sw.bb267
-    i32 265, label %if.end.i.backedge
-    i32 266, label %sw.bb269
+mygetopt_long.exit.thread:                        ; preds = %86, %109, %106, %116, %119, %123, %125, %117, %101, %mygetopt_long.exit
+  %.048.i609 = phi i32 [ %75, %mygetopt_long.exit ], [ %97, %109 ], [ %97, %106 ], [ %97, %116 ], [ %97, %119 ], [ %97, %123 ], [ %97, %125 ], [ %97, %117 ], [ %97, %101 ], [ %75, %86 ]
+  switch i32 %.048.i609, label %299 [
+    i32 63, label %mygetopt_long.exit.thread.thread
+    i32 257, label %132
+    i32 258, label %133
+    i32 120, label %134
+    i32 100, label %135
+    i32 86, label %.lr.ph.backedge
+    i32 98, label %136
+    i32 115, label %137
+    i32 106, label %138
+    i32 117, label %139
+    i32 71, label %.lr.ph.backedge
+    i32 102, label %140
+    i32 82, label %141
+    i32 114, label %143
+    i32 80, label %.lr.ph.backedge
+    i32 112, label %144
+    i32 119, label %148
+    i32 118, label %149
+    i32 108, label %157
+    i32 72, label %159
+    i32 65, label %193
+    i32 99, label %195
+    i32 107, label %197
+    i32 68, label %199
+    i32 90, label %201
+    i32 78, label %207
+    i32 83, label %208
+    i32 111, label %.lr.ph.backedge
+    i32 79, label %.lr.ph.backedge
+    i32 97, label %.lr.ph.backedge
+    i32 73, label %.lr.ph.backedge
+    i32 76, label %.lr.ph.backedge
+    i32 105, label %210
+    i32 67, label %211
+    i32 101, label %217
+    i32 66, label %218
+    i32 113, label %.lr.ph.backedge
+    i32 103, label %233
+    i32 121, label %234
+    i32 89, label %235
+    i32 116, label %.lr.ph.backedge
+    i32 75, label %236
+    i32 84, label %.lr.ph.backedge
+    i32 85, label %237
+    i32 70, label %238
+    i32 81, label %.lr.ph.backedge
+    i32 74, label %.lr.ph.backedge
+    i32 77, label %.lr.ph.backedge
+    i32 109, label %.lr.ph.backedge
+    i32 48, label %.lr.ph.backedge
+    i32 49, label %239
+    i32 50, label %243
+    i32 51, label %.lr.ph.backedge
+    i32 52, label %.lr.ph.backedge
+    i32 53, label %.lr.ph.backedge
+    i32 54, label %244
+    i32 55, label %245
+    i32 56, label %.lr.ph.backedge
+    i32 57, label %250
+    i32 64, label %250
+    i32 35, label %253
+    i32 262, label %256
+    i32 264, label %297
+    i32 265, label %.lr.ph.backedge
+    i32 266, label %298
+    i32 268, label %.lr.ph.backedge
   ]
 
-sw.bb:                                            ; preds = %if.end102.i, %if.else125.i, %while.body
-  %32 = load ptr, ptr @myoptarg, align 8
-  %cmp3.not = icmp eq ptr %32, null
-  br i1 %cmp3.not, label %if.end8, label %if.then
+mygetopt_long.exit.thread.thread:                 ; preds = %92, %107, %mygetopt_long.exit.thread
+  %127 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %.not498 = icmp eq ptr %127, null
+  br i1 %.not498, label %131, label %128
 
-if.then:                                          ; preds = %sw.bb
-  %call4 = tail call i32 @atoi(ptr noundef nonnull %32) #26
-  %or.cond = icmp ugt i32 %call4, 1
-  %spec.store.select39 = select i1 %or.cond, i32 0, i32 %call4
-  store i32 %spec.store.select39, ptr @lng_index, align 4
-  br label %if.end8
+128:                                              ; preds = %mygetopt_long.exit.thread.thread
+  %129 = tail call i64 @strtol(ptr noundef nonnull captures(none) %127, ptr noundef null, i32 noundef 10) #21
+  %130 = trunc i64 %129 to i32
+  %or.cond = icmp ugt i32 %130, 1
+  %spec.store.select78 = select i1 %or.cond, i32 0, i32 %130
+  store i32 %spec.store.select78, ptr @lng_index, align 4
+  br label %131
 
-if.end8:                                          ; preds = %if.then, %sw.bb
+131:                                              ; preds = %128, %mygetopt_long.exit.thread.thread
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 0) #27
+  tail call void @exit(i32 noundef 0) #26
   unreachable
 
-sw.bb9:                                           ; preds = %while.body
-  store i32 0, ptr @lng_index, align 4
+132:                                              ; preds = %mygetopt_long.exit.thread
+  store i32 0, ptr @lng_index, align 4, !tbaa !4
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 0) #27
+  tail call void @exit(i32 noundef 0) #26
   unreachable
 
-sw.bb10:                                          ; preds = %while.body
-  store i32 1, ptr @lng_index, align 4
+133:                                              ; preds = %mygetopt_long.exit.thread
+  store i32 1, ptr @lng_index, align 4, !tbaa !4
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 0) #27
+  tail call void @exit(i32 noundef 0) #26
   unreachable
 
-sw.bb11:                                          ; preds = %while.body
-  store i32 1, ptr @runWithErrors, align 4
-  br label %if.end.i.backedge
+134:                                              ; preds = %mygetopt_long.exit.thread
+  store i32 1, ptr @runWithErrors, align 4, !tbaa !4
+  br label %.lr.ph.backedge
 
-sw.bb12:                                          ; preds = %while.body
-  br label %if.end.i.backedge
+135:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb14:                                          ; preds = %while.body
-  br label %if.end.i.backedge
+136:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb15:                                          ; preds = %while.body
-  br label %if.end.i.backedge
+137:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb16:                                          ; preds = %while.body
-  br label %if.end.i.backedge
+138:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb17:                                          ; preds = %while.body
-  br label %if.end.i.backedge
+139:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb19:                                          ; preds = %while.body
-  br label %if.end.i.backedge
+140:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb20:                                          ; preds = %while.body
-  %33 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
+141:                                              ; preds = %mygetopt_long.exit.thread
+  %142 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  br label %.lr.ph.backedge
 
-sw.bb21:                                          ; preds = %while.body
-  br label %if.end.i.backedge
+143:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb23:                                          ; preds = %while.body
-  %34 = load ptr, ptr @myoptarg, align 8
-  %call24 = tail call i32 @atoi(ptr noundef %34) #26
-  %conv = trunc i32 %call24 to i16
-  br label %if.end.i.backedge
+144:                                              ; preds = %mygetopt_long.exit.thread
+  %145 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %146 = tail call i64 @strtol(ptr noundef nonnull captures(none) %145, ptr noundef null, i32 noundef 10) #21
+  %147 = trunc i64 %146 to i16
+  br label %.lr.ph.backedge
 
-sw.bb25:                                          ; preds = %while.body
-  br label %if.end.i.backedge
+148:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb26:                                          ; preds = %while.body
-  %35 = load ptr, ptr @myoptarg, align 8
-  %36 = load i8, ptr %35, align 1
-  %cmp28 = icmp eq i8 %36, 100
-  br i1 %cmp28, label %if.end.i.backedge, label %if.end31
+149:                                              ; preds = %mygetopt_long.exit.thread
+  %150 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %151 = load i8, ptr %150, align 1, !tbaa !29
+  %152 = icmp eq i8 %151, 100
+  br i1 %152, label %.lr.ph.backedge, label %153
 
-if.end.i.backedge:                                ; preds = %sw.bb26, %sw.bb156, %for.end248, %sw.bb170, %for.end, %sw.bb117, %sw.bb100, %if.then45, %if.then56, %if.then68, %if.then80, %if.then86, %if.then74, %if.then62, %if.then50, %if.end31, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %sw.bb269, %sw.bb267, %sw.bb169, %sw.bb165, %sw.bb150, %sw.bb149, %sw.bb147, %sw.bb145, %sw.bb144, %sw.bb143, %sw.bb123, %sw.bb116, %sw.bb110, %sw.bb109, %sw.bb99, %sw.bb98, %sw.bb97, %sw.bb96, %sw.bb40, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb12, %sw.bb11
-  %minVersion.01450.be = phi i32 [ %minVersion.01450, %sw.bb269 ], [ %minVersion.01450, %sw.bb267 ], [ %minVersion.01450, %for.end248 ], [ %call171, %sw.bb170 ], [ %minVersion.01450, %sw.bb169 ], [ %minVersion.01450, %sw.bb165 ], [ %minVersion.01450, %sw.bb156 ], [ %minVersion.01450, %sw.bb150 ], [ %minVersion.01450, %sw.bb149 ], [ %minVersion.01450, %sw.bb147 ], [ %minVersion.01450, %sw.bb145 ], [ %minVersion.01450, %sw.bb144 ], [ %minVersion.01450, %sw.bb143 ], [ %minVersion.01450, %for.end ], [ %minVersion.01450, %sw.bb123 ], [ %minVersion.01450, %sw.bb117 ], [ %minVersion.01450, %sw.bb116 ], [ %minVersion.01450, %sw.bb110 ], [ %minVersion.01450, %sw.bb109 ], [ %minVersion.01450, %sw.bb100 ], [ %minVersion.01450, %sw.bb99 ], [ %minVersion.01450, %sw.bb98 ], [ %minVersion.01450, %sw.bb97 ], [ %minVersion.01450, %sw.bb96 ], [ %minVersion.01450, %if.then45 ], [ %minVersion.01450, %if.then50 ], [ %minVersion.01450, %if.then56 ], [ %minVersion.01450, %if.then62 ], [ %minVersion.01450, %if.then68 ], [ %minVersion.01450, %if.then74 ], [ %minVersion.01450, %if.then80 ], [ %minVersion.01450, %if.then86 ], [ %minVersion.01450, %sw.bb40 ], [ %minVersion.01450, %if.end31 ], [ %minVersion.01450, %sw.bb25 ], [ %minVersion.01450, %sw.bb23 ], [ %minVersion.01450, %sw.bb21 ], [ %minVersion.01450, %sw.bb20 ], [ %minVersion.01450, %sw.bb19 ], [ %minVersion.01450, %sw.bb17 ], [ %minVersion.01450, %sw.bb16 ], [ %minVersion.01450, %sw.bb15 ], [ %minVersion.01450, %sw.bb14 ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %while.body ], [ %minVersion.01450, %sw.bb12 ], [ %minVersion.01450, %sw.bb11 ], [ %minVersion.01450, %sw.bb26 ]
-  %useWebServerMsg.01448.be = phi i32 [ %useWebServerMsg.01448, %sw.bb269 ], [ %useWebServerMsg.01448, %sw.bb267 ], [ %useWebServerMsg.01448, %for.end248 ], [ %useWebServerMsg.01448, %sw.bb170 ], [ %useWebServerMsg.01448, %sw.bb169 ], [ %useWebServerMsg.01448, %sw.bb165 ], [ %useWebServerMsg.01448, %sw.bb156 ], [ %useWebServerMsg.01448, %sw.bb150 ], [ %useWebServerMsg.01448, %sw.bb149 ], [ %useWebServerMsg.01448, %sw.bb147 ], [ %useWebServerMsg.01448, %sw.bb145 ], [ %useWebServerMsg.01448, %sw.bb144 ], [ 1, %sw.bb143 ], [ %useWebServerMsg.01448, %for.end ], [ %useWebServerMsg.01448, %sw.bb123 ], [ %useWebServerMsg.01448, %sw.bb117 ], [ %useWebServerMsg.01448, %sw.bb116 ], [ %useWebServerMsg.01448, %sw.bb110 ], [ %useWebServerMsg.01448, %sw.bb109 ], [ %useWebServerMsg.01448, %sw.bb100 ], [ %useWebServerMsg.01448, %sw.bb99 ], [ %useWebServerMsg.01448, %sw.bb98 ], [ %useWebServerMsg.01448, %sw.bb97 ], [ %useWebServerMsg.01448, %sw.bb96 ], [ %useWebServerMsg.01448, %if.then45 ], [ %useWebServerMsg.01448, %if.then50 ], [ %useWebServerMsg.01448, %if.then56 ], [ %useWebServerMsg.01448, %if.then62 ], [ %useWebServerMsg.01448, %if.then68 ], [ %useWebServerMsg.01448, %if.then74 ], [ %useWebServerMsg.01448, %if.then80 ], [ %useWebServerMsg.01448, %if.then86 ], [ %useWebServerMsg.01448, %sw.bb40 ], [ %useWebServerMsg.01448, %if.end31 ], [ %useWebServerMsg.01448, %sw.bb25 ], [ %useWebServerMsg.01448, %sw.bb23 ], [ %useWebServerMsg.01448, %sw.bb21 ], [ %useWebServerMsg.01448, %sw.bb20 ], [ %useWebServerMsg.01448, %sw.bb19 ], [ %useWebServerMsg.01448, %sw.bb17 ], [ %useWebServerMsg.01448, %sw.bb16 ], [ %useWebServerMsg.01448, %sw.bb15 ], [ %useWebServerMsg.01448, %sw.bb14 ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %while.body ], [ %useWebServerMsg.01448, %sw.bb12 ], [ %useWebServerMsg.01448, %sw.bb11 ], [ %useWebServerMsg.01448, %sw.bb26 ]
-  %version.01446.be = phi i32 [ %version.01446, %sw.bb269 ], [ %version.01446, %sw.bb267 ], [ %version.01446, %for.end248 ], [ %version.01446, %sw.bb170 ], [ %version.01446, %sw.bb169 ], [ %version.01446, %sw.bb165 ], [ %version.01446, %sw.bb156 ], [ %version.01446, %sw.bb150 ], [ %version.01446, %sw.bb149 ], [ %version.01446, %sw.bb147 ], [ %version.01446, %sw.bb145 ], [ %version.01446, %sw.bb144 ], [ %version.01446, %sw.bb143 ], [ %version.01446, %for.end ], [ %version.01446, %sw.bb123 ], [ %version.01446, %sw.bb117 ], [ %version.01446, %sw.bb116 ], [ %version.01446, %sw.bb110 ], [ %version.01446, %sw.bb109 ], [ %version.01446, %sw.bb100 ], [ %version.01446, %sw.bb99 ], [ %version.01446, %sw.bb98 ], [ %version.01446, %sw.bb97 ], [ %version.01446, %sw.bb96 ], [ %version.01446, %if.then45 ], [ %version.01446, %if.then50 ], [ %version.01446, %if.then56 ], [ %version.01446, %if.then62 ], [ %version.01446, %if.then68 ], [ %version.01446, %if.then74 ], [ %version.01446, %if.then80 ], [ %version.01446, %if.then86 ], [ %version.01446, %sw.bb40 ], [ %call32, %if.end31 ], [ %version.01446, %sw.bb25 ], [ %version.01446, %sw.bb23 ], [ %version.01446, %sw.bb21 ], [ %version.01446, %sw.bb20 ], [ %version.01446, %sw.bb19 ], [ %version.01446, %sw.bb17 ], [ %version.01446, %sw.bb16 ], [ %version.01446, %sw.bb15 ], [ %version.01446, %sw.bb14 ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %while.body ], [ %version.01446, %sw.bb12 ], [ %version.01446, %sw.bb11 ], [ -98, %sw.bb26 ]
-  %doCliCertCheck.01444.be = phi i32 [ %doCliCertCheck.01444, %sw.bb269 ], [ %doCliCertCheck.01444, %sw.bb267 ], [ %doCliCertCheck.01444, %for.end248 ], [ %doCliCertCheck.01444, %sw.bb170 ], [ %doCliCertCheck.01444, %sw.bb169 ], [ %doCliCertCheck.01444, %sw.bb165 ], [ %doCliCertCheck.01444, %sw.bb156 ], [ %doCliCertCheck.01444, %sw.bb150 ], [ %doCliCertCheck.01444, %sw.bb149 ], [ %doCliCertCheck.01444, %sw.bb147 ], [ %doCliCertCheck.01444, %sw.bb145 ], [ %doCliCertCheck.01444, %sw.bb144 ], [ %doCliCertCheck.01444, %sw.bb143 ], [ %doCliCertCheck.01444, %for.end ], [ %doCliCertCheck.01444, %sw.bb123 ], [ %doCliCertCheck.01444, %sw.bb117 ], [ %doCliCertCheck.01444, %sw.bb116 ], [ %doCliCertCheck.01444, %sw.bb110 ], [ %doCliCertCheck.01444, %sw.bb109 ], [ %doCliCertCheck.01444, %sw.bb100 ], [ %doCliCertCheck.01444, %sw.bb99 ], [ %doCliCertCheck.01444, %sw.bb98 ], [ %doCliCertCheck.01444, %sw.bb97 ], [ %doCliCertCheck.01444, %sw.bb96 ], [ %doCliCertCheck.01444, %if.then45 ], [ %doCliCertCheck.01444, %if.then50 ], [ %doCliCertCheck.01444, %if.then56 ], [ %doCliCertCheck.01444, %if.then62 ], [ %doCliCertCheck.01444, %if.then68 ], [ %doCliCertCheck.01444, %if.then74 ], [ %doCliCertCheck.01444, %if.then80 ], [ %doCliCertCheck.01444, %if.then86 ], [ %doCliCertCheck.01444, %sw.bb40 ], [ %doCliCertCheck.01444, %if.end31 ], [ %doCliCertCheck.01444, %sw.bb25 ], [ %doCliCertCheck.01444, %sw.bb23 ], [ %doCliCertCheck.01444, %sw.bb21 ], [ %doCliCertCheck.01444, %sw.bb20 ], [ %doCliCertCheck.01444, %sw.bb19 ], [ %doCliCertCheck.01444, %sw.bb17 ], [ %doCliCertCheck.01444, %sw.bb16 ], [ %doCliCertCheck.01444, %sw.bb15 ], [ %doCliCertCheck.01444, %sw.bb14 ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ %doCliCertCheck.01444, %while.body ], [ 0, %sw.bb12 ], [ %doCliCertCheck.01444, %sw.bb11 ], [ %doCliCertCheck.01444, %sw.bb26 ]
-  %useAnyAddr.01442.be = phi i32 [ %useAnyAddr.01442, %sw.bb269 ], [ %useAnyAddr.01442, %sw.bb267 ], [ %useAnyAddr.01442, %for.end248 ], [ %useAnyAddr.01442, %sw.bb170 ], [ %useAnyAddr.01442, %sw.bb169 ], [ %useAnyAddr.01442, %sw.bb165 ], [ %useAnyAddr.01442, %sw.bb156 ], [ %useAnyAddr.01442, %sw.bb150 ], [ %useAnyAddr.01442, %sw.bb149 ], [ %useAnyAddr.01442, %sw.bb147 ], [ %useAnyAddr.01442, %sw.bb145 ], [ %useAnyAddr.01442, %sw.bb144 ], [ %useAnyAddr.01442, %sw.bb143 ], [ %useAnyAddr.01442, %for.end ], [ %useAnyAddr.01442, %sw.bb123 ], [ %useAnyAddr.01442, %sw.bb117 ], [ %useAnyAddr.01442, %sw.bb116 ], [ %useAnyAddr.01442, %sw.bb110 ], [ %useAnyAddr.01442, %sw.bb109 ], [ %useAnyAddr.01442, %sw.bb100 ], [ %useAnyAddr.01442, %sw.bb99 ], [ %useAnyAddr.01442, %sw.bb98 ], [ %useAnyAddr.01442, %sw.bb97 ], [ %useAnyAddr.01442, %sw.bb96 ], [ %useAnyAddr.01442, %if.then45 ], [ %useAnyAddr.01442, %if.then50 ], [ %useAnyAddr.01442, %if.then56 ], [ %useAnyAddr.01442, %if.then62 ], [ %useAnyAddr.01442, %if.then68 ], [ %useAnyAddr.01442, %if.then74 ], [ %useAnyAddr.01442, %if.then80 ], [ %useAnyAddr.01442, %if.then86 ], [ %useAnyAddr.01442, %sw.bb40 ], [ %useAnyAddr.01442, %if.end31 ], [ %useAnyAddr.01442, %sw.bb25 ], [ %useAnyAddr.01442, %sw.bb23 ], [ %useAnyAddr.01442, %sw.bb21 ], [ %useAnyAddr.01442, %sw.bb20 ], [ %useAnyAddr.01442, %sw.bb19 ], [ %useAnyAddr.01442, %sw.bb17 ], [ %useAnyAddr.01442, %sw.bb16 ], [ %useAnyAddr.01442, %sw.bb15 ], [ 1, %sw.bb14 ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %while.body ], [ %useAnyAddr.01442, %sw.bb12 ], [ %useAnyAddr.01442, %sw.bb11 ], [ %useAnyAddr.01442, %sw.bb26 ]
-  %disallowETM.01440.be = phi i32 [ %disallowETM.01440, %sw.bb269 ], [ %disallowETM.01440, %sw.bb267 ], [ %disallowETM.01440, %for.end248 ], [ %disallowETM.01440, %sw.bb170 ], [ %disallowETM.01440, %sw.bb169 ], [ %disallowETM.01440, %sw.bb165 ], [ %disallowETM.01440, %sw.bb156 ], [ %disallowETM.01440, %sw.bb150 ], [ %disallowETM.01440, %sw.bb149 ], [ %disallowETM.01440, %sw.bb147 ], [ %disallowETM.01440, %sw.bb145 ], [ %disallowETM.01440, %sw.bb144 ], [ %disallowETM.01440, %sw.bb143 ], [ %disallowETM.01440, %for.end ], [ %disallowETM.01440, %sw.bb123 ], [ %disallowETM.01440, %sw.bb117 ], [ %disallowETM.01440, %sw.bb116 ], [ %disallowETM.01440, %sw.bb110 ], [ %disallowETM.01440, %sw.bb109 ], [ %disallowETM.01440, %sw.bb100 ], [ %disallowETM.01440, %sw.bb99 ], [ %disallowETM.01440, %sw.bb98 ], [ %disallowETM.01440, %sw.bb97 ], [ %disallowETM.01440, %sw.bb96 ], [ %disallowETM.01440, %if.then45 ], [ %disallowETM.01440, %if.then50 ], [ %disallowETM.01440, %if.then56 ], [ %disallowETM.01440, %if.then62 ], [ %disallowETM.01440, %if.then68 ], [ %disallowETM.01440, %if.then74 ], [ 1, %if.then80 ], [ %disallowETM.01440, %if.then86 ], [ %disallowETM.01440, %sw.bb40 ], [ %disallowETM.01440, %if.end31 ], [ %disallowETM.01440, %sw.bb25 ], [ %disallowETM.01440, %sw.bb23 ], [ %disallowETM.01440, %sw.bb21 ], [ %disallowETM.01440, %sw.bb20 ], [ %disallowETM.01440, %sw.bb19 ], [ %disallowETM.01440, %sw.bb17 ], [ %disallowETM.01440, %sw.bb16 ], [ %disallowETM.01440, %sw.bb15 ], [ %disallowETM.01440, %sw.bb14 ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %while.body ], [ %disallowETM.01440, %sw.bb12 ], [ %disallowETM.01440, %sw.bb11 ], [ %disallowETM.01440, %sw.bb26 ]
-  %loadCertKeyIntoSSLObj.01438.be = phi i32 [ %loadCertKeyIntoSSLObj.01438, %sw.bb269 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb267 ], [ %loadCertKeyIntoSSLObj.01438, %for.end248 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb170 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb169 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb165 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb156 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb150 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb149 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb147 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb145 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb144 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb143 ], [ %loadCertKeyIntoSSLObj.01438, %for.end ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb123 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb117 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb116 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb110 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb109 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb100 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb99 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb98 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb97 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb96 ], [ %loadCertKeyIntoSSLObj.01438, %if.then45 ], [ %loadCertKeyIntoSSLObj.01438, %if.then50 ], [ %loadCertKeyIntoSSLObj.01438, %if.then56 ], [ %loadCertKeyIntoSSLObj.01438, %if.then62 ], [ 2, %if.then68 ], [ 1, %if.then74 ], [ %loadCertKeyIntoSSLObj.01438, %if.then80 ], [ %loadCertKeyIntoSSLObj.01438, %if.then86 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb40 ], [ %loadCertKeyIntoSSLObj.01438, %if.end31 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb25 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb23 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb21 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb20 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb19 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb17 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb16 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb15 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb14 ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %while.body ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb12 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb11 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb26 ]
-  %exitWithRet.01436.be = phi i32 [ %exitWithRet.01436, %sw.bb269 ], [ %exitWithRet.01436, %sw.bb267 ], [ %exitWithRet.01436, %for.end248 ], [ %exitWithRet.01436, %sw.bb170 ], [ %exitWithRet.01436, %sw.bb169 ], [ %exitWithRet.01436, %sw.bb165 ], [ %exitWithRet.01436, %sw.bb156 ], [ %exitWithRet.01436, %sw.bb150 ], [ %exitWithRet.01436, %sw.bb149 ], [ %exitWithRet.01436, %sw.bb147 ], [ %exitWithRet.01436, %sw.bb145 ], [ %exitWithRet.01436, %sw.bb144 ], [ %exitWithRet.01436, %sw.bb143 ], [ %exitWithRet.01436, %for.end ], [ %exitWithRet.01436, %sw.bb123 ], [ %exitWithRet.01436, %sw.bb117 ], [ %exitWithRet.01436, %sw.bb116 ], [ %exitWithRet.01436, %sw.bb110 ], [ %exitWithRet.01436, %sw.bb109 ], [ %exitWithRet.01436, %sw.bb100 ], [ %exitWithRet.01436, %sw.bb99 ], [ %exitWithRet.01436, %sw.bb98 ], [ %exitWithRet.01436, %sw.bb97 ], [ %exitWithRet.01436, %sw.bb96 ], [ %exitWithRet.01436, %if.then45 ], [ 1, %if.then50 ], [ %exitWithRet.01436, %if.then56 ], [ %exitWithRet.01436, %if.then62 ], [ %exitWithRet.01436, %if.then68 ], [ %exitWithRet.01436, %if.then74 ], [ %exitWithRet.01436, %if.then80 ], [ %exitWithRet.01436, %if.then86 ], [ %exitWithRet.01436, %sw.bb40 ], [ %exitWithRet.01436, %if.end31 ], [ %exitWithRet.01436, %sw.bb25 ], [ %exitWithRet.01436, %sw.bb23 ], [ %exitWithRet.01436, %sw.bb21 ], [ %exitWithRet.01436, %sw.bb20 ], [ %exitWithRet.01436, %sw.bb19 ], [ %exitWithRet.01436, %sw.bb17 ], [ %exitWithRet.01436, %sw.bb16 ], [ %exitWithRet.01436, %sw.bb15 ], [ %exitWithRet.01436, %sw.bb14 ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %while.body ], [ %exitWithRet.01436, %sw.bb12 ], [ %exitWithRet.01436, %sw.bb11 ], [ %exitWithRet.01436, %sw.bb26 ]
-  %usePsk.01434.be = phi i32 [ %usePsk.01434, %sw.bb269 ], [ %usePsk.01434, %sw.bb267 ], [ %usePsk.01434, %for.end248 ], [ %usePsk.01434, %sw.bb170 ], [ %usePsk.01434, %sw.bb169 ], [ %usePsk.01434, %sw.bb165 ], [ %usePsk.01434, %sw.bb156 ], [ %usePsk.01434, %sw.bb150 ], [ %usePsk.01434, %sw.bb149 ], [ %usePsk.01434, %sw.bb147 ], [ %usePsk.01434, %sw.bb145 ], [ %usePsk.01434, %sw.bb144 ], [ %usePsk.01434, %sw.bb143 ], [ %usePsk.01434, %for.end ], [ %usePsk.01434, %sw.bb123 ], [ %usePsk.01434, %sw.bb117 ], [ %usePsk.01434, %sw.bb116 ], [ %usePsk.01434, %sw.bb110 ], [ %usePsk.01434, %sw.bb109 ], [ %usePsk.01434, %sw.bb100 ], [ %usePsk.01434, %sw.bb99 ], [ %usePsk.01434, %sw.bb98 ], [ %usePsk.01434, %sw.bb97 ], [ %usePsk.01434, %sw.bb96 ], [ %usePsk.01434, %if.then45 ], [ %usePsk.01434, %if.then50 ], [ %usePsk.01434, %if.then56 ], [ %usePsk.01434, %if.then62 ], [ %usePsk.01434, %if.then68 ], [ %usePsk.01434, %if.then74 ], [ %usePsk.01434, %if.then80 ], [ %usePsk.01434, %if.then86 ], [ %usePsk.01434, %sw.bb40 ], [ %usePsk.01434, %if.end31 ], [ %usePsk.01434, %sw.bb25 ], [ %usePsk.01434, %sw.bb23 ], [ %usePsk.01434, %sw.bb21 ], [ %usePsk.01434, %sw.bb20 ], [ %usePsk.01434, %sw.bb19 ], [ %usePsk.01434, %sw.bb17 ], [ %usePsk.01434, %sw.bb16 ], [ 1, %sw.bb15 ], [ %usePsk.01434, %sw.bb14 ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %while.body ], [ %usePsk.01434, %sw.bb12 ], [ %usePsk.01434, %sw.bb11 ], [ %usePsk.01434, %sw.bb26 ]
-  %usePskPlus.01432.be = phi i32 [ %usePskPlus.01432, %sw.bb269 ], [ %usePskPlus.01432, %sw.bb267 ], [ %usePskPlus.01432, %for.end248 ], [ %usePskPlus.01432, %sw.bb170 ], [ %usePskPlus.01432, %sw.bb169 ], [ %usePskPlus.01432, %sw.bb165 ], [ %usePskPlus.01432, %sw.bb156 ], [ %usePskPlus.01432, %sw.bb150 ], [ %usePskPlus.01432, %sw.bb149 ], [ %usePskPlus.01432, %sw.bb147 ], [ %usePskPlus.01432, %sw.bb145 ], [ %usePskPlus.01432, %sw.bb144 ], [ %usePskPlus.01432, %sw.bb143 ], [ %usePskPlus.01432, %for.end ], [ %usePskPlus.01432, %sw.bb123 ], [ %usePskPlus.01432, %sw.bb117 ], [ %usePskPlus.01432, %sw.bb116 ], [ %usePskPlus.01432, %sw.bb110 ], [ %usePskPlus.01432, %sw.bb109 ], [ %usePskPlus.01432, %sw.bb100 ], [ %usePskPlus.01432, %sw.bb99 ], [ %usePskPlus.01432, %sw.bb98 ], [ %usePskPlus.01432, %sw.bb97 ], [ %usePskPlus.01432, %sw.bb96 ], [ %usePskPlus.01432, %if.then45 ], [ %usePskPlus.01432, %if.then50 ], [ %usePskPlus.01432, %if.then56 ], [ %usePskPlus.01432, %if.then62 ], [ %usePskPlus.01432, %if.then68 ], [ %usePskPlus.01432, %if.then74 ], [ %usePskPlus.01432, %if.then80 ], [ %usePskPlus.01432, %if.then86 ], [ %usePskPlus.01432, %sw.bb40 ], [ %usePskPlus.01432, %if.end31 ], [ %usePskPlus.01432, %sw.bb25 ], [ %usePskPlus.01432, %sw.bb23 ], [ %usePskPlus.01432, %sw.bb21 ], [ %usePskPlus.01432, %sw.bb20 ], [ %usePskPlus.01432, %sw.bb19 ], [ %usePskPlus.01432, %sw.bb17 ], [ 1, %sw.bb16 ], [ %usePskPlus.01432, %sw.bb15 ], [ %usePskPlus.01432, %sw.bb14 ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %while.body ], [ %usePskPlus.01432, %sw.bb12 ], [ %usePskPlus.01432, %sw.bb11 ], [ %usePskPlus.01432, %sw.bb26 ]
-  %doDTLS.01430.be = phi i32 [ %doDTLS.01430, %sw.bb269 ], [ %doDTLS.01430, %sw.bb267 ], [ %doDTLS.01430, %for.end248 ], [ %doDTLS.01430, %sw.bb170 ], [ %doDTLS.01430, %sw.bb169 ], [ %doDTLS.01430, %sw.bb165 ], [ %doDTLS.01430, %sw.bb156 ], [ %doDTLS.01430, %sw.bb150 ], [ %doDTLS.01430, %sw.bb149 ], [ %doDTLS.01430, %sw.bb147 ], [ %doDTLS.01430, %sw.bb145 ], [ %doDTLS.01430, %sw.bb144 ], [ %doDTLS.01430, %sw.bb143 ], [ %doDTLS.01430, %for.end ], [ %doDTLS.01430, %sw.bb123 ], [ %doDTLS.01430, %sw.bb117 ], [ %doDTLS.01430, %sw.bb116 ], [ %doDTLS.01430, %sw.bb110 ], [ %doDTLS.01430, %sw.bb109 ], [ %doDTLS.01430, %sw.bb100 ], [ %doDTLS.01430, %sw.bb99 ], [ %doDTLS.01430, %sw.bb98 ], [ %doDTLS.01430, %sw.bb97 ], [ %doDTLS.01430, %sw.bb96 ], [ %doDTLS.01430, %if.then45 ], [ %doDTLS.01430, %if.then50 ], [ %doDTLS.01430, %if.then56 ], [ %doDTLS.01430, %if.then62 ], [ %doDTLS.01430, %if.then68 ], [ %doDTLS.01430, %if.then74 ], [ %doDTLS.01430, %if.then80 ], [ %doDTLS.01430, %if.then86 ], [ %doDTLS.01430, %sw.bb40 ], [ %doDTLS.01430, %if.end31 ], [ %doDTLS.01430, %sw.bb25 ], [ %doDTLS.01430, %sw.bb23 ], [ %doDTLS.01430, %sw.bb21 ], [ %doDTLS.01430, %sw.bb20 ], [ %doDTLS.01430, %sw.bb19 ], [ 1, %sw.bb17 ], [ %doDTLS.01430, %sw.bb16 ], [ %doDTLS.01430, %sw.bb15 ], [ %doDTLS.01430, %sw.bb14 ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %while.body ], [ %doDTLS.01430, %sw.bb12 ], [ %doDTLS.01430, %sw.bb11 ], [ %doDTLS.01430, %sw.bb26 ]
-  %dtlsUDP.01428.be = phi i32 [ %dtlsUDP.01428, %sw.bb269 ], [ %dtlsUDP.01428, %sw.bb267 ], [ %dtlsUDP.01428, %for.end248 ], [ %dtlsUDP.01428, %sw.bb170 ], [ %dtlsUDP.01428, %sw.bb169 ], [ %dtlsUDP.01428, %sw.bb165 ], [ %dtlsUDP.01428, %sw.bb156 ], [ %dtlsUDP.01428, %sw.bb150 ], [ %dtlsUDP.01428, %sw.bb149 ], [ %dtlsUDP.01428, %sw.bb147 ], [ %dtlsUDP.01428, %sw.bb145 ], [ %dtlsUDP.01428, %sw.bb144 ], [ %dtlsUDP.01428, %sw.bb143 ], [ %dtlsUDP.01428, %for.end ], [ %dtlsUDP.01428, %sw.bb123 ], [ %dtlsUDP.01428, %sw.bb117 ], [ %dtlsUDP.01428, %sw.bb116 ], [ %dtlsUDP.01428, %sw.bb110 ], [ %dtlsUDP.01428, %sw.bb109 ], [ %dtlsUDP.01428, %sw.bb100 ], [ %dtlsUDP.01428, %sw.bb99 ], [ %dtlsUDP.01428, %sw.bb98 ], [ %dtlsUDP.01428, %sw.bb97 ], [ %dtlsUDP.01428, %sw.bb96 ], [ %dtlsUDP.01428, %if.then45 ], [ %dtlsUDP.01428, %if.then50 ], [ %dtlsUDP.01428, %if.then56 ], [ %dtlsUDP.01428, %if.then62 ], [ %dtlsUDP.01428, %if.then68 ], [ %dtlsUDP.01428, %if.then74 ], [ %dtlsUDP.01428, %if.then80 ], [ %dtlsUDP.01428, %if.then86 ], [ %dtlsUDP.01428, %sw.bb40 ], [ %dtlsUDP.01428, %if.end31 ], [ %dtlsUDP.01428, %sw.bb25 ], [ %dtlsUDP.01428, %sw.bb23 ], [ %dtlsUDP.01428, %sw.bb21 ], [ %dtlsUDP.01428, %sw.bb20 ], [ %dtlsUDP.01428, %sw.bb19 ], [ 1, %sw.bb17 ], [ %dtlsUDP.01428, %sw.bb16 ], [ %dtlsUDP.01428, %sw.bb15 ], [ %dtlsUDP.01428, %sw.bb14 ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %while.body ], [ %dtlsUDP.01428, %sw.bb12 ], [ %dtlsUDP.01428, %sw.bb11 ], [ %dtlsUDP.01428, %sw.bb26 ]
-  %nonBlocking.01426.be = phi i32 [ %nonBlocking.01426, %sw.bb269 ], [ %nonBlocking.01426, %sw.bb267 ], [ %nonBlocking.01426, %for.end248 ], [ %nonBlocking.01426, %sw.bb170 ], [ 1, %sw.bb169 ], [ %nonBlocking.01426, %sw.bb165 ], [ %nonBlocking.01426, %sw.bb156 ], [ %nonBlocking.01426, %sw.bb150 ], [ %nonBlocking.01426, %sw.bb149 ], [ %nonBlocking.01426, %sw.bb147 ], [ %nonBlocking.01426, %sw.bb145 ], [ %nonBlocking.01426, %sw.bb144 ], [ %nonBlocking.01426, %sw.bb143 ], [ %nonBlocking.01426, %for.end ], [ %nonBlocking.01426, %sw.bb123 ], [ %nonBlocking.01426, %sw.bb117 ], [ %nonBlocking.01426, %sw.bb116 ], [ %nonBlocking.01426, %sw.bb110 ], [ 1, %sw.bb109 ], [ %nonBlocking.01426, %sw.bb100 ], [ %nonBlocking.01426, %sw.bb99 ], [ %nonBlocking.01426, %sw.bb98 ], [ %nonBlocking.01426, %sw.bb97 ], [ %nonBlocking.01426, %sw.bb96 ], [ %nonBlocking.01426, %if.then45 ], [ %nonBlocking.01426, %if.then50 ], [ %nonBlocking.01426, %if.then56 ], [ %nonBlocking.01426, %if.then62 ], [ %nonBlocking.01426, %if.then68 ], [ %nonBlocking.01426, %if.then74 ], [ %nonBlocking.01426, %if.then80 ], [ %nonBlocking.01426, %if.then86 ], [ %nonBlocking.01426, %sw.bb40 ], [ %nonBlocking.01426, %if.end31 ], [ %nonBlocking.01426, %sw.bb25 ], [ %nonBlocking.01426, %sw.bb23 ], [ %nonBlocking.01426, %sw.bb21 ], [ %nonBlocking.01426, %sw.bb20 ], [ %nonBlocking.01426, %sw.bb19 ], [ %nonBlocking.01426, %sw.bb17 ], [ %nonBlocking.01426, %sw.bb16 ], [ %nonBlocking.01426, %sw.bb15 ], [ %nonBlocking.01426, %sw.bb14 ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %while.body ], [ %nonBlocking.01426, %sw.bb12 ], [ %nonBlocking.01426, %sw.bb11 ], [ %nonBlocking.01426, %sw.bb26 ]
-  %onlyKeyShare.01424.be = phi i32 [ %onlyKeyShare.01424, %sw.bb269 ], [ %onlyKeyShare.01424, %sw.bb267 ], [ %onlyKeyShare.01424, %for.end248 ], [ %onlyKeyShare.01424, %sw.bb170 ], [ %onlyKeyShare.01424, %sw.bb169 ], [ %onlyKeyShare.01424, %sw.bb165 ], [ %onlyKeyShare.01424, %sw.bb156 ], [ %onlyKeyShare.01424, %sw.bb150 ], [ %onlyKeyShare.01424, %sw.bb149 ], [ %onlyKeyShare.01424, %sw.bb147 ], [ 2, %sw.bb145 ], [ 1, %sw.bb144 ], [ %onlyKeyShare.01424, %sw.bb143 ], [ %onlyKeyShare.01424, %for.end ], [ %onlyKeyShare.01424, %sw.bb123 ], [ %onlyKeyShare.01424, %sw.bb117 ], [ %onlyKeyShare.01424, %sw.bb116 ], [ %onlyKeyShare.01424, %sw.bb110 ], [ %onlyKeyShare.01424, %sw.bb109 ], [ %onlyKeyShare.01424, %sw.bb100 ], [ %onlyKeyShare.01424, %sw.bb99 ], [ %onlyKeyShare.01424, %sw.bb98 ], [ %onlyKeyShare.01424, %sw.bb97 ], [ %onlyKeyShare.01424, %sw.bb96 ], [ %onlyKeyShare.01424, %if.then45 ], [ %onlyKeyShare.01424, %if.then50 ], [ %onlyKeyShare.01424, %if.then56 ], [ %onlyKeyShare.01424, %if.then62 ], [ %onlyKeyShare.01424, %if.then68 ], [ %onlyKeyShare.01424, %if.then74 ], [ %onlyKeyShare.01424, %if.then80 ], [ %onlyKeyShare.01424, %if.then86 ], [ %onlyKeyShare.01424, %sw.bb40 ], [ %onlyKeyShare.01424, %if.end31 ], [ %onlyKeyShare.01424, %sw.bb25 ], [ %onlyKeyShare.01424, %sw.bb23 ], [ %onlyKeyShare.01424, %sw.bb21 ], [ %onlyKeyShare.01424, %sw.bb20 ], [ %onlyKeyShare.01424, %sw.bb19 ], [ %onlyKeyShare.01424, %sw.bb17 ], [ %onlyKeyShare.01424, %sw.bb16 ], [ %onlyKeyShare.01424, %sw.bb15 ], [ %onlyKeyShare.01424, %sw.bb14 ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %while.body ], [ %onlyKeyShare.01424, %sw.bb12 ], [ %onlyKeyShare.01424, %sw.bb11 ], [ %onlyKeyShare.01424, %sw.bb26 ]
-  %doDhKeyCheck.01422.be = phi i32 [ %doDhKeyCheck.01422, %sw.bb269 ], [ %doDhKeyCheck.01422, %sw.bb267 ], [ %doDhKeyCheck.01422, %for.end248 ], [ %doDhKeyCheck.01422, %sw.bb170 ], [ %doDhKeyCheck.01422, %sw.bb169 ], [ 0, %sw.bb165 ], [ %doDhKeyCheck.01422, %sw.bb156 ], [ %doDhKeyCheck.01422, %sw.bb150 ], [ %doDhKeyCheck.01422, %sw.bb149 ], [ %doDhKeyCheck.01422, %sw.bb147 ], [ %doDhKeyCheck.01422, %sw.bb145 ], [ %doDhKeyCheck.01422, %sw.bb144 ], [ %doDhKeyCheck.01422, %sw.bb143 ], [ %doDhKeyCheck.01422, %for.end ], [ %doDhKeyCheck.01422, %sw.bb123 ], [ %doDhKeyCheck.01422, %sw.bb117 ], [ %doDhKeyCheck.01422, %sw.bb116 ], [ %doDhKeyCheck.01422, %sw.bb110 ], [ %doDhKeyCheck.01422, %sw.bb109 ], [ %doDhKeyCheck.01422, %sw.bb100 ], [ %doDhKeyCheck.01422, %sw.bb99 ], [ %doDhKeyCheck.01422, %sw.bb98 ], [ %doDhKeyCheck.01422, %sw.bb97 ], [ %doDhKeyCheck.01422, %sw.bb96 ], [ %doDhKeyCheck.01422, %if.then45 ], [ %doDhKeyCheck.01422, %if.then50 ], [ %doDhKeyCheck.01422, %if.then56 ], [ %doDhKeyCheck.01422, %if.then62 ], [ %doDhKeyCheck.01422, %if.then68 ], [ %doDhKeyCheck.01422, %if.then74 ], [ %doDhKeyCheck.01422, %if.then80 ], [ %doDhKeyCheck.01422, %if.then86 ], [ %doDhKeyCheck.01422, %sw.bb40 ], [ %doDhKeyCheck.01422, %if.end31 ], [ %doDhKeyCheck.01422, %sw.bb25 ], [ %doDhKeyCheck.01422, %sw.bb23 ], [ %doDhKeyCheck.01422, %sw.bb21 ], [ %doDhKeyCheck.01422, %sw.bb20 ], [ %doDhKeyCheck.01422, %sw.bb19 ], [ %doDhKeyCheck.01422, %sw.bb17 ], [ %doDhKeyCheck.01422, %sw.bb16 ], [ %doDhKeyCheck.01422, %sw.bb15 ], [ %doDhKeyCheck.01422, %sw.bb14 ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %while.body ], [ %doDhKeyCheck.01422, %sw.bb12 ], [ %doDhKeyCheck.01422, %sw.bb11 ], [ %doDhKeyCheck.01422, %sw.bb26 ]
-  %simulateWantWrite.01420.be = phi i32 [ %simulateWantWrite.01420, %sw.bb269 ], [ %simulateWantWrite.01420, %sw.bb267 ], [ %simulateWantWrite.01420, %for.end248 ], [ %simulateWantWrite.01420, %sw.bb170 ], [ 1, %sw.bb169 ], [ %simulateWantWrite.01420, %sw.bb165 ], [ %simulateWantWrite.01420, %sw.bb156 ], [ %simulateWantWrite.01420, %sw.bb150 ], [ %simulateWantWrite.01420, %sw.bb149 ], [ %simulateWantWrite.01420, %sw.bb147 ], [ %simulateWantWrite.01420, %sw.bb145 ], [ %simulateWantWrite.01420, %sw.bb144 ], [ %simulateWantWrite.01420, %sw.bb143 ], [ %simulateWantWrite.01420, %for.end ], [ %simulateWantWrite.01420, %sw.bb123 ], [ %simulateWantWrite.01420, %sw.bb117 ], [ %simulateWantWrite.01420, %sw.bb116 ], [ %simulateWantWrite.01420, %sw.bb110 ], [ %simulateWantWrite.01420, %sw.bb109 ], [ %simulateWantWrite.01420, %sw.bb100 ], [ %simulateWantWrite.01420, %sw.bb99 ], [ %simulateWantWrite.01420, %sw.bb98 ], [ %simulateWantWrite.01420, %sw.bb97 ], [ %simulateWantWrite.01420, %sw.bb96 ], [ %simulateWantWrite.01420, %if.then45 ], [ %simulateWantWrite.01420, %if.then50 ], [ %simulateWantWrite.01420, %if.then56 ], [ %simulateWantWrite.01420, %if.then62 ], [ %simulateWantWrite.01420, %if.then68 ], [ %simulateWantWrite.01420, %if.then74 ], [ %simulateWantWrite.01420, %if.then80 ], [ %simulateWantWrite.01420, %if.then86 ], [ %simulateWantWrite.01420, %sw.bb40 ], [ %simulateWantWrite.01420, %if.end31 ], [ %simulateWantWrite.01420, %sw.bb25 ], [ %simulateWantWrite.01420, %sw.bb23 ], [ %simulateWantWrite.01420, %sw.bb21 ], [ %simulateWantWrite.01420, %sw.bb20 ], [ %simulateWantWrite.01420, %sw.bb19 ], [ %simulateWantWrite.01420, %sw.bb17 ], [ %simulateWantWrite.01420, %sw.bb16 ], [ %simulateWantWrite.01420, %sw.bb15 ], [ %simulateWantWrite.01420, %sw.bb14 ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %while.body ], [ %simulateWantWrite.01420, %sw.bb12 ], [ %simulateWantWrite.01420, %sw.bb11 ], [ %simulateWantWrite.01420, %sw.bb26 ]
-  %fewerPackets.01418.be = phi i32 [ %fewerPackets.01418, %sw.bb269 ], [ %fewerPackets.01418, %sw.bb267 ], [ %fewerPackets.01418, %for.end248 ], [ %fewerPackets.01418, %sw.bb170 ], [ %fewerPackets.01418, %sw.bb169 ], [ %fewerPackets.01418, %sw.bb165 ], [ %fewerPackets.01418, %sw.bb156 ], [ %fewerPackets.01418, %sw.bb150 ], [ %fewerPackets.01418, %sw.bb149 ], [ %fewerPackets.01418, %sw.bb147 ], [ %fewerPackets.01418, %sw.bb145 ], [ %fewerPackets.01418, %sw.bb144 ], [ %fewerPackets.01418, %sw.bb143 ], [ %fewerPackets.01418, %for.end ], [ %fewerPackets.01418, %sw.bb123 ], [ %fewerPackets.01418, %sw.bb117 ], [ %fewerPackets.01418, %sw.bb116 ], [ %fewerPackets.01418, %sw.bb110 ], [ %fewerPackets.01418, %sw.bb109 ], [ %fewerPackets.01418, %sw.bb100 ], [ %fewerPackets.01418, %sw.bb99 ], [ %fewerPackets.01418, %sw.bb98 ], [ %fewerPackets.01418, %sw.bb97 ], [ %fewerPackets.01418, %sw.bb96 ], [ %fewerPackets.01418, %if.then45 ], [ %fewerPackets.01418, %if.then50 ], [ %fewerPackets.01418, %if.then56 ], [ %fewerPackets.01418, %if.then62 ], [ %fewerPackets.01418, %if.then68 ], [ %fewerPackets.01418, %if.then74 ], [ %fewerPackets.01418, %if.then80 ], [ %fewerPackets.01418, %if.then86 ], [ %fewerPackets.01418, %sw.bb40 ], [ %fewerPackets.01418, %if.end31 ], [ %fewerPackets.01418, %sw.bb25 ], [ %fewerPackets.01418, %sw.bb23 ], [ %fewerPackets.01418, %sw.bb21 ], [ %fewerPackets.01418, %sw.bb20 ], [ 1, %sw.bb19 ], [ %fewerPackets.01418, %sw.bb17 ], [ %fewerPackets.01418, %sw.bb16 ], [ %fewerPackets.01418, %sw.bb15 ], [ %fewerPackets.01418, %sw.bb14 ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %while.body ], [ %fewerPackets.01418, %sw.bb12 ], [ %fewerPackets.01418, %sw.bb11 ], [ %fewerPackets.01418, %sw.bb26 ]
-  %wc_shutdown.01416.be = phi i32 [ %wc_shutdown.01416, %sw.bb269 ], [ %wc_shutdown.01416, %sw.bb267 ], [ %wc_shutdown.01416, %for.end248 ], [ %wc_shutdown.01416, %sw.bb170 ], [ %wc_shutdown.01416, %sw.bb169 ], [ %wc_shutdown.01416, %sw.bb165 ], [ %wc_shutdown.01416, %sw.bb156 ], [ %wc_shutdown.01416, %sw.bb150 ], [ %wc_shutdown.01416, %sw.bb149 ], [ %wc_shutdown.01416, %sw.bb147 ], [ %wc_shutdown.01416, %sw.bb145 ], [ %wc_shutdown.01416, %sw.bb144 ], [ %wc_shutdown.01416, %sw.bb143 ], [ %wc_shutdown.01416, %for.end ], [ %wc_shutdown.01416, %sw.bb123 ], [ %wc_shutdown.01416, %sw.bb117 ], [ %wc_shutdown.01416, %sw.bb116 ], [ %wc_shutdown.01416, %sw.bb110 ], [ %wc_shutdown.01416, %sw.bb109 ], [ %wc_shutdown.01416, %sw.bb100 ], [ %wc_shutdown.01416, %sw.bb99 ], [ %wc_shutdown.01416, %sw.bb98 ], [ %wc_shutdown.01416, %sw.bb97 ], [ %wc_shutdown.01416, %sw.bb96 ], [ %wc_shutdown.01416, %if.then45 ], [ %wc_shutdown.01416, %if.then50 ], [ %wc_shutdown.01416, %if.then56 ], [ %wc_shutdown.01416, %if.then62 ], [ %wc_shutdown.01416, %if.then68 ], [ %wc_shutdown.01416, %if.then74 ], [ %wc_shutdown.01416, %if.then80 ], [ %wc_shutdown.01416, %if.then86 ], [ %wc_shutdown.01416, %sw.bb40 ], [ %wc_shutdown.01416, %if.end31 ], [ 1, %sw.bb25 ], [ %wc_shutdown.01416, %sw.bb23 ], [ %wc_shutdown.01416, %sw.bb21 ], [ %wc_shutdown.01416, %sw.bb20 ], [ %wc_shutdown.01416, %sw.bb19 ], [ %wc_shutdown.01416, %sw.bb17 ], [ %wc_shutdown.01416, %sw.bb16 ], [ %wc_shutdown.01416, %sw.bb15 ], [ %wc_shutdown.01416, %sw.bb14 ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %while.body ], [ %wc_shutdown.01416, %sw.bb12 ], [ %wc_shutdown.01416, %sw.bb11 ], [ %wc_shutdown.01416, %sw.bb26 ]
-  %mutualAuth.01414.be = phi i32 [ %mutualAuth.01414, %sw.bb269 ], [ %mutualAuth.01414, %sw.bb267 ], [ %mutualAuth.01414, %for.end248 ], [ %mutualAuth.01414, %sw.bb170 ], [ %mutualAuth.01414, %sw.bb169 ], [ %mutualAuth.01414, %sw.bb165 ], [ %mutualAuth.01414, %sw.bb156 ], [ 1, %sw.bb150 ], [ %mutualAuth.01414, %sw.bb149 ], [ %mutualAuth.01414, %sw.bb147 ], [ %mutualAuth.01414, %sw.bb145 ], [ %mutualAuth.01414, %sw.bb144 ], [ %mutualAuth.01414, %sw.bb143 ], [ %mutualAuth.01414, %for.end ], [ %mutualAuth.01414, %sw.bb123 ], [ %mutualAuth.01414, %sw.bb117 ], [ %mutualAuth.01414, %sw.bb116 ], [ %mutualAuth.01414, %sw.bb110 ], [ %mutualAuth.01414, %sw.bb109 ], [ %mutualAuth.01414, %sw.bb100 ], [ %mutualAuth.01414, %sw.bb99 ], [ %mutualAuth.01414, %sw.bb98 ], [ %mutualAuth.01414, %sw.bb97 ], [ %mutualAuth.01414, %sw.bb96 ], [ %mutualAuth.01414, %if.then45 ], [ %mutualAuth.01414, %if.then50 ], [ %mutualAuth.01414, %if.then56 ], [ %mutualAuth.01414, %if.then62 ], [ %mutualAuth.01414, %if.then68 ], [ %mutualAuth.01414, %if.then74 ], [ %mutualAuth.01414, %if.then80 ], [ %mutualAuth.01414, %if.then86 ], [ %mutualAuth.01414, %sw.bb40 ], [ %mutualAuth.01414, %if.end31 ], [ %mutualAuth.01414, %sw.bb25 ], [ %mutualAuth.01414, %sw.bb23 ], [ %mutualAuth.01414, %sw.bb21 ], [ %mutualAuth.01414, %sw.bb20 ], [ %mutualAuth.01414, %sw.bb19 ], [ %mutualAuth.01414, %sw.bb17 ], [ %mutualAuth.01414, %sw.bb16 ], [ %mutualAuth.01414, %sw.bb15 ], [ %mutualAuth.01414, %sw.bb14 ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %while.body ], [ %mutualAuth.01414, %sw.bb12 ], [ %mutualAuth.01414, %sw.bb11 ], [ %mutualAuth.01414, %sw.bb26 ]
-  %updateKeysIVs.01412.be = phi i32 [ %updateKeysIVs.01412, %sw.bb269 ], [ %updateKeysIVs.01412, %sw.bb267 ], [ %updateKeysIVs.01412, %for.end248 ], [ %updateKeysIVs.01412, %sw.bb170 ], [ %updateKeysIVs.01412, %sw.bb169 ], [ %updateKeysIVs.01412, %sw.bb165 ], [ %updateKeysIVs.01412, %sw.bb156 ], [ %updateKeysIVs.01412, %sw.bb150 ], [ 1, %sw.bb149 ], [ %updateKeysIVs.01412, %sw.bb147 ], [ %updateKeysIVs.01412, %sw.bb145 ], [ %updateKeysIVs.01412, %sw.bb144 ], [ %updateKeysIVs.01412, %sw.bb143 ], [ %updateKeysIVs.01412, %for.end ], [ %updateKeysIVs.01412, %sw.bb123 ], [ %updateKeysIVs.01412, %sw.bb117 ], [ %updateKeysIVs.01412, %sw.bb116 ], [ %updateKeysIVs.01412, %sw.bb110 ], [ %updateKeysIVs.01412, %sw.bb109 ], [ %updateKeysIVs.01412, %sw.bb100 ], [ %updateKeysIVs.01412, %sw.bb99 ], [ %updateKeysIVs.01412, %sw.bb98 ], [ %updateKeysIVs.01412, %sw.bb97 ], [ %updateKeysIVs.01412, %sw.bb96 ], [ %updateKeysIVs.01412, %if.then45 ], [ %updateKeysIVs.01412, %if.then50 ], [ %updateKeysIVs.01412, %if.then56 ], [ %updateKeysIVs.01412, %if.then62 ], [ %updateKeysIVs.01412, %if.then68 ], [ %updateKeysIVs.01412, %if.then74 ], [ %updateKeysIVs.01412, %if.then80 ], [ %updateKeysIVs.01412, %if.then86 ], [ %updateKeysIVs.01412, %sw.bb40 ], [ %updateKeysIVs.01412, %if.end31 ], [ %updateKeysIVs.01412, %sw.bb25 ], [ %updateKeysIVs.01412, %sw.bb23 ], [ %updateKeysIVs.01412, %sw.bb21 ], [ %updateKeysIVs.01412, %sw.bb20 ], [ %updateKeysIVs.01412, %sw.bb19 ], [ %updateKeysIVs.01412, %sw.bb17 ], [ %updateKeysIVs.01412, %sw.bb16 ], [ %updateKeysIVs.01412, %sw.bb15 ], [ %updateKeysIVs.01412, %sw.bb14 ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %while.body ], [ %updateKeysIVs.01412, %sw.bb12 ], [ %updateKeysIVs.01412, %sw.bb11 ], [ %updateKeysIVs.01412, %sw.bb26 ]
-  %onlyPskDheKe.01410.be = phi i32 [ %onlyPskDheKe.01410, %sw.bb269 ], [ 1, %sw.bb267 ], [ %onlyPskDheKe.01410, %for.end248 ], [ %onlyPskDheKe.01410, %sw.bb170 ], [ %onlyPskDheKe.01410, %sw.bb169 ], [ %onlyPskDheKe.01410, %sw.bb165 ], [ %onlyPskDheKe.01410, %sw.bb156 ], [ %onlyPskDheKe.01410, %sw.bb150 ], [ %onlyPskDheKe.01410, %sw.bb149 ], [ %onlyPskDheKe.01410, %sw.bb147 ], [ %onlyPskDheKe.01410, %sw.bb145 ], [ %onlyPskDheKe.01410, %sw.bb144 ], [ %onlyPskDheKe.01410, %sw.bb143 ], [ %onlyPskDheKe.01410, %for.end ], [ %onlyPskDheKe.01410, %sw.bb123 ], [ %onlyPskDheKe.01410, %sw.bb117 ], [ %onlyPskDheKe.01410, %sw.bb116 ], [ %onlyPskDheKe.01410, %sw.bb110 ], [ %onlyPskDheKe.01410, %sw.bb109 ], [ %onlyPskDheKe.01410, %sw.bb100 ], [ %onlyPskDheKe.01410, %sw.bb99 ], [ %onlyPskDheKe.01410, %sw.bb98 ], [ %onlyPskDheKe.01410, %sw.bb97 ], [ %onlyPskDheKe.01410, %sw.bb96 ], [ %onlyPskDheKe.01410, %if.then45 ], [ %onlyPskDheKe.01410, %if.then50 ], [ %onlyPskDheKe.01410, %if.then56 ], [ %onlyPskDheKe.01410, %if.then62 ], [ %onlyPskDheKe.01410, %if.then68 ], [ %onlyPskDheKe.01410, %if.then74 ], [ %onlyPskDheKe.01410, %if.then80 ], [ %onlyPskDheKe.01410, %if.then86 ], [ %onlyPskDheKe.01410, %sw.bb40 ], [ %onlyPskDheKe.01410, %if.end31 ], [ %onlyPskDheKe.01410, %sw.bb25 ], [ %onlyPskDheKe.01410, %sw.bb23 ], [ %onlyPskDheKe.01410, %sw.bb21 ], [ %onlyPskDheKe.01410, %sw.bb20 ], [ %onlyPskDheKe.01410, %sw.bb19 ], [ %onlyPskDheKe.01410, %sw.bb17 ], [ %onlyPskDheKe.01410, %sw.bb16 ], [ %onlyPskDheKe.01410, %sw.bb15 ], [ %onlyPskDheKe.01410, %sw.bb14 ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %while.body ], [ %onlyPskDheKe.01410, %sw.bb12 ], [ %onlyPskDheKe.01410, %sw.bb11 ], [ %onlyPskDheKe.01410, %sw.bb26 ]
-  %noPskDheKe.01408.be = phi i32 [ %noPskDheKe.01408, %sw.bb269 ], [ %noPskDheKe.01408, %sw.bb267 ], [ %noPskDheKe.01408, %for.end248 ], [ %noPskDheKe.01408, %sw.bb170 ], [ %noPskDheKe.01408, %sw.bb169 ], [ %noPskDheKe.01408, %sw.bb165 ], [ %noPskDheKe.01408, %sw.bb156 ], [ %noPskDheKe.01408, %sw.bb150 ], [ %noPskDheKe.01408, %sw.bb149 ], [ 1, %sw.bb147 ], [ %noPskDheKe.01408, %sw.bb145 ], [ %noPskDheKe.01408, %sw.bb144 ], [ %noPskDheKe.01408, %sw.bb143 ], [ %noPskDheKe.01408, %for.end ], [ %noPskDheKe.01408, %sw.bb123 ], [ %noPskDheKe.01408, %sw.bb117 ], [ %noPskDheKe.01408, %sw.bb116 ], [ %noPskDheKe.01408, %sw.bb110 ], [ %noPskDheKe.01408, %sw.bb109 ], [ %noPskDheKe.01408, %sw.bb100 ], [ %noPskDheKe.01408, %sw.bb99 ], [ %noPskDheKe.01408, %sw.bb98 ], [ %noPskDheKe.01408, %sw.bb97 ], [ %noPskDheKe.01408, %sw.bb96 ], [ %noPskDheKe.01408, %if.then45 ], [ %noPskDheKe.01408, %if.then50 ], [ %noPskDheKe.01408, %if.then56 ], [ %noPskDheKe.01408, %if.then62 ], [ %noPskDheKe.01408, %if.then68 ], [ %noPskDheKe.01408, %if.then74 ], [ %noPskDheKe.01408, %if.then80 ], [ %noPskDheKe.01408, %if.then86 ], [ %noPskDheKe.01408, %sw.bb40 ], [ %noPskDheKe.01408, %if.end31 ], [ %noPskDheKe.01408, %sw.bb25 ], [ %noPskDheKe.01408, %sw.bb23 ], [ %noPskDheKe.01408, %sw.bb21 ], [ %noPskDheKe.01408, %sw.bb20 ], [ %noPskDheKe.01408, %sw.bb19 ], [ %noPskDheKe.01408, %sw.bb17 ], [ %noPskDheKe.01408, %sw.bb16 ], [ %noPskDheKe.01408, %sw.bb15 ], [ %noPskDheKe.01408, %sw.bb14 ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %while.body ], [ %noPskDheKe.01408, %sw.bb12 ], [ %noPskDheKe.01408, %sw.bb11 ], [ %noPskDheKe.01408, %sw.bb26 ]
-  %sniHostName.01406.be = phi ptr [ %sniHostName.01406, %sw.bb269 ], [ %sniHostName.01406, %sw.bb267 ], [ %sniHostName.01406, %for.end248 ], [ %sniHostName.01406, %sw.bb170 ], [ %sniHostName.01406, %sw.bb169 ], [ %sniHostName.01406, %sw.bb165 ], [ %sniHostName.01406, %sw.bb156 ], [ %sniHostName.01406, %sw.bb150 ], [ %sniHostName.01406, %sw.bb149 ], [ %sniHostName.01406, %sw.bb147 ], [ %sniHostName.01406, %sw.bb145 ], [ %sniHostName.01406, %sw.bb144 ], [ %sniHostName.01406, %sw.bb143 ], [ %sniHostName.01406, %for.end ], [ %sniHostName.01406, %sw.bb123 ], [ %sniHostName.01406, %sw.bb117 ], [ %sniHostName.01406, %sw.bb116 ], [ %45, %sw.bb110 ], [ %sniHostName.01406, %sw.bb109 ], [ %sniHostName.01406, %sw.bb100 ], [ %sniHostName.01406, %sw.bb99 ], [ %sniHostName.01406, %sw.bb98 ], [ %sniHostName.01406, %sw.bb97 ], [ %sniHostName.01406, %sw.bb96 ], [ %sniHostName.01406, %if.then45 ], [ %sniHostName.01406, %if.then50 ], [ %sniHostName.01406, %if.then56 ], [ %sniHostName.01406, %if.then62 ], [ %sniHostName.01406, %if.then68 ], [ %sniHostName.01406, %if.then74 ], [ %sniHostName.01406, %if.then80 ], [ %sniHostName.01406, %if.then86 ], [ %sniHostName.01406, %sw.bb40 ], [ %sniHostName.01406, %if.end31 ], [ %sniHostName.01406, %sw.bb25 ], [ %sniHostName.01406, %sw.bb23 ], [ %sniHostName.01406, %sw.bb21 ], [ %sniHostName.01406, %sw.bb20 ], [ %sniHostName.01406, %sw.bb19 ], [ %sniHostName.01406, %sw.bb17 ], [ %sniHostName.01406, %sw.bb16 ], [ %sniHostName.01406, %sw.bb15 ], [ %sniHostName.01406, %sw.bb14 ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %while.body ], [ %sniHostName.01406, %sw.bb12 ], [ %sniHostName.01406, %sw.bb11 ], [ %sniHostName.01406, %sw.bb26 ]
-  %resume.01404.be = phi i32 [ %resume.01404, %sw.bb269 ], [ %resume.01404, %sw.bb267 ], [ %resume.01404, %for.end248 ], [ %resume.01404, %sw.bb170 ], [ %resume.01404, %sw.bb169 ], [ %resume.01404, %sw.bb165 ], [ %resume.01404, %sw.bb156 ], [ %resume.01404, %sw.bb150 ], [ %resume.01404, %sw.bb149 ], [ %resume.01404, %sw.bb147 ], [ %resume.01404, %sw.bb145 ], [ %resume.01404, %sw.bb144 ], [ %resume.01404, %sw.bb143 ], [ %resume.01404, %for.end ], [ %resume.01404, %sw.bb123 ], [ %resume.01404, %sw.bb117 ], [ %resume.01404, %sw.bb116 ], [ %resume.01404, %sw.bb110 ], [ %resume.01404, %sw.bb109 ], [ %resume.01404, %sw.bb100 ], [ %resume.01404, %sw.bb99 ], [ %resume.01404, %sw.bb98 ], [ %resume.01404, %sw.bb97 ], [ %resume.01404, %sw.bb96 ], [ %resume.01404, %if.then45 ], [ %resume.01404, %if.then50 ], [ %resume.01404, %if.then56 ], [ %resume.01404, %if.then62 ], [ %resume.01404, %if.then68 ], [ %resume.01404, %if.then74 ], [ %resume.01404, %if.then80 ], [ %resume.01404, %if.then86 ], [ %resume.01404, %sw.bb40 ], [ %resume.01404, %if.end31 ], [ %resume.01404, %sw.bb25 ], [ %resume.01404, %sw.bb23 ], [ 1, %sw.bb21 ], [ %resume.01404, %sw.bb20 ], [ %resume.01404, %sw.bb19 ], [ %resume.01404, %sw.bb17 ], [ %resume.01404, %sw.bb16 ], [ %resume.01404, %sw.bb15 ], [ %resume.01404, %sw.bb14 ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %while.body ], [ %resume.01404, %sw.bb12 ], [ %resume.01404, %sw.bb11 ], [ %resume.01404, %sw.bb26 ]
-  %ourDhParam.01402.be = phi ptr [ %ourDhParam.01402, %sw.bb269 ], [ %ourDhParam.01402, %sw.bb267 ], [ %ourDhParam.01402, %for.end248 ], [ %ourDhParam.01402, %sw.bb170 ], [ %ourDhParam.01402, %sw.bb169 ], [ %ourDhParam.01402, %sw.bb165 ], [ %ourDhParam.01402, %sw.bb156 ], [ %ourDhParam.01402, %sw.bb150 ], [ %ourDhParam.01402, %sw.bb149 ], [ %ourDhParam.01402, %sw.bb147 ], [ %ourDhParam.01402, %sw.bb145 ], [ %ourDhParam.01402, %sw.bb144 ], [ %ourDhParam.01402, %sw.bb143 ], [ %ourDhParam.01402, %for.end ], [ %ourDhParam.01402, %sw.bb123 ], [ %ourDhParam.01402, %sw.bb117 ], [ %ourDhParam.01402, %sw.bb116 ], [ %ourDhParam.01402, %sw.bb110 ], [ %ourDhParam.01402, %sw.bb109 ], [ %ourDhParam.01402, %sw.bb100 ], [ %42, %sw.bb99 ], [ %ourDhParam.01402, %sw.bb98 ], [ %ourDhParam.01402, %sw.bb97 ], [ %ourDhParam.01402, %sw.bb96 ], [ %ourDhParam.01402, %if.then45 ], [ %ourDhParam.01402, %if.then50 ], [ %ourDhParam.01402, %if.then56 ], [ %ourDhParam.01402, %if.then62 ], [ %ourDhParam.01402, %if.then68 ], [ %ourDhParam.01402, %if.then74 ], [ %ourDhParam.01402, %if.then80 ], [ %ourDhParam.01402, %if.then86 ], [ %ourDhParam.01402, %sw.bb40 ], [ %ourDhParam.01402, %if.end31 ], [ %ourDhParam.01402, %sw.bb25 ], [ %ourDhParam.01402, %sw.bb23 ], [ %ourDhParam.01402, %sw.bb21 ], [ %ourDhParam.01402, %sw.bb20 ], [ %ourDhParam.01402, %sw.bb19 ], [ %ourDhParam.01402, %sw.bb17 ], [ %ourDhParam.01402, %sw.bb16 ], [ %ourDhParam.01402, %sw.bb15 ], [ %ourDhParam.01402, %sw.bb14 ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %while.body ], [ %ourDhParam.01402, %sw.bb12 ], [ %ourDhParam.01402, %sw.bb11 ], [ %ourDhParam.01402, %sw.bb26 ]
-  %ourKey.01400.be = phi ptr [ %ourKey.01400, %sw.bb269 ], [ %ourKey.01400, %sw.bb267 ], [ %ourKey.01400, %for.end248 ], [ %ourKey.01400, %sw.bb170 ], [ %ourKey.01400, %sw.bb169 ], [ %ourKey.01400, %sw.bb165 ], [ %ourKey.01400, %sw.bb156 ], [ %ourKey.01400, %sw.bb150 ], [ %ourKey.01400, %sw.bb149 ], [ %ourKey.01400, %sw.bb147 ], [ %ourKey.01400, %sw.bb145 ], [ %ourKey.01400, %sw.bb144 ], [ %ourKey.01400, %sw.bb143 ], [ %ourKey.01400, %for.end ], [ %ourKey.01400, %sw.bb123 ], [ %ourKey.01400, %sw.bb117 ], [ %ourKey.01400, %sw.bb116 ], [ %ourKey.01400, %sw.bb110 ], [ %ourKey.01400, %sw.bb109 ], [ %ourKey.01400, %sw.bb100 ], [ %ourKey.01400, %sw.bb99 ], [ %41, %sw.bb98 ], [ %ourKey.01400, %sw.bb97 ], [ %ourKey.01400, %sw.bb96 ], [ %ourKey.01400, %if.then45 ], [ %ourKey.01400, %if.then50 ], [ %ourKey.01400, %if.then56 ], [ %ourKey.01400, %if.then62 ], [ %ourKey.01400, %if.then68 ], [ %ourKey.01400, %if.then74 ], [ %ourKey.01400, %if.then80 ], [ %ourKey.01400, %if.then86 ], [ %ourKey.01400, %sw.bb40 ], [ %ourKey.01400, %if.end31 ], [ %ourKey.01400, %sw.bb25 ], [ %ourKey.01400, %sw.bb23 ], [ %ourKey.01400, %sw.bb21 ], [ %ourKey.01400, %sw.bb20 ], [ %ourKey.01400, %sw.bb19 ], [ %ourKey.01400, %sw.bb17 ], [ %ourKey.01400, %sw.bb16 ], [ %ourKey.01400, %sw.bb15 ], [ %ourKey.01400, %sw.bb14 ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %while.body ], [ %ourKey.01400, %sw.bb12 ], [ %ourKey.01400, %sw.bb11 ], [ %ourKey.01400, %sw.bb26 ]
-  %ourCert.01398.be = phi ptr [ %ourCert.01398, %sw.bb269 ], [ %ourCert.01398, %sw.bb267 ], [ %ourCert.01398, %for.end248 ], [ %ourCert.01398, %sw.bb170 ], [ %ourCert.01398, %sw.bb169 ], [ %ourCert.01398, %sw.bb165 ], [ %ourCert.01398, %sw.bb156 ], [ %ourCert.01398, %sw.bb150 ], [ %ourCert.01398, %sw.bb149 ], [ %ourCert.01398, %sw.bb147 ], [ %ourCert.01398, %sw.bb145 ], [ %ourCert.01398, %sw.bb144 ], [ %ourCert.01398, %sw.bb143 ], [ %ourCert.01398, %for.end ], [ %ourCert.01398, %sw.bb123 ], [ %ourCert.01398, %sw.bb117 ], [ %ourCert.01398, %sw.bb116 ], [ %ourCert.01398, %sw.bb110 ], [ %ourCert.01398, %sw.bb109 ], [ %ourCert.01398, %sw.bb100 ], [ %ourCert.01398, %sw.bb99 ], [ %ourCert.01398, %sw.bb98 ], [ %40, %sw.bb97 ], [ %ourCert.01398, %sw.bb96 ], [ %ourCert.01398, %if.then45 ], [ %ourCert.01398, %if.then50 ], [ %ourCert.01398, %if.then56 ], [ %ourCert.01398, %if.then62 ], [ %ourCert.01398, %if.then68 ], [ %ourCert.01398, %if.then74 ], [ %ourCert.01398, %if.then80 ], [ %ourCert.01398, %if.then86 ], [ %ourCert.01398, %sw.bb40 ], [ %ourCert.01398, %if.end31 ], [ %ourCert.01398, %sw.bb25 ], [ %ourCert.01398, %sw.bb23 ], [ %ourCert.01398, %sw.bb21 ], [ %ourCert.01398, %sw.bb20 ], [ %ourCert.01398, %sw.bb19 ], [ %ourCert.01398, %sw.bb17 ], [ %ourCert.01398, %sw.bb16 ], [ %ourCert.01398, %sw.bb15 ], [ %ourCert.01398, %sw.bb14 ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %while.body ], [ %ourCert.01398, %sw.bb12 ], [ %ourCert.01398, %sw.bb11 ], [ %ourCert.01398, %sw.bb26 ]
-  %verifyCert.01396.be = phi ptr [ %verifyCert.01396, %sw.bb269 ], [ %verifyCert.01396, %sw.bb267 ], [ %verifyCert.01396, %for.end248 ], [ %verifyCert.01396, %sw.bb170 ], [ %verifyCert.01396, %sw.bb169 ], [ %verifyCert.01396, %sw.bb165 ], [ %verifyCert.01396, %sw.bb156 ], [ %verifyCert.01396, %sw.bb150 ], [ %verifyCert.01396, %sw.bb149 ], [ %verifyCert.01396, %sw.bb147 ], [ %verifyCert.01396, %sw.bb145 ], [ %verifyCert.01396, %sw.bb144 ], [ %verifyCert.01396, %sw.bb143 ], [ %verifyCert.01396, %for.end ], [ %verifyCert.01396, %sw.bb123 ], [ %verifyCert.01396, %sw.bb117 ], [ %verifyCert.01396, %sw.bb116 ], [ %verifyCert.01396, %sw.bb110 ], [ %verifyCert.01396, %sw.bb109 ], [ %verifyCert.01396, %sw.bb100 ], [ %verifyCert.01396, %sw.bb99 ], [ %verifyCert.01396, %sw.bb98 ], [ %verifyCert.01396, %sw.bb97 ], [ %39, %sw.bb96 ], [ %verifyCert.01396, %if.then45 ], [ %verifyCert.01396, %if.then50 ], [ %verifyCert.01396, %if.then56 ], [ %verifyCert.01396, %if.then62 ], [ %verifyCert.01396, %if.then68 ], [ %verifyCert.01396, %if.then74 ], [ %verifyCert.01396, %if.then80 ], [ %verifyCert.01396, %if.then86 ], [ %verifyCert.01396, %sw.bb40 ], [ %verifyCert.01396, %if.end31 ], [ %verifyCert.01396, %sw.bb25 ], [ %verifyCert.01396, %sw.bb23 ], [ %verifyCert.01396, %sw.bb21 ], [ %verifyCert.01396, %sw.bb20 ], [ %verifyCert.01396, %sw.bb19 ], [ %verifyCert.01396, %sw.bb17 ], [ %verifyCert.01396, %sw.bb16 ], [ %verifyCert.01396, %sw.bb15 ], [ %verifyCert.01396, %sw.bb14 ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %while.body ], [ %verifyCert.01396, %sw.bb12 ], [ %verifyCert.01396, %sw.bb11 ], [ %verifyCert.01396, %sw.bb26 ]
-  %useDefCipherList.01394.be = phi i32 [ %useDefCipherList.01394, %sw.bb269 ], [ %useDefCipherList.01394, %sw.bb267 ], [ %useDefCipherList.01394, %for.end248 ], [ %useDefCipherList.01394, %sw.bb170 ], [ %useDefCipherList.01394, %sw.bb169 ], [ %useDefCipherList.01394, %sw.bb165 ], [ %useDefCipherList.01394, %sw.bb156 ], [ %useDefCipherList.01394, %sw.bb150 ], [ %useDefCipherList.01394, %sw.bb149 ], [ %useDefCipherList.01394, %sw.bb147 ], [ %useDefCipherList.01394, %sw.bb145 ], [ %useDefCipherList.01394, %sw.bb144 ], [ %useDefCipherList.01394, %sw.bb143 ], [ %useDefCipherList.01394, %for.end ], [ %useDefCipherList.01394, %sw.bb123 ], [ %useDefCipherList.01394, %sw.bb117 ], [ %useDefCipherList.01394, %sw.bb116 ], [ %useDefCipherList.01394, %sw.bb110 ], [ %useDefCipherList.01394, %sw.bb109 ], [ %useDefCipherList.01394, %sw.bb100 ], [ %useDefCipherList.01394, %sw.bb99 ], [ %useDefCipherList.01394, %sw.bb98 ], [ %useDefCipherList.01394, %sw.bb97 ], [ %useDefCipherList.01394, %sw.bb96 ], [ 1, %if.then45 ], [ %useDefCipherList.01394, %if.then50 ], [ %useDefCipherList.01394, %if.then56 ], [ %useDefCipherList.01394, %if.then62 ], [ %useDefCipherList.01394, %if.then68 ], [ %useDefCipherList.01394, %if.then74 ], [ %useDefCipherList.01394, %if.then80 ], [ %useDefCipherList.01394, %if.then86 ], [ %useDefCipherList.01394, %sw.bb40 ], [ %useDefCipherList.01394, %if.end31 ], [ %useDefCipherList.01394, %sw.bb25 ], [ %useDefCipherList.01394, %sw.bb23 ], [ %useDefCipherList.01394, %sw.bb21 ], [ %useDefCipherList.01394, %sw.bb20 ], [ %useDefCipherList.01394, %sw.bb19 ], [ %useDefCipherList.01394, %sw.bb17 ], [ %useDefCipherList.01394, %sw.bb16 ], [ %useDefCipherList.01394, %sw.bb15 ], [ %useDefCipherList.01394, %sw.bb14 ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %while.body ], [ %useDefCipherList.01394, %sw.bb12 ], [ %useDefCipherList.01394, %sw.bb11 ], [ %useDefCipherList.01394, %sw.bb26 ]
-  %cipherList.01392.be = phi ptr [ %cipherList.01392, %sw.bb269 ], [ %cipherList.01392, %sw.bb267 ], [ %cipherList.01392, %for.end248 ], [ %cipherList.01392, %sw.bb170 ], [ %cipherList.01392, %sw.bb169 ], [ %cipherList.01392, %sw.bb165 ], [ %cipherList.01392, %sw.bb156 ], [ %cipherList.01392, %sw.bb150 ], [ %cipherList.01392, %sw.bb149 ], [ %cipherList.01392, %sw.bb147 ], [ %cipherList.01392, %sw.bb145 ], [ %cipherList.01392, %sw.bb144 ], [ %cipherList.01392, %sw.bb143 ], [ %cipherList.01392, %for.end ], [ %cipherList.01392, %sw.bb123 ], [ %cipherList.01392, %sw.bb117 ], [ %cipherList.01392, %sw.bb116 ], [ %cipherList.01392, %sw.bb110 ], [ %cipherList.01392, %sw.bb109 ], [ %cipherList.01392, %sw.bb100 ], [ %cipherList.01392, %sw.bb99 ], [ %cipherList.01392, %sw.bb98 ], [ %cipherList.01392, %sw.bb97 ], [ %cipherList.01392, %sw.bb96 ], [ %cipherList.01392, %if.then45 ], [ %cipherList.01392, %if.then50 ], [ %cipherList.01392, %if.then56 ], [ %cipherList.01392, %if.then62 ], [ %cipherList.01392, %if.then68 ], [ %cipherList.01392, %if.then74 ], [ %cipherList.01392, %if.then80 ], [ %cipherList.01392, %if.then86 ], [ %37, %sw.bb40 ], [ %cipherList.01392, %if.end31 ], [ %cipherList.01392, %sw.bb25 ], [ %cipherList.01392, %sw.bb23 ], [ %cipherList.01392, %sw.bb21 ], [ %cipherList.01392, %sw.bb20 ], [ %cipherList.01392, %sw.bb19 ], [ %cipherList.01392, %sw.bb17 ], [ %cipherList.01392, %sw.bb16 ], [ %cipherList.01392, %sw.bb15 ], [ %cipherList.01392, %sw.bb14 ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %while.body ], [ %cipherList.01392, %sw.bb12 ], [ %cipherList.01392, %sw.bb11 ], [ %cipherList.01392, %sw.bb26 ]
-  %loops.01390.be = phi i32 [ %loops.01390, %sw.bb269 ], [ %loops.01390, %sw.bb267 ], [ %loops.01390, %for.end248 ], [ %loops.01390, %sw.bb170 ], [ %loops.01390, %sw.bb169 ], [ %loops.01390, %sw.bb165 ], [ %loops.01390, %sw.bb156 ], [ %loops.01390, %sw.bb150 ], [ %loops.01390, %sw.bb149 ], [ %loops.01390, %sw.bb147 ], [ %loops.01390, %sw.bb145 ], [ %loops.01390, %sw.bb144 ], [ %loops.01390, %sw.bb143 ], [ %loops.01390, %for.end ], [ %loops.01390, %sw.bb123 ], [ %call118, %sw.bb117 ], [ -1, %sw.bb116 ], [ %loops.01390, %sw.bb110 ], [ %loops.01390, %sw.bb109 ], [ %loops.01390, %sw.bb100 ], [ %loops.01390, %sw.bb99 ], [ %loops.01390, %sw.bb98 ], [ %loops.01390, %sw.bb97 ], [ %loops.01390, %sw.bb96 ], [ %loops.01390, %if.then45 ], [ %loops.01390, %if.then50 ], [ %loops.01390, %if.then56 ], [ %loops.01390, %if.then62 ], [ %loops.01390, %if.then68 ], [ %loops.01390, %if.then74 ], [ %loops.01390, %if.then80 ], [ %loops.01390, %if.then86 ], [ %loops.01390, %sw.bb40 ], [ %loops.01390, %if.end31 ], [ %loops.01390, %sw.bb25 ], [ %loops.01390, %sw.bb23 ], [ %loops.01390, %sw.bb21 ], [ %loops.01390, %sw.bb20 ], [ %loops.01390, %sw.bb19 ], [ %loops.01390, %sw.bb17 ], [ %loops.01390, %sw.bb16 ], [ %loops.01390, %sw.bb15 ], [ %loops.01390, %sw.bb14 ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %while.body ], [ %loops.01390, %sw.bb12 ], [ %loops.01390, %sw.bb11 ], [ %loops.01390, %sw.bb26 ]
-  %serverReadyFile.01388.be = phi ptr [ %serverReadyFile.01388, %sw.bb269 ], [ %serverReadyFile.01388, %sw.bb267 ], [ %serverReadyFile.01388, %for.end248 ], [ %serverReadyFile.01388, %sw.bb170 ], [ %serverReadyFile.01388, %sw.bb169 ], [ %serverReadyFile.01388, %sw.bb165 ], [ %serverReadyFile.01388, %sw.bb156 ], [ %serverReadyFile.01388, %sw.bb150 ], [ %serverReadyFile.01388, %sw.bb149 ], [ %serverReadyFile.01388, %sw.bb147 ], [ %serverReadyFile.01388, %sw.bb145 ], [ %serverReadyFile.01388, %sw.bb144 ], [ %serverReadyFile.01388, %sw.bb143 ], [ %serverReadyFile.01388, %for.end ], [ %serverReadyFile.01388, %sw.bb123 ], [ %serverReadyFile.01388, %sw.bb117 ], [ %serverReadyFile.01388, %sw.bb116 ], [ %serverReadyFile.01388, %sw.bb110 ], [ %serverReadyFile.01388, %sw.bb109 ], [ %serverReadyFile.01388, %sw.bb100 ], [ %serverReadyFile.01388, %sw.bb99 ], [ %serverReadyFile.01388, %sw.bb98 ], [ %serverReadyFile.01388, %sw.bb97 ], [ %serverReadyFile.01388, %sw.bb96 ], [ %serverReadyFile.01388, %if.then45 ], [ %serverReadyFile.01388, %if.then50 ], [ %serverReadyFile.01388, %if.then56 ], [ %serverReadyFile.01388, %if.then62 ], [ %serverReadyFile.01388, %if.then68 ], [ %serverReadyFile.01388, %if.then74 ], [ %serverReadyFile.01388, %if.then80 ], [ %serverReadyFile.01388, %if.then86 ], [ %serverReadyFile.01388, %sw.bb40 ], [ %serverReadyFile.01388, %if.end31 ], [ %serverReadyFile.01388, %sw.bb25 ], [ %serverReadyFile.01388, %sw.bb23 ], [ %serverReadyFile.01388, %sw.bb21 ], [ %33, %sw.bb20 ], [ %serverReadyFile.01388, %sw.bb19 ], [ %serverReadyFile.01388, %sw.bb17 ], [ %serverReadyFile.01388, %sw.bb16 ], [ %serverReadyFile.01388, %sw.bb15 ], [ %serverReadyFile.01388, %sw.bb14 ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %while.body ], [ %serverReadyFile.01388, %sw.bb12 ], [ %serverReadyFile.01388, %sw.bb11 ], [ %serverReadyFile.01388, %sw.bb26 ]
-  %echoData.01386.be = phi i32 [ %echoData.01386, %sw.bb269 ], [ %echoData.01386, %sw.bb267 ], [ %echoData.01386, %for.end248 ], [ %echoData.01386, %sw.bb170 ], [ %echoData.01386, %sw.bb169 ], [ %echoData.01386, %sw.bb165 ], [ %echoData.01386, %sw.bb156 ], [ %echoData.01386, %sw.bb150 ], [ %echoData.01386, %sw.bb149 ], [ %echoData.01386, %sw.bb147 ], [ %echoData.01386, %sw.bb145 ], [ %echoData.01386, %sw.bb144 ], [ %echoData.01386, %sw.bb143 ], [ %echoData.01386, %for.end ], [ 1, %sw.bb123 ], [ %echoData.01386, %sw.bb117 ], [ %echoData.01386, %sw.bb116 ], [ %echoData.01386, %sw.bb110 ], [ %echoData.01386, %sw.bb109 ], [ %echoData.01386, %sw.bb100 ], [ %echoData.01386, %sw.bb99 ], [ %echoData.01386, %sw.bb98 ], [ %echoData.01386, %sw.bb97 ], [ %echoData.01386, %sw.bb96 ], [ %echoData.01386, %if.then45 ], [ %echoData.01386, %if.then50 ], [ %echoData.01386, %if.then56 ], [ %echoData.01386, %if.then62 ], [ %echoData.01386, %if.then68 ], [ %echoData.01386, %if.then74 ], [ %echoData.01386, %if.then80 ], [ %echoData.01386, %if.then86 ], [ %echoData.01386, %sw.bb40 ], [ %echoData.01386, %if.end31 ], [ %echoData.01386, %sw.bb25 ], [ %echoData.01386, %sw.bb23 ], [ %echoData.01386, %sw.bb21 ], [ %echoData.01386, %sw.bb20 ], [ %echoData.01386, %sw.bb19 ], [ %echoData.01386, %sw.bb17 ], [ %echoData.01386, %sw.bb16 ], [ %echoData.01386, %sw.bb15 ], [ %echoData.01386, %sw.bb14 ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %while.body ], [ %echoData.01386, %sw.bb12 ], [ %echoData.01386, %sw.bb11 ], [ %echoData.01386, %sw.bb26 ]
-  %block.01384.be = phi i32 [ %block.01384, %sw.bb269 ], [ %block.01384, %sw.bb267 ], [ %block.01384, %for.end248 ], [ %block.01384, %sw.bb170 ], [ %block.01384, %sw.bb169 ], [ %block.01384, %sw.bb165 ], [ %block.01384, %sw.bb156 ], [ %block.01384, %sw.bb150 ], [ %block.01384, %sw.bb149 ], [ %block.01384, %sw.bb147 ], [ %block.01384, %sw.bb145 ], [ %block.01384, %sw.bb144 ], [ %block.01384, %sw.bb143 ], [ %block.2, %for.end ], [ %block.01384, %sw.bb123 ], [ %block.01384, %sw.bb117 ], [ %block.01384, %sw.bb116 ], [ %block.01384, %sw.bb110 ], [ %block.01384, %sw.bb109 ], [ %block.01384, %sw.bb100 ], [ %block.01384, %sw.bb99 ], [ %block.01384, %sw.bb98 ], [ %block.01384, %sw.bb97 ], [ %block.01384, %sw.bb96 ], [ %block.01384, %if.then45 ], [ %block.01384, %if.then50 ], [ %block.01384, %if.then56 ], [ %block.01384, %if.then62 ], [ %block.01384, %if.then68 ], [ %block.01384, %if.then74 ], [ %block.01384, %if.then80 ], [ %block.01384, %if.then86 ], [ %block.01384, %sw.bb40 ], [ %block.01384, %if.end31 ], [ %block.01384, %sw.bb25 ], [ %block.01384, %sw.bb23 ], [ %block.01384, %sw.bb21 ], [ %block.01384, %sw.bb20 ], [ %block.01384, %sw.bb19 ], [ %block.01384, %sw.bb17 ], [ %block.01384, %sw.bb16 ], [ %block.01384, %sw.bb15 ], [ %block.01384, %sw.bb14 ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %while.body ], [ %block.01384, %sw.bb12 ], [ %block.01384, %sw.bb11 ], [ %block.01384, %sw.bb26 ]
-  %throughput.01382.be = phi i64 [ %throughput.01382, %sw.bb269 ], [ %throughput.01382, %sw.bb267 ], [ %throughput.01382, %for.end248 ], [ %throughput.01382, %sw.bb170 ], [ %throughput.01382, %sw.bb169 ], [ %throughput.01382, %sw.bb165 ], [ %throughput.01382, %sw.bb156 ], [ %throughput.01382, %sw.bb150 ], [ %throughput.01382, %sw.bb149 ], [ %throughput.01382, %sw.bb147 ], [ %throughput.01382, %sw.bb145 ], [ %throughput.01382, %sw.bb144 ], [ %throughput.01382, %sw.bb143 ], [ %call125, %for.end ], [ %throughput.01382, %sw.bb123 ], [ %throughput.01382, %sw.bb117 ], [ %throughput.01382, %sw.bb116 ], [ %throughput.01382, %sw.bb110 ], [ %throughput.01382, %sw.bb109 ], [ %throughput.01382, %sw.bb100 ], [ %throughput.01382, %sw.bb99 ], [ %throughput.01382, %sw.bb98 ], [ %throughput.01382, %sw.bb97 ], [ %throughput.01382, %sw.bb96 ], [ %throughput.01382, %if.then45 ], [ %throughput.01382, %if.then50 ], [ %throughput.01382, %if.then56 ], [ %throughput.01382, %if.then62 ], [ %throughput.01382, %if.then68 ], [ %throughput.01382, %if.then74 ], [ %throughput.01382, %if.then80 ], [ %throughput.01382, %if.then86 ], [ %throughput.01382, %sw.bb40 ], [ %throughput.01382, %if.end31 ], [ %throughput.01382, %sw.bb25 ], [ %throughput.01382, %sw.bb23 ], [ %throughput.01382, %sw.bb21 ], [ %throughput.01382, %sw.bb20 ], [ %throughput.01382, %sw.bb19 ], [ %throughput.01382, %sw.bb17 ], [ %throughput.01382, %sw.bb16 ], [ %throughput.01382, %sw.bb15 ], [ %throughput.01382, %sw.bb14 ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %while.body ], [ %throughput.01382, %sw.bb12 ], [ %throughput.01382, %sw.bb11 ], [ %throughput.01382, %sw.bb26 ]
-  %minDhKeyBits.01380.be = phi i32 [ %minDhKeyBits.01380, %sw.bb269 ], [ %minDhKeyBits.01380, %sw.bb267 ], [ %minDhKeyBits.01380, %for.end248 ], [ %minDhKeyBits.01380, %sw.bb170 ], [ %minDhKeyBits.01380, %sw.bb169 ], [ %minDhKeyBits.01380, %sw.bb165 ], [ %minDhKeyBits.01380, %sw.bb156 ], [ %minDhKeyBits.01380, %sw.bb150 ], [ %minDhKeyBits.01380, %sw.bb149 ], [ %minDhKeyBits.01380, %sw.bb147 ], [ %minDhKeyBits.01380, %sw.bb145 ], [ %minDhKeyBits.01380, %sw.bb144 ], [ %minDhKeyBits.01380, %sw.bb143 ], [ %minDhKeyBits.01380, %for.end ], [ %minDhKeyBits.01380, %sw.bb123 ], [ %minDhKeyBits.01380, %sw.bb117 ], [ %minDhKeyBits.01380, %sw.bb116 ], [ %minDhKeyBits.01380, %sw.bb110 ], [ %minDhKeyBits.01380, %sw.bb109 ], [ %call101, %sw.bb100 ], [ %minDhKeyBits.01380, %sw.bb99 ], [ %minDhKeyBits.01380, %sw.bb98 ], [ %minDhKeyBits.01380, %sw.bb97 ], [ %minDhKeyBits.01380, %sw.bb96 ], [ %minDhKeyBits.01380, %if.then45 ], [ %minDhKeyBits.01380, %if.then50 ], [ %minDhKeyBits.01380, %if.then56 ], [ %minDhKeyBits.01380, %if.then62 ], [ %minDhKeyBits.01380, %if.then68 ], [ %minDhKeyBits.01380, %if.then74 ], [ %minDhKeyBits.01380, %if.then80 ], [ %minDhKeyBits.01380, %if.then86 ], [ %minDhKeyBits.01380, %sw.bb40 ], [ %minDhKeyBits.01380, %if.end31 ], [ %minDhKeyBits.01380, %sw.bb25 ], [ %minDhKeyBits.01380, %sw.bb23 ], [ %minDhKeyBits.01380, %sw.bb21 ], [ %minDhKeyBits.01380, %sw.bb20 ], [ %minDhKeyBits.01380, %sw.bb19 ], [ %minDhKeyBits.01380, %sw.bb17 ], [ %minDhKeyBits.01380, %sw.bb16 ], [ %minDhKeyBits.01380, %sw.bb15 ], [ %minDhKeyBits.01380, %sw.bb14 ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %while.body ], [ %minDhKeyBits.01380, %sw.bb12 ], [ %minDhKeyBits.01380, %sw.bb11 ], [ %minDhKeyBits.01380, %sw.bb26 ]
-  %port.01378.be = phi i16 [ %port.01378, %sw.bb269 ], [ %port.01378, %sw.bb267 ], [ %port.01378, %for.end248 ], [ %port.01378, %sw.bb170 ], [ %port.01378, %sw.bb169 ], [ %port.01378, %sw.bb165 ], [ %port.01378, %sw.bb156 ], [ %port.01378, %sw.bb150 ], [ %port.01378, %sw.bb149 ], [ %port.01378, %sw.bb147 ], [ %port.01378, %sw.bb145 ], [ %port.01378, %sw.bb144 ], [ %port.01378, %sw.bb143 ], [ %port.01378, %for.end ], [ %port.01378, %sw.bb123 ], [ %port.01378, %sw.bb117 ], [ %port.01378, %sw.bb116 ], [ %port.01378, %sw.bb110 ], [ %port.01378, %sw.bb109 ], [ %port.01378, %sw.bb100 ], [ %port.01378, %sw.bb99 ], [ %port.01378, %sw.bb98 ], [ %port.01378, %sw.bb97 ], [ %port.01378, %sw.bb96 ], [ %port.01378, %if.then45 ], [ %port.01378, %if.then50 ], [ %port.01378, %if.then56 ], [ %port.01378, %if.then62 ], [ %port.01378, %if.then68 ], [ %port.01378, %if.then74 ], [ %port.01378, %if.then80 ], [ %port.01378, %if.then86 ], [ %port.01378, %sw.bb40 ], [ %port.01378, %if.end31 ], [ %port.01378, %sw.bb25 ], [ %conv, %sw.bb23 ], [ %port.01378, %sw.bb21 ], [ %port.01378, %sw.bb20 ], [ %port.01378, %sw.bb19 ], [ %port.01378, %sw.bb17 ], [ %port.01378, %sw.bb16 ], [ %port.01378, %sw.bb15 ], [ %port.01378, %sw.bb14 ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %while.body ], [ %port.01378, %sw.bb12 ], [ %port.01378, %sw.bb11 ], [ %port.01378, %sw.bb26 ]
-  %.be = phi i32 [ %3, %sw.bb269 ], [ %3, %sw.bb267 ], [ %59, %for.end248 ], [ %3, %sw.bb170 ], [ %3, %sw.bb169 ], [ %3, %sw.bb165 ], [ %3, %sw.bb156 ], [ %3, %sw.bb150 ], [ %3, %sw.bb149 ], [ %3, %sw.bb147 ], [ %3, %sw.bb145 ], [ %3, %sw.bb144 ], [ %3, %sw.bb143 ], [ %3, %for.end ], [ %3, %sw.bb123 ], [ %3, %sw.bb117 ], [ %3, %sw.bb116 ], [ %3, %sw.bb110 ], [ %3, %sw.bb109 ], [ %3, %sw.bb100 ], [ %3, %sw.bb99 ], [ %3, %sw.bb98 ], [ %3, %sw.bb97 ], [ %3, %sw.bb96 ], [ %3, %if.then45 ], [ %3, %if.then50 ], [ %3, %if.then56 ], [ %3, %if.then62 ], [ %3, %if.then68 ], [ %3, %if.then74 ], [ %3, %if.then80 ], [ %3, %if.then86 ], [ %3, %sw.bb40 ], [ %3, %if.end31 ], [ %3, %sw.bb25 ], [ %3, %sw.bb23 ], [ %3, %sw.bb21 ], [ %3, %sw.bb20 ], [ %3, %sw.bb19 ], [ %3, %sw.bb17 ], [ %3, %sw.bb16 ], [ %3, %sw.bb15 ], [ %3, %sw.bb14 ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %while.body ], [ %3, %sw.bb12 ], [ %3, %sw.bb11 ], [ %3, %sw.bb26 ]
-  br label %if.end.i
+153:                                              ; preds = %149
+  %154 = tail call i64 @strtol(ptr noundef nonnull captures(none) %150, ptr noundef null, i32 noundef 10) #21
+  %155 = trunc i64 %154 to i32
+  %or.cond3 = icmp ugt i32 %155, 4
+  br i1 %or.cond3, label %156, label %.lr.ph.backedge
 
-if.end31:                                         ; preds = %sw.bb26
-  %call32 = tail call i32 @atoi(ptr noundef nonnull %35) #26
-  %or.cond1 = icmp ugt i32 %call32, 4
-  br i1 %or.cond1, label %if.then38, label %if.end.i.backedge
-
-if.then38:                                        ; preds = %if.end31
+156:                                              ; preds = %153
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 2) #28
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-sw.bb40:                                          ; preds = %while.body
-  %37 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
+157:                                              ; preds = %mygetopt_long.exit.thread
+  %158 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  br label %.lr.ph.backedge
 
-sw.bb41:                                          ; preds = %while.body
-  %38 = load ptr, ptr @myoptarg, align 8
-  %call42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(14) @.str.16) #26
-  %cmp43 = icmp eq i32 %call42, 0
-  br i1 %cmp43, label %if.then45, label %if.else
+159:                                              ; preds = %mygetopt_long.exit.thread
+  %160 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %161 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(14) @.str.17) #25
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %164
 
-if.then45:                                        ; preds = %sw.bb41
-  %puts225 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  br label %if.end.i.backedge
+163:                                              ; preds = %159
+  %puts497 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
+  br label %.lr.ph.backedge
 
-if.else:                                          ; preds = %sw.bb41
-  %call47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.18) #26
-  %cmp48 = icmp eq i32 %call47, 0
-  br i1 %cmp48, label %if.then50, label %if.else52
+164:                                              ; preds = %159
+  %165 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(12) @.str.19) #25
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %167, label %168
 
-if.then50:                                        ; preds = %if.else
-  %puts224 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  br label %if.end.i.backedge
+167:                                              ; preds = %164
+  %puts496 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
+  br label %.lr.ph.backedge
 
-if.else52:                                        ; preds = %if.else
-  %call53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str.20) #26
-  %cmp54 = icmp eq i32 %call53, 0
-  br i1 %cmp54, label %if.then56, label %if.else58
+168:                                              ; preds = %164
+  %169 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(11) @.str.21) #25
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %172
 
-if.then56:                                        ; preds = %if.else52
-  %puts223 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  store i32 1, ptr %2, align 4
-  br label %if.end.i.backedge
+171:                                              ; preds = %168
+  %puts495 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
+  store i32 1, ptr %33, align 4, !tbaa !4
+  br label %.lr.ph.backedge
 
-if.else58:                                        ; preds = %if.else52
-  %call59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(11) @.str.22) #26
-  %cmp60 = icmp eq i32 %call59, 0
-  br i1 %cmp60, label %if.then62, label %if.else64
+172:                                              ; preds = %168
+  %173 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(11) @.str.23) #25
+  %174 = icmp eq i32 %173, 0
+  br i1 %174, label %175, label %176
 
-if.then62:                                        ; preds = %if.else58
-  %puts222 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  store i32 2, ptr %2, align 4
-  br label %if.end.i.backedge
+175:                                              ; preds = %172
+  %puts494 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
+  store i32 2, ptr %33, align 4, !tbaa !4
+  br label %.lr.ph.backedge
 
-if.else64:                                        ; preds = %if.else58
-  %call65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(8) @.str.24) #26
-  %cmp66 = icmp eq i32 %call65, 0
-  br i1 %cmp66, label %if.then68, label %if.else70
+176:                                              ; preds = %172
+  %177 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(8) @.str.25) #25
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %180
 
-if.then68:                                        ; preds = %if.else64
-  %puts221 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %if.end.i.backedge
+179:                                              ; preds = %176
+  %puts493 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
+  br label %.lr.ph.backedge
 
-if.else70:                                        ; preds = %if.else64
-  %call71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.26) #26
-  %cmp72 = icmp eq i32 %call71, 0
-  br i1 %cmp72, label %if.then74, label %if.else76
+180:                                              ; preds = %176
+  %181 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(12) @.str.27) #25
+  %182 = icmp eq i32 %181, 0
+  br i1 %182, label %183, label %184
 
-if.then74:                                        ; preds = %if.else70
-  %puts220 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %if.end.i.backedge
+183:                                              ; preds = %180
+  %puts492 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
+  br label %.lr.ph.backedge
 
-if.else76:                                        ; preds = %if.else70
-  %call77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.28) #26
-  %cmp78 = icmp eq i32 %call77, 0
-  br i1 %cmp78, label %if.then80, label %if.else82
+184:                                              ; preds = %180
+  %185 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(12) @.str.29) #25
+  %186 = icmp eq i32 %185, 0
+  br i1 %186, label %187, label %188
 
-if.then80:                                        ; preds = %if.else76
-  %puts219 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %if.end.i.backedge
+187:                                              ; preds = %184
+  %puts491 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
+  br label %.lr.ph.backedge
 
-if.else82:                                        ; preds = %if.else76
-  %call83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(16) @.str.30) #26
-  %cmp84 = icmp eq i32 %call83, 0
-  br i1 %cmp84, label %if.then86, label %if.else87
+188:                                              ; preds = %184
+  %189 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(16) @.str.31) #25
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %192
 
-if.then86:                                        ; preds = %if.else82
-  store i32 3, ptr %2, align 4
-  br label %if.end.i.backedge
+191:                                              ; preds = %188
+  store i32 3, ptr %33, align 4, !tbaa !4
+  br label %.lr.ph.backedge
 
-if.else87:                                        ; preds = %if.else82
+192:                                              ; preds = %188
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 2) #28
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-sw.bb96:                                          ; preds = %while.body
-  %39 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
+193:                                              ; preds = %mygetopt_long.exit.thread
+  %194 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  br label %.lr.ph.backedge
 
-sw.bb97:                                          ; preds = %while.body
-  %40 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
+195:                                              ; preds = %mygetopt_long.exit.thread
+  %196 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  br label %.lr.ph.backedge
 
-sw.bb98:                                          ; preds = %while.body
-  %41 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
+197:                                              ; preds = %mygetopt_long.exit.thread
+  %198 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  br label %.lr.ph.backedge
 
-sw.bb99:                                          ; preds = %while.body
-  %42 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
+199:                                              ; preds = %mygetopt_long.exit.thread
+  %200 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  br label %.lr.ph.backedge
 
-sw.bb100:                                         ; preds = %while.body
-  %43 = load ptr, ptr @myoptarg, align 8
-  %call101 = tail call i32 @atoi(ptr noundef %43) #26
-  %44 = add i32 %call101, -16001
-  %or.cond2 = icmp ult i32 %44, -16000
-  br i1 %or.cond2, label %if.then107, label %if.end.i.backedge
+201:                                              ; preds = %mygetopt_long.exit.thread
+  %202 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %203 = tail call i64 @strtol(ptr noundef nonnull captures(none) %202, ptr noundef null, i32 noundef 10) #21
+  %204 = trunc i64 %203 to i32
+  %205 = add i32 %204, -16001
+  %or.cond5 = icmp ult i32 %205, -16000
+  br i1 %or.cond5, label %206, label %.lr.ph.backedge
 
-if.then107:                                       ; preds = %sw.bb100
+206:                                              ; preds = %201
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 2) #28
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-sw.bb109:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+207:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb110:                                         ; preds = %while.body
-  %45 = load ptr, ptr @myoptarg, align 8
-  br label %if.end.i.backedge
+208:                                              ; preds = %mygetopt_long.exit.thread
+  %209 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  br label %.lr.ph.backedge
 
-sw.bb116:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+210:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb117:                                         ; preds = %while.body
-  %46 = load ptr, ptr @myoptarg, align 8
-  %call118 = tail call i32 @atoi(ptr noundef %46) #26
-  %cmp119 = icmp slt i32 %call118, 1
-  br i1 %cmp119, label %if.then121, label %if.end.i.backedge
+211:                                              ; preds = %mygetopt_long.exit.thread
+  %212 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %213 = tail call i64 @strtol(ptr noundef nonnull captures(none) %212, ptr noundef null, i32 noundef 10) #21
+  %214 = trunc i64 %213 to i32
+  %215 = icmp slt i32 %214, 1
+  br i1 %215, label %216, label %.lr.ph.backedge
 
-if.then121:                                       ; preds = %sw.bb117
+216:                                              ; preds = %211
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 2) #28
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-sw.bb123:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+217:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb124:                                         ; preds = %while.body
-  %47 = load ptr, ptr @myoptarg, align 8
-  %call125 = tail call i64 @atol(ptr noundef %47) #26
-  br label %for.cond
+218:                                              ; preds = %mygetopt_long.exit.thread
+  %219 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %220 = tail call i64 @strtol(ptr noundef nonnull captures(none) %219, ptr noundef null, i32 noundef 10) #21
+  %myoptarg.promoted = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  br label %221
 
-for.cond:                                         ; preds = %for.inc, %sw.bb124
-  %incdec.ptr1377 = phi ptr [ %incdec.ptr, %for.inc ], [ %47, %sw.bb124 ]
-  %48 = load i8, ptr %incdec.ptr1377, align 1
-  switch i8 %48, label %for.inc [
-    i8 0, label %for.end
-    i8 44, label %if.then132
+221:                                              ; preds = %228, %218
+  %222 = phi ptr [ %229, %228 ], [ %myoptarg.promoted, %218 ]
+  %223 = load i8, ptr %222, align 1, !tbaa !29
+  switch i8 %223, label %228 [
+    i8 0, label %.loopexit
+    i8 44, label %224
   ]
 
-if.then132:                                       ; preds = %for.cond
-  %add.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr1377, i64 1
-  %call133 = tail call i32 @atoi(ptr noundef nonnull %add.ptr) #26
-  br label %for.end
+224:                                              ; preds = %221
+  %225 = getelementptr inbounds nuw i8, ptr %222, i64 1
+  %226 = tail call i64 @strtol(ptr noundef nonnull captures(none) %225, ptr noundef null, i32 noundef 10) #21
+  %227 = trunc i64 %226 to i32
+  br label %.loopexit
 
-for.inc:                                          ; preds = %for.cond
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr1377, i64 1
-  store ptr %incdec.ptr, ptr @myoptarg, align 8
-  br label %for.cond, !llvm.loop !10
+228:                                              ; preds = %221
+  %229 = getelementptr inbounds nuw i8, ptr %222, i64 1
+  store ptr %229, ptr @myoptarg, align 8, !tbaa !27
+  br label %221, !llvm.loop !35
 
-for.end:                                          ; preds = %for.cond, %if.then132
-  %block.2 = phi i32 [ %call133, %if.then132 ], [ %block.01384, %for.cond ]
-  %cmp135 = icmp eq i64 %call125, 0
-  %cmp138 = icmp slt i32 %block.2, 1
-  %or.cond3 = select i1 %cmp135, i1 true, i1 %cmp138
-  br i1 %or.cond3, label %if.then140, label %if.end.i.backedge
+.loopexit:                                        ; preds = %221, %224
+  %.2408 = phi i32 [ %227, %224 ], [ %.04061499, %221 ]
+  %230 = icmp eq i64 %220, 0
+  %231 = icmp slt i32 %.2408, 1
+  %or.cond7 = select i1 %230, i1 true, i1 %231
+  br i1 %or.cond7, label %232, label %.lr.ph.backedge
 
-if.then140:                                       ; preds = %for.end
+232:                                              ; preds = %.loopexit
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 2) #28
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-sw.bb143:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+233:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb144:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+234:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb145:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+235:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb147:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+236:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb149:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+237:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb150:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+238:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb156:                                         ; preds = %while.body
-  %49 = load ptr, ptr @myoptarg, align 8
-  %call157 = tail call i32 @atoi(ptr noundef %49) #26
-  %or.cond4 = icmp ugt i32 %call157, 1
-  %spec.store.select40 = select i1 %or.cond4, i32 0, i32 %call157
-  store i32 %spec.store.select40, ptr @lng_index, align 4
-  br label %if.end.i.backedge
+239:                                              ; preds = %mygetopt_long.exit.thread
+  %240 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %241 = tail call i64 @strtol(ptr noundef nonnull captures(none) %240, ptr noundef null, i32 noundef 10) #21
+  %242 = trunc i64 %241 to i32
+  %or.cond9 = icmp ugt i32 %242, 1
+  %spec.store.select79 = select i1 %or.cond9, i32 0, i32 %242
+  store i32 %spec.store.select79, ptr @lng_index, align 4
+  br label %.lr.ph.backedge
 
-sw.bb165:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+243:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb169:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+244:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb170:                                         ; preds = %while.body
-  %50 = load ptr, ptr @myoptarg, align 8
-  %call171 = tail call i32 @atoi(ptr noundef %50) #26
-  %or.cond5 = icmp ugt i32 %call171, 4
-  br i1 %or.cond5, label %if.then177, label %if.end.i.backedge
+245:                                              ; preds = %mygetopt_long.exit.thread
+  %246 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %247 = tail call i64 @strtol(ptr noundef nonnull captures(none) %246, ptr noundef null, i32 noundef 10) #21
+  %248 = trunc i64 %247 to i32
+  %or.cond11 = icmp ugt i32 %248, 4
+  br i1 %or.cond11, label %249, label %.lr.ph.backedge
 
-if.then177:                                       ; preds = %sw.bb170
+249:                                              ; preds = %245
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 2) #28
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-sw.bb180:                                         ; preds = %while.body, %while.body
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 38, i64 1, ptr %51) #23
-  tail call void @exit(i32 noundef 2) #28
+250:                                              ; preds = %mygetopt_long.exit.thread, %mygetopt_long.exit.thread
+  %251 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %252 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 38, i64 1, ptr %251) #23
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-sw.bb182:                                         ; preds = %while.body
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 38, i64 1, ptr %53) #23
-  tail call void @exit(i32 noundef 2) #28
+253:                                              ; preds = %mygetopt_long.exit.thread
+  %254 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %255 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 38, i64 1, ptr %254) #23
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-sw.bb184:                                         ; preds = %while.body
-  %55 = load ptr, ptr @myoptarg, align 8
-  %cmp185 = icmp eq ptr %55, null
-  br i1 %cmp185, label %if.then187, label %for.body233
+256:                                              ; preds = %mygetopt_long.exit.thread
+  %257 = load ptr, ptr @myoptarg, align 8, !tbaa !27
+  %258 = icmp eq ptr %257, null
+  br i1 %258, label %259, label %.preheader652
 
-if.then187:                                       ; preds = %sw.bb184
+259:                                              ; preds = %256
   tail call fastcc void @Usage()
-  %puts218 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %call1961490 = tail call i32 @wc_ecc_get_curve_id(i32 noundef 0) #25
-  %cmp1971491 = icmp eq i32 %call1961490, -1
-  br i1 %cmp1971491, label %for.end223, label %for.cond201.preheader
+  %puts488 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  %260 = tail call i32 @wc_ecc_get_curve_id(i32 noundef 0) #21
+  %261 = icmp eq i32 %260, -1
+  br i1 %261, label %._crit_edge1605, label %.preheader651
 
-for.cond201.preheader:                            ; preds = %if.then187, %for.inc221
-  %call1961493 = phi i32 [ %call196, %for.inc221 ], [ %call1961490, %if.then187 ]
-  %idx.01492 = phi i32 [ %inc222, %for.inc221 ], [ 0, %if.then187 ]
-  br label %for.body206
+.preheader651:                                    ; preds = %259, %274
+  %262 = phi i32 [ %276, %274 ], [ %260, %259 ]
+  %.03361604 = phi i32 [ %275, %274 ], [ 0, %259 ]
+  br label %263
 
-for.body206:                                      ; preds = %for.cond201.preheader, %for.inc219
-  %indvars.iv2285 = phi i64 [ 0, %for.cond201.preheader ], [ %indvars.iv.next2286, %for.inc219 ]
-  %arrayidx2021489 = phi ptr [ @group_id_to_text, %for.cond201.preheader ], [ %arrayidx202, %for.inc219 ]
-  %name = getelementptr inbounds nuw i8, ptr %arrayidx2021489, i64 8
-  %56 = load ptr, ptr %name, align 8
-  %call209 = tail call ptr @wc_ecc_get_name(i32 noundef %call1961493) #25
-  %call210 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %call209) #26
-  %cmp211 = icmp eq i32 %call210, 0
-  br i1 %cmp211, label %if.then213, label %for.inc219
+263:                                              ; preds = %.preheader651, %272
+  %indvars.iv2410 = phi i64 [ 0, %.preheader651 ], [ %indvars.iv.next2411, %272 ]
+  %264 = phi ptr [ @group_id_to_text, %.preheader651 ], [ %273, %272 ]
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %266 = load ptr, ptr %265, align 8, !tbaa !36
+  %267 = tail call ptr @wc_ecc_get_name(i32 noundef %262) #21
+  %268 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %266, ptr noundef nonnull dereferenceable(1) %267) #25
+  %269 = icmp eq i32 %268, 0
+  br i1 %269, label %270, label %272
 
-if.then213:                                       ; preds = %for.body206
-  %call217 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %56)
-  br label %for.inc219
+270:                                              ; preds = %263
+  %271 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %266)
+  br label %272
 
-for.inc219:                                       ; preds = %for.body206, %if.then213
-  %indvars.iv.next2286 = add nuw nsw i64 %indvars.iv2285, 1
-  %arrayidx202 = getelementptr inbounds nuw [15 x %struct.group_info], ptr @group_id_to_text, i64 0, i64 %indvars.iv.next2286
-  %exitcond2288 = icmp eq i64 %indvars.iv.next2286, 14
-  br i1 %exitcond2288, label %for.inc221, label %for.body206, !llvm.loop !11
+272:                                              ; preds = %263, %270
+  %indvars.iv.next2411 = add nuw nsw i64 %indvars.iv2410, 1
+  %273 = getelementptr inbounds nuw [15 x %struct.group_info], ptr @group_id_to_text, i64 0, i64 %indvars.iv.next2411
+  %exitcond2413 = icmp eq i64 %indvars.iv.next2411, 14
+  br i1 %exitcond2413, label %274, label %263, !llvm.loop !39
 
-for.inc221:                                       ; preds = %for.inc219
-  %inc222 = add nuw nsw i32 %idx.01492, 1
-  %call196 = tail call i32 @wc_ecc_get_curve_id(i32 noundef %inc222) #25
-  %cmp197 = icmp eq i32 %call196, -1
-  br i1 %cmp197, label %for.end223, label %for.cond201.preheader
+274:                                              ; preds = %272
+  %275 = add nuw nsw i32 %.03361604, 1
+  %276 = tail call i32 @wc_ecc_get_curve_id(i32 noundef %275) #21
+  %277 = icmp eq i32 %276, -1
+  br i1 %277, label %._crit_edge1605, label %.preheader651
 
-for.end223:                                       ; preds = %for.inc221, %if.then187
+._crit_edge1605:                                  ; preds = %274, %259
   %putchar = tail call i32 @putchar(i32 10)
-  tail call void @exit(i32 noundef 0) #27
+  tail call void @exit(i32 noundef 0) #26
   unreachable
 
-for.body233:                                      ; preds = %sw.bb184, %for.inc246
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc246 ], [ 0, %sw.bb184 ]
-  %57 = phi i32 [ %59, %for.inc246 ], [ %3, %sw.bb184 ]
-  %conv2301376 = phi i32 [ %conv230, %for.inc246 ], [ 15, %sw.bb184 ]
-  %arrayidx2281375 = phi ptr [ %arrayidx228, %for.inc246 ], [ @group_id_to_text, %sw.bb184 ]
-  %name236 = getelementptr inbounds nuw i8, ptr %arrayidx2281375, i64 8
-  %58 = load ptr, ptr %name236, align 8
-  %call237 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %55) #26
-  %cmp238 = icmp eq i32 %call237, 0
-  br i1 %cmp238, label %if.then240, label %for.inc246
+.preheader652:                                    ; preds = %256, %286
+  %indvars.iv = phi i64 [ %indvars.iv.next, %286 ], [ 0, %256 ]
+  %278 = phi i32 [ %287, %286 ], [ %35, %256 ]
+  %279 = phi i32 [ %290, %286 ], [ 15, %256 ]
+  %280 = phi ptr [ %288, %286 ], [ @group_id_to_text, %256 ]
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
+  %282 = load ptr, ptr %281, align 8, !tbaa !36
+  %283 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %282, ptr noundef nonnull dereferenceable(1) %257) #25
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %285, label %286
 
-if.then240:                                       ; preds = %for.body233
-  store i32 %conv2301376, ptr %force_curve_group_id, align 4
-  br label %for.inc246
+285:                                              ; preds = %.preheader652
+  store i32 %279, ptr %25, align 4, !tbaa !4
+  br label %286
 
-for.inc246:                                       ; preds = %for.body233, %if.then240
-  %59 = phi i32 [ %57, %for.body233 ], [ %conv2301376, %if.then240 ]
+286:                                              ; preds = %.preheader652, %285
+  %287 = phi i32 [ %278, %.preheader652 ], [ %279, %285 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx228 = getelementptr inbounds nuw [15 x %struct.group_info], ptr @group_id_to_text, i64 0, i64 %indvars.iv.next
-  %60 = load i16, ptr %arrayidx228, align 16
-  %conv230 = zext i16 %60 to i32
+  %288 = getelementptr inbounds nuw [15 x %struct.group_info], ptr @group_id_to_text, i64 0, i64 %indvars.iv.next
+  %289 = load i16, ptr %288, align 16, !tbaa !40
+  %290 = zext i16 %289 to i32
   %exitcond = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond, label %for.end248, label %for.body233, !llvm.loop !12
+  br i1 %exitcond, label %291, label %.preheader652, !llvm.loop !41
 
-for.end248:                                       ; preds = %for.inc246
-  %cmp249 = icmp slt i32 %59, 1
-  br i1 %cmp249, label %if.then251, label %if.end.i.backedge
+291:                                              ; preds = %286
+  %292 = icmp slt i32 %287, 1
+  br i1 %292, label %293, label %.lr.ph.backedge
 
-if.then251:                                       ; preds = %for.end248
-  %.b216 = load i1, ptr @quieter, align 4
-  br i1 %.b216, label %if.end265, label %if.end265.sink.split
+.lr.ph.backedge:                                  ; preds = %291, %149, %239, %245, %.loopexit, %211, %201, %163, %171, %179, %187, %191, %183, %175, %167, %153, %298, %297, %244, %243, %238, %237, %236, %235, %234, %233, %217, %210, %208, %207, %199, %197, %195, %193, %157, %148, %144, %143, %141, %140, %139, %138, %137, %136, %135, %134, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread, %mygetopt_long.exit.thread
+  %.03261565.be = phi i32 [ %.03261565, %298 ], [ %.03261565, %297 ], [ %248, %245 ], [ %.03261565, %244 ], [ %.03261565, %243 ], [ %.03261565, %239 ], [ %.03261565, %238 ], [ %.03261565, %237 ], [ %.03261565, %236 ], [ %.03261565, %235 ], [ %.03261565, %234 ], [ %.03261565, %233 ], [ %.03261565, %.loopexit ], [ %.03261565, %217 ], [ %.03261565, %211 ], [ %.03261565, %210 ], [ %.03261565, %208 ], [ %.03261565, %207 ], [ %.03261565, %201 ], [ %.03261565, %199 ], [ %.03261565, %197 ], [ %.03261565, %195 ], [ %.03261565, %193 ], [ %.03261565, %163 ], [ %.03261565, %167 ], [ %.03261565, %171 ], [ %.03261565, %175 ], [ %.03261565, %179 ], [ %.03261565, %183 ], [ %.03261565, %187 ], [ %.03261565, %191 ], [ %.03261565, %157 ], [ %.03261565, %153 ], [ %.03261565, %148 ], [ %.03261565, %144 ], [ %.03261565, %143 ], [ %.03261565, %141 ], [ %.03261565, %140 ], [ %.03261565, %139 ], [ %.03261565, %138 ], [ %.03261565, %137 ], [ %.03261565, %136 ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %mygetopt_long.exit.thread ], [ %.03261565, %135 ], [ %.03261565, %134 ], [ %.03261565, %149 ], [ %.03261565, %291 ]
+  %.03271563.be = phi i32 [ %.03271563, %298 ], [ %.03271563, %297 ], [ %.03271563, %245 ], [ %.03271563, %244 ], [ %.03271563, %243 ], [ %.03271563, %239 ], [ %.03271563, %238 ], [ %.03271563, %237 ], [ %.03271563, %236 ], [ %.03271563, %235 ], [ %.03271563, %234 ], [ 1, %233 ], [ %.03271563, %.loopexit ], [ %.03271563, %217 ], [ %.03271563, %211 ], [ %.03271563, %210 ], [ %.03271563, %208 ], [ %.03271563, %207 ], [ %.03271563, %201 ], [ %.03271563, %199 ], [ %.03271563, %197 ], [ %.03271563, %195 ], [ %.03271563, %193 ], [ %.03271563, %163 ], [ %.03271563, %167 ], [ %.03271563, %171 ], [ %.03271563, %175 ], [ %.03271563, %179 ], [ %.03271563, %183 ], [ %.03271563, %187 ], [ %.03271563, %191 ], [ %.03271563, %157 ], [ %.03271563, %153 ], [ %.03271563, %148 ], [ %.03271563, %144 ], [ %.03271563, %143 ], [ %.03271563, %141 ], [ %.03271563, %140 ], [ %.03271563, %139 ], [ %.03271563, %138 ], [ %.03271563, %137 ], [ %.03271563, %136 ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %mygetopt_long.exit.thread ], [ %.03271563, %135 ], [ %.03271563, %134 ], [ %.03271563, %149 ], [ %.03271563, %291 ]
+  %.03291561.be = phi i32 [ %.03291561, %298 ], [ %.03291561, %297 ], [ %.03291561, %245 ], [ %.03291561, %244 ], [ %.03291561, %243 ], [ %.03291561, %239 ], [ %.03291561, %238 ], [ %.03291561, %237 ], [ %.03291561, %236 ], [ %.03291561, %235 ], [ %.03291561, %234 ], [ %.03291561, %233 ], [ %.03291561, %.loopexit ], [ %.03291561, %217 ], [ %.03291561, %211 ], [ %.03291561, %210 ], [ %.03291561, %208 ], [ %.03291561, %207 ], [ %.03291561, %201 ], [ %.03291561, %199 ], [ %.03291561, %197 ], [ %.03291561, %195 ], [ %.03291561, %193 ], [ %.03291561, %163 ], [ %.03291561, %167 ], [ %.03291561, %171 ], [ %.03291561, %175 ], [ %.03291561, %179 ], [ %.03291561, %183 ], [ %.03291561, %187 ], [ %.03291561, %191 ], [ %.03291561, %157 ], [ %155, %153 ], [ %.03291561, %148 ], [ %.03291561, %144 ], [ %.03291561, %143 ], [ %.03291561, %141 ], [ %.03291561, %140 ], [ %.03291561, %139 ], [ %.03291561, %138 ], [ %.03291561, %137 ], [ %.03291561, %136 ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %mygetopt_long.exit.thread ], [ %.03291561, %135 ], [ %.03291561, %134 ], [ -98, %149 ], [ %.03291561, %291 ]
+  %.03311559.be = phi i32 [ %.03311559, %298 ], [ %.03311559, %297 ], [ %.03311559, %245 ], [ %.03311559, %244 ], [ %.03311559, %243 ], [ %.03311559, %239 ], [ %.03311559, %238 ], [ %.03311559, %237 ], [ %.03311559, %236 ], [ %.03311559, %235 ], [ %.03311559, %234 ], [ %.03311559, %233 ], [ %.03311559, %.loopexit ], [ %.03311559, %217 ], [ %.03311559, %211 ], [ %.03311559, %210 ], [ %.03311559, %208 ], [ %.03311559, %207 ], [ %.03311559, %201 ], [ %.03311559, %199 ], [ %.03311559, %197 ], [ %.03311559, %195 ], [ %.03311559, %193 ], [ %.03311559, %163 ], [ %.03311559, %167 ], [ %.03311559, %171 ], [ %.03311559, %175 ], [ %.03311559, %179 ], [ %.03311559, %183 ], [ %.03311559, %187 ], [ %.03311559, %191 ], [ %.03311559, %157 ], [ %.03311559, %153 ], [ %.03311559, %148 ], [ %.03311559, %144 ], [ %.03311559, %143 ], [ %.03311559, %141 ], [ %.03311559, %140 ], [ %.03311559, %139 ], [ %.03311559, %138 ], [ %.03311559, %137 ], [ %.03311559, %136 ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ %.03311559, %mygetopt_long.exit.thread ], [ 0, %135 ], [ %.03311559, %134 ], [ %.03311559, %149 ], [ %.03311559, %291 ]
+  %.03341557.be = phi i32 [ %.03341557, %298 ], [ %.03341557, %297 ], [ %.03341557, %245 ], [ %.03341557, %244 ], [ %.03341557, %243 ], [ %.03341557, %239 ], [ %.03341557, %238 ], [ %.03341557, %237 ], [ %.03341557, %236 ], [ %.03341557, %235 ], [ %.03341557, %234 ], [ %.03341557, %233 ], [ %.03341557, %.loopexit ], [ %.03341557, %217 ], [ %.03341557, %211 ], [ %.03341557, %210 ], [ %.03341557, %208 ], [ %.03341557, %207 ], [ %.03341557, %201 ], [ %.03341557, %199 ], [ %.03341557, %197 ], [ %.03341557, %195 ], [ %.03341557, %193 ], [ %.03341557, %163 ], [ %.03341557, %167 ], [ %.03341557, %171 ], [ %.03341557, %175 ], [ %.03341557, %179 ], [ %.03341557, %183 ], [ %.03341557, %187 ], [ %.03341557, %191 ], [ %.03341557, %157 ], [ %.03341557, %153 ], [ %.03341557, %148 ], [ %.03341557, %144 ], [ %.03341557, %143 ], [ %.03341557, %141 ], [ %.03341557, %140 ], [ %.03341557, %139 ], [ %.03341557, %138 ], [ %.03341557, %137 ], [ 1, %136 ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %mygetopt_long.exit.thread ], [ %.03341557, %135 ], [ %.03341557, %134 ], [ %.03341557, %149 ], [ %.03341557, %291 ]
+  %.03391555.be = phi i32 [ %.03391555, %298 ], [ %.03391555, %297 ], [ %.03391555, %245 ], [ %.03391555, %244 ], [ %.03391555, %243 ], [ %.03391555, %239 ], [ %.03391555, %238 ], [ %.03391555, %237 ], [ %.03391555, %236 ], [ %.03391555, %235 ], [ %.03391555, %234 ], [ %.03391555, %233 ], [ %.03391555, %.loopexit ], [ %.03391555, %217 ], [ %.03391555, %211 ], [ %.03391555, %210 ], [ %.03391555, %208 ], [ %.03391555, %207 ], [ %.03391555, %201 ], [ %.03391555, %199 ], [ %.03391555, %197 ], [ %.03391555, %195 ], [ %.03391555, %193 ], [ %.03391555, %163 ], [ %.03391555, %167 ], [ %.03391555, %171 ], [ %.03391555, %175 ], [ %.03391555, %179 ], [ %.03391555, %183 ], [ 1, %187 ], [ %.03391555, %191 ], [ %.03391555, %157 ], [ %.03391555, %153 ], [ %.03391555, %148 ], [ %.03391555, %144 ], [ %.03391555, %143 ], [ %.03391555, %141 ], [ %.03391555, %140 ], [ %.03391555, %139 ], [ %.03391555, %138 ], [ %.03391555, %137 ], [ %.03391555, %136 ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %mygetopt_long.exit.thread ], [ %.03391555, %135 ], [ %.03391555, %134 ], [ %.03391555, %149 ], [ %.03391555, %291 ]
+  %.03411553.be = phi i32 [ %.03411553, %298 ], [ %.03411553, %297 ], [ %.03411553, %245 ], [ %.03411553, %244 ], [ %.03411553, %243 ], [ %.03411553, %239 ], [ %.03411553, %238 ], [ %.03411553, %237 ], [ %.03411553, %236 ], [ %.03411553, %235 ], [ %.03411553, %234 ], [ %.03411553, %233 ], [ %.03411553, %.loopexit ], [ %.03411553, %217 ], [ %.03411553, %211 ], [ %.03411553, %210 ], [ %.03411553, %208 ], [ %.03411553, %207 ], [ %.03411553, %201 ], [ %.03411553, %199 ], [ %.03411553, %197 ], [ %.03411553, %195 ], [ %.03411553, %193 ], [ %.03411553, %163 ], [ %.03411553, %167 ], [ %.03411553, %171 ], [ %.03411553, %175 ], [ 2, %179 ], [ 1, %183 ], [ %.03411553, %187 ], [ %.03411553, %191 ], [ %.03411553, %157 ], [ %.03411553, %153 ], [ %.03411553, %148 ], [ %.03411553, %144 ], [ %.03411553, %143 ], [ %.03411553, %141 ], [ %.03411553, %140 ], [ %.03411553, %139 ], [ %.03411553, %138 ], [ %.03411553, %137 ], [ %.03411553, %136 ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %mygetopt_long.exit.thread ], [ %.03411553, %135 ], [ %.03411553, %134 ], [ %.03411553, %149 ], [ %.03411553, %291 ]
+  %.03431551.be = phi i32 [ %.03431551, %298 ], [ %.03431551, %297 ], [ %.03431551, %245 ], [ %.03431551, %244 ], [ %.03431551, %243 ], [ %.03431551, %239 ], [ %.03431551, %238 ], [ %.03431551, %237 ], [ %.03431551, %236 ], [ %.03431551, %235 ], [ %.03431551, %234 ], [ %.03431551, %233 ], [ %.03431551, %.loopexit ], [ %.03431551, %217 ], [ %.03431551, %211 ], [ %.03431551, %210 ], [ %.03431551, %208 ], [ %.03431551, %207 ], [ %.03431551, %201 ], [ %.03431551, %199 ], [ %.03431551, %197 ], [ %.03431551, %195 ], [ %.03431551, %193 ], [ %.03431551, %163 ], [ 1, %167 ], [ %.03431551, %171 ], [ %.03431551, %175 ], [ %.03431551, %179 ], [ %.03431551, %183 ], [ %.03431551, %187 ], [ %.03431551, %191 ], [ %.03431551, %157 ], [ %.03431551, %153 ], [ %.03431551, %148 ], [ %.03431551, %144 ], [ %.03431551, %143 ], [ %.03431551, %141 ], [ %.03431551, %140 ], [ %.03431551, %139 ], [ %.03431551, %138 ], [ %.03431551, %137 ], [ %.03431551, %136 ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %mygetopt_long.exit.thread ], [ %.03431551, %135 ], [ %.03431551, %134 ], [ %.03431551, %149 ], [ %.03431551, %291 ]
+  %.03451549.be = phi i32 [ %.03451549, %298 ], [ %.03451549, %297 ], [ %.03451549, %245 ], [ %.03451549, %244 ], [ %.03451549, %243 ], [ %.03451549, %239 ], [ %.03451549, %238 ], [ %.03451549, %237 ], [ %.03451549, %236 ], [ %.03451549, %235 ], [ %.03451549, %234 ], [ %.03451549, %233 ], [ %.03451549, %.loopexit ], [ %.03451549, %217 ], [ %.03451549, %211 ], [ %.03451549, %210 ], [ %.03451549, %208 ], [ %.03451549, %207 ], [ %.03451549, %201 ], [ %.03451549, %199 ], [ %.03451549, %197 ], [ %.03451549, %195 ], [ %.03451549, %193 ], [ %.03451549, %163 ], [ %.03451549, %167 ], [ %.03451549, %171 ], [ %.03451549, %175 ], [ %.03451549, %179 ], [ %.03451549, %183 ], [ %.03451549, %187 ], [ %.03451549, %191 ], [ %.03451549, %157 ], [ %.03451549, %153 ], [ %.03451549, %148 ], [ %.03451549, %144 ], [ %.03451549, %143 ], [ %.03451549, %141 ], [ %.03451549, %140 ], [ %.03451549, %139 ], [ %.03451549, %138 ], [ 1, %137 ], [ %.03451549, %136 ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %mygetopt_long.exit.thread ], [ %.03451549, %135 ], [ %.03451549, %134 ], [ %.03451549, %149 ], [ %.03451549, %291 ]
+  %.03471547.be = phi i32 [ %.03471547, %298 ], [ %.03471547, %297 ], [ %.03471547, %245 ], [ %.03471547, %244 ], [ %.03471547, %243 ], [ %.03471547, %239 ], [ %.03471547, %238 ], [ %.03471547, %237 ], [ %.03471547, %236 ], [ %.03471547, %235 ], [ %.03471547, %234 ], [ %.03471547, %233 ], [ %.03471547, %.loopexit ], [ %.03471547, %217 ], [ %.03471547, %211 ], [ %.03471547, %210 ], [ %.03471547, %208 ], [ %.03471547, %207 ], [ %.03471547, %201 ], [ %.03471547, %199 ], [ %.03471547, %197 ], [ %.03471547, %195 ], [ %.03471547, %193 ], [ %.03471547, %163 ], [ %.03471547, %167 ], [ %.03471547, %171 ], [ %.03471547, %175 ], [ %.03471547, %179 ], [ %.03471547, %183 ], [ %.03471547, %187 ], [ %.03471547, %191 ], [ %.03471547, %157 ], [ %.03471547, %153 ], [ %.03471547, %148 ], [ %.03471547, %144 ], [ %.03471547, %143 ], [ %.03471547, %141 ], [ %.03471547, %140 ], [ %.03471547, %139 ], [ 1, %138 ], [ %.03471547, %137 ], [ %.03471547, %136 ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %mygetopt_long.exit.thread ], [ %.03471547, %135 ], [ %.03471547, %134 ], [ %.03471547, %149 ], [ %.03471547, %291 ]
+  %.03491545.be = phi i32 [ %.03491545, %298 ], [ %.03491545, %297 ], [ %.03491545, %245 ], [ %.03491545, %244 ], [ %.03491545, %243 ], [ %.03491545, %239 ], [ %.03491545, %238 ], [ %.03491545, %237 ], [ %.03491545, %236 ], [ %.03491545, %235 ], [ %.03491545, %234 ], [ %.03491545, %233 ], [ %.03491545, %.loopexit ], [ %.03491545, %217 ], [ %.03491545, %211 ], [ %.03491545, %210 ], [ %.03491545, %208 ], [ %.03491545, %207 ], [ %.03491545, %201 ], [ %.03491545, %199 ], [ %.03491545, %197 ], [ %.03491545, %195 ], [ %.03491545, %193 ], [ %.03491545, %163 ], [ %.03491545, %167 ], [ %.03491545, %171 ], [ %.03491545, %175 ], [ %.03491545, %179 ], [ %.03491545, %183 ], [ %.03491545, %187 ], [ %.03491545, %191 ], [ %.03491545, %157 ], [ %.03491545, %153 ], [ %.03491545, %148 ], [ %.03491545, %144 ], [ %.03491545, %143 ], [ %.03491545, %141 ], [ %.03491545, %140 ], [ 1, %139 ], [ %.03491545, %138 ], [ %.03491545, %137 ], [ %.03491545, %136 ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %mygetopt_long.exit.thread ], [ %.03491545, %135 ], [ %.03491545, %134 ], [ %.03491545, %149 ], [ %.03491545, %291 ]
+  %.03511543.be = phi i32 [ %.03511543, %298 ], [ %.03511543, %297 ], [ %.03511543, %245 ], [ %.03511543, %244 ], [ %.03511543, %243 ], [ %.03511543, %239 ], [ %.03511543, %238 ], [ %.03511543, %237 ], [ %.03511543, %236 ], [ %.03511543, %235 ], [ %.03511543, %234 ], [ %.03511543, %233 ], [ %.03511543, %.loopexit ], [ %.03511543, %217 ], [ %.03511543, %211 ], [ %.03511543, %210 ], [ %.03511543, %208 ], [ %.03511543, %207 ], [ %.03511543, %201 ], [ %.03511543, %199 ], [ %.03511543, %197 ], [ %.03511543, %195 ], [ %.03511543, %193 ], [ %.03511543, %163 ], [ %.03511543, %167 ], [ %.03511543, %171 ], [ %.03511543, %175 ], [ %.03511543, %179 ], [ %.03511543, %183 ], [ %.03511543, %187 ], [ %.03511543, %191 ], [ %.03511543, %157 ], [ %.03511543, %153 ], [ %.03511543, %148 ], [ %.03511543, %144 ], [ %.03511543, %143 ], [ %.03511543, %141 ], [ %.03511543, %140 ], [ 1, %139 ], [ %.03511543, %138 ], [ %.03511543, %137 ], [ %.03511543, %136 ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %mygetopt_long.exit.thread ], [ %.03511543, %135 ], [ %.03511543, %134 ], [ %.03511543, %149 ], [ %.03511543, %291 ]
+  %.03531541.be = phi i32 [ %.03531541, %298 ], [ %.03531541, %297 ], [ %.03531541, %245 ], [ 1, %244 ], [ %.03531541, %243 ], [ %.03531541, %239 ], [ %.03531541, %238 ], [ %.03531541, %237 ], [ %.03531541, %236 ], [ %.03531541, %235 ], [ %.03531541, %234 ], [ %.03531541, %233 ], [ %.03531541, %.loopexit ], [ %.03531541, %217 ], [ %.03531541, %211 ], [ %.03531541, %210 ], [ %.03531541, %208 ], [ 1, %207 ], [ %.03531541, %201 ], [ %.03531541, %199 ], [ %.03531541, %197 ], [ %.03531541, %195 ], [ %.03531541, %193 ], [ %.03531541, %163 ], [ %.03531541, %167 ], [ %.03531541, %171 ], [ %.03531541, %175 ], [ %.03531541, %179 ], [ %.03531541, %183 ], [ %.03531541, %187 ], [ %.03531541, %191 ], [ %.03531541, %157 ], [ %.03531541, %153 ], [ %.03531541, %148 ], [ %.03531541, %144 ], [ %.03531541, %143 ], [ %.03531541, %141 ], [ %.03531541, %140 ], [ %.03531541, %139 ], [ %.03531541, %138 ], [ %.03531541, %137 ], [ %.03531541, %136 ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %mygetopt_long.exit.thread ], [ %.03531541, %135 ], [ %.03531541, %134 ], [ %.03531541, %149 ], [ %.03531541, %291 ]
+  %.03551539.be = phi i32 [ %.03551539, %298 ], [ %.03551539, %297 ], [ %.03551539, %245 ], [ %.03551539, %244 ], [ %.03551539, %243 ], [ %.03551539, %239 ], [ %.03551539, %238 ], [ %.03551539, %237 ], [ %.03551539, %236 ], [ 2, %235 ], [ 1, %234 ], [ %.03551539, %233 ], [ %.03551539, %.loopexit ], [ %.03551539, %217 ], [ %.03551539, %211 ], [ %.03551539, %210 ], [ %.03551539, %208 ], [ %.03551539, %207 ], [ %.03551539, %201 ], [ %.03551539, %199 ], [ %.03551539, %197 ], [ %.03551539, %195 ], [ %.03551539, %193 ], [ %.03551539, %163 ], [ %.03551539, %167 ], [ %.03551539, %171 ], [ %.03551539, %175 ], [ %.03551539, %179 ], [ %.03551539, %183 ], [ %.03551539, %187 ], [ %.03551539, %191 ], [ %.03551539, %157 ], [ %.03551539, %153 ], [ %.03551539, %148 ], [ %.03551539, %144 ], [ %.03551539, %143 ], [ %.03551539, %141 ], [ %.03551539, %140 ], [ %.03551539, %139 ], [ %.03551539, %138 ], [ %.03551539, %137 ], [ %.03551539, %136 ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %mygetopt_long.exit.thread ], [ %.03551539, %135 ], [ %.03551539, %134 ], [ %.03551539, %149 ], [ %.03551539, %291 ]
+  %.03571537.be = phi i32 [ %.03571537, %298 ], [ %.03571537, %297 ], [ %.03571537, %245 ], [ %.03571537, %244 ], [ 0, %243 ], [ %.03571537, %239 ], [ %.03571537, %238 ], [ %.03571537, %237 ], [ %.03571537, %236 ], [ %.03571537, %235 ], [ %.03571537, %234 ], [ %.03571537, %233 ], [ %.03571537, %.loopexit ], [ %.03571537, %217 ], [ %.03571537, %211 ], [ %.03571537, %210 ], [ %.03571537, %208 ], [ %.03571537, %207 ], [ %.03571537, %201 ], [ %.03571537, %199 ], [ %.03571537, %197 ], [ %.03571537, %195 ], [ %.03571537, %193 ], [ %.03571537, %163 ], [ %.03571537, %167 ], [ %.03571537, %171 ], [ %.03571537, %175 ], [ %.03571537, %179 ], [ %.03571537, %183 ], [ %.03571537, %187 ], [ %.03571537, %191 ], [ %.03571537, %157 ], [ %.03571537, %153 ], [ %.03571537, %148 ], [ %.03571537, %144 ], [ %.03571537, %143 ], [ %.03571537, %141 ], [ %.03571537, %140 ], [ %.03571537, %139 ], [ %.03571537, %138 ], [ %.03571537, %137 ], [ %.03571537, %136 ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %mygetopt_long.exit.thread ], [ %.03571537, %135 ], [ %.03571537, %134 ], [ %.03571537, %149 ], [ %.03571537, %291 ]
+  %.03591535.be = phi i32 [ %.03591535, %298 ], [ %.03591535, %297 ], [ %.03591535, %245 ], [ 1, %244 ], [ %.03591535, %243 ], [ %.03591535, %239 ], [ %.03591535, %238 ], [ %.03591535, %237 ], [ %.03591535, %236 ], [ %.03591535, %235 ], [ %.03591535, %234 ], [ %.03591535, %233 ], [ %.03591535, %.loopexit ], [ %.03591535, %217 ], [ %.03591535, %211 ], [ %.03591535, %210 ], [ %.03591535, %208 ], [ %.03591535, %207 ], [ %.03591535, %201 ], [ %.03591535, %199 ], [ %.03591535, %197 ], [ %.03591535, %195 ], [ %.03591535, %193 ], [ %.03591535, %163 ], [ %.03591535, %167 ], [ %.03591535, %171 ], [ %.03591535, %175 ], [ %.03591535, %179 ], [ %.03591535, %183 ], [ %.03591535, %187 ], [ %.03591535, %191 ], [ %.03591535, %157 ], [ %.03591535, %153 ], [ %.03591535, %148 ], [ %.03591535, %144 ], [ %.03591535, %143 ], [ %.03591535, %141 ], [ %.03591535, %140 ], [ %.03591535, %139 ], [ %.03591535, %138 ], [ %.03591535, %137 ], [ %.03591535, %136 ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %mygetopt_long.exit.thread ], [ %.03591535, %135 ], [ %.03591535, %134 ], [ %.03591535, %149 ], [ %.03591535, %291 ]
+  %.03611533.be = phi i32 [ %.03611533, %298 ], [ %.03611533, %297 ], [ %.03611533, %245 ], [ %.03611533, %244 ], [ %.03611533, %243 ], [ %.03611533, %239 ], [ %.03611533, %238 ], [ %.03611533, %237 ], [ %.03611533, %236 ], [ %.03611533, %235 ], [ %.03611533, %234 ], [ %.03611533, %233 ], [ %.03611533, %.loopexit ], [ %.03611533, %217 ], [ %.03611533, %211 ], [ %.03611533, %210 ], [ %.03611533, %208 ], [ %.03611533, %207 ], [ %.03611533, %201 ], [ %.03611533, %199 ], [ %.03611533, %197 ], [ %.03611533, %195 ], [ %.03611533, %193 ], [ %.03611533, %163 ], [ %.03611533, %167 ], [ %.03611533, %171 ], [ %.03611533, %175 ], [ %.03611533, %179 ], [ %.03611533, %183 ], [ %.03611533, %187 ], [ %.03611533, %191 ], [ %.03611533, %157 ], [ %.03611533, %153 ], [ %.03611533, %148 ], [ %.03611533, %144 ], [ %.03611533, %143 ], [ %.03611533, %141 ], [ 1, %140 ], [ %.03611533, %139 ], [ %.03611533, %138 ], [ %.03611533, %137 ], [ %.03611533, %136 ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %mygetopt_long.exit.thread ], [ %.03611533, %135 ], [ %.03611533, %134 ], [ %.03611533, %149 ], [ %.03611533, %291 ]
+  %.03631531.be = phi i32 [ %.03631531, %298 ], [ %.03631531, %297 ], [ %.03631531, %245 ], [ %.03631531, %244 ], [ %.03631531, %243 ], [ %.03631531, %239 ], [ %.03631531, %238 ], [ %.03631531, %237 ], [ %.03631531, %236 ], [ %.03631531, %235 ], [ %.03631531, %234 ], [ %.03631531, %233 ], [ %.03631531, %.loopexit ], [ %.03631531, %217 ], [ %.03631531, %211 ], [ %.03631531, %210 ], [ %.03631531, %208 ], [ %.03631531, %207 ], [ %.03631531, %201 ], [ %.03631531, %199 ], [ %.03631531, %197 ], [ %.03631531, %195 ], [ %.03631531, %193 ], [ %.03631531, %163 ], [ %.03631531, %167 ], [ %.03631531, %171 ], [ %.03631531, %175 ], [ %.03631531, %179 ], [ %.03631531, %183 ], [ %.03631531, %187 ], [ %.03631531, %191 ], [ %.03631531, %157 ], [ %.03631531, %153 ], [ 1, %148 ], [ %.03631531, %144 ], [ %.03631531, %143 ], [ %.03631531, %141 ], [ %.03631531, %140 ], [ %.03631531, %139 ], [ %.03631531, %138 ], [ %.03631531, %137 ], [ %.03631531, %136 ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %mygetopt_long.exit.thread ], [ %.03631531, %135 ], [ %.03631531, %134 ], [ %.03631531, %149 ], [ %.03631531, %291 ]
+  %.03651529.be = phi i32 [ %.03651529, %298 ], [ %.03651529, %297 ], [ %.03651529, %245 ], [ %.03651529, %244 ], [ %.03651529, %243 ], [ %.03651529, %239 ], [ 1, %238 ], [ %.03651529, %237 ], [ %.03651529, %236 ], [ %.03651529, %235 ], [ %.03651529, %234 ], [ %.03651529, %233 ], [ %.03651529, %.loopexit ], [ %.03651529, %217 ], [ %.03651529, %211 ], [ %.03651529, %210 ], [ %.03651529, %208 ], [ %.03651529, %207 ], [ %.03651529, %201 ], [ %.03651529, %199 ], [ %.03651529, %197 ], [ %.03651529, %195 ], [ %.03651529, %193 ], [ %.03651529, %163 ], [ %.03651529, %167 ], [ %.03651529, %171 ], [ %.03651529, %175 ], [ %.03651529, %179 ], [ %.03651529, %183 ], [ %.03651529, %187 ], [ %.03651529, %191 ], [ %.03651529, %157 ], [ %.03651529, %153 ], [ %.03651529, %148 ], [ %.03651529, %144 ], [ %.03651529, %143 ], [ %.03651529, %141 ], [ %.03651529, %140 ], [ %.03651529, %139 ], [ %.03651529, %138 ], [ %.03651529, %137 ], [ %.03651529, %136 ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %mygetopt_long.exit.thread ], [ %.03651529, %135 ], [ %.03651529, %134 ], [ %.03651529, %149 ], [ %.03651529, %291 ]
+  %.03671527.be = phi i32 [ %.03671527, %298 ], [ %.03671527, %297 ], [ %.03671527, %245 ], [ %.03671527, %244 ], [ %.03671527, %243 ], [ %.03671527, %239 ], [ %.03671527, %238 ], [ 1, %237 ], [ %.03671527, %236 ], [ %.03671527, %235 ], [ %.03671527, %234 ], [ %.03671527, %233 ], [ %.03671527, %.loopexit ], [ %.03671527, %217 ], [ %.03671527, %211 ], [ %.03671527, %210 ], [ %.03671527, %208 ], [ %.03671527, %207 ], [ %.03671527, %201 ], [ %.03671527, %199 ], [ %.03671527, %197 ], [ %.03671527, %195 ], [ %.03671527, %193 ], [ %.03671527, %163 ], [ %.03671527, %167 ], [ %.03671527, %171 ], [ %.03671527, %175 ], [ %.03671527, %179 ], [ %.03671527, %183 ], [ %.03671527, %187 ], [ %.03671527, %191 ], [ %.03671527, %157 ], [ %.03671527, %153 ], [ %.03671527, %148 ], [ %.03671527, %144 ], [ %.03671527, %143 ], [ %.03671527, %141 ], [ %.03671527, %140 ], [ %.03671527, %139 ], [ %.03671527, %138 ], [ %.03671527, %137 ], [ %.03671527, %136 ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %mygetopt_long.exit.thread ], [ %.03671527, %135 ], [ %.03671527, %134 ], [ %.03671527, %149 ], [ %.03671527, %291 ]
+  %.03691525.be = phi i32 [ %.03691525, %298 ], [ 1, %297 ], [ %.03691525, %245 ], [ %.03691525, %244 ], [ %.03691525, %243 ], [ %.03691525, %239 ], [ %.03691525, %238 ], [ %.03691525, %237 ], [ %.03691525, %236 ], [ %.03691525, %235 ], [ %.03691525, %234 ], [ %.03691525, %233 ], [ %.03691525, %.loopexit ], [ %.03691525, %217 ], [ %.03691525, %211 ], [ %.03691525, %210 ], [ %.03691525, %208 ], [ %.03691525, %207 ], [ %.03691525, %201 ], [ %.03691525, %199 ], [ %.03691525, %197 ], [ %.03691525, %195 ], [ %.03691525, %193 ], [ %.03691525, %163 ], [ %.03691525, %167 ], [ %.03691525, %171 ], [ %.03691525, %175 ], [ %.03691525, %179 ], [ %.03691525, %183 ], [ %.03691525, %187 ], [ %.03691525, %191 ], [ %.03691525, %157 ], [ %.03691525, %153 ], [ %.03691525, %148 ], [ %.03691525, %144 ], [ %.03691525, %143 ], [ %.03691525, %141 ], [ %.03691525, %140 ], [ %.03691525, %139 ], [ %.03691525, %138 ], [ %.03691525, %137 ], [ %.03691525, %136 ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %mygetopt_long.exit.thread ], [ %.03691525, %135 ], [ %.03691525, %134 ], [ %.03691525, %149 ], [ %.03691525, %291 ]
+  %.03711523.be = phi i32 [ %.03711523, %298 ], [ %.03711523, %297 ], [ %.03711523, %245 ], [ %.03711523, %244 ], [ %.03711523, %243 ], [ %.03711523, %239 ], [ %.03711523, %238 ], [ %.03711523, %237 ], [ 1, %236 ], [ %.03711523, %235 ], [ %.03711523, %234 ], [ %.03711523, %233 ], [ %.03711523, %.loopexit ], [ %.03711523, %217 ], [ %.03711523, %211 ], [ %.03711523, %210 ], [ %.03711523, %208 ], [ %.03711523, %207 ], [ %.03711523, %201 ], [ %.03711523, %199 ], [ %.03711523, %197 ], [ %.03711523, %195 ], [ %.03711523, %193 ], [ %.03711523, %163 ], [ %.03711523, %167 ], [ %.03711523, %171 ], [ %.03711523, %175 ], [ %.03711523, %179 ], [ %.03711523, %183 ], [ %.03711523, %187 ], [ %.03711523, %191 ], [ %.03711523, %157 ], [ %.03711523, %153 ], [ %.03711523, %148 ], [ %.03711523, %144 ], [ %.03711523, %143 ], [ %.03711523, %141 ], [ %.03711523, %140 ], [ %.03711523, %139 ], [ %.03711523, %138 ], [ %.03711523, %137 ], [ %.03711523, %136 ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %mygetopt_long.exit.thread ], [ %.03711523, %135 ], [ %.03711523, %134 ], [ %.03711523, %149 ], [ %.03711523, %291 ]
+  %.03731521.be = phi ptr [ %.03731521, %298 ], [ %.03731521, %297 ], [ %.03731521, %245 ], [ %.03731521, %244 ], [ %.03731521, %243 ], [ %.03731521, %239 ], [ %.03731521, %238 ], [ %.03731521, %237 ], [ %.03731521, %236 ], [ %.03731521, %235 ], [ %.03731521, %234 ], [ %.03731521, %233 ], [ %.03731521, %.loopexit ], [ %.03731521, %217 ], [ %.03731521, %211 ], [ %.03731521, %210 ], [ %209, %208 ], [ %.03731521, %207 ], [ %.03731521, %201 ], [ %.03731521, %199 ], [ %.03731521, %197 ], [ %.03731521, %195 ], [ %.03731521, %193 ], [ %.03731521, %163 ], [ %.03731521, %167 ], [ %.03731521, %171 ], [ %.03731521, %175 ], [ %.03731521, %179 ], [ %.03731521, %183 ], [ %.03731521, %187 ], [ %.03731521, %191 ], [ %.03731521, %157 ], [ %.03731521, %153 ], [ %.03731521, %148 ], [ %.03731521, %144 ], [ %.03731521, %143 ], [ %.03731521, %141 ], [ %.03731521, %140 ], [ %.03731521, %139 ], [ %.03731521, %138 ], [ %.03731521, %137 ], [ %.03731521, %136 ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %mygetopt_long.exit.thread ], [ %.03731521, %135 ], [ %.03731521, %134 ], [ %.03731521, %149 ], [ %.03731521, %291 ]
+  %.03751519.be = phi i32 [ %.03751519, %298 ], [ %.03751519, %297 ], [ %.03751519, %245 ], [ %.03751519, %244 ], [ %.03751519, %243 ], [ %.03751519, %239 ], [ %.03751519, %238 ], [ %.03751519, %237 ], [ %.03751519, %236 ], [ %.03751519, %235 ], [ %.03751519, %234 ], [ %.03751519, %233 ], [ %.03751519, %.loopexit ], [ %.03751519, %217 ], [ %.03751519, %211 ], [ %.03751519, %210 ], [ %.03751519, %208 ], [ %.03751519, %207 ], [ %.03751519, %201 ], [ %.03751519, %199 ], [ %.03751519, %197 ], [ %.03751519, %195 ], [ %.03751519, %193 ], [ %.03751519, %163 ], [ %.03751519, %167 ], [ %.03751519, %171 ], [ %.03751519, %175 ], [ %.03751519, %179 ], [ %.03751519, %183 ], [ %.03751519, %187 ], [ %.03751519, %191 ], [ %.03751519, %157 ], [ %.03751519, %153 ], [ %.03751519, %148 ], [ %.03751519, %144 ], [ 1, %143 ], [ %.03751519, %141 ], [ %.03751519, %140 ], [ %.03751519, %139 ], [ %.03751519, %138 ], [ %.03751519, %137 ], [ %.03751519, %136 ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %mygetopt_long.exit.thread ], [ %.03751519, %135 ], [ %.03751519, %134 ], [ %.03751519, %149 ], [ %.03751519, %291 ]
+  %.03781517.be = phi ptr [ %.03781517, %298 ], [ %.03781517, %297 ], [ %.03781517, %245 ], [ %.03781517, %244 ], [ %.03781517, %243 ], [ %.03781517, %239 ], [ %.03781517, %238 ], [ %.03781517, %237 ], [ %.03781517, %236 ], [ %.03781517, %235 ], [ %.03781517, %234 ], [ %.03781517, %233 ], [ %.03781517, %.loopexit ], [ %.03781517, %217 ], [ %.03781517, %211 ], [ %.03781517, %210 ], [ %.03781517, %208 ], [ %.03781517, %207 ], [ %.03781517, %201 ], [ %200, %199 ], [ %.03781517, %197 ], [ %.03781517, %195 ], [ %.03781517, %193 ], [ %.03781517, %163 ], [ %.03781517, %167 ], [ %.03781517, %171 ], [ %.03781517, %175 ], [ %.03781517, %179 ], [ %.03781517, %183 ], [ %.03781517, %187 ], [ %.03781517, %191 ], [ %.03781517, %157 ], [ %.03781517, %153 ], [ %.03781517, %148 ], [ %.03781517, %144 ], [ %.03781517, %143 ], [ %.03781517, %141 ], [ %.03781517, %140 ], [ %.03781517, %139 ], [ %.03781517, %138 ], [ %.03781517, %137 ], [ %.03781517, %136 ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %mygetopt_long.exit.thread ], [ %.03781517, %135 ], [ %.03781517, %134 ], [ %.03781517, %149 ], [ %.03781517, %291 ]
+  %.03801515.be = phi ptr [ %.03801515, %298 ], [ %.03801515, %297 ], [ %.03801515, %245 ], [ %.03801515, %244 ], [ %.03801515, %243 ], [ %.03801515, %239 ], [ %.03801515, %238 ], [ %.03801515, %237 ], [ %.03801515, %236 ], [ %.03801515, %235 ], [ %.03801515, %234 ], [ %.03801515, %233 ], [ %.03801515, %.loopexit ], [ %.03801515, %217 ], [ %.03801515, %211 ], [ %.03801515, %210 ], [ %.03801515, %208 ], [ %.03801515, %207 ], [ %.03801515, %201 ], [ %.03801515, %199 ], [ %198, %197 ], [ %.03801515, %195 ], [ %.03801515, %193 ], [ %.03801515, %163 ], [ %.03801515, %167 ], [ %.03801515, %171 ], [ %.03801515, %175 ], [ %.03801515, %179 ], [ %.03801515, %183 ], [ %.03801515, %187 ], [ %.03801515, %191 ], [ %.03801515, %157 ], [ %.03801515, %153 ], [ %.03801515, %148 ], [ %.03801515, %144 ], [ %.03801515, %143 ], [ %.03801515, %141 ], [ %.03801515, %140 ], [ %.03801515, %139 ], [ %.03801515, %138 ], [ %.03801515, %137 ], [ %.03801515, %136 ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %mygetopt_long.exit.thread ], [ %.03801515, %135 ], [ %.03801515, %134 ], [ %.03801515, %149 ], [ %.03801515, %291 ]
+  %.03821513.be = phi ptr [ %.03821513, %298 ], [ %.03821513, %297 ], [ %.03821513, %245 ], [ %.03821513, %244 ], [ %.03821513, %243 ], [ %.03821513, %239 ], [ %.03821513, %238 ], [ %.03821513, %237 ], [ %.03821513, %236 ], [ %.03821513, %235 ], [ %.03821513, %234 ], [ %.03821513, %233 ], [ %.03821513, %.loopexit ], [ %.03821513, %217 ], [ %.03821513, %211 ], [ %.03821513, %210 ], [ %.03821513, %208 ], [ %.03821513, %207 ], [ %.03821513, %201 ], [ %.03821513, %199 ], [ %.03821513, %197 ], [ %196, %195 ], [ %.03821513, %193 ], [ %.03821513, %163 ], [ %.03821513, %167 ], [ %.03821513, %171 ], [ %.03821513, %175 ], [ %.03821513, %179 ], [ %.03821513, %183 ], [ %.03821513, %187 ], [ %.03821513, %191 ], [ %.03821513, %157 ], [ %.03821513, %153 ], [ %.03821513, %148 ], [ %.03821513, %144 ], [ %.03821513, %143 ], [ %.03821513, %141 ], [ %.03821513, %140 ], [ %.03821513, %139 ], [ %.03821513, %138 ], [ %.03821513, %137 ], [ %.03821513, %136 ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %mygetopt_long.exit.thread ], [ %.03821513, %135 ], [ %.03821513, %134 ], [ %.03821513, %149 ], [ %.03821513, %291 ]
+  %.03841511.be = phi ptr [ %.03841511, %298 ], [ %.03841511, %297 ], [ %.03841511, %245 ], [ %.03841511, %244 ], [ %.03841511, %243 ], [ %.03841511, %239 ], [ %.03841511, %238 ], [ %.03841511, %237 ], [ %.03841511, %236 ], [ %.03841511, %235 ], [ %.03841511, %234 ], [ %.03841511, %233 ], [ %.03841511, %.loopexit ], [ %.03841511, %217 ], [ %.03841511, %211 ], [ %.03841511, %210 ], [ %.03841511, %208 ], [ %.03841511, %207 ], [ %.03841511, %201 ], [ %.03841511, %199 ], [ %.03841511, %197 ], [ %.03841511, %195 ], [ %194, %193 ], [ %.03841511, %163 ], [ %.03841511, %167 ], [ %.03841511, %171 ], [ %.03841511, %175 ], [ %.03841511, %179 ], [ %.03841511, %183 ], [ %.03841511, %187 ], [ %.03841511, %191 ], [ %.03841511, %157 ], [ %.03841511, %153 ], [ %.03841511, %148 ], [ %.03841511, %144 ], [ %.03841511, %143 ], [ %.03841511, %141 ], [ %.03841511, %140 ], [ %.03841511, %139 ], [ %.03841511, %138 ], [ %.03841511, %137 ], [ %.03841511, %136 ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %mygetopt_long.exit.thread ], [ %.03841511, %135 ], [ %.03841511, %134 ], [ %.03841511, %149 ], [ %.03841511, %291 ]
+  %.03861509.be = phi i32 [ %.03861509, %298 ], [ %.03861509, %297 ], [ %.03861509, %245 ], [ %.03861509, %244 ], [ %.03861509, %243 ], [ %.03861509, %239 ], [ %.03861509, %238 ], [ %.03861509, %237 ], [ %.03861509, %236 ], [ %.03861509, %235 ], [ %.03861509, %234 ], [ %.03861509, %233 ], [ %.03861509, %.loopexit ], [ %.03861509, %217 ], [ %.03861509, %211 ], [ %.03861509, %210 ], [ %.03861509, %208 ], [ %.03861509, %207 ], [ %.03861509, %201 ], [ %.03861509, %199 ], [ %.03861509, %197 ], [ %.03861509, %195 ], [ %.03861509, %193 ], [ 1, %163 ], [ %.03861509, %167 ], [ %.03861509, %171 ], [ %.03861509, %175 ], [ %.03861509, %179 ], [ %.03861509, %183 ], [ %.03861509, %187 ], [ %.03861509, %191 ], [ %.03861509, %157 ], [ %.03861509, %153 ], [ %.03861509, %148 ], [ %.03861509, %144 ], [ %.03861509, %143 ], [ %.03861509, %141 ], [ %.03861509, %140 ], [ %.03861509, %139 ], [ %.03861509, %138 ], [ %.03861509, %137 ], [ %.03861509, %136 ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %mygetopt_long.exit.thread ], [ %.03861509, %135 ], [ %.03861509, %134 ], [ %.03861509, %149 ], [ %.03861509, %291 ]
+  %.03881507.be = phi ptr [ %.03881507, %298 ], [ %.03881507, %297 ], [ %.03881507, %245 ], [ %.03881507, %244 ], [ %.03881507, %243 ], [ %.03881507, %239 ], [ %.03881507, %238 ], [ %.03881507, %237 ], [ %.03881507, %236 ], [ %.03881507, %235 ], [ %.03881507, %234 ], [ %.03881507, %233 ], [ %.03881507, %.loopexit ], [ %.03881507, %217 ], [ %.03881507, %211 ], [ %.03881507, %210 ], [ %.03881507, %208 ], [ %.03881507, %207 ], [ %.03881507, %201 ], [ %.03881507, %199 ], [ %.03881507, %197 ], [ %.03881507, %195 ], [ %.03881507, %193 ], [ %.03881507, %163 ], [ %.03881507, %167 ], [ %.03881507, %171 ], [ %.03881507, %175 ], [ %.03881507, %179 ], [ %.03881507, %183 ], [ %.03881507, %187 ], [ %.03881507, %191 ], [ %158, %157 ], [ %.03881507, %153 ], [ %.03881507, %148 ], [ %.03881507, %144 ], [ %.03881507, %143 ], [ %.03881507, %141 ], [ %.03881507, %140 ], [ %.03881507, %139 ], [ %.03881507, %138 ], [ %.03881507, %137 ], [ %.03881507, %136 ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %mygetopt_long.exit.thread ], [ %.03881507, %135 ], [ %.03881507, %134 ], [ %.03881507, %149 ], [ %.03881507, %291 ]
+  %.03901505.be = phi i32 [ %.03901505, %298 ], [ %.03901505, %297 ], [ %.03901505, %245 ], [ %.03901505, %244 ], [ %.03901505, %243 ], [ %.03901505, %239 ], [ %.03901505, %238 ], [ %.03901505, %237 ], [ %.03901505, %236 ], [ %.03901505, %235 ], [ %.03901505, %234 ], [ %.03901505, %233 ], [ %.03901505, %.loopexit ], [ %.03901505, %217 ], [ %214, %211 ], [ -1, %210 ], [ %.03901505, %208 ], [ %.03901505, %207 ], [ %.03901505, %201 ], [ %.03901505, %199 ], [ %.03901505, %197 ], [ %.03901505, %195 ], [ %.03901505, %193 ], [ %.03901505, %163 ], [ %.03901505, %167 ], [ %.03901505, %171 ], [ %.03901505, %175 ], [ %.03901505, %179 ], [ %.03901505, %183 ], [ %.03901505, %187 ], [ %.03901505, %191 ], [ %.03901505, %157 ], [ %.03901505, %153 ], [ %.03901505, %148 ], [ %.03901505, %144 ], [ %.03901505, %143 ], [ %.03901505, %141 ], [ %.03901505, %140 ], [ %.03901505, %139 ], [ %.03901505, %138 ], [ %.03901505, %137 ], [ %.03901505, %136 ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %mygetopt_long.exit.thread ], [ %.03901505, %135 ], [ %.03901505, %134 ], [ %.03901505, %149 ], [ %.03901505, %291 ]
+  %.03941503.be = phi ptr [ %.03941503, %298 ], [ %.03941503, %297 ], [ %.03941503, %245 ], [ %.03941503, %244 ], [ %.03941503, %243 ], [ %.03941503, %239 ], [ %.03941503, %238 ], [ %.03941503, %237 ], [ %.03941503, %236 ], [ %.03941503, %235 ], [ %.03941503, %234 ], [ %.03941503, %233 ], [ %.03941503, %.loopexit ], [ %.03941503, %217 ], [ %.03941503, %211 ], [ %.03941503, %210 ], [ %.03941503, %208 ], [ %.03941503, %207 ], [ %.03941503, %201 ], [ %.03941503, %199 ], [ %.03941503, %197 ], [ %.03941503, %195 ], [ %.03941503, %193 ], [ %.03941503, %163 ], [ %.03941503, %167 ], [ %.03941503, %171 ], [ %.03941503, %175 ], [ %.03941503, %179 ], [ %.03941503, %183 ], [ %.03941503, %187 ], [ %.03941503, %191 ], [ %.03941503, %157 ], [ %.03941503, %153 ], [ %.03941503, %148 ], [ %.03941503, %144 ], [ %.03941503, %143 ], [ %142, %141 ], [ %.03941503, %140 ], [ %.03941503, %139 ], [ %.03941503, %138 ], [ %.03941503, %137 ], [ %.03941503, %136 ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %mygetopt_long.exit.thread ], [ %.03941503, %135 ], [ %.03941503, %134 ], [ %.03941503, %149 ], [ %.03941503, %291 ]
+  %.04031501.be = phi i32 [ %.04031501, %298 ], [ %.04031501, %297 ], [ %.04031501, %245 ], [ %.04031501, %244 ], [ %.04031501, %243 ], [ %.04031501, %239 ], [ %.04031501, %238 ], [ %.04031501, %237 ], [ %.04031501, %236 ], [ %.04031501, %235 ], [ %.04031501, %234 ], [ %.04031501, %233 ], [ %.04031501, %.loopexit ], [ 1, %217 ], [ %.04031501, %211 ], [ %.04031501, %210 ], [ %.04031501, %208 ], [ %.04031501, %207 ], [ %.04031501, %201 ], [ %.04031501, %199 ], [ %.04031501, %197 ], [ %.04031501, %195 ], [ %.04031501, %193 ], [ %.04031501, %163 ], [ %.04031501, %167 ], [ %.04031501, %171 ], [ %.04031501, %175 ], [ %.04031501, %179 ], [ %.04031501, %183 ], [ %.04031501, %187 ], [ %.04031501, %191 ], [ %.04031501, %157 ], [ %.04031501, %153 ], [ %.04031501, %148 ], [ %.04031501, %144 ], [ %.04031501, %143 ], [ %.04031501, %141 ], [ %.04031501, %140 ], [ %.04031501, %139 ], [ %.04031501, %138 ], [ %.04031501, %137 ], [ %.04031501, %136 ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %mygetopt_long.exit.thread ], [ %.04031501, %135 ], [ %.04031501, %134 ], [ %.04031501, %149 ], [ %.04031501, %291 ]
+  %.04061499.be = phi i32 [ %.04061499, %298 ], [ %.04061499, %297 ], [ %.04061499, %245 ], [ %.04061499, %244 ], [ %.04061499, %243 ], [ %.04061499, %239 ], [ %.04061499, %238 ], [ %.04061499, %237 ], [ %.04061499, %236 ], [ %.04061499, %235 ], [ %.04061499, %234 ], [ %.04061499, %233 ], [ %.2408, %.loopexit ], [ %.04061499, %217 ], [ %.04061499, %211 ], [ %.04061499, %210 ], [ %.04061499, %208 ], [ %.04061499, %207 ], [ %.04061499, %201 ], [ %.04061499, %199 ], [ %.04061499, %197 ], [ %.04061499, %195 ], [ %.04061499, %193 ], [ %.04061499, %163 ], [ %.04061499, %167 ], [ %.04061499, %171 ], [ %.04061499, %175 ], [ %.04061499, %179 ], [ %.04061499, %183 ], [ %.04061499, %187 ], [ %.04061499, %191 ], [ %.04061499, %157 ], [ %.04061499, %153 ], [ %.04061499, %148 ], [ %.04061499, %144 ], [ %.04061499, %143 ], [ %.04061499, %141 ], [ %.04061499, %140 ], [ %.04061499, %139 ], [ %.04061499, %138 ], [ %.04061499, %137 ], [ %.04061499, %136 ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %mygetopt_long.exit.thread ], [ %.04061499, %135 ], [ %.04061499, %134 ], [ %.04061499, %149 ], [ %.04061499, %291 ]
+  %.04091497.be = phi i64 [ %.04091497, %298 ], [ %.04091497, %297 ], [ %.04091497, %245 ], [ %.04091497, %244 ], [ %.04091497, %243 ], [ %.04091497, %239 ], [ %.04091497, %238 ], [ %.04091497, %237 ], [ %.04091497, %236 ], [ %.04091497, %235 ], [ %.04091497, %234 ], [ %.04091497, %233 ], [ %220, %.loopexit ], [ %.04091497, %217 ], [ %.04091497, %211 ], [ %.04091497, %210 ], [ %.04091497, %208 ], [ %.04091497, %207 ], [ %.04091497, %201 ], [ %.04091497, %199 ], [ %.04091497, %197 ], [ %.04091497, %195 ], [ %.04091497, %193 ], [ %.04091497, %163 ], [ %.04091497, %167 ], [ %.04091497, %171 ], [ %.04091497, %175 ], [ %.04091497, %179 ], [ %.04091497, %183 ], [ %.04091497, %187 ], [ %.04091497, %191 ], [ %.04091497, %157 ], [ %.04091497, %153 ], [ %.04091497, %148 ], [ %.04091497, %144 ], [ %.04091497, %143 ], [ %.04091497, %141 ], [ %.04091497, %140 ], [ %.04091497, %139 ], [ %.04091497, %138 ], [ %.04091497, %137 ], [ %.04091497, %136 ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %mygetopt_long.exit.thread ], [ %.04091497, %135 ], [ %.04091497, %134 ], [ %.04091497, %149 ], [ %.04091497, %291 ]
+  %.04111495.be = phi i32 [ %.04111495, %298 ], [ %.04111495, %297 ], [ %.04111495, %245 ], [ %.04111495, %244 ], [ %.04111495, %243 ], [ %.04111495, %239 ], [ %.04111495, %238 ], [ %.04111495, %237 ], [ %.04111495, %236 ], [ %.04111495, %235 ], [ %.04111495, %234 ], [ %.04111495, %233 ], [ %.04111495, %.loopexit ], [ %.04111495, %217 ], [ %.04111495, %211 ], [ %.04111495, %210 ], [ %.04111495, %208 ], [ %.04111495, %207 ], [ %204, %201 ], [ %.04111495, %199 ], [ %.04111495, %197 ], [ %.04111495, %195 ], [ %.04111495, %193 ], [ %.04111495, %163 ], [ %.04111495, %167 ], [ %.04111495, %171 ], [ %.04111495, %175 ], [ %.04111495, %179 ], [ %.04111495, %183 ], [ %.04111495, %187 ], [ %.04111495, %191 ], [ %.04111495, %157 ], [ %.04111495, %153 ], [ %.04111495, %148 ], [ %.04111495, %144 ], [ %.04111495, %143 ], [ %.04111495, %141 ], [ %.04111495, %140 ], [ %.04111495, %139 ], [ %.04111495, %138 ], [ %.04111495, %137 ], [ %.04111495, %136 ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %mygetopt_long.exit.thread ], [ %.04111495, %135 ], [ %.04111495, %134 ], [ %.04111495, %149 ], [ %.04111495, %291 ]
+  %.01493.be = phi i16 [ %.01493, %298 ], [ %.01493, %297 ], [ %.01493, %245 ], [ %.01493, %244 ], [ %.01493, %243 ], [ %.01493, %239 ], [ %.01493, %238 ], [ %.01493, %237 ], [ %.01493, %236 ], [ %.01493, %235 ], [ %.01493, %234 ], [ %.01493, %233 ], [ %.01493, %.loopexit ], [ %.01493, %217 ], [ %.01493, %211 ], [ %.01493, %210 ], [ %.01493, %208 ], [ %.01493, %207 ], [ %.01493, %201 ], [ %.01493, %199 ], [ %.01493, %197 ], [ %.01493, %195 ], [ %.01493, %193 ], [ %.01493, %163 ], [ %.01493, %167 ], [ %.01493, %171 ], [ %.01493, %175 ], [ %.01493, %179 ], [ %.01493, %183 ], [ %.01493, %187 ], [ %.01493, %191 ], [ %.01493, %157 ], [ %.01493, %153 ], [ %.01493, %148 ], [ %147, %144 ], [ %.01493, %143 ], [ %.01493, %141 ], [ %.01493, %140 ], [ %.01493, %139 ], [ %.01493, %138 ], [ %.01493, %137 ], [ %.01493, %136 ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %mygetopt_long.exit.thread ], [ %.01493, %135 ], [ %.01493, %134 ], [ %.01493, %149 ], [ %.01493, %291 ]
+  %.be = phi i32 [ %35, %298 ], [ %35, %297 ], [ %35, %245 ], [ %35, %244 ], [ %35, %243 ], [ %35, %239 ], [ %35, %238 ], [ %35, %237 ], [ %35, %236 ], [ %35, %235 ], [ %35, %234 ], [ %35, %233 ], [ %35, %.loopexit ], [ %35, %217 ], [ %35, %211 ], [ %35, %210 ], [ %35, %208 ], [ %35, %207 ], [ %35, %201 ], [ %35, %199 ], [ %35, %197 ], [ %35, %195 ], [ %35, %193 ], [ %35, %163 ], [ %35, %167 ], [ %35, %171 ], [ %35, %175 ], [ %35, %179 ], [ %35, %183 ], [ %35, %187 ], [ %35, %191 ], [ %35, %157 ], [ %35, %153 ], [ %35, %148 ], [ %35, %144 ], [ %35, %143 ], [ %35, %141 ], [ %35, %140 ], [ %35, %139 ], [ %35, %138 ], [ %35, %137 ], [ %35, %136 ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %mygetopt_long.exit.thread ], [ %35, %135 ], [ %35, %134 ], [ %35, %149 ], [ %287, %291 ]
+  br label %.lr.ph
 
-if.end265.sink.split:                             ; preds = %if.then251
-  %61 = load ptr, ptr @stderr, align 8
-  %call262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.35, ptr noundef nonnull %55) #23
-  br label %if.end265
+293:                                              ; preds = %291
+  %.b435 = load i1, ptr @quieter, align 4
+  br i1 %.b435, label %296, label %.sink.split
 
-if.end265:                                        ; preds = %if.then251, %if.end265.sink.split
-  tail call void @exit(i32 noundef 1) #28
+.sink.split:                                      ; preds = %293
+  %294 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %295 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.36, ptr noundef nonnull %257) #22
+  br label %296
+
+296:                                              ; preds = %293, %.sink.split
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
-sw.bb267:                                         ; preds = %while.body
-  br label %if.end.i.backedge
+297:                                              ; preds = %mygetopt_long.exit.thread
+  br label %.lr.ph.backedge
 
-sw.bb269:                                         ; preds = %while.body
+298:                                              ; preds = %mygetopt_long.exit.thread
   store i1 true, ptr @quieter, align 4
-  br label %if.end.i.backedge
+  br label %.lr.ph.backedge
 
-sw.default:                                       ; preds = %while.body
+299:                                              ; preds = %mygetopt_long.exit.thread
   tail call fastcc void @Usage()
-  tail call void @exit(i32 noundef 2) #28
+  tail call void @exit(i32 noundef 2) #27
   unreachable
 
-while.end.sink.split:                             ; preds = %if.end11.i, %if.then34.i, %if.then47.i
-  %.sink = phi ptr [ %14, %if.then47.i ], [ %10, %if.then34.i ], [ null, %if.end11.i ]
-  store ptr %.sink, ptr @myoptarg, align 8
-  br label %while.end
+mygetopt_long.exit.thread611.sink.split:          ; preds = %.thread1.i, %55, %63
+  %.sink = phi ptr [ %66, %63 ], [ %56, %55 ], [ null, %.thread1.i ]
+  store ptr %.sink, ptr @myoptarg, align 8, !tbaa !27
+  br label %mygetopt_long.exit.thread611
 
-while.end:                                        ; preds = %if.else.i, %mygetopt_long.exit, %for.inc.i, %while.end.sink.split, %if.then43.i
-  store i32 0, ptr @myoptind, align 4
-  %cmp275 = icmp eq i32 %version.01446, -99
-  %tobool278.not = icmp eq i32 %doDTLS.01430, 0
-  br i1 %cmp275, label %if.then277, label %if.else282
+mygetopt_long.exit.thread611:                     ; preds = %86, %mygetopt_long.exit, %87, %mygetopt_long.exit.thread611.sink.split, %60
+  store i32 0, ptr @myoptind, align 4, !tbaa !4
+  %300 = icmp eq i32 %.03291561, -99
+  %.not440 = icmp eq i32 %.03491545, 0
+  br i1 %300, label %301, label %302
 
-if.then277:                                       ; preds = %while.end
-  br i1 %tobool278.not, label %if.end332, label %sw.default321
+301:                                              ; preds = %mygetopt_long.exit.thread611
+  br i1 %.not440, label %err_sys_ex.exit511, label %err_sys_ex.exit.thread.thread
 
-if.else282:                                       ; preds = %while.end
-  br i1 %tobool278.not, label %if.end300, label %if.then284
+302:                                              ; preds = %mygetopt_long.exit.thread611
+  br i1 %.not440, label %err_sys_ex.exit, label %303
 
-if.then284:                                       ; preds = %if.else282
-  switch i32 %version.01446, label %if.else292 [
-    i32 3, label %sw.default321
-    i32 4, label %if.then291
+303:                                              ; preds = %302
+  switch i32 %.03291561, label %315 [
+    i32 3, label %err_sys_ex.exit.thread.thread
+    i32 4, label %304
   ]
 
-if.then291:                                       ; preds = %if.then284
-  %62 = load i32, ptr @runWithErrors, align 4
-  %cmp.i228 = icmp eq i32 %62, 1
-  br i1 %cmp.i228, label %do.body.i, label %if.else.i229
+304:                                              ; preds = %303
+  %305 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %306 = icmp eq i32 %305, 1
+  br i1 %306, label %307, label %314
 
-do.body.i:                                        ; preds = %if.then291
+307:                                              ; preds = %304
   %.b2.i = load i1, ptr @quieter, align 4
-  br i1 %.b2.i, label %if.end300, label %do.body2.i
+  br i1 %.b2.i, label %err_sys_ex.exit, label %308
 
-do.body2.i:                                       ; preds = %do.body.i
-  %63 = load ptr, ptr @stderr, align 8
-  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.37) #23
+308:                                              ; preds = %307
+  %309 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %310 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %309, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.38) #22
   %.b.pr.i = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i, label %if.end300, label %if.then4.i
+  br i1 %.b.pr.i, label %err_sys_ex.exit, label %311
 
-if.then4.i:                                       ; preds = %do.body2.i
-  %64 = load ptr, ptr @stderr, align 8
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %64) #23
-  br label %if.end300
+311:                                              ; preds = %308
+  %312 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %313 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %312) #23
+  br label %err_sys_ex.exit
 
-if.else.i229:                                     ; preds = %if.then291
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.37) #24
+314:                                              ; preds = %304
+  tail call fastcc void @err_sys(ptr noundef nonnull @.str.38) #24
   unreachable
 
-if.else292:                                       ; preds = %if.then284
-  %cmp293 = icmp eq i32 %version.01446, 2
-  %spec.store.select = select i1 %cmp293, i32 -1, i32 %version.01446
-  br label %if.end300
+315:                                              ; preds = %303
+  %316 = icmp eq i32 %.03291561, 2
+  %spec.store.select = select i1 %316, i32 -1, i32 %.03291561
+  br label %err_sys_ex.exit
 
-if.end300:                                        ; preds = %if.then4.i, %do.body2.i, %do.body.i, %if.else282, %if.else292
-  %version.2 = phi i32 [ %spec.store.select, %if.else292 ], [ %version.01446, %if.else282 ], [ 4, %do.body.i ], [ 4, %do.body2.i ], [ 4, %if.then4.i ]
-  %cmp301 = icmp sgt i32 %version.2, 3
-  %tobool304 = icmp eq i32 %resume.01404, 0
-  %not.cmp301 = xor i1 %cmp301, true
-  %or.cond7 = select i1 %not.cmp301, i1 true, i1 %tobool304
-  %.b212 = load i1, ptr @quieter, align 4
-  %or.cond41 = select i1 %or.cond7, i1 true, i1 %.b212
-  br i1 %or.cond41, label %if.end312, label %if.then308
+err_sys_ex.exit:                                  ; preds = %311, %308, %307, %302, %315
+  %.2 = phi i32 [ %spec.store.select, %315 ], [ %.03291561, %302 ], [ 4, %307 ], [ 4, %308 ], [ 4, %311 ]
+  %317 = icmp sgt i32 %.2, 3
+  %318 = icmp eq i32 %.03751519, 0
+  %not. = xor i1 %317, true
+  %or.cond15 = select i1 %not., i1 true, i1 %318
+  %.b431 = load i1, ptr @quieter, align 4
+  %or.cond81 = select i1 %or.cond15, i1 true, i1 %.b431
+  br i1 %or.cond81, label %err_sys_ex.exit.thread, label %319
 
-if.then308:                                       ; preds = %if.end300
-  %66 = load ptr, ptr @stderr, align 8
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 51, i64 1, ptr %66) #23
-  br label %if.end312
+319:                                              ; preds = %err_sys_ex.exit
+  %320 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %321 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 51, i64 1, ptr %320) #23
+  br label %err_sys_ex.exit.thread
 
-if.end312:                                        ; preds = %if.then308, %if.end300
-  switch i32 %version.2, label %sw.default321 [
-    i32 2, label %if.end332
-    i32 3, label %sw.bb314
-    i32 4, label %sw.bb315
-    i32 -98, label %sw.bb316
+err_sys_ex.exit.thread:                           ; preds = %319, %err_sys_ex.exit
+  switch i32 %.2, label %err_sys_ex.exit.thread.thread [
+    i32 2, label %err_sys_ex.exit511
+    i32 3, label %322
+    i32 4, label %323
+    i32 -98, label %324
   ]
 
-sw.bb314:                                         ; preds = %if.end312
-  br label %if.end332
+322:                                              ; preds = %err_sys_ex.exit.thread
+  br label %err_sys_ex.exit511
 
-sw.bb315:                                         ; preds = %if.end312
-  br label %if.end332
+323:                                              ; preds = %err_sys_ex.exit.thread
+  br label %err_sys_ex.exit511
 
-sw.bb316:                                         ; preds = %if.end312
-  br i1 %tobool278.not, label %if.end332, label %if.else319
+324:                                              ; preds = %err_sys_ex.exit.thread
+  br i1 %.not440, label %err_sys_ex.exit511, label %325
 
-if.else319:                                       ; preds = %sw.bb316
-  %68 = load i32, ptr @runWithErrors, align 4
-  %cmp.i230 = icmp eq i32 %68, 1
-  br i1 %cmp.i230, label %do.body.i232, label %if.else.i231
+325:                                              ; preds = %324
+  %326 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %327 = icmp eq i32 %326, 1
+  br i1 %327, label %328, label %332
 
-do.body.i232:                                     ; preds = %if.else319
-  %.b2.i233 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i233, label %if.then335, label %do.body2.i234
+328:                                              ; preds = %325
+  %.b2.i503 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i503, label %err_sys_ex.exit511.thread, label %329
 
-do.body2.i234:                                    ; preds = %do.body.i232
-  %69 = load ptr, ptr @stderr, align 8
-  %call.i235 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.39) #23
-  %.b.pr.i236 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i236, label %if.then325, label %if.then325.sink.split
+329:                                              ; preds = %328
+  %330 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %331 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %330, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.40) #22
+  %.b.pr.i504 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i504, label %343, label %.sink.split3694
 
-if.else.i231:                                     ; preds = %if.else319
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.39) #24
-  unreachable
-
-sw.default321:                                    ; preds = %if.then277, %if.then284, %if.end312
-  %cmp301506537 = phi i1 [ %cmp301, %if.end312 ], [ false, %if.then284 ], [ false, %if.then277 ]
-  %70 = load i32, ptr @runWithErrors, align 4
-  %cmp.i239 = icmp eq i32 %70, 1
-  br i1 %cmp.i239, label %do.body.i241, label %if.else.i240
-
-do.body.i241:                                     ; preds = %sw.default321
-  %.b2.i242 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i242, label %if.then335, label %do.body2.i243
-
-do.body2.i243:                                    ; preds = %do.body.i241
-  %71 = load ptr, ptr @stderr, align 8
-  %call.i244 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.40) #23
-  %.b.pr.i245 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i245, label %if.then325, label %if.then325.sink.split
-
-if.else.i240:                                     ; preds = %sw.default321
+332:                                              ; preds = %325
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.40) #24
   unreachable
 
-if.then325.sink.split:                            ; preds = %do.body2.i243, %do.body2.i234
-  %cmp301506535.ph = phi i1 [ false, %do.body2.i234 ], [ %cmp301506537, %do.body2.i243 ]
-  %72 = load ptr, ptr @stderr, align 8
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %72) #23
-  br label %if.then325
+err_sys_ex.exit.thread.thread:                    ; preds = %301, %303, %err_sys_ex.exit.thread
+  %333 = phi i1 [ %317, %err_sys_ex.exit.thread ], [ false, %303 ], [ false, %301 ]
+  %334 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %335 = icmp eq i32 %334, 1
+  br i1 %335, label %336, label %340
 
-if.then325:                                       ; preds = %if.then325.sink.split, %do.body2.i234, %do.body2.i243
-  %cmp301506535 = phi i1 [ false, %do.body2.i234 ], [ %cmp301506537, %do.body2.i243 ], [ %cmp301506535.ph, %if.then325.sink.split ]
-  %.pr = load i32, ptr @runWithErrors, align 4
-  %cmp.i248 = icmp eq i32 %.pr, 1
-  br i1 %cmp.i248, label %do.body.i250, label %if.else.i249
+336:                                              ; preds = %err_sys_ex.exit.thread.thread
+  %.b2.i506 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i506, label %err_sys_ex.exit511.thread, label %337
 
-do.body.i250:                                     ; preds = %if.then325
-  %.b2.i251.pr = load i1, ptr @quieter, align 4
-  br i1 %.b2.i251.pr, label %if.then335, label %do.body2.i252
+337:                                              ; preds = %336
+  %338 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %339 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %338, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.41) #22
+  %.b.pr.i507 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i507, label %343, label %.sink.split3694
 
-do.body2.i252:                                    ; preds = %do.body.i250
-  %74 = load ptr, ptr @stderr, align 8
-  %call.i253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.41) #23
-  %.b.pr.i254 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i254, label %if.then335, label %if.then4.i255
-
-if.then4.i255:                                    ; preds = %do.body2.i252
-  %75 = load ptr, ptr @stderr, align 8
-  %76 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %75) #23
-  br label %if.then335
-
-if.else.i249:                                     ; preds = %if.then325
+340:                                              ; preds = %err_sys_ex.exit.thread.thread
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.41) #24
   unreachable
 
-if.end332:                                        ; preds = %if.end312.thread, %if.then277, %sw.bb316, %if.end312, %sw.bb315, %sw.bb314
-  %minVersion.06532537 = phi i32 [ %minVersion.01450, %sw.bb315 ], [ %minVersion.01450, %if.end312 ], [ %minVersion.01450, %sw.bb316 ], [ %minVersion.01450, %if.then277 ], [ -99, %if.end312.thread ], [ %minVersion.01450, %sw.bb314 ]
-  %useWebServerMsg.06732531 = phi i32 [ %useWebServerMsg.01448, %sw.bb315 ], [ %useWebServerMsg.01448, %if.end312 ], [ %useWebServerMsg.01448, %sw.bb316 ], [ %useWebServerMsg.01448, %if.then277 ], [ 0, %if.end312.thread ], [ %useWebServerMsg.01448, %sw.bb314 ]
-  %doCliCertCheck.07132524 = phi i32 [ %doCliCertCheck.01444, %sw.bb315 ], [ %doCliCertCheck.01444, %if.end312 ], [ %doCliCertCheck.01444, %sw.bb316 ], [ %doCliCertCheck.01444, %if.then277 ], [ 1, %if.end312.thread ], [ %doCliCertCheck.01444, %sw.bb314 ]
-  %useAnyAddr.07332518 = phi i32 [ %useAnyAddr.01442, %sw.bb315 ], [ %useAnyAddr.01442, %if.end312 ], [ %useAnyAddr.01442, %sw.bb316 ], [ %useAnyAddr.01442, %if.then277 ], [ 0, %if.end312.thread ], [ %useAnyAddr.01442, %sw.bb314 ]
-  %disallowETM.07532512 = phi i32 [ %disallowETM.01440, %sw.bb315 ], [ %disallowETM.01440, %if.end312 ], [ %disallowETM.01440, %sw.bb316 ], [ %disallowETM.01440, %if.then277 ], [ 0, %if.end312.thread ], [ %disallowETM.01440, %sw.bb314 ]
-  %loadCertKeyIntoSSLObj.07732506 = phi i32 [ %loadCertKeyIntoSSLObj.01438, %sw.bb315 ], [ %loadCertKeyIntoSSLObj.01438, %if.end312 ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb316 ], [ %loadCertKeyIntoSSLObj.01438, %if.then277 ], [ 0, %if.end312.thread ], [ %loadCertKeyIntoSSLObj.01438, %sw.bb314 ]
-  %exitWithRet.07932500 = phi i32 [ %exitWithRet.01436, %sw.bb315 ], [ %exitWithRet.01436, %if.end312 ], [ %exitWithRet.01436, %sw.bb316 ], [ %exitWithRet.01436, %if.then277 ], [ 0, %if.end312.thread ], [ %exitWithRet.01436, %sw.bb314 ]
-  %usePsk.08132494 = phi i32 [ %usePsk.01434, %sw.bb315 ], [ %usePsk.01434, %if.end312 ], [ %usePsk.01434, %sw.bb316 ], [ %usePsk.01434, %if.then277 ], [ 0, %if.end312.thread ], [ %usePsk.01434, %sw.bb314 ]
-  %usePskPlus.08332488 = phi i32 [ %usePskPlus.01432, %sw.bb315 ], [ %usePskPlus.01432, %if.end312 ], [ %usePskPlus.01432, %sw.bb316 ], [ %usePskPlus.01432, %if.then277 ], [ 0, %if.end312.thread ], [ %usePskPlus.01432, %sw.bb314 ]
-  %dtlsUDP.08732481 = phi i32 [ %dtlsUDP.01428, %sw.bb315 ], [ %dtlsUDP.01428, %if.end312 ], [ %dtlsUDP.01428, %sw.bb316 ], [ %dtlsUDP.01428, %if.then277 ], [ 0, %if.end312.thread ], [ %dtlsUDP.01428, %sw.bb314 ]
-  %nonBlocking.08932475 = phi i32 [ %nonBlocking.01426, %sw.bb315 ], [ %nonBlocking.01426, %if.end312 ], [ %nonBlocking.01426, %sw.bb316 ], [ %nonBlocking.01426, %if.then277 ], [ 0, %if.end312.thread ], [ %nonBlocking.01426, %sw.bb314 ]
-  %onlyKeyShare.09132469 = phi i32 [ %onlyKeyShare.01424, %sw.bb315 ], [ %onlyKeyShare.01424, %if.end312 ], [ %onlyKeyShare.01424, %sw.bb316 ], [ %onlyKeyShare.01424, %if.then277 ], [ 0, %if.end312.thread ], [ %onlyKeyShare.01424, %sw.bb314 ]
-  %doDhKeyCheck.09332463 = phi i32 [ %doDhKeyCheck.01422, %sw.bb315 ], [ %doDhKeyCheck.01422, %if.end312 ], [ %doDhKeyCheck.01422, %sw.bb316 ], [ %doDhKeyCheck.01422, %if.then277 ], [ 1, %if.end312.thread ], [ %doDhKeyCheck.01422, %sw.bb314 ]
-  %simulateWantWrite.09532457 = phi i32 [ %simulateWantWrite.01420, %sw.bb315 ], [ %simulateWantWrite.01420, %if.end312 ], [ %simulateWantWrite.01420, %sw.bb316 ], [ %simulateWantWrite.01420, %if.then277 ], [ 0, %if.end312.thread ], [ %simulateWantWrite.01420, %sw.bb314 ]
-  %fewerPackets.09732451 = phi i32 [ %fewerPackets.01418, %sw.bb315 ], [ %fewerPackets.01418, %if.end312 ], [ %fewerPackets.01418, %sw.bb316 ], [ %fewerPackets.01418, %if.then277 ], [ 0, %if.end312.thread ], [ %fewerPackets.01418, %sw.bb314 ]
-  %wc_shutdown.09932445 = phi i32 [ %wc_shutdown.01416, %sw.bb315 ], [ %wc_shutdown.01416, %if.end312 ], [ %wc_shutdown.01416, %sw.bb316 ], [ %wc_shutdown.01416, %if.then277 ], [ 0, %if.end312.thread ], [ %wc_shutdown.01416, %sw.bb314 ]
-  %mutualAuth.010132439 = phi i32 [ %mutualAuth.01414, %sw.bb315 ], [ %mutualAuth.01414, %if.end312 ], [ %mutualAuth.01414, %sw.bb316 ], [ %mutualAuth.01414, %if.then277 ], [ 0, %if.end312.thread ], [ %mutualAuth.01414, %sw.bb314 ]
-  %updateKeysIVs.010332433 = phi i32 [ %updateKeysIVs.01412, %sw.bb315 ], [ %updateKeysIVs.01412, %if.end312 ], [ %updateKeysIVs.01412, %sw.bb316 ], [ %updateKeysIVs.01412, %if.then277 ], [ 0, %if.end312.thread ], [ %updateKeysIVs.01412, %sw.bb314 ]
-  %onlyPskDheKe.010532427 = phi i32 [ %onlyPskDheKe.01410, %sw.bb315 ], [ %onlyPskDheKe.01410, %if.end312 ], [ %onlyPskDheKe.01410, %sw.bb316 ], [ %onlyPskDheKe.01410, %if.then277 ], [ 0, %if.end312.thread ], [ %onlyPskDheKe.01410, %sw.bb314 ]
-  %noPskDheKe.010732421 = phi i32 [ %noPskDheKe.01408, %sw.bb315 ], [ %noPskDheKe.01408, %if.end312 ], [ %noPskDheKe.01408, %sw.bb316 ], [ %noPskDheKe.01408, %if.then277 ], [ 0, %if.end312.thread ], [ %noPskDheKe.01408, %sw.bb314 ]
-  %sniHostName.010932415 = phi ptr [ %sniHostName.01406, %sw.bb315 ], [ %sniHostName.01406, %if.end312 ], [ %sniHostName.01406, %sw.bb316 ], [ %sniHostName.01406, %if.then277 ], [ null, %if.end312.thread ], [ %sniHostName.01406, %sw.bb314 ]
-  %resume.011132409 = phi i32 [ %resume.01404, %sw.bb315 ], [ %resume.01404, %if.end312 ], [ %resume.01404, %sw.bb316 ], [ %resume.01404, %if.then277 ], [ 0, %if.end312.thread ], [ %resume.01404, %sw.bb314 ]
-  %ourDhParam.011332403 = phi ptr [ %ourDhParam.01402, %sw.bb315 ], [ %ourDhParam.01402, %if.end312 ], [ %ourDhParam.01402, %sw.bb316 ], [ %ourDhParam.01402, %if.then277 ], [ @.str.11, %if.end312.thread ], [ %ourDhParam.01402, %sw.bb314 ]
-  %ourKey.011532397 = phi ptr [ %ourKey.01400, %sw.bb315 ], [ %ourKey.01400, %if.end312 ], [ %ourKey.01400, %sw.bb316 ], [ %ourKey.01400, %if.then277 ], [ @.str.14, %if.end312.thread ], [ %ourKey.01400, %sw.bb314 ]
-  %ourCert.011732391 = phi ptr [ %ourCert.01398, %sw.bb315 ], [ %ourCert.01398, %if.end312 ], [ %ourCert.01398, %sw.bb316 ], [ %ourCert.01398, %if.then277 ], [ @.str.13, %if.end312.thread ], [ %ourCert.01398, %sw.bb314 ]
-  %verifyCert.011932385 = phi ptr [ %verifyCert.01396, %sw.bb315 ], [ %verifyCert.01396, %if.end312 ], [ %verifyCert.01396, %sw.bb316 ], [ %verifyCert.01396, %if.then277 ], [ @.str.12, %if.end312.thread ], [ %verifyCert.01396, %sw.bb314 ]
-  %useDefCipherList.012132379 = phi i32 [ %useDefCipherList.01394, %sw.bb315 ], [ %useDefCipherList.01394, %if.end312 ], [ %useDefCipherList.01394, %sw.bb316 ], [ %useDefCipherList.01394, %if.then277 ], [ 0, %if.end312.thread ], [ %useDefCipherList.01394, %sw.bb314 ]
-  %cipherList.012332373 = phi ptr [ %cipherList.01392, %sw.bb315 ], [ %cipherList.01392, %if.end312 ], [ %cipherList.01392, %sw.bb316 ], [ %cipherList.01392, %if.then277 ], [ null, %if.end312.thread ], [ %cipherList.01392, %sw.bb314 ]
-  %loops.012532367 = phi i32 [ %loops.01390, %sw.bb315 ], [ %loops.01390, %if.end312 ], [ %loops.01390, %sw.bb316 ], [ %loops.01390, %if.then277 ], [ 1, %if.end312.thread ], [ %loops.01390, %sw.bb314 ]
-  %serverReadyFile.012732361 = phi ptr [ %serverReadyFile.01388, %sw.bb315 ], [ %serverReadyFile.01388, %if.end312 ], [ %serverReadyFile.01388, %sw.bb316 ], [ %serverReadyFile.01388, %if.then277 ], [ null, %if.end312.thread ], [ %serverReadyFile.01388, %sw.bb314 ]
-  %echoData.012932355 = phi i32 [ %echoData.01386, %sw.bb315 ], [ %echoData.01386, %if.end312 ], [ %echoData.01386, %sw.bb316 ], [ %echoData.01386, %if.then277 ], [ 0, %if.end312.thread ], [ %echoData.01386, %sw.bb314 ]
-  %block.013132349 = phi i32 [ %block.01384, %sw.bb315 ], [ %block.01384, %if.end312 ], [ %block.01384, %sw.bb316 ], [ %block.01384, %if.then277 ], [ 16384, %if.end312.thread ], [ %block.01384, %sw.bb314 ]
-  %throughput.013332343 = phi i64 [ %throughput.01382, %sw.bb315 ], [ %throughput.01382, %if.end312 ], [ %throughput.01382, %sw.bb316 ], [ %throughput.01382, %if.then277 ], [ 0, %if.end312.thread ], [ %throughput.01382, %sw.bb314 ]
-  %minDhKeyBits.013532337 = phi i32 [ %minDhKeyBits.01380, %sw.bb315 ], [ %minDhKeyBits.01380, %if.end312 ], [ %minDhKeyBits.01380, %sw.bb316 ], [ %minDhKeyBits.01380, %if.then277 ], [ 1024, %if.end312.thread ], [ %minDhKeyBits.01380, %sw.bb314 ]
-  %port.013732331 = phi i16 [ %port.01378, %sw.bb315 ], [ %port.01378, %if.end312 ], [ %port.01378, %sw.bb316 ], [ %port.01378, %if.then277 ], [ 11111, %if.end312.thread ], [ %port.01378, %sw.bb314 ]
-  %cmp301506542 = phi i1 [ true, %sw.bb315 ], [ %cmp301, %if.end312 ], [ false, %sw.bb316 ], [ false, %if.then277 ], [ false, %if.end312.thread ], [ false, %sw.bb314 ]
-  %method.0 = phi ptr [ @wolfTLSv1_3_server_method_ex, %sw.bb315 ], [ @wolfTLSv1_1_server_method_ex, %if.end312 ], [ @wolfSSLv23_server_method_ex, %sw.bb316 ], [ @wolfTLSv1_2_server_method_ex, %if.then277 ], [ @wolfTLSv1_2_server_method_ex, %if.end312.thread ], [ @wolfTLSv1_2_server_method_ex, %sw.bb314 ]
-  %call330 = tail call ptr %method.0(ptr noundef null) #25, !callees !13
-  %call331 = tail call ptr @wolfSSL_CTX_new(ptr noundef %call330) #25
-  %cmp333 = icmp eq ptr %call331, null
-  br i1 %cmp333, label %if.then335, label %if.end336
+.sink.split3694:                                  ; preds = %337, %329
+  %.ph = phi i1 [ false, %329 ], [ %333, %337 ]
+  %341 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %342 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %341) #23
+  br label %343
 
-if.then335:                                       ; preds = %do.body.i232, %do.body.i241, %if.then4.i255, %do.body2.i252, %do.body.i250, %if.end332
-  %minVersion.06532535 = phi i32 [ %minVersion.06532537, %if.end332 ], [ %minVersion.01450, %if.then4.i255 ], [ %minVersion.01450, %do.body2.i252 ], [ %minVersion.01450, %do.body.i250 ], [ %minVersion.01450, %do.body.i232 ], [ %minVersion.01450, %do.body.i241 ]
-  %useWebServerMsg.06732529 = phi i32 [ %useWebServerMsg.06732531, %if.end332 ], [ %useWebServerMsg.01448, %if.then4.i255 ], [ %useWebServerMsg.01448, %do.body2.i252 ], [ %useWebServerMsg.01448, %do.body.i250 ], [ %useWebServerMsg.01448, %do.body.i232 ], [ %useWebServerMsg.01448, %do.body.i241 ]
-  %doCliCertCheck.07132522 = phi i32 [ %doCliCertCheck.07132524, %if.end332 ], [ %doCliCertCheck.01444, %if.then4.i255 ], [ %doCliCertCheck.01444, %do.body2.i252 ], [ %doCliCertCheck.01444, %do.body.i250 ], [ %doCliCertCheck.01444, %do.body.i232 ], [ %doCliCertCheck.01444, %do.body.i241 ]
-  %useAnyAddr.07332516 = phi i32 [ %useAnyAddr.07332518, %if.end332 ], [ %useAnyAddr.01442, %if.then4.i255 ], [ %useAnyAddr.01442, %do.body2.i252 ], [ %useAnyAddr.01442, %do.body.i250 ], [ %useAnyAddr.01442, %do.body.i232 ], [ %useAnyAddr.01442, %do.body.i241 ]
-  %disallowETM.07532510 = phi i32 [ %disallowETM.07532512, %if.end332 ], [ %disallowETM.01440, %if.then4.i255 ], [ %disallowETM.01440, %do.body2.i252 ], [ %disallowETM.01440, %do.body.i250 ], [ %disallowETM.01440, %do.body.i232 ], [ %disallowETM.01440, %do.body.i241 ]
-  %loadCertKeyIntoSSLObj.07732504 = phi i32 [ %loadCertKeyIntoSSLObj.07732506, %if.end332 ], [ %loadCertKeyIntoSSLObj.01438, %if.then4.i255 ], [ %loadCertKeyIntoSSLObj.01438, %do.body2.i252 ], [ %loadCertKeyIntoSSLObj.01438, %do.body.i250 ], [ %loadCertKeyIntoSSLObj.01438, %do.body.i232 ], [ %loadCertKeyIntoSSLObj.01438, %do.body.i241 ]
-  %exitWithRet.07932498 = phi i32 [ %exitWithRet.07932500, %if.end332 ], [ %exitWithRet.01436, %if.then4.i255 ], [ %exitWithRet.01436, %do.body2.i252 ], [ %exitWithRet.01436, %do.body.i250 ], [ %exitWithRet.01436, %do.body.i232 ], [ %exitWithRet.01436, %do.body.i241 ]
-  %usePsk.08132492 = phi i32 [ %usePsk.08132494, %if.end332 ], [ %usePsk.01434, %if.then4.i255 ], [ %usePsk.01434, %do.body2.i252 ], [ %usePsk.01434, %do.body.i250 ], [ %usePsk.01434, %do.body.i232 ], [ %usePsk.01434, %do.body.i241 ]
-  %usePskPlus.08332486 = phi i32 [ %usePskPlus.08332488, %if.end332 ], [ %usePskPlus.01432, %if.then4.i255 ], [ %usePskPlus.01432, %do.body2.i252 ], [ %usePskPlus.01432, %do.body.i250 ], [ %usePskPlus.01432, %do.body.i232 ], [ %usePskPlus.01432, %do.body.i241 ]
-  %dtlsUDP.08732479 = phi i32 [ %dtlsUDP.08732481, %if.end332 ], [ %dtlsUDP.01428, %if.then4.i255 ], [ %dtlsUDP.01428, %do.body2.i252 ], [ %dtlsUDP.01428, %do.body.i250 ], [ %dtlsUDP.01428, %do.body.i232 ], [ %dtlsUDP.01428, %do.body.i241 ]
-  %nonBlocking.08932473 = phi i32 [ %nonBlocking.08932475, %if.end332 ], [ %nonBlocking.01426, %if.then4.i255 ], [ %nonBlocking.01426, %do.body2.i252 ], [ %nonBlocking.01426, %do.body.i250 ], [ %nonBlocking.01426, %do.body.i232 ], [ %nonBlocking.01426, %do.body.i241 ]
-  %onlyKeyShare.09132467 = phi i32 [ %onlyKeyShare.09132469, %if.end332 ], [ %onlyKeyShare.01424, %if.then4.i255 ], [ %onlyKeyShare.01424, %do.body2.i252 ], [ %onlyKeyShare.01424, %do.body.i250 ], [ %onlyKeyShare.01424, %do.body.i232 ], [ %onlyKeyShare.01424, %do.body.i241 ]
-  %doDhKeyCheck.09332461 = phi i32 [ %doDhKeyCheck.09332463, %if.end332 ], [ %doDhKeyCheck.01422, %if.then4.i255 ], [ %doDhKeyCheck.01422, %do.body2.i252 ], [ %doDhKeyCheck.01422, %do.body.i250 ], [ %doDhKeyCheck.01422, %do.body.i232 ], [ %doDhKeyCheck.01422, %do.body.i241 ]
-  %simulateWantWrite.09532455 = phi i32 [ %simulateWantWrite.09532457, %if.end332 ], [ %simulateWantWrite.01420, %if.then4.i255 ], [ %simulateWantWrite.01420, %do.body2.i252 ], [ %simulateWantWrite.01420, %do.body.i250 ], [ %simulateWantWrite.01420, %do.body.i232 ], [ %simulateWantWrite.01420, %do.body.i241 ]
-  %fewerPackets.09732449 = phi i32 [ %fewerPackets.09732451, %if.end332 ], [ %fewerPackets.01418, %if.then4.i255 ], [ %fewerPackets.01418, %do.body2.i252 ], [ %fewerPackets.01418, %do.body.i250 ], [ %fewerPackets.01418, %do.body.i232 ], [ %fewerPackets.01418, %do.body.i241 ]
-  %wc_shutdown.09932443 = phi i32 [ %wc_shutdown.09932445, %if.end332 ], [ %wc_shutdown.01416, %if.then4.i255 ], [ %wc_shutdown.01416, %do.body2.i252 ], [ %wc_shutdown.01416, %do.body.i250 ], [ %wc_shutdown.01416, %do.body.i232 ], [ %wc_shutdown.01416, %do.body.i241 ]
-  %mutualAuth.010132437 = phi i32 [ %mutualAuth.010132439, %if.end332 ], [ %mutualAuth.01414, %if.then4.i255 ], [ %mutualAuth.01414, %do.body2.i252 ], [ %mutualAuth.01414, %do.body.i250 ], [ %mutualAuth.01414, %do.body.i232 ], [ %mutualAuth.01414, %do.body.i241 ]
-  %updateKeysIVs.010332431 = phi i32 [ %updateKeysIVs.010332433, %if.end332 ], [ %updateKeysIVs.01412, %if.then4.i255 ], [ %updateKeysIVs.01412, %do.body2.i252 ], [ %updateKeysIVs.01412, %do.body.i250 ], [ %updateKeysIVs.01412, %do.body.i232 ], [ %updateKeysIVs.01412, %do.body.i241 ]
-  %onlyPskDheKe.010532425 = phi i32 [ %onlyPskDheKe.010532427, %if.end332 ], [ %onlyPskDheKe.01410, %if.then4.i255 ], [ %onlyPskDheKe.01410, %do.body2.i252 ], [ %onlyPskDheKe.01410, %do.body.i250 ], [ %onlyPskDheKe.01410, %do.body.i232 ], [ %onlyPskDheKe.01410, %do.body.i241 ]
-  %noPskDheKe.010732419 = phi i32 [ %noPskDheKe.010732421, %if.end332 ], [ %noPskDheKe.01408, %if.then4.i255 ], [ %noPskDheKe.01408, %do.body2.i252 ], [ %noPskDheKe.01408, %do.body.i250 ], [ %noPskDheKe.01408, %do.body.i232 ], [ %noPskDheKe.01408, %do.body.i241 ]
-  %sniHostName.010932413 = phi ptr [ %sniHostName.010932415, %if.end332 ], [ %sniHostName.01406, %if.then4.i255 ], [ %sniHostName.01406, %do.body2.i252 ], [ %sniHostName.01406, %do.body.i250 ], [ %sniHostName.01406, %do.body.i232 ], [ %sniHostName.01406, %do.body.i241 ]
-  %resume.011132407 = phi i32 [ %resume.011132409, %if.end332 ], [ %resume.01404, %if.then4.i255 ], [ %resume.01404, %do.body2.i252 ], [ %resume.01404, %do.body.i250 ], [ %resume.01404, %do.body.i232 ], [ %resume.01404, %do.body.i241 ]
-  %ourDhParam.011332401 = phi ptr [ %ourDhParam.011332403, %if.end332 ], [ %ourDhParam.01402, %if.then4.i255 ], [ %ourDhParam.01402, %do.body2.i252 ], [ %ourDhParam.01402, %do.body.i250 ], [ %ourDhParam.01402, %do.body.i232 ], [ %ourDhParam.01402, %do.body.i241 ]
-  %ourKey.011532395 = phi ptr [ %ourKey.011532397, %if.end332 ], [ %ourKey.01400, %if.then4.i255 ], [ %ourKey.01400, %do.body2.i252 ], [ %ourKey.01400, %do.body.i250 ], [ %ourKey.01400, %do.body.i232 ], [ %ourKey.01400, %do.body.i241 ]
-  %ourCert.011732389 = phi ptr [ %ourCert.011732391, %if.end332 ], [ %ourCert.01398, %if.then4.i255 ], [ %ourCert.01398, %do.body2.i252 ], [ %ourCert.01398, %do.body.i250 ], [ %ourCert.01398, %do.body.i232 ], [ %ourCert.01398, %do.body.i241 ]
-  %verifyCert.011932383 = phi ptr [ %verifyCert.011932385, %if.end332 ], [ %verifyCert.01396, %if.then4.i255 ], [ %verifyCert.01396, %do.body2.i252 ], [ %verifyCert.01396, %do.body.i250 ], [ %verifyCert.01396, %do.body.i232 ], [ %verifyCert.01396, %do.body.i241 ]
-  %useDefCipherList.012132377 = phi i32 [ %useDefCipherList.012132379, %if.end332 ], [ %useDefCipherList.01394, %if.then4.i255 ], [ %useDefCipherList.01394, %do.body2.i252 ], [ %useDefCipherList.01394, %do.body.i250 ], [ %useDefCipherList.01394, %do.body.i232 ], [ %useDefCipherList.01394, %do.body.i241 ]
-  %cipherList.012332371 = phi ptr [ %cipherList.012332373, %if.end332 ], [ %cipherList.01392, %if.then4.i255 ], [ %cipherList.01392, %do.body2.i252 ], [ %cipherList.01392, %do.body.i250 ], [ %cipherList.01392, %do.body.i232 ], [ %cipherList.01392, %do.body.i241 ]
-  %loops.012532365 = phi i32 [ %loops.012532367, %if.end332 ], [ %loops.01390, %if.then4.i255 ], [ %loops.01390, %do.body2.i252 ], [ %loops.01390, %do.body.i250 ], [ %loops.01390, %do.body.i232 ], [ %loops.01390, %do.body.i241 ]
-  %serverReadyFile.012732359 = phi ptr [ %serverReadyFile.012732361, %if.end332 ], [ %serverReadyFile.01388, %if.then4.i255 ], [ %serverReadyFile.01388, %do.body2.i252 ], [ %serverReadyFile.01388, %do.body.i250 ], [ %serverReadyFile.01388, %do.body.i232 ], [ %serverReadyFile.01388, %do.body.i241 ]
-  %echoData.012932353 = phi i32 [ %echoData.012932355, %if.end332 ], [ %echoData.01386, %if.then4.i255 ], [ %echoData.01386, %do.body2.i252 ], [ %echoData.01386, %do.body.i250 ], [ %echoData.01386, %do.body.i232 ], [ %echoData.01386, %do.body.i241 ]
-  %block.013132347 = phi i32 [ %block.013132349, %if.end332 ], [ %block.01384, %if.then4.i255 ], [ %block.01384, %do.body2.i252 ], [ %block.01384, %do.body.i250 ], [ %block.01384, %do.body.i232 ], [ %block.01384, %do.body.i241 ]
-  %throughput.013332341 = phi i64 [ %throughput.013332343, %if.end332 ], [ %throughput.01382, %if.then4.i255 ], [ %throughput.01382, %do.body2.i252 ], [ %throughput.01382, %do.body.i250 ], [ %throughput.01382, %do.body.i232 ], [ %throughput.01382, %do.body.i241 ]
-  %minDhKeyBits.013532335 = phi i32 [ %minDhKeyBits.013532337, %if.end332 ], [ %minDhKeyBits.01380, %if.then4.i255 ], [ %minDhKeyBits.01380, %do.body2.i252 ], [ %minDhKeyBits.01380, %do.body.i250 ], [ %minDhKeyBits.01380, %do.body.i232 ], [ %minDhKeyBits.01380, %do.body.i241 ]
-  %port.013732329 = phi i16 [ %port.013732331, %if.end332 ], [ %port.01378, %if.then4.i255 ], [ %port.01378, %do.body2.i252 ], [ %port.01378, %do.body.i250 ], [ %port.01378, %do.body.i232 ], [ %port.01378, %do.body.i241 ]
-  %cmp301506533 = phi i1 [ %cmp301506542, %if.end332 ], [ %cmp301506535, %if.then4.i255 ], [ %cmp301506535, %do.body2.i252 ], [ %cmp301506535, %do.body.i250 ], [ false, %do.body.i232 ], [ %cmp301506537, %do.body.i241 ]
-  %77 = load i32, ptr @catastrophic, align 4
-  %cmp.i257 = icmp eq i32 %77, 1
-  br i1 %cmp.i257, label %do.body.i259, label %if.else.i258
+343:                                              ; preds = %.sink.split3694, %329, %337
+  %344 = phi i1 [ false, %329 ], [ %333, %337 ], [ %.ph, %.sink.split3694 ]
+  %.pr = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %345 = icmp eq i32 %.pr, 1
+  br i1 %345, label %.thread623, label %352
 
-do.body.i259:                                     ; preds = %if.then335
-  %.b2.i260 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i260, label %if.end336, label %do.body2.i261
+.thread623:                                       ; preds = %343
+  %.b2.i509.pr = load i1, ptr @quieter, align 4
+  br i1 %.b2.i509.pr, label %err_sys_ex.exit511.thread, label %346
 
-do.body2.i261:                                    ; preds = %do.body.i259
-  %78 = load ptr, ptr @stderr, align 8
-  %call.i262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.42) #23
-  %.b.pr.i263 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i263, label %if.end336, label %if.then4.i264
+346:                                              ; preds = %.thread623
+  %347 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %348 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %347, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.42) #22
+  %.b.pr.i510 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i510, label %err_sys_ex.exit511.thread, label %349
 
-if.then4.i264:                                    ; preds = %do.body2.i261
-  %79 = load ptr, ptr @stderr, align 8
-  %80 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %79) #23
-  br label %if.end336
+349:                                              ; preds = %346
+  %350 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %351 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %350) #23
+  br label %err_sys_ex.exit511.thread
 
-if.else.i258:                                     ; preds = %if.then335
+352:                                              ; preds = %343
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.42) #24
   unreachable
 
-if.end336:                                        ; preds = %if.then4.i264, %do.body2.i261, %do.body.i259, %if.end332
-  %minVersion.06532534 = phi i32 [ %minVersion.06532537, %if.end332 ], [ %minVersion.06532535, %do.body.i259 ], [ %minVersion.06532535, %do.body2.i261 ], [ %minVersion.06532535, %if.then4.i264 ]
-  %useWebServerMsg.06732528 = phi i32 [ %useWebServerMsg.06732531, %if.end332 ], [ %useWebServerMsg.06732529, %do.body.i259 ], [ %useWebServerMsg.06732529, %do.body2.i261 ], [ %useWebServerMsg.06732529, %if.then4.i264 ]
-  %doCliCertCheck.07132521 = phi i32 [ %doCliCertCheck.07132524, %if.end332 ], [ %doCliCertCheck.07132522, %do.body.i259 ], [ %doCliCertCheck.07132522, %do.body2.i261 ], [ %doCliCertCheck.07132522, %if.then4.i264 ]
-  %useAnyAddr.07332515 = phi i32 [ %useAnyAddr.07332518, %if.end332 ], [ %useAnyAddr.07332516, %do.body.i259 ], [ %useAnyAddr.07332516, %do.body2.i261 ], [ %useAnyAddr.07332516, %if.then4.i264 ]
-  %disallowETM.07532509 = phi i32 [ %disallowETM.07532512, %if.end332 ], [ %disallowETM.07532510, %do.body.i259 ], [ %disallowETM.07532510, %do.body2.i261 ], [ %disallowETM.07532510, %if.then4.i264 ]
-  %loadCertKeyIntoSSLObj.07732503 = phi i32 [ %loadCertKeyIntoSSLObj.07732506, %if.end332 ], [ %loadCertKeyIntoSSLObj.07732504, %do.body.i259 ], [ %loadCertKeyIntoSSLObj.07732504, %do.body2.i261 ], [ %loadCertKeyIntoSSLObj.07732504, %if.then4.i264 ]
-  %exitWithRet.07932497 = phi i32 [ %exitWithRet.07932500, %if.end332 ], [ %exitWithRet.07932498, %do.body.i259 ], [ %exitWithRet.07932498, %do.body2.i261 ], [ %exitWithRet.07932498, %if.then4.i264 ]
-  %usePsk.08132491 = phi i32 [ %usePsk.08132494, %if.end332 ], [ %usePsk.08132492, %do.body.i259 ], [ %usePsk.08132492, %do.body2.i261 ], [ %usePsk.08132492, %if.then4.i264 ]
-  %usePskPlus.08332485 = phi i32 [ %usePskPlus.08332488, %if.end332 ], [ %usePskPlus.08332486, %do.body.i259 ], [ %usePskPlus.08332486, %do.body2.i261 ], [ %usePskPlus.08332486, %if.then4.i264 ]
-  %dtlsUDP.08732478 = phi i32 [ %dtlsUDP.08732481, %if.end332 ], [ %dtlsUDP.08732479, %do.body.i259 ], [ %dtlsUDP.08732479, %do.body2.i261 ], [ %dtlsUDP.08732479, %if.then4.i264 ]
-  %nonBlocking.08932472 = phi i32 [ %nonBlocking.08932475, %if.end332 ], [ %nonBlocking.08932473, %do.body.i259 ], [ %nonBlocking.08932473, %do.body2.i261 ], [ %nonBlocking.08932473, %if.then4.i264 ]
-  %onlyKeyShare.09132466 = phi i32 [ %onlyKeyShare.09132469, %if.end332 ], [ %onlyKeyShare.09132467, %do.body.i259 ], [ %onlyKeyShare.09132467, %do.body2.i261 ], [ %onlyKeyShare.09132467, %if.then4.i264 ]
-  %doDhKeyCheck.09332460 = phi i32 [ %doDhKeyCheck.09332463, %if.end332 ], [ %doDhKeyCheck.09332461, %do.body.i259 ], [ %doDhKeyCheck.09332461, %do.body2.i261 ], [ %doDhKeyCheck.09332461, %if.then4.i264 ]
-  %simulateWantWrite.09532454 = phi i32 [ %simulateWantWrite.09532457, %if.end332 ], [ %simulateWantWrite.09532455, %do.body.i259 ], [ %simulateWantWrite.09532455, %do.body2.i261 ], [ %simulateWantWrite.09532455, %if.then4.i264 ]
-  %fewerPackets.09732448 = phi i32 [ %fewerPackets.09732451, %if.end332 ], [ %fewerPackets.09732449, %do.body.i259 ], [ %fewerPackets.09732449, %do.body2.i261 ], [ %fewerPackets.09732449, %if.then4.i264 ]
-  %wc_shutdown.09932442 = phi i32 [ %wc_shutdown.09932445, %if.end332 ], [ %wc_shutdown.09932443, %do.body.i259 ], [ %wc_shutdown.09932443, %do.body2.i261 ], [ %wc_shutdown.09932443, %if.then4.i264 ]
-  %mutualAuth.010132436 = phi i32 [ %mutualAuth.010132439, %if.end332 ], [ %mutualAuth.010132437, %do.body.i259 ], [ %mutualAuth.010132437, %do.body2.i261 ], [ %mutualAuth.010132437, %if.then4.i264 ]
-  %updateKeysIVs.010332430 = phi i32 [ %updateKeysIVs.010332433, %if.end332 ], [ %updateKeysIVs.010332431, %do.body.i259 ], [ %updateKeysIVs.010332431, %do.body2.i261 ], [ %updateKeysIVs.010332431, %if.then4.i264 ]
-  %onlyPskDheKe.010532424 = phi i32 [ %onlyPskDheKe.010532427, %if.end332 ], [ %onlyPskDheKe.010532425, %do.body.i259 ], [ %onlyPskDheKe.010532425, %do.body2.i261 ], [ %onlyPskDheKe.010532425, %if.then4.i264 ]
-  %noPskDheKe.010732418 = phi i32 [ %noPskDheKe.010732421, %if.end332 ], [ %noPskDheKe.010732419, %do.body.i259 ], [ %noPskDheKe.010732419, %do.body2.i261 ], [ %noPskDheKe.010732419, %if.then4.i264 ]
-  %sniHostName.010932412 = phi ptr [ %sniHostName.010932415, %if.end332 ], [ %sniHostName.010932413, %do.body.i259 ], [ %sniHostName.010932413, %do.body2.i261 ], [ %sniHostName.010932413, %if.then4.i264 ]
-  %resume.011132406 = phi i32 [ %resume.011132409, %if.end332 ], [ %resume.011132407, %do.body.i259 ], [ %resume.011132407, %do.body2.i261 ], [ %resume.011132407, %if.then4.i264 ]
-  %ourDhParam.011332400 = phi ptr [ %ourDhParam.011332403, %if.end332 ], [ %ourDhParam.011332401, %do.body.i259 ], [ %ourDhParam.011332401, %do.body2.i261 ], [ %ourDhParam.011332401, %if.then4.i264 ]
-  %ourKey.011532394 = phi ptr [ %ourKey.011532397, %if.end332 ], [ %ourKey.011532395, %do.body.i259 ], [ %ourKey.011532395, %do.body2.i261 ], [ %ourKey.011532395, %if.then4.i264 ]
-  %ourCert.011732388 = phi ptr [ %ourCert.011732391, %if.end332 ], [ %ourCert.011732389, %do.body.i259 ], [ %ourCert.011732389, %do.body2.i261 ], [ %ourCert.011732389, %if.then4.i264 ]
-  %verifyCert.011932382 = phi ptr [ %verifyCert.011932385, %if.end332 ], [ %verifyCert.011932383, %do.body.i259 ], [ %verifyCert.011932383, %do.body2.i261 ], [ %verifyCert.011932383, %if.then4.i264 ]
-  %useDefCipherList.012132376 = phi i32 [ %useDefCipherList.012132379, %if.end332 ], [ %useDefCipherList.012132377, %do.body.i259 ], [ %useDefCipherList.012132377, %do.body2.i261 ], [ %useDefCipherList.012132377, %if.then4.i264 ]
-  %cipherList.012332370 = phi ptr [ %cipherList.012332373, %if.end332 ], [ %cipherList.012332371, %do.body.i259 ], [ %cipherList.012332371, %do.body2.i261 ], [ %cipherList.012332371, %if.then4.i264 ]
-  %loops.012532364 = phi i32 [ %loops.012532367, %if.end332 ], [ %loops.012532365, %do.body.i259 ], [ %loops.012532365, %do.body2.i261 ], [ %loops.012532365, %if.then4.i264 ]
-  %serverReadyFile.012732358 = phi ptr [ %serverReadyFile.012732361, %if.end332 ], [ %serverReadyFile.012732359, %do.body.i259 ], [ %serverReadyFile.012732359, %do.body2.i261 ], [ %serverReadyFile.012732359, %if.then4.i264 ]
-  %echoData.012932352 = phi i32 [ %echoData.012932355, %if.end332 ], [ %echoData.012932353, %do.body.i259 ], [ %echoData.012932353, %do.body2.i261 ], [ %echoData.012932353, %if.then4.i264 ]
-  %block.013132346 = phi i32 [ %block.013132349, %if.end332 ], [ %block.013132347, %do.body.i259 ], [ %block.013132347, %do.body2.i261 ], [ %block.013132347, %if.then4.i264 ]
-  %throughput.013332340 = phi i64 [ %throughput.013332343, %if.end332 ], [ %throughput.013332341, %do.body.i259 ], [ %throughput.013332341, %do.body2.i261 ], [ %throughput.013332341, %if.then4.i264 ]
-  %minDhKeyBits.013532334 = phi i32 [ %minDhKeyBits.013532337, %if.end332 ], [ %minDhKeyBits.013532335, %do.body.i259 ], [ %minDhKeyBits.013532335, %do.body2.i261 ], [ %minDhKeyBits.013532335, %if.then4.i264 ]
-  %port.013732328 = phi i16 [ %port.013732331, %if.end332 ], [ %port.013732329, %do.body.i259 ], [ %port.013732329, %do.body2.i261 ], [ %port.013732329, %if.then4.i264 ]
-  %cmp301506532 = phi i1 [ %cmp301506542, %if.end332 ], [ %cmp301506533, %do.body.i259 ], [ %cmp301506533, %do.body2.i261 ], [ %cmp301506533, %if.then4.i264 ]
-  %ctx.0512 = phi ptr [ %call331, %if.end332 ], [ null, %do.body.i259 ], [ null, %do.body2.i261 ], [ null, %if.then4.i264 ]
-  %cmp337.not = icmp eq i32 %minVersion.06532534, -99
-  br i1 %cmp337.not, label %if.end345, label %if.then339
+err_sys_ex.exit511:                               ; preds = %err_sys_ex.exit.thread.thread2816, %301, %324, %err_sys_ex.exit.thread, %323, %322
+  %.03267702661 = phi i32 [ %.03261565, %323 ], [ %.03261565, %err_sys_ex.exit.thread ], [ %.03261565, %324 ], [ %.03261565, %301 ], [ -99, %err_sys_ex.exit.thread.thread2816 ], [ %.03261565, %322 ]
+  %.03277902655 = phi i32 [ %.03271563, %323 ], [ %.03271563, %err_sys_ex.exit.thread ], [ %.03271563, %324 ], [ %.03271563, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03271563, %322 ]
+  %.03318302648 = phi i32 [ %.03311559, %323 ], [ %.03311559, %err_sys_ex.exit.thread ], [ %.03311559, %324 ], [ %.03311559, %301 ], [ 1, %err_sys_ex.exit.thread.thread2816 ], [ %.03311559, %322 ]
+  %.03348502642 = phi i32 [ %.03341557, %323 ], [ %.03341557, %err_sys_ex.exit.thread ], [ %.03341557, %324 ], [ %.03341557, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03341557, %322 ]
+  %.03398702636 = phi i32 [ %.03391555, %323 ], [ %.03391555, %err_sys_ex.exit.thread ], [ %.03391555, %324 ], [ %.03391555, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03391555, %322 ]
+  %.03418902630 = phi i32 [ %.03411553, %323 ], [ %.03411553, %err_sys_ex.exit.thread ], [ %.03411553, %324 ], [ %.03411553, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03411553, %322 ]
+  %.03439102624 = phi i32 [ %.03431551, %323 ], [ %.03431551, %err_sys_ex.exit.thread ], [ %.03431551, %324 ], [ %.03431551, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03431551, %322 ]
+  %.03459302618 = phi i32 [ %.03451549, %323 ], [ %.03451549, %err_sys_ex.exit.thread ], [ %.03451549, %324 ], [ %.03451549, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03451549, %322 ]
+  %.03479502612 = phi i32 [ %.03471547, %323 ], [ %.03471547, %err_sys_ex.exit.thread ], [ %.03471547, %324 ], [ %.03471547, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03471547, %322 ]
+  %.03519902605 = phi i32 [ %.03511543, %323 ], [ %.03511543, %err_sys_ex.exit.thread ], [ %.03511543, %324 ], [ %.03511543, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03511543, %322 ]
+  %.035310102599 = phi i32 [ %.03531541, %323 ], [ %.03531541, %err_sys_ex.exit.thread ], [ %.03531541, %324 ], [ %.03531541, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03531541, %322 ]
+  %.035510302593 = phi i32 [ %.03551539, %323 ], [ %.03551539, %err_sys_ex.exit.thread ], [ %.03551539, %324 ], [ %.03551539, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03551539, %322 ]
+  %.035710502587 = phi i32 [ %.03571537, %323 ], [ %.03571537, %err_sys_ex.exit.thread ], [ %.03571537, %324 ], [ %.03571537, %301 ], [ 1, %err_sys_ex.exit.thread.thread2816 ], [ %.03571537, %322 ]
+  %.035910702581 = phi i32 [ %.03591535, %323 ], [ %.03591535, %err_sys_ex.exit.thread ], [ %.03591535, %324 ], [ %.03591535, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03591535, %322 ]
+  %.036110902575 = phi i32 [ %.03611533, %323 ], [ %.03611533, %err_sys_ex.exit.thread ], [ %.03611533, %324 ], [ %.03611533, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03611533, %322 ]
+  %.036311102569 = phi i32 [ %.03631531, %323 ], [ %.03631531, %err_sys_ex.exit.thread ], [ %.03631531, %324 ], [ %.03631531, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03631531, %322 ]
+  %.036511302563 = phi i32 [ %.03651529, %323 ], [ %.03651529, %err_sys_ex.exit.thread ], [ %.03651529, %324 ], [ %.03651529, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03651529, %322 ]
+  %.036711502557 = phi i32 [ %.03671527, %323 ], [ %.03671527, %err_sys_ex.exit.thread ], [ %.03671527, %324 ], [ %.03671527, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03671527, %322 ]
+  %.036911702551 = phi i32 [ %.03691525, %323 ], [ %.03691525, %err_sys_ex.exit.thread ], [ %.03691525, %324 ], [ %.03691525, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03691525, %322 ]
+  %.037111902545 = phi i32 [ %.03711523, %323 ], [ %.03711523, %err_sys_ex.exit.thread ], [ %.03711523, %324 ], [ %.03711523, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03711523, %322 ]
+  %.037312102539 = phi ptr [ %.03731521, %323 ], [ %.03731521, %err_sys_ex.exit.thread ], [ %.03731521, %324 ], [ %.03731521, %301 ], [ null, %err_sys_ex.exit.thread.thread2816 ], [ %.03731521, %322 ]
+  %.037512302533 = phi i32 [ %.03751519, %323 ], [ %.03751519, %err_sys_ex.exit.thread ], [ %.03751519, %324 ], [ %.03751519, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03751519, %322 ]
+  %.037812502527 = phi ptr [ %.03781517, %323 ], [ %.03781517, %err_sys_ex.exit.thread ], [ %.03781517, %324 ], [ %.03781517, %301 ], [ @.str.12, %err_sys_ex.exit.thread.thread2816 ], [ %.03781517, %322 ]
+  %.038012702521 = phi ptr [ %.03801515, %323 ], [ %.03801515, %err_sys_ex.exit.thread ], [ %.03801515, %324 ], [ %.03801515, %301 ], [ @.str.15, %err_sys_ex.exit.thread.thread2816 ], [ %.03801515, %322 ]
+  %.038212902515 = phi ptr [ %.03821513, %323 ], [ %.03821513, %err_sys_ex.exit.thread ], [ %.03821513, %324 ], [ %.03821513, %301 ], [ @.str.14, %err_sys_ex.exit.thread.thread2816 ], [ %.03821513, %322 ]
+  %.038413102509 = phi ptr [ %.03841511, %323 ], [ %.03841511, %err_sys_ex.exit.thread ], [ %.03841511, %324 ], [ %.03841511, %301 ], [ @.str.13, %err_sys_ex.exit.thread.thread2816 ], [ %.03841511, %322 ]
+  %.038613302503 = phi i32 [ %.03861509, %323 ], [ %.03861509, %err_sys_ex.exit.thread ], [ %.03861509, %324 ], [ %.03861509, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.03861509, %322 ]
+  %.038813502497 = phi ptr [ %.03881507, %323 ], [ %.03881507, %err_sys_ex.exit.thread ], [ %.03881507, %324 ], [ %.03881507, %301 ], [ null, %err_sys_ex.exit.thread.thread2816 ], [ %.03881507, %322 ]
+  %.039013702491 = phi i32 [ %.03901505, %323 ], [ %.03901505, %err_sys_ex.exit.thread ], [ %.03901505, %324 ], [ %.03901505, %301 ], [ 1, %err_sys_ex.exit.thread.thread2816 ], [ %.03901505, %322 ]
+  %.039413902485 = phi ptr [ %.03941503, %323 ], [ %.03941503, %err_sys_ex.exit.thread ], [ %.03941503, %324 ], [ %.03941503, %301 ], [ null, %err_sys_ex.exit.thread.thread2816 ], [ %.03941503, %322 ]
+  %.040314102479 = phi i32 [ %.04031501, %323 ], [ %.04031501, %err_sys_ex.exit.thread ], [ %.04031501, %324 ], [ %.04031501, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.04031501, %322 ]
+  %.040614302473 = phi i32 [ %.04061499, %323 ], [ %.04061499, %err_sys_ex.exit.thread ], [ %.04061499, %324 ], [ %.04061499, %301 ], [ 16384, %err_sys_ex.exit.thread.thread2816 ], [ %.04061499, %322 ]
+  %.040914502467 = phi i64 [ %.04091497, %323 ], [ %.04091497, %err_sys_ex.exit.thread ], [ %.04091497, %324 ], [ %.04091497, %301 ], [ 0, %err_sys_ex.exit.thread.thread2816 ], [ %.04091497, %322 ]
+  %.041114702461 = phi i32 [ %.04111495, %323 ], [ %.04111495, %err_sys_ex.exit.thread ], [ %.04111495, %324 ], [ %.04111495, %301 ], [ 1024, %err_sys_ex.exit.thread.thread2816 ], [ %.04111495, %322 ]
+  %.014902455 = phi i16 [ %.01493, %323 ], [ %.01493, %err_sys_ex.exit.thread ], [ %.01493, %324 ], [ %.01493, %301 ], [ 11111, %err_sys_ex.exit.thread.thread2816 ], [ %.01493, %322 ]
+  %353 = phi i1 [ true, %323 ], [ %317, %err_sys_ex.exit.thread ], [ false, %324 ], [ false, %301 ], [ false, %err_sys_ex.exit.thread.thread2816 ], [ false, %322 ]
+  %.0324 = phi ptr [ @wolfTLSv1_3_server_method_ex, %323 ], [ @wolfTLSv1_1_server_method_ex, %err_sys_ex.exit.thread ], [ @wolfSSLv23_server_method_ex, %324 ], [ @wolfTLSv1_2_server_method_ex, %301 ], [ @wolfTLSv1_2_server_method_ex, %err_sys_ex.exit.thread.thread2816 ], [ @wolfTLSv1_2_server_method_ex, %322 ]
+  %354 = tail call ptr %.0324(ptr noundef null) #21, !callees !42
+  %355 = tail call ptr @wolfSSL_CTX_new(ptr noundef %354) #21
+  %356 = icmp eq ptr %355, null
+  br i1 %356, label %err_sys_ex.exit511.thread, label %err_sys_ex.exit514
 
-if.then339:                                       ; preds = %if.end336
-  %call340 = tail call i32 @wolfSSL_CTX_SetMinVersion(ptr noundef %ctx.0512, i32 noundef %minVersion.06532534) #25
-  %cmp341.not = icmp eq i32 %call340, 1
-  br i1 %cmp341.not, label %if.end345, label %if.then343
+err_sys_ex.exit511.thread:                        ; preds = %328, %336, %349, %346, %.thread623, %err_sys_ex.exit511
+  %.03267702659 = phi i32 [ %.03267702661, %err_sys_ex.exit511 ], [ %.03261565, %349 ], [ %.03261565, %346 ], [ %.03261565, %.thread623 ], [ %.03261565, %328 ], [ %.03261565, %336 ]
+  %.03277902653 = phi i32 [ %.03277902655, %err_sys_ex.exit511 ], [ %.03271563, %349 ], [ %.03271563, %346 ], [ %.03271563, %.thread623 ], [ %.03271563, %328 ], [ %.03271563, %336 ]
+  %.03318302646 = phi i32 [ %.03318302648, %err_sys_ex.exit511 ], [ %.03311559, %349 ], [ %.03311559, %346 ], [ %.03311559, %.thread623 ], [ %.03311559, %328 ], [ %.03311559, %336 ]
+  %.03348502640 = phi i32 [ %.03348502642, %err_sys_ex.exit511 ], [ %.03341557, %349 ], [ %.03341557, %346 ], [ %.03341557, %.thread623 ], [ %.03341557, %328 ], [ %.03341557, %336 ]
+  %.03398702634 = phi i32 [ %.03398702636, %err_sys_ex.exit511 ], [ %.03391555, %349 ], [ %.03391555, %346 ], [ %.03391555, %.thread623 ], [ %.03391555, %328 ], [ %.03391555, %336 ]
+  %.03418902628 = phi i32 [ %.03418902630, %err_sys_ex.exit511 ], [ %.03411553, %349 ], [ %.03411553, %346 ], [ %.03411553, %.thread623 ], [ %.03411553, %328 ], [ %.03411553, %336 ]
+  %.03439102622 = phi i32 [ %.03439102624, %err_sys_ex.exit511 ], [ %.03431551, %349 ], [ %.03431551, %346 ], [ %.03431551, %.thread623 ], [ %.03431551, %328 ], [ %.03431551, %336 ]
+  %.03459302616 = phi i32 [ %.03459302618, %err_sys_ex.exit511 ], [ %.03451549, %349 ], [ %.03451549, %346 ], [ %.03451549, %.thread623 ], [ %.03451549, %328 ], [ %.03451549, %336 ]
+  %.03479502610 = phi i32 [ %.03479502612, %err_sys_ex.exit511 ], [ %.03471547, %349 ], [ %.03471547, %346 ], [ %.03471547, %.thread623 ], [ %.03471547, %328 ], [ %.03471547, %336 ]
+  %.03519902603 = phi i32 [ %.03519902605, %err_sys_ex.exit511 ], [ %.03511543, %349 ], [ %.03511543, %346 ], [ %.03511543, %.thread623 ], [ %.03511543, %328 ], [ %.03511543, %336 ]
+  %.035310102597 = phi i32 [ %.035310102599, %err_sys_ex.exit511 ], [ %.03531541, %349 ], [ %.03531541, %346 ], [ %.03531541, %.thread623 ], [ %.03531541, %328 ], [ %.03531541, %336 ]
+  %.035510302591 = phi i32 [ %.035510302593, %err_sys_ex.exit511 ], [ %.03551539, %349 ], [ %.03551539, %346 ], [ %.03551539, %.thread623 ], [ %.03551539, %328 ], [ %.03551539, %336 ]
+  %.035710502585 = phi i32 [ %.035710502587, %err_sys_ex.exit511 ], [ %.03571537, %349 ], [ %.03571537, %346 ], [ %.03571537, %.thread623 ], [ %.03571537, %328 ], [ %.03571537, %336 ]
+  %.035910702579 = phi i32 [ %.035910702581, %err_sys_ex.exit511 ], [ %.03591535, %349 ], [ %.03591535, %346 ], [ %.03591535, %.thread623 ], [ %.03591535, %328 ], [ %.03591535, %336 ]
+  %.036110902573 = phi i32 [ %.036110902575, %err_sys_ex.exit511 ], [ %.03611533, %349 ], [ %.03611533, %346 ], [ %.03611533, %.thread623 ], [ %.03611533, %328 ], [ %.03611533, %336 ]
+  %.036311102567 = phi i32 [ %.036311102569, %err_sys_ex.exit511 ], [ %.03631531, %349 ], [ %.03631531, %346 ], [ %.03631531, %.thread623 ], [ %.03631531, %328 ], [ %.03631531, %336 ]
+  %.036511302561 = phi i32 [ %.036511302563, %err_sys_ex.exit511 ], [ %.03651529, %349 ], [ %.03651529, %346 ], [ %.03651529, %.thread623 ], [ %.03651529, %328 ], [ %.03651529, %336 ]
+  %.036711502555 = phi i32 [ %.036711502557, %err_sys_ex.exit511 ], [ %.03671527, %349 ], [ %.03671527, %346 ], [ %.03671527, %.thread623 ], [ %.03671527, %328 ], [ %.03671527, %336 ]
+  %.036911702549 = phi i32 [ %.036911702551, %err_sys_ex.exit511 ], [ %.03691525, %349 ], [ %.03691525, %346 ], [ %.03691525, %.thread623 ], [ %.03691525, %328 ], [ %.03691525, %336 ]
+  %.037111902543 = phi i32 [ %.037111902545, %err_sys_ex.exit511 ], [ %.03711523, %349 ], [ %.03711523, %346 ], [ %.03711523, %.thread623 ], [ %.03711523, %328 ], [ %.03711523, %336 ]
+  %.037312102537 = phi ptr [ %.037312102539, %err_sys_ex.exit511 ], [ %.03731521, %349 ], [ %.03731521, %346 ], [ %.03731521, %.thread623 ], [ %.03731521, %328 ], [ %.03731521, %336 ]
+  %.037512302531 = phi i32 [ %.037512302533, %err_sys_ex.exit511 ], [ %.03751519, %349 ], [ %.03751519, %346 ], [ %.03751519, %.thread623 ], [ %.03751519, %328 ], [ %.03751519, %336 ]
+  %.037812502525 = phi ptr [ %.037812502527, %err_sys_ex.exit511 ], [ %.03781517, %349 ], [ %.03781517, %346 ], [ %.03781517, %.thread623 ], [ %.03781517, %328 ], [ %.03781517, %336 ]
+  %.038012702519 = phi ptr [ %.038012702521, %err_sys_ex.exit511 ], [ %.03801515, %349 ], [ %.03801515, %346 ], [ %.03801515, %.thread623 ], [ %.03801515, %328 ], [ %.03801515, %336 ]
+  %.038212902513 = phi ptr [ %.038212902515, %err_sys_ex.exit511 ], [ %.03821513, %349 ], [ %.03821513, %346 ], [ %.03821513, %.thread623 ], [ %.03821513, %328 ], [ %.03821513, %336 ]
+  %.038413102507 = phi ptr [ %.038413102509, %err_sys_ex.exit511 ], [ %.03841511, %349 ], [ %.03841511, %346 ], [ %.03841511, %.thread623 ], [ %.03841511, %328 ], [ %.03841511, %336 ]
+  %.038613302501 = phi i32 [ %.038613302503, %err_sys_ex.exit511 ], [ %.03861509, %349 ], [ %.03861509, %346 ], [ %.03861509, %.thread623 ], [ %.03861509, %328 ], [ %.03861509, %336 ]
+  %.038813502495 = phi ptr [ %.038813502497, %err_sys_ex.exit511 ], [ %.03881507, %349 ], [ %.03881507, %346 ], [ %.03881507, %.thread623 ], [ %.03881507, %328 ], [ %.03881507, %336 ]
+  %.039013702489 = phi i32 [ %.039013702491, %err_sys_ex.exit511 ], [ %.03901505, %349 ], [ %.03901505, %346 ], [ %.03901505, %.thread623 ], [ %.03901505, %328 ], [ %.03901505, %336 ]
+  %.039413902483 = phi ptr [ %.039413902485, %err_sys_ex.exit511 ], [ %.03941503, %349 ], [ %.03941503, %346 ], [ %.03941503, %.thread623 ], [ %.03941503, %328 ], [ %.03941503, %336 ]
+  %.040314102477 = phi i32 [ %.040314102479, %err_sys_ex.exit511 ], [ %.04031501, %349 ], [ %.04031501, %346 ], [ %.04031501, %.thread623 ], [ %.04031501, %328 ], [ %.04031501, %336 ]
+  %.040614302471 = phi i32 [ %.040614302473, %err_sys_ex.exit511 ], [ %.04061499, %349 ], [ %.04061499, %346 ], [ %.04061499, %.thread623 ], [ %.04061499, %328 ], [ %.04061499, %336 ]
+  %.040914502465 = phi i64 [ %.040914502467, %err_sys_ex.exit511 ], [ %.04091497, %349 ], [ %.04091497, %346 ], [ %.04091497, %.thread623 ], [ %.04091497, %328 ], [ %.04091497, %336 ]
+  %.041114702459 = phi i32 [ %.041114702461, %err_sys_ex.exit511 ], [ %.04111495, %349 ], [ %.04111495, %346 ], [ %.04111495, %.thread623 ], [ %.04111495, %328 ], [ %.04111495, %336 ]
+  %.014902453 = phi i16 [ %.014902455, %err_sys_ex.exit511 ], [ %.01493, %349 ], [ %.01493, %346 ], [ %.01493, %.thread623 ], [ %.01493, %328 ], [ %.01493, %336 ]
+  %357 = phi i1 [ %353, %err_sys_ex.exit511 ], [ %344, %349 ], [ %344, %346 ], [ %344, %.thread623 ], [ false, %328 ], [ %333, %336 ]
+  %358 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %359 = icmp eq i32 %358, 1
+  br i1 %359, label %360, label %367
 
-if.then343:                                       ; preds = %if.then339
-  %81 = load i32, ptr @catastrophic, align 4
-  %cmp.i266 = icmp eq i32 %81, 1
-  br i1 %cmp.i266, label %do.body.i268, label %if.else.i267
+360:                                              ; preds = %err_sys_ex.exit511.thread
+  %.b2.i512 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i512, label %err_sys_ex.exit514, label %361
 
-do.body.i268:                                     ; preds = %if.then343
-  %.b2.i269 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i269, label %if.end345, label %do.body2.i270
+361:                                              ; preds = %360
+  %362 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %363 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.43) #22
+  %.b.pr.i513 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i513, label %err_sys_ex.exit514, label %364
 
-do.body2.i270:                                    ; preds = %do.body.i268
-  %82 = load ptr, ptr @stderr, align 8
-  %call.i271 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %82, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.43) #23
-  %.b.pr.i272 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i272, label %if.end345, label %if.then4.i273
+364:                                              ; preds = %361
+  %365 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %366 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %365) #23
+  br label %err_sys_ex.exit514
 
-if.then4.i273:                                    ; preds = %do.body2.i270
-  %83 = load ptr, ptr @stderr, align 8
-  %84 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %83) #23
-  br label %if.end345
-
-if.else.i267:                                     ; preds = %if.then343
+367:                                              ; preds = %err_sys_ex.exit511.thread
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.43) #24
   unreachable
 
-if.end345:                                        ; preds = %if.then4.i273, %do.body2.i270, %do.body.i268, %if.then339, %if.end336
-  %tobool346.not = icmp eq i32 %simulateWantWrite.09532454, 0
-  br i1 %tobool346.not, label %if.end348, label %if.then347
+err_sys_ex.exit514:                               ; preds = %364, %361, %360, %err_sys_ex.exit511
+  %.03267702658 = phi i32 [ %.03267702661, %err_sys_ex.exit511 ], [ %.03267702659, %360 ], [ %.03267702659, %361 ], [ %.03267702659, %364 ]
+  %.03277902652 = phi i32 [ %.03277902655, %err_sys_ex.exit511 ], [ %.03277902653, %360 ], [ %.03277902653, %361 ], [ %.03277902653, %364 ]
+  %.03318302645 = phi i32 [ %.03318302648, %err_sys_ex.exit511 ], [ %.03318302646, %360 ], [ %.03318302646, %361 ], [ %.03318302646, %364 ]
+  %.03348502639 = phi i32 [ %.03348502642, %err_sys_ex.exit511 ], [ %.03348502640, %360 ], [ %.03348502640, %361 ], [ %.03348502640, %364 ]
+  %.03398702633 = phi i32 [ %.03398702636, %err_sys_ex.exit511 ], [ %.03398702634, %360 ], [ %.03398702634, %361 ], [ %.03398702634, %364 ]
+  %.03418902627 = phi i32 [ %.03418902630, %err_sys_ex.exit511 ], [ %.03418902628, %360 ], [ %.03418902628, %361 ], [ %.03418902628, %364 ]
+  %.03439102621 = phi i32 [ %.03439102624, %err_sys_ex.exit511 ], [ %.03439102622, %360 ], [ %.03439102622, %361 ], [ %.03439102622, %364 ]
+  %.03459302615 = phi i32 [ %.03459302618, %err_sys_ex.exit511 ], [ %.03459302616, %360 ], [ %.03459302616, %361 ], [ %.03459302616, %364 ]
+  %.03479502609 = phi i32 [ %.03479502612, %err_sys_ex.exit511 ], [ %.03479502610, %360 ], [ %.03479502610, %361 ], [ %.03479502610, %364 ]
+  %.03519902602 = phi i32 [ %.03519902605, %err_sys_ex.exit511 ], [ %.03519902603, %360 ], [ %.03519902603, %361 ], [ %.03519902603, %364 ]
+  %.035310102596 = phi i32 [ %.035310102599, %err_sys_ex.exit511 ], [ %.035310102597, %360 ], [ %.035310102597, %361 ], [ %.035310102597, %364 ]
+  %.035510302590 = phi i32 [ %.035510302593, %err_sys_ex.exit511 ], [ %.035510302591, %360 ], [ %.035510302591, %361 ], [ %.035510302591, %364 ]
+  %.035710502584 = phi i32 [ %.035710502587, %err_sys_ex.exit511 ], [ %.035710502585, %360 ], [ %.035710502585, %361 ], [ %.035710502585, %364 ]
+  %.035910702578 = phi i32 [ %.035910702581, %err_sys_ex.exit511 ], [ %.035910702579, %360 ], [ %.035910702579, %361 ], [ %.035910702579, %364 ]
+  %.036110902572 = phi i32 [ %.036110902575, %err_sys_ex.exit511 ], [ %.036110902573, %360 ], [ %.036110902573, %361 ], [ %.036110902573, %364 ]
+  %.036311102566 = phi i32 [ %.036311102569, %err_sys_ex.exit511 ], [ %.036311102567, %360 ], [ %.036311102567, %361 ], [ %.036311102567, %364 ]
+  %.036511302560 = phi i32 [ %.036511302563, %err_sys_ex.exit511 ], [ %.036511302561, %360 ], [ %.036511302561, %361 ], [ %.036511302561, %364 ]
+  %.036711502554 = phi i32 [ %.036711502557, %err_sys_ex.exit511 ], [ %.036711502555, %360 ], [ %.036711502555, %361 ], [ %.036711502555, %364 ]
+  %.036911702548 = phi i32 [ %.036911702551, %err_sys_ex.exit511 ], [ %.036911702549, %360 ], [ %.036911702549, %361 ], [ %.036911702549, %364 ]
+  %.037111902542 = phi i32 [ %.037111902545, %err_sys_ex.exit511 ], [ %.037111902543, %360 ], [ %.037111902543, %361 ], [ %.037111902543, %364 ]
+  %.037312102536 = phi ptr [ %.037312102539, %err_sys_ex.exit511 ], [ %.037312102537, %360 ], [ %.037312102537, %361 ], [ %.037312102537, %364 ]
+  %.037512302530 = phi i32 [ %.037512302533, %err_sys_ex.exit511 ], [ %.037512302531, %360 ], [ %.037512302531, %361 ], [ %.037512302531, %364 ]
+  %.037812502524 = phi ptr [ %.037812502527, %err_sys_ex.exit511 ], [ %.037812502525, %360 ], [ %.037812502525, %361 ], [ %.037812502525, %364 ]
+  %.038012702518 = phi ptr [ %.038012702521, %err_sys_ex.exit511 ], [ %.038012702519, %360 ], [ %.038012702519, %361 ], [ %.038012702519, %364 ]
+  %.038212902512 = phi ptr [ %.038212902515, %err_sys_ex.exit511 ], [ %.038212902513, %360 ], [ %.038212902513, %361 ], [ %.038212902513, %364 ]
+  %.038413102506 = phi ptr [ %.038413102509, %err_sys_ex.exit511 ], [ %.038413102507, %360 ], [ %.038413102507, %361 ], [ %.038413102507, %364 ]
+  %.038613302500 = phi i32 [ %.038613302503, %err_sys_ex.exit511 ], [ %.038613302501, %360 ], [ %.038613302501, %361 ], [ %.038613302501, %364 ]
+  %.038813502494 = phi ptr [ %.038813502497, %err_sys_ex.exit511 ], [ %.038813502495, %360 ], [ %.038813502495, %361 ], [ %.038813502495, %364 ]
+  %.039013702488 = phi i32 [ %.039013702491, %err_sys_ex.exit511 ], [ %.039013702489, %360 ], [ %.039013702489, %361 ], [ %.039013702489, %364 ]
+  %.039413902482 = phi ptr [ %.039413902485, %err_sys_ex.exit511 ], [ %.039413902483, %360 ], [ %.039413902483, %361 ], [ %.039413902483, %364 ]
+  %.040314102476 = phi i32 [ %.040314102479, %err_sys_ex.exit511 ], [ %.040314102477, %360 ], [ %.040314102477, %361 ], [ %.040314102477, %364 ]
+  %.040614302470 = phi i32 [ %.040614302473, %err_sys_ex.exit511 ], [ %.040614302471, %360 ], [ %.040614302471, %361 ], [ %.040614302471, %364 ]
+  %.040914502464 = phi i64 [ %.040914502467, %err_sys_ex.exit511 ], [ %.040914502465, %360 ], [ %.040914502465, %361 ], [ %.040914502465, %364 ]
+  %.041114702458 = phi i32 [ %.041114702461, %err_sys_ex.exit511 ], [ %.041114702459, %360 ], [ %.041114702459, %361 ], [ %.041114702459, %364 ]
+  %.014902452 = phi i16 [ %.014902455, %err_sys_ex.exit511 ], [ %.014902453, %360 ], [ %.014902453, %361 ], [ %.014902453, %364 ]
+  %368 = phi i1 [ %353, %err_sys_ex.exit511 ], [ %357, %360 ], [ %357, %361 ], [ %357, %364 ]
+  %.0325625 = phi ptr [ %355, %err_sys_ex.exit511 ], [ null, %360 ], [ null, %361 ], [ null, %364 ]
+  %.not443 = icmp eq i32 %.03267702658, -99
+  br i1 %.not443, label %err_sys_ex.exit517, label %369
 
-if.then347:                                       ; preds = %if.end345
-  tail call void @wolfSSL_CTX_SetIOSend(ptr noundef %ctx.0512, ptr noundef nonnull @SimulateWantWriteIOSendCb) #25
-  br label %if.end348
+369:                                              ; preds = %err_sys_ex.exit514
+  %370 = tail call i32 @wolfSSL_CTX_SetMinVersion(ptr noundef %.0325625, i32 noundef %.03267702658) #21
+  %.not444 = icmp eq i32 %370, 1
+  br i1 %.not444, label %err_sys_ex.exit517, label %371
 
-if.end348:                                        ; preds = %if.then347, %if.end345
-  %tobool349 = icmp eq ptr %cipherList.012332370, null
-  %tobool351 = icmp ne i32 %useDefCipherList.012132376, 0
-  %or.cond8 = select i1 %tobool349, i1 true, i1 %tobool351
-  br i1 %or.cond8, label %if.end358, label %if.then352
+371:                                              ; preds = %369
+  %372 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %373 = icmp eq i32 %372, 1
+  br i1 %373, label %374, label %381
 
-if.then352:                                       ; preds = %if.end348
-  %call353 = tail call i32 @wolfSSL_CTX_set_cipher_list(ptr noundef %ctx.0512, ptr noundef nonnull %cipherList.012332370) #25
-  %cmp354.not = icmp eq i32 %call353, 1
-  br i1 %cmp354.not, label %if.end358, label %if.then356
+374:                                              ; preds = %371
+  %.b2.i515 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i515, label %err_sys_ex.exit517, label %375
 
-if.then356:                                       ; preds = %if.then352
-  %85 = load i32, ptr @runWithErrors, align 4
-  %cmp.i275 = icmp eq i32 %85, 1
-  br i1 %cmp.i275, label %do.body.i277, label %if.else.i276
+375:                                              ; preds = %374
+  %376 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %377 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %376, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.44) #22
+  %.b.pr.i516 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i516, label %err_sys_ex.exit517, label %378
 
-do.body.i277:                                     ; preds = %if.then356
-  %.b2.i278 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i278, label %if.end358, label %do.body2.i279
+378:                                              ; preds = %375
+  %379 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %380 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %379) #23
+  br label %err_sys_ex.exit517
 
-do.body2.i279:                                    ; preds = %do.body.i277
-  %86 = load ptr, ptr @stderr, align 8
-  %call.i280 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.44) #23
-  %.b.pr.i281 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i281, label %if.end358, label %if.then4.i282
-
-if.then4.i282:                                    ; preds = %do.body2.i279
-  %87 = load ptr, ptr @stderr, align 8
-  %88 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %87) #23
-  br label %if.end358
-
-if.else.i276:                                     ; preds = %if.then356
+381:                                              ; preds = %371
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.44) #24
   unreachable
 
-if.end358:                                        ; preds = %if.then4.i282, %do.body2.i279, %do.body.i277, %if.then352, %if.end348
-  %tobool359.not = icmp eq i32 %fewerPackets.09732448, 0
-  br i1 %tobool359.not, label %if.end362, label %if.then360
+err_sys_ex.exit517:                               ; preds = %378, %375, %374, %369, %err_sys_ex.exit514
+  %.not445 = icmp eq i32 %.035910702578, 0
+  br i1 %.not445, label %383, label %382
 
-if.then360:                                       ; preds = %if.end358
-  %call361 = tail call i32 @wolfSSL_CTX_set_group_messages(ptr noundef %ctx.0512) #25
-  br label %if.end362
+382:                                              ; preds = %err_sys_ex.exit517
+  tail call void @wolfSSL_CTX_SetIOSend(ptr noundef %.0325625, ptr noundef nonnull @SimulateWantWriteIOSendCb) #21
+  br label %383
 
-if.end362:                                        ; preds = %if.then360, %if.end358
-  %tobool363 = icmp eq i32 %usePsk.08132491, 0
-  %tobool365 = icmp ne i32 %usePskPlus.08332485, 0
-  %or.cond9 = select i1 %tobool363, i1 true, i1 %tobool365
-  %cmp369 = icmp ne i32 %loadCertKeyIntoSSLObj.07732503, 1
-  %or.cond11.not = select i1 %or.cond9, i1 %cmp369, i1 false
-  br i1 %or.cond11.not, label %if.then371, label %if.end377
+383:                                              ; preds = %382, %err_sys_ex.exit517
+  %384 = icmp eq ptr %.038813502494, null
+  %385 = icmp ne i32 %.038613302500, 0
+  %or.cond17 = select i1 %384, i1 true, i1 %385
+  br i1 %or.cond17, label %err_sys_ex.exit520, label %386
 
-if.then371:                                       ; preds = %if.end362
-  %call372 = tail call i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %ctx.0512, ptr noundef %ourCert.011732388) #25
-  %cmp373.not = icmp eq i32 %call372, 1
-  br i1 %cmp373.not, label %if.end377, label %if.then375
+386:                                              ; preds = %383
+  %387 = tail call i32 @wolfSSL_CTX_set_cipher_list(ptr noundef %.0325625, ptr noundef nonnull %.038813502494) #21
+  %.not446 = icmp eq i32 %387, 1
+  br i1 %.not446, label %err_sys_ex.exit520, label %388
 
-if.then375:                                       ; preds = %if.then371
-  %89 = load i32, ptr @catastrophic, align 4
-  %cmp.i284 = icmp eq i32 %89, 1
-  br i1 %cmp.i284, label %do.body.i286, label %if.else.i285
+388:                                              ; preds = %386
+  %389 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %390 = icmp eq i32 %389, 1
+  br i1 %390, label %391, label %398
 
-do.body.i286:                                     ; preds = %if.then375
-  %.b2.i287 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i287, label %if.end377, label %do.body2.i288
+391:                                              ; preds = %388
+  %.b2.i518 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i518, label %err_sys_ex.exit520, label %392
 
-do.body2.i288:                                    ; preds = %do.body.i286
-  %90 = load ptr, ptr @stderr, align 8
-  %call.i289 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.45) #23
-  %.b.pr.i290 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i290, label %if.end377, label %if.then4.i291
+392:                                              ; preds = %391
+  %393 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %394 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %393, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.45) #22
+  %.b.pr.i519 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i519, label %err_sys_ex.exit520, label %395
 
-if.then4.i291:                                    ; preds = %do.body2.i288
-  %91 = load ptr, ptr @stderr, align 8
-  %92 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %91) #23
-  br label %if.end377
+395:                                              ; preds = %392
+  %396 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %397 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %396) #23
+  br label %err_sys_ex.exit520
 
-if.else.i285:                                     ; preds = %if.then375
+398:                                              ; preds = %388
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.45) #24
   unreachable
 
-if.end377:                                        ; preds = %if.then4.i291, %do.body2.i288, %do.body.i286, %if.then371, %if.end362
-  %conv378 = trunc i32 %minDhKeyBits.013532334 to i16
-  %call379 = tail call i32 @wolfSSL_CTX_SetMinDhKey_Sz(ptr noundef %ctx.0512, i16 noundef zeroext %conv378) #25
-  %cmp380.not = icmp eq i32 %call379, 1
-  br i1 %cmp380.not, label %if.end383, label %if.then382
+err_sys_ex.exit520:                               ; preds = %395, %392, %391, %386, %383
+  %.not447 = icmp eq i32 %.036110902572, 0
+  br i1 %.not447, label %401, label %399
 
-if.then382:                                       ; preds = %if.end377
-  %93 = load i32, ptr @runWithErrors, align 4
-  %cmp.i293 = icmp eq i32 %93, 1
-  br i1 %cmp.i293, label %do.body.i295, label %if.else.i294
+399:                                              ; preds = %err_sys_ex.exit520
+  %400 = tail call i32 @wolfSSL_CTX_set_group_messages(ptr noundef %.0325625) #21
+  br label %401
 
-do.body.i295:                                     ; preds = %if.then382
-  %.b2.i296 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i296, label %if.end383, label %do.body2.i297
+401:                                              ; preds = %399, %err_sys_ex.exit520
+  %402 = icmp eq i32 %.03459302615, 0
+  %403 = icmp ne i32 %.03479502609, 0
+  %or.cond19 = select i1 %402, i1 true, i1 %403
+  %404 = icmp ne i32 %.03418902627, 1
+  %or.cond23.not = select i1 %or.cond19, i1 %404, i1 false
+  br i1 %or.cond23.not, label %405, label %err_sys_ex.exit523
 
-do.body2.i297:                                    ; preds = %do.body.i295
-  %94 = load ptr, ptr @stderr, align 8
-  %call.i298 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.46) #23
-  %.b.pr.i299 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i299, label %if.end383, label %if.then4.i300
+405:                                              ; preds = %401
+  %406 = tail call i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %.0325625, ptr noundef %.038212902512) #21
+  %.not449 = icmp eq i32 %406, 1
+  br i1 %.not449, label %err_sys_ex.exit523, label %407
 
-if.then4.i300:                                    ; preds = %do.body2.i297
-  %95 = load ptr, ptr @stderr, align 8
-  %96 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %95) #23
-  br label %if.end383
+407:                                              ; preds = %405
+  %408 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %409 = icmp eq i32 %408, 1
+  br i1 %409, label %410, label %417
 
-if.else.i294:                                     ; preds = %if.then382
+410:                                              ; preds = %407
+  %.b2.i521 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i521, label %err_sys_ex.exit523, label %411
+
+411:                                              ; preds = %410
+  %412 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %413 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.46) #22
+  %.b.pr.i522 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i522, label %err_sys_ex.exit523, label %414
+
+414:                                              ; preds = %411
+  %415 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %416 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %415) #23
+  br label %err_sys_ex.exit523
+
+417:                                              ; preds = %407
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.46) #24
   unreachable
 
-if.end383:                                        ; preds = %if.then4.i300, %do.body2.i297, %do.body.i295, %if.end377
-  %call384 = tail call i32 @wolfSSL_CTX_SetMinRsaKey_Sz(ptr noundef %ctx.0512, i16 noundef signext 1024) #25
-  %cmp385.not = icmp eq i32 %call384, 1
-  br i1 %cmp385.not, label %if.end388, label %if.then387
+err_sys_ex.exit523:                               ; preds = %414, %411, %410, %405, %401
+  %418 = trunc i32 %.041114702458 to i16
+  %419 = tail call i32 @wolfSSL_CTX_SetMinDhKey_Sz(ptr noundef %.0325625, i16 noundef zeroext %418) #21
+  %.not450 = icmp eq i32 %419, 1
+  br i1 %.not450, label %err_sys_ex.exit526, label %420
 
-if.then387:                                       ; preds = %if.end383
-  %97 = load i32, ptr @runWithErrors, align 4
-  %cmp.i302 = icmp eq i32 %97, 1
-  br i1 %cmp.i302, label %do.body.i304, label %if.else.i303
+420:                                              ; preds = %err_sys_ex.exit523
+  %421 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %422 = icmp eq i32 %421, 1
+  br i1 %422, label %423, label %430
 
-do.body.i304:                                     ; preds = %if.then387
-  %.b2.i305 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i305, label %if.end388, label %do.body2.i306
+423:                                              ; preds = %420
+  %.b2.i524 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i524, label %err_sys_ex.exit526, label %424
 
-do.body2.i306:                                    ; preds = %do.body.i304
-  %98 = load ptr, ptr @stderr, align 8
-  %call.i307 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.47) #23
-  %.b.pr.i308 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i308, label %if.end388, label %if.then4.i309
+424:                                              ; preds = %423
+  %425 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %426 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %425, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.47) #22
+  %.b.pr.i525 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i525, label %err_sys_ex.exit526, label %427
 
-if.then4.i309:                                    ; preds = %do.body2.i306
-  %99 = load ptr, ptr @stderr, align 8
-  %100 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %99) #23
-  br label %if.end388
+427:                                              ; preds = %424
+  %428 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %429 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %428) #23
+  br label %err_sys_ex.exit526
 
-if.else.i303:                                     ; preds = %if.then387
+430:                                              ; preds = %420
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.47) #24
   unreachable
 
-if.end388:                                        ; preds = %if.then4.i309, %do.body2.i306, %do.body.i304, %if.end383
-  %call389 = tail call i32 @wolfSSL_CTX_SetMinEccKey_Sz(ptr noundef %ctx.0512, i16 noundef signext 224) #25
-  %cmp390.not = icmp eq i32 %call389, 1
-  br i1 %cmp390.not, label %if.end393, label %if.then392
+err_sys_ex.exit526:                               ; preds = %427, %424, %423, %err_sys_ex.exit523
+  %431 = tail call i32 @wolfSSL_CTX_SetMinRsaKey_Sz(ptr noundef %.0325625, i16 noundef signext 1024) #21
+  %.not451 = icmp eq i32 %431, 1
+  br i1 %.not451, label %err_sys_ex.exit529, label %432
 
-if.then392:                                       ; preds = %if.end388
-  %101 = load i32, ptr @runWithErrors, align 4
-  %cmp.i311 = icmp eq i32 %101, 1
-  br i1 %cmp.i311, label %do.body.i313, label %if.else.i312
+432:                                              ; preds = %err_sys_ex.exit526
+  %433 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %434 = icmp eq i32 %433, 1
+  br i1 %434, label %435, label %442
 
-do.body.i313:                                     ; preds = %if.then392
-  %.b2.i314 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i314, label %if.end393, label %do.body2.i315
+435:                                              ; preds = %432
+  %.b2.i527 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i527, label %err_sys_ex.exit529, label %436
 
-do.body2.i315:                                    ; preds = %do.body.i313
-  %102 = load ptr, ptr @stderr, align 8
-  %call.i316 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.48) #23
-  %.b.pr.i317 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i317, label %if.end393, label %if.then4.i318
+436:                                              ; preds = %435
+  %437 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %438 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %437, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.48) #22
+  %.b.pr.i528 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i528, label %err_sys_ex.exit529, label %439
 
-if.then4.i318:                                    ; preds = %do.body2.i315
-  %103 = load ptr, ptr @stderr, align 8
-  %104 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %103) #23
-  br label %if.end393
+439:                                              ; preds = %436
+  %440 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %441 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %440) #23
+  br label %err_sys_ex.exit529
 
-if.else.i312:                                     ; preds = %if.then392
+442:                                              ; preds = %432
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.48) #24
   unreachable
 
-if.end393:                                        ; preds = %if.then4.i318, %do.body2.i315, %do.body.i313, %if.end388
-  br i1 %or.cond11.not, label %if.then402, label %if.end408
+err_sys_ex.exit529:                               ; preds = %439, %436, %435, %err_sys_ex.exit526
+  %443 = tail call i32 @wolfSSL_CTX_SetMinEccKey_Sz(ptr noundef %.0325625, i16 noundef signext 224) #21
+  %.not452 = icmp eq i32 %443, 1
+  br i1 %.not452, label %err_sys_ex.exit532, label %444
 
-if.then402:                                       ; preds = %if.end393
-  %call403 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %ctx.0512, ptr noundef %ourKey.011532394, i32 noundef 1) #25
-  %cmp404.not = icmp eq i32 %call403, 1
-  br i1 %cmp404.not, label %if.end408, label %if.then406
+444:                                              ; preds = %err_sys_ex.exit529
+  %445 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %446 = icmp eq i32 %445, 1
+  br i1 %446, label %447, label %454
 
-if.then406:                                       ; preds = %if.then402
-  %105 = load i32, ptr @catastrophic, align 4
-  %cmp.i320 = icmp eq i32 %105, 1
-  br i1 %cmp.i320, label %do.body.i322, label %if.else.i321
+447:                                              ; preds = %444
+  %.b2.i530 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i530, label %err_sys_ex.exit532, label %448
 
-do.body.i322:                                     ; preds = %if.then406
-  %.b2.i323 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i323, label %if.end408, label %do.body2.i324
+448:                                              ; preds = %447
+  %449 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %450 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %449, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.49) #22
+  %.b.pr.i531 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i531, label %err_sys_ex.exit532, label %451
 
-do.body2.i324:                                    ; preds = %do.body.i322
-  %106 = load ptr, ptr @stderr, align 8
-  %call.i325 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.49) #23
-  %.b.pr.i326 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i326, label %if.end408, label %if.then4.i327
+451:                                              ; preds = %448
+  %452 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %453 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %452) #23
+  br label %err_sys_ex.exit532
 
-if.then4.i327:                                    ; preds = %do.body2.i324
-  %107 = load ptr, ptr @stderr, align 8
-  %108 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %107) #23
-  br label %if.end408
-
-if.else.i321:                                     ; preds = %if.then406
+454:                                              ; preds = %444
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.49) #24
   unreachable
 
-if.end408:                                        ; preds = %if.then4.i327, %do.body2.i324, %do.body.i322, %if.then402, %if.end393
-  %tobool414.not = icmp eq i32 %mutualAuth.010132436, 0
-  br i1 %tobool414.not, label %if.end417, label %if.then415
+err_sys_ex.exit532:                               ; preds = %451, %448, %447, %err_sys_ex.exit529
+  br i1 %or.cond23.not, label %455, label %err_sys_ex.exit535
 
-if.then415:                                       ; preds = %if.end408
-  %call416 = tail call i32 @wolfSSL_CTX_mutual_auth(ptr noundef %ctx.0512, i32 noundef 1) #25
-  br label %if.end417
+455:                                              ; preds = %err_sys_ex.exit532
+  %456 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %.0325625, ptr noundef %.038012702518, i32 noundef 1) #21
+  %.not453 = icmp eq i32 %456, 1
+  br i1 %.not453, label %err_sys_ex.exit535, label %457
 
-if.end417:                                        ; preds = %if.then415, %if.end408
-  %call418 = tail call i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef %ctx.0512, i16 noundef zeroext 0) #25
-  %cmp419.not = icmp eq i32 %call418, 1
-  br i1 %cmp419.not, label %if.end422, label %if.then421
+457:                                              ; preds = %455
+  %458 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %459 = icmp eq i32 %458, 1
+  br i1 %459, label %460, label %467
 
-if.then421:                                       ; preds = %if.end417
-  %109 = load i32, ptr @runWithErrors, align 4
-  %cmp.i329 = icmp eq i32 %109, 1
-  br i1 %cmp.i329, label %do.body.i331, label %if.else.i330
+460:                                              ; preds = %457
+  %.b2.i533 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i533, label %err_sys_ex.exit535, label %461
 
-do.body.i331:                                     ; preds = %if.then421
-  %.b2.i332 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i332, label %if.end422, label %do.body2.i333
+461:                                              ; preds = %460
+  %462 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %463 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %462, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.50) #22
+  %.b.pr.i534 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i534, label %err_sys_ex.exit535, label %464
 
-do.body2.i333:                                    ; preds = %do.body.i331
-  %110 = load ptr, ptr @stderr, align 8
-  %call.i334 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.50) #23
-  %.b.pr.i335 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i335, label %if.end422, label %if.then4.i336
+464:                                              ; preds = %461
+  %465 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %466 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %465) #23
+  br label %err_sys_ex.exit535
 
-if.then4.i336:                                    ; preds = %do.body2.i333
-  %111 = load ptr, ptr @stderr, align 8
-  %112 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %111) #23
-  br label %if.end422
-
-if.else.i330:                                     ; preds = %if.then421
+467:                                              ; preds = %457
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.50) #24
   unreachable
 
-if.end422:                                        ; preds = %if.then4.i336, %do.body2.i333, %do.body.i331, %if.end417
-  %tobool426.not = icmp ne i32 %doCliCertCheck.07132521, 0
-  %brmerge.not = and i1 %or.cond9, %tobool426.not
-  br i1 %brmerge.not, label %if.then435, label %if.end447
+err_sys_ex.exit535:                               ; preds = %464, %461, %460, %455, %err_sys_ex.exit532
+  %.not454 = icmp eq i32 %.036511302560, 0
+  br i1 %.not454, label %470, label %468
 
-if.then435:                                       ; preds = %if.end422
-  %or = select i1 %tobool365, i32 17, i32 3
-  %113 = load i32, ptr %2, align 4
-  %114 = and i32 %113, -3
-  %115 = icmp eq i32 %114, 1
-  %cond441 = select i1 %115, ptr @myVerify, ptr null
-  tail call void @wolfSSL_CTX_set_verify(ptr noundef %ctx.0512, i32 noundef %or, ptr noundef %cond441) #25
-  %call442 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %ctx.0512, ptr noundef %verifyCert.011932382, ptr noundef null, i32 noundef 0) #25
-  %cmp443.not = icmp eq i32 %call442, 1
-  br i1 %cmp443.not, label %if.end447, label %if.then445
+468:                                              ; preds = %err_sys_ex.exit535
+  %469 = tail call i32 @wolfSSL_CTX_mutual_auth(ptr noundef %.0325625, i32 noundef 1) #21
+  br label %470
 
-if.then445:                                       ; preds = %if.then435
-  %116 = load i32, ptr @catastrophic, align 4
-  %cmp.i338 = icmp eq i32 %116, 1
-  br i1 %cmp.i338, label %do.body.i340, label %if.else.i339
+470:                                              ; preds = %468, %err_sys_ex.exit535
+  %471 = tail call i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef %.0325625, i16 noundef zeroext 0) #21
+  %.not455 = icmp eq i32 %471, 1
+  br i1 %.not455, label %err_sys_ex.exit538, label %472
 
-do.body.i340:                                     ; preds = %if.then445
-  %.b2.i341 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i341, label %if.end447, label %do.body2.i342
+472:                                              ; preds = %470
+  %473 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %474 = icmp eq i32 %473, 1
+  br i1 %474, label %475, label %482
 
-do.body2.i342:                                    ; preds = %do.body.i340
-  %117 = load ptr, ptr @stderr, align 8
-  %call.i343 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.51) #23
-  %.b.pr.i344 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i344, label %if.end447, label %if.then4.i345
+475:                                              ; preds = %472
+  %.b2.i536 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i536, label %err_sys_ex.exit538, label %476
 
-if.then4.i345:                                    ; preds = %do.body2.i342
-  %118 = load ptr, ptr @stderr, align 8
-  %119 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %118) #23
-  br label %if.end447
+476:                                              ; preds = %475
+  %477 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %478 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %477, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.51) #22
+  %.b.pr.i537 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i537, label %err_sys_ex.exit538, label %479
 
-if.else.i339:                                     ; preds = %if.then445
+479:                                              ; preds = %476
+  %480 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %481 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %480) #23
+  br label %err_sys_ex.exit538
+
+482:                                              ; preds = %472
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.51) #24
   unreachable
 
-if.end447:                                        ; preds = %if.then4.i345, %do.body2.i342, %do.body.i340, %if.end422, %if.then435
-  %tobool448.not = icmp eq ptr %sniHostName.010932412, null
-  br i1 %tobool448.not, label %if.end457, label %if.then449
+err_sys_ex.exit538:                               ; preds = %479, %476, %475, %470
+  %.not456 = icmp ne i32 %.03318302645, 0
+  %brmerge.not = and i1 %or.cond19, %.not456
+  br i1 %brmerge.not, label %483, label %err_sys_ex.exit541
 
-if.then449:                                       ; preds = %if.end447
-  %call450 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sniHostName.010932412) #26
-  %conv451 = trunc i64 %call450 to i16
-  %call452 = tail call i32 @wolfSSL_CTX_UseSNI(ptr noundef %ctx.0512, i8 noundef zeroext 0, ptr noundef nonnull %sniHostName.010932412, i16 noundef zeroext %conv451) #25
-  %cmp453.not = icmp eq i32 %call452, 1
-  br i1 %cmp453.not, label %if.end457, label %if.then455
+483:                                              ; preds = %err_sys_ex.exit538
+  %484 = select i1 %403, i32 17, i32 3
+  %485 = load i32, ptr %33, align 4, !tbaa !4
+  %486 = and i32 %485, -3
+  %487 = icmp eq i32 %486, 1
+  %488 = select i1 %487, ptr @myVerify, ptr null
+  tail call void @wolfSSL_CTX_set_verify(ptr noundef %.0325625, i32 noundef %484, ptr noundef %488) #21
+  %489 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %.0325625, ptr noundef %.038413102506, ptr noundef null, i32 noundef 0) #21
+  %.not457 = icmp eq i32 %489, 1
+  br i1 %.not457, label %err_sys_ex.exit541, label %490
 
-if.then455:                                       ; preds = %if.then449
-  %120 = load i32, ptr @runWithErrors, align 4
-  %cmp.i347 = icmp eq i32 %120, 1
-  br i1 %cmp.i347, label %do.body.i349, label %if.else.i348
+490:                                              ; preds = %483
+  %491 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %492 = icmp eq i32 %491, 1
+  br i1 %492, label %493, label %500
 
-do.body.i349:                                     ; preds = %if.then455
-  %.b2.i350 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i350, label %if.end457, label %do.body2.i351
+493:                                              ; preds = %490
+  %.b2.i539 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i539, label %err_sys_ex.exit541, label %494
 
-do.body2.i351:                                    ; preds = %do.body.i349
-  %121 = load ptr, ptr @stderr, align 8
-  %call.i352 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.52) #23
-  %.b.pr.i353 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i353, label %if.end457, label %if.then4.i354
+494:                                              ; preds = %493
+  %495 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %496 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %495, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.52) #22
+  %.b.pr.i540 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i540, label %err_sys_ex.exit541, label %497
 
-if.then4.i354:                                    ; preds = %do.body2.i351
-  %122 = load ptr, ptr @stderr, align 8
-  %123 = tail call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %122) #23
-  br label %if.end457
+497:                                              ; preds = %494
+  %498 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %499 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %498) #23
+  br label %err_sys_ex.exit541
 
-if.else.i348:                                     ; preds = %if.then455
+500:                                              ; preds = %490
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.52) #24
   unreachable
 
-if.end457:                                        ; preds = %if.then4.i354, %do.body2.i351, %do.body.i349, %if.then449, %if.end447
-  %tobool458.not = icmp eq i32 %noPskDheKe.010732418, 0
-  br i1 %tobool458.not, label %if.end461, label %if.then459
+err_sys_ex.exit541:                               ; preds = %497, %494, %493, %483, %err_sys_ex.exit538
+  %.not458 = icmp eq ptr %.037312102536, null
+  br i1 %.not458, label %err_sys_ex.exit544, label %501
 
-if.then459:                                       ; preds = %if.end457
-  %call460 = tail call i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef %ctx.0512) #25
-  br label %if.end461
+501:                                              ; preds = %err_sys_ex.exit541
+  %502 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037312102536) #25
+  %503 = trunc i64 %502 to i16
+  %504 = tail call i32 @wolfSSL_CTX_UseSNI(ptr noundef %.0325625, i8 noundef zeroext 0, ptr noundef nonnull %.037312102536, i16 noundef zeroext %503) #21
+  %.not459 = icmp eq i32 %504, 1
+  br i1 %.not459, label %err_sys_ex.exit544, label %505
 
-if.end461:                                        ; preds = %if.then459, %if.end457
-  %tobool462.not = icmp eq i32 %onlyPskDheKe.010532424, 0
-  br i1 %tobool462.not, label %if.end465, label %if.then463
+505:                                              ; preds = %501
+  %506 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %507 = icmp eq i32 %506, 1
+  br i1 %507, label %508, label %515
 
-if.then463:                                       ; preds = %if.end461
-  %call464 = tail call i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef %ctx.0512) #25
-  br label %if.end465
+508:                                              ; preds = %505
+  %.b2.i542 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i542, label %err_sys_ex.exit544, label %509
 
-if.end465:                                        ; preds = %if.then463, %if.end461
-  %tobool501 = icmp ne i32 %loadCertKeyIntoSSLObj.07732503, 0
-  %or.cond21 = select i1 %or.cond9, i1 %tobool501, i1 false
-  %tobool555.not = icmp eq i32 %disallowETM.07532509, 0
-  %signal = getelementptr inbounds nuw i8, ptr %args, i64 24
-  %tobool562.not.not = icmp eq ptr %serverReadyFile.012732358, null
-  %tobool.not.i384 = icmp eq i32 %dtlsUDP.08732478, 0
-  %tobool.not.i.i = icmp eq i32 %useAnyAddr.07332515, 0
-  %cond.i.i = select i1 %tobool.not.i.i, ptr @.str.178, ptr null
-  %sin_port.i.i = getelementptr inbounds nuw i8, ptr %addr.i.i, i64 2
-  %sin_port.i41.i = getelementptr inbounds nuw i8, ptr %addr.i26.i, i64 2
-  %cmp583 = icmp ne ptr %cipherList.012332370, null
-  %or.cond28 = select i1 %or.cond9, i1 true, i1 %cmp583
-  %tobool590.not = icmp eq i32 %doDhKeyCheck.09332460, 0
-  %tobool595.not = icmp eq i32 %nonBlocking.08932472, 0
-  %tv_usec.i.i20.i = getelementptr inbounds nuw i8, ptr %timeout.i.i19.i, i64 8
-  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %timeout.i.i.i, i64 8
-  %tobool624.not = icmp eq i32 %exitWithRet.07932497, 0
-  %cmp689 = icmp eq i32 %echoData.012932352, 0
-  %cmp692 = icmp eq i64 %throughput.013332340, 0
-  %or.cond31 = select i1 %cmp689, i1 %cmp692, i1 false
-  %tobool707.not = icmp eq i32 %updateKeysIVs.010332430, 0
-  %tobool711.not = icmp eq i32 %useWebServerMsg.06732528, 0
-  %tobool746 = icmp ne i32 %wc_shutdown.09932442, 0
-  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %timeout.i.i, i64 8
-  %cmp789 = icmp eq i32 %resume.011132406, 1
-  br label %while.body467.outer.outer
+509:                                              ; preds = %508
+  %510 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %511 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %510, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.53) #22
+  %.b.pr.i543 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i543, label %err_sys_ex.exit544, label %512
 
-while.body467.outer.outer:                        ; preds = %if.then800, %if.end465
-  %sockfd.0.ph.ph = phi i32 [ %sockfd.2, %if.then800 ], [ -1, %if.end465 ]
-  %port.2.ph.ph = phi i16 [ %port.3, %if.then800 ], [ %port.013732328, %if.end465 ]
-  %tobool1.not.i.ph.ph = phi i1 [ true, %if.then800 ], [ false, %if.end465 ]
-  %err.0.ph.ph = phi i32 [ %err.5, %if.then800 ], [ 0, %if.end465 ]
-  %loops.2.ph.ph = phi i32 [ %dec, %if.then800 ], [ %loops.012532364, %if.end465 ]
-  %cmp798 = icmp sgt i32 %loops.2.ph.ph, 0
-  br label %while.body467.outer
+512:                                              ; preds = %509
+  %513 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %514 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %513) #23
+  br label %err_sys_ex.exit544
 
-while.body467.outer:                              ; preds = %while.body467.outer.outer, %if.end796
-  %sockfd.0.ph = phi i32 [ %sockfd.2, %if.end796 ], [ %sockfd.0.ph.ph, %while.body467.outer.outer ]
-  %port.2.ph = phi i16 [ %port.3, %if.end796 ], [ %port.2.ph.ph, %while.body467.outer.outer ]
-  %tobool1.not.i.ph = phi i1 [ true, %if.end796 ], [ %tobool1.not.i.ph.ph, %while.body467.outer.outer ]
-  %err.0.ph = phi i32 [ %err.5, %if.end796 ], [ %err.0.ph.ph, %while.body467.outer.outer ]
-  br label %while.body467
-
-while.body467:                                    ; preds = %while.body467.outer, %if.end787
-  %sockfd.0 = phi i32 [ %sockfd.2, %if.end787 ], [ %sockfd.0.ph, %while.body467.outer ]
-  %port.2 = phi i16 [ %port.3, %if.end787 ], [ %port.2.ph, %while.body467.outer ]
-  %tobool1.not.i = phi i1 [ true, %if.end787 ], [ %tobool1.not.i.ph, %while.body467.outer ]
-  %err.0 = phi i32 [ %err.5, %if.end787 ], [ %err.0.ph, %while.body467.outer ]
-  %cmp792 = phi i1 [ false, %if.end787 ], [ true, %while.body467.outer ]
-  %call490 = call ptr @wolfSSL_new(ptr noundef %ctx.0512) #25
-  %cmp491 = icmp eq ptr %call490, null
-  br i1 %cmp491, label %if.then493, label %if.end494
-
-if.then493:                                       ; preds = %while.body467
-  %124 = load i32, ptr @catastrophic, align 4
-  %cmp.i356 = icmp eq i32 %124, 1
-  br i1 %cmp.i356, label %do.body.i358, label %if.else.i357
-
-do.body.i358:                                     ; preds = %if.then493
-  %.b2.i359 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i359, label %if.end494, label %do.body2.i360
-
-do.body2.i360:                                    ; preds = %do.body.i358
-  %125 = load ptr, ptr @stderr, align 8
-  %call.i361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.54) #23
-  %.b.pr.i362 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i362, label %if.end494, label %if.then4.i363
-
-if.then4.i363:                                    ; preds = %do.body2.i360
-  %126 = load ptr, ptr @stderr, align 8
-  %127 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %126) #23
-  br label %if.end494
-
-if.else.i357:                                     ; preds = %if.then493
-  call fastcc void @err_sys(ptr noundef nonnull @.str.54) #24
+515:                                              ; preds = %505
+  tail call fastcc void @err_sys(ptr noundef nonnull @.str.53) #24
   unreachable
 
-if.end494:                                        ; preds = %if.then4.i363, %do.body2.i360, %do.body.i358, %while.body467
-  br i1 %or.cond21, label %if.then502, label %if.end522
+err_sys_ex.exit544:                               ; preds = %512, %509, %508, %501, %err_sys_ex.exit541
+  %.not460 = icmp eq i32 %.037111902542, 0
+  br i1 %.not460, label %518, label %516
 
-if.then502:                                       ; preds = %if.end494
-  %call503 = call i32 @wolfSSL_use_certificate_chain_file(ptr noundef %call490, ptr noundef %ourCert.011732388) #25
-  %cmp504.not = icmp eq i32 %call503, 1
-  br i1 %cmp504.not, label %if.then516, label %if.then506
+516:                                              ; preds = %err_sys_ex.exit544
+  %517 = tail call i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef %.0325625) #21
+  br label %518
 
-if.then506:                                       ; preds = %if.then502
-  %128 = load i32, ptr @catastrophic, align 4
-  %cmp.i365 = icmp eq i32 %128, 1
-  br i1 %cmp.i365, label %do.body.i367, label %if.else.i366
+518:                                              ; preds = %516, %err_sys_ex.exit544
+  %.not461 = icmp eq i32 %.036911702548, 0
+  br i1 %.not461, label %521, label %519
 
-do.body.i367:                                     ; preds = %if.then506
-  %.b2.i368 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i368, label %if.then516, label %do.body2.i369
+519:                                              ; preds = %518
+  %520 = tail call i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef %.0325625) #21
+  br label %521
 
-do.body2.i369:                                    ; preds = %do.body.i367
-  %129 = load ptr, ptr @stderr, align 8
-  %call.i370 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.45) #23
-  %.b.pr.i371 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i371, label %if.then516, label %if.then4.i372
+521:                                              ; preds = %519, %518
+  %522 = icmp ne i32 %.03418902627, 0
+  %or.cond43 = select i1 %or.cond19, i1 %522, i1 false
+  %.not465 = icmp eq i32 %.03398702633, 0
+  %523 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.not467.not = icmp eq ptr %.039413902482, null
+  %.not.i554 = icmp eq i32 %.03519902602, 0
+  %.not.not.i.i = icmp eq i32 %.03348502639, 0
+  %524 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %525 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %526 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %527 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %528 = icmp ne ptr %.038813502494, null
+  %or.cond57 = select i1 %or.cond19, i1 true, i1 %528
+  %.not469 = icmp eq i32 %.035710502584, 0
+  %.not470 = icmp eq i32 %.035310102596, 0
+  %529 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %530 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.not473 = icmp eq i32 %.03439102621, 0
+  %531 = icmp eq i32 %.040314102476, 0
+  %532 = icmp eq i64 %.040914502464, 0
+  %or.cond63 = select i1 %531, i1 %532, i1 false
+  %.not484 = icmp eq i32 %.036711502554, 0
+  %.not485 = icmp eq i32 %.03277902652, 0
+  %533 = icmp ne i32 %.036311102566, 0
+  %534 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %535 = icmp eq i32 %.037512302530, 1
+  br label %.outer.outer
 
-if.then4.i372:                                    ; preds = %do.body2.i369
-  %130 = load ptr, ptr @stderr, align 8
-  %131 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %130) #23
-  br label %if.then516
+.outer.outer:                                     ; preds = %1027, %521
+  %.0604.ph.ph = phi i32 [ %.2606, %1027 ], [ -1, %521 ]
+  %.2437.ph.ph = phi i16 [ %.3438, %1027 ], [ %.014902452, %521 ]
+  %.not47.i.ph.ph = phi i1 [ true, %1027 ], [ false, %521 ]
+  %.0396.ph.ph = phi i32 [ %.5, %1027 ], [ 0, %521 ]
+  %.2392.ph.ph = phi i32 [ %1028, %1027 ], [ %.039013702488, %521 ]
+  %536 = icmp sgt i32 %.2392.ph.ph, 0
+  br label %.outer
 
-if.else.i366:                                     ; preds = %if.then506
-  call fastcc void @err_sys(ptr noundef nonnull @.str.45) #24
-  unreachable
+.outer:                                           ; preds = %.outer.outer, %1026
+  %.0604.ph = phi i32 [ %.2606, %1026 ], [ %.0604.ph.ph, %.outer.outer ]
+  %.2437.ph = phi i16 [ %.3438, %1026 ], [ %.2437.ph.ph, %.outer.outer ]
+  %.not47.i.ph = phi i1 [ true, %1026 ], [ %.not47.i.ph.ph, %.outer.outer ]
+  %.0396.ph = phi i32 [ %.5, %1026 ], [ %.0396.ph.ph, %.outer.outer ]
+  br label %537
 
-if.then516:                                       ; preds = %if.then502, %do.body.i367, %do.body2.i369, %if.then4.i372
-  %call517 = call i32 @wolfSSL_use_PrivateKey_file(ptr noundef %call490, ptr noundef %ourKey.011532394, i32 noundef 1) #25
-  %cmp518.not = icmp eq i32 %call517, 1
-  br i1 %cmp518.not, label %if.end522, label %if.then520
+537:                                              ; preds = %.outer, %.thread2889
+  %.0604 = phi i32 [ %.2606, %.thread2889 ], [ %.0604.ph, %.outer ]
+  %.2437 = phi i16 [ %.3438, %.thread2889 ], [ %.2437.ph, %.outer ]
+  %.not47.i = phi i1 [ true, %.thread2889 ], [ %.not47.i.ph, %.outer ]
+  %.0396 = phi i32 [ %.5, %.thread2889 ], [ %.0396.ph, %.outer ]
+  %538 = phi i1 [ false, %.thread2889 ], [ true, %.outer ]
+  %539 = call ptr @wolfSSL_new(ptr noundef %.0325625) #21
+  %540 = icmp eq ptr %539, null
+  br i1 %540, label %541, label %err_sys_ex.exit547
 
-if.then520:                                       ; preds = %if.then516
-  %132 = load i32, ptr @catastrophic, align 4
-  %cmp.i374 = icmp eq i32 %132, 1
-  br i1 %cmp.i374, label %do.body.i376, label %if.else.i375
+541:                                              ; preds = %537
+  %542 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %543 = icmp eq i32 %542, 1
+  br i1 %543, label %544, label %551
 
-do.body.i376:                                     ; preds = %if.then520
-  %.b2.i377 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i377, label %if.end522, label %do.body2.i378
+544:                                              ; preds = %541
+  %.b2.i545 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i545, label %err_sys_ex.exit547, label %545
 
-do.body2.i378:                                    ; preds = %do.body.i376
-  %133 = load ptr, ptr @stderr, align 8
-  %call.i379 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.55) #23
-  %.b.pr.i380 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i380, label %if.end522, label %if.then4.i381
+545:                                              ; preds = %544
+  %546 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %547 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %546, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.55) #22
+  %.b.pr.i546 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i546, label %err_sys_ex.exit547, label %548
 
-if.then4.i381:                                    ; preds = %do.body2.i378
-  %134 = load ptr, ptr @stderr, align 8
-  %135 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %134) #23
-  br label %if.end522
+548:                                              ; preds = %545
+  %549 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %550 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %549) #23
+  br label %err_sys_ex.exit547
 
-if.else.i375:                                     ; preds = %if.then520
+551:                                              ; preds = %541
   call fastcc void @err_sys(ptr noundef nonnull @.str.55) #24
   unreachable
 
-if.end522:                                        ; preds = %if.then4.i381, %do.body2.i378, %do.body.i376, %if.end494, %if.then516
-  %call526 = call i32 @wolfSSL_SetHsDoneCb(ptr noundef %call490, ptr noundef nonnull @myHsDoneCb, ptr noundef null) #25
-  br i1 %cmp301506532, label %if.then532, label %if.end554
+err_sys_ex.exit547:                               ; preds = %548, %545, %544, %537
+  br i1 %or.cond43, label %552, label %.critedge500
 
-if.then532:                                       ; preds = %if.end522
-  %136 = load i32, ptr %force_curve_group_id, align 4
-  %cmp533 = icmp sgt i32 %136, 0
-  br i1 %cmp533, label %do.body536, label %if.else552
+552:                                              ; preds = %err_sys_ex.exit547
+  %553 = call i32 @wolfSSL_use_certificate_chain_file(ptr noundef %539, ptr noundef %.038212902512) #21
+  %.not462 = icmp eq i32 %553, 1
+  br i1 %.not462, label %err_sys_ex.exit550, label %554
 
-do.body536:                                       ; preds = %if.then532
-  %conv537 = trunc i32 %136 to i16
-  %call538 = call i32 @wolfSSL_UseKeyShare(ptr noundef %call490, i16 noundef zeroext %conv537) #25
-  %cmp539 = icmp eq i32 %call538, 1
-  br i1 %cmp539, label %do.end546, label %if.else542
+554:                                              ; preds = %552
+  %555 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %556 = icmp eq i32 %555, 1
+  br i1 %556, label %557, label %564
 
-if.else542:                                       ; preds = %do.body536
+557:                                              ; preds = %554
+  %.b2.i548 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i548, label %err_sys_ex.exit550, label %558
+
+558:                                              ; preds = %557
+  %559 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %559, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.46) #22
+  %.b.pr.i549 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i549, label %err_sys_ex.exit550, label %561
+
+561:                                              ; preds = %558
+  %562 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %563 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %562) #23
+  br label %err_sys_ex.exit550
+
+564:                                              ; preds = %554
+  call fastcc void @err_sys(ptr noundef nonnull @.str.46) #24
+  unreachable
+
+err_sys_ex.exit550:                               ; preds = %552, %557, %558, %561
+  %565 = call i32 @wolfSSL_use_PrivateKey_file(ptr noundef %539, ptr noundef %.038012702518, i32 noundef 1) #21
+  %.not463 = icmp eq i32 %565, 1
+  br i1 %.not463, label %.critedge500, label %566
+
+566:                                              ; preds = %err_sys_ex.exit550
+  %567 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %568 = icmp eq i32 %567, 1
+  br i1 %568, label %569, label %576
+
+569:                                              ; preds = %566
+  %.b2.i551 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i551, label %.critedge500, label %570
+
+570:                                              ; preds = %569
+  %571 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %572 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %571, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.56) #22
+  %.b.pr.i552 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i552, label %.critedge500, label %573
+
+573:                                              ; preds = %570
+  %574 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %575 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %574) #23
+  br label %.critedge500
+
+576:                                              ; preds = %566
   call fastcc void @err_sys(ptr noundef nonnull @.str.56) #24
   unreachable
 
-do.end546:                                        ; preds = %do.body536
-  %call547 = call i32 @wolfSSL_set_groups(ptr noundef %call490, ptr noundef nonnull %force_curve_group_id, i32 noundef 1) #25
-  %cmp548.not = icmp eq i32 %call547, 1
-  br i1 %cmp548.not, label %if.end554, label %if.then550
+.critedge500:                                     ; preds = %573, %570, %569, %err_sys_ex.exit547, %err_sys_ex.exit550
+  %577 = call i32 @wolfSSL_SetHsDoneCb(ptr noundef %539, ptr noundef nonnull @myHsDoneCb, ptr noundef null) #21
+  br i1 %368, label %578, label %600
 
-if.then550:                                       ; preds = %do.end546
+578:                                              ; preds = %.critedge500
+  %579 = load i32, ptr %25, align 4, !tbaa !4
+  %580 = icmp sgt i32 %579, 0
+  br i1 %580, label %581, label %589
+
+581:                                              ; preds = %578
+  %582 = trunc i32 %579 to i16
+  %583 = call i32 @wolfSSL_UseKeyShare(ptr noundef %539, i16 noundef zeroext %582) #21
+  %584 = icmp eq i32 %583, 1
+  br i1 %584, label %586, label %585
+
+585:                                              ; preds = %581
   call fastcc void @err_sys(ptr noundef nonnull @.str.57) #24
   unreachable
 
-if.else552:                                       ; preds = %if.then532
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %groups.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %groups.i, i8 0, i64 16, i1 false)
-  switch i32 %onlyKeyShare.09132466, label %SetKeyShare.exit [
-    i32 2, label %do.body8.i
-    i32 1, label %do.body20.i
-  ]
-
-do.body8.i:                                       ; preds = %if.else552
-  %call.i383 = call i32 @wolfSSL_UseKeyShare(ptr noundef %call490, i16 noundef zeroext 23) #25
-  %cmp9.i = icmp eq i32 %call.i383, 1
-  br i1 %cmp9.i, label %if.then37.i, label %if.else11.i
-
-if.else11.i:                                      ; preds = %do.body8.i
-  call fastcc void @err_sys(ptr noundef nonnull @.str.187) #24
-  unreachable
-
-do.body20.i:                                      ; preds = %if.else552
-  %call21.i = call i32 @wolfSSL_UseKeyShare(ptr noundef %call490, i16 noundef zeroext 256) #25
-  %cmp22.i = icmp eq i32 %call21.i, 1
-  br i1 %cmp22.i, label %if.then37.i, label %if.else27.i
-
-if.else27.i:                                      ; preds = %do.body20.i
-  call fastcc void @err_sys(ptr noundef nonnull @.str.188) #24
-  unreachable
-
-if.then37.i:                                      ; preds = %do.body20.i, %do.body8.i
-  %storemerge.i = phi i32 [ 23, %do.body8.i ], [ 256, %do.body20.i ]
-  store i32 %storemerge.i, ptr %groups.i, align 16
-  %call38.i = call i32 @wolfSSL_set_groups(ptr noundef %call490, ptr noundef nonnull %groups.i, i32 noundef 1) #25
-  %cmp39.not.i = icmp eq i32 %call38.i, 1
-  br i1 %cmp39.not.i, label %SetKeyShare.exit, label %if.then40.i
-
-if.then40.i:                                      ; preds = %if.then37.i
-  call fastcc void @err_sys(ptr noundef nonnull @.str.190) #24
-  unreachable
-
-SetKeyShare.exit:                                 ; preds = %if.else552, %if.then37.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %groups.i)
-  br label %if.end554
-
-if.end554:                                        ; preds = %SetKeyShare.exit, %do.end546, %if.end522
-  br i1 %tobool555.not, label %if.end558, label %if.then556
-
-if.then556:                                       ; preds = %if.end554
-  %call557 = call i32 @wolfSSL_AllowEncryptThenMac(ptr noundef %call490, i32 noundef 0) #25
-  br label %if.end558
-
-if.end558:                                        ; preds = %if.then556, %if.end554
-  %137 = load ptr, ptr %signal, align 8
-  %tobool559.not = icmp eq ptr %137, null
-  br i1 %tobool559.not, label %if.end561, label %if.then560
-
-if.then560:                                       ; preds = %if.end558
-  %srfName = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store ptr %serverReadyFile.012732358, ptr %srfName, align 8
-  br label %if.end561
-
-if.end561:                                        ; preds = %if.then560, %if.end558
-  store i32 16, ptr %client_len, align 4
-  br i1 %tobool.not.i384, label %if.end.i386, label %if.then.i385
-
-if.then.i385:                                     ; preds = %if.end561
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len15.i.i)
-  call fastcc void @build_addr(ptr noundef %addr.i.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
-  %call.i.i.i = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #25
-  %cmp6.i.i.i = icmp slt i32 %call.i.i.i, -1
-  br i1 %cmp6.i.i.i, label %if.then2.i.i.i, label %tcp_socket.exit.i.i
-
-if.then2.i.i.i:                                   ; preds = %if.then.i385
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.185) #24
-  unreachable
-
-tcp_socket.exit.i.i:                              ; preds = %if.then.i385
-  %call47.i.i.i = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #25
-  store i32 1, ptr %on.i.i, align 4
-  %call.i.i = call i32 @setsockopt(i32 noundef %call.i.i.i, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %on.i.i, i32 noundef 4) #25
-  %cmp.i.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %tcp_socket.exit.i.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.179) #24
-  unreachable
-
-if.end.i.i:                                       ; preds = %tcp_socket.exit.i.i
-  store i32 1, ptr %on2.i.i, align 4
-  %call4.i.i = call i32 @setsockopt(i32 noundef %call.i.i.i, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %on2.i.i, i32 noundef 4) #25
-  %cmp5.i.i = icmp slt i32 %call4.i.i, 0
-  br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end7.i.i
-
-if.then6.i.i:                                     ; preds = %if.end.i.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.180) #24
-  unreachable
-
-if.end7.i.i:                                      ; preds = %if.end.i.i
-  %call8.i.i = call i32 @bind(i32 noundef %call.i.i.i, ptr noundef nonnull %addr.i.i, i32 noundef 16) #25
-  %cmp9.not.i.i = icmp eq i32 %call8.i.i, 0
-  br i1 %cmp9.not.i.i, label %if.end11.i.i, label %if.then10.i.i
-
-if.then10.i.i:                                    ; preds = %if.end7.i.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.181) #24
-  unreachable
-
-if.end11.i.i:                                     ; preds = %if.end7.i.i
-  %cmp12.i.i = icmp eq i16 %port.2, 0
-  br i1 %cmp12.i.i, label %if.then14.i.i, label %land.lhs.true.i.i
-
-if.then14.i.i:                                    ; preds = %if.end11.i.i
-  store i32 16, ptr %len15.i.i, align 4
-  %call16.i.i = call i32 @getsockname(i32 noundef %call.i.i.i, ptr noundef nonnull %addr.i.i, ptr noundef nonnull %len15.i.i) #25
-  %cmp17.i.i = icmp eq i32 %call16.i.i, 0
-  br i1 %cmp17.i.i, label %if.then19.i.i, label %land.lhs.true.i.i
-
-if.then19.i.i:                                    ; preds = %if.then14.i.i
-  %138 = load i16, ptr %sin_port.i.i, align 2
-  %call20.i.i = call zeroext i16 @ntohs(i16 noundef zeroext %138) #29
-  br label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %if.end11.i.i, %if.then14.i.i, %if.then19.i.i
-  %port.addr.0.i.i = phi i16 [ %call20.i.i, %if.then19.i.i ], [ 0, %if.then14.i.i ], [ %port.2, %if.end11.i.i ]
-  %139 = load ptr, ptr %signal, align 8
-  %cmp25.not.i.i = icmp eq ptr %139, null
-  br i1 %cmp25.not.i.i, label %if.else.i.i, label %if.then27.i.i
-
-if.then27.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cond29.i.i = getelementptr inbounds nuw i8, ptr %139, i64 56
-  %call30.i.i = call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond29.i.i) #25
-  %cmp31.not.i.i = icmp eq i32 %call30.i.i, 0
-  br i1 %cmp31.not.i.i, label %do.end.i.i, label %if.then33.i.i
-
-if.then33.i.i:                                    ; preds = %if.then27.i.i
-  %call34.i.i = tail call ptr @__errno_location() #29
-  store i32 %call30.i.i, ptr %call34.i.i, align 4
-  %140 = load ptr, ptr @stderr, align 8
-  %call35.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i32 noundef 1682, i32 noundef %call30.i.i, ptr noundef nonnull @.str.193) #23
-  call fastcc void @err_sys(ptr noundef nonnull @.str.194) #24
-  unreachable
-
-do.end.i.i:                                       ; preds = %if.then27.i.i
-  store i16 1, ptr %139, align 8
-  %port38.i.i = getelementptr inbounds nuw i8, ptr %139, i64 2
-  store i16 %port.addr.0.i.i, ptr %port38.i.i, align 2
-  %call42.i.i = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %cond29.i.i) #25
-  %cmp43.not.i.i = icmp eq i32 %call42.i.i, 0
-  br i1 %cmp43.not.i.i, label %do.body50.i.i, label %if.then45.i.i
-
-if.then45.i.i:                                    ; preds = %do.end.i.i
-  %call46.i.i = tail call ptr @__errno_location() #29
-  store i32 %call42.i.i, ptr %call46.i.i, align 4
-  %141 = load ptr, ptr @stderr, align 8
-  %call47.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i32 noundef 1688, i32 noundef %call42.i.i, ptr noundef nonnull @.str.195) #23
-  call fastcc void @err_sys(ptr noundef nonnull @.str.194) #24
-  unreachable
-
-do.body50.i.i:                                    ; preds = %do.end.i.i
-  %call53.i.i = call i32 @wolfSSL_CondEnd(ptr noundef nonnull %cond29.i.i) #25
-  %cmp54.not.i.i = icmp eq i32 %call53.i.i, 0
-  br i1 %cmp54.not.i.i, label %udp_accept.exit.i, label %if.then56.i.i
-
-if.then56.i.i:                                    ; preds = %do.body50.i.i
-  %call57.i.i = tail call ptr @__errno_location() #29
-  store i32 %call53.i.i, ptr %call57.i.i, align 4
-  %142 = load ptr, ptr @stderr, align 8
-  %call58.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i32 noundef 1689, i32 noundef %call53.i.i, ptr noundef nonnull @.str.196) #23
-  call fastcc void @err_sys(ptr noundef nonnull @.str.194) #24
-  unreachable
-
-if.else.i.i:                                      ; preds = %land.lhs.true.i.i
-  %143 = load ptr, ptr @stderr, align 8
-  %144 = call i64 @fwrite(ptr nonnull @.str.201, i64 54, i64 1, ptr %143) #23
-  br label %udp_accept.exit.i
-
-udp_accept.exit.i:                                ; preds = %if.else.i.i, %do.body50.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on2.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len15.i.i)
-  br label %tcp_accept.exit
-
-if.end.i386:                                      ; preds = %if.end561
-  br i1 %tobool1.not.i, label %if.end59.i, label %if.then2.i
-
-if.then2.i:                                       ; preds = %if.end.i386
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i26.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i27.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i28.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len22.i.i)
-  call fastcc void @build_addr(ptr noundef %addr.i26.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i.i)
-  %call1.i.i.i = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #25
-  %cmp.i.i.i = icmp slt i32 %call1.i.i.i, -1
-  br i1 %cmp.i.i.i, label %if.then2.i.i44.i, label %if.then7.i.i.i
-
-if.then2.i.i44.i:                                 ; preds = %if.then2.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.185) #24
-  unreachable
-
-if.then7.i.i.i:                                   ; preds = %if.then2.i
-  %call4.i.i.i = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #25
-  store i32 1, ptr %on.i.i.i, align 4
-  %call8.i.i.i = call i32 @setsockopt(i32 noundef %call1.i.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %on.i.i.i, i32 noundef 4) #25
-  %cmp9.i.i.i = icmp slt i32 %call8.i.i.i, 0
-  br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %tcp_socket.exit.i31.i
-
-if.then10.i.i.i:                                  ; preds = %if.then7.i.i.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.186) #24
-  unreachable
-
-tcp_socket.exit.i31.i:                            ; preds = %if.then7.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on.i.i.i)
-  store i32 1, ptr %on.i27.i, align 4
-  %call.i32.i = call i32 @setsockopt(i32 noundef %call1.i.i.i, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %on.i27.i, i32 noundef 4) #25
-  %cmp.i33.i = icmp slt i32 %call.i32.i, 0
-  br i1 %cmp.i33.i, label %if.then.i43.i, label %if.end.i34.i
-
-if.then.i43.i:                                    ; preds = %tcp_socket.exit.i31.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.179) #24
-  unreachable
-
-if.end.i34.i:                                     ; preds = %tcp_socket.exit.i31.i
-  store i32 1, ptr %on2.i28.i, align 4
-  %call4.i35.i = call i32 @setsockopt(i32 noundef %call1.i.i.i, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %on2.i28.i, i32 noundef 4) #25
-  %cmp5.i36.i = icmp slt i32 %call4.i35.i, 0
-  br i1 %cmp5.i36.i, label %if.then6.i42.i, label %if.end7.i37.i
-
-if.then6.i42.i:                                   ; preds = %if.end.i34.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.180) #24
-  unreachable
-
-if.end7.i37.i:                                    ; preds = %if.end.i34.i
-  %call8.i38.i = call i32 @bind(i32 noundef %call1.i.i.i, ptr noundef nonnull %addr.i26.i, i32 noundef 16) #25
-  %cmp9.not.i39.i = icmp eq i32 %call8.i38.i, 0
-  br i1 %cmp9.not.i39.i, label %if.then13.i.i, label %if.then10.i40.i
-
-if.then10.i40.i:                                  ; preds = %if.end7.i37.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.181) #24
-  unreachable
-
-if.then13.i.i:                                    ; preds = %if.end7.i37.i
-  %call14.i.i = call i32 @listen(i32 noundef %call1.i.i.i, i32 noundef 5) #25
-  %cmp15.not.i.i = icmp eq i32 %call14.i.i, 0
-  br i1 %cmp15.not.i.i, label %if.end18.i.i, label %if.then16.i.i
-
-if.then16.i.i:                                    ; preds = %if.then13.i.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.182) #24
-  unreachable
-
-if.end18.i.i:                                     ; preds = %if.then13.i.i
-  %cmp19.i.i = icmp eq i16 %port.2, 0
-  br i1 %cmp19.i.i, label %if.then21.i.i, label %if.end5.i
-
-if.then21.i.i:                                    ; preds = %if.end18.i.i
-  store i32 16, ptr %len22.i.i, align 4
-  %call23.i.i = call i32 @getsockname(i32 noundef %call1.i.i.i, ptr noundef nonnull %addr.i26.i, ptr noundef nonnull %len22.i.i) #25
-  %cmp24.i.i = icmp eq i32 %call23.i.i, 0
-  br i1 %cmp24.i.i, label %if.then26.i.i, label %if.end5.i
-
-if.then26.i.i:                                    ; preds = %if.then21.i.i
-  %145 = load i16, ptr %sin_port.i41.i, align 2
-  %call27.i.i = call zeroext i16 @ntohs(i16 noundef zeroext %145) #29
-  br label %if.end5.i
-
-if.end5.i:                                        ; preds = %if.end18.i.i, %if.then21.i.i, %if.then26.i.i
-  %port.addr.0.i = phi i16 [ %call27.i.i, %if.then26.i.i ], [ 0, %if.then21.i.i ], [ %port.2, %if.end18.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %addr.i26.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on.i27.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on2.i28.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len22.i.i)
-  %146 = load ptr, ptr %signal, align 8
-  %tobool6.not.i = icmp eq ptr %146, null
-  br i1 %tobool6.not.i, label %if.end34.i, label %do.body.i387
-
-do.body.i387:                                     ; preds = %if.end5.i
-  %cond.i = getelementptr inbounds nuw i8, ptr %146, i64 56
-  %call.i388 = call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond.i) #25
-  %cmp.not.i = icmp eq i32 %call.i388, 0
-  br i1 %cmp.not.i, label %do.end.i, label %if.then8.i
-
-if.then8.i:                                       ; preds = %do.body.i387
-  %call9.i = tail call ptr @__errno_location() #29
-  store i32 %call.i388, ptr %call9.i, align 4
-  %147 = load ptr, ptr @stderr, align 8
-  %call10.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %147, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i32 noundef 1723, i32 noundef %call.i388, ptr noundef nonnull @.str.193) #23
-  call fastcc void @err_sys(ptr noundef nonnull @.str.194) #24
-  unreachable
-
-do.end.i:                                         ; preds = %do.body.i387
-  store i16 1, ptr %146, align 8
-  %port13.i = getelementptr inbounds nuw i8, ptr %146, i64 2
-  store i16 %port.addr.0.i, ptr %port13.i, align 2
-  %call17.i = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %cond.i) #25
-  %cmp18.not.i = icmp eq i32 %call17.i, 0
-  br i1 %cmp18.not.i, label %do.body24.i, label %if.then19.i
-
-if.then19.i:                                      ; preds = %do.end.i
-  %call20.i = tail call ptr @__errno_location() #29
-  store i32 %call17.i, ptr %call20.i, align 4
-  %148 = load ptr, ptr @stderr, align 8
-  %call21.i389 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i32 noundef 1728, i32 noundef %call17.i, ptr noundef nonnull @.str.195) #23
-  call fastcc void @err_sys(ptr noundef nonnull @.str.194) #24
-  unreachable
-
-do.body24.i:                                      ; preds = %do.end.i
-  %call27.i = call i32 @wolfSSL_CondEnd(ptr noundef nonnull %cond.i) #25
-  %cmp28.not.i = icmp eq i32 %call27.i, 0
-  br i1 %cmp28.not.i, label %if.end34.i, label %if.then29.i
-
-if.then29.i:                                      ; preds = %do.body24.i
-  %call30.i = tail call ptr @__errno_location() #29
-  store i32 %call27.i, ptr %call30.i, align 4
-  %149 = load ptr, ptr @stderr, align 8
-  %call31.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i32 noundef 1729, i32 noundef %call27.i, ptr noundef nonnull @.str.196) #23
-  call fastcc void @err_sys(ptr noundef nonnull @.str.194) #24
-  unreachable
-
-if.end34.i:                                       ; preds = %do.body24.i, %if.end5.i
-  br i1 %tobool562.not.not, label %if.end59.i, label %if.then38.i
-
-if.then38.i:                                      ; preds = %if.end34.i
-  %150 = load ptr, ptr %signal, align 8
-  %tobool41.not.i = icmp eq ptr %150, null
-  br i1 %tobool41.not.i, label %if.end59.i, label %if.then42.i
-
-if.then42.i:                                      ; preds = %if.then38.i
-  %srfName.i = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %151 = load ptr, ptr %srfName.i, align 8
-  %call43.i = call noalias ptr @fopen(ptr noundef %151, ptr noundef nonnull @.str.197)
-  %tobool44.not.i = icmp eq ptr %call43.i, null
-  br i1 %tobool44.not.i, label %if.end59.i, label %do.body46.i
-
-do.body46.i:                                      ; preds = %if.then42.i
-  %conv.i = zext i16 %port.addr.0.i to i32
-  %call47.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call43.i, ptr noundef nonnull @.str.198, i32 noundef %conv.i)
-  %cmp48.i = icmp slt i32 %call47.i, 0
-  br i1 %cmp48.i, label %if.then50.i, label %do.end54.i
-
-if.then50.i:                                      ; preds = %do.body46.i
-  %152 = load ptr, ptr @stderr, align 8
-  %call51.i = tail call ptr @__errno_location() #29
-  %153 = load i32, ptr %call51.i, align 4
-  %call52.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i32 noundef 1750, i32 noundef %153, ptr noundef nonnull @.str.199) #23
-  call fastcc void @err_sys(ptr noundef nonnull @.str.200) #24
-  unreachable
-
-do.end54.i:                                       ; preds = %do.body46.i
-  %call55.i = call i32 @fclose(ptr noundef nonnull %call43.i)
-  br label %if.end59.i
-
-if.end59.i:                                       ; preds = %do.end54.i, %if.then42.i, %if.then38.i, %if.end34.i, %if.end.i386
-  %sockfd.1 = phi i32 [ %sockfd.0, %if.end.i386 ], [ %call1.i.i.i, %if.end34.i ], [ %call1.i.i.i, %if.then38.i ], [ %call1.i.i.i, %if.then42.i ], [ %call1.i.i.i, %do.end54.i ]
-  %call60.i = call i32 @accept(i32 noundef %sockfd.1, ptr noundef nonnull %client_addr, ptr noundef nonnull %client_len) #25
-  %cmp61.i = icmp slt i32 %call60.i, -1
-  br i1 %cmp61.i, label %if.then63.i390, label %tcp_accept.exit
-
-if.then63.i390:                                   ; preds = %if.end59.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.53) #24
-  unreachable
-
-tcp_accept.exit:                                  ; preds = %udp_accept.exit.i, %if.end59.i
-  %sockfd.2 = phi i32 [ %sockfd.1, %if.end59.i ], [ %call.i.i.i, %udp_accept.exit.i ]
-  %clientfd.0 = phi i32 [ %call60.i, %if.end59.i ], [ %call.i.i.i, %udp_accept.exit.i ]
-  %cmp565 = icmp eq i16 %port.2, 0
-  br i1 %cmp565, label %if.then567, label %if.end569
-
-if.then567:                                       ; preds = %tcp_accept.exit
-  %port568 = getelementptr inbounds nuw i8, ptr %137, i64 2
-  %154 = load i16, ptr %port568, align 2
-  br label %if.end569
-
-if.end569:                                        ; preds = %if.then567, %tcp_accept.exit
-  %port.3 = phi i16 [ %154, %if.then567 ], [ %port.2, %tcp_accept.exit ]
-  %call570 = call i32 @wolfSSL_set_fd(ptr noundef %call490, i32 noundef %clientfd.0) #25
-  %cmp571.not = icmp eq i32 %call570, 1
-  br i1 %cmp571.not, label %if.end574, label %if.then573
-
-if.then573:                                       ; preds = %if.end569
-  %155 = load i32, ptr @catastrophic, align 4
-  %cmp.i391 = icmp eq i32 %155, 1
-  br i1 %cmp.i391, label %do.body.i393, label %if.else.i392
-
-do.body.i393:                                     ; preds = %if.then573
-  %.b2.i394 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i394, label %if.end574, label %do.body2.i395
-
-do.body2.i395:                                    ; preds = %do.body.i393
-  %156 = load ptr, ptr @stderr, align 8
-  %call.i396 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.58) #23
-  %.b.pr.i397 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i397, label %if.end574, label %if.then4.i398
-
-if.then4.i398:                                    ; preds = %do.body2.i395
-  %157 = load ptr, ptr @stderr, align 8
-  %158 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %157) #23
-  br label %if.end574
-
-if.else.i392:                                     ; preds = %if.then573
+586:                                              ; preds = %581
+  %587 = call i32 @wolfSSL_set_groups(ptr noundef %539, ptr noundef nonnull %25, i32 noundef 1) #21
+  %.not464 = icmp eq i32 %587, 1
+  br i1 %.not464, label %600, label %588
+
+588:                                              ; preds = %586
   call fastcc void @err_sys(ptr noundef nonnull @.str.58) #24
   unreachable
 
-if.end574:                                        ; preds = %if.then4.i398, %do.body2.i395, %do.body.i393, %if.end569
-  br i1 %or.cond28, label %if.then588, label %if.end594
+589:                                              ; preds = %578
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  switch i32 %.035510302590, label %SetKeyShare.exit [
+    i32 2, label %590
+    i32 1, label %594
+  ]
 
-if.then588:                                       ; preds = %if.end574
-  %call589 = call i32 @wolfSSL_SetTmpDH_file(ptr noundef %call490, ptr noundef %ourDhParam.011332400, i32 noundef 1) #25
-  br i1 %tobool590.not, label %if.then591, label %if.end594
+590:                                              ; preds = %589
+  %591 = call i32 @wolfSSL_UseKeyShare(ptr noundef %539, i16 noundef zeroext 23) #21
+  %592 = icmp eq i32 %591, 1
+  br i1 %592, label %.thread.i, label %593
 
-if.then591:                                       ; preds = %if.then588
-  %call592 = call i32 @wolfSSL_SetEnableDhKeyTest(ptr noundef %call490, i32 noundef 0) #25
-  br label %if.end594
-
-if.end594:                                        ; preds = %if.then588, %if.then591, %if.end574
-  br i1 %tobool595.not, label %do.body599, label %if.then596
-
-if.then596:                                       ; preds = %if.end594
-  %call.i400 = call i32 (i32, i32, ...) @fcntl(i32 noundef %clientfd.0, i32 noundef 3, i32 noundef 0) #25
-  %cmp.i401 = icmp slt i32 %call.i400, 0
-  br i1 %cmp.i401, label %if.then.i403, label %if.end.i402
-
-if.then.i403:                                     ; preds = %if.then596
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.202) #24
+593:                                              ; preds = %590
+  call fastcc void @err_sys(ptr noundef nonnull @.str.189) #24
   unreachable
 
-if.end.i402:                                      ; preds = %if.then596
-  %or.i = or i32 %call.i400, 2048
-  %call1.i = call i32 (i32, i32, ...) @fcntl(i32 noundef %clientfd.0, i32 noundef 4, i32 noundef %or.i) #25
-  %cmp2.i = icmp slt i32 %call1.i, 0
-  br i1 %cmp2.i, label %if.then3.i, label %tcp_set_nonblocking.exit
+594:                                              ; preds = %589
+  %595 = call i32 @wolfSSL_UseKeyShare(ptr noundef %539, i16 noundef zeroext 256) #21
+  %596 = icmp eq i32 %595, 1
+  br i1 %596, label %.thread.i, label %597
 
-if.then3.i:                                       ; preds = %if.end.i402
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.203) #24
+597:                                              ; preds = %594
+  call fastcc void @err_sys(ptr noundef nonnull @.str.190) #24
   unreachable
 
-tcp_set_nonblocking.exit:                         ; preds = %if.end.i402
-  %call.i404 = call i32 @wolfSSL_accept(ptr noundef %call490) #25
-  %call1.i405 = call i32 @wolfSSL_get_error(ptr noundef %call490, i32 noundef 0) #25
-  %call2.i = call i32 @wolfSSL_get_fd(ptr noundef %call490) #25
-  %cmp.not45.i = icmp ne i32 %call.i404, 1
-  %159 = and i32 %call1.i405, -2
-  %160 = icmp eq i32 %159, 2
-  %or.cond4446.i = select i1 %cmp.not45.i, i1 %160, i1 false
-  br i1 %or.cond4446.i, label %while.body.lr.ph.i, label %if.end610
+.thread.i:                                        ; preds = %594, %590
+  %storemerge.i = phi i32 [ 23, %590 ], [ 256, %594 ]
+  store i32 %storemerge.i, ptr %20, align 16, !tbaa !4
+  %598 = call i32 @wolfSSL_set_groups(ptr noundef %539, ptr noundef nonnull %20, i32 noundef 1) #21
+  %.not21.i = icmp eq i32 %598, 1
+  br i1 %.not21.i, label %SetKeyShare.exit, label %599
 
-while.body.lr.ph.i:                               ; preds = %tcp_set_nonblocking.exit
-  %rem.i.i21.i = srem i32 %call2.i, 64
-  %sh_prom.i.i22.i = zext nneg i32 %rem.i.i21.i to i64
-  %shl.i.i23.i = shl nuw i64 1, %sh_prom.i.i22.i
-  %div.i.i24.i = sdiv i32 %call2.i, 64
-  %idxprom5.i.i25.i = sext i32 %div.i.i24.i to i64
-  %arrayidx6.i.i26.i = getelementptr inbounds [16 x i64], ptr %fds.i.i17.i, i64 0, i64 %idxprom5.i.i25.i
-  %add.i.i28.i = add nsw i32 %call2.i, 1
-  %arrayidx28.i.i29.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i18.i, i64 0, i64 %idxprom5.i.i25.i
-  %arrayidx6.i.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i.i, i64 0, i64 %idxprom5.i.i25.i
-  %arrayidx28.i.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i.i, i64 0, i64 %idxprom5.i.i25.i
-  br label %while.body.i
+599:                                              ; preds = %.thread.i
+  call fastcc void @err_sys(ptr noundef nonnull @.str.192) #24
+  unreachable
 
-while.body.i:                                     ; preds = %if.end28.i, %while.body.lr.ph.i
-  %ret.048.i = phi i32 [ %call.i404, %while.body.lr.ph.i ], [ %ret.1.i, %if.end28.i ]
-  %error.047.i = phi i32 [ %call1.i405, %while.body.lr.ph.i ], [ %error.1.i, %if.end28.i ]
-  %cmp4.i406 = icmp eq i32 %error.047.i, 3
-  br i1 %cmp4.i406, label %if.then10.i414, label %if.else12.i
+SetKeyShare.exit:                                 ; preds = %589, %.thread.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #21
+  br label %600
 
-if.then10.i414:                                   ; preds = %while.body.i
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %fds.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %errfds.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i.i.i)
-  store i64 1, ptr %timeout.i.i.i, align 8
-  store i64 0, ptr %tv_usec.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %fds.i.i.i, i8 0, i64 128, i1 false)
-  %161 = load i64, ptr %arrayidx6.i.i.i, align 8
-  %or.i.i.i = or i64 %161, %shl.i.i23.i
-  store i64 %or.i.i.i, ptr %arrayidx6.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i.i, i8 0, i64 128, i1 false)
-  %162 = load i64, ptr %arrayidx28.i.i.i, align 8
-  %or29.i.i.i = or i64 %162, %shl.i.i23.i
-  store i64 %or29.i.i.i, ptr %arrayidx28.i.i.i, align 8
-  %call.i.i.i415 = call i32 @select(i32 noundef %add.i.i28.i, ptr noundef null, ptr noundef nonnull %fds.i.i.i, ptr noundef nonnull %errfds.i.i.i, ptr noundef nonnull %timeout.i.i.i) #25
-  %cmp30.i.i.i = icmp eq i32 %call.i.i.i415, 0
-  br i1 %cmp30.i.i.i, label %tcp_select_tx.exit.i, label %if.else33.i.i.i
+600:                                              ; preds = %SetKeyShare.exit, %586, %.critedge500
+  br i1 %.not465, label %603, label %601
 
-if.else33.i.i.i:                                  ; preds = %if.then10.i414
-  %cmp34.i.i.i = icmp sgt i32 %call.i.i.i415, 0
-  br i1 %cmp34.i.i.i, label %if.then36.i.i.i, label %if.end65.i.i.i
+601:                                              ; preds = %600
+  %602 = call i32 @wolfSSL_AllowEncryptThenMac(ptr noundef %539, i32 noundef 0) #21
+  br label %603
 
-if.then36.i.i.i:                                  ; preds = %if.else33.i.i.i
-  %163 = load i64, ptr %arrayidx6.i.i.i, align 8
-  %and.i.i.i = and i64 %163, %shl.i.i23.i
-  %cmp44.not.i.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp44.not.i.i.i, label %if.else50.i.i.i, label %tcp_select_tx.exit.i
+603:                                              ; preds = %601, %600
+  %604 = load ptr, ptr %523, align 8, !tbaa !43
+  %.not466 = icmp eq ptr %604, null
+  br i1 %.not466, label %607, label %605
 
-if.else50.i.i.i:                                  ; preds = %if.then36.i.i.i
-  %164 = load i64, ptr %arrayidx28.i.i.i, align 8
-  %and58.i.i.i = and i64 %164, %shl.i.i23.i
-  %cmp59.not.i.i.i = icmp eq i64 %and58.i.i.i, 0
-  br i1 %cmp59.not.i.i.i, label %if.end65.i.i.i, label %tcp_select_tx.exit.i
+605:                                              ; preds = %603
+  %606 = getelementptr inbounds nuw i8, ptr %604, i64 8
+  store ptr %.039413902482, ptr %606, align 8, !tbaa !44
+  br label %607
 
-if.end65.i.i.i:                                   ; preds = %if.else50.i.i.i, %if.else33.i.i.i
+607:                                              ; preds = %605, %603
+  store i32 16, ptr %22, align 4, !tbaa !4
+  br i1 %.not.i554, label %673, label %608
+
+608:                                              ; preds = %607
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)
+  br i1 %.not.not.i.i, label %609, label %618
+
+609:                                              ; preds = %608
+  %610 = tail call ptr @__ctype_b_loc() #28
+  %611 = load ptr, ptr %610, align 8, !tbaa !47
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 98
+  %613 = load i16, ptr %612, align 2, !tbaa !49
+  %614 = and i16 %613, 1024
+  %.not18.i.i.i = icmp eq i16 %614, 0
+  br i1 %.not18.i.i.i, label %626, label %615
+
+615:                                              ; preds = %609
+  %616 = call ptr @gethostbyname(ptr noundef nonnull @.str.180) #21
+  %.not19.i.i.i = icmp eq ptr %616, null
+  br i1 %.not19.i.i.i, label %617, label %619
+
+617:                                              ; preds = %615
+  call fastcc void @err_sys(ptr noundef nonnull @.str.186) #24
+  unreachable
+
+618:                                              ; preds = %608
+  store i16 2, ptr %16, align 4, !tbaa !50
+  %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
+  store i16 %rev.i.i.i.i, ptr %524, align 2, !tbaa !53
+  br label %build_addr.exit.i.i
+
+619:                                              ; preds = %615
+  %620 = getelementptr inbounds nuw i8, ptr %616, i64 24
+  %621 = load ptr, ptr %620, align 8, !tbaa !54
+  %622 = load ptr, ptr %621, align 8, !tbaa !27
+  %623 = getelementptr inbounds nuw i8, ptr %616, i64 20
+  %624 = load i32, ptr %623, align 4, !tbaa !56
+  %625 = sext i32 %624 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %525, ptr align 1 %622, i64 %625, i1 false)
+  store i16 2, ptr %16, align 4, !tbaa !50
+  %rev.i22.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
+  store i16 %rev.i22.i.i.i, ptr %524, align 2, !tbaa !53
+  br label %build_addr.exit.i.i
+
+626:                                              ; preds = %609
+  store i16 2, ptr %16, align 4, !tbaa !50
+  %rev.i2226.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
+  store i16 %rev.i2226.i.i.i, ptr %524, align 2, !tbaa !53
+  %627 = call i32 @inet_addr(ptr noundef nonnull @.str.180) #21
+  store i32 %627, ptr %525, align 4, !tbaa !57
+  br label %build_addr.exit.i.i
+
+build_addr.exit.i.i:                              ; preds = %626, %619, %618
+  %628 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #21
+  %629 = icmp slt i32 %628, -1
+  br i1 %629, label %630, label %tcp_socket.exit.i.i
+
+630:                                              ; preds = %build_addr.exit.i.i
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.187) #24
+  unreachable
+
+tcp_socket.exit.i.i:                              ; preds = %build_addr.exit.i.i
+  %631 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #21
+  store i32 1, ptr %17, align 4, !tbaa !4
+  %632 = call i32 @setsockopt(i32 noundef %628, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %17, i32 noundef 4) #21
+  %633 = icmp slt i32 %632, 0
+  br i1 %633, label %634, label %635
+
+634:                                              ; preds = %tcp_socket.exit.i.i
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.181) #24
+  unreachable
+
+635:                                              ; preds = %tcp_socket.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #21
+  store i32 1, ptr %18, align 4, !tbaa !4
+  %636 = call i32 @setsockopt(i32 noundef %628, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %18, i32 noundef 4) #21
+  %637 = icmp slt i32 %636, 0
+  br i1 %637, label %638, label %639
+
+638:                                              ; preds = %635
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.182) #24
+  unreachable
+
+639:                                              ; preds = %635
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #21
+  %640 = call i32 @bind(i32 noundef %628, ptr noundef nonnull %16, i32 noundef 16) #21
+  %.not36.i.i = icmp eq i32 %640, 0
+  br i1 %.not36.i.i, label %642, label %641
+
+641:                                              ; preds = %639
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.183) #24
+  unreachable
+
+642:                                              ; preds = %639
+  %643 = icmp eq i16 %.2437, 0
+  br i1 %643, label %644, label %648
+
+644:                                              ; preds = %642
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #21
+  store i32 16, ptr %19, align 4, !tbaa !4
+  %645 = call i32 @getsockname(i32 noundef %628, ptr noundef nonnull %16, ptr noundef nonnull %19) #21
+  %646 = icmp eq i32 %645, 0
+  %647 = load i16, ptr %524, align 2
+  %rev.i.i.i = call i16 @llvm.bswap.i16(i16 %647)
+  %.1.i.i = select i1 %646, i16 %rev.i.i.i, i16 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #21
+  br label %648
+
+648:                                              ; preds = %642, %644
+  %.0.i.i = phi i16 [ %.1.i.i, %644 ], [ %.2437, %642 ]
+  %649 = load ptr, ptr %523, align 8, !tbaa !43
+  %.not38.i.i = icmp eq ptr %649, null
+  br i1 %.not38.i.i, label %670, label %650
+
+650:                                              ; preds = %648
+  %651 = getelementptr inbounds nuw i8, ptr %649, i64 56
+  %652 = call i32 @wolfSSL_CondStart(ptr noundef nonnull %651) #21
+  %.not39.i.i = icmp eq i32 %652, 0
+  br i1 %.not39.i.i, label %657, label %653
+
+653:                                              ; preds = %650
+  %654 = tail call ptr @__errno_location() #28
+  store i32 %652, ptr %654, align 4, !tbaa !4
+  %655 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %656 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %655, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1709, i32 noundef %652, ptr noundef nonnull @.str.195) #22
+  call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
+  unreachable
+
+657:                                              ; preds = %650
+  store i16 1, ptr %649, align 8, !tbaa !58
+  %658 = getelementptr inbounds nuw i8, ptr %649, i64 2
+  store i16 %.0.i.i, ptr %658, align 2, !tbaa !59
+  %659 = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %651) #21
+  %.not40.i.i = icmp eq i32 %659, 0
+  br i1 %.not40.i.i, label %664, label %660
+
+660:                                              ; preds = %657
+  %661 = tail call ptr @__errno_location() #28
+  store i32 %659, ptr %661, align 4, !tbaa !4
+  %662 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %663 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %662, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1715, i32 noundef %659, ptr noundef nonnull @.str.197) #22
+  call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
+  unreachable
+
+664:                                              ; preds = %657
+  %665 = call i32 @wolfSSL_CondEnd(ptr noundef nonnull %651) #21
+  %.not41.i.i = icmp eq i32 %665, 0
+  br i1 %.not41.i.i, label %udp_accept.exit.i, label %666
+
+666:                                              ; preds = %664
+  %667 = tail call ptr @__errno_location() #28
+  store i32 %665, ptr %667, align 4, !tbaa !4
+  %668 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %669 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %668, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1716, i32 noundef %665, ptr noundef nonnull @.str.198) #22
+  call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
+  unreachable
+
+670:                                              ; preds = %648
+  %671 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %672 = call i64 @fwrite(ptr nonnull @.str.203, i64 54, i64 1, ptr %671) #23
+  br label %udp_accept.exit.i
+
+udp_accept.exit.i:                                ; preds = %670, %664
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #21
+  br label %tcp_accept.exit
+
+673:                                              ; preds = %607
+  br i1 %.not47.i, label %.thread79.i, label %674
+
+674:                                              ; preds = %673
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  br i1 %.not.not.i.i, label %675, label %684
+
+675:                                              ; preds = %674
+  %676 = tail call ptr @__ctype_b_loc() #28
+  %677 = load ptr, ptr %676, align 8, !tbaa !47
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 98
+  %679 = load i16, ptr %678, align 2, !tbaa !49
+  %680 = and i16 %679, 1024
+  %.not18.i.i61.i = icmp eq i16 %680, 0
+  br i1 %.not18.i.i61.i, label %692, label %681
+
+681:                                              ; preds = %675
+  %682 = call ptr @gethostbyname(ptr noundef nonnull @.str.180) #21
+  %.not19.i.i62.i = icmp eq ptr %682, null
+  br i1 %.not19.i.i62.i, label %683, label %685
+
+683:                                              ; preds = %681
+  call fastcc void @err_sys(ptr noundef nonnull @.str.186) #24
+  unreachable
+
+684:                                              ; preds = %674
+  store i16 2, ptr %12, align 4, !tbaa !50
+  %rev.i.i.i57.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
+  store i16 %rev.i.i.i57.i, ptr %526, align 2, !tbaa !53
+  br label %build_addr.exit.i58.i
+
+685:                                              ; preds = %681
+  %686 = getelementptr inbounds nuw i8, ptr %682, i64 24
+  %687 = load ptr, ptr %686, align 8, !tbaa !54
+  %688 = load ptr, ptr %687, align 8, !tbaa !27
+  %689 = getelementptr inbounds nuw i8, ptr %682, i64 20
+  %690 = load i32, ptr %689, align 4, !tbaa !56
+  %691 = sext i32 %690 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %527, ptr align 1 %688, i64 %691, i1 false)
+  store i16 2, ptr %12, align 4, !tbaa !50
+  %rev.i22.i.i63.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
+  store i16 %rev.i22.i.i63.i, ptr %526, align 2, !tbaa !53
+  br label %build_addr.exit.i58.i
+
+692:                                              ; preds = %675
+  store i16 2, ptr %12, align 4, !tbaa !50
+  %rev.i2226.i.i64.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
+  store i16 %rev.i2226.i.i64.i, ptr %526, align 2, !tbaa !53
+  %693 = call i32 @inet_addr(ptr noundef nonnull @.str.180) #21
+  store i32 %693, ptr %527, align 4, !tbaa !57
+  br label %build_addr.exit.i58.i
+
+build_addr.exit.i58.i:                            ; preds = %692, %685, %684
+  %694 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #21
+  %695 = icmp slt i32 %694, -1
+  br i1 %695, label %696, label %697
+
+696:                                              ; preds = %build_addr.exit.i58.i
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.187) #24
+  unreachable
+
+697:                                              ; preds = %build_addr.exit.i58.i
+  %698 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #21
+  store i32 1, ptr %11, align 4, !tbaa !4
+  %699 = call i32 @setsockopt(i32 noundef %694, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 4) #21
+  %700 = icmp slt i32 %699, 0
+  br i1 %700, label %701, label %tcp_socket.exit.i59.i
+
+701:                                              ; preds = %697
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.188) #24
+  unreachable
+
+tcp_socket.exit.i59.i:                            ; preds = %697
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #21
+  store i32 1, ptr %13, align 4, !tbaa !4
+  %702 = call i32 @setsockopt(i32 noundef %694, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %13, i32 noundef 4) #21
+  %703 = icmp slt i32 %702, 0
+  br i1 %703, label %704, label %705
+
+704:                                              ; preds = %tcp_socket.exit.i59.i
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.181) #24
+  unreachable
+
+705:                                              ; preds = %tcp_socket.exit.i59.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #21
+  store i32 1, ptr %14, align 4, !tbaa !4
+  %706 = call i32 @setsockopt(i32 noundef %694, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %14, i32 noundef 4) #21
+  %707 = icmp slt i32 %706, 0
+  br i1 %707, label %708, label %709
+
+708:                                              ; preds = %705
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.182) #24
+  unreachable
+
+709:                                              ; preds = %705
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #21
+  %710 = call i32 @bind(i32 noundef %694, ptr noundef nonnull %12, i32 noundef 16) #21
+  %.not18.i.i = icmp eq i32 %710, 0
+  br i1 %.not18.i.i, label %712, label %711
+
+711:                                              ; preds = %709
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.183) #24
+  unreachable
+
+712:                                              ; preds = %709
+  %713 = call i32 @listen(i32 noundef %694, i32 noundef 5) #21
+  %.not19.i.i = icmp eq i32 %713, 0
+  br i1 %.not19.i.i, label %715, label %714
+
+714:                                              ; preds = %712
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.184) #24
+  unreachable
+
+715:                                              ; preds = %712
+  %716 = icmp eq i16 %.2437, 0
+  br i1 %716, label %717, label %721
+
+717:                                              ; preds = %715
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #21
+  store i32 16, ptr %15, align 4, !tbaa !4
+  %718 = call i32 @getsockname(i32 noundef %694, ptr noundef nonnull %12, ptr noundef nonnull %15) #21
+  %719 = icmp eq i32 %718, 0
+  %720 = load i16, ptr %526, align 2
+  %rev.i.i60.i = call i16 @llvm.bswap.i16(i16 %720)
+  %.068.i = select i1 %719, i16 %rev.i.i60.i, i16 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #21
+  br label %721
+
+721:                                              ; preds = %715, %717
+  %.169.i = phi i16 [ %.068.i, %717 ], [ %.2437, %715 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #21
+  %722 = load ptr, ptr %523, align 8, !tbaa !43
+  %.not49.i = icmp eq ptr %722, null
+  br i1 %.not49.i, label %743, label %723
+
+723:                                              ; preds = %721
+  %724 = getelementptr inbounds nuw i8, ptr %722, i64 56
+  %725 = call i32 @wolfSSL_CondStart(ptr noundef nonnull %724) #21
+  %.not50.i = icmp eq i32 %725, 0
+  br i1 %.not50.i, label %730, label %726
+
+726:                                              ; preds = %723
+  %727 = tail call ptr @__errno_location() #28
+  store i32 %725, ptr %727, align 4, !tbaa !4
+  %728 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %729 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %728, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1750, i32 noundef %725, ptr noundef nonnull @.str.195) #22
+  call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
+  unreachable
+
+730:                                              ; preds = %723
+  store i16 1, ptr %722, align 8, !tbaa !58
+  %731 = getelementptr inbounds nuw i8, ptr %722, i64 2
+  store i16 %.169.i, ptr %731, align 2, !tbaa !59
+  %732 = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %724) #21
+  %.not51.i = icmp eq i32 %732, 0
+  br i1 %.not51.i, label %737, label %733
+
+733:                                              ; preds = %730
+  %734 = tail call ptr @__errno_location() #28
+  store i32 %732, ptr %734, align 4, !tbaa !4
+  %735 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %736 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %735, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1755, i32 noundef %732, ptr noundef nonnull @.str.197) #22
+  call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
+  unreachable
+
+737:                                              ; preds = %730
+  %738 = call i32 @wolfSSL_CondEnd(ptr noundef nonnull %724) #21
+  %.not52.i = icmp eq i32 %738, 0
+  br i1 %.not52.i, label %743, label %739
+
+739:                                              ; preds = %737
+  %740 = tail call ptr @__errno_location() #28
+  store i32 %738, ptr %740, align 4, !tbaa !4
+  %741 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %742 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %741, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1756, i32 noundef %738, ptr noundef nonnull @.str.198) #22
+  call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
+  unreachable
+
+743:                                              ; preds = %737, %721
+  br i1 %.not467.not, label %.thread79.i, label %744
+
+744:                                              ; preds = %743
+  %745 = load ptr, ptr %523, align 8, !tbaa !43
+  %.not54.i = icmp eq ptr %745, null
+  br i1 %.not54.i, label %.thread79.i, label %746
+
+746:                                              ; preds = %744
+  %747 = getelementptr inbounds nuw i8, ptr %745, i64 8
+  %748 = load ptr, ptr %747, align 8, !tbaa !44
+  %749 = call noalias ptr @fopen(ptr noundef %748, ptr noundef nonnull @.str.199)
+  %.not55.i = icmp eq ptr %749, null
+  br i1 %.not55.i, label %.thread79.i, label %750
+
+750:                                              ; preds = %746
+  %751 = zext i16 %.169.i to i32
+  %752 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %749, ptr noundef nonnull @.str.200, i32 noundef %751) #21
+  %753 = icmp slt i32 %752, 0
+  br i1 %753, label %754, label %759
+
+754:                                              ; preds = %750
+  %755 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %756 = tail call ptr @__errno_location() #28
+  %757 = load i32, ptr %756, align 4, !tbaa !4
+  %758 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %755, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1777, i32 noundef %757, ptr noundef nonnull @.str.201) #22
+  call fastcc void @err_sys(ptr noundef nonnull @.str.202) #24
+  unreachable
+
+759:                                              ; preds = %750
+  %760 = call i32 @fclose(ptr noundef nonnull %749)
+  br label %.thread79.i
+
+.thread79.i:                                      ; preds = %759, %746, %744, %743, %673
+  %.1605 = phi i32 [ %.0604, %673 ], [ %694, %743 ], [ %694, %744 ], [ %694, %746 ], [ %694, %759 ]
+  %761 = call i32 @accept(i32 noundef %.1605, ptr noundef nonnull %21, ptr noundef nonnull %22) #21
+  %762 = icmp slt i32 %761, -1
+  br i1 %762, label %763, label %tcp_accept.exit
+
+763:                                              ; preds = %.thread79.i
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.54) #24
+  unreachable
+
+tcp_accept.exit:                                  ; preds = %udp_accept.exit.i, %.thread79.i
+  %.2606 = phi i32 [ %.1605, %.thread79.i ], [ %628, %udp_accept.exit.i ]
+  %.0603 = phi i32 [ %761, %.thread79.i ], [ %628, %udp_accept.exit.i ]
+  %764 = icmp eq i16 %.2437, 0
+  br i1 %764, label %765, label %768
+
+765:                                              ; preds = %tcp_accept.exit
+  %766 = getelementptr inbounds nuw i8, ptr %604, i64 2
+  %767 = load i16, ptr %766, align 2, !tbaa !59
+  br label %768
+
+768:                                              ; preds = %765, %tcp_accept.exit
+  %.3438 = phi i16 [ %767, %765 ], [ %.2437, %tcp_accept.exit ]
+  %769 = call i32 @wolfSSL_set_fd(ptr noundef %539, i32 noundef %.0603) #21
+  %.not468 = icmp eq i32 %769, 1
+  br i1 %.not468, label %err_sys_ex.exit558, label %770
+
+770:                                              ; preds = %768
+  %771 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %772 = icmp eq i32 %771, 1
+  br i1 %772, label %773, label %780
+
+773:                                              ; preds = %770
+  %.b2.i555 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i555, label %err_sys_ex.exit558, label %774
+
+774:                                              ; preds = %773
+  %775 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %776 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %775, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.59) #22
+  %.b.pr.i556 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i556, label %err_sys_ex.exit558, label %777
+
+777:                                              ; preds = %774
+  %778 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %779 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %778) #23
+  br label %err_sys_ex.exit558
+
+780:                                              ; preds = %770
+  call fastcc void @err_sys(ptr noundef nonnull @.str.59) #24
+  unreachable
+
+err_sys_ex.exit558:                               ; preds = %777, %774, %773, %768
+  br i1 %or.cond57, label %781, label %785
+
+781:                                              ; preds = %err_sys_ex.exit558
+  %782 = call i32 @wolfSSL_SetTmpDH_file(ptr noundef %539, ptr noundef %.037812502524, i32 noundef 1) #21
+  br i1 %.not469, label %783, label %785
+
+783:                                              ; preds = %781
+  %784 = call i32 @wolfSSL_SetEnableDhKeyTest(ptr noundef %539, i32 noundef 0) #21
+  br label %785
+
+785:                                              ; preds = %781, %783, %err_sys_ex.exit558
+  br i1 %.not470, label %.preheader649, label %786
+
+786:                                              ; preds = %785
+  %787 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.0603, i32 noundef 3, i32 noundef 0) #21
+  %788 = icmp slt i32 %787, 0
+  br i1 %788, label %789, label %790
+
+789:                                              ; preds = %786
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.204) #24
+  unreachable
+
+790:                                              ; preds = %786
+  %791 = or i32 %787, 2048
+  %792 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.0603, i32 noundef 4, i32 noundef %791) #21
+  %793 = icmp slt i32 %792, 0
+  br i1 %793, label %794, label %tcp_set_nonblocking.exit
+
+794:                                              ; preds = %790
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.205) #24
+  unreachable
+
+tcp_set_nonblocking.exit:                         ; preds = %790
+  %795 = call i32 @wolfSSL_accept(ptr noundef %539) #21
+  %796 = call i32 @wolfSSL_get_error(ptr noundef %539, i32 noundef 0) #21
+  %797 = call i32 @wolfSSL_get_fd(ptr noundef %539) #21
+  %.not32.i = icmp ne i32 %795, 1
+  %798 = and i32 %796, -2
+  %799 = icmp eq i32 %798, 2
+  %or.cond3133.i = select i1 %.not32.i, i1 %799, i1 false
+  br i1 %or.cond3133.i, label %.lr.ph.i, label %NonBlockingSSL_Accept.exit
+
+.lr.ph.i:                                         ; preds = %tcp_set_nonblocking.exit
+  %800 = srem i32 %797, 64
+  %801 = zext nneg i32 %800 to i64
+  %802 = shl nuw i64 1, %801
+  %803 = sdiv i32 %797, 64
+  %804 = sext i32 %803 to i64
+  %805 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %804
+  %806 = add nsw i32 %797, 1
+  %807 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %804
+  %808 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %804
+  %809 = getelementptr inbounds [16 x i64], ptr %9, i64 0, i64 %804
+  br label %810
+
+810:                                              ; preds = %854, %.lr.ph.i
+  %.035.i = phi i32 [ %795, %.lr.ph.i ], [ %.1.i, %854 ]
+  %.02434.i = phi i32 [ %796, %.lr.ph.i ], [ %.125.i, %854 ]
+  %811 = icmp eq i32 %.02434.i, 3
+  br i1 %811, label %812, label %828
+
+812:                                              ; preds = %810
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #21
+  store i64 1, ptr %10, align 8, !tbaa !11
+  store i64 0, ptr %530, align 8, !tbaa !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false), !tbaa !15
+  %813 = load i64, ptr %808, align 8, !tbaa !15
+  %814 = or i64 %813, %802
+  store i64 %814, ptr %808, align 8, !tbaa !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 128, i1 false), !tbaa !15
+  %815 = load i64, ptr %809, align 8, !tbaa !15
+  %816 = or i64 %815, %802
+  store i64 %816, ptr %809, align 8, !tbaa !15
+  %817 = call i32 @select(i32 noundef %806, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #21
+  %818 = icmp eq i32 %817, 0
+  br i1 %818, label %tcp_select_tx.exit.i, label %819
+
+819:                                              ; preds = %812
+  %820 = icmp sgt i32 %817, 0
+  br i1 %820, label %821, label %827
+
+821:                                              ; preds = %819
+  %822 = load i64, ptr %808, align 8, !tbaa !15
+  %823 = and i64 %822, %802
+  %.not33.i.i.i = icmp eq i64 %823, 0
+  br i1 %.not33.i.i.i, label %824, label %tcp_select_tx.exit.i
+
+824:                                              ; preds = %821
+  %825 = load i64, ptr %809, align 8, !tbaa !15
+  %826 = and i64 %825, %802
+  %.not34.i.i.i = icmp eq i64 %826, 0
+  br i1 %.not34.i.i.i, label %827, label %tcp_select_tx.exit.i
+
+827:                                              ; preds = %824, %819
   br label %tcp_select_tx.exit.i
 
-tcp_select_tx.exit.i:                             ; preds = %if.end65.i.i.i, %if.else50.i.i.i, %if.then36.i.i.i, %if.then10.i414
-  %retval.0.i.i.i = phi i32 [ 0, %if.end65.i.i.i ], [ 1, %if.then10.i414 ], [ 4, %if.else50.i.i.i ], [ 3, %if.then36.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i.i)
-  br label %if.end14.i
+tcp_select_tx.exit.i:                             ; preds = %827, %824, %821, %812
+  %.0.i.i.i = phi i32 [ 0, %827 ], [ 1, %812 ], [ 4, %824 ], [ 3, %821 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #21
+  br label %844
 
-if.else12.i:                                      ; preds = %while.body.i
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %fds.i.i17.i)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %errfds.i.i18.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i.i19.i)
-  store i64 1, ptr %timeout.i.i19.i, align 8
-  store i64 0, ptr %tv_usec.i.i20.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %fds.i.i17.i, i8 0, i64 128, i1 false)
-  %165 = load i64, ptr %arrayidx6.i.i26.i, align 8
-  %or.i.i27.i = or i64 %165, %shl.i.i23.i
-  store i64 %or.i.i27.i, ptr %arrayidx6.i.i26.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i18.i, i8 0, i64 128, i1 false)
-  %166 = load i64, ptr %arrayidx28.i.i29.i, align 8
-  %or29.i.i30.i = or i64 %166, %shl.i.i23.i
-  store i64 %or29.i.i30.i, ptr %arrayidx28.i.i29.i, align 8
-  %call.i.i31.i = call i32 @select(i32 noundef %add.i.i28.i, ptr noundef nonnull %fds.i.i17.i, ptr noundef null, ptr noundef nonnull %errfds.i.i18.i, ptr noundef nonnull %timeout.i.i19.i) #25
-  %cmp30.i.i32.i = icmp eq i32 %call.i.i31.i, 0
-  br i1 %cmp30.i.i32.i, label %tcp_select.exit.i, label %if.else33.i.i33.i
+828:                                              ; preds = %810
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
+  store i64 1, ptr %7, align 8, !tbaa !11
+  store i64 0, ptr %529, align 8, !tbaa !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !15
+  %829 = load i64, ptr %805, align 8, !tbaa !15
+  %830 = or i64 %829, %802
+  store i64 %830, ptr %805, align 8, !tbaa !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !15
+  %831 = load i64, ptr %807, align 8, !tbaa !15
+  %832 = or i64 %831, %802
+  store i64 %832, ptr %807, align 8, !tbaa !15
+  %833 = call i32 @select(i32 noundef %806, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
+  %834 = icmp eq i32 %833, 0
+  br i1 %834, label %tcp_select.exit.i, label %835
 
-if.else33.i.i33.i:                                ; preds = %if.else12.i
-  %cmp34.i.i34.i = icmp sgt i32 %call.i.i31.i, 0
-  br i1 %cmp34.i.i34.i, label %if.then36.i.i37.i, label %if.end65.i.i35.i
+835:                                              ; preds = %828
+  %836 = icmp sgt i32 %833, 0
+  br i1 %836, label %837, label %843
 
-if.then36.i.i37.i:                                ; preds = %if.else33.i.i33.i
-  %167 = load i64, ptr %arrayidx6.i.i26.i, align 8
-  %and.i.i38.i = and i64 %167, %shl.i.i23.i
-  %cmp44.not.i.i39.i = icmp eq i64 %and.i.i38.i, 0
-  br i1 %cmp44.not.i.i39.i, label %if.else50.i.i40.i, label %tcp_select.exit.i
+837:                                              ; preds = %835
+  %838 = load i64, ptr %805, align 8, !tbaa !15
+  %839 = and i64 %838, %802
+  %.not33.i.i28.i = icmp eq i64 %839, 0
+  br i1 %.not33.i.i28.i, label %840, label %tcp_select.exit.i
 
-if.else50.i.i40.i:                                ; preds = %if.then36.i.i37.i
-  %168 = load i64, ptr %arrayidx28.i.i29.i, align 8
-  %and58.i.i41.i = and i64 %168, %shl.i.i23.i
-  %cmp59.not.i.i42.i = icmp eq i64 %and58.i.i41.i, 0
-  br i1 %cmp59.not.i.i42.i, label %if.end65.i.i35.i, label %tcp_select.exit.i
+840:                                              ; preds = %837
+  %841 = load i64, ptr %807, align 8, !tbaa !15
+  %842 = and i64 %841, %802
+  %.not34.i.i29.i = icmp eq i64 %842, 0
+  br i1 %.not34.i.i29.i, label %843, label %tcp_select.exit.i
 
-if.end65.i.i35.i:                                 ; preds = %if.else50.i.i40.i, %if.else33.i.i33.i
+843:                                              ; preds = %840, %835
   br label %tcp_select.exit.i
 
-tcp_select.exit.i:                                ; preds = %if.end65.i.i35.i, %if.else50.i.i40.i, %if.then36.i.i37.i, %if.else12.i
-  %retval.0.i.i36.i = phi i32 [ 0, %if.end65.i.i35.i ], [ 1, %if.else12.i ], [ 4, %if.else50.i.i40.i ], [ 2, %if.then36.i.i37.i ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i17.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i18.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i19.i)
-  br label %if.end14.i
+tcp_select.exit.i:                                ; preds = %843, %840, %837, %828
+  %.0.i.i27.i = phi i32 [ 0, %843 ], [ 1, %828 ], [ 4, %840 ], [ 2, %837 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #21
+  br label %844
 
-if.end14.i:                                       ; preds = %tcp_select.exit.i, %tcp_select_tx.exit.i
-  %select_ret.0.i = phi i32 [ %retval.0.i.i.i, %tcp_select_tx.exit.i ], [ %retval.0.i.i36.i, %tcp_select.exit.i ]
-  %169 = and i32 %select_ret.0.i, 6
-  %or.cond.i = icmp eq i32 %169, 2
-  %cmp18.i = icmp eq i32 %select_ret.0.i, 4
-  %or.cond1.i407 = or i1 %cmp18.i, %or.cond.i
-  br i1 %or.cond1.i407, label %if.then19.i411, label %if.else22.i
+844:                                              ; preds = %tcp_select.exit.i, %tcp_select_tx.exit.i
+  %.023.i = phi i32 [ %.0.i.i.i, %tcp_select_tx.exit.i ], [ %.0.i.i27.i, %tcp_select.exit.i ]
+  %845 = and i32 %.023.i, 6
+  %or.cond.i = icmp eq i32 %845, 2
+  %846 = icmp eq i32 %.023.i, 4
+  %or.cond3.i559 = or i1 %846, %or.cond.i
+  br i1 %or.cond3.i559, label %847, label %850
 
-if.then19.i411:                                   ; preds = %if.end14.i
-  %call20.i412 = call i32 @wolfSSL_accept(ptr noundef %call490) #25
-  %call21.i413 = call i32 @wolfSSL_get_error(ptr noundef %call490, i32 noundef 0) #25
-  br label %if.end28.i
+847:                                              ; preds = %844
+  %848 = call i32 @wolfSSL_accept(ptr noundef %539) #21
+  %849 = call i32 @wolfSSL_get_error(ptr noundef %539, i32 noundef 0) #21
+  br label %854
 
-if.else22.i:                                      ; preds = %if.end14.i
-  %cmp23.i = icmp eq i32 %select_ret.0.i, 1
-  br i1 %cmp23.i, label %land.lhs.true.i408, label %if.then613
+850:                                              ; preds = %844
+  %851 = icmp eq i32 %.023.i, 1
+  br i1 %851, label %852, label %NonBlockingSSL_Accept.exit.thread
 
-land.lhs.true.i408:                               ; preds = %if.else22.i
-  %call24.i = call i32 @wolfSSL_dtls(ptr noundef %call490) #25
-  %tobool.not.i409 = icmp eq i32 %call24.i, 0
-  br i1 %tobool.not.i409, label %if.end28.i, label %if.then613
+852:                                              ; preds = %850
+  %853 = call i32 @wolfSSL_dtls(ptr noundef %539) #21
+  %.not26.i = icmp eq i32 %853, 0
+  br i1 %.not26.i, label %854, label %NonBlockingSSL_Accept.exit.thread
 
-if.end28.i:                                       ; preds = %land.lhs.true.i408, %if.then19.i411
-  %error.1.i = phi i32 [ %call21.i413, %if.then19.i411 ], [ 2, %land.lhs.true.i408 ]
-  %ret.1.i = phi i32 [ %call20.i412, %if.then19.i411 ], [ %ret.048.i, %land.lhs.true.i408 ]
-  %cmp.not.i410 = icmp ne i32 %ret.1.i, 1
-  %170 = and i32 %error.1.i, -2
-  %171 = icmp eq i32 %170, 2
-  %or.cond44.i = select i1 %cmp.not.i410, i1 %171, i1 false
-  br i1 %or.cond44.i, label %while.body.i, label %if.end610, !llvm.loop !14
+854:                                              ; preds = %852, %847
+  %.125.i = phi i32 [ %849, %847 ], [ 2, %852 ]
+  %.1.i = phi i32 [ %848, %847 ], [ %.035.i, %852 ]
+  %.not.i560 = icmp ne i32 %.1.i, 1
+  %855 = and i32 %.125.i, -2
+  %856 = icmp eq i32 %855, 2
+  %or.cond31.i = select i1 %.not.i560, i1 %856, i1 false
+  br i1 %or.cond31.i, label %810, label %NonBlockingSSL_Accept.exit, !llvm.loop !60
 
-do.body599:                                       ; preds = %if.end594, %do.cond606
-  %call600 = call i32 @wolfSSL_accept(ptr noundef %call490) #25
-  %cmp601.not = icmp eq i32 %call600, 1
-  br i1 %cmp601.not, label %if.end631, label %do.cond606
+.preheader649:                                    ; preds = %785, %858
+  %857 = call i32 @wolfSSL_accept(ptr noundef %539) #21
+  %.not471 = icmp eq i32 %857, 1
+  br i1 %.not471, label %err_sys_ex.exit564, label %858
 
-do.cond606:                                       ; preds = %do.body599
-  %call604 = call i32 @wolfSSL_get_error(ptr noundef %call490, i32 noundef 0) #25
-  %cmp607 = icmp eq i32 %call604, -108
-  br i1 %cmp607, label %do.body599, label %if.then613, !llvm.loop !15
+858:                                              ; preds = %.preheader649
+  %859 = call i32 @wolfSSL_get_error(ptr noundef %539, i32 noundef 0) #21
+  %860 = icmp eq i32 %859, -108
+  br i1 %860, label %.preheader649, label %NonBlockingSSL_Accept.exit.thread, !llvm.loop !61
 
-if.end610:                                        ; preds = %if.end28.i, %tcp_set_nonblocking.exit
-  %ret.0 = phi i32 [ %call.i404, %tcp_set_nonblocking.exit ], [ %ret.1.i, %if.end28.i ]
-  %cmp611.not = icmp eq i32 %ret.0, 1
-  br i1 %cmp611.not, label %if.end631, label %if.then613
+NonBlockingSSL_Accept.exit:                       ; preds = %854, %tcp_set_nonblocking.exit
+  %.0400 = phi i32 [ %795, %tcp_set_nonblocking.exit ], [ %.1.i, %854 ]
+  %.not472 = icmp eq i32 %.0400, 1
+  br i1 %.not472, label %err_sys_ex.exit564, label %NonBlockingSSL_Accept.exit.thread
 
-if.then613:                                       ; preds = %if.else22.i, %land.lhs.true.i408, %do.cond606, %if.end610
-  %call614 = call i32 @wolfSSL_get_error(ptr noundef %call490, i32 noundef 0) #25
-  %.b214 = load i1, ptr @quieter, align 4
-  br i1 %.b214, label %do.end623, label %if.then617
+NonBlockingSSL_Accept.exit.thread:                ; preds = %850, %852, %858, %NonBlockingSSL_Accept.exit
+  %861 = call i32 @wolfSSL_get_error(ptr noundef %539, i32 noundef 0) #21
+  %.b433 = load i1, ptr @quieter, align 4
+  br i1 %.b433, label %867, label %862
 
-if.then617:                                       ; preds = %if.then613
-  %172 = load ptr, ptr @stderr, align 8
-  %conv618 = sext i32 %call614 to i64
-  %call619 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv618, ptr noundef nonnull %buffer) #25
-  %call620 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.59, i32 noundef %call614, ptr noundef %call619) #23
-  br label %do.end623
+862:                                              ; preds = %NonBlockingSSL_Accept.exit.thread
+  %863 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %864 = sext i32 %861 to i64
+  %865 = call ptr @wolfSSL_ERR_error_string(i64 noundef %864, ptr noundef nonnull %24) #21
+  %866 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %863, ptr noundef nonnull @.str.60, i32 noundef %861, ptr noundef %865) #22
+  br label %867
 
-do.end623:                                        ; preds = %if.then613, %if.then617
-  br i1 %tobool624.not, label %if.then625, label %if.else626
+867:                                              ; preds = %862, %NonBlockingSSL_Accept.exit.thread
+  br i1 %.not473, label %868, label %879
 
-if.then625:                                       ; preds = %do.end623
-  %173 = load i32, ptr @runWithErrors, align 4
-  %cmp.i416 = icmp eq i32 %173, 1
-  br i1 %cmp.i416, label %do.body.i418, label %if.else.i417
+868:                                              ; preds = %867
+  %869 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %870 = icmp eq i32 %869, 1
+  br i1 %870, label %871, label %878
 
-do.body.i418:                                     ; preds = %if.then625
-  %.b2.i419 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i419, label %if.end631, label %do.body2.i420
+871:                                              ; preds = %868
+  %.b2.i561 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i561, label %err_sys_ex.exit564, label %872
 
-do.body2.i420:                                    ; preds = %do.body.i418
-  %174 = load ptr, ptr @stderr, align 8
-  %call.i421 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %174, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.60) #23
-  %.b.pr.i422 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i422, label %if.end631, label %if.then4.i423
+872:                                              ; preds = %871
+  %873 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %874 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %873, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.61) #22
+  %.b.pr.i562 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i562, label %err_sys_ex.exit564, label %875
 
-if.then4.i423:                                    ; preds = %do.body2.i420
-  %175 = load ptr, ptr @stderr, align 8
-  %176 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %175) #23
-  br label %if.end631
+875:                                              ; preds = %872
+  %876 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %877 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %876) #23
+  br label %err_sys_ex.exit564
 
-if.else.i417:                                     ; preds = %if.then625
-  call fastcc void @err_sys(ptr noundef nonnull @.str.60) #24
-  unreachable
-
-if.else626:                                       ; preds = %do.end623
-  call void @wolfSSL_free(ptr noundef %call490) #25
-  call void @wolfSSL_CTX_free(ptr noundef %ctx.0512) #25
-  %call627 = call i32 @close(i32 noundef %clientfd.0) #25
-  %call628 = call i32 @close(i32 noundef %sockfd.2) #25
-  br label %exit
-
-if.end631:                                        ; preds = %do.body599, %if.then4.i423, %do.body2.i420, %do.body.i418, %if.end610
-  %err.3 = phi i32 [ %err.0, %if.end610 ], [ %call614, %do.body.i418 ], [ %call614, %do.body2.i420 ], [ %call614, %if.then4.i423 ], [ 0, %do.body599 ]
-  %177 = load i32, ptr @lng_index, align 4
-  %idxprom.i425 = sext i32 %177 to i64
-  %arrayidx.i426 = getelementptr inbounds [2 x [9 x ptr]], ptr @client_showpeer_msg, i64 0, i64 %idxprom.i425
-  %178 = load ptr, ptr %arrayidx.i426, align 8
-  %call.i427 = call ptr @wolfSSL_get_version(ptr noundef %call490) #25
-  %call2.i428 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %178, ptr noundef %call.i427)
-  %call3.i = call ptr @wolfSSL_get_current_cipher(ptr noundef %call490) #25
-  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i426, i64 8
-  %179 = load ptr, ptr %arrayidx4.i, align 8
-  %call5.i = call ptr @wolfSSL_CIPHER_get_name(ptr noundef %call3.i) #25
-  %call6.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %179, ptr noundef %call5.i)
-  %call7.i = call ptr @wolfSSL_get_curve_name(ptr noundef %call490) #25
-  %cmp.not.i429 = icmp eq ptr %call7.i, null
-  br i1 %cmp.not.i429, label %if.else.i433, label %if.then.i430
-
-if.then.i430:                                     ; preds = %if.end631
-  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %arrayidx.i426, i64 24
-  %180 = load ptr, ptr %arrayidx8.i, align 8
-  %call9.i431 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %180, ptr noundef nonnull %call7.i)
-  br label %if.end15.i
-
-if.else.i433:                                     ; preds = %if.end631
-  %call10.i434 = call i32 @wolfSSL_GetDhKey_Sz(ptr noundef %call490) #25
-  %cmp11.i = icmp sgt i32 %call10.i434, 0
-  br i1 %cmp11.i, label %if.then12.i, label %if.end15.i
-
-if.then12.i:                                      ; preds = %if.else.i433
-  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %arrayidx.i426, i64 32
-  %181 = load ptr, ptr %arrayidx13.i, align 8
-  %call14.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.204, ptr noundef %181, i32 noundef %call10.i434)
-  br label %if.end15.i
-
-if.end15.i:                                       ; preds = %if.then12.i, %if.else.i433, %if.then.i430
-  %call16.i = call i32 @wolfSSL_session_reused(ptr noundef %call490) #25
-  %tobool.not.i432 = icmp eq i32 %call16.i, 0
-  br i1 %tobool.not.i432, label %showPeerEx.exit, label %if.then17.i
-
-if.then17.i:                                      ; preds = %if.end15.i
-  %arrayidx18.i = getelementptr inbounds nuw i8, ptr %arrayidx.i426, i64 40
-  %182 = load ptr, ptr %arrayidx18.i, align 8
-  %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %182)
-  br label %showPeerEx.exit
-
-showPeerEx.exit:                                  ; preds = %if.end15.i, %if.then17.i
-  %call632 = call i32 @wolfSSL_state(ptr noundef %call490) #25
-  %cmp633.not = icmp eq i32 %call632, 0
-  br i1 %cmp633.not, label %if.end636, label %if.then635
-
-if.then635:                                       ; preds = %showPeerEx.exit
-  %183 = load i32, ptr @runWithErrors, align 4
-  %cmp.i435 = icmp eq i32 %183, 1
-  br i1 %cmp.i435, label %do.body.i437, label %if.else.i436
-
-do.body.i437:                                     ; preds = %if.then635
-  %.b2.i438 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i438, label %if.end636, label %do.body2.i439
-
-do.body2.i439:                                    ; preds = %do.body.i437
-  %184 = load ptr, ptr @stderr, align 8
-  %call.i440 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.61) #23
-  %.b.pr.i441 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i441, label %if.end636, label %if.then4.i442
-
-if.then4.i442:                                    ; preds = %do.body2.i439
-  %185 = load ptr, ptr @stderr, align 8
-  %186 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %185) #23
-  br label %if.end636
-
-if.else.i436:                                     ; preds = %if.then635
+878:                                              ; preds = %868
   call fastcc void @err_sys(ptr noundef nonnull @.str.61) #24
   unreachable
 
-if.end636:                                        ; preds = %if.then4.i442, %do.body2.i439, %do.body.i437, %showPeerEx.exit
-  br i1 %or.cond8, label %if.end688, label %land.lhs.true640
+879:                                              ; preds = %867
+  call void @wolfSSL_free(ptr noundef %539) #21
+  call void @wolfSSL_CTX_free(ptr noundef %.0325625) #21
+  %880 = call i32 @close(i32 noundef %.0603) #21
+  %881 = call i32 @close(i32 noundef %.2606) #21
+  br label %1032
 
-land.lhs.true640:                                 ; preds = %if.end636
-  %strchr = call ptr @strchr(ptr nonnull dereferenceable(1) %cipherList.012332370, i32 58)
-  %tobool642.not = icmp eq ptr %strchr, null
-  br i1 %tobool642.not, label %if.then643, label %if.end688
+err_sys_ex.exit564:                               ; preds = %.preheader649, %875, %872, %871, %NonBlockingSSL_Accept.exit
+  %.3399 = phi i32 [ %.0396, %NonBlockingSSL_Accept.exit ], [ %861, %871 ], [ %861, %872 ], [ %861, %875 ], [ 0, %.preheader649 ]
+  %882 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %883 = sext i32 %882 to i64
+  %884 = getelementptr inbounds [2 x [9 x ptr]], ptr @client_showpeer_msg, i64 0, i64 %883
+  %885 = load ptr, ptr %884, align 8, !tbaa !27
+  %886 = call ptr @wolfSSL_get_version(ptr noundef %539) #21
+  %887 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %885, ptr noundef %886)
+  %888 = call ptr @wolfSSL_get_current_cipher(ptr noundef %539) #21
+  %889 = getelementptr inbounds nuw i8, ptr %884, i64 8
+  %890 = load ptr, ptr %889, align 8, !tbaa !27
+  %891 = call ptr @wolfSSL_CIPHER_get_name(ptr noundef %888) #21
+  %892 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %890, ptr noundef %891)
+  %893 = call ptr @wolfSSL_get_curve_name(ptr noundef %539) #21
+  %.not.i565 = icmp eq ptr %893, null
+  br i1 %.not.i565, label %898, label %894
 
-if.then643:                                       ; preds = %land.lhs.true640
-  %call644 = call ptr @wolfSSL_get_current_cipher(ptr noundef %call490) #25
-  %tobool645.not = icmp eq ptr %call644, null
-  br i1 %tobool645.not, label %if.end688, label %land.lhs.true646
+894:                                              ; preds = %err_sys_ex.exit564
+  %895 = getelementptr inbounds nuw i8, ptr %884, i64 24
+  %896 = load ptr, ptr %895, align 8, !tbaa !27
+  %897 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %896, ptr noundef nonnull %893)
+  br label %905
 
-land.lhs.true646:                                 ; preds = %if.then643
-  %call647 = call i32 @wolfSSL_get_cipher_suite_from_name(ptr noundef nonnull %cipherList.012332370, ptr noundef nonnull %requested_cipherSuite0, ptr noundef nonnull %requested_cipherSuite, ptr noundef nonnull %requested_cipherFlags) #25
-  %cmp648 = icmp eq i32 %call647, 0
-  br i1 %cmp648, label %if.then650, label %if.end688
+898:                                              ; preds = %err_sys_ex.exit564
+  %899 = call i32 @wolfSSL_GetDhKey_Sz(ptr noundef %539) #21
+  %900 = icmp sgt i32 %899, 0
+  br i1 %900, label %901, label %905
 
-if.then650:                                       ; preds = %land.lhs.true646
-  %call651 = call i32 @wolfSSL_CIPHER_get_id(ptr noundef nonnull %call644) #25
-  %shr = lshr i32 %call651, 8
-  %conv652 = trunc i32 %shr to i8
-  %conv654 = trunc i32 %call651 to i8
-  %call655 = call ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext %conv652, i8 noundef zeroext %conv654) #25
-  %call656 = call ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext %conv652, i8 noundef zeroext %conv654) #25
-  %cmp657 = icmp eq ptr %call655, null
-  br i1 %cmp657, label %if.then659, label %if.end660
+901:                                              ; preds = %898
+  %902 = getelementptr inbounds nuw i8, ptr %884, i64 32
+  %903 = load ptr, ptr %902, align 8, !tbaa !27
+  %904 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.206, ptr noundef %903, i32 noundef %899)
+  br label %905
 
-if.then659:                                       ; preds = %if.then650
-  %187 = load i32, ptr @catastrophic, align 4
-  %cmp.i444 = icmp eq i32 %187, 1
-  br i1 %cmp.i444, label %do.body.i446, label %if.else.i445
+905:                                              ; preds = %901, %898, %894
+  %906 = call i32 @wolfSSL_session_reused(ptr noundef %539) #21
+  %.not14.i = icmp eq i32 %906, 0
+  br i1 %.not14.i, label %showPeerEx.exit, label %907
 
-do.body.i446:                                     ; preds = %if.then659
-  %.b2.i447 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i447, label %if.end660, label %do.body2.i448
+907:                                              ; preds = %905
+  %908 = getelementptr inbounds nuw i8, ptr %884, i64 40
+  %909 = load ptr, ptr %908, align 8, !tbaa !27
+  %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %909)
+  br label %showPeerEx.exit
 
-do.body2.i448:                                    ; preds = %do.body.i446
-  %188 = load ptr, ptr @stderr, align 8
-  %call.i449 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.63) #23
-  %.b.pr.i450 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i450, label %if.end660, label %if.then4.i451
+showPeerEx.exit:                                  ; preds = %905, %907
+  %910 = call i32 @wolfSSL_state(ptr noundef %539) #21
+  %.not474 = icmp eq i32 %910, 0
+  br i1 %.not474, label %err_sys_ex.exit569, label %911
 
-if.then4.i451:                                    ; preds = %do.body2.i448
-  %189 = load ptr, ptr @stderr, align 8
-  %190 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %189) #23
-  br label %if.end660
+911:                                              ; preds = %showPeerEx.exit
+  %912 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %913 = icmp eq i32 %912, 1
+  br i1 %913, label %914, label %921
 
-if.else.i445:                                     ; preds = %if.then659
-  call fastcc void @err_sys(ptr noundef nonnull @.str.63) #24
+914:                                              ; preds = %911
+  %.b2.i566 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i566, label %err_sys_ex.exit569, label %915
+
+915:                                              ; preds = %914
+  %916 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %917 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %916, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.62) #22
+  %.b.pr.i567 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i567, label %err_sys_ex.exit569, label %918
+
+918:                                              ; preds = %915
+  %919 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %920 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %919) #23
+  br label %err_sys_ex.exit569
+
+921:                                              ; preds = %911
+  call fastcc void @err_sys(ptr noundef nonnull @.str.62) #24
   unreachable
 
-if.end660:                                        ; preds = %if.then4.i451, %do.body2.i448, %do.body.i446, %if.then650
-  %call661 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cipherList.012332370, ptr noundef nonnull dereferenceable(1) %call655) #26
-  %tobool662.not = icmp eq i32 %call661, 0
-  br i1 %tobool662.not, label %if.end688, label %land.lhs.true663
+err_sys_ex.exit569:                               ; preds = %918, %915, %914, %showPeerEx.exit
+  br i1 %or.cond17, label %976, label %922
 
-land.lhs.true663:                                 ; preds = %if.end660
-  %cmp664 = icmp eq ptr %call656, null
-  br i1 %cmp664, label %if.then669, label %lor.lhs.false666
+922:                                              ; preds = %err_sys_ex.exit569
+  %strchr = call ptr @strchr(ptr nonnull dereferenceable(1) %.038813502494, i32 58)
+  %.not475 = icmp eq ptr %strchr, null
+  br i1 %.not475, label %923, label %976
 
-lor.lhs.false666:                                 ; preds = %land.lhs.true663
-  %call667 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cipherList.012332370, ptr noundef nonnull dereferenceable(1) %call656) #26
-  %tobool668.not = icmp eq i32 %call667, 0
-  br i1 %tobool668.not, label %if.end688, label %if.then669
+923:                                              ; preds = %922
+  %924 = call ptr @wolfSSL_get_current_cipher(ptr noundef %539) #21
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #21
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #21
+  %.not476 = icmp eq ptr %924, null
+  br i1 %.not476, label %err_sys_ex.exit577, label %925
 
-if.then669:                                       ; preds = %lor.lhs.false666, %land.lhs.true663
-  %191 = load i32, ptr %requested_cipherFlags, align 4
-  %and670 = and i32 %191, 1
-  %tobool671.not = icmp eq i32 %and670, 0
-  br i1 %tobool671.not, label %if.then672, label %if.else673
+925:                                              ; preds = %923
+  %926 = call i32 @wolfSSL_get_cipher_suite_from_name(ptr noundef nonnull %.038813502494, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28) #21
+  %927 = icmp eq i32 %926, 0
+  br i1 %927, label %928, label %err_sys_ex.exit577
 
-if.then672:                                       ; preds = %if.then669
-  %192 = load i32, ptr @catastrophic, align 4
-  %cmp.i453 = icmp eq i32 %192, 1
-  br i1 %cmp.i453, label %do.body.i455, label %if.else.i454
+928:                                              ; preds = %925
+  %929 = call i32 @wolfSSL_CIPHER_get_id(ptr noundef nonnull %924) #21
+  %930 = lshr i32 %929, 8
+  %931 = trunc i32 %930 to i8
+  %932 = trunc i32 %929 to i8
+  %933 = call ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext %931, i8 noundef zeroext %932) #21
+  %934 = call ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext %931, i8 noundef zeroext %932) #21
+  %935 = icmp eq ptr %933, null
+  br i1 %935, label %936, label %err_sys_ex.exit573
 
-do.body.i455:                                     ; preds = %if.then672
-  %.b2.i456 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i456, label %if.end688, label %do.body2.i457
+936:                                              ; preds = %928
+  %937 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %938 = icmp eq i32 %937, 1
+  br i1 %938, label %939, label %946
 
-do.body2.i457:                                    ; preds = %do.body.i455
-  %193 = load ptr, ptr @stderr, align 8
-  %call.i458 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.64) #23
-  %.b.pr.i459 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i459, label %if.end688, label %if.end688.sink.split
+939:                                              ; preds = %936
+  %.b2.i570 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i570, label %err_sys_ex.exit573, label %940
 
-if.else.i454:                                     ; preds = %if.then672
+940:                                              ; preds = %939
+  %941 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %942 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %941, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.64) #22
+  %.b.pr.i571 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i571, label %err_sys_ex.exit573, label %943
+
+943:                                              ; preds = %940
+  %944 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %945 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %944) #23
+  br label %err_sys_ex.exit573
+
+946:                                              ; preds = %936
   call fastcc void @err_sys(ptr noundef nonnull @.str.64) #24
   unreachable
 
-if.else673:                                       ; preds = %if.then669
-  %194 = load i8, ptr %requested_cipherSuite0, align 1
-  %cmp676.not = icmp eq i8 %194, %conv652
-  %195 = load i8, ptr %requested_cipherSuite, align 1
-  %cmp681.not = icmp eq i8 %195, %conv654
-  %or.cond227 = select i1 %cmp676.not, i1 %cmp681.not, i1 false
-  br i1 %or.cond227, label %if.end688, label %if.then683
+err_sys_ex.exit573:                               ; preds = %943, %940, %939, %928
+  %947 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038813502494, ptr noundef nonnull dereferenceable(1) %933) #25
+  %.not477 = icmp eq i32 %947, 0
+  br i1 %.not477, label %err_sys_ex.exit577, label %948
 
-if.then683:                                       ; preds = %if.else673
-  %196 = load i32, ptr @catastrophic, align 4
-  %cmp.i462 = icmp eq i32 %196, 1
-  br i1 %cmp.i462, label %do.body.i464, label %if.else.i463
+948:                                              ; preds = %err_sys_ex.exit573
+  %949 = icmp eq ptr %934, null
+  br i1 %949, label %952, label %950
 
-do.body.i464:                                     ; preds = %if.then683
-  %.b2.i465 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i465, label %if.end688, label %do.body2.i466
+950:                                              ; preds = %948
+  %951 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038813502494, ptr noundef nonnull dereferenceable(1) %934) #25
+  %.not478 = icmp eq i32 %951, 0
+  br i1 %.not478, label %err_sys_ex.exit577, label %952
 
-do.body2.i466:                                    ; preds = %do.body.i464
-  %197 = load ptr, ptr @stderr, align 8
-  %call.i467 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %197, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.65) #23
-  %.b.pr.i468 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i468, label %if.end688, label %if.end688.sink.split
+952:                                              ; preds = %950, %948
+  %953 = load i32, ptr %28, align 4, !tbaa !4
+  %954 = and i32 %953, 1
+  %.not479 = icmp eq i32 %954, 0
+  br i1 %.not479, label %955, label %963
 
-if.else.i463:                                     ; preds = %if.then683
+955:                                              ; preds = %952
+  %956 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %957 = icmp eq i32 %956, 1
+  br i1 %957, label %958, label %962
+
+958:                                              ; preds = %955
+  %.b2.i574 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i574, label %err_sys_ex.exit577, label %959
+
+959:                                              ; preds = %958
+  %960 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %961 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %960, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.65) #22
+  %.b.pr.i575 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i575, label %err_sys_ex.exit577, label %err_sys_ex.exit577.sink.split
+
+962:                                              ; preds = %955
   call fastcc void @err_sys(ptr noundef nonnull @.str.65) #24
   unreachable
 
-if.end688.sink.split:                             ; preds = %do.body2.i466, %do.body2.i457
-  %198 = load ptr, ptr @stderr, align 8
-  %199 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %198) #23
-  br label %if.end688
+963:                                              ; preds = %952
+  %964 = load i8, ptr %26, align 1, !tbaa !29
+  %.not480 = icmp eq i8 %964, %931
+  %965 = load i8, ptr %27, align 1
+  %.not481 = icmp eq i8 %965, %932
+  %or.cond502 = select i1 %.not480, i1 %.not481, i1 false
+  br i1 %or.cond502, label %err_sys_ex.exit577, label %966
 
-if.end688:                                        ; preds = %if.end688.sink.split, %do.body2.i466, %do.body.i464, %do.body2.i457, %do.body.i455, %if.else673, %if.then643, %land.lhs.true646, %lor.lhs.false666, %if.end660, %land.lhs.true640, %if.end636
-  br i1 %or.cond31, label %if.then694, label %if.end697
+966:                                              ; preds = %963
+  %967 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %968 = icmp eq i32 %967, 1
+  br i1 %968, label %969, label %973
 
-if.then694:                                       ; preds = %if.end688
-  call fastcc void @ServerRead(ptr noundef %call490, ptr noundef %input)
-  %call696 = call i32 @wolfSSL_get_error(ptr noundef %call490, i32 noundef 0) #25
-  br label %if.end697
+969:                                              ; preds = %966
+  %.b2.i578 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i578, label %err_sys_ex.exit577, label %970
 
-if.end697:                                        ; preds = %if.then694, %if.end688
-  %err.4 = phi i32 [ %call696, %if.then694 ], [ %err.3, %if.end688 ]
-  %200 = or i32 %err.4, %echoData.012932352
-  %or.cond32 = icmp eq i32 %200, 0
-  %or.cond33 = select i1 %or.cond32, i1 %cmp692, i1 false
-  br i1 %or.cond33, label %if.then706, label %if.else721
+970:                                              ; preds = %969
+  %971 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %972 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %971, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.66) #22
+  %.b.pr.i579 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i579, label %err_sys_ex.exit577, label %err_sys_ex.exit577.sink.split
 
-if.then706:                                       ; preds = %if.end697
-  br i1 %tobool707.not, label %if.end710, label %if.then708
+973:                                              ; preds = %966
+  call fastcc void @err_sys(ptr noundef nonnull @.str.66) #24
+  unreachable
 
-if.then708:                                       ; preds = %if.then706
-  %call709 = call i32 @wolfSSL_update_keys(ptr noundef %call490) #25
-  br label %if.end710
+err_sys_ex.exit577.sink.split:                    ; preds = %970, %959
+  %974 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %975 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %974) #23
+  br label %err_sys_ex.exit577
 
-if.end710:                                        ; preds = %if.then708, %if.then706
-  br i1 %tobool711.not, label %if.then712.split, label %if.else713.split
+err_sys_ex.exit577:                               ; preds = %err_sys_ex.exit577.sink.split, %970, %969, %959, %958, %err_sys_ex.exit573, %950, %963, %925, %923
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #21
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #21
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #21
+  br label %976
 
-if.then712.split:                                 ; preds = %if.end710
-  call fastcc void @ServerWrite(ptr noundef %call490, ptr noundef nonnull @kReplyMsg, i32 noundef 22)
-  br label %if.end714
+976:                                              ; preds = %err_sys_ex.exit577, %922, %err_sys_ex.exit569
+  br i1 %or.cond63, label %977, label %979
 
-if.else713.split:                                 ; preds = %if.end710
-  call fastcc void @ServerWrite(ptr noundef %call490, ptr noundef nonnull @kHttpServerMsg, i32 noundef 225)
-  br label %if.end714
+977:                                              ; preds = %976
+  call fastcc void @ServerRead(ptr noundef %539, ptr noundef %23)
+  %978 = call i32 @wolfSSL_get_error(ptr noundef %539, i32 noundef 0) #21
+  br label %979
 
-if.end714:                                        ; preds = %if.else713.split, %if.then712.split
-  br i1 %tobool707.not, label %if.end744, label %if.then718
+979:                                              ; preds = %977, %976
+  %.4 = phi i32 [ %978, %977 ], [ %.3399, %976 ]
+  %980 = or i32 %.4, %.040314102476
+  %or.cond65 = icmp eq i32 %980, 0
+  %or.cond67 = select i1 %or.cond65, i1 %532, i1 false
+  br i1 %or.cond67, label %981, label %987
 
-if.then718:                                       ; preds = %if.end714
-  call fastcc void @ServerRead(ptr noundef %call490, ptr noundef %input)
-  br label %if.end744
+981:                                              ; preds = %979
+  br i1 %.not484, label %984, label %982
 
-if.else721:                                       ; preds = %if.end697
-  switch i32 %err.4, label %if.end744 [
-    i32 6, label %if.then727
-    i32 0, label %if.then727
+982:                                              ; preds = %981
+  %983 = call i32 @wolfSSL_update_keys(ptr noundef %539) #21
+  br label %984
+
+984:                                              ; preds = %982, %981
+  br i1 %.not485, label %.split414, label %.split
+
+.split414:                                        ; preds = %984
+  call fastcc void @ServerWrite(ptr noundef %539, ptr noundef nonnull @kReplyMsg, i32 noundef 22)
+  br label %985
+
+.split:                                           ; preds = %984
+  call fastcc void @ServerWrite(ptr noundef %539, ptr noundef nonnull @kHttpServerMsg, i32 noundef 225)
+  br label %985
+
+985:                                              ; preds = %.split, %.split414
+  br i1 %.not484, label %994, label %986
+
+986:                                              ; preds = %985
+  call fastcc void @ServerRead(ptr noundef %539, ptr noundef %23)
+  br label %994
+
+987:                                              ; preds = %979
+  switch i32 %.4, label %994 [
+    i32 6, label %988
+    i32 0, label %988
   ]
 
-if.then727:                                       ; preds = %if.else721, %if.else721
-  %call728 = call i32 @ServerEchoData(ptr noundef %call490, i32 noundef %clientfd.0, i32 noundef %echoData.012932352, i32 noundef %block.013132346, i64 noundef %throughput.013332340)
-  %cmp729 = icmp eq i32 %call728, 6
-  %or.cond36 = select i1 %cmp729, i1 %tobool624.not, i1 false
-  %cmp736.not217 = icmp eq i32 %call728, 0
-  %cmp736.not = or i1 %cmp736.not217, %or.cond36
-  br i1 %cmp736.not, label %if.end744, label %if.then738
+988:                                              ; preds = %987, %987
+  %989 = call i32 @ServerEchoData(ptr noundef %539, i32 noundef %.0603, i32 noundef %.040314102476, i32 noundef %.040614302470, i64 noundef %.040914502464)
+  %990 = icmp eq i32 %989, 6
+  %or.cond73 = select i1 %990, i1 %.not473, i1 false
+  %.not482483 = icmp eq i32 %989, 0
+  %.not482 = or i1 %.not482483, %or.cond73
+  br i1 %.not482, label %994, label %991
 
-if.then738:                                       ; preds = %if.then727
-  call void @wolfSSL_free(ptr noundef %call490) #25
-  call void @wolfSSL_CTX_free(ptr noundef %ctx.0512) #25
-  %call739 = call i32 @close(i32 noundef %clientfd.0) #25
-  %call740 = call i32 @close(i32 noundef %sockfd.2) #25
-  br label %exit
+991:                                              ; preds = %988
+  call void @wolfSSL_free(ptr noundef %539) #21
+  call void @wolfSSL_CTX_free(ptr noundef %.0325625) #21
+  %992 = call i32 @close(i32 noundef %.0603) #21
+  %993 = call i32 @close(i32 noundef %.2606) #21
+  br label %1032
 
-if.end744:                                        ; preds = %if.else721, %if.then727, %if.then718, %if.end714
-  %err.5 = phi i32 [ 0, %if.then718 ], [ 0, %if.end714 ], [ 0, %if.then727 ], [ %err.4, %if.else721 ]
-  %call745 = call i32 @wolfSSL_shutdown(ptr noundef %call490) #25
-  %cmp748 = icmp eq i32 %call745, 2
-  %or.cond37 = select i1 %tobool746, i1 %cmp748, i1 false
-  br i1 %or.cond37, label %while.cond751, label %if.end787
+994:                                              ; preds = %987, %986, %985, %988
+  %.5 = phi i32 [ 0, %988 ], [ %.4, %987 ], [ 0, %985 ], [ 0, %986 ]
+  %995 = call i32 @wolfSSL_shutdown(ptr noundef %539) #21
+  %996 = icmp eq i32 %995, 2
+  %or.cond75 = select i1 %533, i1 %996, i1 false
+  br i1 %or.cond75, label %.preheader, label %.thread2889
 
-while.cond751:                                    ; preds = %if.end744, %while.body756
-  %call752 = call i32 @wolfSSL_get_fd(ptr noundef %call490) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i.i)
-  store i64 2, ptr %timeout.i.i, align 8
-  store i64 0, ptr %tv_usec.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %fds.i.i, i8 0, i64 128, i1 false)
-  %rem.i.i = srem i32 %call752, 64
-  %sh_prom.i.i = zext nneg i32 %rem.i.i to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %div.i.i = sdiv i32 %call752, 64
-  %idxprom5.i.i = sext i32 %div.i.i to i64
-  %arrayidx6.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
-  %201 = load i64, ptr %arrayidx6.i.i, align 8
-  %or.i.i = or i64 %201, %shl.i.i
-  store i64 %or.i.i, ptr %arrayidx6.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i, i8 0, i64 128, i1 false)
-  %add.i.i = add nsw i32 %call752, 1
-  %arrayidx28.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
-  %202 = load i64, ptr %arrayidx28.i.i, align 8
-  %or29.i.i = or i64 %202, %shl.i.i
-  store i64 %or29.i.i, ptr %arrayidx28.i.i, align 8
-  %call.i.i471 = call i32 @select(i32 noundef %add.i.i, ptr noundef nonnull %fds.i.i, ptr noundef null, ptr noundef nonnull %errfds.i.i, ptr noundef nonnull %timeout.i.i) #25
-  %cmp34.i.i = icmp sgt i32 %call.i.i471, 0
-  br i1 %cmp34.i.i, label %if.then36.i.i, label %tcp_select.exit.thread
+.preheader:                                       ; preds = %994, %1015
+  %997 = call i32 @wolfSSL_get_fd(ptr noundef %539) #21
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
+  store i64 2, ptr %4, align 8, !tbaa !11
+  store i64 0, ptr %534, align 8, !tbaa !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false), !tbaa !15
+  %998 = srem i32 %997, 64
+  %999 = zext nneg i32 %998 to i64
+  %1000 = shl nuw i64 1, %999
+  %1001 = sdiv i32 %997, 64
+  %1002 = sext i32 %1001 to i64
+  %1003 = getelementptr inbounds [16 x i64], ptr %2, i64 0, i64 %1002
+  %1004 = load i64, ptr %1003, align 8, !tbaa !15
+  %1005 = or i64 %1004, %1000
+  store i64 %1005, ptr %1003, align 8, !tbaa !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false), !tbaa !15
+  %1006 = add nsw i32 %997, 1
+  %1007 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %1002
+  %1008 = load i64, ptr %1007, align 8, !tbaa !15
+  %1009 = or i64 %1008, %1000
+  store i64 %1009, ptr %1007, align 8, !tbaa !15
+  %1010 = call i32 @select(i32 noundef %1006, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
+  %1011 = icmp sgt i32 %1010, 0
+  br i1 %1011, label %1012, label %tcp_select.exit.thread
 
-if.then36.i.i:                                    ; preds = %while.cond751
-  %203 = load i64, ptr %arrayidx6.i.i, align 8
-  %and.i.i = and i64 %203, %shl.i.i
-  %cmp44.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp44.not.i.i, label %tcp_select.exit.thread, label %while.body756
+1012:                                             ; preds = %.preheader
+  %1013 = load i64, ptr %1003, align 8, !tbaa !15
+  %1014 = and i64 %1013, %1000
+  %.not33.i.i = icmp eq i64 %1014, 0
+  br i1 %.not33.i.i, label %tcp_select.exit.thread, label %1015
 
-tcp_select.exit.thread:                           ; preds = %if.then36.i.i, %while.cond751
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i)
-  br label %while.end775
+tcp_select.exit.thread:                           ; preds = %1012, %.preheader
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #21
+  br label %1021
 
-while.body756:                                    ; preds = %if.then36.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i)
-  %call757 = call i32 @wolfSSL_shutdown(ptr noundef %call490) #25
-  switch i32 %call757, label %do.body766 [
-    i32 1, label %while.end775.thread
-    i32 2, label %while.cond751
+1015:                                             ; preds = %1012
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #21
+  %1016 = call i32 @wolfSSL_shutdown(ptr noundef %539) #21
+  switch i32 %1016, label %1017 [
+    i32 1, label %.thread637
+    i32 2, label %.preheader
   ]
 
-while.end775.thread:                              ; preds = %while.body756
+.thread637:                                       ; preds = %1015
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %if.end787
+  br label %.thread2889
 
-do.body766:                                       ; preds = %while.body756
-  %.b213 = load i1, ptr @quieter, align 4
-  br i1 %.b213, label %if.end787, label %if.then768
+1017:                                             ; preds = %1015
+  %.b432 = load i1, ptr @quieter, align 4
+  br i1 %.b432, label %.thread2889, label %1018
 
-if.then768:                                       ; preds = %do.body766
-  %204 = load ptr, ptr @stderr, align 8
-  %205 = call i64 @fwrite(ptr nonnull @.str.67, i64 30, i64 1, ptr %204) #23
-  br label %while.end775
+1018:                                             ; preds = %1017
+  %1019 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %1020 = call i64 @fwrite(ptr nonnull @.str.68, i64 30, i64 1, ptr %1019) #23
+  br label %1021
 
-while.end775:                                     ; preds = %tcp_select.exit.thread, %if.then768
+1021:                                             ; preds = %tcp_select.exit.thread, %1018
   %.b.pr = load i1, ptr @quieter, align 4
-  br i1 %.b.pr, label %if.end787, label %if.then781
+  br i1 %.b.pr, label %.thread2889, label %1022
 
-if.then781:                                       ; preds = %while.end775
-  %206 = load ptr, ptr @stderr, align 8
-  %207 = call i64 @fwrite(ptr nonnull @.str.67, i64 30, i64 1, ptr %206) #23
-  br label %if.end787
+1022:                                             ; preds = %1021
+  %1023 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %1024 = call i64 @fwrite(ptr nonnull @.str.68, i64 30, i64 1, ptr %1023) #23
+  br label %.thread2889
 
-if.end787:                                        ; preds = %do.body766, %while.end775.thread, %while.end775, %if.then781, %if.end744
-  call void @wolfSSL_free(ptr noundef %call490) #25
-  %call788 = call i32 @close(i32 noundef %clientfd.0) #25
-  %or.cond38 = and i1 %cmp789, %cmp792
-  br i1 %or.cond38, label %while.body467, label %if.end796
+.thread2889:                                      ; preds = %1017, %.thread637, %1021, %1022, %994
+  call void @wolfSSL_free(ptr noundef %539) #21
+  %1025 = call i32 @close(i32 noundef %.0603) #21
+  %or.cond77 = and i1 %535, %538
+  br i1 %or.cond77, label %537, label %1026
 
-if.end796:                                        ; preds = %if.end787
-  br i1 %cmp798, label %if.then800, label %while.body467.outer
+1026:                                             ; preds = %.thread2889
+  br i1 %536, label %1027, label %.outer
 
-if.then800:                                       ; preds = %if.end796
-  %dec = add nsw i32 %loops.2.ph.ph, -1
-  %cmp801 = icmp eq i32 %dec, 0
-  br i1 %cmp801, label %do.end809, label %while.body467.outer.outer
+1027:                                             ; preds = %1026
+  %1028 = add nsw i32 %.2392.ph.ph, -1
+  %1029 = icmp eq i32 %1028, 0
+  br i1 %1029, label %1030, label %.outer.outer
 
-do.end809:                                        ; preds = %if.then800
-  %call810 = call i32 @close(i32 noundef %sockfd.2) #25
-  call void @wolfSSL_CTX_free(ptr noundef %ctx.0512) #25
-  br label %exit
+1030:                                             ; preds = %1027
+  %1031 = call i32 @close(i32 noundef %.2606) #21
+  call void @wolfSSL_CTX_free(ptr noundef %.0325625) #21
+  br label %1032
 
-exit:                                             ; preds = %do.end809, %if.then738, %if.else626
-  %.sink3561 = phi i32 [ 0, %do.end809 ], [ %call728, %if.then738 ], [ %call614, %if.else626 ]
-  store i32 %.sink3561, ptr %return_code, align 8
+1032:                                             ; preds = %1030, %991, %879
+  %.sink3697 = phi i32 [ 0, %1030 ], [ %989, %991 ], [ %861, %879 ]
+  store i32 %.sink3697, ptr %32, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #21
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #21
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #21
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #21
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Usage() unnamed_addr #7 {
-entry:
-  %0 = load i32, ptr @lng_index, align 4
-  %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [2 x [65 x ptr]], ptr @server_usage_msg, i64 0, i64 %idxprom
-  %1 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, ptr noundef %1)
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %2 = load ptr, ptr %arrayidx4, align 8
-  %call5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %2)
-  %arrayidx8 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %3 = load ptr, ptr %arrayidx8, align 8
-  %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %3, i32 noundef 11111)
-  %arrayidx12 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
-  %4 = load ptr, ptr %arrayidx12, align 8
-  %call13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %4, i32 noundef 3)
-  %arrayidx16 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
-  %5 = load ptr, ptr %arrayidx16, align 8
-  %call17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %5)
-  %arrayidx20 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
-  %6 = load ptr, ptr %arrayidx20, align 8
-  %call21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %6, ptr noundef nonnull @.str.13)
-  %arrayidx24 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
-  %7 = load ptr, ptr %arrayidx24, align 8
-  %call25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %7, ptr noundef nonnull @.str.14)
-  %arrayidx28 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 56
-  %8 = load ptr, ptr %arrayidx28, align 8
-  %call29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %8, ptr noundef nonnull @.str.12)
-  %arrayidx32 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
-  %9 = load ptr, ptr %arrayidx32, align 8
-  %call33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %9)
-  %arrayidx36 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 72
-  %10 = load ptr, ptr %arrayidx36, align 8
-  %call37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %10, ptr noundef nonnull @.str.11)
-  %arrayidx40 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 80
-  %11 = load ptr, ptr %arrayidx40, align 8
-  %call41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %11, i32 noundef 1024)
-  %arrayidx44 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 88
-  %12 = load ptr, ptr %arrayidx44, align 8
-  %call45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %12)
-  %arrayidx48 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 96
-  %13 = load ptr, ptr %arrayidx48, align 8
-  %call49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %13)
-  %arrayidx52 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 104
-  %14 = load ptr, ptr %arrayidx52, align 8
-  %call53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %14)
-  %arrayidx56 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 112
-  %15 = load ptr, ptr %arrayidx56, align 8
-  %call57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %15)
-  %arrayidx60 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 120
-  %16 = load ptr, ptr %arrayidx60, align 8
-  %call61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %16)
-  %arrayidx64 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 128
-  %17 = load ptr, ptr %arrayidx64, align 8
-  %call65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %17)
-  %arrayidx68 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 136
-  %18 = load ptr, ptr %arrayidx68, align 8
-  %call69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %18)
-  %arrayidx72 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 144
-  %19 = load ptr, ptr %arrayidx72, align 8
-  %call73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %19)
-  %arrayidx76 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 152
-  %20 = load ptr, ptr %arrayidx76, align 8
-  %call77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %20)
-  %arrayidx80 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 160
-  %21 = load ptr, ptr %arrayidx80, align 8
-  %call81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %21)
-  %arrayidx84 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 168
-  %22 = load ptr, ptr %arrayidx84, align 8
-  %call85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %22)
-  %arrayidx88 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 176
-  %23 = load ptr, ptr %arrayidx88, align 8
-  %call89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %23)
-  %arrayidx92 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 184
-  %24 = load ptr, ptr %arrayidx92, align 8
-  %call93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %24)
-  %arrayidx96 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 192
-  %25 = load ptr, ptr %arrayidx96, align 8
-  %call97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %25)
-  %arrayidx100 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 200
-  %26 = load ptr, ptr %arrayidx100, align 8
-  %call101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %26)
-  %arrayidx104 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 208
-  %27 = load ptr, ptr %arrayidx104, align 8
-  %call105 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %27)
+define internal fastcc void @Usage() unnamed_addr #5 {
+  %1 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %2 = sext i32 %1 to i64
+  %3 = getelementptr inbounds [2 x [66 x ptr]], ptr @server_usage_msg, i64 0, i64 %2
+  %4 = load ptr, ptr %3, align 16, !tbaa !27
+  %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef %4)
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %7)
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = load ptr, ptr %9, align 16, !tbaa !27
+  %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %10, i32 noundef 11111)
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %13, i32 noundef 3)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %16 = load ptr, ptr %15, align 16, !tbaa !27
+  %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %16)
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
+  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %19, ptr noundef nonnull @.str.14)
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %22 = load ptr, ptr %21, align 16, !tbaa !27
+  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %22, ptr noundef nonnull @.str.15)
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
+  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %25, ptr noundef nonnull @.str.13)
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %28 = load ptr, ptr %27, align 16, !tbaa !27
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %28)
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
+  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %31, ptr noundef nonnull @.str.12)
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %34 = load ptr, ptr %33, align 16, !tbaa !27
+  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %34, i32 noundef 1024)
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %37 = load ptr, ptr %36, align 8, !tbaa !27
+  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %37)
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %40 = load ptr, ptr %39, align 16, !tbaa !27
+  %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %40)
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %43 = load ptr, ptr %42, align 8, !tbaa !27
+  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %43)
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %46 = load ptr, ptr %45, align 16, !tbaa !27
+  %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %46)
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %49 = load ptr, ptr %48, align 8, !tbaa !27
+  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %49)
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %52 = load ptr, ptr %51, align 16, !tbaa !27
+  %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %52)
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %55 = load ptr, ptr %54, align 8, !tbaa !27
+  %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %55)
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %58 = load ptr, ptr %57, align 16, !tbaa !27
+  %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %58)
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %61 = load ptr, ptr %60, align 8, !tbaa !27
+  %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %61)
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %64 = load ptr, ptr %63, align 16, !tbaa !27
+  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %64)
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %67 = load ptr, ptr %66, align 8, !tbaa !27
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %67)
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %70 = load ptr, ptr %69, align 16, !tbaa !27
+  %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %70)
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  %73 = load ptr, ptr %72, align 8, !tbaa !27
+  %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %73)
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %76 = load ptr, ptr %75, align 16, !tbaa !27
+  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %76)
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %79 = load ptr, ptr %78, align 8, !tbaa !27
+  %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %79)
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %82 = load ptr, ptr %81, align 16, !tbaa !27
+  %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %82)
   %puts77 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %arrayidx112 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 224
-  %28 = load ptr, ptr %arrayidx112, align 8
-  %call113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %28)
-  %arrayidx116 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 232
-  %29 = load ptr, ptr %arrayidx116, align 8
-  %call117 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %29)
-  %arrayidx120 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 240
-  %30 = load ptr, ptr %arrayidx120, align 8
-  %call121 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %30)
-  %arrayidx124 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 248
-  %31 = load ptr, ptr %arrayidx124, align 8
-  %call125 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %31)
-  %arrayidx128 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 256
-  %32 = load ptr, ptr %arrayidx128, align 8
-  %call129 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %32)
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 224
+  %85 = load ptr, ptr %84, align 16, !tbaa !27
+  %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %85)
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  %88 = load ptr, ptr %87, align 8, !tbaa !27
+  %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %88)
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  %91 = load ptr, ptr %90, align 16, !tbaa !27
+  %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %91)
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 248
+  %94 = load ptr, ptr %93, align 8, !tbaa !27
+  %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %94)
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 256
+  %97 = load ptr, ptr %96, align 16, !tbaa !27
+  %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %97)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  %arrayidx133 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 264
-  %33 = load ptr, ptr %arrayidx133, align 8
-  %call134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %33)
-  %arrayidx137 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 272
-  %34 = load ptr, ptr %arrayidx137, align 8
-  %call138 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %34)
-  %arrayidx141 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 280
-  %35 = load ptr, ptr %arrayidx141, align 8
-  %call142 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %35)
-  %arrayidx145 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 288
-  %36 = load ptr, ptr %arrayidx145, align 8
-  %call146 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %36)
-  %arrayidx149 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 296
-  %37 = load ptr, ptr %arrayidx149, align 8
-  %call150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %37)
-  %arrayidx153 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 304
-  %38 = load ptr, ptr %arrayidx153, align 8
-  %call154 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.77, ptr noundef %38)
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  %100 = load ptr, ptr %99, align 8, !tbaa !27
+  %101 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %100)
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 272
+  %103 = load ptr, ptr %102, align 16, !tbaa !27
+  %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %103)
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 280
+  %106 = load ptr, ptr %105, align 8, !tbaa !27
+  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %106)
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  %109 = load ptr, ptr %108, align 16, !tbaa !27
+  %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %109)
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 296
+  %112 = load ptr, ptr %111, align 8, !tbaa !27
+  %113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %112)
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 304
+  %115 = load ptr, ptr %114, align 16, !tbaa !27
+  %116 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef %115)
   ret void
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #8
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @wc_ecc_get_curve_id(i32 noundef) local_unnamed_addr #2
 
@@ -3455,48 +3590,47 @@ declare i32 @wolfSSL_CTX_SetMinVersion(ptr noundef, i32 noundef) local_unnamed_a
 
 declare void @wolfSSL_CTX_SetIOSend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 -5, -2147483648) i32 @SimulateWantWriteIOSendCb(ptr readnone captures(none) %ssl, ptr noundef %buf, i32 noundef %sz, ptr noundef readonly captures(none) %ctx) #0 {
-entry:
+; Function Attrs: inlinehint nounwind uwtable
+define internal range(i32 -5, -2147483648) i32 @SimulateWantWriteIOSendCb(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #8 {
   %.b = load i1, ptr @SimulateWantWriteIOSendCb.wantWriteFlag, align 4
-  br i1 %.b, label %if.then, label %if.else15
+  br i1 %.b, label %5, label %16
 
-if.then:                                          ; preds = %entry
-  %0 = load i32, ptr %ctx, align 4
+5:                                                ; preds = %4
+  %6 = load i32, ptr %3, align 4, !tbaa !4
   store i1 false, ptr @SimulateWantWriteIOSendCb.wantWriteFlag, align 4
-  %call = tail call i32 @wolfIO_Send(i32 noundef %0, ptr noundef %buf, i32 noundef %sz, i32 noundef 0) #25
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then1, label %return
+  %7 = tail call i32 @wolfIO_Send(i32 noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef 0) #21
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %17
 
-if.then1:                                         ; preds = %if.then
-  %call2 = tail call ptr @__errno_location() #29
-  %1 = load i32, ptr %call2, align 4
-  switch i32 %1, label %if.else14 [
-    i32 11, label %return
-    i32 104, label %if.then7
-    i32 4, label %if.then10
-    i32 32, label %if.then13
+9:                                                ; preds = %5
+  %10 = tail call ptr @__errno_location() #28
+  %11 = load i32, ptr %10, align 4, !tbaa !4
+  switch i32 %11, label %15 [
+    i32 11, label %17
+    i32 104, label %12
+    i32 4, label %13
+    i32 32, label %14
   ]
 
-if.then7:                                         ; preds = %if.then1
-  br label %return
+12:                                               ; preds = %9
+  br label %17
 
-if.then10:                                        ; preds = %if.then1
-  br label %return
+13:                                               ; preds = %9
+  br label %17
 
-if.then13:                                        ; preds = %if.then1
-  br label %return
+14:                                               ; preds = %9
+  br label %17
 
-if.else14:                                        ; preds = %if.then1
-  br label %return
+15:                                               ; preds = %9
+  br label %17
 
-if.else15:                                        ; preds = %entry
+16:                                               ; preds = %4
   store i1 true, ptr @SimulateWantWriteIOSendCb.wantWriteFlag, align 4
-  br label %return
+  br label %17
 
-return:                                           ; preds = %if.then, %if.then1, %if.else15, %if.else14, %if.then13, %if.then10, %if.then7
-  %retval.0 = phi i32 [ -2, %if.else15 ], [ -3, %if.then7 ], [ -4, %if.then10 ], [ -5, %if.then13 ], [ -1, %if.else14 ], [ -2, %if.then1 ], [ %call, %if.then ]
-  ret i32 %retval.0
+17:                                               ; preds = %9, %15, %14, %13, %12, %5, %16
+  %.2 = phi i32 [ -2, %16 ], [ -3, %12 ], [ -4, %13 ], [ -5, %14 ], [ -1, %15 ], [ -2, %9 ], [ %7, %5 ]
+  ret i32 %.2
 }
 
 declare i32 @wolfSSL_CTX_set_cipher_list(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -3519,63 +3653,64 @@ declare i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef, i16 noundef zeroext) local
 
 declare void @wolfSSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: cold nounwind uwtable
-define internal noundef i32 @myVerify(i32 noundef %preverify, ptr noundef readonly captures(none) %store) #10 {
-entry:
-  %buffer = alloca [80 x i8], align 16
-  %0 = load ptr, ptr @stderr, align 8
-  %error = getelementptr inbounds nuw i8, ptr %store, i64 48
-  %1 = load i32, ptr %error, align 8
-  %conv = sext i32 %1 to i64
-  %call = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv, ptr noundef nonnull %buffer) #25
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.173, i32 noundef %1, ptr noundef %call) #23
-  %totalCerts = getelementptr inbounds nuw i8, ptr %store, i64 60
-  %2 = load i32, ptr %totalCerts, align 4
-  %call3 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.174, i32 noundef %2)
-  %error_depth = getelementptr inbounds nuw i8, ptr %store, i64 52
-  %3 = load i32, ptr %error_depth, align 4
-  %domain = getelementptr inbounds nuw i8, ptr %store, i64 32
-  %4 = load ptr, ptr %domain, align 8
-  %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, i32 noundef %3, ptr noundef %4)
-  %5 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @myVerifyAction)
-  %6 = load i32, ptr %5, align 4
-  switch i32 %6, label %if.end16 [
-    i32 1, label %return
-    i32 3, label %land.lhs.true
+; Function Attrs: cold inlinehint nounwind uwtable
+define internal noundef i32 @myVerify(i32 noundef %0, ptr noundef readonly captures(none) %1) #9 {
+  %3 = alloca [80 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #21
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %6 = load i32, ptr %5, align 8, !tbaa !62
+  %7 = sext i32 %6 to i64
+  %8 = call ptr @wolfSSL_ERR_error_string(i64 noundef %7, ptr noundef nonnull %3) #21
+  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.175, i32 noundef %6, ptr noundef %8) #22
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %11 = load i32, ptr %10, align 4, !tbaa !69
+  %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.176, i32 noundef %11)
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %14 = load i32, ptr %13, align 4, !tbaa !70
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !71
+  %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.177, i32 noundef %14, ptr noundef %16)
+  %18 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @myVerifyAction)
+  %19 = load i32, ptr %18, align 4, !tbaa !4
+  switch i32 %19, label %23 [
+    i32 1, label %.thread.thread
+    i32 3, label %20
   ]
 
-land.lhs.true:                                    ; preds = %entry
-  %7 = load i32, ptr %error, align 8
-  %.off = add i32 %7, 151
+20:                                               ; preds = %2
+  %21 = load i32, ptr %5, align 8, !tbaa !62
+  %.off = add i32 %21, 151
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %if.then14, label %return
+  br i1 %switch, label %22, label %.thread.thread
 
-if.then14:                                        ; preds = %land.lhs.true
-  %puts10 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
-  br label %return
+22:                                               ; preds = %20
+  %puts13 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
+  br label %.thread.thread
 
-if.end16:                                         ; preds = %entry
-  %8 = load i32, ptr %error, align 8
-  %cmp18 = icmp ne i32 %8, 0
-  %cmp21 = icmp eq i32 %6, 0
-  %or.cond = and i1 %cmp21, %cmp18
-  br i1 %or.cond, label %if.then23, label %if.end25
+23:                                               ; preds = %2
+  %24 = load i32, ptr %5, align 8, !tbaa !62
+  %25 = icmp ne i32 %24, 0
+  %26 = icmp eq i32 %19, 0
+  %or.cond = and i1 %26, %25
+  br i1 %or.cond, label %27, label %.thread
 
-if.then23:                                        ; preds = %if.end16
+27:                                               ; preds = %23
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
-  %.pre = load i32, ptr %5, align 4
-  %9 = freeze i32 %.pre
-  br label %if.end25
+  %.pre = load i32, ptr %18, align 4, !tbaa !4
+  %28 = freeze i32 %.pre
+  br label %.thread
 
-if.end25:                                         ; preds = %if.then23, %if.end16
-  %.fr = phi i32 [ %9, %if.then23 ], [ %6, %if.end16 ]
-  %cmp26 = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %cmp26, i32 1, i32 %preverify
-  br label %return
+.thread:                                          ; preds = %27, %23
+  %.fr = phi i32 [ %28, %27 ], [ %19, %23 ]
+  %29 = icmp eq i32 %.fr, 0
+  %spec.select = select i1 %29, i32 1, i32 %0
+  br label %.thread.thread
 
-return:                                           ; preds = %if.end25, %land.lhs.true, %entry, %if.then14
-  %retval.0 = phi i32 [ 1, %if.then14 ], [ 0, %entry ], [ %preverify, %land.lhs.true ], [ %spec.select, %if.end25 ]
-  ret i32 %retval.0
+.thread.thread:                                   ; preds = %.thread, %20, %2, %22
+  %.0 = phi i32 [ 1, %22 ], [ 0, %2 ], [ %0, %20 ], [ %spec.select, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #21
+  ret i32 %.0
 }
 
 declare i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -3583,7 +3718,7 @@ declare i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef, ptr noundef, ptr 
 declare i32 @wolfSSL_CTX_UseSNI(ptr noundef, i8 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef) local_unnamed_addr #2
 
@@ -3600,19 +3735,17 @@ declare i32 @wolfSSL_use_PrivateKey_file(ptr noundef, ptr noundef, i32 noundef) 
 declare i32 @wolfSSL_SetHsDoneCb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @myHsDoneCb(ptr readnone captures(none) %ssl, ptr readnone captures(none) %user_ctx) #11 {
-entry:
+define internal noundef i32 @myHsDoneCb(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #10 {
   ret i32 0
 }
 
 declare i32 @wolfSSL_UseKeyShare(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @err_sys(ptr noundef %msg) unnamed_addr #12 {
-entry:
-  %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.68, ptr noundef %msg) #23
-  tail call void @exit(i32 noundef 1) #28
+; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
+define internal fastcc void @err_sys(ptr noundef %0) unnamed_addr #11 {
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.69, ptr noundef %0) #22
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 }
 
@@ -3649,260 +3782,265 @@ declare ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext, i8 noundef z
 declare ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ServerRead(ptr noundef %ssl, ptr noundef nonnull %input) unnamed_addr #0 {
-entry:
-  %fds.i.i = alloca %struct.fd_set, align 8
-  %errfds.i.i = alloca %struct.fd_set, align 8
-  %timeout.i.i = alloca %struct.timeval, align 8
-  %buffer = alloca [80 x i8], align 16
-  br label %do.body
+define internal fastcc void @ServerRead(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+  %3 = alloca %struct.fd_set, align 8
+  %4 = alloca %struct.fd_set, align 8
+  %5 = alloca %struct.timeval, align 8
+  %6 = alloca [80 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #21
+  br label %.critedge7
 
-do.body:                                          ; preds = %do.body.backedge, %entry
-  %call = call i32 @wolfSSL_read(ptr noundef %ssl, ptr noundef nonnull %input, i32 noundef 31) #25
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.else
+.critedge7:                                       ; preds = %.critedge7.backedge, %2
+  %7 = call i32 @wolfSSL_read(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 31) #21
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %29
 
-if.then:                                          ; preds = %do.body
-  %call1 = call i32 @wolfSSL_get_error(ptr noundef %ssl, i32 noundef %call) #25
-  %0 = add i32 %call1, -4
-  %or.cond = icmp ult i32 %0, -2
-  br i1 %or.cond, label %do.body5, label %do.cond40
+9:                                                ; preds = %.critedge7
+  %10 = call i32 @wolfSSL_get_error(ptr noundef %0, i32 noundef %7) #21
+  %11 = add i32 %10, -4
+  %or.cond = icmp ult i32 %11, -2
+  br i1 %or.cond, label %12, label %err_sys_ex.exit
 
-do.body5:                                         ; preds = %if.then
+12:                                               ; preds = %9
   %.b = load i1, ptr @quieter, align 4
-  br i1 %.b, label %do.end, label %if.then6
+  br i1 %.b, label %18, label %13
 
-if.then6:                                         ; preds = %do.body5
-  %1 = load ptr, ptr @stderr, align 8
-  %conv = sext i32 %call1 to i64
-  %call7 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv, ptr noundef nonnull %buffer) #25
-  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.221, i32 noundef %call1, ptr noundef %call7) #23
-  br label %do.end
+13:                                               ; preds = %12
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %15 = sext i32 %10 to i64
+  %16 = call ptr @wolfSSL_ERR_error_string(i64 noundef %15, ptr noundef nonnull %6) #21
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.223, i32 noundef %10, ptr noundef %16) #22
+  br label %18
 
-do.end:                                           ; preds = %do.body5, %if.then6
-  %2 = load i32, ptr @runWithErrors, align 4
-  %cmp.i = icmp eq i32 %2, 1
-  br i1 %cmp.i, label %do.body.i, label %if.else.i
+18:                                               ; preds = %13, %12
+  %19 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %21, label %28
 
-do.body.i:                                        ; preds = %do.end
+21:                                               ; preds = %18
   %.b2.i = load i1, ptr @quieter, align 4
-  br i1 %.b2.i, label %do.cond40, label %do.body2.i
+  br i1 %.b2.i, label %err_sys_ex.exit, label %22
 
-do.body2.i:                                       ; preds = %do.body.i
-  %3 = load ptr, ptr @stderr, align 8
-  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.2) #23
+22:                                               ; preds = %21
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.2) #22
   %.b.pr.i = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i, label %do.cond40, label %if.then4.i
+  br i1 %.b.pr.i, label %err_sys_ex.exit, label %25
 
-if.then4.i:                                       ; preds = %do.body2.i
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %4) #23
-  br label %do.cond40
+25:                                               ; preds = %22
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %27 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %26) #23
+  br label %err_sys_ex.exit
 
-if.else.i:                                        ; preds = %do.end
+28:                                               ; preds = %18
   call fastcc void @err_sys(ptr noundef nonnull @.str.2) #24
   unreachable
 
-if.else:                                          ; preds = %do.body
-  %call10 = call i32 @wolfSSL_get_error(ptr noundef %ssl, i32 noundef 0) #25
-  %cmp11 = icmp eq i32 %call10, 0
-  br i1 %cmp11, label %land.lhs.true13, label %do.end50
+29:                                               ; preds = %.critedge7
+  %30 = call i32 @wolfSSL_get_error(ptr noundef %0, i32 noundef 0) #21
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %err_sys_ex.exit.thread
 
-land.lhs.true13:                                  ; preds = %if.else
-  %call14 = call i32 @wolfSSL_get_fd(ptr noundef %ssl) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout.i.i, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %fds.i.i, i8 0, i64 128, i1 false)
-  %rem.i.i = srem i32 %call14, 64
-  %sh_prom.i.i = zext nneg i32 %rem.i.i to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %div.i.i = sdiv i32 %call14, 64
-  %idxprom5.i.i = sext i32 %div.i.i to i64
-  %arrayidx6.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
-  %6 = load i64, ptr %arrayidx6.i.i, align 8
-  %or.i.i = or i64 %6, %shl.i.i
-  store i64 %or.i.i, ptr %arrayidx6.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i, i8 0, i64 128, i1 false)
-  %add.i.i = add nsw i32 %call14, 1
-  %arrayidx28.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
-  %7 = load i64, ptr %arrayidx28.i.i, align 8
-  %or29.i.i = or i64 %7, %shl.i.i
-  store i64 %or29.i.i, ptr %arrayidx28.i.i, align 8
-  %call.i.i = call i32 @select(i32 noundef %add.i.i, ptr noundef nonnull %fds.i.i, ptr noundef null, ptr noundef nonnull %errfds.i.i, ptr noundef nonnull %timeout.i.i) #25
-  %cmp34.i.i = icmp sgt i32 %call.i.i, 0
-  br i1 %cmp34.i.i, label %if.then36.i.i, label %tcp_select.exit.thread
+32:                                               ; preds = %29
+  %33 = call i32 @wolfSSL_get_fd(ptr noundef %0) #21
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false), !tbaa !15
+  %34 = srem i32 %33, 64
+  %35 = zext nneg i32 %34 to i64
+  %36 = shl nuw i64 1, %35
+  %37 = sdiv i32 %33, 64
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %38
+  %40 = load i64, ptr %39, align 8, !tbaa !15
+  %41 = or i64 %40, %36
+  store i64 %41, ptr %39, align 8, !tbaa !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false), !tbaa !15
+  %42 = add nsw i32 %33, 1
+  %43 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %38
+  %44 = load i64, ptr %43, align 8, !tbaa !15
+  %45 = or i64 %44, %36
+  store i64 %45, ptr %43, align 8, !tbaa !15
+  %46 = call i32 @select(i32 noundef %42, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %48, label %tcp_select.exit.thread
 
-if.then36.i.i:                                    ; preds = %land.lhs.true13
-  %8 = load i64, ptr %arrayidx6.i.i, align 8
-  %and.i.i = and i64 %8, %shl.i.i
-  %cmp44.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp44.not.i.i, label %tcp_select.exit.thread, label %tcp_select.exit
+48:                                               ; preds = %32
+  %49 = load i64, ptr %39, align 8, !tbaa !15
+  %50 = and i64 %49, %36
+  %.not33.i.i = icmp eq i64 %50, 0
+  br i1 %.not33.i.i, label %tcp_select.exit.thread, label %tcp_select.exit
 
-tcp_select.exit.thread:                           ; preds = %if.then36.i.i, %land.lhs.true13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i)
-  br label %do.end50
+tcp_select.exit.thread:                           ; preds = %48, %32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #21
+  br label %err_sys_ex.exit.thread
 
-tcp_select.exit:                                  ; preds = %if.then36.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %fds.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %errfds.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timeout.i.i)
-  br label %do.body19
+tcp_select.exit:                                  ; preds = %48
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #21
+  br label %.critedge
 
-do.body19:                                        ; preds = %do.body19.backedge, %tcp_select.exit
-  %call21 = call i32 @wolfSSL_peek(ptr noundef %ssl, ptr noundef nonnull %buffer, i32 noundef 0) #25
-  %call22 = call i32 @wolfSSL_get_error(ptr noundef %ssl, i32 noundef %call21) #25
-  switch i32 %call22, label %do.end29 [
-    i32 -108, label %do.body19.backedge
-    i32 3, label %do.body19.backedge
-    i32 2, label %do.body19.backedge
+.critedge:                                        ; preds = %.critedge.backedge, %tcp_select.exit
+  %51 = call i32 @wolfSSL_peek(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0) #21
+  %52 = call i32 @wolfSSL_get_error(ptr noundef %0, i32 noundef %51) #21
+  switch i32 %52, label %53 [
+    i32 -108, label %.critedge.backedge
+    i32 3, label %.critedge.backedge
+    i32 2, label %.critedge.backedge
   ]
 
-do.body19.backedge:                               ; preds = %do.body19, %do.body19, %do.body19
-  br label %do.body19
+.critedge.backedge:                               ; preds = %.critedge, %.critedge, %.critedge
+  br label %.critedge
 
-do.end29:                                         ; preds = %do.body19
-  %cmp30 = icmp slt i32 %call22, 0
-  br i1 %cmp30, label %if.then32, label %if.end33
+53:                                               ; preds = %.critedge
+  %54 = icmp slt i32 %52, 0
+  br i1 %54, label %55, label %err_sys_ex.exit43
 
-if.then32:                                        ; preds = %do.end29
-  %9 = load i32, ptr @runWithErrors, align 4
-  %cmp.i27 = icmp eq i32 %9, 1
-  br i1 %cmp.i27, label %do.body.i29, label %if.else.i28
+55:                                               ; preds = %53
+  %56 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %57 = icmp eq i32 %56, 1
+  br i1 %57, label %58, label %65
 
-do.body.i29:                                      ; preds = %if.then32
-  %.b2.i30 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i30, label %if.end33, label %do.body2.i31
+58:                                               ; preds = %55
+  %.b2.i41 = load i1, ptr @quieter, align 4
+  br i1 %.b2.i41, label %err_sys_ex.exit43, label %59
 
-do.body2.i31:                                     ; preds = %do.body.i29
-  %10 = load ptr, ptr @stderr, align 8
-  %call.i32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.222) #23
-  %.b.pr.i33 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i33, label %if.end33, label %if.then4.i34
+59:                                               ; preds = %58
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.224) #22
+  %.b.pr.i42 = load i1, ptr @quieter, align 4
+  br i1 %.b.pr.i42, label %err_sys_ex.exit43, label %62
 
-if.then4.i34:                                     ; preds = %do.body2.i31
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %11) #23
-  br label %if.end33
+62:                                               ; preds = %59
+  %63 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %64 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %63) #23
+  br label %err_sys_ex.exit43
 
-if.else.i28:                                      ; preds = %if.then32
-  call fastcc void @err_sys(ptr noundef nonnull @.str.222) #24
+65:                                               ; preds = %55
+  call fastcc void @err_sys(ptr noundef nonnull @.str.224) #24
   unreachable
 
-if.end33:                                         ; preds = %if.then4.i34, %do.body2.i31, %do.body.i29, %do.end29
-  %call34 = call i32 @wolfSSL_pending(ptr noundef %ssl) #25
-  %tobool35.not = icmp eq i32 %call34, 0
-  br i1 %tobool35.not, label %do.cond40, label %do.body.backedge
+err_sys_ex.exit43:                                ; preds = %62, %59, %58, %53
+  %66 = call i32 @wolfSSL_pending(ptr noundef %0) #21
+  %.not = icmp eq i32 %66, 0
+  br i1 %.not, label %err_sys_ex.exit, label %.critedge7.backedge
 
-do.body.backedge:                                 ; preds = %if.end33, %do.cond40, %do.cond40, %do.cond40
-  br label %do.body
+.critedge7.backedge:                              ; preds = %err_sys_ex.exit43, %err_sys_ex.exit, %err_sys_ex.exit, %err_sys_ex.exit
+  br label %.critedge7
 
-do.cond40:                                        ; preds = %if.end33, %if.then4.i, %do.body2.i, %do.body.i, %if.then
-  %ret.0 = phi i32 [ %call, %if.then ], [ %call, %do.body.i ], [ %call, %do.body2.i ], [ %call, %if.then4.i ], [ %call21, %if.end33 ]
-  %err.0 = phi i32 [ %call1, %if.then ], [ %call1, %do.body.i ], [ %call1, %do.body2.i ], [ %call1, %if.then4.i ], [ %call22, %if.end33 ]
-  switch i32 %err.0, label %do.end50 [
-    i32 -108, label %do.body.backedge
-    i32 3, label %do.body.backedge
-    i32 2, label %do.body.backedge
+err_sys_ex.exit:                                  ; preds = %err_sys_ex.exit43, %25, %22, %21, %9
+  %.037 = phi i32 [ %7, %9 ], [ %7, %21 ], [ %7, %22 ], [ %7, %25 ], [ %51, %err_sys_ex.exit43 ]
+  %.0 = phi i32 [ %10, %9 ], [ %10, %21 ], [ %10, %22 ], [ %10, %25 ], [ %52, %err_sys_ex.exit43 ]
+  switch i32 %.0, label %err_sys_ex.exit.thread [
+    i32 -108, label %.critedge7.backedge
+    i32 3, label %.critedge7.backedge
+    i32 2, label %.critedge7.backedge
   ]
 
-do.end50:                                         ; preds = %if.else, %do.cond40, %tcp_select.exit.thread
-  %ret.040 = phi i32 [ %call, %tcp_select.exit.thread ], [ %call, %if.else ], [ %ret.0, %do.cond40 ]
-  %cmp51 = icmp sgt i32 %ret.040, 0
-  br i1 %cmp51, label %if.then53, label %if.end55
+err_sys_ex.exit.thread:                           ; preds = %29, %err_sys_ex.exit, %tcp_select.exit.thread
+  %.03747 = phi i32 [ %7, %tcp_select.exit.thread ], [ %7, %29 ], [ %.037, %err_sys_ex.exit ]
+  %67 = icmp sgt i32 %.03747, 0
+  br i1 %67, label %68, label %72
 
-if.then53:                                        ; preds = %do.end50
-  %idxprom = zext nneg i32 %ret.040 to i64
-  %arrayidx = getelementptr inbounds nuw i8, ptr %input, i64 %idxprom
-  store i8 0, ptr %arrayidx, align 1
-  %call54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.223, ptr noundef nonnull %input)
-  br label %if.end55
+68:                                               ; preds = %err_sys_ex.exit.thread
+  %69 = zext nneg i32 %.03747 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %69
+  store i8 0, ptr %70, align 1, !tbaa !29
+  %71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.225, ptr noundef nonnull %1)
+  br label %72
 
-if.end55:                                         ; preds = %if.then53, %do.end50
+72:                                               ; preds = %68, %err_sys_ex.exit.thread
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #21
   ret void
 }
 
 declare i32 @wolfSSL_update_keys(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ServerWrite(ptr noundef %ssl, ptr noundef %output, i32 noundef range(i32 22, 226) %outputLen) unnamed_addr #0 {
-entry:
-  %buffer = alloca [80 x i8], align 16
-  br label %do.body.outer
+define internal fastcc void @ServerWrite(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 22, 226) %2) unnamed_addr #0 {
+  %4 = alloca [80 x i8], align 16
+  br label %.backedge.outer
 
-do.body.outer:                                    ; preds = %do.cond.thread, %entry
-  %output.addr.0.ph = phi ptr [ %add.ptr, %do.cond.thread ], [ %output, %entry ]
-  %len.0.ph = phi i32 [ %sub, %do.cond.thread ], [ %outputLen, %entry ]
-  br label %do.body
+.backedge.outer:                                  ; preds = %.thread30, %3
+  %.018.ph = phi ptr [ %9, %.thread30 ], [ %1, %3 ]
+  %.0.ph = phi i32 [ %10, %.thread30 ], [ %2, %3 ]
+  br label %.backedge
 
-do.body:                                          ; preds = %do.body.backedge, %do.body.outer
-  %call = tail call i32 @wolfSSL_write(ptr noundef %ssl, ptr noundef %output.addr.0.ph, i32 noundef %len.0.ph) #25
-  %cmp = icmp slt i32 %call, 1
-  br i1 %cmp, label %do.cond, label %if.else
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.outer
+  %5 = tail call i32 @wolfSSL_write(ptr noundef %0, ptr noundef %.018.ph, i32 noundef %.0.ph) #21
+  %6 = icmp slt i32 %5, 1
+  br i1 %6, label %11, label %7
 
-if.else:                                          ; preds = %do.body
-  %cmp2.not = icmp eq i32 %call, %len.0.ph
-  br i1 %cmp2.not, label %if.end16, label %do.cond.thread
+7:                                                ; preds = %.backedge
+  %.not = icmp eq i32 %5, %.0.ph
+  br i1 %.not, label %.thread.thread, label %.thread30
 
-do.cond.thread:                                   ; preds = %if.else
-  %idx.ext = zext nneg i32 %call to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %output.addr.0.ph, i64 %idx.ext
-  %sub = sub nsw i32 %len.0.ph, %call
-  br label %do.body.outer
+.thread30:                                        ; preds = %7
+  %8 = zext nneg i32 %5 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %.018.ph, i64 %8
+  %10 = sub nsw i32 %.0.ph, %5
+  br label %.backedge.outer
 
-do.cond:                                          ; preds = %do.body
-  %call1 = tail call i32 @wolfSSL_get_error(ptr noundef %ssl, i32 noundef 0) #25
-  switch i32 %call1, label %do.end [
-    i32 -108, label %do.body.backedge
-    i32 3, label %do.body.backedge
+11:                                               ; preds = %.backedge
+  %12 = tail call i32 @wolfSSL_get_error(ptr noundef %0, i32 noundef 0) #21
+  switch i32 %12, label %.thread [
+    i32 -108, label %.backedge.backedge
+    i32 3, label %.backedge.backedge
   ]
 
-do.body.backedge:                                 ; preds = %do.cond, %do.cond
-  br label %do.body
+.backedge.backedge:                               ; preds = %11, %11
+  br label %.backedge
 
-do.end:                                           ; preds = %do.cond
-  %cmp7.not = icmp eq i32 %call, %len.0.ph
-  br i1 %cmp7.not, label %if.end16, label %do.body9
+.thread:                                          ; preds = %11
+  %.not23 = icmp eq i32 %5, %.0.ph
+  br i1 %.not23, label %.thread.thread, label %13
 
-do.body9:                                         ; preds = %do.end
+13:                                               ; preds = %.thread
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #21
   %.b = load i1, ptr @quieter, align 4
-  br i1 %.b, label %do.end15, label %if.then10
+  br i1 %.b, label %19, label %14
 
-if.then10:                                        ; preds = %do.body9
-  %0 = load ptr, ptr @stderr, align 8
-  %conv = sext i32 %call1 to i64
-  %call11 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv, ptr noundef nonnull %buffer) #25
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.224, i32 noundef %call1, ptr noundef %call11) #23
-  br label %do.end15
+14:                                               ; preds = %13
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %16 = sext i32 %12 to i64
+  %17 = call ptr @wolfSSL_ERR_error_string(i64 noundef %16, ptr noundef nonnull %4) #21
+  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.226, i32 noundef %12, ptr noundef %17) #22
+  br label %19
 
-do.end15:                                         ; preds = %do.body9, %if.then10
-  %1 = load i32, ptr @runWithErrors, align 4
-  %cmp.i = icmp eq i32 %1, 1
-  br i1 %cmp.i, label %do.body.i, label %if.else.i
+19:                                               ; preds = %14, %13
+  %20 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %22, label %29
 
-do.body.i:                                        ; preds = %do.end15
+22:                                               ; preds = %19
   %.b2.i = load i1, ptr @quieter, align 4
-  br i1 %.b2.i, label %if.end16, label %do.body2.i
+  br i1 %.b2.i, label %err_sys_ex.exit, label %23
 
-do.body2.i:                                       ; preds = %do.body.i
-  %2 = load ptr, ptr @stderr, align 8
-  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.4) #23
+23:                                               ; preds = %22
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.4) #22
   %.b.pr.i = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i, label %if.end16, label %if.then4.i
+  br i1 %.b.pr.i, label %err_sys_ex.exit, label %26
 
-if.then4.i:                                       ; preds = %do.body2.i
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = call i64 @fwrite(ptr nonnull @.str.69, i64 32, i64 1, ptr %3) #23
-  br label %if.end16
+26:                                               ; preds = %23
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %28 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %27) #23
+  br label %err_sys_ex.exit
 
-if.else.i:                                        ; preds = %do.end15
+29:                                               ; preds = %19
   call fastcc void @err_sys(ptr noundef nonnull @.str.4) #24
   unreachable
 
-if.end16:                                         ; preds = %if.else, %if.then4.i, %do.body2.i, %do.body.i, %do.end
+err_sys_ex.exit:                                  ; preds = %22, %23, %26
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #21
+  br label %.thread.thread
+
+.thread.thread:                                   ; preds = %7, %err_sys_ex.exit, %.thread
   ret void
 }
 
@@ -3915,131 +4053,62 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nofree nounwind
 declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @err_sys_with_errno(ptr noundef %msg) unnamed_addr #13 {
-entry:
-  %0 = load ptr, ptr @stderr, align 8
-  %call = tail call ptr @__errno_location() #29
-  %1 = load i32, ptr %call, align 4
-  %call1 = tail call ptr @strerror(i32 noundef %1) #25
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %msg, ptr noundef %call1) #23
-  tail call void @exit(i32 noundef 1) #28
+; Function Attrs: cold inlinehint noreturn nounwind uwtable
+define internal fastcc void @err_sys_with_errno(ptr noundef %0) unnamed_addr #12 {
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %3 = tail call ptr @__errno_location() #28
+  %4 = load i32, ptr %3, align 4, !tbaa !4
+  %5 = tail call ptr @strerror(i32 noundef %4) #21
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.72, ptr noundef %0, ptr noundef %5) #22
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #14
+declare ptr @strerror(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #15
+declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nofree nounwind willreturn
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15
 
 declare i32 @wolfIO_Send(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @build_addr(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
-entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
-  %cmp1.not = icmp eq ptr %peer, null
-  br i1 %cmp1.not, label %if.then16, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
-  %call = tail call ptr @__ctype_b_loc() #29
-  %0 = load ptr, ptr %call, align 8
-  %1 = load i8, ptr %peer, align 1
-  %idxprom = zext i8 %1 to i64
-  %arrayidx2 = getelementptr inbounds nuw i16, ptr %0, i64 %idxprom
-  %2 = load i16, ptr %arrayidx2, align 2
-  %3 = and i16 %2, 1024
-  %tobool.not = icmp eq i16 %3, 0
-  br i1 %tobool.not, label %if.then21, label %if.then4
-
-if.then4:                                         ; preds = %land.lhs.true
-  %call6 = tail call ptr @gethostbyname(ptr noundef nonnull %peer) #25
-  %tobool7.not = icmp eq ptr %call6, null
-  br i1 %tobool7.not, label %if.else, label %if.else19
-
-if.else:                                          ; preds = %if.then4
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.184) #24
-  unreachable
-
-if.then16:                                        ; preds = %entry
-  store i16 2, ptr %addr, align 4
-  %call13 = tail call zeroext i16 @htons(i16 noundef zeroext %port) #29
-  %sin_port = getelementptr inbounds nuw i8, ptr %addr, i64 2
-  store i16 %call13, ptr %sin_port, align 2
-  %sin_addr17 = getelementptr inbounds nuw i8, ptr %addr, i64 4
-  store i32 0, ptr %sin_addr17, align 4
-  br label %if.end26
-
-if.else19:                                        ; preds = %if.then4
-  %sin_addr = getelementptr inbounds nuw i8, ptr %addr, i64 4
-  %h_addr_list = getelementptr inbounds nuw i8, ptr %call6, i64 24
-  %4 = load ptr, ptr %h_addr_list, align 8
-  %5 = load ptr, ptr %4, align 8
-  %h_length = getelementptr inbounds nuw i8, ptr %call6, i64 20
-  %6 = load i32, ptr %h_length, align 4
-  %conv10 = sext i32 %6 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr, ptr align 1 %5, i64 %conv10, i1 false)
-  store i16 2, ptr %addr, align 4
-  %call1314 = tail call zeroext i16 @htons(i16 noundef zeroext %port) #29
-  %sin_port15 = getelementptr inbounds nuw i8, ptr %addr, i64 2
-  store i16 %call1314, ptr %sin_port15, align 2
-  br label %if.end26
-
-if.then21:                                        ; preds = %land.lhs.true
-  store i16 2, ptr %addr, align 4
-  %call131418 = tail call zeroext i16 @htons(i16 noundef zeroext %port) #29
-  %sin_port1519 = getelementptr inbounds nuw i8, ptr %addr, i64 2
-  store i16 %call131418, ptr %sin_port1519, align 2
-  %call22 = tail call i32 @inet_addr(ptr noundef nonnull %peer) #25
-  %sin_addr23 = getelementptr inbounds nuw i8, ptr %addr, i64 4
-  store i32 %call22, ptr %sin_addr23, align 4
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.else19, %if.then21, %if.then16
-  ret void
-}
+; Function Attrs: nounwind
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #14
+declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #14
+declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #14
-
-; Function Attrs: nounwind
-declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #15
+declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #15
+declare ptr @__ctype_b_loc() local_unnamed_addr #14
 
 declare ptr @gethostbyname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #15
+; Function Attrs: nounwind
+declare i32 @inet_addr(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @inet_addr(ptr noundef) local_unnamed_addr #14
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #14
-
-; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #14
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #13
 
 declare i32 @wolfSSL_CondStart(ptr noundef) local_unnamed_addr #2
 
@@ -4086,58 +4155,110 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #20
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #19
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold inlinehint noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nounwind allocsize(0) }
+attributes #21 = { nounwind }
+attributes #22 = { cold nounwind }
 attributes #23 = { cold }
 attributes #24 = { noreturn }
-attributes #25 = { nounwind }
-attributes #26 = { nounwind willreturn memory(read) }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { cold noreturn nounwind }
-attributes #29 = { nounwind willreturn memory(none) }
+attributes #25 = { nounwind willreturn memory(read) }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { cold noreturn nounwind }
+attributes #28 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = !{ptr @wolfSSLv23_server_method_ex, ptr @wolfTLSv1_1_server_method_ex, ptr @wolfTLSv1_2_server_method_ex, ptr @wolfTLSv1_3_server_method_ex}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"timeval", !13, i64 0, !13, i64 8}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!12, !13, i64 8}
+!15 = !{!13, !13, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = !{!21, !5, i64 0}
+!21 = !{!"func_args", !5, i64 0, !22, i64 8, !5, i64 16, !23, i64 24, !24, i64 32}
+!22 = !{!"p2 omnipotent char", !10, i64 0}
+!23 = !{!"p1 _ZTS9tcp_ready", !10, i64 0}
+!24 = !{!"p1 _ZTS18callback_functions", !10, i64 0}
+!25 = !{!21, !22, i64 8}
+!26 = !{!21, !5, i64 16}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 omnipotent char", !10, i64 0}
+!29 = !{!6, !6, i64 0}
+!30 = !{!31, !5, i64 12}
+!31 = !{!"mygetopt_long_config", !28, i64 0, !5, i64 8, !5, i64 12}
+!32 = !{!31, !5, i64 8}
+!33 = !{!31, !28, i64 0}
+!34 = distinct !{!34, !17}
+!35 = distinct !{!35, !17}
+!36 = !{!37, !28, i64 8}
+!37 = !{!"group_info", !38, i64 0, !28, i64 8}
+!38 = !{!"short", !6, i64 0}
+!39 = distinct !{!39, !17}
+!40 = !{!37, !38, i64 0}
+!41 = distinct !{!41, !17}
+!42 = !{ptr @wolfSSLv23_server_method_ex, ptr @wolfTLSv1_1_server_method_ex, ptr @wolfTLSv1_2_server_method_ex, ptr @wolfTLSv1_3_server_method_ex}
+!43 = !{!21, !23, i64 24}
+!44 = !{!45, !28, i64 8}
+!45 = !{!"tcp_ready", !38, i64 0, !38, i64 2, !28, i64 8, !6, i64 16, !46, i64 56}
+!46 = !{!"COND_TYPE", !6, i64 0, !6, i64 40}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 short", !10, i64 0}
+!49 = !{!38, !38, i64 0}
+!50 = !{!51, !38, i64 0}
+!51 = !{!"sockaddr_in", !38, i64 0, !38, i64 2, !52, i64 4, !6, i64 8}
+!52 = !{!"in_addr", !5, i64 0}
+!53 = !{!51, !38, i64 2}
+!54 = !{!55, !22, i64 24}
+!55 = !{!"hostent", !28, i64 0, !22, i64 8, !5, i64 16, !5, i64 20, !22, i64 24}
+!56 = !{!55, !5, i64 20}
+!57 = !{!51, !5, i64 4}
+!58 = !{!45, !38, i64 0}
+!59 = !{!45, !38, i64 2}
+!60 = distinct !{!60, !17}
+!61 = distinct !{!61, !17}
+!62 = !{!63, !5, i64 48}
+!63 = !{!"WOLFSSL_X509_STORE_CTX", !64, i64 0, !65, i64 8, !66, i64 16, !67, i64 24, !28, i64 32, !10, i64 40, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !68, i64 64, !10, i64 72, !10, i64 80, !5, i64 88, !67, i64 96, !67, i64 104, !67, i64 112}
+!64 = !{!"p1 _ZTS18WOLFSSL_X509_STORE", !10, i64 0}
+!65 = !{!"p1 _ZTS12WOLFSSL_X509", !10, i64 0}
+!66 = !{!"p1 _ZTS18WOLFSSL_X509_CHAIN", !10, i64 0}
+!67 = !{!"p1 _ZTS13WOLFSSL_STACK", !10, i64 0}
+!68 = !{!"p1 _ZTS19WOLFSSL_BUFFER_INFO", !10, i64 0}
+!69 = !{!63, !5, i64 60}
+!70 = !{!63, !5, i64 52}
+!71 = !{!63, !28, i64 32}

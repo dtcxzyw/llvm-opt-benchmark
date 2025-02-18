@@ -1,260 +1,289 @@
 ; ModuleID = 'bench/wolfssl/original/wc_encrypt.ll'
 source_filename = "bench/wolfssl/original/wc_encrypt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.Aes = type { [60 x i32], i32, i32, [8 x i8], [4 x i32], [4 x i32], [2 x i32], i32, [4 x i8], %struct.Gcm, ptr, [8 x i8] }
 %struct.Gcm = type { [16 x i8], [32 x [16 x i8]] }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_AesCbcDecryptWithKey(ptr noundef %out, ptr noundef %in, i32 noundef %inSz, ptr noundef %key, i32 noundef %keySz, ptr noundef %iv) local_unnamed_addr #0 {
-entry:
-  %aes = alloca [1 x %struct.Aes], align 16
-  %cmp = icmp eq ptr %out, null
-  %cmp1 = icmp eq ptr %in, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %key, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  %cmp5 = icmp eq ptr %iv, null
-  %or.cond2 = or i1 %or.cond1, %cmp5
-  br i1 %or.cond2, label %return, label %if.end
+define i32 @wc_AesCbcDecryptWithKey(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+  %7 = alloca [1 x %struct.Aes], align 16
+  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %7) #3
+  %8 = icmp eq ptr %0, null
+  %9 = icmp eq ptr %1, null
+  %or.cond = or i1 %8, %9
+  %10 = icmp eq ptr %3, null
+  %or.cond3 = or i1 %or.cond, %10
+  %11 = icmp eq ptr %5, null
+  %or.cond5 = or i1 %or.cond3, %11
+  br i1 %or.cond5, label %21, label %12
 
-if.end:                                           ; preds = %entry
-  %call = call i32 @wc_AesInit(ptr noundef nonnull %aes, ptr noundef null, i32 noundef -2) #2
-  %cmp6 = icmp eq i32 %call, 0
-  br i1 %cmp6, label %if.then7, label %return
+12:                                               ; preds = %6
+  %13 = call i32 @wc_AesInit(ptr noundef nonnull %7, ptr noundef null, i32 noundef -2) #3
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %21
 
-if.then7:                                         ; preds = %if.end
-  %call9 = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull %key, i32 noundef %keySz, ptr noundef nonnull %iv, i32 noundef 1) #2
-  %cmp10 = icmp eq i32 %call9, 0
-  br i1 %cmp10, label %if.then11, label %if.end14
+15:                                               ; preds = %12
+  %16 = call i32 @wc_AesSetKey(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef 1) #3
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %20
 
-if.then11:                                        ; preds = %if.then7
-  %call13 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %aes, ptr noundef nonnull %out, ptr noundef nonnull %in, i32 noundef %inSz) #2
-  br label %if.end14
+18:                                               ; preds = %15
+  %19 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) #3
+  br label %20
 
-if.end14:                                         ; preds = %if.then11, %if.then7
-  %ret.1 = phi i32 [ %call13, %if.then11 ], [ %call9, %if.then7 ]
-  call void @wc_AesFree(ptr noundef nonnull %aes) #2
-  br label %return
+20:                                               ; preds = %18, %15
+  %.1 = phi i32 [ %19, %18 ], [ %16, %15 ]
+  call void @wc_AesFree(ptr noundef nonnull %7) #3
+  br label %21
 
-return:                                           ; preds = %if.end, %if.end14, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %ret.1, %if.end14 ], [ %call, %if.end ]
-  ret i32 %retval.0
+21:                                               ; preds = %12, %20, %6
+  %.018 = phi i32 [ -173, %6 ], [ %.1, %20 ], [ %13, %12 ]
+  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %7) #3
+  ret i32 %.018
 }
 
-declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_AesCbcDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @wc_AesFree(ptr noundef) local_unnamed_addr #1
+declare i32 @wc_AesCbcDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_AesCbcEncryptWithKey(ptr noundef %out, ptr noundef %in, i32 noundef %inSz, ptr noundef %key, i32 noundef %keySz, ptr noundef %iv) local_unnamed_addr #0 {
-entry:
-  %aes = alloca [1 x %struct.Aes], align 16
-  %call = call i32 @wc_AesInit(ptr noundef nonnull %aes, ptr noundef null, i32 noundef -2) #2
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end8
+define i32 @wc_AesCbcEncryptWithKey(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+  %7 = alloca [1 x %struct.Aes], align 16
+  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %7) #3
+  %8 = call i32 @wc_AesInit(ptr noundef nonnull %7, ptr noundef null, i32 noundef -2) #3
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %16
 
-if.then:                                          ; preds = %entry
-  %call2 = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef 0) #2
-  %cmp3 = icmp eq i32 %call2, 0
-  br i1 %cmp3, label %if.then4, label %if.end
+10:                                               ; preds = %6
+  %11 = call i32 @wc_AesSetKey(ptr noundef nonnull %7, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef 0) #3
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %15
 
-if.then4:                                         ; preds = %if.then
-  %call6 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %aes, ptr noundef %out, ptr noundef %in, i32 noundef %inSz) #2
-  br label %if.end
+13:                                               ; preds = %10
+  %14 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, i32 noundef %2) #3
+  br label %15
 
-if.end:                                           ; preds = %if.then4, %if.then
-  %ret.1 = phi i32 [ %call6, %if.then4 ], [ %call2, %if.then ]
-  call void @wc_AesFree(ptr noundef nonnull %aes) #2
-  br label %if.end8
+15:                                               ; preds = %13, %10
+  %.1 = phi i32 [ %14, %13 ], [ %11, %10 ]
+  call void @wc_AesFree(ptr noundef nonnull %7) #3
+  br label %16
 
-if.end8:                                          ; preds = %if.end, %entry
-  %ret.0 = phi i32 [ %ret.1, %if.end ], [ %call, %entry ]
-  ret i32 %ret.0
+16:                                               ; preds = %15, %6
+  %.0 = phi i32 [ %.1, %15 ], [ %8, %6 ]
+  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %7) #3
+  ret i32 %.0
 }
 
-declare i32 @wc_AesCbcEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @wc_AesCbcEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_CryptKey(ptr noundef %password, i32 noundef %passwordSz, ptr noundef %salt, i32 noundef %saltSz, i32 noundef %iterations, i32 noundef %id, ptr noundef %input, i32 noundef %length, i32 noundef %version, ptr noundef %cbcIv, i32 noundef %enc, i32 noundef %shaOid) local_unnamed_addr #0 {
-entry:
-  %key = alloca [64 x i8], align 16
-  %unicodePasswd = alloca [256 x i8], align 16
-  %aes = alloca [1 x %struct.Aes], align 16
-  %cmp = icmp slt i32 %length, 0
-  br i1 %cmp, label %return, label %if.end
+define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+  %13 = alloca [64 x i8], align 16
+  %14 = alloca [256 x i8], align 16
+  %15 = alloca [1 x %struct.Aes], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #3
+  %16 = icmp slt i32 %7, 0
+  br i1 %16, label %ForceZero.exit100, label %17
 
-if.end:                                           ; preds = %entry
-  switch i32 %id, label %for.body.preheader.i56 [
-    i32 4, label %if.then11
-    i32 5, label %sw.bb2
+17:                                               ; preds = %12
+  switch i32 %5, label %.lr.ph29.preheader.i89 [
+    i32 4, label %19
+    i32 5, label %18
   ]
 
-sw.bb2:                                           ; preds = %if.end
-  br label %if.then11
+18:                                               ; preds = %17
+  br label %19
 
-if.then11:                                        ; preds = %if.end, %sw.bb2
-  %derivedLen.0.ph = phi i32 [ 16, %sw.bb2 ], [ 32, %if.end ]
-  %cond1 = icmp eq i32 %shaOid, 653
+19:                                               ; preds = %17, %18
+  %.070.ph = phi i32 [ 16, %18 ], [ 32, %17 ]
+  %cond1 = icmp eq i32 %11, 653
   %. = select i1 %cond1, i32 6, i32 4
-  switch i32 %version, label %for.body.preheader.i56 [
-    i32 6, label %sw.bb12
-    i32 5, label %sw.bb13
-    i32 12, label %sw.bb16
+  switch i32 %8, label %.lr.ph29.preheader.i89 [
+    i32 6, label %20
+    i32 5, label %22
+    i32 12, label %24
   ]
 
-sw.bb12:                                          ; preds = %if.then11
-  %call = call i32 @wc_PBKDF2(ptr noundef nonnull %key, ptr noundef %password, i32 noundef %passwordSz, ptr noundef %salt, i32 noundef %saltSz, i32 noundef %iterations, i32 noundef %derivedLen.0.ph, i32 noundef %.) #2
-  br label %if.end46
+20:                                               ; preds = %19
+  %21 = call i32 @wc_PBKDF2(ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %.) #3
+  br label %46
 
-sw.bb13:                                          ; preds = %if.then11
-  %call15 = call i32 @wc_PBKDF1(ptr noundef nonnull %key, ptr noundef %password, i32 noundef %passwordSz, ptr noundef %salt, i32 noundef %saltSz, i32 noundef %iterations, i32 noundef %derivedLen.0.ph, i32 noundef %.) #2
-  br label %if.end46
+22:                                               ; preds = %19
+  %23 = call i32 @wc_PBKDF1(ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %.) #3
+  br label %46
 
-sw.bb16:                                          ; preds = %if.then11
-  %cmp17 = icmp sgt i32 %passwordSz, 127
-  br i1 %cmp17, label %for.body.preheader.i56, label %for.cond.preheader
+24:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %14) #3
+  %25 = icmp sgt i32 %1, 127
+  br i1 %25, label %45, label %.preheader
 
-for.cond.preheader:                               ; preds = %sw.bb16
-  %cmp2092 = icmp sgt i32 %passwordSz, 0
-  br i1 %cmp2092, label %for.body.preheader, label %for.end
+.preheader:                                       ; preds = %24
+  %26 = icmp sgt i32 %1, 0
+  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
-for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count = zext nneg i32 %passwordSz to i64
-  br label %for.body
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %wide.trip.count = zext nneg i32 %1 to i64
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv96 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next97, %for.body ]
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %0 = or disjoint i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %unicodePasswd, i64 0, i64 %indvars.iv
-  store i8 0, ptr %arrayidx, align 2
-  %arrayidx22 = getelementptr inbounds nuw i8, ptr %password, i64 %indvars.iv96
-  %1 = load i8, ptr %arrayidx22, align 1
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv126 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next127, %.lr.ph ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %27 = or disjoint i64 %indvars.iv, 1
+  %28 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %indvars.iv
+  store i8 0, ptr %28, align 2, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv126
+  %30 = load i8, ptr %29, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %arrayidx25 = getelementptr inbounds nuw [256 x i8], ptr %unicodePasswd, i64 0, i64 %0
-  store i8 %1, ptr %arrayidx25, align 1
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
+  %31 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %27
+  store i8 %30, ptr %31, align 1, !tbaa !3
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
-for.end.loopexit:                                 ; preds = %for.body
-  %2 = trunc nuw i64 %indvars.iv.next to i32
-  br label %for.end
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %32 = trunc nuw i64 %indvars.iv.next to i32
+  br label %._crit_edge
 
-for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
-  %idx.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %2, %for.end.loopexit ]
-  %inc27 = or disjoint i32 %idx.0.lcssa, 1
-  %idxprom28 = zext nneg i32 %idx.0.lcssa to i64
-  %arrayidx29 = getelementptr inbounds nuw [256 x i8], ptr %unicodePasswd, i64 0, i64 %idxprom28
-  store i8 0, ptr %arrayidx29, align 1
-  %inc30 = add nuw nsw i32 %idx.0.lcssa, 2
-  %idxprom31 = zext nneg i32 %inc27 to i64
-  %arrayidx32 = getelementptr inbounds nuw [256 x i8], ptr %unicodePasswd, i64 0, i64 %idxprom31
-  store i8 0, ptr %arrayidx32, align 1
-  %call35 = call i32 @wc_PKCS12_PBKDF(ptr noundef nonnull %key, ptr noundef nonnull %unicodePasswd, i32 noundef %inc30, ptr noundef %salt, i32 noundef %saltSz, i32 noundef %iterations, i32 noundef %derivedLen.0.ph, i32 noundef %., i32 noundef 1) #2
-  %cmp36.not = icmp eq i32 %id, 1
-  br i1 %cmp36.not, label %if.end46, label %if.then37
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.067.lcssa = phi i32 [ 0, %.preheader ], [ %32, %._crit_edge.loopexit ]
+  %33 = or disjoint i32 %.067.lcssa, 1
+  %34 = zext nneg i32 %.067.lcssa to i64
+  %35 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %34
+  store i8 0, ptr %35, align 1, !tbaa !3
+  %36 = add nuw nsw i32 %.067.lcssa, 2
+  %37 = zext nneg i32 %33 to i64
+  %38 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %37
+  store i8 0, ptr %38, align 1, !tbaa !3
+  %39 = call i32 @wc_PKCS12_PBKDF(ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %36, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.070.ph, i32 noundef %., i32 noundef 1) #3
+  %40 = icmp slt i32 %39, 0
+  %.not = icmp eq i32 %5, 1
+  %or.cond = or i1 %.not, %40
+  br i1 %or.cond, label %45, label %41
 
-if.then37:                                        ; preds = %for.end
-  %call39 = call i32 @wc_PKCS12_PBKDF(ptr noundef %cbcIv, ptr noundef nonnull %unicodePasswd, i32 noundef %inc30, ptr noundef %salt, i32 noundef %saltSz, i32 noundef %iterations, i32 noundef 8, i32 noundef %., i32 noundef 2) #2
-  %add40 = add nsw i32 %call39, %call35
-  br label %if.end46
+41:                                               ; preds = %._crit_edge
+  %42 = call i32 @wc_PKCS12_PBKDF(ptr noundef %9, ptr noundef nonnull %14, i32 noundef %36, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef %., i32 noundef 2) #3
+  %43 = icmp slt i32 %42, 0
+  %44 = select i1 %43, i32 0, i32 %39
+  %spec.select = add nuw nsw i32 %44, %42
+  br label %45
 
-if.end46:                                         ; preds = %sw.bb12, %sw.bb13, %if.then37, %for.end
-  %ret.1 = phi i32 [ %add40, %if.then37 ], [ %call35, %for.end ], [ %call15, %sw.bb13 ], [ %call, %sw.bb12 ]
-  %cmp47 = icmp eq i32 %ret.1, 0
-  br i1 %cmp47, label %if.then48, label %for.body.preheader.i56
+45:                                               ; preds = %41, %._crit_edge, %24
+  %.2 = phi i32 [ -175, %24 ], [ %39, %._crit_edge ], [ %spec.select, %41 ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %14) #3
+  br label %46
 
-if.then48:                                        ; preds = %if.end46
-  %3 = and i32 %id, -2
-  %switch = icmp eq i32 %3, 4
-  br i1 %switch, label %sw.bb49, label %for.body.preheader.i56
+46:                                               ; preds = %20, %22, %45
+  %.1 = phi i32 [ %.2, %45 ], [ %23, %22 ], [ %21, %20 ]
+  %47 = icmp eq i32 %.1, 0
+  br i1 %47, label %48, label %.lr.ph29.preheader.i89
 
-sw.bb49:                                          ; preds = %if.then48
-  %call51 = call i32 @wc_AesInit(ptr noundef nonnull %aes, ptr noundef null, i32 noundef -2) #2
-  %cmp52.not = icmp eq i32 %call51, 0
-  br i1 %cmp52.not, label %if.then53, label %for.body.preheader.i
+48:                                               ; preds = %46
+  %49 = and i32 %5, -2
+  %switch = icmp eq i32 %49, 4
+  br i1 %switch, label %50, label %.lr.ph29.preheader.i89
 
-if.then53:                                        ; preds = %sw.bb49
-  %tobool.not = icmp eq i32 %enc, 0
-  br i1 %tobool.not, label %if.end62.thread85, label %if.end62
+50:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %15) #3
+  %51 = call i32 @wc_AesInit(ptr noundef nonnull %15, ptr noundef null, i32 noundef -2) #3
+  %.not82 = icmp eq i32 %51, 0
+  br i1 %.not82, label %52, label %.lr.ph29.preheader.i
 
-if.end62:                                         ; preds = %if.then53
-  %call57 = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull %key, i32 noundef %derivedLen.0.ph, ptr noundef %cbcIv, i32 noundef 0) #2
-  %cmp63 = icmp eq i32 %call57, 0
-  br i1 %cmp63, label %if.then66, label %if.then75
+52:                                               ; preds = %50
+  %.not79 = icmp eq i32 %10, 0
+  br i1 %.not79, label %.thread113, label %53
 
-if.end62.thread85:                                ; preds = %if.then53
-  %call60 = call i32 @wc_AesSetKey(ptr noundef nonnull %aes, ptr noundef nonnull %key, i32 noundef %derivedLen.0.ph, ptr noundef %cbcIv, i32 noundef 1) #2
-  %cmp6387 = icmp eq i32 %call60, 0
-  br i1 %cmp6387, label %if.else69, label %if.then75
+53:                                               ; preds = %52
+  %54 = call i32 @wc_AesSetKey(ptr noundef nonnull %15, ptr noundef nonnull %13, i32 noundef %.070.ph, ptr noundef %9, i32 noundef 0) #3
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %58, label %61
 
-if.then66:                                        ; preds = %if.end62
-  %call68 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %aes, ptr noundef %input, ptr noundef %input, i32 noundef %length) #2
-  br label %if.then75
+.thread113:                                       ; preds = %52
+  %56 = call i32 @wc_AesSetKey(ptr noundef nonnull %15, ptr noundef nonnull %13, i32 noundef %.070.ph, ptr noundef %9, i32 noundef 1) #3
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %.thread115, label %61
 
-if.else69:                                        ; preds = %if.end62.thread85
-  %call71 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %aes, ptr noundef %input, ptr noundef %input, i32 noundef %length) #2
-  br label %if.then75
+58:                                               ; preds = %53
+  %59 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %15, ptr noundef %6, ptr noundef %6, i32 noundef %7) #3
+  br label %61
 
-if.then75:                                        ; preds = %if.end62.thread85, %if.then66, %if.else69, %if.end62
-  %ret.4.ph = phi i32 [ %call60, %if.end62.thread85 ], [ %call57, %if.end62 ], [ %call71, %if.else69 ], [ %call68, %if.then66 ]
-  call void @wc_AesFree(ptr noundef nonnull %aes) #2
-  br label %for.body.preheader.i
+.thread115:                                       ; preds = %.thread113
+  %60 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %15, ptr noundef %6, ptr noundef %6, i32 noundef %7) #3
+  br label %61
 
-for.body.preheader.i:                             ; preds = %if.then75, %sw.bb49
-  %ret.490 = phi i32 [ %ret.4.ph, %if.then75 ], [ %call51, %sw.bb49 ]
-  br label %for.body.i
+61:                                               ; preds = %.thread113, %58, %.thread115, %53
+  %.6.ph = phi i32 [ %56, %.thread113 ], [ %54, %53 ], [ %60, %.thread115 ], [ %59, %58 ]
+  call void @wc_AesFree(ptr noundef nonnull %15) #3
+  br label %.lr.ph29.preheader.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %aes, %for.body.preheader.i ]
-  %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ 848, %for.body.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %w.017.i, i64 8
-  store volatile i64 0, ptr %w.017.i, align 8
-  %sub8.i = add nsw i32 %len.addr.016.i, -8
-  %cmp5.i.not = icmp eq i32 %sub8.i, 0
-  br i1 %cmp5.i.not, label %for.body.preheader.i56, label %for.body.i, !llvm.loop !6
+.lr.ph29.preheader.i:                             ; preds = %61, %50
+  %.6120 = phi i32 [ %.6.ph, %61 ], [ %51, %50 ]
+  br label %.lr.ph29.i
 
-for.body.preheader.i56:                           ; preds = %for.body.i, %if.end46, %if.then48, %sw.bb16, %if.then11, %if.end
-  %ret.2 = phi i32 [ %ret.1, %if.end46 ], [ -133, %if.then48 ], [ -133, %if.end ], [ -133, %if.then11 ], [ -175, %sw.bb16 ], [ %ret.490, %for.body.i ]
-  br label %for.body.i58
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
+  %.01528.i = phi ptr [ %62, %.lr.ph29.i ], [ %15, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %63, %.lr.ph29.i ], [ 848, %.lr.ph29.preheader.i ]
+  %62 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !8
+  %63 = add nsw i32 %.01827.i, -8
+  %.not122 = icmp eq i32 %63, 0
+  br i1 %.not122, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !10
 
-for.body.i58:                                     ; preds = %for.body.i58, %for.body.preheader.i56
-  %w.017.i59 = phi ptr [ %incdec.ptr7.i61, %for.body.i58 ], [ %key, %for.body.preheader.i56 ]
-  %len.addr.016.i60 = phi i32 [ %sub8.i62, %for.body.i58 ], [ 64, %for.body.preheader.i56 ]
-  %incdec.ptr7.i61 = getelementptr inbounds nuw i8, ptr %w.017.i59, i64 8
-  store volatile i64 0, ptr %w.017.i59, align 8
-  %sub8.i62 = add nsw i32 %len.addr.016.i60, -8
-  %cmp5.i63.not = icmp eq i32 %sub8.i62, 0
-  br i1 %cmp5.i63.not, label %return, label %for.body.i58, !llvm.loop !6
+ForceZero.exit:                                   ; preds = %.lr.ph29.i
+  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %15) #3
+  br label %.lr.ph29.preheader.i89
 
-return:                                           ; preds = %for.body.i58, %entry
-  %retval.0 = phi i32 [ -279, %entry ], [ %ret.2, %for.body.i58 ]
-  ret i32 %retval.0
+.lr.ph29.preheader.i89:                           ; preds = %46, %ForceZero.exit, %48, %19, %17
+  %.4 = phi i32 [ %.6120, %ForceZero.exit ], [ %.1, %46 ], [ -133, %48 ], [ -133, %19 ], [ -133, %17 ]
+  br label %.lr.ph29.i91
+
+.lr.ph29.i91:                                     ; preds = %.lr.ph29.i91, %.lr.ph29.preheader.i89
+  %.01528.i92 = phi ptr [ %64, %.lr.ph29.i91 ], [ %13, %.lr.ph29.preheader.i89 ]
+  %.01827.i93 = phi i32 [ %65, %.lr.ph29.i91 ], [ 64, %.lr.ph29.preheader.i89 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.01528.i92, i64 8
+  store volatile i64 0, ptr %.01528.i92, align 8, !tbaa !8
+  %65 = add nsw i32 %.01827.i93, -8
+  %.not123 = icmp eq i32 %65, 0
+  br i1 %.not123, label %ForceZero.exit100, label %.lr.ph29.i91, !llvm.loop !10
+
+ForceZero.exit100:                                ; preds = %.lr.ph29.i91, %12
+  %.072 = phi i32 [ -279, %12 ], [ %.4, %.lr.ph29.i91 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #3
+  ret i32 %.072
 }
 
-declare i32 @wc_PBKDF2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @wc_PBKDF2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_PBKDF1(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @wc_PBKDF1(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_PKCS12_PBKDF(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @wc_PKCS12_PBKDF(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"omnipotent char", !5, i64 0}
+!5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !4, i64 0}
+!10 = distinct !{!10, !7}

@@ -1,1372 +1,1392 @@
 ; ModuleID = 'bench/wolfssl/original/hmac.ll'
 source_filename = "bench/wolfssl/original/hmac.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.Hmac = type { %union.wc_HmacHash, [36 x i32], [36 x i32], [16 x i32], ptr, i8, i8 }
-%union.wc_HmacHash = type { %struct.wc_Sha3 }
+%struct.Hmac = type { %union.wc_Hashes, [36 x i32], [36 x i32], [16 x i32], ptr, i8, i8 }
+%union.wc_Hashes = type { %struct.wc_Sha3 }
 %struct.wc_Sha3 = type { [25 x i64], [200 x i8], i8, ptr }
 
 @switch.table.wc_HmacSizeByType = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 -173, i32 28, i32 32, i32 48, i32 64], align 4
 @switch.table.wc_HKDF_Expand_ex = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 poison, i32 28, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -173, 65) i32 @wc_HmacSizeByType(i32 noundef %type) local_unnamed_addr #0 {
-entry:
-  %switch.tableidx = add i32 %type, -3
-  %0 = icmp ult i32 %switch.tableidx, 11
-  br i1 %0, label %switch.lookup, label %return
+define range(i32 -173, 65) i32 @wc_HmacSizeByType(i32 noundef %0) local_unnamed_addr #0 {
+  %switch.tableidx = add i32 %0, -3
+  %2 = icmp ult i32 %switch.tableidx, 11
+  br i1 %2, label %switch.lookup, label %4
 
-switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HmacSizeByType, i64 0, i64 %1
+switch.lookup:                                    ; preds = %1
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HmacSizeByType, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %return
+  br label %4
 
-return:                                           ; preds = %switch.lookup, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %switch.load, %switch.lookup ]
-  ret i32 %retval.0
+4:                                                ; preds = %switch.lookup, %1
+  %.030 = phi i32 [ -173, %1 ], [ %switch.load, %switch.lookup ]
+  ret i32 %.030
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @_InitHmac(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+  switch i32 %1, label %HmacKeyInitHash.exit.thread [
+    i32 3, label %4
+    i32 4, label %6
+    i32 5, label %8
+    i32 6, label %10
+    i32 7, label %12
+    i32 8, label %14
+    i32 10, label %16
+    i32 11, label %18
+    i32 12, label %20
+    i32 13, label %22
+  ]
+
+4:                                                ; preds = %3
+  %5 = tail call i32 @wc_InitMd5_ex(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+6:                                                ; preds = %3
+  %7 = tail call i32 @wc_InitSha_ex(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+8:                                                ; preds = %3
+  %9 = tail call i32 @wc_InitSha224_ex(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+10:                                               ; preds = %3
+  %11 = tail call i32 @wc_InitSha256_ex(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+12:                                               ; preds = %3
+  %13 = tail call i32 @wc_InitSha384_ex(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+14:                                               ; preds = %3
+  %15 = tail call i32 @wc_InitSha512_ex(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+16:                                               ; preds = %3
+  %17 = tail call i32 @wc_InitSha3_224(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+18:                                               ; preds = %3
+  %19 = tail call i32 @wc_InitSha3_256(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+20:                                               ; preds = %3
+  %21 = tail call i32 @wc_InitSha3_384(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+22:                                               ; preds = %3
+  %23 = tail call i32 @wc_InitSha3_512(ptr noundef %0, ptr noundef %2, i32 noundef -2) #8
+  br label %HmacKeyInitHash.exit
+
+HmacKeyInitHash.exit:                             ; preds = %4, %6, %8, %10, %12, %14, %16, %18, %20, %22
+  %.0.i = phi i32 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  %.not = icmp eq i32 %.0.i, 0
+  br i1 %.not, label %24, label %HmacKeyInitHash.exit.thread
+
+24:                                               ; preds = %HmacKeyInitHash.exit
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  store ptr %2, ptr %25, align 16, !tbaa !3
+  br label %HmacKeyInitHash.exit.thread
+
+HmacKeyInitHash.exit.thread:                      ; preds = %3, %HmacKeyInitHash.exit, %24
+  %.0.i11 = phi i32 [ %.0.i, %HmacKeyInitHash.exit ], [ 0, %24 ], [ -173, %3 ]
+  ret i32 %.0.i11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_InitHmac(ptr noundef %hmac, i32 noundef %type, ptr noundef %heap) local_unnamed_addr #1 {
-entry:
-  switch i32 %type, label %sw.epilog [
-    i32 3, label %sw.bb
-    i32 4, label %sw.bb1
-    i32 5, label %sw.bb4
-    i32 6, label %sw.bb7
-    i32 7, label %sw.bb10
-    i32 8, label %sw.bb13
-    i32 10, label %sw.bb16
-    i32 11, label %sw.bb19
-    i32 12, label %sw.bb22
-    i32 13, label %sw.bb25
+define i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+  %6 = icmp eq ptr %0, null
+  br i1 %6, label %.thread293, label %7
+
+7:                                                ; preds = %5
+  %8 = icmp eq ptr %2, null
+  %9 = icmp ne i32 %3, 0
+  %or.cond = and i1 %8, %9
+  br i1 %or.cond, label %.thread293, label %10
+
+10:                                               ; preds = %7
+  switch i32 %1, label %.thread293 [
+    i32 13, label %11
+    i32 12, label %11
+    i32 11, label %11
+    i32 10, label %11
+    i32 8, label %11
+    i32 7, label %11
+    i32 6, label %11
+    i32 5, label %11
+    i32 4, label %11
+    i32 3, label %11
   ]
 
-sw.bb:                                            ; preds = %entry
-  %call = tail call i32 @wc_InitMd5_ex(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
+11:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %13 = load ptr, ptr %12, align 16, !tbaa !3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %15 = load i8, ptr %14, align 8, !tbaa !8
+  %.not = icmp eq i8 %15, 0
+  br i1 %.not, label %17, label %16
 
-sw.bb1:                                           ; preds = %entry
-  %call3 = tail call i32 @wc_InitSha_ex(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
+16:                                               ; preds = %11
+  tail call void @wc_HmacFree(ptr noundef nonnull %0)
+  br label %17
 
-sw.bb4:                                           ; preds = %entry
-  %call6 = tail call i32 @wc_InitSha224_ex(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
+17:                                               ; preds = %16, %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 777
+  store i8 0, ptr %18, align 1, !tbaa !9
+  %19 = trunc nuw i32 %1 to i8
+  store i8 %19, ptr %14, align 8, !tbaa !8
+  %20 = tail call i32 @_InitHmac(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %13)
+  %.not235 = icmp eq i32 %20, 0
+  br i1 %.not235, label %21, label %.thread293
 
-sw.bb7:                                           ; preds = %entry
-  %call9 = tail call i32 @wc_InitSha256_ex(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
+21:                                               ; preds = %17
+  %22 = icmp eq i32 %4, 0
+  %23 = icmp ult i32 %3, 14
+  %or.cond21 = and i1 %23, %22
+  br i1 %or.cond21, label %.thread293, label %24
 
-sw.bb10:                                          ; preds = %entry
-  %call12 = tail call i32 @wc_InitSha384_ex(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
-
-sw.bb13:                                          ; preds = %entry
-  %call15 = tail call i32 @wc_InitSha512_ex(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
-
-sw.bb16:                                          ; preds = %entry
-  %call18 = tail call i32 @wc_InitSha3_224(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
-
-sw.bb19:                                          ; preds = %entry
-  %call21 = tail call i32 @wc_InitSha3_256(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
-
-sw.bb22:                                          ; preds = %entry
-  %call24 = tail call i32 @wc_InitSha3_384(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
-
-sw.bb25:                                          ; preds = %entry
-  %call27 = tail call i32 @wc_InitSha3_512(ptr noundef %hmac, ptr noundef %heap, i32 noundef -2) #8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %entry, %sw.bb25, %sw.bb22, %sw.bb19, %sw.bb16, %sw.bb13, %sw.bb10, %sw.bb7, %sw.bb4, %sw.bb1, %sw.bb
-  %ret.0 = phi i32 [ %call27, %sw.bb25 ], [ %call24, %sw.bb22 ], [ %call21, %sw.bb19 ], [ %call18, %sw.bb16 ], [ %call15, %sw.bb13 ], [ %call12, %sw.bb10 ], [ %call9, %sw.bb7 ], [ %call6, %sw.bb4 ], [ %call3, %sw.bb1 ], [ %call, %sw.bb ], [ -173, %entry ]
-  %heap28 = getelementptr inbounds nuw i8, ptr %hmac, i64 768
-  store ptr %heap, ptr %heap28, align 16
-  ret i32 %ret.0
-}
-
-declare i32 @wc_InitMd5_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha224_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha256_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha384_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha512_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha3_224(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha3_256(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha3_384(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @wc_InitSha3_512(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_HmacSetKey(ptr noundef %hmac, i32 noundef %type, ptr noundef %key, i32 noundef %length) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %hmac, null
-  br i1 %cmp, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %cmp1 = icmp eq ptr %key, null
-  %cmp2 = icmp ne i32 %length, 0
-  %or.cond = and i1 %cmp1, %cmp2
-  br i1 %or.cond, label %return, label %lor.lhs.false3
-
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  switch i32 %type, label %return [
-    i32 13, label %if.end
-    i32 12, label %if.end
-    i32 11, label %if.end
-    i32 10, label %if.end
-    i32 8, label %if.end
-    i32 7, label %if.end
-    i32 6, label %if.end
-    i32 5, label %if.end
-    i32 4, label %if.end
-    i32 3, label %if.end
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %27 = load i8, ptr %14, align 8, !tbaa !8
+  switch i8 %27, label %.thread293 [
+    i8 3, label %28
+    i8 4, label %35
+    i8 5, label %42
+    i8 6, label %49
+    i8 7, label %56
+    i8 8, label %63
+    i8 10, label %70
+    i8 11, label %77
+    i8 12, label %84
+    i8 13, label %91
   ]
 
-if.end:                                           ; preds = %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3
-  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
-  %0 = load i8, ptr %macType, align 8
-  %cmp23.not = icmp eq i8 %0, 0
-  br i1 %cmp23.not, label %if.end26, label %if.then25
+28:                                               ; preds = %24
+  %29 = icmp ult i32 %3, 65
+  br i1 %29, label %30, label %31
 
-if.then25:                                        ; preds = %if.end
-  tail call void @wc_HmacFree(ptr noundef nonnull %hmac)
-  br label %if.end26
+30:                                               ; preds = %28
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.end26:                                         ; preds = %if.then25, %if.end
-  %innerHashKeyed = getelementptr inbounds nuw i8, ptr %hmac, i64 777
-  store i8 0, ptr %innerHashKeyed, align 1
-  %conv27 = trunc nuw i32 %type to i8
-  store i8 %conv27, ptr %macType, align 8
-  %call = tail call i32 @_InitHmac(ptr noundef nonnull %hmac, i32 noundef %type, ptr noundef null)
-  %cmp29.not = icmp eq i32 %call, 0
-  br i1 %cmp29.not, label %if.end32, label %return
+31:                                               ; preds = %28
+  %32 = tail call i32 @wc_Md5Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not263 = icmp eq i32 %32, 0
+  br i1 %.not263, label %33, label %.thread293
 
-if.end32:                                         ; preds = %if.end26
-  %ipad = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %opad = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %1 = load i8, ptr %macType, align 8
-  switch i8 %1, label %return [
-    i8 3, label %sw.bb
-    i8 4, label %sw.bb56
-    i8 5, label %sw.bb79
-    i8 6, label %sw.bb102
-    i8 7, label %sw.bb125
-    i8 8, label %sw.bb148
-    i8 10, label %sw.bb171
-    i8 11, label %sw.bb194
-    i8 12, label %sw.bb217
-    i8 13, label %sw.bb240
-  ]
+33:                                               ; preds = %31
+  %34 = tail call i32 @wc_Md5Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb:                                            ; preds = %if.end32
-  %cmp36 = icmp ult i32 %length, 65
-  br i1 %cmp36, label %if.then38, label %if.else
+35:                                               ; preds = %24
+  %36 = icmp ult i32 %3, 65
+  br i1 %36, label %37, label %38
 
-if.then38:                                        ; preds = %sw.bb
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+37:                                               ; preds = %35
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else:                                          ; preds = %sw.bb
-  %call44 = tail call i32 @wc_Md5Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp45.not = icmp eq i32 %call44, 0
-  br i1 %cmp45.not, label %if.end48, label %return
+38:                                               ; preds = %35
+  %39 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not260 = icmp eq i32 %39, 0
+  br i1 %.not260, label %40, label %.thread293
 
-if.end48:                                         ; preds = %if.else
-  %call50 = tail call i32 @wc_Md5Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+40:                                               ; preds = %38
+  %41 = tail call i32 @wc_ShaFinal(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb56:                                          ; preds = %if.end32
-  %cmp57 = icmp ult i32 %length, 65
-  br i1 %cmp57, label %if.then59, label %if.else65
+42:                                               ; preds = %24
+  %43 = icmp ult i32 %3, 65
+  br i1 %43, label %44, label %45
 
-if.then59:                                        ; preds = %sw.bb56
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+44:                                               ; preds = %42
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else65:                                        ; preds = %sw.bb56
-  %call67 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp68.not = icmp eq i32 %call67, 0
-  br i1 %cmp68.not, label %if.end71, label %return
+45:                                               ; preds = %42
+  %46 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not257 = icmp eq i32 %46, 0
+  br i1 %.not257, label %47, label %.thread293
 
-if.end71:                                         ; preds = %if.else65
-  %call73 = tail call i32 @wc_ShaFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+47:                                               ; preds = %45
+  %48 = tail call i32 @wc_Sha224Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb79:                                          ; preds = %if.end32
-  %cmp80 = icmp ult i32 %length, 65
-  br i1 %cmp80, label %if.then82, label %if.else88
+49:                                               ; preds = %24
+  %50 = icmp ult i32 %3, 65
+  br i1 %50, label %51, label %52
 
-if.then82:                                        ; preds = %sw.bb79
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+51:                                               ; preds = %49
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else88:                                        ; preds = %sw.bb79
-  %call90 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp91.not = icmp eq i32 %call90, 0
-  br i1 %cmp91.not, label %if.end94, label %return
+52:                                               ; preds = %49
+  %53 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not254 = icmp eq i32 %53, 0
+  br i1 %.not254, label %54, label %.thread293
 
-if.end94:                                         ; preds = %if.else88
-  %call96 = tail call i32 @wc_Sha224Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+54:                                               ; preds = %52
+  %55 = tail call i32 @wc_Sha256Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb102:                                         ; preds = %if.end32
-  %cmp103 = icmp ult i32 %length, 65
-  br i1 %cmp103, label %if.then105, label %if.else111
+56:                                               ; preds = %24
+  %57 = icmp ult i32 %3, 129
+  br i1 %57, label %58, label %59
 
-if.then105:                                       ; preds = %sw.bb102
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+58:                                               ; preds = %56
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else111:                                       ; preds = %sw.bb102
-  %call113 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp114.not = icmp eq i32 %call113, 0
-  br i1 %cmp114.not, label %if.end117, label %return
+59:                                               ; preds = %56
+  %60 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not251 = icmp eq i32 %60, 0
+  br i1 %.not251, label %61, label %.thread293
 
-if.end117:                                        ; preds = %if.else111
-  %call119 = tail call i32 @wc_Sha256Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+61:                                               ; preds = %59
+  %62 = tail call i32 @wc_Sha384Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb125:                                         ; preds = %if.end32
-  %cmp126 = icmp ult i32 %length, 129
-  br i1 %cmp126, label %if.then128, label %if.else134
+63:                                               ; preds = %24
+  %64 = icmp ult i32 %3, 129
+  br i1 %64, label %65, label %66
 
-if.then128:                                       ; preds = %sw.bb125
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+65:                                               ; preds = %63
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else134:                                       ; preds = %sw.bb125
-  %call136 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp137.not = icmp eq i32 %call136, 0
-  br i1 %cmp137.not, label %if.end140, label %return
+66:                                               ; preds = %63
+  %67 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not248 = icmp eq i32 %67, 0
+  br i1 %.not248, label %68, label %.thread293
 
-if.end140:                                        ; preds = %if.else134
-  %call142 = tail call i32 @wc_Sha384Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+68:                                               ; preds = %66
+  %69 = tail call i32 @wc_Sha512Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb148:                                         ; preds = %if.end32
-  %cmp149 = icmp ult i32 %length, 129
-  br i1 %cmp149, label %if.then151, label %if.else157
+70:                                               ; preds = %24
+  %71 = icmp ult i32 %3, 145
+  br i1 %71, label %72, label %73
 
-if.then151:                                       ; preds = %sw.bb148
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+72:                                               ; preds = %70
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else157:                                       ; preds = %sw.bb148
-  %call159 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp160.not = icmp eq i32 %call159, 0
-  br i1 %cmp160.not, label %if.end163, label %return
+73:                                               ; preds = %70
+  %74 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not245 = icmp eq i32 %74, 0
+  br i1 %.not245, label %75, label %.thread293
 
-if.end163:                                        ; preds = %if.else157
-  %call165 = tail call i32 @wc_Sha512Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+75:                                               ; preds = %73
+  %76 = tail call i32 @wc_Sha3_224_Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb171:                                         ; preds = %if.end32
-  %cmp172 = icmp ult i32 %length, 145
-  br i1 %cmp172, label %if.then174, label %if.else180
+77:                                               ; preds = %24
+  %78 = icmp ult i32 %3, 137
+  br i1 %78, label %79, label %80
 
-if.then174:                                       ; preds = %sw.bb171
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+79:                                               ; preds = %77
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else180:                                       ; preds = %sw.bb171
-  %call182 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp183.not = icmp eq i32 %call182, 0
-  br i1 %cmp183.not, label %if.end186, label %return
+80:                                               ; preds = %77
+  %81 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not242 = icmp eq i32 %81, 0
+  br i1 %.not242, label %82, label %.thread293
 
-if.end186:                                        ; preds = %if.else180
-  %call188 = tail call i32 @wc_Sha3_224_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+82:                                               ; preds = %80
+  %83 = tail call i32 @wc_Sha3_256_Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb194:                                         ; preds = %if.end32
-  %cmp195 = icmp ult i32 %length, 137
-  br i1 %cmp195, label %if.then197, label %if.else203
+84:                                               ; preds = %24
+  %85 = icmp ult i32 %3, 105
+  br i1 %85, label %86, label %87
 
-if.then197:                                       ; preds = %sw.bb194
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+86:                                               ; preds = %84
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else203:                                       ; preds = %sw.bb194
-  %call205 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp206.not = icmp eq i32 %call205, 0
-  br i1 %cmp206.not, label %if.end209, label %return
+87:                                               ; preds = %84
+  %88 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not239 = icmp eq i32 %88, 0
+  br i1 %.not239, label %89, label %.thread293
 
-if.end209:                                        ; preds = %if.else203
-  %call211 = tail call i32 @wc_Sha3_256_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+89:                                               ; preds = %87
+  %90 = tail call i32 @wc_Sha3_384_Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb217:                                         ; preds = %if.end32
-  %cmp218 = icmp ult i32 %length, 105
-  br i1 %cmp218, label %if.then220, label %if.else226
+91:                                               ; preds = %24
+  %92 = icmp ult i32 %3, 73
+  br i1 %92, label %93, label %94
 
-if.then220:                                       ; preds = %sw.bb217
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+93:                                               ; preds = %91
+  br i1 %8, label %.thread, label %.thread.sink.split
 
-if.else226:                                       ; preds = %sw.bb217
-  %call228 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp229.not = icmp eq i32 %call228, 0
-  br i1 %cmp229.not, label %if.end232, label %return
+94:                                               ; preds = %91
+  %95 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3) #8
+  %.not236 = icmp eq i32 %95, 0
+  br i1 %.not236, label %96, label %.thread293
 
-if.end232:                                        ; preds = %if.else226
-  %call234 = tail call i32 @wc_Sha3_384_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+96:                                               ; preds = %94
+  %97 = tail call i32 @wc_Sha3_512_Final(ptr noundef nonnull %0, ptr noundef nonnull %25) #8
+  br label %98
 
-sw.bb240:                                         ; preds = %if.end32
-  %cmp241 = icmp ult i32 %length, 73
-  br i1 %cmp241, label %if.then243, label %if.else249
+98:                                               ; preds = %96, %89, %82, %75, %68, %61, %54, %47, %40, %33
+  %.sink299 = phi i32 [ %97, %96 ], [ %90, %89 ], [ %83, %82 ], [ %76, %75 ], [ %69, %68 ], [ %62, %61 ], [ %55, %54 ], [ %48, %47 ], [ %41, %40 ], [ %34, %33 ]
+  %.sink = phi i32 [ 64, %96 ], [ 48, %89 ], [ 32, %82 ], [ 28, %75 ], [ 64, %68 ], [ 48, %61 ], [ 32, %54 ], [ 28, %47 ], [ 20, %40 ], [ 16, %33 ]
+  %.0188 = phi i32 [ 72, %96 ], [ 104, %89 ], [ 136, %82 ], [ 144, %75 ], [ 128, %68 ], [ 128, %61 ], [ 64, %54 ], [ 64, %47 ], [ 64, %40 ], [ 64, %33 ]
+  %.not237 = icmp eq i32 %.sink299, 0
+  %spec.select283 = select i1 %.not237, i32 %.sink, i32 %3
+  %99 = icmp eq i32 %.sink299, 0
+  br i1 %99, label %.thread, label %.thread293
 
-if.then243:                                       ; preds = %sw.bb240
-  br i1 %cmp1, label %if.then265, label %if.then265.sink.split
+.thread.sink.split:                               ; preds = %93, %86, %79, %72, %65, %58, %51, %44, %37, %30
+  %.0188289.ph = phi i32 [ 64, %30 ], [ 64, %37 ], [ 64, %44 ], [ 64, %51 ], [ 128, %58 ], [ 128, %65 ], [ 144, %72 ], [ 136, %79 ], [ 104, %86 ], [ 72, %93 ]
+  %100 = zext nneg i32 %3 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %2, i64 %100, i1 false)
+  br label %.thread
 
-if.else249:                                       ; preds = %sw.bb240
-  %call251 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hmac, ptr noundef %key, i32 noundef %length) #8
-  %cmp252.not = icmp eq i32 %call251, 0
-  br i1 %cmp252.not, label %if.end255, label %return
+.thread:                                          ; preds = %.thread.sink.split, %30, %37, %44, %51, %58, %65, %72, %79, %86, %93, %98
+  %.0188289 = phi i32 [ %.0188, %98 ], [ 64, %30 ], [ 64, %37 ], [ 64, %44 ], [ 64, %51 ], [ 128, %58 ], [ 128, %65 ], [ 144, %72 ], [ 136, %79 ], [ 104, %86 ], [ 72, %93 ], [ %.0188289.ph, %.thread.sink.split ]
+  %.0190288 = phi i32 [ %spec.select283, %98 ], [ %3, %30 ], [ %3, %37 ], [ %3, %44 ], [ %3, %51 ], [ %3, %58 ], [ %3, %65 ], [ %3, %72 ], [ %3, %79 ], [ %3, %86 ], [ %3, %93 ], [ %3, %.thread.sink.split ]
+  %101 = icmp ult i32 %.0190288, %.0188289
+  br i1 %101, label %102, label %107
 
-if.end255:                                        ; preds = %if.else249
-  %call257 = tail call i32 @wc_Sha3_512_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad) #8
-  br label %sw.epilog
+102:                                              ; preds = %.thread
+  %103 = zext nneg i32 %.0190288 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %25, i64 %103
+  %105 = sub nuw nsw i32 %.0188289, %.0190288
+  %106 = zext nneg i32 %105 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %104, i8 0, i64 %106, i1 false)
+  br label %107
 
-sw.epilog:                                        ; preds = %if.end255, %if.end232, %if.end209, %if.end186, %if.end163, %if.end140, %if.end117, %if.end94, %if.end71, %if.end48
-  %call257.sink = phi i32 [ %call257, %if.end255 ], [ %call234, %if.end232 ], [ %call211, %if.end209 ], [ %call188, %if.end186 ], [ %call165, %if.end163 ], [ %call142, %if.end140 ], [ %call119, %if.end117 ], [ %call96, %if.end94 ], [ %call73, %if.end71 ], [ %call50, %if.end48 ]
-  %.sink = phi i32 [ 64, %if.end255 ], [ 48, %if.end232 ], [ 32, %if.end209 ], [ 28, %if.end186 ], [ 64, %if.end163 ], [ 48, %if.end140 ], [ 32, %if.end117 ], [ 28, %if.end94 ], [ 20, %if.end71 ], [ 16, %if.end48 ]
-  %hmac_block_size.0 = phi i32 [ 72, %if.end255 ], [ 104, %if.end232 ], [ 136, %if.end209 ], [ 144, %if.end186 ], [ 128, %if.end163 ], [ 128, %if.end140 ], [ 64, %if.end117 ], [ 64, %if.end94 ], [ 64, %if.end71 ], [ 64, %if.end48 ]
-  %cmp258.not = icmp eq i32 %call257.sink, 0
-  %spec.select180 = select i1 %cmp258.not, i32 %.sink, i32 %length
-  %cmp263 = icmp eq i32 %call257.sink, 0
-  br i1 %cmp263, label %if.then265, label %return
+107:                                              ; preds = %102, %.thread
+  %wide.trip.count = zext nneg i32 %.0188289 to i64
+  br label %108
 
-if.then265.sink.split:                            ; preds = %if.then243, %if.then220, %if.then197, %if.then174, %if.then151, %if.then128, %if.then105, %if.then82, %if.then59, %if.then38
-  %hmac_block_size.0187.ph = phi i32 [ 64, %if.then38 ], [ 64, %if.then59 ], [ 64, %if.then82 ], [ 64, %if.then105 ], [ 128, %if.then128 ], [ 128, %if.then151 ], [ 144, %if.then174 ], [ 136, %if.then197 ], [ 104, %if.then220 ], [ 72, %if.then243 ]
-  %conv42 = zext nneg i32 %length to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ipad, ptr nonnull align 1 %key, i64 %conv42, i1 false)
-  br label %if.then265
-
-if.then265:                                       ; preds = %if.then265.sink.split, %if.then38, %if.then59, %if.then82, %if.then105, %if.then128, %if.then151, %if.then174, %if.then197, %if.then220, %if.then243, %sw.epilog
-  %hmac_block_size.0187 = phi i32 [ %hmac_block_size.0, %sw.epilog ], [ 64, %if.then38 ], [ 64, %if.then59 ], [ 64, %if.then82 ], [ 64, %if.then105 ], [ 128, %if.then128 ], [ 128, %if.then151 ], [ 144, %if.then174 ], [ 136, %if.then197 ], [ 104, %if.then220 ], [ 72, %if.then243 ], [ %hmac_block_size.0187.ph, %if.then265.sink.split ]
-  %length.addr.0186 = phi i32 [ %spec.select180, %sw.epilog ], [ %length, %if.then38 ], [ %length, %if.then59 ], [ %length, %if.then82 ], [ %length, %if.then105 ], [ %length, %if.then128 ], [ %length, %if.then151 ], [ %length, %if.then174 ], [ %length, %if.then197 ], [ %length, %if.then220 ], [ %length, %if.then243 ], [ %length, %if.then265.sink.split ]
-  %cmp266 = icmp ult i32 %length.addr.0186, %hmac_block_size.0187
-  br i1 %cmp266, label %if.then268, label %if.end270
-
-if.then268:                                       ; preds = %if.then265
-  %idx.ext = zext nneg i32 %length.addr.0186 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %ipad, i64 %idx.ext
-  %sub = sub nuw nsw i32 %hmac_block_size.0187, %length.addr.0186
-  %conv269 = zext nneg i32 %sub to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %conv269, i1 false)
-  br label %if.end270
-
-if.end270:                                        ; preds = %if.then268, %if.then265
-  %wide.trip.count = zext nneg i32 %hmac_block_size.0187 to i64
-  br label %for.body
-
-for.body:                                         ; preds = %if.end270, %for.body
-  %indvars.iv = phi i64 [ 0, %if.end270 ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw i8, ptr %ipad, i64 %indvars.iv
-  %2 = load i8, ptr %arrayidx, align 1
-  %3 = xor i8 %2, 92
-  %arrayidx276 = getelementptr inbounds nuw i8, ptr %opad, i64 %indvars.iv
-  store i8 %3, ptr %arrayidx276, align 1
-  %4 = xor i8 %2, 54
-  store i8 %4, ptr %arrayidx, align 1
+108:                                              ; preds = %107, %108
+  %indvars.iv = phi i64 [ 0, %107 ], [ %indvars.iv.next, %108 ]
+  %109 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
+  %110 = load i8, ptr %109, align 1, !tbaa !10
+  %111 = xor i8 %110, 92
+  %112 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
+  store i8 %111, ptr %112, align 1, !tbaa !10
+  %113 = xor i8 %110, 54
+  store i8 %113, ptr %109, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %.thread293, label %108, !llvm.loop !11
 
-return:                                           ; preds = %for.body, %if.else, %if.else65, %if.else88, %if.else111, %if.else134, %if.else157, %if.else180, %if.else203, %if.else226, %if.else249, %sw.epilog, %if.end32, %if.end26, %entry, %lor.lhs.false, %lor.lhs.false3
-  %retval.0 = phi i32 [ -173, %lor.lhs.false3 ], [ -173, %lor.lhs.false ], [ -173, %entry ], [ %call, %if.end26 ], [ -173, %if.end32 ], [ %call257.sink, %sw.epilog ], [ %call44, %if.else ], [ %call67, %if.else65 ], [ %call90, %if.else88 ], [ %call113, %if.else111 ], [ %call136, %if.else134 ], [ %call159, %if.else157 ], [ %call182, %if.else180 ], [ %call205, %if.else203 ], [ %call228, %if.else226 ], [ %call251, %if.else249 ], [ 0, %for.body ]
-  ret i32 %retval.0
+.thread293:                                       ; preds = %108, %31, %38, %45, %52, %59, %66, %73, %80, %87, %94, %98, %24, %21, %17, %5, %7, %10
+  %.0189 = phi i32 [ -173, %10 ], [ -173, %7 ], [ -173, %5 ], [ %20, %17 ], [ -200, %21 ], [ -173, %24 ], [ %.sink299, %98 ], [ %32, %31 ], [ %39, %38 ], [ %46, %45 ], [ %53, %52 ], [ %60, %59 ], [ %67, %66 ], [ %74, %73 ], [ %81, %80 ], [ %88, %87 ], [ %95, %94 ], [ 0, %108 ]
+  ret i32 %.0189
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wc_HmacFree(ptr noundef %hmac) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %hmac, null
-  br i1 %cmp, label %return, label %if.end
+define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #2 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %ForceZero.exit, label %3
 
-if.end:                                           ; preds = %entry
-  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
-  %0 = load i8, ptr %macType, align 8
-  switch i8 %0, label %sw.epilog [
-    i8 3, label %sw.bb
-    i8 4, label %sw.bb1
-    i8 5, label %sw.bb3
-    i8 6, label %sw.bb5
-    i8 7, label %sw.bb7
-    i8 8, label %sw.bb9
-    i8 10, label %sw.bb11
-    i8 11, label %sw.bb13
-    i8 12, label %sw.bb15
-    i8 13, label %sw.bb17
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %5 = load i8, ptr %4, align 8, !tbaa !8
+  switch i8 %5, label %16 [
+    i8 3, label %6
+    i8 4, label %7
+    i8 5, label %8
+    i8 6, label %9
+    i8 7, label %10
+    i8 8, label %11
+    i8 10, label %12
+    i8 11, label %13
+    i8 12, label %14
+    i8 13, label %15
   ]
 
-sw.bb:                                            ; preds = %if.end
-  tail call void @wc_Md5Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+6:                                                ; preds = %3
+  tail call void @wc_Md5Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb1:                                           ; preds = %if.end
-  tail call void @wc_ShaFree(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+7:                                                ; preds = %3
+  tail call void @wc_ShaFree(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb3:                                           ; preds = %if.end
-  tail call void @wc_Sha224Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+8:                                                ; preds = %3
+  tail call void @wc_Sha224Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb5:                                           ; preds = %if.end
-  tail call void @wc_Sha256Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+9:                                                ; preds = %3
+  tail call void @wc_Sha256Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb7:                                           ; preds = %if.end
-  tail call void @wc_Sha384Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+10:                                               ; preds = %3
+  tail call void @wc_Sha384Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb9:                                           ; preds = %if.end
-  tail call void @wc_Sha512Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+11:                                               ; preds = %3
+  tail call void @wc_Sha512Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb11:                                          ; preds = %if.end
-  tail call void @wc_Sha3_224_Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+12:                                               ; preds = %3
+  tail call void @wc_Sha3_224_Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb13:                                          ; preds = %if.end
-  tail call void @wc_Sha3_256_Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+13:                                               ; preds = %3
+  tail call void @wc_Sha3_256_Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb15:                                          ; preds = %if.end
-  tail call void @wc_Sha3_384_Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+14:                                               ; preds = %3
+  tail call void @wc_Sha3_384_Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.bb17:                                          ; preds = %if.end
-  tail call void @wc_Sha3_512_Free(ptr noundef nonnull %hmac) #8
-  br label %sw.epilog
+15:                                               ; preds = %3
+  tail call void @wc_Sha3_512_Free(ptr noundef nonnull %0) #8
+  br label %16
 
-sw.epilog:                                        ; preds = %if.end, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
-  %1 = ptrtoint ptr %hmac to i64
-  %2 = trunc i64 %1 to i32
-  %3 = sub i32 0, %2
-  %conv.i = and i32 %3, 7
-  %sub3.i = sub nuw nsw i32 784, %conv.i
-  %tobool.not12.i = icmp eq i32 %conv.i, 0
-  br i1 %tobool.not12.i, label %for.body.i.preheader, label %while.body.i
+16:                                               ; preds = %3, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
+  %17 = ptrtoint ptr %0 to i64
+  %18 = trunc i64 %17 to i32
+  %19 = sub i32 0, %18
+  %20 = and i32 %19, 7
+  %21 = sub nuw nsw i32 784, %20
+  %.not24.i = icmp eq i32 %20, 0
+  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
 
-for.body.i.preheader:                             ; preds = %while.body.i, %sw.epilog
-  %w.017.i.ph = phi ptr [ %hmac, %sw.epilog ], [ %incdec.ptr.i, %while.body.i ]
-  br label %for.body.i
+.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %16
+  %.01528.i.ph = phi ptr [ %0, %16 ], [ %23, %.lr.ph.i ]
+  br label %.lr.ph29.i
 
-while.body.i:                                     ; preds = %sw.epilog, %while.body.i
-  %l.114.i = phi i32 [ %dec.i, %while.body.i ], [ %conv.i, %sw.epilog ]
-  %z.013.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %hmac, %sw.epilog ]
-  %dec.i = add nsw i32 %l.114.i, -1
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %z.013.i, i64 1
-  store volatile i8 0, ptr %z.013.i, align 1
-  %tobool.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !6
+.lr.ph.i:                                         ; preds = %16, %.lr.ph.i
+  %.126.i = phi i32 [ %22, %.lr.ph.i ], [ %20, %16 ]
+  %.01625.i = phi ptr [ %23, %.lr.ph.i ], [ %0, %16 ]
+  %22 = add nsw i32 %.126.i, -1
+  %23 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
+  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !10
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !13
 
-while.cond9.preheader.i:                          ; preds = %for.body.i
-  %tobool11.not20.i = icmp eq i32 %sub8.i, 0
-  br i1 %tobool11.not20.i, label %return, label %while.body12.i
+.preheader.i:                                     ; preds = %.lr.ph29.i
+  %.not2232.i = icmp eq i32 %25, 0
+  br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %w.017.i.ph, %for.body.i.preheader ]
-  %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.body.i.preheader ]
-  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %w.017.i, i64 8
-  store volatile i64 0, ptr %w.017.i, align 8
-  %sub8.i = add nsw i32 %len.addr.016.i, -8
-  %cmp5.i = icmp ugt i32 %sub8.i, 7
-  br i1 %cmp5.i, label %for.body.i, label %while.cond9.preheader.i, !llvm.loop !7
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
+  %.01528.i = phi ptr [ %24, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
+  %.01827.i = phi i32 [ %25, %.lr.ph29.i ], [ %21, %.lr.ph29.i.preheader ]
+  %24 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !14
+  %25 = add nsw i32 %.01827.i, -8
+  %26 = icmp ugt i32 %25, 7
+  br i1 %26, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !16
 
-while.body12.i:                                   ; preds = %while.cond9.preheader.i, %while.body12.i
-  %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
-  %len.addr.121.i = phi i32 [ %dec10.i, %while.body12.i ], [ %sub8.i, %while.cond9.preheader.i ]
-  %dec10.i = add i32 %len.addr.121.i, -1
-  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %z.122.i, i64 1
-  store volatile i8 0, ptr %z.122.i, align 1
-  %tobool11.not.i = icmp eq i32 %dec10.i, 0
-  br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !8
+.lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
+  %.11734.i = phi ptr [ %28, %.lr.ph35.i ], [ %24, %.preheader.i ]
+  %.11933.i = phi i32 [ %27, %.lr.ph35.i ], [ %25, %.preheader.i ]
+  %27 = add i32 %.11933.i, -1
+  %28 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !10
+  %.not22.i = icmp eq i32 %27, 0
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !17
 
-return:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %entry
+ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha3_224_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_224_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha3_224_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_224_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha3_256_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_256_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha3_256_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_256_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha3_384_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_384_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha3_384_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_384_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha3_512_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_512_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @wc_Sha3_512_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_512_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacUpdate(ptr noundef %hmac, ptr noundef %msg, i32 noundef %length) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %hmac, null
-  br i1 %cmp, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %cmp1 = icmp eq ptr %msg, null
-  %cmp2 = icmp ne i32 %length, 0
-  %or.cond = and i1 %cmp1, %cmp2
-  br i1 %or.cond, label %return, label %if.end
-
-if.end:                                           ; preds = %lor.lhs.false
-  %innerHashKeyed = getelementptr inbounds nuw i8, ptr %hmac, i64 777
-  %0 = load i8, ptr %innerHashKeyed, align 1
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.then3, label %if.end7
-
-if.then3:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @HmacKeyInnerHash(ptr noundef %hmac)
-  %cmp4.not = icmp eq i32 %call, 0
-  br i1 %cmp4.not, label %if.end7, label %return
-
-if.end7:                                          ; preds = %if.then3, %if.end
-  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
-  %1 = load i8, ptr %macType, align 8
-  switch i8 %1, label %return [
-    i8 3, label %sw.bb
-    i8 4, label %sw.bb9
-    i8 5, label %sw.bb12
-    i8 6, label %sw.bb15
-    i8 7, label %sw.bb18
-    i8 8, label %sw.bb21
-    i8 10, label %sw.bb24
-    i8 11, label %sw.bb27
-    i8 12, label %sw.bb30
-    i8 13, label %sw.bb33
-  ]
-
-sw.bb:                                            ; preds = %if.end7
-  %call8 = tail call i32 @wc_Md5Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb9:                                           ; preds = %if.end7
-  %call11 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb12:                                          ; preds = %if.end7
-  %call14 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb15:                                          ; preds = %if.end7
-  %call17 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb18:                                          ; preds = %if.end7
-  %call20 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb21:                                          ; preds = %if.end7
-  %call23 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb24:                                          ; preds = %if.end7
-  %call26 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb27:                                          ; preds = %if.end7
-  %call29 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb30:                                          ; preds = %if.end7
-  %call32 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-sw.bb33:                                          ; preds = %if.end7
-  %call35 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hmac, ptr noundef %msg, i32 noundef %length) #8
-  br label %return
-
-return:                                           ; preds = %sw.bb, %sw.bb9, %sw.bb12, %sw.bb15, %sw.bb18, %sw.bb21, %sw.bb24, %sw.bb27, %sw.bb30, %sw.bb33, %if.end7, %if.then3, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ -173, %lor.lhs.false ], [ -173, %entry ], [ %call, %if.then3 ], [ 0, %if.end7 ], [ %call35, %sw.bb33 ], [ %call32, %sw.bb30 ], [ %call29, %sw.bb27 ], [ %call26, %sw.bb24 ], [ %call23, %sw.bb21 ], [ %call20, %sw.bb18 ], [ %call17, %sw.bb15 ], [ %call14, %sw.bb12 ], [ %call11, %sw.bb9 ], [ %call8, %sw.bb ]
-  ret i32 %retval.0
+define i32 @wc_HmacSetKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+  %5 = tail call i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @HmacKeyInnerHash(ptr noundef nonnull %hmac) unnamed_addr #1 {
-entry:
-  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
-  %0 = load i8, ptr %macType, align 8
-  switch i8 %0, label %if.then [
-    i8 3, label %sw.bb
-    i8 4, label %sw.bb1
-    i8 5, label %sw.bb6
-    i8 6, label %sw.bb11
-    i8 7, label %sw.bb16
-    i8 8, label %sw.bb21
-    i8 10, label %sw.bb26
-    i8 11, label %sw.bb31
-    i8 12, label %sw.bb36
-    i8 13, label %sw.bb41
+define i32 @wc_HmacUpdate(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %40, label %5
+
+5:                                                ; preds = %3
+  %6 = icmp eq ptr %1, null
+  %7 = icmp ne i32 %2, 0
+  %or.cond = and i1 %6, %7
+  br i1 %or.cond, label %40, label %8
+
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 777
+  %10 = load i8, ptr %9, align 1, !tbaa !9
+  %.not = icmp eq i8 %10, 0
+  br i1 %.not, label %11, label %17
+
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %13 = load i8, ptr %12, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %15 = tail call fastcc i32 @HmacKeyHashUpdate(i8 noundef zeroext %13, ptr noundef %0, ptr noundef %14)
+  %.not47 = icmp eq i32 %15, 0
+  br i1 %.not47, label %16, label %40
+
+16:                                               ; preds = %11
+  store i8 1, ptr %9, align 1, !tbaa !9
+  br label %17
+
+17:                                               ; preds = %16, %8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %19 = load i8, ptr %18, align 8, !tbaa !8
+  switch i8 %19, label %40 [
+    i8 3, label %20
+    i8 4, label %22
+    i8 5, label %24
+    i8 6, label %26
+    i8 7, label %28
+    i8 8, label %30
+    i8 10, label %32
+    i8 11, label %34
+    i8 12, label %36
+    i8 13, label %38
   ]
 
-sw.bb:                                            ; preds = %entry
-  %ipad = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call = tail call i32 @wc_Md5Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad, i32 noundef 64) #8
-  br label %sw.epilog
+20:                                               ; preds = %17
+  %21 = tail call i32 @wc_Md5Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb1:                                           ; preds = %entry
-  %ipad3 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call5 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad3, i32 noundef 64) #8
-  br label %sw.epilog
+22:                                               ; preds = %17
+  %23 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb6:                                           ; preds = %entry
-  %ipad8 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call10 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad8, i32 noundef 64) #8
-  br label %sw.epilog
+24:                                               ; preds = %17
+  %25 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb11:                                          ; preds = %entry
-  %ipad13 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call15 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad13, i32 noundef 64) #8
-  br label %sw.epilog
+26:                                               ; preds = %17
+  %27 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb16:                                          ; preds = %entry
-  %ipad18 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call20 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad18, i32 noundef 128) #8
-  br label %sw.epilog
+28:                                               ; preds = %17
+  %29 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb21:                                          ; preds = %entry
-  %ipad23 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call25 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad23, i32 noundef 128) #8
-  br label %sw.epilog
+30:                                               ; preds = %17
+  %31 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb26:                                          ; preds = %entry
-  %ipad28 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call30 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad28, i32 noundef 144) #8
-  br label %sw.epilog
+32:                                               ; preds = %17
+  %33 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb31:                                          ; preds = %entry
-  %ipad33 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call35 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad33, i32 noundef 136) #8
-  br label %sw.epilog
+34:                                               ; preds = %17
+  %35 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb36:                                          ; preds = %entry
-  %ipad38 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call40 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad38, i32 noundef 104) #8
-  br label %sw.epilog
+36:                                               ; preds = %17
+  %37 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.bb41:                                          ; preds = %entry
-  %ipad43 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
-  %call45 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad43, i32 noundef 72) #8
-  br label %sw.epilog
+38:                                               ; preds = %17
+  %39 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #8
+  br label %40
 
-sw.epilog:                                        ; preds = %sw.bb41, %sw.bb36, %sw.bb31, %sw.bb26, %sw.bb21, %sw.bb16, %sw.bb11, %sw.bb6, %sw.bb1, %sw.bb
-  %ret.0 = phi i32 [ %call45, %sw.bb41 ], [ %call40, %sw.bb36 ], [ %call35, %sw.bb31 ], [ %call30, %sw.bb26 ], [ %call25, %sw.bb21 ], [ %call20, %sw.bb16 ], [ %call15, %sw.bb11 ], [ %call10, %sw.bb6 ], [ %call5, %sw.bb1 ], [ %call, %sw.bb ]
-  %cmp = icmp eq i32 %ret.0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry, %sw.epilog
-  %innerHashKeyed = getelementptr inbounds nuw i8, ptr %hmac, i64 777
-  store i8 1, ptr %innerHashKeyed, align 1
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %sw.epilog
-  %ret.025 = phi i32 [ 0, %if.then ], [ %ret.0, %sw.epilog ]
-  ret i32 %ret.025
+40:                                               ; preds = %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %17, %11, %3, %5
+  %.043 = phi i32 [ -173, %5 ], [ -173, %3 ], [ %15, %11 ], [ 0, %17 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ]
+  ret i32 %.043
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacFinal(ptr noundef %hmac, ptr noundef %hash) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %hmac, null
-  %cmp1 = icmp eq ptr %hash, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
-  %innerHashKeyed = getelementptr inbounds nuw i8, ptr %hmac, i64 777
-  %0 = load i8, ptr %innerHashKeyed, align 1
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.then2, label %if.end6
-
-if.then2:                                         ; preds = %if.end
-  %call = tail call fastcc i32 @HmacKeyInnerHash(ptr noundef %hmac)
-  %cmp3.not = icmp eq i32 %call, 0
-  br i1 %cmp3.not, label %if.end6, label %return
-
-if.end6:                                          ; preds = %if.then2, %if.end
-  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
-  %1 = load i8, ptr %macType, align 8
-  switch i8 %1, label %return [
-    i8 3, label %sw.bb
-    i8 4, label %sw.bb30
-    i8 5, label %sw.bb57
-    i8 6, label %sw.bb88
-    i8 7, label %sw.bb115
-    i8 8, label %sw.bb142
-    i8 10, label %sw.bb169
-    i8 11, label %sw.bb196
-    i8 12, label %sw.bb223
-    i8 13, label %sw.bb250
+define internal fastcc i32 @HmacKeyHashUpdate(i8 noundef zeroext %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #2 {
+  switch i8 %0, label %24 [
+    i8 3, label %4
+    i8 4, label %6
+    i8 5, label %8
+    i8 6, label %10
+    i8 7, label %12
+    i8 8, label %14
+    i8 10, label %16
+    i8 11, label %18
+    i8 12, label %20
+    i8 13, label %22
   ]
 
-sw.bb:                                            ; preds = %if.end6
-  %innerHash = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call8 = tail call i32 @wc_Md5Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash) #8
-  %cmp9.not = icmp eq i32 %call8, 0
-  br i1 %cmp9.not, label %if.end12, label %return
+4:                                                ; preds = %3
+  %5 = tail call i32 @wc_Md5Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 64) #8
+  br label %24
 
-if.end12:                                         ; preds = %sw.bb
-  %opad = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call15 = tail call i32 @wc_Md5Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad, i32 noundef 64) #8
-  %cmp16.not = icmp eq i32 %call15, 0
-  br i1 %cmp16.not, label %if.end19, label %return
+6:                                                ; preds = %3
+  %7 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 64) #8
+  br label %24
 
-if.end19:                                         ; preds = %if.end12
-  %call23 = tail call i32 @wc_Md5Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash, i32 noundef 16) #8
-  %cmp24.not = icmp eq i32 %call23, 0
-  br i1 %cmp24.not, label %if.end27, label %return
+8:                                                ; preds = %3
+  %9 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 64) #8
+  br label %24
 
-if.end27:                                         ; preds = %if.end19
-  %call29 = tail call i32 @wc_Md5Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+10:                                               ; preds = %3
+  %11 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 64) #8
+  br label %24
 
-sw.bb30:                                          ; preds = %if.end6
-  %innerHash32 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call34 = tail call i32 @wc_ShaFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash32) #8
-  %cmp35.not = icmp eq i32 %call34, 0
-  br i1 %cmp35.not, label %if.end38, label %return
+12:                                               ; preds = %3
+  %13 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 128) #8
+  br label %24
 
-if.end38:                                         ; preds = %sw.bb30
-  %opad40 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call42 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %opad40, i32 noundef 64) #8
-  %cmp43.not = icmp eq i32 %call42, 0
-  br i1 %cmp43.not, label %if.end46, label %return
+14:                                               ; preds = %3
+  %15 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 128) #8
+  br label %24
 
-if.end46:                                         ; preds = %if.end38
-  %call50 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash32, i32 noundef 20) #8
-  %cmp51.not = icmp eq i32 %call50, 0
-  br i1 %cmp51.not, label %if.end54, label %return
+16:                                               ; preds = %3
+  %17 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 144) #8
+  br label %24
 
-if.end54:                                         ; preds = %if.end46
-  %call56 = tail call i32 @wc_ShaFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+18:                                               ; preds = %3
+  %19 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 136) #8
+  br label %24
 
-sw.bb57:                                          ; preds = %if.end6
-  %innerHash59 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call61 = tail call i32 @wc_Sha224Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash59) #8
-  %cmp62.not = icmp eq i32 %call61, 0
-  br i1 %cmp62.not, label %if.end65, label %return
+20:                                               ; preds = %3
+  %21 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 104) #8
+  br label %24
 
-if.end65:                                         ; preds = %sw.bb57
-  %opad67 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call69 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad67, i32 noundef 64) #8
-  %cmp70.not = icmp eq i32 %call69, 0
-  br i1 %cmp70.not, label %if.end73, label %return
+22:                                               ; preds = %3
+  %23 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 72) #8
+  br label %24
 
-if.end73:                                         ; preds = %if.end65
-  %call77 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash59, i32 noundef 28) #8
-  %cmp78.not = icmp eq i32 %call77, 0
-  br i1 %cmp78.not, label %if.end81, label %return
+24:                                               ; preds = %3, %22, %20, %18, %16, %14, %12, %10, %8, %6, %4
+  %.0 = phi i32 [ 0, %3 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ]
+  ret i32 %.0
+}
 
-if.end81:                                         ; preds = %if.end73
-  %call83 = tail call i32 @wc_Sha224Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+; Function Attrs: nounwind uwtable
+define i32 @wc_HmacFinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %.thread, label %5
 
-sw.bb88:                                          ; preds = %if.end6
-  %innerHash90 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call92 = tail call i32 @wc_Sha256Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash90) #8
-  %cmp93.not = icmp eq i32 %call92, 0
-  br i1 %cmp93.not, label %if.end96, label %return
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 777
+  %7 = load i8, ptr %6, align 1, !tbaa !9
+  %.not = icmp eq i8 %7, 0
+  br i1 %.not, label %8, label %14
 
-if.end96:                                         ; preds = %sw.bb88
-  %opad98 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call100 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad98, i32 noundef 64) #8
-  %cmp101.not = icmp eq i32 %call100, 0
-  br i1 %cmp101.not, label %if.end104, label %return
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %10 = load i8, ptr %9, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %12 = tail call fastcc i32 @HmacKeyHashUpdate(i8 noundef zeroext %10, ptr noundef %0, ptr noundef %11)
+  %.not158 = icmp eq i32 %12, 0
+  br i1 %.not158, label %13, label %.thread
 
-if.end104:                                        ; preds = %if.end96
-  %call108 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash90, i32 noundef 32) #8
-  %cmp109.not = icmp eq i32 %call108, 0
-  br i1 %cmp109.not, label %if.end112, label %return
+13:                                               ; preds = %8
+  store i8 1, ptr %6, align 1, !tbaa !9
+  br label %14
 
-if.end112:                                        ; preds = %if.end104
-  %call114 = tail call i32 @wc_Sha256Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+14:                                               ; preds = %13, %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %16 = load i8, ptr %15, align 8, !tbaa !8
+  switch i8 %16, label %.thread [
+    i8 3, label %17
+    i8 4, label %27
+    i8 5, label %37
+    i8 6, label %47
+    i8 7, label %57
+    i8 8, label %67
+    i8 10, label %77
+    i8 11, label %87
+    i8 12, label %97
+    i8 13, label %107
+  ]
 
-sw.bb115:                                         ; preds = %if.end6
-  %innerHash117 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call119 = tail call i32 @wc_Sha384Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash117) #8
-  %cmp120.not = icmp eq i32 %call119, 0
-  br i1 %cmp120.not, label %if.end123, label %return
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %19 = tail call i32 @wc_Md5Final(ptr noundef nonnull %0, ptr noundef nonnull %18) #8
+  %.not186 = icmp eq i32 %19, 0
+  br i1 %.not186, label %20, label %.thread
 
-if.end123:                                        ; preds = %sw.bb115
-  %opad125 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call127 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad125, i32 noundef 128) #8
-  %cmp128.not = icmp eq i32 %call127, 0
-  br i1 %cmp128.not, label %if.end131, label %return
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %22 = tail call i32 @wc_Md5Update(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef 64) #8
+  %.not187 = icmp eq i32 %22, 0
+  br i1 %.not187, label %23, label %.thread
 
-if.end131:                                        ; preds = %if.end123
-  %call135 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash117, i32 noundef 48) #8
-  %cmp136.not = icmp eq i32 %call135, 0
-  br i1 %cmp136.not, label %if.end139, label %return
+23:                                               ; preds = %20
+  %24 = tail call i32 @wc_Md5Update(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 16) #8
+  %.not188 = icmp eq i32 %24, 0
+  br i1 %.not188, label %25, label %.thread
 
-if.end139:                                        ; preds = %if.end131
-  %call141 = tail call i32 @wc_Sha384Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+25:                                               ; preds = %23
+  %26 = tail call i32 @wc_Md5Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
 
-sw.bb142:                                         ; preds = %if.end6
-  %innerHash144 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call146 = tail call i32 @wc_Sha512Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash144) #8
-  %cmp147.not = icmp eq i32 %call146, 0
-  br i1 %cmp147.not, label %if.end150, label %return
+27:                                               ; preds = %14
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %29 = tail call i32 @wc_ShaFinal(ptr noundef nonnull %0, ptr noundef nonnull %28) #8
+  %.not183 = icmp eq i32 %29, 0
+  br i1 %.not183, label %30, label %.thread
 
-if.end150:                                        ; preds = %sw.bb142
-  %opad152 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call154 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad152, i32 noundef 128) #8
-  %cmp155.not = icmp eq i32 %call154, 0
-  br i1 %cmp155.not, label %if.end158, label %return
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %32 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %0, ptr noundef nonnull %31, i32 noundef 64) #8
+  %.not184 = icmp eq i32 %32, 0
+  br i1 %.not184, label %33, label %.thread
 
-if.end158:                                        ; preds = %if.end150
-  %call162 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash144, i32 noundef 64) #8
-  %cmp163.not = icmp eq i32 %call162, 0
-  br i1 %cmp163.not, label %if.end166, label %return
+33:                                               ; preds = %30
+  %34 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %0, ptr noundef nonnull %28, i32 noundef 20) #8
+  %.not185 = icmp eq i32 %34, 0
+  br i1 %.not185, label %35, label %.thread
 
-if.end166:                                        ; preds = %if.end158
-  %call168 = tail call i32 @wc_Sha512Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+35:                                               ; preds = %33
+  %36 = tail call i32 @wc_ShaFinal(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
 
-sw.bb169:                                         ; preds = %if.end6
-  %innerHash171 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call173 = tail call i32 @wc_Sha3_224_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash171) #8
-  %cmp174.not = icmp eq i32 %call173, 0
-  br i1 %cmp174.not, label %if.end177, label %return
+37:                                               ; preds = %14
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %39 = tail call i32 @wc_Sha224Final(ptr noundef nonnull %0, ptr noundef nonnull %38) #8
+  %.not180 = icmp eq i32 %39, 0
+  br i1 %.not180, label %40, label %.thread
 
-if.end177:                                        ; preds = %sw.bb169
-  %opad179 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call181 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad179, i32 noundef 144) #8
-  %cmp182.not = icmp eq i32 %call181, 0
-  br i1 %cmp182.not, label %if.end185, label %return
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %42 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %0, ptr noundef nonnull %41, i32 noundef 64) #8
+  %.not181 = icmp eq i32 %42, 0
+  br i1 %.not181, label %43, label %.thread
 
-if.end185:                                        ; preds = %if.end177
-  %call189 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash171, i32 noundef 28) #8
-  %cmp190.not = icmp eq i32 %call189, 0
-  br i1 %cmp190.not, label %if.end193, label %return
+43:                                               ; preds = %40
+  %44 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %0, ptr noundef nonnull %38, i32 noundef 28) #8
+  %.not182 = icmp eq i32 %44, 0
+  br i1 %.not182, label %45, label %.thread
 
-if.end193:                                        ; preds = %if.end185
-  %call195 = tail call i32 @wc_Sha3_224_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+45:                                               ; preds = %43
+  %46 = tail call i32 @wc_Sha224Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
 
-sw.bb196:                                         ; preds = %if.end6
-  %innerHash198 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call200 = tail call i32 @wc_Sha3_256_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash198) #8
-  %cmp201.not = icmp eq i32 %call200, 0
-  br i1 %cmp201.not, label %if.end204, label %return
+47:                                               ; preds = %14
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %49 = tail call i32 @wc_Sha256Final(ptr noundef nonnull %0, ptr noundef nonnull %48) #8
+  %.not177 = icmp eq i32 %49, 0
+  br i1 %.not177, label %50, label %.thread
 
-if.end204:                                        ; preds = %sw.bb196
-  %opad206 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call208 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad206, i32 noundef 136) #8
-  %cmp209.not = icmp eq i32 %call208, 0
-  br i1 %cmp209.not, label %if.end212, label %return
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %52 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %0, ptr noundef nonnull %51, i32 noundef 64) #8
+  %.not178 = icmp eq i32 %52, 0
+  br i1 %.not178, label %53, label %.thread
 
-if.end212:                                        ; preds = %if.end204
-  %call216 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash198, i32 noundef 32) #8
-  %cmp217.not = icmp eq i32 %call216, 0
-  br i1 %cmp217.not, label %if.end220, label %return
+53:                                               ; preds = %50
+  %54 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %0, ptr noundef nonnull %48, i32 noundef 32) #8
+  %.not179 = icmp eq i32 %54, 0
+  br i1 %.not179, label %55, label %.thread
 
-if.end220:                                        ; preds = %if.end212
-  %call222 = tail call i32 @wc_Sha3_256_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+55:                                               ; preds = %53
+  %56 = tail call i32 @wc_Sha256Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
 
-sw.bb223:                                         ; preds = %if.end6
-  %innerHash225 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call227 = tail call i32 @wc_Sha3_384_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash225) #8
-  %cmp228.not = icmp eq i32 %call227, 0
-  br i1 %cmp228.not, label %if.end231, label %return
+57:                                               ; preds = %14
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %59 = tail call i32 @wc_Sha384Final(ptr noundef nonnull %0, ptr noundef nonnull %58) #8
+  %.not174 = icmp eq i32 %59, 0
+  br i1 %.not174, label %60, label %.thread
 
-if.end231:                                        ; preds = %sw.bb223
-  %opad233 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call235 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad233, i32 noundef 104) #8
-  %cmp236.not = icmp eq i32 %call235, 0
-  br i1 %cmp236.not, label %if.end239, label %return
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %62 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %0, ptr noundef nonnull %61, i32 noundef 128) #8
+  %.not175 = icmp eq i32 %62, 0
+  br i1 %.not175, label %63, label %.thread
 
-if.end239:                                        ; preds = %if.end231
-  %call243 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash225, i32 noundef 48) #8
-  %cmp244.not = icmp eq i32 %call243, 0
-  br i1 %cmp244.not, label %if.end247, label %return
+63:                                               ; preds = %60
+  %64 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %0, ptr noundef nonnull %58, i32 noundef 48) #8
+  %.not176 = icmp eq i32 %64, 0
+  br i1 %.not176, label %65, label %.thread
 
-if.end247:                                        ; preds = %if.end239
-  %call249 = tail call i32 @wc_Sha3_384_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+65:                                               ; preds = %63
+  %66 = tail call i32 @wc_Sha384Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
 
-sw.bb250:                                         ; preds = %if.end6
-  %innerHash252 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
-  %call254 = tail call i32 @wc_Sha3_512_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash252) #8
-  %cmp255.not = icmp eq i32 %call254, 0
-  br i1 %cmp255.not, label %if.end258, label %return
+67:                                               ; preds = %14
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %69 = tail call i32 @wc_Sha512Final(ptr noundef nonnull %0, ptr noundef nonnull %68) #8
+  %.not171 = icmp eq i32 %69, 0
+  br i1 %.not171, label %70, label %.thread
 
-if.end258:                                        ; preds = %sw.bb250
-  %opad260 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
-  %call262 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad260, i32 noundef 72) #8
-  %cmp263.not = icmp eq i32 %call262, 0
-  br i1 %cmp263.not, label %if.end266, label %return
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %72 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 128) #8
+  %.not172 = icmp eq i32 %72, 0
+  br i1 %.not172, label %73, label %.thread
 
-if.end266:                                        ; preds = %if.end258
-  %call270 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash252, i32 noundef 64) #8
-  %cmp271.not = icmp eq i32 %call270, 0
-  br i1 %cmp271.not, label %if.end274, label %return
+73:                                               ; preds = %70
+  %74 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %0, ptr noundef nonnull %68, i32 noundef 64) #8
+  %.not173 = icmp eq i32 %74, 0
+  br i1 %.not173, label %75, label %.thread
 
-if.end274:                                        ; preds = %if.end266
-  %call276 = tail call i32 @wc_Sha3_512_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %hash) #8
-  br label %sw.epilog
+75:                                               ; preds = %73
+  %76 = tail call i32 @wc_Sha512Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
 
-sw.epilog:                                        ; preds = %if.end81, %if.end274, %if.end247, %if.end220, %if.end193, %if.end166, %if.end139, %if.end112, %if.end54, %if.end27
-  %ret.0 = phi i32 [ %call276, %if.end274 ], [ %call249, %if.end247 ], [ %call222, %if.end220 ], [ %call195, %if.end193 ], [ %call168, %if.end166 ], [ %call141, %if.end139 ], [ %call114, %if.end112 ], [ %call83, %if.end81 ], [ %call56, %if.end54 ], [ %call29, %if.end27 ]
-  %cmp277 = icmp eq i32 %ret.0, 0
-  br i1 %cmp277, label %if.then279, label %return
+77:                                               ; preds = %14
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %79 = tail call i32 @wc_Sha3_224_Final(ptr noundef nonnull %0, ptr noundef nonnull %78) #8
+  %.not168 = icmp eq i32 %79, 0
+  br i1 %.not168, label %80, label %.thread
 
-if.then279:                                       ; preds = %sw.epilog
-  store i8 0, ptr %innerHashKeyed, align 1
-  br label %return
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %82 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %0, ptr noundef nonnull %81, i32 noundef 144) #8
+  %.not169 = icmp eq i32 %82, 0
+  br i1 %.not169, label %83, label %.thread
 
-return:                                           ; preds = %if.end6, %if.end19, %if.end12, %sw.bb, %if.end46, %if.end38, %sw.bb30, %if.end73, %if.end65, %sw.bb57, %if.end104, %if.end96, %sw.bb88, %if.end131, %if.end123, %sw.bb115, %if.end158, %if.end150, %sw.bb142, %if.end185, %if.end177, %sw.bb169, %if.end212, %if.end204, %sw.bb196, %if.end239, %if.end231, %sw.bb223, %if.end266, %if.end258, %sw.bb250, %sw.epilog, %if.then279, %if.then2, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %call, %if.then2 ], [ 0, %if.then279 ], [ %ret.0, %sw.epilog ], [ -173, %if.end6 ], [ %call23, %if.end19 ], [ %call15, %if.end12 ], [ %call8, %sw.bb ], [ %call50, %if.end46 ], [ %call42, %if.end38 ], [ %call34, %sw.bb30 ], [ %call77, %if.end73 ], [ %call69, %if.end65 ], [ %call61, %sw.bb57 ], [ %call108, %if.end104 ], [ %call100, %if.end96 ], [ %call92, %sw.bb88 ], [ %call135, %if.end131 ], [ %call127, %if.end123 ], [ %call119, %sw.bb115 ], [ %call162, %if.end158 ], [ %call154, %if.end150 ], [ %call146, %sw.bb142 ], [ %call189, %if.end185 ], [ %call181, %if.end177 ], [ %call173, %sw.bb169 ], [ %call216, %if.end212 ], [ %call208, %if.end204 ], [ %call200, %sw.bb196 ], [ %call243, %if.end239 ], [ %call235, %if.end231 ], [ %call227, %sw.bb223 ], [ %call270, %if.end266 ], [ %call262, %if.end258 ], [ %call254, %sw.bb250 ]
-  ret i32 %retval.0
+83:                                               ; preds = %80
+  %84 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %0, ptr noundef nonnull %78, i32 noundef 28) #8
+  %.not170 = icmp eq i32 %84, 0
+  br i1 %.not170, label %85, label %.thread
+
+85:                                               ; preds = %83
+  %86 = tail call i32 @wc_Sha3_224_Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
+
+87:                                               ; preds = %14
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %89 = tail call i32 @wc_Sha3_256_Final(ptr noundef nonnull %0, ptr noundef nonnull %88) #8
+  %.not165 = icmp eq i32 %89, 0
+  br i1 %.not165, label %90, label %.thread
+
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %92 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef 136) #8
+  %.not166 = icmp eq i32 %92, 0
+  br i1 %.not166, label %93, label %.thread
+
+93:                                               ; preds = %90
+  %94 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %0, ptr noundef nonnull %88, i32 noundef 32) #8
+  %.not167 = icmp eq i32 %94, 0
+  br i1 %.not167, label %95, label %.thread
+
+95:                                               ; preds = %93
+  %96 = tail call i32 @wc_Sha3_256_Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
+
+97:                                               ; preds = %14
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %99 = tail call i32 @wc_Sha3_384_Final(ptr noundef nonnull %0, ptr noundef nonnull %98) #8
+  %.not162 = icmp eq i32 %99, 0
+  br i1 %.not162, label %100, label %.thread
+
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %102 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %0, ptr noundef nonnull %101, i32 noundef 104) #8
+  %.not163 = icmp eq i32 %102, 0
+  br i1 %.not163, label %103, label %.thread
+
+103:                                              ; preds = %100
+  %104 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %0, ptr noundef nonnull %98, i32 noundef 48) #8
+  %.not164 = icmp eq i32 %104, 0
+  br i1 %.not164, label %105, label %.thread
+
+105:                                              ; preds = %103
+  %106 = tail call i32 @wc_Sha3_384_Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
+
+107:                                              ; preds = %14
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %109 = tail call i32 @wc_Sha3_512_Final(ptr noundef nonnull %0, ptr noundef nonnull %108) #8
+  %.not159 = icmp eq i32 %109, 0
+  br i1 %.not159, label %110, label %.thread
+
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %112 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %0, ptr noundef nonnull %111, i32 noundef 72) #8
+  %.not160 = icmp eq i32 %112, 0
+  br i1 %.not160, label %113, label %.thread
+
+113:                                              ; preds = %110
+  %114 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %0, ptr noundef nonnull %108, i32 noundef 64) #8
+  %.not161 = icmp eq i32 %114, 0
+  br i1 %.not161, label %115, label %.thread
+
+115:                                              ; preds = %113
+  %116 = tail call i32 @wc_Sha3_512_Final(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
+  br label %117
+
+117:                                              ; preds = %45, %115, %105, %95, %85, %75, %65, %55, %35, %25
+  %.0 = phi i32 [ %116, %115 ], [ %106, %105 ], [ %96, %95 ], [ %86, %85 ], [ %76, %75 ], [ %66, %65 ], [ %56, %55 ], [ %46, %45 ], [ %36, %35 ], [ %26, %25 ]
+  %118 = icmp eq i32 %.0, 0
+  br i1 %118, label %119, label %.thread
+
+119:                                              ; preds = %117
+  store i8 0, ptr %6, align 1, !tbaa !9
+  br label %.thread
+
+.thread:                                          ; preds = %14, %23, %20, %17, %33, %30, %27, %43, %40, %37, %53, %50, %47, %63, %60, %57, %73, %70, %67, %83, %80, %77, %93, %90, %87, %103, %100, %97, %113, %110, %107, %117, %119, %8, %2
+  %.0124 = phi i32 [ -173, %2 ], [ %12, %8 ], [ 0, %119 ], [ %.0, %117 ], [ -173, %14 ], [ %24, %23 ], [ %22, %20 ], [ %19, %17 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %44, %43 ], [ %42, %40 ], [ %39, %37 ], [ %54, %53 ], [ %52, %50 ], [ %49, %47 ], [ %64, %63 ], [ %62, %60 ], [ %59, %57 ], [ %74, %73 ], [ %72, %70 ], [ %69, %67 ], [ %84, %83 ], [ %82, %80 ], [ %79, %77 ], [ %94, %93 ], [ %92, %90 ], [ %89, %87 ], [ %104, %103 ], [ %102, %100 ], [ %99, %97 ], [ %114, %113 ], [ %112, %110 ], [ %109, %107 ]
+  ret i32 %.0124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_HmacInit(ptr noundef writeonly captures(address_is_null) %hmac, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #5 {
-entry:
-  %cmp = icmp eq ptr %hmac, null
-  br i1 %cmp, label %return, label %if.end
+define range(i32 -173, 1) i32 @wc_HmacInit(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %7, label %5
 
-if.end:                                           ; preds = %entry
-  %heap1 = getelementptr inbounds nuw i8, ptr %hmac, i64 768
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %hmac, i8 0, i64 784, i1 false)
-  store ptr %heap, ptr %heap1, align 16
-  br label %return
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %0, i8 0, i64 784, i1 false)
+  store ptr %1, ptr %6, align 16, !tbaa !3
+  br label %7
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ -173, %entry ]
-  ret i32 %retval.0
+7:                                                ; preds = %3, %5
+  %.0 = phi i32 [ 0, %5 ], [ -173, %3 ]
+  ret i32 %.0
 }
 
-declare void @wc_Md5Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Md5Free(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_Sha3_224_Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha3_224_Free(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_Sha3_256_Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha3_256_Free(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_Sha3_384_Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha3_384_Free(ptr noundef) local_unnamed_addr #4
 
-declare void @wc_Sha3_512_Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha3_512_Free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @wolfSSL_GetHmacMaxSize() local_unnamed_addr #0 {
-entry:
   ret i32 64
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Extract_ex(i32 noundef %type, ptr noundef %salt, i32 noundef %saltSz, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %out, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #1 {
-entry:
-  %tmp = alloca [64 x i8], align 16
-  %myHmac = alloca [1 x %struct.Hmac], align 16
-  %switch.tableidx = add i32 %type, -3
-  %0 = icmp ult i32 %switch.tableidx, 11
-  br i1 %0, label %switch.hole_check, label %return
+define i32 @wc_HKDF_Extract_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #2 {
+  %9 = alloca [64 x i8], align 16
+  %10 = alloca [1 x %struct.Hmac], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %10) #8
+  %switch.tableidx = add i32 %0, -3
+  %11 = icmp ult i32 %switch.tableidx, 11
+  br i1 %11, label %switch.hole_check, label %wc_HmacSizeByType.exit
 
-switch.hole_check:                                ; preds = %entry
+switch.hole_check:                                ; preds = %8
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %return
+  br i1 %switch.lobit, label %switch.lookup, label %wc_HmacSizeByType.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %cmp1 = icmp eq ptr %salt, null
-  br i1 %cmp1, label %if.then2, label %if.then9
+  %12 = icmp eq ptr %1, null
+  br i1 %12, label %13, label %16
 
-if.then2:                                         ; preds = %switch.lookup
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
+13:                                               ; preds = %switch.lookup
+  %14 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
-  %conv = zext nneg i32 %switch.load to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp, i8 0, i64 %conv, i1 false)
-  br label %if.then9
+  %15 = zext nneg i32 %switch.load to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 0, i64 %15, i1 false)
+  br label %16
 
-if.then9:                                         ; preds = %switch.lookup, %if.then2
-  %saltSz.addr.0 = phi i32 [ %switch.load, %if.then2 ], [ %saltSz, %switch.lookup ]
-  %localSalt.0 = phi ptr [ %tmp, %if.then2 ], [ %salt, %switch.lookup ]
-  %heap1.i = getelementptr inbounds nuw i8, ptr %myHmac, i64 768
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
-  store ptr %heap, ptr %heap1.i, align 16
-  %call11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac, i32 noundef %type, ptr noundef nonnull %localSalt.0, i32 noundef %saltSz.addr.0)
-  %cmp12 = icmp eq i32 %call11, 0
-  br i1 %cmp12, label %if.end17, label %if.end23
+16:                                               ; preds = %switch.lookup, %13
+  %.022 = phi i32 [ %switch.load, %13 ], [ %2, %switch.lookup ]
+  %.020 = phi ptr [ %9, %13 ], [ %1, %switch.lookup ]
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 768
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %10, i8 0, i64 784, i1 false)
+  store ptr %6, ptr %17, align 16, !tbaa !3
+  %18 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %10, i32 noundef %0, ptr noundef nonnull %.020, i32 noundef %.022, i32 noundef 1)
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.thread
 
-if.end17:                                         ; preds = %if.then9
-  %call16 = call i32 @wc_HmacUpdate(ptr noundef nonnull %myHmac, ptr noundef %inKey, i32 noundef %inKeySz)
-  %cmp18 = icmp eq i32 %call16, 0
-  br i1 %cmp18, label %if.then20, label %if.end23
+20:                                               ; preds = %16
+  %21 = call i32 @wc_HmacUpdate(ptr noundef nonnull %10, ptr noundef %3, i32 noundef %4)
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %.thread
 
-if.then20:                                        ; preds = %if.end17
-  %call22 = call i32 @wc_HmacFinal(ptr noundef nonnull %myHmac, ptr noundef %out)
-  br label %if.end23
+23:                                               ; preds = %20
+  %24 = call i32 @wc_HmacFinal(ptr noundef nonnull %10, ptr noundef %5)
+  br label %.thread
 
-if.end23:                                         ; preds = %if.then9, %if.then20, %if.end17
-  %ret.2 = phi i32 [ %call22, %if.then20 ], [ %call16, %if.end17 ], [ %call11, %if.then9 ]
-  call void @wc_HmacFree(ptr noundef nonnull %myHmac)
-  br label %return
+.thread:                                          ; preds = %16, %23, %20
+  %.2 = phi i32 [ %24, %23 ], [ %21, %20 ], [ %18, %16 ]
+  call void @wc_HmacFree(ptr noundef nonnull %10)
+  br label %wc_HmacSizeByType.exit
 
-return:                                           ; preds = %switch.hole_check, %entry, %if.end23
-  %retval.0 = phi i32 [ %ret.2, %if.end23 ], [ -173, %entry ], [ -173, %switch.hole_check ]
-  ret i32 %retval.0
+wc_HmacSizeByType.exit:                           ; preds = %switch.hole_check, %8, %.thread
+  %.0 = phi i32 [ %.2, %.thread ], [ -173, %8 ], [ -173, %switch.hole_check ]
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Extract(i32 noundef %type, ptr noundef %salt, i32 noundef %saltSz, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %out) local_unnamed_addr #1 {
-entry:
-  %tmp.i = alloca [64 x i8], align 16
-  %myHmac.i = alloca [1 x %struct.Hmac], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %myHmac.i)
-  %switch.tableidx = add i32 %type, -3
-  %0 = icmp ult i32 %switch.tableidx, 11
-  br i1 %0, label %switch.hole_check, label %wc_HKDF_Extract_ex.exit
+define i32 @wc_HKDF_Extract(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+  %7 = alloca [64 x i8], align 16
+  %8 = alloca [1 x %struct.Hmac], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %8) #8
+  %switch.tableidx = add i32 %0, -3
+  %9 = icmp ult i32 %switch.tableidx, 11
+  br i1 %9, label %switch.hole_check, label %wc_HKDF_Extract_ex.exit
 
-switch.hole_check:                                ; preds = %entry
+switch.hole_check:                                ; preds = %6
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %wc_HKDF_Extract_ex.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %cmp1.i = icmp eq ptr %salt, null
-  br i1 %cmp1.i, label %if.then2.i, label %if.then9.i
+  %10 = icmp eq ptr %1, null
+  br i1 %10, label %11, label %14
 
-if.then2.i:                                       ; preds = %switch.lookup
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
+11:                                               ; preds = %switch.lookup
+  %12 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
-  %conv.i = zext nneg i32 %switch.load to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp.i, i8 0, i64 %conv.i, i1 false)
-  br label %if.then9.i
+  %13 = zext nneg i32 %switch.load to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %7, i8 0, i64 %13, i1 false)
+  br label %14
 
-if.then9.i:                                       ; preds = %if.then2.i, %switch.lookup
-  %saltSz.addr.0.i = phi i32 [ %switch.load, %if.then2.i ], [ %saltSz, %switch.lookup ]
-  %localSalt.0.i = phi ptr [ %tmp.i, %if.then2.i ], [ %salt, %switch.lookup ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac.i, i8 0, i64 784, i1 false)
-  %call11.i = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac.i, i32 noundef %type, ptr noundef nonnull %localSalt.0.i, i32 noundef %saltSz.addr.0.i)
-  %cmp12.i = icmp eq i32 %call11.i, 0
-  br i1 %cmp12.i, label %if.end17.i, label %if.end23.i
+14:                                               ; preds = %11, %switch.lookup
+  %.022.i = phi i32 [ %switch.load, %11 ], [ %2, %switch.lookup ]
+  %.020.i = phi ptr [ %7, %11 ], [ %1, %switch.lookup ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %8, i8 0, i64 784, i1 false)
+  %15 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %8, i32 noundef %0, ptr noundef nonnull %.020.i, i32 noundef %.022.i, i32 noundef 1)
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %.thread.i
 
-if.end17.i:                                       ; preds = %if.then9.i
-  %call16.i = call i32 @wc_HmacUpdate(ptr noundef nonnull %myHmac.i, ptr noundef %inKey, i32 noundef %inKeySz)
-  %cmp18.i = icmp eq i32 %call16.i, 0
-  br i1 %cmp18.i, label %if.then20.i, label %if.end23.i
+17:                                               ; preds = %14
+  %18 = call i32 @wc_HmacUpdate(ptr noundef nonnull %8, ptr noundef %3, i32 noundef %4)
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.thread.i
 
-if.then20.i:                                      ; preds = %if.end17.i
-  %call22.i = call i32 @wc_HmacFinal(ptr noundef nonnull %myHmac.i, ptr noundef %out)
-  br label %if.end23.i
+20:                                               ; preds = %17
+  %21 = call i32 @wc_HmacFinal(ptr noundef nonnull %8, ptr noundef %5)
+  br label %.thread.i
 
-if.end23.i:                                       ; preds = %if.then20.i, %if.end17.i, %if.then9.i
-  %ret.2.i = phi i32 [ %call22.i, %if.then20.i ], [ %call16.i, %if.end17.i ], [ %call11.i, %if.then9.i ]
-  call void @wc_HmacFree(ptr noundef nonnull %myHmac.i)
+.thread.i:                                        ; preds = %20, %17, %14
+  %.2.i = phi i32 [ %21, %20 ], [ %18, %17 ], [ %15, %14 ]
+  call void @wc_HmacFree(ptr noundef nonnull %8)
   br label %wc_HKDF_Extract_ex.exit
 
-wc_HKDF_Extract_ex.exit:                          ; preds = %switch.hole_check, %entry, %if.end23.i
-  %retval.0.i = phi i32 [ %ret.2.i, %if.end23.i ], [ -173, %entry ], [ -173, %switch.hole_check ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %myHmac.i)
-  ret i32 %retval.0.i
+wc_HKDF_Extract_ex.exit:                          ; preds = %switch.hole_check, %6, %.thread.i
+  %.0.i = phi i32 [ %.2.i, %.thread.i ], [ -173, %6 ], [ -173, %switch.hole_check ]
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand_ex(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %info, i32 noundef %infoSz, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %outSz, ptr noundef %heap, i32 %devId) local_unnamed_addr #1 {
-entry:
-  %tmp = alloca [64 x i8], align 16
-  %myHmac = alloca [1 x %struct.Hmac], align 16
-  %n = alloca i8, align 1
-  store i8 1, ptr %n, align 1
-  %switch.tableidx = add i32 %type, -3
-  %0 = icmp ult i32 %switch.tableidx, 11
-  br i1 %0, label %switch.hole_check, label %return
+define i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 %8) local_unnamed_addr #2 {
+  %10 = alloca [64 x i8], align 16
+  %11 = alloca [1 x %struct.Hmac], align 16
+  %12 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #8
+  store i8 1, ptr %12, align 1, !tbaa !10
+  %switch.tableidx = add i32 %0, -3
+  %13 = icmp ult i32 %switch.tableidx, 11
+  br i1 %13, label %switch.hole_check, label %wc_HmacSizeByType.exit
 
-switch.hole_check:                                ; preds = %entry
+switch.hole_check:                                ; preds = %9
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %return
+  br i1 %switch.lobit, label %switch.lookup, label %wc_HmacSizeByType.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
+  %14 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
-  %cmp1 = icmp eq ptr %out, null
-  br i1 %cmp1, label %return, label %lor.lhs.false
+  %15 = icmp eq ptr %5, null
+  br i1 %15, label %wc_HmacSizeByType.exit, label %16
 
-lor.lhs.false:                                    ; preds = %switch.lookup
-  %div = udiv i32 %outSz, %switch.load
-  %rem = urem i32 %outSz, %switch.load
-  %cmp2 = icmp ne i32 %rem, 0
-  %conv = zext i1 %cmp2 to i32
-  %add = add nuw nsw i32 %div, %conv
-  %cmp3 = icmp samesign ugt i32 %add, 255
-  br i1 %cmp3, label %return, label %if.end11
+16:                                               ; preds = %switch.lookup
+  %17 = udiv i32 %6, %switch.load
+  %18 = urem i32 %6, %switch.load
+  %19 = icmp ne i32 %18, 0
+  %20 = zext i1 %19 to i32
+  %21 = add nuw nsw i32 %17, %20
+  %22 = icmp samesign ugt i32 %21, 255
+  br i1 %22, label %wc_HmacSizeByType.exit, label %23
 
-if.end11:                                         ; preds = %lor.lhs.false
-  %heap1.i = getelementptr inbounds nuw i8, ptr %myHmac, i64 768
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
-  store ptr %heap, ptr %heap1.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tmp, i8 0, i64 64, i1 false)
-  %cmp1328.not = icmp eq i32 %outSz, 0
-  br i1 %cmp1328.not, label %while.end, label %while.body
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 768
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %11, i8 0, i64 784, i1 false)
+  store ptr %7, ptr %24, align 16, !tbaa !3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.thread, label %.lr.ph
 
-while.body:                                       ; preds = %if.end11, %if.end49
-  %2 = phi i8 [ %inc, %if.end49 ], [ 1, %if.end11 ]
-  %outIdx.029 = phi i32 [ %add53, %if.end49 ], [ 0, %if.end11 ]
-  %sub = sub nuw i32 %outSz, %outIdx.029
-  %call19 = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac, i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz)
-  %cmp20.not = icmp eq i32 %call19, 0
-  br i1 %cmp20.not, label %if.end23, label %while.end
+.lr.ph:                                           ; preds = %23, %38
+  %25 = phi i8 [ %45, %38 ], [ 1, %23 ]
+  %.04065 = phi i32 [ %43, %38 ], [ 0, %23 ]
+  %26 = sub nuw i32 %6, %.04065
+  %27 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %11, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 1)
+  %.not54 = icmp eq i32 %27, 0
+  br i1 %.not54, label %28, label %.thread
 
-if.end23:                                         ; preds = %while.body
-  %cmp16 = icmp eq i8 %2, 1
-  %cond = select i1 %cmp16, i32 0, i32 %switch.load
-  %call26 = call i32 @wc_HmacUpdate(ptr noundef nonnull %myHmac, ptr noundef nonnull %tmp, i32 noundef %cond)
-  %cmp27.not = icmp eq i32 %call26, 0
-  br i1 %cmp27.not, label %if.end30, label %while.end
+28:                                               ; preds = %.lr.ph
+  %29 = icmp eq i8 %25, 1
+  %30 = select i1 %29, i32 0, i32 %switch.load
+  %31 = call i32 @wc_HmacUpdate(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %30)
+  %.not55 = icmp eq i32 %31, 0
+  br i1 %.not55, label %32, label %.thread
 
-if.end30:                                         ; preds = %if.end23
-  %call32 = call i32 @wc_HmacUpdate(ptr noundef nonnull %myHmac, ptr noundef %info, i32 noundef %infoSz)
-  %cmp33.not = icmp eq i32 %call32, 0
-  br i1 %cmp33.not, label %if.end36, label %while.end
+32:                                               ; preds = %28
+  %33 = call i32 @wc_HmacUpdate(ptr noundef nonnull %11, ptr noundef %3, i32 noundef %4)
+  %.not56 = icmp eq i32 %33, 0
+  br i1 %.not56, label %34, label %.thread
 
-if.end36:                                         ; preds = %if.end30
-  %call38 = call i32 @wc_HmacUpdate(ptr noundef nonnull %myHmac, ptr noundef nonnull %n, i32 noundef 1)
-  %cmp39.not = icmp eq i32 %call38, 0
-  br i1 %cmp39.not, label %if.end42, label %while.end
+34:                                               ; preds = %32
+  %35 = call i32 @wc_HmacUpdate(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 1)
+  %.not57 = icmp eq i32 %35, 0
+  br i1 %.not57, label %36, label %.thread
 
-if.end42:                                         ; preds = %if.end36
-  %call45 = call i32 @wc_HmacFinal(ptr noundef nonnull %myHmac, ptr noundef nonnull %tmp)
-  %cmp46.not = icmp eq i32 %call45, 0
-  br i1 %cmp46.not, label %if.end49, label %while.end
+36:                                               ; preds = %34
+  %37 = call i32 @wc_HmacFinal(ptr noundef nonnull %11, ptr noundef nonnull %10)
+  %.not58 = icmp eq i32 %37, 0
+  br i1 %.not58, label %38, label %.thread
 
-if.end49:                                         ; preds = %if.end42
-  %cond.i = call range(i32 0, 65) i32 @llvm.umin.i32(i32 %sub, i32 range(i32 0, 65) %switch.load)
-  %idx.ext = zext i32 %outIdx.029 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 %idx.ext
-  %conv52 = zext nneg i32 %cond.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 16 %tmp, i64 %conv52, i1 false)
-  %add53 = add i32 %outIdx.029, %switch.load
-  %3 = load i8, ptr %n, align 1
-  %inc = add i8 %3, 1
-  store i8 %inc, ptr %n, align 1
-  %cmp13 = icmp ult i32 %add53, %outSz
-  br i1 %cmp13, label %while.body, label %while.end, !llvm.loop !9
+38:                                               ; preds = %36
+  %39 = call range(i32 0, 65) i32 @llvm.umin.i32(i32 %26, i32 range(i32 0, 65) %switch.load)
+  %40 = zext i32 %.04065 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %40
+  %42 = zext nneg i32 %39 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 16 %10, i64 %42, i1 false)
+  %43 = add i32 %.04065, %switch.load
+  %44 = load i8, ptr %12, align 1, !tbaa !10
+  %45 = add i8 %44, 1
+  store i8 %45, ptr %12, align 1, !tbaa !10
+  %46 = icmp ult i32 %43, %6
+  br i1 %46, label %.lr.ph, label %.thread
 
-while.end:                                        ; preds = %if.end49, %while.body, %if.end23, %if.end30, %if.end36, %if.end42, %if.end11
-  %ret.1 = phi i32 [ 0, %if.end11 ], [ %call45, %if.end42 ], [ %call38, %if.end36 ], [ %call32, %if.end30 ], [ %call26, %if.end23 ], [ %call19, %while.body ], [ 0, %if.end49 ]
-  call void @wc_HmacFree(ptr noundef nonnull %myHmac)
-  br label %return
+.thread:                                          ; preds = %38, %.lr.ph, %28, %32, %34, %36, %23
+  %.1 = phi i32 [ 0, %23 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %28 ], [ %27, %.lr.ph ], [ 0, %38 ]
+  call void @wc_HmacFree(ptr noundef nonnull %11)
+  br label %wc_HmacSizeByType.exit
 
-return:                                           ; preds = %switch.hole_check, %entry, %switch.lookup, %lor.lhs.false, %while.end
-  %retval.0 = phi i32 [ %ret.1, %while.end ], [ -173, %lor.lhs.false ], [ -173, %switch.lookup ], [ -173, %entry ], [ -173, %switch.hole_check ]
-  ret i32 %retval.0
+wc_HmacSizeByType.exit:                           ; preds = %switch.hole_check, %9, %switch.lookup, %16, %.thread
+  %.0 = phi i32 [ %.1, %.thread ], [ -173, %16 ], [ -173, %switch.lookup ], [ -173, %9 ], [ -173, %switch.hole_check ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %info, i32 noundef %infoSz, ptr noundef captures(address_is_null) %out, i32 noundef %outSz) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @wc_HKDF_Expand_ex(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %info, i32 noundef %infoSz, ptr noundef %out, i32 noundef %outSz, ptr noundef null, i32 poison)
-  ret i32 %call
+define i32 @wc_HKDF_Expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
+  %8 = tail call i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, i32 poison)
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF(i32 noundef %type, ptr noundef %inKey, i32 noundef %inKeySz, ptr noundef %salt, i32 noundef %saltSz, ptr noundef %info, i32 noundef %infoSz, ptr noundef captures(address_is_null) %out, i32 noundef %outSz) local_unnamed_addr #1 {
-entry:
-  %tmp.i.i = alloca [64 x i8], align 16
-  %myHmac.i.i = alloca [1 x %struct.Hmac], align 16
-  %prk = alloca [64 x i8], align 16
-  switch i32 %type, label %return [
-    i32 3, label %if.end.thread
-    i32 4, label %if.end.thread14
-    i32 5, label %if.end
-    i32 6, label %sw.bb20.i
-    i32 7, label %sw.bb21.i
-    i32 8, label %sw.bb22.i
-    i32 10, label %if.end
-    i32 11, label %sw.bb20.i
-    i32 12, label %sw.bb21.i
-    i32 13, label %sw.bb22.i
+define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #2 {
+  %10 = alloca [64 x i8], align 16
+  %11 = alloca [1 x %struct.Hmac], align 16
+  %12 = alloca [64 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #8
+  switch i32 %0, label %wc_HmacSizeByType.exit [
+    i32 3, label %.thread
+    i32 4, label %.thread25
+    i32 5, label %16
+    i32 6, label %13
+    i32 7, label %14
+    i32 8, label %15
+    i32 10, label %16
+    i32 11, label %13
+    i32 12, label %14
+    i32 13, label %15
   ]
 
-if.end.thread14:                                  ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %myHmac.i.i)
-  br label %if.end.i.i
+.thread25:                                        ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #8
+  br label %20
 
-sw.bb20.i:                                        ; preds = %entry, %entry
-  br label %if.end
+13:                                               ; preds = %9, %9
+  br label %16
 
-sw.bb21.i:                                        ; preds = %entry, %entry
-  br label %if.end
+14:                                               ; preds = %9, %9
+  br label %16
 
-sw.bb22.i:                                        ; preds = %entry, %entry
-  br label %if.end
+15:                                               ; preds = %9, %9
+  br label %16
 
-if.end.thread:                                    ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %myHmac.i.i)
-  br label %if.end.i.i
+.thread:                                          ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #8
+  br label %20
 
-if.end:                                           ; preds = %entry, %entry, %sw.bb22.i, %sw.bb21.i, %sw.bb20.i
-  %retval.0.i.ph = phi i32 [ 32, %sw.bb20.i ], [ 48, %sw.bb21.i ], [ 64, %sw.bb22.i ], [ 28, %entry ], [ 28, %entry ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %myHmac.i.i)
-  switch i32 %type, label %wc_HKDF_Extract.exit.thread [
-    i32 13, label %sw.bb22.i.i.i
-    i32 12, label %sw.bb21.i.i.i
-    i32 5, label %if.end.i.i
-    i32 6, label %sw.bb20.i.i.i
-    i32 7, label %sw.bb21.i.i.i
-    i32 8, label %sw.bb22.i.i.i
-    i32 10, label %if.end.i.i
-    i32 11, label %sw.bb20.i.i.i
+16:                                               ; preds = %9, %9, %15, %14, %13
+  %.030.i.ph = phi i32 [ 32, %13 ], [ 48, %14 ], [ 64, %15 ], [ 28, %9 ], [ 28, %9 ]
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #8
+  switch i32 %0, label %wc_HKDF_Extract.exit.thread [
+    i32 13, label %19
+    i32 12, label %18
+    i32 5, label %20
+    i32 6, label %17
+    i32 7, label %18
+    i32 8, label %19
+    i32 10, label %20
+    i32 11, label %17
   ]
 
-wc_HKDF_Extract.exit.thread:                      ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %myHmac.i.i)
-  br label %return
+wc_HKDF_Extract.exit.thread:                      ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  br label %wc_HmacSizeByType.exit
 
-sw.bb20.i.i.i:                                    ; preds = %if.end, %if.end
-  br label %if.end.i.i
+17:                                               ; preds = %16, %16
+  br label %20
 
-sw.bb21.i.i.i:                                    ; preds = %if.end, %if.end
-  br label %if.end.i.i
+18:                                               ; preds = %16, %16
+  br label %20
 
-sw.bb22.i.i.i:                                    ; preds = %if.end, %if.end
-  br label %if.end.i.i
+19:                                               ; preds = %16, %16
+  br label %20
 
-if.end.i.i:                                       ; preds = %if.end, %if.end, %if.end.thread, %if.end.thread14, %sw.bb22.i.i.i, %sw.bb21.i.i.i, %sw.bb20.i.i.i
-  %retval.0.i.ph11 = phi i32 [ %retval.0.i.ph, %sw.bb20.i.i.i ], [ %retval.0.i.ph, %sw.bb21.i.i.i ], [ %retval.0.i.ph, %sw.bb22.i.i.i ], [ 20, %if.end.thread14 ], [ 16, %if.end.thread ], [ %retval.0.i.ph, %if.end ], [ %retval.0.i.ph, %if.end ]
-  %retval.0.i.ph.i.i = phi i32 [ 32, %sw.bb20.i.i.i ], [ 48, %sw.bb21.i.i.i ], [ 64, %sw.bb22.i.i.i ], [ 20, %if.end.thread14 ], [ 16, %if.end.thread ], [ 28, %if.end ], [ 28, %if.end ]
-  %cmp1.i.i = icmp eq ptr %salt, null
-  br i1 %cmp1.i.i, label %if.then2.i.i, label %if.then9.i.i
+20:                                               ; preds = %16, %16, %.thread, %.thread25, %19, %18, %17
+  %.030.i.ph22 = phi i32 [ %.030.i.ph, %17 ], [ %.030.i.ph, %18 ], [ %.030.i.ph, %19 ], [ 20, %.thread25 ], [ 16, %.thread ], [ %.030.i.ph, %16 ], [ %.030.i.ph, %16 ]
+  %.030.i.ph.i.i = phi i32 [ 32, %17 ], [ 48, %18 ], [ 64, %19 ], [ 20, %.thread25 ], [ 16, %.thread ], [ 28, %16 ], [ 28, %16 ]
+  %21 = icmp eq ptr %3, null
+  br i1 %21, label %22, label %24
 
-if.then2.i.i:                                     ; preds = %if.end.i.i
-  %conv.i.i = zext nneg i32 %retval.0.i.ph.i.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp.i.i, i8 0, i64 %conv.i.i, i1 false)
-  br label %if.then9.i.i
+22:                                               ; preds = %20
+  %23 = zext nneg i32 %.030.i.ph.i.i to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %10, i8 0, i64 %23, i1 false)
+  br label %24
 
-if.then9.i.i:                                     ; preds = %if.then2.i.i, %if.end.i.i
-  %saltSz.addr.0.i.i = phi i32 [ %retval.0.i.ph.i.i, %if.then2.i.i ], [ %saltSz, %if.end.i.i ]
-  %localSalt.0.i.i = phi ptr [ %tmp.i.i, %if.then2.i.i ], [ %salt, %if.end.i.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac.i.i, i8 0, i64 784, i1 false)
-  %call11.i.i = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac.i.i, i32 noundef %type, ptr noundef nonnull %localSalt.0.i.i, i32 noundef %saltSz.addr.0.i.i)
-  %cmp12.i.i = icmp eq i32 %call11.i.i, 0
-  br i1 %cmp12.i.i, label %if.end17.i.i, label %wc_HKDF_Extract.exit.thread19
+24:                                               ; preds = %22, %20
+  %.022.i.i = phi i32 [ %.030.i.ph.i.i, %22 ], [ %4, %20 ]
+  %.020.i.i = phi ptr [ %10, %22 ], [ %3, %20 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %11, i8 0, i64 784, i1 false)
+  %25 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %11, i32 noundef %0, ptr noundef nonnull %.020.i.i, i32 noundef %.022.i.i, i32 noundef 1)
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %wc_HKDF_Extract.exit.thread30
 
-if.end17.i.i:                                     ; preds = %if.then9.i.i
-  %call16.i.i = call i32 @wc_HmacUpdate(ptr noundef nonnull %myHmac.i.i, ptr noundef %inKey, i32 noundef %inKeySz)
-  %cmp18.i.i = icmp eq i32 %call16.i.i, 0
-  br i1 %cmp18.i.i, label %wc_HKDF_Extract.exit, label %wc_HKDF_Extract.exit.thread19
+27:                                               ; preds = %24
+  %28 = call i32 @wc_HmacUpdate(ptr noundef nonnull %11, ptr noundef %1, i32 noundef %2)
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %wc_HKDF_Extract.exit, label %wc_HKDF_Extract.exit.thread30
 
-wc_HKDF_Extract.exit.thread19:                    ; preds = %if.end17.i.i, %if.then9.i.i
-  %ret.2.i.i.ph = phi i32 [ %call11.i.i, %if.then9.i.i ], [ %call16.i.i, %if.end17.i.i ]
-  call void @wc_HmacFree(ptr noundef nonnull %myHmac.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %myHmac.i.i)
-  br label %return
+wc_HKDF_Extract.exit.thread30:                    ; preds = %27, %24
+  %.2.i.i.ph = phi i32 [ %25, %24 ], [ %28, %27 ]
+  call void @wc_HmacFree(ptr noundef nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  br label %wc_HmacSizeByType.exit
 
-wc_HKDF_Extract.exit:                             ; preds = %if.end17.i.i
-  %call22.i.i = call i32 @wc_HmacFinal(ptr noundef nonnull %myHmac.i.i, ptr noundef nonnull %prk)
-  call void @wc_HmacFree(ptr noundef nonnull %myHmac.i.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %myHmac.i.i)
-  %cmp2.not = icmp eq i32 %call22.i.i, 0
-  br i1 %cmp2.not, label %if.end4, label %return
+wc_HKDF_Extract.exit:                             ; preds = %27
+  %30 = call i32 @wc_HmacFinal(ptr noundef nonnull %11, ptr noundef nonnull %12)
+  call void @wc_HmacFree(ptr noundef nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %31, label %wc_HmacSizeByType.exit
 
-if.end4:                                          ; preds = %wc_HKDF_Extract.exit
-  %call.i = call i32 @wc_HKDF_Expand_ex(i32 noundef %type, ptr noundef nonnull %prk, i32 noundef %retval.0.i.ph11, ptr noundef %info, i32 noundef %infoSz, ptr noundef %out, i32 noundef %outSz, ptr noundef null, i32 poison)
-  br label %return
+31:                                               ; preds = %wc_HKDF_Extract.exit
+  %32 = call i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef nonnull %12, i32 noundef %.030.i.ph22, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef null, i32 poison)
+  br label %wc_HmacSizeByType.exit
 
-return:                                           ; preds = %wc_HKDF_Extract.exit.thread19, %wc_HKDF_Extract.exit.thread, %entry, %wc_HKDF_Extract.exit, %if.end4
-  %retval.0 = phi i32 [ %call.i, %if.end4 ], [ %call22.i.i, %wc_HKDF_Extract.exit ], [ -173, %entry ], [ -173, %wc_HKDF_Extract.exit.thread ], [ %ret.2.i.i.ph, %wc_HKDF_Extract.exit.thread19 ]
-  ret i32 %retval.0
+wc_HmacSizeByType.exit:                           ; preds = %wc_HKDF_Extract.exit.thread30, %wc_HKDF_Extract.exit.thread, %9, %wc_HKDF_Extract.exit, %31
+  %.0 = phi i32 [ %32, %31 ], [ %30, %wc_HKDF_Extract.exit ], [ -173, %9 ], [ -173, %wc_HKDF_Extract.exit.thread ], [ %.2.i.i.ph, %wc_HKDF_Extract.exit.thread30 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #8
+  ret i32 %.0
 }
+
+declare i32 @wc_InitMd5_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha224_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha256_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha384_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha512_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha3_224(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha3_256(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha3_384(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare i32 @wc_InitSha3_512(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !7, i64 768}
+!4 = !{!"Hmac", !5, i64 0, !5, i64 416, !5, i64 560, !5, i64 704, !7, i64 768, !5, i64 776, !5, i64 777}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!"any pointer", !5, i64 0}
+!8 = !{!4, !5, i64 776}
+!9 = !{!4, !5, i64 777}
+!10 = !{!5, !5, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !5, i64 0}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}

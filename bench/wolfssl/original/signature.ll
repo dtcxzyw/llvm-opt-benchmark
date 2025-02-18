@@ -1,1103 +1,1206 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_SignatureGetSize(i32 noundef %sig_type, ptr noundef %key, i32 noundef %key_len) #0 {
-entry:
-  %sig_type.addr = alloca i32, align 4
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i32, align 4
-  %sig_len = alloca i32, align 4
-  store i32 %sig_type, ptr %sig_type.addr, align 4
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %key_len, ptr %key_len.addr, align 4
-  store i32 -173, ptr %sig_len, align 4
-  %0 = load i32, ptr %sig_type.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 1, label %sw.bb
-    i32 3, label %sw.bb2
-    i32 2, label %sw.bb2
-    i32 0, label %sw.bb12
+define i32 @wc_SignatureGetSize(i32 noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  store i32 -173, ptr %7, align 4, !tbaa !3
+  %8 = load i32, ptr %4, align 4, !tbaa !3
+  switch i32 %8, label %34 [
+    i32 1, label %9
+    i32 3, label %21
+    i32 2, label %21
+    i32 0, label %33
   ]
 
-sw.bb:                                            ; preds = %entry
-  %1 = load i32, ptr %key_len.addr, align 4
-  %conv = zext i32 %1 to i64
-  %cmp = icmp uge i64 %conv, 4200
-  br i1 %cmp, label %if.then, label %if.else
+9:                                                ; preds = %3
+  %10 = load i32, ptr %6, align 4, !tbaa !3
+  %11 = zext i32 %10 to i64
+  %12 = icmp uge i64 %11, 4208
+  br i1 %12, label %13, label %16
 
-if.then:                                          ; preds = %sw.bb
-  %2 = load ptr, ptr %key.addr, align 8
-  %call = call i32 @wc_ecc_sig_size(ptr noundef %2)
-  store i32 %call, ptr %sig_len, align 4
-  br label %if.end
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %5, align 8, !tbaa !7
+  %15 = call i32 @wc_ecc_sig_size(ptr noundef %14)
+  store i32 %15, ptr %7, align 4, !tbaa !3
+  br label %20
 
-if.else:                                          ; preds = %sw.bb
-  br label %do.body
+16:                                               ; preds = %9
+  br label %17
 
-do.body:                                          ; preds = %if.else
-  br label %do.end
+17:                                               ; preds = %16
+  br label %18
 
-do.end:                                           ; preds = %do.body
-  br label %if.end
+18:                                               ; preds = %17
+  br label %19
 
-if.end:                                           ; preds = %do.end, %if.then
-  br label %sw.epilog
+19:                                               ; preds = %18
+  br label %20
 
-sw.bb2:                                           ; preds = %entry, %entry
-  %3 = load i32, ptr %key_len.addr, align 4
-  %conv3 = zext i32 %3 to i64
-  %cmp4 = icmp uge i64 %conv3, 8368
-  br i1 %cmp4, label %if.then6, label %if.else8
+20:                                               ; preds = %19, %13
+  br label %35
 
-if.then6:                                         ; preds = %sw.bb2
-  %4 = load ptr, ptr %key.addr, align 8
-  %call7 = call i32 @wc_RsaEncryptSize(ptr noundef %4)
-  store i32 %call7, ptr %sig_len, align 4
-  br label %if.end11
+21:                                               ; preds = %3, %3
+  %22 = load i32, ptr %6, align 4, !tbaa !3
+  %23 = zext i32 %22 to i64
+  %24 = icmp uge i64 %23, 8368
+  br i1 %24, label %25, label %28
 
-if.else8:                                         ; preds = %sw.bb2
-  br label %do.body9
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %5, align 8, !tbaa !7
+  %27 = call i32 @wc_RsaEncryptSize(ptr noundef %26)
+  store i32 %27, ptr %7, align 4, !tbaa !3
+  br label %32
 
-do.body9:                                         ; preds = %if.else8
-  br label %do.end10
+28:                                               ; preds = %21
+  br label %29
 
-do.end10:                                         ; preds = %do.body9
-  br label %if.end11
+29:                                               ; preds = %28
+  br label %30
 
-if.end11:                                         ; preds = %do.end10, %if.then6
-  br label %sw.epilog
+30:                                               ; preds = %29
+  br label %31
 
-sw.bb12:                                          ; preds = %entry
-  br label %sw.default
+31:                                               ; preds = %30
+  br label %32
 
-sw.default:                                       ; preds = %sw.bb12, %entry
-  store i32 -173, ptr %sig_len, align 4
-  br label %sw.epilog
+32:                                               ; preds = %31, %25
+  br label %35
 
-sw.epilog:                                        ; preds = %sw.default, %if.end11, %if.end
-  %5 = load i32, ptr %sig_len, align 4
-  ret i32 %5
+33:                                               ; preds = %3
+  br label %34
+
+34:                                               ; preds = %3, %33
+  store i32 -173, ptr %7, align 4, !tbaa !3
+  br label %35
+
+35:                                               ; preds = %34, %32, %20
+  %36 = load i32, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  ret i32 %36
 }
 
-declare i32 @wc_ecc_sig_size(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @wc_RsaEncryptSize(ptr noundef) #1
+declare i32 @wc_ecc_sig_size(ptr noundef) #2
+
+declare i32 @wc_RsaEncryptSize(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_SignatureVerifyHash(i32 noundef %hash_type, i32 noundef %sig_type, ptr noundef %hash_data, i32 noundef %hash_len, ptr noundef %sig, i32 noundef %sig_len, ptr noundef %key, i32 noundef %key_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hash_type.addr = alloca i32, align 4
-  %sig_type.addr = alloca i32, align 4
-  %hash_data.addr = alloca ptr, align 8
-  %hash_len.addr = alloca i32, align 4
-  %sig.addr = alloca ptr, align 8
-  %sig_len.addr = alloca i32, align 4
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %is_valid_sig = alloca i32, align 4
-  %plain_len = alloca i32, align 4
-  %plain_data = alloca [512 x i8], align 64
-  %plain_ptr = alloca ptr, align 8
-  store i32 %hash_type, ptr %hash_type.addr, align 4
-  store i32 %sig_type, ptr %sig_type.addr, align 4
-  store ptr %hash_data, ptr %hash_data.addr, align 8
-  store i32 %hash_len, ptr %hash_len.addr, align 4
-  store ptr %sig, ptr %sig.addr, align 8
-  store i32 %sig_len, ptr %sig_len.addr, align 4
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %key_len, ptr %key_len.addr, align 4
-  %0 = load ptr, ptr %hash_data.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @wc_SignatureVerifyHash(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) #0 {
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca [512 x i8], align 64
+  %23 = alloca ptr, align 8
+  store i32 %0, ptr %10, align 4, !tbaa !3
+  store i32 %1, ptr %11, align 4, !tbaa !3
+  store ptr %2, ptr %12, align 8, !tbaa !9
+  store i32 %3, ptr %13, align 4, !tbaa !3
+  store ptr %4, ptr %14, align 8, !tbaa !9
+  store i32 %5, ptr %15, align 4, !tbaa !3
+  store ptr %6, ptr %16, align 8, !tbaa !7
+  store i32 %7, ptr %17, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %24 = load ptr, ptr %12, align 8, !tbaa !9
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %41, label %26
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %hash_len.addr, align 4
-  %cmp1 = icmp eq i32 %1, 0
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+26:                                               ; preds = %8
+  %27 = load i32, ptr %13, align 4, !tbaa !3
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %41, label %29
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %sig.addr, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then, label %lor.lhs.false4
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %14, align 8, !tbaa !9
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %41, label %32
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %3 = load i32, ptr %sig_len.addr, align 4
-  %cmp5 = icmp eq i32 %3, 0
-  br i1 %cmp5, label %if.then, label %lor.lhs.false6
+32:                                               ; preds = %29
+  %33 = load i32, ptr %15, align 4, !tbaa !3
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %41, label %35
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %4 = load ptr, ptr %key.addr, align 8
-  %cmp7 = icmp eq ptr %4, null
-  br i1 %cmp7, label %if.then, label %lor.lhs.false8
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %16, align 8, !tbaa !7
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %41, label %38
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %5 = load i32, ptr %key_len.addr, align 4
-  %cmp9 = icmp eq i32 %5, 0
-  br i1 %cmp9, label %if.then, label %if.end
+38:                                               ; preds = %35
+  %39 = load i32, ptr %17, align 4, !tbaa !3
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %42
 
-if.then:                                          ; preds = %lor.lhs.false8, %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+41:                                               ; preds = %38, %35, %32, %29, %26, %8
+  store i32 -173, ptr %9, align 4
+  store i32 1, ptr %19, align 4
+  br label %153
 
-if.end:                                           ; preds = %lor.lhs.false8
-  %6 = load i32, ptr %sig_len.addr, align 4
-  %7 = load i32, ptr %sig_type.addr, align 4
-  %8 = load ptr, ptr %key.addr, align 8
-  %9 = load i32, ptr %key_len.addr, align 4
-  %call = call i32 @wc_SignatureGetSize(i32 noundef %7, ptr noundef %8, i32 noundef %9)
-  %cmp10 = icmp sgt i32 %6, %call
-  br i1 %cmp10, label %if.then11, label %if.end12
+42:                                               ; preds = %38
+  %43 = load i32, ptr %15, align 4, !tbaa !3
+  %44 = load i32, ptr %11, align 4, !tbaa !3
+  %45 = load ptr, ptr %16, align 8, !tbaa !7
+  %46 = load i32, ptr %17, align 4, !tbaa !3
+  %47 = call i32 @wc_SignatureGetSize(i32 noundef %44, ptr noundef %45, i32 noundef %46)
+  %48 = icmp sgt i32 %43, %47
+  br i1 %48, label %49, label %53
 
-if.then11:                                        ; preds = %if.end
-  br label %do.body
+49:                                               ; preds = %42
+  br label %50
 
-do.body:                                          ; preds = %if.then11
-  br label %do.end
+50:                                               ; preds = %49
+  br label %51
 
-do.end:                                           ; preds = %do.body
-  store i32 -173, ptr %retval, align 4
-  br label %return
+51:                                               ; preds = %50
+  br label %52
 
-if.end12:                                         ; preds = %if.end
-  %10 = load i32, ptr %hash_type.addr, align 4
-  %call13 = call i32 @wc_HashGetDigestSize(i32 noundef %10)
-  store i32 %call13, ptr %ret, align 4
-  %11 = load i32, ptr %ret, align 4
-  %cmp14 = icmp slt i32 %11, 0
-  br i1 %cmp14, label %if.then15, label %if.end18
+52:                                               ; preds = %51
+  store i32 -173, ptr %9, align 4
+  store i32 1, ptr %19, align 4
+  br label %153
 
-if.then15:                                        ; preds = %if.end12
-  br label %do.body16
+53:                                               ; preds = %42
+  %54 = load i32, ptr %10, align 4, !tbaa !3
+  %55 = call i32 @wc_HashGetDigestSize(i32 noundef %54)
+  store i32 %55, ptr %18, align 4, !tbaa !3
+  %56 = load i32, ptr %18, align 4, !tbaa !3
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %58, label %63
 
-do.body16:                                        ; preds = %if.then15
-  br label %do.end17
+58:                                               ; preds = %53
+  br label %59
 
-do.end17:                                         ; preds = %do.body16
-  %12 = load i32, ptr %ret, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %58
+  br label %60
 
-if.end18:                                         ; preds = %if.end12
-  store i32 0, ptr %ret, align 4
-  %13 = load i32, ptr %sig_type.addr, align 4
-  switch i32 %13, label %sw.default [
-    i32 1, label %sw.bb
-    i32 3, label %sw.bb31
-    i32 2, label %sw.bb31
-    i32 0, label %sw.bb74
+60:                                               ; preds = %59
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load i32, ptr %18, align 4, !tbaa !3
+  store i32 %62, ptr %9, align 4
+  store i32 1, ptr %19, align 4
+  br label %153
+
+63:                                               ; preds = %53
+  store i32 0, ptr %18, align 4, !tbaa !3
+  %64 = load i32, ptr %11, align 4, !tbaa !3
+  switch i32 %64, label %150 [
+    i32 1, label %65
+    i32 3, label %88
+    i32 2, label %88
+    i32 0, label %149
   ]
 
-sw.bb:                                            ; preds = %if.end18
-  store i32 0, ptr %is_valid_sig, align 4
-  br label %do.body19
+65:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  store i32 0, ptr %20, align 4, !tbaa !3
+  br label %66
 
-do.body19:                                        ; preds = %do.cond, %sw.bb
-  %14 = load i32, ptr %ret, align 4
-  %cmp20 = icmp sge i32 %14, 0
-  br i1 %cmp20, label %if.then21, label %if.end23
+66:                                               ; preds = %77, %65
+  %67 = load i32, ptr %18, align 4, !tbaa !3
+  %68 = icmp sge i32 %67, 0
+  br i1 %68, label %69, label %76
 
-if.then21:                                        ; preds = %do.body19
-  %15 = load ptr, ptr %sig.addr, align 8
-  %16 = load i32, ptr %sig_len.addr, align 4
-  %17 = load ptr, ptr %hash_data.addr, align 8
-  %18 = load i32, ptr %hash_len.addr, align 4
-  %19 = load ptr, ptr %key.addr, align 8
-  %call22 = call i32 @wc_ecc_verify_hash(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef %is_valid_sig, ptr noundef %19)
-  store i32 %call22, ptr %ret, align 4
-  br label %if.end23
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %14, align 8, !tbaa !9
+  %71 = load i32, ptr %15, align 4, !tbaa !3
+  %72 = load ptr, ptr %12, align 8, !tbaa !9
+  %73 = load i32, ptr %13, align 4, !tbaa !3
+  %74 = load ptr, ptr %16, align 8, !tbaa !7
+  %75 = call i32 @wc_ecc_verify_hash(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, ptr noundef %20, ptr noundef %74)
+  store i32 %75, ptr %18, align 4, !tbaa !3
+  br label %76
 
-if.end23:                                         ; preds = %if.then21, %do.body19
-  br label %do.cond
+76:                                               ; preds = %69, %66
+  br label %77
 
-do.cond:                                          ; preds = %if.end23
-  %20 = load i32, ptr %ret, align 4
-  %cmp24 = icmp eq i32 %20, -108
-  br i1 %cmp24, label %do.body19, label %do.end25, !llvm.loop !4
+77:                                               ; preds = %76
+  %78 = load i32, ptr %18, align 4, !tbaa !3
+  %79 = icmp eq i32 %78, -108
+  br i1 %79, label %66, label %80, !llvm.loop !11
 
-do.end25:                                         ; preds = %do.cond
-  %21 = load i32, ptr %ret, align 4
-  %cmp26 = icmp ne i32 %21, 0
-  br i1 %cmp26, label %if.then29, label %lor.lhs.false27
+80:                                               ; preds = %77
+  %81 = load i32, ptr %18, align 4, !tbaa !3
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %86, label %83
 
-lor.lhs.false27:                                  ; preds = %do.end25
-  %22 = load i32, ptr %is_valid_sig, align 4
-  %cmp28 = icmp ne i32 %22, 1
-  br i1 %cmp28, label %if.then29, label %if.end30
+83:                                               ; preds = %80
+  %84 = load i32, ptr %20, align 4, !tbaa !3
+  %85 = icmp ne i32 %84, 1
+  br i1 %85, label %86, label %87
 
-if.then29:                                        ; preds = %lor.lhs.false27, %do.end25
-  store i32 -229, ptr %ret, align 4
-  br label %if.end30
+86:                                               ; preds = %83, %80
+  store i32 -229, ptr %18, align 4, !tbaa !3
+  br label %87
 
-if.end30:                                         ; preds = %if.then29, %lor.lhs.false27
-  br label %sw.epilog
+87:                                               ; preds = %86, %83
+  store i32 6, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  br label %151
 
-sw.bb31:                                          ; preds = %if.end18, %if.end18
-  %23 = load i32, ptr %hash_len.addr, align 4
-  store i32 %23, ptr %plain_len, align 4
-  %24 = load i32, ptr %plain_len, align 4
-  %25 = load i32, ptr %sig_len.addr, align 4
-  %cmp32 = icmp ult i32 %24, %25
-  br i1 %cmp32, label %if.then33, label %if.end34
+88:                                               ; preds = %63, %63
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  %89 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %89, ptr %21, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 512, ptr %22) #6
+  %90 = load i32, ptr %21, align 4, !tbaa !3
+  %91 = load i32, ptr %15, align 4, !tbaa !3
+  %92 = icmp ult i32 %90, %91
+  br i1 %92, label %93, label %95
 
-if.then33:                                        ; preds = %sw.bb31
-  %26 = load i32, ptr %sig_len.addr, align 4
-  store i32 %26, ptr %plain_len, align 4
-  br label %if.end34
+93:                                               ; preds = %88
+  %94 = load i32, ptr %15, align 4, !tbaa !3
+  store i32 %94, ptr %21, align 4, !tbaa !3
+  br label %95
 
-if.end34:                                         ; preds = %if.then33, %sw.bb31
-  %27 = load i32, ptr %plain_len, align 4
-  %conv = zext i32 %27 to i64
-  %cmp35 = icmp ule i64 %conv, 512
-  br i1 %cmp35, label %if.then37, label %if.else65
+95:                                               ; preds = %93, %88
+  %96 = load i32, ptr %21, align 4, !tbaa !3
+  %97 = zext i32 %96 to i64
+  %98 = icmp ule i64 %97, 512
+  br i1 %98, label %99, label %140
 
-if.then37:                                        ; preds = %if.end34
-  store ptr null, ptr %plain_ptr, align 8
-  %arraydecay = getelementptr inbounds [512 x i8], ptr %plain_data, i64 0, i64 0
-  %28 = load i32, ptr %plain_len, align 4
-  %conv38 = zext i32 %28 to i64
-  call void @llvm.memset.p0.i64(ptr align 64 %arraydecay, i8 0, i64 %conv38, i1 false)
-  %arraydecay39 = getelementptr inbounds [512 x i8], ptr %plain_data, i64 0, i64 0
-  %29 = load ptr, ptr %sig.addr, align 8
-  %30 = load i32, ptr %sig_len.addr, align 4
-  %conv40 = zext i32 %30 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %arraydecay39, ptr align 1 %29, i64 %conv40, i1 false)
-  br label %do.body41
+99:                                               ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  store ptr null, ptr %23, align 8, !tbaa !9
+  %100 = getelementptr inbounds [512 x i8], ptr %22, i64 0, i64 0
+  %101 = load i32, ptr %21, align 4, !tbaa !3
+  %102 = zext i32 %101 to i64
+  call void @llvm.memset.p0.i64(ptr align 64 %100, i8 0, i64 %102, i1 false)
+  %103 = getelementptr inbounds [512 x i8], ptr %22, i64 0, i64 0
+  %104 = load ptr, ptr %14, align 8, !tbaa !9
+  %105 = load i32, ptr %15, align 4, !tbaa !3
+  %106 = zext i32 %105 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 64 %103, ptr align 1 %104, i64 %106, i1 false)
+  br label %107
 
-do.body41:                                        ; preds = %do.cond48, %if.then37
-  %31 = load i32, ptr %ret, align 4
-  %cmp42 = icmp sge i32 %31, 0
-  br i1 %cmp42, label %if.then44, label %if.end47
+107:                                              ; preds = %116, %99
+  %108 = load i32, ptr %18, align 4, !tbaa !3
+  %109 = icmp sge i32 %108, 0
+  br i1 %109, label %110, label %115
 
-if.then44:                                        ; preds = %do.body41
-  %arraydecay45 = getelementptr inbounds [512 x i8], ptr %plain_data, i64 0, i64 0
-  %32 = load i32, ptr %sig_len.addr, align 4
-  %33 = load ptr, ptr %key.addr, align 8
-  %call46 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef %arraydecay45, i32 noundef %32, ptr noundef %plain_ptr, ptr noundef %33)
-  store i32 %call46, ptr %ret, align 4
-  br label %if.end47
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds [512 x i8], ptr %22, i64 0, i64 0
+  %112 = load i32, ptr %15, align 4, !tbaa !3
+  %113 = load ptr, ptr %16, align 8, !tbaa !7
+  %114 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef %111, i32 noundef %112, ptr noundef %23, ptr noundef %113)
+  store i32 %114, ptr %18, align 4, !tbaa !3
+  br label %115
 
-if.end47:                                         ; preds = %if.then44, %do.body41
-  br label %do.cond48
+115:                                              ; preds = %110, %107
+  br label %116
 
-do.cond48:                                        ; preds = %if.end47
-  %34 = load i32, ptr %ret, align 4
-  %cmp49 = icmp eq i32 %34, -108
-  br i1 %cmp49, label %do.body41, label %do.end51, !llvm.loop !6
+116:                                              ; preds = %115
+  %117 = load i32, ptr %18, align 4, !tbaa !3
+  %118 = icmp eq i32 %117, -108
+  br i1 %118, label %107, label %119, !llvm.loop !13
 
-do.end51:                                         ; preds = %do.cond48
-  %35 = load i32, ptr %ret, align 4
-  %cmp52 = icmp sge i32 %35, 0
-  br i1 %cmp52, label %land.lhs.true, label %if.end64
+119:                                              ; preds = %116
+  %120 = load i32, ptr %18, align 4, !tbaa !3
+  %121 = icmp sge i32 %120, 0
+  br i1 %121, label %122, label %139
 
-land.lhs.true:                                    ; preds = %do.end51
-  %36 = load ptr, ptr %plain_ptr, align 8
-  %tobool = icmp ne ptr %36, null
-  br i1 %tobool, label %if.then54, label %if.end64
+122:                                              ; preds = %119
+  %123 = load ptr, ptr %23, align 8, !tbaa !9
+  %124 = icmp ne ptr %123, null
+  br i1 %124, label %125, label %139
 
-if.then54:                                        ; preds = %land.lhs.true
-  %37 = load i32, ptr %ret, align 4
-  %38 = load i32, ptr %hash_len.addr, align 4
-  %cmp55 = icmp eq i32 %37, %38
-  br i1 %cmp55, label %land.lhs.true57, label %if.else
+125:                                              ; preds = %122
+  %126 = load i32, ptr %18, align 4, !tbaa !3
+  %127 = load i32, ptr %13, align 4, !tbaa !3
+  %128 = icmp eq i32 %126, %127
+  br i1 %128, label %129, label %137
 
-land.lhs.true57:                                  ; preds = %if.then54
-  %39 = load ptr, ptr %plain_ptr, align 8
-  %40 = load ptr, ptr %hash_data.addr, align 8
-  %41 = load i32, ptr %hash_len.addr, align 4
-  %conv58 = zext i32 %41 to i64
-  %call59 = call i32 @memcmp(ptr noundef %39, ptr noundef %40, i64 noundef %conv58) #5
-  %cmp60 = icmp eq i32 %call59, 0
-  br i1 %cmp60, label %if.then62, label %if.else
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %23, align 8, !tbaa !9
+  %131 = load ptr, ptr %12, align 8, !tbaa !9
+  %132 = load i32, ptr %13, align 4, !tbaa !3
+  %133 = zext i32 %132 to i64
+  %134 = call i32 @memcmp(ptr noundef %130, ptr noundef %131, i64 noundef %133) #7
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %137
 
-if.then62:                                        ; preds = %land.lhs.true57
-  store i32 0, ptr %ret, align 4
-  br label %if.end63
+136:                                              ; preds = %129
+  store i32 0, ptr %18, align 4, !tbaa !3
+  br label %138
 
-if.else:                                          ; preds = %land.lhs.true57, %if.then54
-  store i32 -229, ptr %ret, align 4
-  br label %if.end63
+137:                                              ; preds = %129, %125
+  store i32 -229, ptr %18, align 4, !tbaa !3
+  br label %138
 
-if.end63:                                         ; preds = %if.else, %if.then62
-  br label %if.end64
+138:                                              ; preds = %137, %136
+  br label %139
 
-if.end64:                                         ; preds = %if.end63, %land.lhs.true, %do.end51
-  br label %if.end66
+139:                                              ; preds = %138, %122, %119
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  br label %141
 
-if.else65:                                        ; preds = %if.end34
-  store i32 -125, ptr %ret, align 4
-  br label %if.end66
+140:                                              ; preds = %95
+  store i32 -125, ptr %18, align 4, !tbaa !3
+  br label %141
 
-if.end66:                                         ; preds = %if.else65, %if.end64
-  %42 = load i32, ptr %ret, align 4
-  %cmp67 = icmp ne i32 %42, 0
-  br i1 %cmp67, label %if.then69, label %if.end73
+141:                                              ; preds = %140, %139
+  %142 = load i32, ptr %18, align 4, !tbaa !3
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %148
 
-if.then69:                                        ; preds = %if.end66
-  br label %do.body70
+144:                                              ; preds = %141
+  br label %145
 
-do.body70:                                        ; preds = %if.then69
-  br label %do.end72
+145:                                              ; preds = %144
+  br label %146
 
-do.end72:                                         ; preds = %do.body70
-  br label %if.end73
+146:                                              ; preds = %145
+  br label %147
 
-if.end73:                                         ; preds = %do.end72, %if.end66
-  br label %sw.epilog
+147:                                              ; preds = %146
+  br label %148
 
-sw.bb74:                                          ; preds = %if.end18
-  br label %sw.default
+148:                                              ; preds = %147, %141
+  store i32 6, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 512, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  br label %151
 
-sw.default:                                       ; preds = %sw.bb74, %if.end18
-  store i32 -173, ptr %ret, align 4
-  br label %sw.epilog
+149:                                              ; preds = %63
+  br label %150
 
-sw.epilog:                                        ; preds = %sw.default, %if.end73, %if.end30
-  %43 = load i32, ptr %ret, align 4
-  store i32 %43, ptr %retval, align 4
-  br label %return
+150:                                              ; preds = %63, %149
+  store i32 -173, ptr %18, align 4, !tbaa !3
+  br label %151
 
-return:                                           ; preds = %sw.epilog, %do.end17, %do.end, %if.then
-  %44 = load i32, ptr %retval, align 4
-  ret i32 %44
+151:                                              ; preds = %150, %148, %87
+  %152 = load i32, ptr %18, align 4, !tbaa !3
+  store i32 %152, ptr %9, align 4
+  store i32 1, ptr %19, align 4
+  br label %153
+
+153:                                              ; preds = %151, %61, %52, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  %154 = load i32, ptr %9, align 4
+  ret i32 %154
 }
 
-declare i32 @wc_HashGetDigestSize(i32 noundef) #1
+declare i32 @wc_HashGetDigestSize(i32 noundef) #2
 
-declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @wc_RsaSSL_VerifyInline(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare i32 @wc_RsaSSL_VerifyInline(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_SignatureVerify(i32 noundef %hash_type, i32 noundef %sig_type, ptr noundef %data, i32 noundef %data_len, ptr noundef %sig, i32 noundef %sig_len, ptr noundef %key, i32 noundef %key_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hash_type.addr = alloca i32, align 4
-  %sig_type.addr = alloca i32, align 4
-  %data.addr = alloca ptr, align 8
-  %data_len.addr = alloca i32, align 4
-  %sig.addr = alloca ptr, align 8
-  %sig_len.addr = alloca i32, align 4
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %hash_len = alloca i32, align 4
-  %hash_enc_len = alloca i32, align 4
-  %hash_data = alloca [100 x i8], align 16
-  store i32 %hash_type, ptr %hash_type.addr, align 4
-  store i32 %sig_type, ptr %sig_type.addr, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %data_len, ptr %data_len.addr, align 4
-  store ptr %sig, ptr %sig.addr, align 8
-  store i32 %sig_len, ptr %sig_len.addr, align 4
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %key_len, ptr %key_len.addr, align 4
-  %0 = load ptr, ptr %data.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @wc_SignatureVerify(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) #0 {
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca [100 x i8], align 16
+  %22 = alloca i32, align 4
+  store i32 %0, ptr %10, align 4, !tbaa !3
+  store i32 %1, ptr %11, align 4, !tbaa !3
+  store ptr %2, ptr %12, align 8, !tbaa !9
+  store i32 %3, ptr %13, align 4, !tbaa !3
+  store ptr %4, ptr %14, align 8, !tbaa !9
+  store i32 %5, ptr %15, align 4, !tbaa !3
+  store ptr %6, ptr %16, align 8, !tbaa !7
+  store i32 %7, ptr %17, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 100, ptr %21) #6
+  %23 = load ptr, ptr %12, align 8, !tbaa !9
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %40, label %25
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %data_len.addr, align 4
-  %cmp1 = icmp eq i32 %1, 0
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+25:                                               ; preds = %8
+  %26 = load i32, ptr %13, align 4, !tbaa !3
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %40, label %28
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %sig.addr, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then, label %lor.lhs.false4
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %14, align 8, !tbaa !9
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %40, label %31
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %3 = load i32, ptr %sig_len.addr, align 4
-  %cmp5 = icmp eq i32 %3, 0
-  br i1 %cmp5, label %if.then, label %lor.lhs.false6
+31:                                               ; preds = %28
+  %32 = load i32, ptr %15, align 4, !tbaa !3
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %40, label %34
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %4 = load ptr, ptr %key.addr, align 8
-  %cmp7 = icmp eq ptr %4, null
-  br i1 %cmp7, label %if.then, label %lor.lhs.false8
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %16, align 8, !tbaa !7
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %40, label %37
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %5 = load i32, ptr %key_len.addr, align 4
-  %cmp9 = icmp eq i32 %5, 0
-  br i1 %cmp9, label %if.then, label %if.end
+37:                                               ; preds = %34
+  %38 = load i32, ptr %17, align 4, !tbaa !3
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %41
 
-if.then:                                          ; preds = %lor.lhs.false8, %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+40:                                               ; preds = %37, %34, %31, %28, %25, %8
+  store i32 -173, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %102
 
-if.end:                                           ; preds = %lor.lhs.false8
-  %6 = load i32, ptr %sig_len.addr, align 4
-  %7 = load i32, ptr %sig_type.addr, align 4
-  %8 = load ptr, ptr %key.addr, align 8
-  %9 = load i32, ptr %key_len.addr, align 4
-  %call = call i32 @wc_SignatureGetSize(i32 noundef %7, ptr noundef %8, i32 noundef %9)
-  %cmp10 = icmp sgt i32 %6, %call
-  br i1 %cmp10, label %if.then11, label %if.end12
+41:                                               ; preds = %37
+  %42 = load i32, ptr %15, align 4, !tbaa !3
+  %43 = load i32, ptr %11, align 4, !tbaa !3
+  %44 = load ptr, ptr %16, align 8, !tbaa !7
+  %45 = load i32, ptr %17, align 4, !tbaa !3
+  %46 = call i32 @wc_SignatureGetSize(i32 noundef %43, ptr noundef %44, i32 noundef %45)
+  %47 = icmp sgt i32 %42, %46
+  br i1 %47, label %48, label %52
 
-if.then11:                                        ; preds = %if.end
-  br label %do.body
+48:                                               ; preds = %41
+  br label %49
 
-do.body:                                          ; preds = %if.then11
-  br label %do.end
+49:                                               ; preds = %48
+  br label %50
 
-do.end:                                           ; preds = %do.body
-  store i32 -173, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %49
+  br label %51
 
-if.end12:                                         ; preds = %if.end
-  %10 = load i32, ptr %hash_type.addr, align 4
-  %call13 = call i32 @wc_HashGetDigestSize(i32 noundef %10)
-  store i32 %call13, ptr %ret, align 4
-  %11 = load i32, ptr %ret, align 4
-  %cmp14 = icmp slt i32 %11, 0
-  br i1 %cmp14, label %if.then15, label %if.end18
+51:                                               ; preds = %50
+  store i32 -173, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %102
 
-if.then15:                                        ; preds = %if.end12
-  br label %do.body16
+52:                                               ; preds = %41
+  %53 = load i32, ptr %10, align 4, !tbaa !3
+  %54 = call i32 @wc_HashGetDigestSize(i32 noundef %53)
+  store i32 %54, ptr %18, align 4, !tbaa !3
+  %55 = load i32, ptr %18, align 4, !tbaa !3
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %62
 
-do.body16:                                        ; preds = %if.then15
-  br label %do.end17
+57:                                               ; preds = %52
+  br label %58
 
-do.end17:                                         ; preds = %do.body16
-  %12 = load i32, ptr %ret, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+58:                                               ; preds = %57
+  br label %59
 
-if.end18:                                         ; preds = %if.end12
-  %13 = load i32, ptr %ret, align 4
-  store i32 %13, ptr %hash_len, align 4
-  store i32 %13, ptr %hash_enc_len, align 4
-  %14 = load i32, ptr %sig_type.addr, align 4
-  %cmp19 = icmp eq i32 %14, 3
-  br i1 %cmp19, label %if.then20, label %if.end21
+59:                                               ; preds = %58
+  br label %60
 
-if.then20:                                        ; preds = %if.end18
-  %15 = load i32, ptr %hash_enc_len, align 4
-  %add = add i32 %15, 36
-  store i32 %add, ptr %hash_enc_len, align 4
-  br label %if.end21
+60:                                               ; preds = %59
+  %61 = load i32, ptr %18, align 4, !tbaa !3
+  store i32 %61, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %102
 
-if.end21:                                         ; preds = %if.then20, %if.end18
-  %16 = load i32, ptr %hash_type.addr, align 4
-  %17 = load ptr, ptr %data.addr, align 8
-  %18 = load i32, ptr %data_len.addr, align 4
-  %arraydecay = getelementptr inbounds [100 x i8], ptr %hash_data, i64 0, i64 0
-  %19 = load i32, ptr %hash_len, align 4
-  %call22 = call i32 @wc_Hash(i32 noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef %arraydecay, i32 noundef %19)
-  store i32 %call22, ptr %ret, align 4
-  %20 = load i32, ptr %ret, align 4
-  %cmp23 = icmp eq i32 %20, 0
-  br i1 %cmp23, label %if.then24, label %if.end35
+62:                                               ; preds = %52
+  %63 = load i32, ptr %18, align 4, !tbaa !3
+  store i32 %63, ptr %19, align 4, !tbaa !3
+  store i32 %63, ptr %20, align 4, !tbaa !3
+  %64 = load i32, ptr %11, align 4, !tbaa !3
+  %65 = icmp eq i32 %64, 3
+  br i1 %65, label %66, label %69
 
-if.then24:                                        ; preds = %if.end21
-  %21 = load i32, ptr %sig_type.addr, align 4
-  %cmp25 = icmp eq i32 %21, 3
-  br i1 %cmp25, label %if.then26, label %if.end29
+66:                                               ; preds = %62
+  %67 = load i32, ptr %20, align 4, !tbaa !3
+  %68 = add i32 %67, 36
+  store i32 %68, ptr %20, align 4, !tbaa !3
+  br label %69
 
-if.then26:                                        ; preds = %if.then24
-  %22 = load i32, ptr %hash_type.addr, align 4
-  %arraydecay27 = getelementptr inbounds [100 x i8], ptr %hash_data, i64 0, i64 0
-  %23 = load i32, ptr %hash_len, align 4
-  %call28 = call i32 @wc_SignatureDerEncode(i32 noundef %22, ptr noundef %arraydecay27, i32 noundef %23, ptr noundef %hash_enc_len)
-  store i32 %call28, ptr %ret, align 4
-  br label %if.end29
+69:                                               ; preds = %66, %62
+  %70 = load i32, ptr %10, align 4, !tbaa !3
+  %71 = load ptr, ptr %12, align 8, !tbaa !9
+  %72 = load i32, ptr %13, align 4, !tbaa !3
+  %73 = getelementptr inbounds [100 x i8], ptr %21, i64 0, i64 0
+  %74 = load i32, ptr %19, align 4, !tbaa !3
+  %75 = call i32 @wc_Hash(i32 noundef %70, ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74)
+  store i32 %75, ptr %18, align 4, !tbaa !3
+  %76 = load i32, ptr %18, align 4, !tbaa !3
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %100
 
-if.end29:                                         ; preds = %if.then26, %if.then24
-  %24 = load i32, ptr %ret, align 4
-  %cmp30 = icmp eq i32 %24, 0
-  br i1 %cmp30, label %if.then31, label %if.end34
+78:                                               ; preds = %69
+  %79 = load i32, ptr %11, align 4, !tbaa !3
+  %80 = icmp eq i32 %79, 3
+  br i1 %80, label %81, label %86
 
-if.then31:                                        ; preds = %if.end29
-  %25 = load i32, ptr %hash_type.addr, align 4
-  %26 = load i32, ptr %sig_type.addr, align 4
-  %arraydecay32 = getelementptr inbounds [100 x i8], ptr %hash_data, i64 0, i64 0
-  %27 = load i32, ptr %hash_enc_len, align 4
-  %28 = load ptr, ptr %sig.addr, align 8
-  %29 = load i32, ptr %sig_len.addr, align 4
-  %30 = load ptr, ptr %key.addr, align 8
-  %31 = load i32, ptr %key_len.addr, align 4
-  %call33 = call i32 @wc_SignatureVerifyHash(i32 noundef %25, i32 noundef %26, ptr noundef %arraydecay32, i32 noundef %27, ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31)
-  store i32 %call33, ptr %ret, align 4
-  br label %if.end34
+81:                                               ; preds = %78
+  %82 = load i32, ptr %10, align 4, !tbaa !3
+  %83 = getelementptr inbounds [100 x i8], ptr %21, i64 0, i64 0
+  %84 = load i32, ptr %19, align 4, !tbaa !3
+  %85 = call i32 @wc_SignatureDerEncode(i32 noundef %82, ptr noundef %83, i32 noundef %84, ptr noundef %20)
+  store i32 %85, ptr %18, align 4, !tbaa !3
+  br label %86
 
-if.end34:                                         ; preds = %if.then31, %if.end29
-  br label %if.end35
+86:                                               ; preds = %81, %78
+  %87 = load i32, ptr %18, align 4, !tbaa !3
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %99
 
-if.end35:                                         ; preds = %if.end34, %if.end21
-  %32 = load i32, ptr %ret, align 4
-  store i32 %32, ptr %retval, align 4
-  br label %return
+89:                                               ; preds = %86
+  %90 = load i32, ptr %10, align 4, !tbaa !3
+  %91 = load i32, ptr %11, align 4, !tbaa !3
+  %92 = getelementptr inbounds [100 x i8], ptr %21, i64 0, i64 0
+  %93 = load i32, ptr %20, align 4, !tbaa !3
+  %94 = load ptr, ptr %14, align 8, !tbaa !9
+  %95 = load i32, ptr %15, align 4, !tbaa !3
+  %96 = load ptr, ptr %16, align 8, !tbaa !7
+  %97 = load i32, ptr %17, align 4, !tbaa !3
+  %98 = call i32 @wc_SignatureVerifyHash(i32 noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %97)
+  store i32 %98, ptr %18, align 4, !tbaa !3
+  br label %99
 
-return:                                           ; preds = %if.end35, %do.end17, %do.end, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+99:                                               ; preds = %89, %86
+  br label %100
+
+100:                                              ; preds = %99, %69
+  %101 = load i32, ptr %18, align 4, !tbaa !3
+  store i32 %101, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %102
+
+102:                                              ; preds = %100, %60, %51, %40
+  call void @llvm.lifetime.end.p0(i64 100, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  %103 = load i32, ptr %9, align 4
+  ret i32 %103
 }
 
-declare i32 @wc_Hash(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_Hash(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wc_SignatureDerEncode(i32 noundef %hash_type, ptr noundef %hash_data, i32 noundef %hash_len, ptr noundef %hash_enc_len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hash_type.addr = alloca i32, align 4
-  %hash_data.addr = alloca ptr, align 8
-  %hash_len.addr = alloca i32, align 4
-  %hash_enc_len.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %oid = alloca i32, align 4
-  store i32 %hash_type, ptr %hash_type.addr, align 4
-  store ptr %hash_data, ptr %hash_data.addr, align 8
-  store i32 %hash_len, ptr %hash_len.addr, align 4
-  store ptr %hash_enc_len, ptr %hash_enc_len.addr, align 8
-  %0 = load i32, ptr %hash_type.addr, align 4
-  %call = call i32 @wc_HashGetOID(i32 noundef %0)
-  store i32 %call, ptr %ret, align 4
-  %1 = load i32, ptr %ret, align 4
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @wc_SignatureDerEncode(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !9
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  %13 = load i32, ptr %6, align 4, !tbaa !3
+  %14 = call i32 @wc_HashGetOID(i32 noundef %13)
+  store i32 %14, ptr %10, align 4, !tbaa !3
+  %15 = load i32, ptr %10, align 4, !tbaa !3
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %19
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %ret, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %4
+  %18 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %18, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %33
 
-if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %ret, align 4
-  store i32 %3, ptr %oid, align 4
-  %4 = load ptr, ptr %hash_data.addr, align 8
-  %5 = load ptr, ptr %hash_data.addr, align 8
-  %6 = load i32, ptr %hash_len.addr, align 4
-  %7 = load i32, ptr %oid, align 4
-  %call1 = call i32 @wc_EncodeSignature(ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7)
-  store i32 %call1, ptr %ret, align 4
-  %8 = load i32, ptr %ret, align 4
-  %cmp2 = icmp sgt i32 %8, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+19:                                               ; preds = %4
+  %20 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %20, ptr %11, align 4, !tbaa !3
+  %21 = load ptr, ptr %7, align 8, !tbaa !9
+  %22 = load ptr, ptr %7, align 8, !tbaa !9
+  %23 = load i32, ptr %8, align 4, !tbaa !3
+  %24 = load i32, ptr %11, align 4, !tbaa !3
+  %25 = call i32 @wc_EncodeSignature(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
+  store i32 %25, ptr %10, align 4, !tbaa !3
+  %26 = load i32, ptr %10, align 4, !tbaa !3
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %31
 
-if.then3:                                         ; preds = %if.end
-  %9 = load i32, ptr %ret, align 4
-  %10 = load ptr, ptr %hash_enc_len.addr, align 8
-  store i32 %9, ptr %10, align 4
-  store i32 0, ptr %ret, align 4
-  br label %if.end4
+28:                                               ; preds = %19
+  %29 = load i32, ptr %10, align 4, !tbaa !3
+  %30 = load ptr, ptr %9, align 8, !tbaa !14
+  store i32 %29, ptr %30, align 4, !tbaa !3
+  store i32 0, ptr %10, align 4, !tbaa !3
+  br label %31
 
-if.end4:                                          ; preds = %if.then3, %if.end
-  %11 = load i32, ptr %ret, align 4
-  store i32 %11, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %28, %19
+  %32 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %32, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %33
 
-return:                                           ; preds = %if.end4, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_SignatureGenerateHash(i32 noundef %hash_type, i32 noundef %sig_type, ptr noundef %hash_data, i32 noundef %hash_len, ptr noundef %sig, ptr noundef %sig_len, ptr noundef %key, i32 noundef %key_len, ptr noundef %rng) #0 {
-entry:
-  %hash_type.addr = alloca i32, align 4
-  %sig_type.addr = alloca i32, align 4
-  %hash_data.addr = alloca ptr, align 8
-  %hash_len.addr = alloca i32, align 4
-  %sig.addr = alloca ptr, align 8
-  %sig_len.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i32, align 4
-  %rng.addr = alloca ptr, align 8
-  store i32 %hash_type, ptr %hash_type.addr, align 4
-  store i32 %sig_type, ptr %sig_type.addr, align 4
-  store ptr %hash_data, ptr %hash_data.addr, align 8
-  store i32 %hash_len, ptr %hash_len.addr, align 4
-  store ptr %sig, ptr %sig.addr, align 8
-  store ptr %sig_len, ptr %sig_len.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %key_len, ptr %key_len.addr, align 4
-  store ptr %rng, ptr %rng.addr, align 8
-  %0 = load i32, ptr %hash_type.addr, align 4
-  %1 = load i32, ptr %sig_type.addr, align 4
-  %2 = load ptr, ptr %hash_data.addr, align 8
-  %3 = load i32, ptr %hash_len.addr, align 4
-  %4 = load ptr, ptr %sig.addr, align 8
-  %5 = load ptr, ptr %sig_len.addr, align 8
-  %6 = load ptr, ptr %key.addr, align 8
-  %7 = load i32, ptr %key_len.addr, align 4
-  %8 = load ptr, ptr %rng.addr, align 8
-  %call = call i32 @wc_SignatureGenerateHash_ex(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef 1)
-  ret i32 %call
+33:                                               ; preds = %31, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  %34 = load i32, ptr %5, align 4
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_SignatureGenerateHash_ex(i32 noundef %hash_type, i32 noundef %sig_type, ptr noundef %hash_data, i32 noundef %hash_len, ptr noundef %sig, ptr noundef %sig_len, ptr noundef %key, i32 noundef %key_len, ptr noundef %rng, i32 noundef %verify) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hash_type.addr = alloca i32, align 4
-  %sig_type.addr = alloca i32, align 4
-  %hash_data.addr = alloca ptr, align 8
-  %hash_len.addr = alloca i32, align 4
-  %sig.addr = alloca ptr, align 8
-  %sig_len.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i32, align 4
-  %rng.addr = alloca ptr, align 8
-  %verify.addr = alloca i32, align 4
-  %ret = alloca i32, align 4
-  store i32 %hash_type, ptr %hash_type.addr, align 4
-  store i32 %sig_type, ptr %sig_type.addr, align 4
-  store ptr %hash_data, ptr %hash_data.addr, align 8
-  store i32 %hash_len, ptr %hash_len.addr, align 4
-  store ptr %sig, ptr %sig.addr, align 8
-  store ptr %sig_len, ptr %sig_len.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %key_len, ptr %key_len.addr, align 4
-  store ptr %rng, ptr %rng.addr, align 8
-  store i32 %verify, ptr %verify.addr, align 4
-  %0 = load ptr, ptr %hash_data.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @wc_SignatureGenerateHash(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) #0 {
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store i32 %0, ptr %10, align 4, !tbaa !3
+  store i32 %1, ptr %11, align 4, !tbaa !3
+  store ptr %2, ptr %12, align 8, !tbaa !9
+  store i32 %3, ptr %13, align 4, !tbaa !3
+  store ptr %4, ptr %14, align 8, !tbaa !9
+  store ptr %5, ptr %15, align 8, !tbaa !14
+  store ptr %6, ptr %16, align 8, !tbaa !7
+  store i32 %7, ptr %17, align 4, !tbaa !3
+  store ptr %8, ptr %18, align 8, !tbaa !16
+  %19 = load i32, ptr %10, align 4, !tbaa !3
+  %20 = load i32, ptr %11, align 4, !tbaa !3
+  %21 = load ptr, ptr %12, align 8, !tbaa !9
+  %22 = load i32, ptr %13, align 4, !tbaa !3
+  %23 = load ptr, ptr %14, align 8, !tbaa !9
+  %24 = load ptr, ptr %15, align 8, !tbaa !14
+  %25 = load ptr, ptr %16, align 8, !tbaa !7
+  %26 = load i32, ptr %17, align 4, !tbaa !3
+  %27 = load ptr, ptr %18, align 8, !tbaa !16
+  %28 = call i32 @wc_SignatureGenerateHash_ex(i32 noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef 1)
+  ret i32 %28
+}
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %hash_len.addr, align 4
-  %cmp1 = icmp eq i32 %1, 0
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+; Function Attrs: nounwind uwtable
+define i32 @wc_SignatureGenerateHash_ex(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) #0 {
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  store i32 %0, ptr %12, align 4, !tbaa !3
+  store i32 %1, ptr %13, align 4, !tbaa !3
+  store ptr %2, ptr %14, align 8, !tbaa !9
+  store i32 %3, ptr %15, align 4, !tbaa !3
+  store ptr %4, ptr %16, align 8, !tbaa !9
+  store ptr %5, ptr %17, align 8, !tbaa !14
+  store ptr %6, ptr %18, align 8, !tbaa !7
+  store i32 %7, ptr %19, align 4, !tbaa !3
+  store ptr %8, ptr %20, align 8, !tbaa !16
+  store i32 %9, ptr %21, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
+  %24 = load ptr, ptr %14, align 8, !tbaa !9
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %45, label %26
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %sig.addr, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then, label %lor.lhs.false4
+26:                                               ; preds = %10
+  %27 = load i32, ptr %15, align 4, !tbaa !3
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %45, label %29
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %3 = load ptr, ptr %sig_len.addr, align 8
-  %cmp5 = icmp eq ptr %3, null
-  br i1 %cmp5, label %if.then, label %lor.lhs.false6
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %16, align 8, !tbaa !9
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %45, label %32
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %4 = load ptr, ptr %sig_len.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %cmp7 = icmp eq i32 %5, 0
-  br i1 %cmp7, label %if.then, label %lor.lhs.false8
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %17, align 8, !tbaa !14
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %45, label %35
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %6 = load ptr, ptr %key.addr, align 8
-  %cmp9 = icmp eq ptr %6, null
-  br i1 %cmp9, label %if.then, label %lor.lhs.false10
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %17, align 8, !tbaa !14
+  %37 = load i32, ptr %36, align 4, !tbaa !3
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %45, label %39
 
-lor.lhs.false10:                                  ; preds = %lor.lhs.false8
-  %7 = load i32, ptr %key_len.addr, align 4
-  %cmp11 = icmp eq i32 %7, 0
-  br i1 %cmp11, label %if.then, label %if.end
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %18, align 8, !tbaa !7
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %45, label %42
 
-if.then:                                          ; preds = %lor.lhs.false10, %lor.lhs.false8, %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %39
+  %43 = load i32, ptr %19, align 4, !tbaa !3
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %46
 
-if.end:                                           ; preds = %lor.lhs.false10
-  %8 = load ptr, ptr %sig_len.addr, align 8
-  %9 = load i32, ptr %8, align 4
-  %10 = load i32, ptr %sig_type.addr, align 4
-  %11 = load ptr, ptr %key.addr, align 8
-  %12 = load i32, ptr %key_len.addr, align 4
-  %call = call i32 @wc_SignatureGetSize(i32 noundef %10, ptr noundef %11, i32 noundef %12)
-  %cmp12 = icmp slt i32 %9, %call
-  br i1 %cmp12, label %if.then13, label %if.end14
+45:                                               ; preds = %42, %39, %35, %32, %29, %26, %10
+  store i32 -173, ptr %11, align 4
+  store i32 1, ptr %23, align 4
+  br label %132
 
-if.then13:                                        ; preds = %if.end
-  br label %do.body
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %17, align 8, !tbaa !14
+  %48 = load i32, ptr %47, align 4, !tbaa !3
+  %49 = load i32, ptr %13, align 4, !tbaa !3
+  %50 = load ptr, ptr %18, align 8, !tbaa !7
+  %51 = load i32, ptr %19, align 4, !tbaa !3
+  %52 = call i32 @wc_SignatureGetSize(i32 noundef %49, ptr noundef %50, i32 noundef %51)
+  %53 = icmp slt i32 %48, %52
+  br i1 %53, label %54, label %58
 
-do.body:                                          ; preds = %if.then13
-  br label %do.end
+54:                                               ; preds = %46
+  br label %55
 
-do.end:                                           ; preds = %do.body
-  store i32 -173, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %54
+  br label %56
 
-if.end14:                                         ; preds = %if.end
-  %13 = load i32, ptr %hash_type.addr, align 4
-  %call15 = call i32 @wc_HashGetDigestSize(i32 noundef %13)
-  store i32 %call15, ptr %ret, align 4
-  %14 = load i32, ptr %ret, align 4
-  %cmp16 = icmp slt i32 %14, 0
-  br i1 %cmp16, label %if.then17, label %if.end20
+56:                                               ; preds = %55
+  br label %57
 
-if.then17:                                        ; preds = %if.end14
-  br label %do.body18
+57:                                               ; preds = %56
+  store i32 -173, ptr %11, align 4
+  store i32 1, ptr %23, align 4
+  br label %132
 
-do.body18:                                        ; preds = %if.then17
-  br label %do.end19
+58:                                               ; preds = %46
+  %59 = load i32, ptr %12, align 4, !tbaa !3
+  %60 = call i32 @wc_HashGetDigestSize(i32 noundef %59)
+  store i32 %60, ptr %22, align 4, !tbaa !3
+  %61 = load i32, ptr %22, align 4, !tbaa !3
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %68
 
-do.end19:                                         ; preds = %do.body18
-  %15 = load i32, ptr %ret, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
+63:                                               ; preds = %58
+  br label %64
 
-if.end20:                                         ; preds = %if.end14
-  store i32 0, ptr %ret, align 4
-  %16 = load i32, ptr %sig_type.addr, align 4
-  switch i32 %16, label %sw.default [
-    i32 1, label %sw.bb
-    i32 3, label %sw.bb28
-    i32 2, label %sw.bb28
-    i32 0, label %sw.bb40
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %67, ptr %11, align 4
+  store i32 1, ptr %23, align 4
+  br label %132
+
+68:                                               ; preds = %58
+  store i32 0, ptr %22, align 4, !tbaa !3
+  %69 = load i32, ptr %13, align 4, !tbaa !3
+  switch i32 %69, label %112 [
+    i32 1, label %70
+    i32 3, label %87
+    i32 2, label %87
+    i32 0, label %111
   ]
 
-sw.bb:                                            ; preds = %if.end20
-  br label %do.body21
+70:                                               ; preds = %68
+  br label %71
 
-do.body21:                                        ; preds = %do.cond, %sw.bb
-  %17 = load i32, ptr %ret, align 4
-  %cmp22 = icmp sge i32 %17, 0
-  br i1 %cmp22, label %if.then23, label %if.end25
+71:                                               ; preds = %83, %70
+  %72 = load i32, ptr %22, align 4, !tbaa !3
+  %73 = icmp sge i32 %72, 0
+  br i1 %73, label %74, label %82
 
-if.then23:                                        ; preds = %do.body21
-  %18 = load ptr, ptr %hash_data.addr, align 8
-  %19 = load i32, ptr %hash_len.addr, align 4
-  %20 = load ptr, ptr %sig.addr, align 8
-  %21 = load ptr, ptr %sig_len.addr, align 8
-  %22 = load ptr, ptr %rng.addr, align 8
-  %23 = load ptr, ptr %key.addr, align 8
-  %call24 = call i32 @wc_ecc_sign_hash(ptr noundef %18, i32 noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23)
-  store i32 %call24, ptr %ret, align 4
-  br label %if.end25
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %14, align 8, !tbaa !9
+  %76 = load i32, ptr %15, align 4, !tbaa !3
+  %77 = load ptr, ptr %16, align 8, !tbaa !9
+  %78 = load ptr, ptr %17, align 8, !tbaa !14
+  %79 = load ptr, ptr %20, align 8, !tbaa !16
+  %80 = load ptr, ptr %18, align 8, !tbaa !7
+  %81 = call i32 @wc_ecc_sign_hash(ptr noundef %75, i32 noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef %80)
+  store i32 %81, ptr %22, align 4, !tbaa !3
+  br label %82
 
-if.end25:                                         ; preds = %if.then23, %do.body21
-  br label %do.cond
+82:                                               ; preds = %74, %71
+  br label %83
 
-do.cond:                                          ; preds = %if.end25
-  %24 = load i32, ptr %ret, align 4
-  %cmp26 = icmp eq i32 %24, -108
-  br i1 %cmp26, label %do.body21, label %do.end27, !llvm.loop !7
+83:                                               ; preds = %82
+  %84 = load i32, ptr %22, align 4, !tbaa !3
+  %85 = icmp eq i32 %84, -108
+  br i1 %85, label %71, label %86, !llvm.loop !18
 
-do.end27:                                         ; preds = %do.cond
-  br label %sw.epilog
+86:                                               ; preds = %83
+  br label %113
 
-sw.bb28:                                          ; preds = %if.end20, %if.end20
-  br label %do.body29
+87:                                               ; preds = %68, %68
+  br label %88
 
-do.body29:                                        ; preds = %do.cond34, %sw.bb28
-  %25 = load i32, ptr %ret, align 4
-  %cmp30 = icmp sge i32 %25, 0
-  br i1 %cmp30, label %if.then31, label %if.end33
+88:                                               ; preds = %101, %87
+  %89 = load i32, ptr %22, align 4, !tbaa !3
+  %90 = icmp sge i32 %89, 0
+  br i1 %90, label %91, label %100
 
-if.then31:                                        ; preds = %do.body29
-  %26 = load ptr, ptr %hash_data.addr, align 8
-  %27 = load i32, ptr %hash_len.addr, align 4
-  %28 = load ptr, ptr %sig.addr, align 8
-  %29 = load ptr, ptr %sig_len.addr, align 8
-  %30 = load i32, ptr %29, align 4
-  %31 = load ptr, ptr %key.addr, align 8
-  %32 = load ptr, ptr %rng.addr, align 8
-  %call32 = call i32 @wc_RsaSSL_Sign(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %30, ptr noundef %31, ptr noundef %32)
-  store i32 %call32, ptr %ret, align 4
-  br label %if.end33
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %14, align 8, !tbaa !9
+  %93 = load i32, ptr %15, align 4, !tbaa !3
+  %94 = load ptr, ptr %16, align 8, !tbaa !9
+  %95 = load ptr, ptr %17, align 8, !tbaa !14
+  %96 = load i32, ptr %95, align 4, !tbaa !3
+  %97 = load ptr, ptr %18, align 8, !tbaa !7
+  %98 = load ptr, ptr %20, align 8, !tbaa !16
+  %99 = call i32 @wc_RsaSSL_Sign(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef %96, ptr noundef %97, ptr noundef %98)
+  store i32 %99, ptr %22, align 4, !tbaa !3
+  br label %100
 
-if.end33:                                         ; preds = %if.then31, %do.body29
-  br label %do.cond34
+100:                                              ; preds = %91, %88
+  br label %101
 
-do.cond34:                                        ; preds = %if.end33
-  %33 = load i32, ptr %ret, align 4
-  %cmp35 = icmp eq i32 %33, -108
-  br i1 %cmp35, label %do.body29, label %do.end36, !llvm.loop !8
+101:                                              ; preds = %100
+  %102 = load i32, ptr %22, align 4, !tbaa !3
+  %103 = icmp eq i32 %102, -108
+  br i1 %103, label %88, label %104, !llvm.loop !19
 
-do.end36:                                         ; preds = %do.cond34
-  %34 = load i32, ptr %ret, align 4
-  %cmp37 = icmp sge i32 %34, 0
-  br i1 %cmp37, label %if.then38, label %if.end39
+104:                                              ; preds = %101
+  %105 = load i32, ptr %22, align 4, !tbaa !3
+  %106 = icmp sge i32 %105, 0
+  br i1 %106, label %107, label %110
 
-if.then38:                                        ; preds = %do.end36
-  %35 = load i32, ptr %ret, align 4
-  %36 = load ptr, ptr %sig_len.addr, align 8
-  store i32 %35, ptr %36, align 4
-  store i32 0, ptr %ret, align 4
-  br label %if.end39
+107:                                              ; preds = %104
+  %108 = load i32, ptr %22, align 4, !tbaa !3
+  %109 = load ptr, ptr %17, align 8, !tbaa !14
+  store i32 %108, ptr %109, align 4, !tbaa !3
+  store i32 0, ptr %22, align 4, !tbaa !3
+  br label %110
 
-if.end39:                                         ; preds = %if.then38, %do.end36
-  br label %sw.epilog
+110:                                              ; preds = %107, %104
+  br label %113
 
-sw.bb40:                                          ; preds = %if.end20
-  br label %sw.default
+111:                                              ; preds = %68
+  br label %112
 
-sw.default:                                       ; preds = %sw.bb40, %if.end20
-  store i32 -173, ptr %ret, align 4
-  br label %sw.epilog
+112:                                              ; preds = %68, %111
+  store i32 -173, ptr %22, align 4, !tbaa !3
+  br label %113
 
-sw.epilog:                                        ; preds = %sw.default, %if.end39, %do.end27
-  %37 = load i32, ptr %ret, align 4
-  %cmp41 = icmp eq i32 %37, 0
-  br i1 %cmp41, label %land.lhs.true, label %if.end44
+113:                                              ; preds = %112, %110, %86
+  %114 = load i32, ptr %22, align 4, !tbaa !3
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %130
 
-land.lhs.true:                                    ; preds = %sw.epilog
-  %38 = load i32, ptr %verify.addr, align 4
-  %tobool = icmp ne i32 %38, 0
-  br i1 %tobool, label %if.then42, label %if.end44
+116:                                              ; preds = %113
+  %117 = load i32, ptr %21, align 4, !tbaa !3
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %119, label %130
 
-if.then42:                                        ; preds = %land.lhs.true
-  %39 = load i32, ptr %hash_type.addr, align 4
-  %40 = load i32, ptr %sig_type.addr, align 4
-  %41 = load ptr, ptr %hash_data.addr, align 8
-  %42 = load i32, ptr %hash_len.addr, align 4
-  %43 = load ptr, ptr %sig.addr, align 8
-  %44 = load ptr, ptr %sig_len.addr, align 8
-  %45 = load i32, ptr %44, align 4
-  %46 = load ptr, ptr %key.addr, align 8
-  %47 = load i32, ptr %key_len.addr, align 4
-  %call43 = call i32 @wc_SignatureVerifyHash(i32 noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %45, ptr noundef %46, i32 noundef %47)
-  store i32 %call43, ptr %ret, align 4
-  br label %if.end44
+119:                                              ; preds = %116
+  %120 = load i32, ptr %12, align 4, !tbaa !3
+  %121 = load i32, ptr %13, align 4, !tbaa !3
+  %122 = load ptr, ptr %14, align 8, !tbaa !9
+  %123 = load i32, ptr %15, align 4, !tbaa !3
+  %124 = load ptr, ptr %16, align 8, !tbaa !9
+  %125 = load ptr, ptr %17, align 8, !tbaa !14
+  %126 = load i32, ptr %125, align 4, !tbaa !3
+  %127 = load ptr, ptr %18, align 8, !tbaa !7
+  %128 = load i32, ptr %19, align 4, !tbaa !3
+  %129 = call i32 @wc_SignatureVerifyHash(i32 noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %123, ptr noundef %124, i32 noundef %126, ptr noundef %127, i32 noundef %128)
+  store i32 %129, ptr %22, align 4, !tbaa !3
+  br label %130
 
-if.end44:                                         ; preds = %if.then42, %land.lhs.true, %sw.epilog
-  %48 = load i32, ptr %ret, align 4
-  store i32 %48, ptr %retval, align 4
-  br label %return
+130:                                              ; preds = %119, %116, %113
+  %131 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %131, ptr %11, align 4
+  store i32 1, ptr %23, align 4
+  br label %132
 
-return:                                           ; preds = %if.end44, %do.end19, %do.end, %if.then
-  %49 = load i32, ptr %retval, align 4
-  ret i32 %49
+132:                                              ; preds = %130, %66, %57, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  %133 = load i32, ptr %11, align 4
+  ret i32 %133
 }
 
-declare i32 @wc_ecc_sign_hash(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @wc_ecc_sign_hash(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @wc_RsaSSL_Sign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare i32 @wc_RsaSSL_Sign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_SignatureGenerate(i32 noundef %hash_type, i32 noundef %sig_type, ptr noundef %data, i32 noundef %data_len, ptr noundef %sig, ptr noundef %sig_len, ptr noundef %key, i32 noundef %key_len, ptr noundef %rng) #0 {
-entry:
-  %hash_type.addr = alloca i32, align 4
-  %sig_type.addr = alloca i32, align 4
-  %data.addr = alloca ptr, align 8
-  %data_len.addr = alloca i32, align 4
-  %sig.addr = alloca ptr, align 8
-  %sig_len.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i32, align 4
-  %rng.addr = alloca ptr, align 8
-  store i32 %hash_type, ptr %hash_type.addr, align 4
-  store i32 %sig_type, ptr %sig_type.addr, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %data_len, ptr %data_len.addr, align 4
-  store ptr %sig, ptr %sig.addr, align 8
-  store ptr %sig_len, ptr %sig_len.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %key_len, ptr %key_len.addr, align 4
-  store ptr %rng, ptr %rng.addr, align 8
-  %0 = load i32, ptr %hash_type.addr, align 4
-  %1 = load i32, ptr %sig_type.addr, align 4
-  %2 = load ptr, ptr %data.addr, align 8
-  %3 = load i32, ptr %data_len.addr, align 4
-  %4 = load ptr, ptr %sig.addr, align 8
-  %5 = load ptr, ptr %sig_len.addr, align 8
-  %6 = load ptr, ptr %key.addr, align 8
-  %7 = load i32, ptr %key_len.addr, align 4
-  %8 = load ptr, ptr %rng.addr, align 8
-  %call = call i32 @wc_SignatureGenerate_ex(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef 1)
-  ret i32 %call
+define i32 @wc_SignatureGenerate(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) #0 {
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store i32 %0, ptr %10, align 4, !tbaa !3
+  store i32 %1, ptr %11, align 4, !tbaa !3
+  store ptr %2, ptr %12, align 8, !tbaa !9
+  store i32 %3, ptr %13, align 4, !tbaa !3
+  store ptr %4, ptr %14, align 8, !tbaa !9
+  store ptr %5, ptr %15, align 8, !tbaa !14
+  store ptr %6, ptr %16, align 8, !tbaa !7
+  store i32 %7, ptr %17, align 4, !tbaa !3
+  store ptr %8, ptr %18, align 8, !tbaa !16
+  %19 = load i32, ptr %10, align 4, !tbaa !3
+  %20 = load i32, ptr %11, align 4, !tbaa !3
+  %21 = load ptr, ptr %12, align 8, !tbaa !9
+  %22 = load i32, ptr %13, align 4, !tbaa !3
+  %23 = load ptr, ptr %14, align 8, !tbaa !9
+  %24 = load ptr, ptr %15, align 8, !tbaa !14
+  %25 = load ptr, ptr %16, align 8, !tbaa !7
+  %26 = load i32, ptr %17, align 4, !tbaa !3
+  %27 = load ptr, ptr %18, align 8, !tbaa !16
+  %28 = call i32 @wc_SignatureGenerate_ex(i32 noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef 1)
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_SignatureGenerate_ex(i32 noundef %hash_type, i32 noundef %sig_type, ptr noundef %data, i32 noundef %data_len, ptr noundef %sig, ptr noundef %sig_len, ptr noundef %key, i32 noundef %key_len, ptr noundef %rng, i32 noundef %verify) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %hash_type.addr = alloca i32, align 4
-  %sig_type.addr = alloca i32, align 4
-  %data.addr = alloca ptr, align 8
-  %data_len.addr = alloca i32, align 4
-  %sig.addr = alloca ptr, align 8
-  %sig_len.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %key_len.addr = alloca i32, align 4
-  %rng.addr = alloca ptr, align 8
-  %verify.addr = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %hash_len = alloca i32, align 4
-  %hash_enc_len = alloca i32, align 4
-  %hash_data = alloca [100 x i8], align 16
-  store i32 %hash_type, ptr %hash_type.addr, align 4
-  store i32 %sig_type, ptr %sig_type.addr, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %data_len, ptr %data_len.addr, align 4
-  store ptr %sig, ptr %sig.addr, align 8
-  store ptr %sig_len, ptr %sig_len.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %key_len, ptr %key_len.addr, align 4
-  store ptr %rng, ptr %rng.addr, align 8
-  store i32 %verify, ptr %verify.addr, align 4
-  %0 = load ptr, ptr %data.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @wc_SignatureGenerate_ex(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef %9) #0 {
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca [100 x i8], align 16
+  %26 = alloca i32, align 4
+  store i32 %0, ptr %12, align 4, !tbaa !3
+  store i32 %1, ptr %13, align 4, !tbaa !3
+  store ptr %2, ptr %14, align 8, !tbaa !9
+  store i32 %3, ptr %15, align 4, !tbaa !3
+  store ptr %4, ptr %16, align 8, !tbaa !9
+  store ptr %5, ptr %17, align 8, !tbaa !14
+  store ptr %6, ptr %18, align 8, !tbaa !7
+  store i32 %7, ptr %19, align 4, !tbaa !3
+  store ptr %8, ptr %20, align 8, !tbaa !16
+  store i32 %9, ptr %21, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 100, ptr %25) #6
+  %27 = load ptr, ptr %14, align 8, !tbaa !9
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %48, label %29
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load i32, ptr %data_len.addr, align 4
-  %cmp1 = icmp eq i32 %1, 0
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+29:                                               ; preds = %10
+  %30 = load i32, ptr %15, align 4, !tbaa !3
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %48, label %32
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %sig.addr, align 8
-  %cmp3 = icmp eq ptr %2, null
-  br i1 %cmp3, label %if.then, label %lor.lhs.false4
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %16, align 8, !tbaa !9
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %48, label %35
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %3 = load ptr, ptr %sig_len.addr, align 8
-  %cmp5 = icmp eq ptr %3, null
-  br i1 %cmp5, label %if.then, label %lor.lhs.false6
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %17, align 8, !tbaa !14
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %48, label %38
 
-lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %4 = load ptr, ptr %sig_len.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %cmp7 = icmp eq i32 %5, 0
-  br i1 %cmp7, label %if.then, label %lor.lhs.false8
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %17, align 8, !tbaa !14
+  %40 = load i32, ptr %39, align 4, !tbaa !3
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %48, label %42
 
-lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %6 = load ptr, ptr %key.addr, align 8
-  %cmp9 = icmp eq ptr %6, null
-  br i1 %cmp9, label %if.then, label %lor.lhs.false10
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %18, align 8, !tbaa !7
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %48, label %45
 
-lor.lhs.false10:                                  ; preds = %lor.lhs.false8
-  %7 = load i32, ptr %key_len.addr, align 4
-  %cmp11 = icmp eq i32 %7, 0
-  br i1 %cmp11, label %if.then, label %if.end
+45:                                               ; preds = %42
+  %46 = load i32, ptr %19, align 4, !tbaa !3
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %49
 
-if.then:                                          ; preds = %lor.lhs.false10, %lor.lhs.false8, %lor.lhs.false6, %lor.lhs.false4, %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+48:                                               ; preds = %45, %42, %38, %35, %32, %29, %10
+  store i32 -173, ptr %11, align 4
+  store i32 1, ptr %26, align 4
+  br label %113
 
-if.end:                                           ; preds = %lor.lhs.false10
-  %8 = load ptr, ptr %sig_len.addr, align 8
-  %9 = load i32, ptr %8, align 4
-  %10 = load i32, ptr %sig_type.addr, align 4
-  %11 = load ptr, ptr %key.addr, align 8
-  %12 = load i32, ptr %key_len.addr, align 4
-  %call = call i32 @wc_SignatureGetSize(i32 noundef %10, ptr noundef %11, i32 noundef %12)
-  %cmp12 = icmp slt i32 %9, %call
-  br i1 %cmp12, label %if.then13, label %if.end14
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %17, align 8, !tbaa !14
+  %51 = load i32, ptr %50, align 4, !tbaa !3
+  %52 = load i32, ptr %13, align 4, !tbaa !3
+  %53 = load ptr, ptr %18, align 8, !tbaa !7
+  %54 = load i32, ptr %19, align 4, !tbaa !3
+  %55 = call i32 @wc_SignatureGetSize(i32 noundef %52, ptr noundef %53, i32 noundef %54)
+  %56 = icmp slt i32 %51, %55
+  br i1 %56, label %57, label %61
 
-if.then13:                                        ; preds = %if.end
-  br label %do.body
+57:                                               ; preds = %49
+  br label %58
 
-do.body:                                          ; preds = %if.then13
-  br label %do.end
+58:                                               ; preds = %57
+  br label %59
 
-do.end:                                           ; preds = %do.body
-  store i32 -173, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %58
+  br label %60
 
-if.end14:                                         ; preds = %if.end
-  %13 = load i32, ptr %hash_type.addr, align 4
-  %call15 = call i32 @wc_HashGetDigestSize(i32 noundef %13)
-  store i32 %call15, ptr %ret, align 4
-  %14 = load i32, ptr %ret, align 4
-  %cmp16 = icmp slt i32 %14, 0
-  br i1 %cmp16, label %if.then17, label %if.end20
+60:                                               ; preds = %59
+  store i32 -173, ptr %11, align 4
+  store i32 1, ptr %26, align 4
+  br label %113
 
-if.then17:                                        ; preds = %if.end14
-  br label %do.body18
+61:                                               ; preds = %49
+  %62 = load i32, ptr %12, align 4, !tbaa !3
+  %63 = call i32 @wc_HashGetDigestSize(i32 noundef %62)
+  store i32 %63, ptr %22, align 4, !tbaa !3
+  %64 = load i32, ptr %22, align 4, !tbaa !3
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %71
 
-do.body18:                                        ; preds = %if.then17
-  br label %do.end19
+66:                                               ; preds = %61
+  br label %67
 
-do.end19:                                         ; preds = %do.body18
-  %15 = load i32, ptr %ret, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
+67:                                               ; preds = %66
+  br label %68
 
-if.end20:                                         ; preds = %if.end14
-  %16 = load i32, ptr %ret, align 4
-  store i32 %16, ptr %hash_len, align 4
-  store i32 %16, ptr %hash_enc_len, align 4
-  %17 = load i32, ptr %sig_type.addr, align 4
-  %cmp21 = icmp eq i32 %17, 3
-  br i1 %cmp21, label %if.then22, label %if.end23
+68:                                               ; preds = %67
+  br label %69
 
-if.then22:                                        ; preds = %if.end20
-  %18 = load i32, ptr %hash_enc_len, align 4
-  %add = add i32 %18, 36
-  store i32 %add, ptr %hash_enc_len, align 4
-  br label %if.end23
+69:                                               ; preds = %68
+  %70 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %70, ptr %11, align 4
+  store i32 1, ptr %26, align 4
+  br label %113
 
-if.end23:                                         ; preds = %if.then22, %if.end20
-  %19 = load i32, ptr %hash_type.addr, align 4
-  %20 = load ptr, ptr %data.addr, align 8
-  %21 = load i32, ptr %data_len.addr, align 4
-  %arraydecay = getelementptr inbounds [100 x i8], ptr %hash_data, i64 0, i64 0
-  %22 = load i32, ptr %hash_len, align 4
-  %call24 = call i32 @wc_Hash(i32 noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef %arraydecay, i32 noundef %22)
-  store i32 %call24, ptr %ret, align 4
-  %23 = load i32, ptr %ret, align 4
-  %cmp25 = icmp eq i32 %23, 0
-  br i1 %cmp25, label %if.then26, label %if.end37
+71:                                               ; preds = %61
+  %72 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %72, ptr %23, align 4, !tbaa !3
+  store i32 %72, ptr %24, align 4, !tbaa !3
+  %73 = load i32, ptr %13, align 4, !tbaa !3
+  %74 = icmp eq i32 %73, 3
+  br i1 %74, label %75, label %78
 
-if.then26:                                        ; preds = %if.end23
-  %24 = load i32, ptr %sig_type.addr, align 4
-  %cmp27 = icmp eq i32 %24, 3
-  br i1 %cmp27, label %if.then28, label %if.end31
+75:                                               ; preds = %71
+  %76 = load i32, ptr %24, align 4, !tbaa !3
+  %77 = add i32 %76, 36
+  store i32 %77, ptr %24, align 4, !tbaa !3
+  br label %78
 
-if.then28:                                        ; preds = %if.then26
-  %25 = load i32, ptr %hash_type.addr, align 4
-  %arraydecay29 = getelementptr inbounds [100 x i8], ptr %hash_data, i64 0, i64 0
-  %26 = load i32, ptr %hash_len, align 4
-  %call30 = call i32 @wc_SignatureDerEncode(i32 noundef %25, ptr noundef %arraydecay29, i32 noundef %26, ptr noundef %hash_enc_len)
-  store i32 %call30, ptr %ret, align 4
-  br label %if.end31
+78:                                               ; preds = %75, %71
+  %79 = load i32, ptr %12, align 4, !tbaa !3
+  %80 = load ptr, ptr %14, align 8, !tbaa !9
+  %81 = load i32, ptr %15, align 4, !tbaa !3
+  %82 = getelementptr inbounds [100 x i8], ptr %25, i64 0, i64 0
+  %83 = load i32, ptr %23, align 4, !tbaa !3
+  %84 = call i32 @wc_Hash(i32 noundef %79, ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef %83)
+  store i32 %84, ptr %22, align 4, !tbaa !3
+  %85 = load i32, ptr %22, align 4, !tbaa !3
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %111
 
-if.end31:                                         ; preds = %if.then28, %if.then26
-  %27 = load i32, ptr %ret, align 4
-  %cmp32 = icmp eq i32 %27, 0
-  br i1 %cmp32, label %if.then33, label %if.end36
+87:                                               ; preds = %78
+  %88 = load i32, ptr %13, align 4, !tbaa !3
+  %89 = icmp eq i32 %88, 3
+  br i1 %89, label %90, label %95
 
-if.then33:                                        ; preds = %if.end31
-  %28 = load i32, ptr %hash_type.addr, align 4
-  %29 = load i32, ptr %sig_type.addr, align 4
-  %arraydecay34 = getelementptr inbounds [100 x i8], ptr %hash_data, i64 0, i64 0
-  %30 = load i32, ptr %hash_enc_len, align 4
-  %31 = load ptr, ptr %sig.addr, align 8
-  %32 = load ptr, ptr %sig_len.addr, align 8
-  %33 = load ptr, ptr %key.addr, align 8
-  %34 = load i32, ptr %key_len.addr, align 4
-  %35 = load ptr, ptr %rng.addr, align 8
-  %36 = load i32, ptr %verify.addr, align 4
-  %call35 = call i32 @wc_SignatureGenerateHash_ex(i32 noundef %28, i32 noundef %29, ptr noundef %arraydecay34, i32 noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36)
-  store i32 %call35, ptr %ret, align 4
-  br label %if.end36
+90:                                               ; preds = %87
+  %91 = load i32, ptr %12, align 4, !tbaa !3
+  %92 = getelementptr inbounds [100 x i8], ptr %25, i64 0, i64 0
+  %93 = load i32, ptr %23, align 4, !tbaa !3
+  %94 = call i32 @wc_SignatureDerEncode(i32 noundef %91, ptr noundef %92, i32 noundef %93, ptr noundef %24)
+  store i32 %94, ptr %22, align 4, !tbaa !3
+  br label %95
 
-if.end36:                                         ; preds = %if.then33, %if.end31
-  br label %if.end37
+95:                                               ; preds = %90, %87
+  %96 = load i32, ptr %22, align 4, !tbaa !3
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %110
 
-if.end37:                                         ; preds = %if.end36, %if.end23
-  %37 = load i32, ptr %ret, align 4
-  store i32 %37, ptr %retval, align 4
-  br label %return
+98:                                               ; preds = %95
+  %99 = load i32, ptr %12, align 4, !tbaa !3
+  %100 = load i32, ptr %13, align 4, !tbaa !3
+  %101 = getelementptr inbounds [100 x i8], ptr %25, i64 0, i64 0
+  %102 = load i32, ptr %24, align 4, !tbaa !3
+  %103 = load ptr, ptr %16, align 8, !tbaa !9
+  %104 = load ptr, ptr %17, align 8, !tbaa !14
+  %105 = load ptr, ptr %18, align 8, !tbaa !7
+  %106 = load i32, ptr %19, align 4, !tbaa !3
+  %107 = load ptr, ptr %20, align 8, !tbaa !16
+  %108 = load i32, ptr %21, align 4, !tbaa !3
+  %109 = call i32 @wc_SignatureGenerateHash_ex(i32 noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108)
+  store i32 %109, ptr %22, align 4, !tbaa !3
+  br label %110
 
-return:                                           ; preds = %if.end37, %do.end19, %do.end, %if.then
-  %38 = load i32, ptr %retval, align 4
-  ret i32 %38
+110:                                              ; preds = %98, %95
+  br label %111
+
+111:                                              ; preds = %110, %78
+  %112 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %112, ptr %11, align 4
+  store i32 1, ptr %26, align 4
+  br label %113
+
+113:                                              ; preds = %111, %69, %60, %48
+  call void @llvm.lifetime.end.p0(i64 100, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  %114 = load i32, ptr %11, align 4
+  ret i32 %114
 }
 
-declare i32 @wc_HashGetOID(i32 noundef) #1
+declare i32 @wc_HashGetOID(i32 noundef) #2
 
-declare i32 @wc_EncodeSignature(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare i32 @wc_EncodeSignature(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !8, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 int", !8, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS6WC_RNG", !8, i64 0}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}

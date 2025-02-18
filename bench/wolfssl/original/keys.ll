@@ -1,20 +1,20 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.WOLFSSL = type <{ ptr, ptr, ptr, [48 x i8], [48 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8], %struct.WOLFSSL_CIPHER, ptr, %struct.Ciphers, %struct.Ciphers, %struct.Buffers, ptr, ptr, %struct.WOLFSSL_ALERT_HISTORY, %struct.WOLFSSL_ALERT, i32, i32, i32, i32, i32, i32, i32, i16, [2 x i8], i32, i8, %struct.RecordLayerHeader, %struct.MsgsReceived, %struct.ProtocolVersion, %struct.ProtocolVersion, %struct.CipherSpecs, [2 x i8], %struct.Keys, %struct.Options, ptr, i8, i8, i16, [10 x i16], i8, i8, i16, i16, [38 x i8], i32, i32, [4 x i8], ptr, i8, i8, [6 x i8], ptr, ptr, i16, i8, i8, i32, i8, [3 x i8], i32, %struct.OneTimeAuth, ptr, [8 x i8] }>
+%struct.WOLFSSL = type <{ ptr, ptr, ptr, ptr, [48 x i8], [48 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8], %struct.WOLFSSL_CIPHER, ptr, %struct.Ciphers, %struct.Ciphers, [8 x i8], %struct.Buffers, ptr, ptr, %struct.WOLFSSL_ALERT_HISTORY, %struct.WOLFSSL_ALERT, i32, i32, i32, i32, i32, i32, i32, i16, [2 x i8], i32, i8, %struct.RecordLayerHeader, %struct.MsgsReceived, %struct.ProtocolVersion, %struct.ProtocolVersion, %struct.CipherSpecs, [2 x i8], %struct.Keys, %struct.Options, ptr, i8, i8, i16, [10 x i16], i8, i8, i16, i16, [38 x i8], i32, i32, [4 x i8], ptr, i8, i8, [6 x i8], ptr, ptr, i16, i8, i8, i32, i8, [3 x i8], i32, %struct.OneTimeAuth, ptr }>
 %struct.WOLFSSL_CIPHER = type { i8, i8, ptr }
 %struct.Ciphers = type { ptr, ptr, ptr, ptr, i8, i8 }
-%struct.Buffers = type { %struct.bufferStatic, %struct.bufferStatic, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, i32, i32, i8, i8, i8, i8, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, ptr, ptr, ptr, i8, i32, i32, ptr, i32, ptr }
+%struct.Buffers = type { %struct.bufferStatic, %struct.bufferStatic, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, i32, i32, i8, i8, i8, i8, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, ptr, ptr, ptr, i8, i8, i32, i32, ptr, i32, [1 x ptr] }
 %struct.bufferStatic = type { [5 x i8], ptr, i32, i32, i32, i8, i8 }
 %struct.WOLFSSL_BUFFER_INFO = type { ptr, i32 }
 %struct.WOLFSSL_ALERT_HISTORY = type { %struct.WOLFSSL_ALERT, %struct.WOLFSSL_ALERT }
 %struct.WOLFSSL_ALERT = type { i32, i32 }
 %struct.RecordLayerHeader = type { i8, i8, i8, [2 x i8] }
-%struct.MsgsReceived = type { i24 }
+%struct.MsgsReceived = type { i32 }
 %struct.ProtocolVersion = type { i8, i8 }
 %struct.CipherSpecs = type { i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.Keys = type { [64 x i8], [64 x i8], [32 x i8], [32 x i8], [16 x i8], [16 x i8], [8 x i8], [12 x i8], [12 x i8], i32, i32, i32, i32, i32, i32, i8, i8, i8 }
-%struct.Options = type { i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i16, i8 }
+%struct.Keys = type { [64 x i8], [64 x i8], [32 x i8], [32 x i8], [16 x i8], [16 x i8], [8 x i8], [12 x i8], [12 x i8], i32, i32, i32, i32, i32, i32, i8, i8, i8, i8 }
+%struct.Options = type { i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i16, i8 }
 %struct.OneTimeAuth = type { ptr, i8 }
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 %struct.wc_Sha = type { i32, i32, i32, [16 x i32], [5 x i32], ptr }
@@ -31,3716 +31,4027 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [10 x i8] c"IIIIIIIII\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SetCipherSpecs(ptr noundef %ssl) #0 {
-entry:
-  %ssl.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %ssl, ptr %ssl.addr, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %options = getelementptr inbounds %struct.WOLFSSL, ptr %0, i32 0, i32 47
-  %side = getelementptr inbounds %struct.Options, ptr %options, i32 0, i32 1
-  %bf.load = load i64, ptr %side, align 8
-  %bf.lshr = lshr i64 %bf.load, 4
-  %bf.clear = and i64 %bf.lshr, 3
-  %bf.cast = trunc i64 %bf.clear to i16
-  %1 = load ptr, ptr %ssl.addr, align 8
-  %options1 = getelementptr inbounds %struct.WOLFSSL, ptr %1, i32 0, i32 47
-  %cipherSuite0 = getelementptr inbounds %struct.Options, ptr %options1, i32 0, i32 3
-  %2 = load i8, ptr %cipherSuite0, align 1
-  %3 = load ptr, ptr %ssl.addr, align 8
-  %options2 = getelementptr inbounds %struct.WOLFSSL, ptr %3, i32 0, i32 47
-  %cipherSuite = getelementptr inbounds %struct.Options, ptr %options2, i32 0, i32 4
-  %4 = load i8, ptr %cipherSuite, align 2
-  %5 = load ptr, ptr %ssl.addr, align 8
-  %specs = getelementptr inbounds %struct.WOLFSSL, ptr %5, i32 0, i32 44
-  %6 = load ptr, ptr %ssl.addr, align 8
-  %options3 = getelementptr inbounds %struct.WOLFSSL, ptr %6, i32 0, i32 47
-  %call = call i32 @GetCipherSpec(i16 noundef zeroext %bf.cast, i8 noundef zeroext %2, i8 noundef zeroext %4, ptr noundef %specs, ptr noundef %options3)
-  store i32 %call, ptr %ret, align 4
-  %7 = load i32, ptr %ret, align 4
-  %cmp = icmp eq i32 %7, 0
-  br i1 %cmp, label %if.then, label %if.end48
+define i32 @SetCipherSpecs(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %4, i32 0, i32 49
+  %6 = getelementptr inbounds nuw %struct.Options, ptr %5, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %8 = lshr i64 %7, 4
+  %9 = and i64 %8, 3
+  %10 = trunc i64 %9 to i16
+  %11 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %11, i32 0, i32 49
+  %13 = getelementptr inbounds nuw %struct.Options, ptr %12, i32 0, i32 7
+  %14 = load i8, ptr %13, align 1, !tbaa !8
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %15, i32 0, i32 49
+  %17 = getelementptr inbounds nuw %struct.Options, ptr %16, i32 0, i32 8
+  %18 = load i8, ptr %17, align 2, !tbaa !44
+  %19 = load ptr, ptr %2, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %19, i32 0, i32 46
+  %21 = load ptr, ptr %2, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %21, i32 0, i32 49
+  %23 = call i32 @GetCipherSpec(i16 noundef zeroext %10, i8 noundef zeroext %14, i8 noundef zeroext %18, ptr noundef %20, ptr noundef %22)
+  store i32 %23, ptr %3, align 4, !tbaa !45
+  %24 = load i32, ptr %3, align 4, !tbaa !45
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %98
 
-if.then:                                          ; preds = %entry
-  %8 = load ptr, ptr %ssl.addr, align 8
-  %version = getelementptr inbounds %struct.WOLFSSL, ptr %8, i32 0, i32 42
-  %major = getelementptr inbounds %struct.ProtocolVersion, ptr %version, i32 0, i32 0
-  %9 = load i8, ptr %major, align 2
-  %conv = zext i8 %9 to i32
-  %cmp4 = icmp eq i32 %conv, 3
-  br i1 %cmp4, label %land.lhs.true, label %if.end35
+26:                                               ; preds = %1
+  %27 = load ptr, ptr %2, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %27, i32 0, i32 44
+  %29 = getelementptr inbounds nuw %struct.ProtocolVersion, ptr %28, i32 0, i32 0
+  %30 = load i8, ptr %29, align 2, !tbaa !46
+  %31 = zext i8 %30 to i32
+  %32 = icmp eq i32 %31, 3
+  br i1 %32, label %33, label %77
 
-land.lhs.true:                                    ; preds = %if.then
-  %10 = load ptr, ptr %ssl.addr, align 8
-  %version6 = getelementptr inbounds %struct.WOLFSSL, ptr %10, i32 0, i32 42
-  %minor = getelementptr inbounds %struct.ProtocolVersion, ptr %version6, i32 0, i32 1
-  %11 = load i8, ptr %minor, align 1
-  %conv7 = zext i8 %11 to i32
-  %cmp8 = icmp sge i32 %conv7, 1
-  br i1 %cmp8, label %if.then10, label %if.end35
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %2, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %34, i32 0, i32 44
+  %36 = getelementptr inbounds nuw %struct.ProtocolVersion, ptr %35, i32 0, i32 1
+  %37 = load i8, ptr %36, align 1, !tbaa !47
+  %38 = zext i8 %37 to i32
+  %39 = icmp sge i32 %38, 1
+  br i1 %39, label %40, label %77
 
-if.then10:                                        ; preds = %land.lhs.true
-  %12 = load ptr, ptr %ssl.addr, align 8
-  %options11 = getelementptr inbounds %struct.WOLFSSL, ptr %12, i32 0, i32 47
-  %tls = getelementptr inbounds %struct.Options, ptr %options11, i32 0, i32 1
-  %bf.load12 = load i64, ptr %tls, align 8
-  %bf.clear13 = and i64 %bf.load12, -16385
-  %bf.set = or i64 %bf.clear13, 16384
-  store i64 %bf.set, ptr %tls, align 8
-  %13 = load ptr, ptr %ssl.addr, align 8
-  %hmac = getelementptr inbounds %struct.WOLFSSL, ptr %13, i32 0, i32 21
-  store ptr @TLS_hmac, ptr %hmac, align 8
-  %14 = load ptr, ptr %ssl.addr, align 8
-  %version14 = getelementptr inbounds %struct.WOLFSSL, ptr %14, i32 0, i32 42
-  %minor15 = getelementptr inbounds %struct.ProtocolVersion, ptr %version14, i32 0, i32 1
-  %15 = load i8, ptr %minor15, align 1
-  %conv16 = zext i8 %15 to i32
-  %cmp17 = icmp sge i32 %conv16, 2
-  br i1 %cmp17, label %if.then19, label %if.end34
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %2, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %41, i32 0, i32 49
+  %43 = getelementptr inbounds nuw %struct.Options, ptr %42, i32 0, i32 1
+  %44 = load i64, ptr %43, align 8
+  %45 = and i64 %44, -16385
+  %46 = or i64 %45, 16384
+  store i64 %46, ptr %43, align 8
+  %47 = load ptr, ptr %2, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %47, i32 0, i32 22
+  store ptr @TLS_hmac, ptr %48, align 16, !tbaa !48
+  %49 = load ptr, ptr %2, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %49, i32 0, i32 44
+  %51 = getelementptr inbounds nuw %struct.ProtocolVersion, ptr %50, i32 0, i32 1
+  %52 = load i8, ptr %51, align 1, !tbaa !47
+  %53 = zext i8 %52 to i32
+  %54 = icmp sge i32 %53, 2
+  br i1 %54, label %55, label %76
 
-if.then19:                                        ; preds = %if.then10
-  %16 = load ptr, ptr %ssl.addr, align 8
-  %options20 = getelementptr inbounds %struct.WOLFSSL, ptr %16, i32 0, i32 47
-  %tls1_1 = getelementptr inbounds %struct.Options, ptr %options20, i32 0, i32 1
-  %bf.load21 = load i64, ptr %tls1_1, align 8
-  %bf.clear22 = and i64 %bf.load21, -32769
-  %bf.set23 = or i64 %bf.clear22, 32768
-  store i64 %bf.set23, ptr %tls1_1, align 8
-  %17 = load ptr, ptr %ssl.addr, align 8
-  %version24 = getelementptr inbounds %struct.WOLFSSL, ptr %17, i32 0, i32 42
-  %minor25 = getelementptr inbounds %struct.ProtocolVersion, ptr %version24, i32 0, i32 1
-  %18 = load i8, ptr %minor25, align 1
-  %conv26 = zext i8 %18 to i32
-  %cmp27 = icmp sge i32 %conv26, 4
-  br i1 %cmp27, label %if.then29, label %if.end
+55:                                               ; preds = %40
+  %56 = load ptr, ptr %2, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %56, i32 0, i32 49
+  %58 = getelementptr inbounds nuw %struct.Options, ptr %57, i32 0, i32 1
+  %59 = load i64, ptr %58, align 8
+  %60 = and i64 %59, -32769
+  %61 = or i64 %60, 32768
+  store i64 %61, ptr %58, align 8
+  %62 = load ptr, ptr %2, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %62, i32 0, i32 44
+  %64 = getelementptr inbounds nuw %struct.ProtocolVersion, ptr %63, i32 0, i32 1
+  %65 = load i8, ptr %64, align 1, !tbaa !47
+  %66 = zext i8 %65 to i32
+  %67 = icmp sge i32 %66, 4
+  br i1 %67, label %68, label %75
 
-if.then29:                                        ; preds = %if.then19
-  %19 = load ptr, ptr %ssl.addr, align 8
-  %options30 = getelementptr inbounds %struct.WOLFSSL, ptr %19, i32 0, i32 47
-  %tls1_3 = getelementptr inbounds %struct.Options, ptr %options30, i32 0, i32 1
-  %bf.load31 = load i64, ptr %tls1_3, align 8
-  %bf.clear32 = and i64 %bf.load31, -65537
-  %bf.set33 = or i64 %bf.clear32, 65536
-  store i64 %bf.set33, ptr %tls1_3, align 8
-  br label %if.end
+68:                                               ; preds = %55
+  %69 = load ptr, ptr %2, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %69, i32 0, i32 49
+  %71 = getelementptr inbounds nuw %struct.Options, ptr %70, i32 0, i32 1
+  %72 = load i64, ptr %71, align 8
+  %73 = and i64 %72, -65537
+  %74 = or i64 %73, 65536
+  store i64 %74, ptr %71, align 8
+  br label %75
 
-if.end:                                           ; preds = %if.then29, %if.then19
-  br label %if.end34
+75:                                               ; preds = %68, %55
+  br label %76
 
-if.end34:                                         ; preds = %if.end, %if.then10
-  br label %if.end35
+76:                                               ; preds = %75, %40
+  br label %77
 
-if.end35:                                         ; preds = %if.end34, %land.lhs.true, %if.then
-  %20 = load ptr, ptr %ssl.addr, align 8
-  %version36 = getelementptr inbounds %struct.WOLFSSL, ptr %20, i32 0, i32 42
-  %21 = load i16, ptr %version36, align 2
-  %call37 = call i32 @IsAtLeastTLSv1_3(i16 %21)
-  %tobool = icmp ne i32 %call37, 0
-  br i1 %tobool, label %if.then42, label %lor.lhs.false
+77:                                               ; preds = %76, %33, %26
+  %78 = load ptr, ptr %2, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %78, i32 0, i32 44
+  %80 = load i16, ptr %79, align 2
+  %81 = call i32 @IsAtLeastTLSv1_3(i16 %80)
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %90, label %83
 
-lor.lhs.false:                                    ; preds = %if.end35
-  %22 = load ptr, ptr %ssl.addr, align 8
-  %specs38 = getelementptr inbounds %struct.WOLFSSL, ptr %22, i32 0, i32 44
-  %cipher_type = getelementptr inbounds %struct.CipherSpecs, ptr %specs38, i32 0, i32 5
-  %23 = load i8, ptr %cipher_type, align 1
-  %conv39 = zext i8 %23 to i32
-  %cmp40 = icmp ne i32 %conv39, 1
-  br i1 %cmp40, label %if.then42, label %if.end47
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %2, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %84, i32 0, i32 46
+  %86 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %85, i32 0, i32 5
+  %87 = load i8, ptr %86, align 1, !tbaa !49
+  %88 = zext i8 %87 to i32
+  %89 = icmp ne i32 %88, 1
+  br i1 %89, label %90, label %97
 
-if.then42:                                        ; preds = %lor.lhs.false, %if.end35
-  %24 = load ptr, ptr %ssl.addr, align 8
-  %options43 = getelementptr inbounds %struct.WOLFSSL, ptr %24, i32 0, i32 47
-  %encThenMac = getelementptr inbounds %struct.Options, ptr %options43, i32 0, i32 1
-  %bf.load44 = load i64, ptr %encThenMac, align 8
-  %bf.clear45 = and i64 %bf.load44, -36028797018963969
-  %bf.set46 = or i64 %bf.clear45, 0
-  store i64 %bf.set46, ptr %encThenMac, align 8
-  br label %if.end47
+90:                                               ; preds = %83, %77
+  %91 = load ptr, ptr %2, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %91, i32 0, i32 49
+  %93 = getelementptr inbounds nuw %struct.Options, ptr %92, i32 0, i32 1
+  %94 = load i64, ptr %93, align 8
+  %95 = and i64 %94, -9007199254740993
+  %96 = or i64 %95, 0
+  store i64 %96, ptr %93, align 8
+  br label %97
 
-if.end47:                                         ; preds = %if.then42, %lor.lhs.false
-  br label %if.end48
+97:                                               ; preds = %90, %83
+  br label %98
 
-if.end48:                                         ; preds = %if.end47, %entry
-  %25 = load i32, ptr %ret, align 4
-  ret i32 %25
+98:                                               ; preds = %97, %1
+  %99 = load i32, ptr %3, align 4, !tbaa !45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
+  ret i32 %99
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define i32 @GetCipherSpec(i16 noundef zeroext %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca i16, align 2
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i16, align 2
+  %13 = alloca i32, align 4
+  store i16 %0, ptr %7, align 2, !tbaa !50
+  store i8 %1, ptr %8, align 1, !tbaa !51
+  store i8 %2, ptr %9, align 1, !tbaa !51
+  store ptr %3, ptr %10, align 8, !tbaa !52
+  store ptr %4, ptr %11, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #5
+  store i16 0, ptr %12, align 2, !tbaa !50
+  %14 = load i16, ptr %7, align 2, !tbaa !50
+  %15 = zext i16 %14 to i32
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %17, label %28
+
+17:                                               ; preds = %5
+  %18 = load i16, ptr %12, align 2, !tbaa !50
+  %19 = load i8, ptr %8, align 1, !tbaa !51
+  %20 = load i8, ptr %9, align 1, !tbaa !51
+  %21 = call i32 @VerifyClientSuite(i16 noundef zeroext %18, i8 noundef zeroext %19, i8 noundef zeroext %20)
+  %22 = icmp ne i32 %21, 1
+  br i1 %22, label %23, label %27
+
+23:                                               ; preds = %17
+  br label %24
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24
+  br label %26
+
+26:                                               ; preds = %25
+  store i32 -500, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %833
+
+27:                                               ; preds = %17
+  br label %28
+
+28:                                               ; preds = %27, %5
+  %29 = load i8, ptr %8, align 1, !tbaa !51
+  %30 = zext i8 %29 to i32
+  %31 = icmp eq i32 %30, 204
+  br i1 %31, label %32, label %244
+
+32:                                               ; preds = %28
+  %33 = load i8, ptr %9, align 1, !tbaa !51
+  %34 = zext i8 %33 to i32
+  switch i32 %34, label %239 [
+    i32 19, label %35
+    i32 20, label %69
+    i32 21, label %103
+    i32 168, label %137
+    i32 169, label %171
+    i32 170, label %205
+  ]
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %10, align 8, !tbaa !52
+  %37 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %36, i32 0, i32 4
+  store i8 9, ptr %37, align 2, !tbaa !56
+  %38 = load ptr, ptr %10, align 8, !tbaa !52
+  %39 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %38, i32 0, i32 5
+  store i8 2, ptr %39, align 1, !tbaa !57
+  %40 = load ptr, ptr %10, align 8, !tbaa !52
+  %41 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %40, i32 0, i32 6
+  store i8 4, ptr %41, align 2, !tbaa !58
+  %42 = load ptr, ptr %10, align 8, !tbaa !52
+  %43 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %42, i32 0, i32 7
+  store i8 7, ptr %43, align 1, !tbaa !59
+  %44 = load ptr, ptr %10, align 8, !tbaa !52
+  %45 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %44, i32 0, i32 8
+  store i8 1, ptr %45, align 2, !tbaa !60
+  %46 = load ptr, ptr %10, align 8, !tbaa !52
+  %47 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %46, i32 0, i32 9
+  store i8 32, ptr %47, align 1, !tbaa !61
+  %48 = load ptr, ptr %10, align 8, !tbaa !52
+  %49 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %48, i32 0, i32 10
+  store i8 40, ptr %49, align 2, !tbaa !62
+  %50 = load ptr, ptr %10, align 8, !tbaa !52
+  %51 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %50, i32 0, i32 11
+  store i8 0, ptr %51, align 1, !tbaa !63
+  %52 = load ptr, ptr %10, align 8, !tbaa !52
+  %53 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %52, i32 0, i32 0
+  store i16 32, ptr %53, align 2, !tbaa !64
+  %54 = load ptr, ptr %10, align 8, !tbaa !52
+  %55 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %54, i32 0, i32 2
+  store i16 16, ptr %55, align 2, !tbaa !65
+  %56 = load ptr, ptr %10, align 8, !tbaa !52
+  %57 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %56, i32 0, i32 1
+  store i16 12, ptr %57, align 2, !tbaa !66
+  %58 = load ptr, ptr %10, align 8, !tbaa !52
+  %59 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %58, i32 0, i32 3
+  store i16 16, ptr %59, align 2, !tbaa !67
+  %60 = load ptr, ptr %11, align 8, !tbaa !54
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %68
+
+62:                                               ; preds = %35
+  %63 = load ptr, ptr %11, align 8, !tbaa !54
+  %64 = getelementptr inbounds nuw %struct.Options, ptr %63, i32 0, i32 1
+  %65 = load i64, ptr %64, align 8
+  %66 = and i64 %65, -4398046511105
+  %67 = or i64 %66, 4398046511104
+  store i64 %67, ptr %64, align 8
+  br label %68
+
+68:                                               ; preds = %62, %35
+  br label %243
+
+69:                                               ; preds = %32
+  %70 = load ptr, ptr %10, align 8, !tbaa !52
+  %71 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %70, i32 0, i32 4
+  store i8 9, ptr %71, align 2, !tbaa !56
+  %72 = load ptr, ptr %10, align 8, !tbaa !52
+  %73 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %72, i32 0, i32 5
+  store i8 2, ptr %73, align 1, !tbaa !57
+  %74 = load ptr, ptr %10, align 8, !tbaa !52
+  %75 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %74, i32 0, i32 6
+  store i8 4, ptr %75, align 2, !tbaa !58
+  %76 = load ptr, ptr %10, align 8, !tbaa !52
+  %77 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %76, i32 0, i32 7
+  store i8 7, ptr %77, align 1, !tbaa !59
+  %78 = load ptr, ptr %10, align 8, !tbaa !52
+  %79 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %78, i32 0, i32 8
+  store i8 3, ptr %79, align 2, !tbaa !60
+  %80 = load ptr, ptr %10, align 8, !tbaa !52
+  %81 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %80, i32 0, i32 9
+  store i8 32, ptr %81, align 1, !tbaa !61
+  %82 = load ptr, ptr %10, align 8, !tbaa !52
+  %83 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %82, i32 0, i32 10
+  store i8 40, ptr %83, align 2, !tbaa !62
+  %84 = load ptr, ptr %10, align 8, !tbaa !52
+  %85 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %84, i32 0, i32 11
+  store i8 0, ptr %85, align 1, !tbaa !63
+  %86 = load ptr, ptr %10, align 8, !tbaa !52
+  %87 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %86, i32 0, i32 0
+  store i16 32, ptr %87, align 2, !tbaa !64
+  %88 = load ptr, ptr %10, align 8, !tbaa !52
+  %89 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %88, i32 0, i32 2
+  store i16 16, ptr %89, align 2, !tbaa !65
+  %90 = load ptr, ptr %10, align 8, !tbaa !52
+  %91 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %90, i32 0, i32 1
+  store i16 12, ptr %91, align 2, !tbaa !66
+  %92 = load ptr, ptr %10, align 8, !tbaa !52
+  %93 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %92, i32 0, i32 3
+  store i16 16, ptr %93, align 2, !tbaa !67
+  %94 = load ptr, ptr %11, align 8, !tbaa !54
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %102
+
+96:                                               ; preds = %69
+  %97 = load ptr, ptr %11, align 8, !tbaa !54
+  %98 = getelementptr inbounds nuw %struct.Options, ptr %97, i32 0, i32 1
+  %99 = load i64, ptr %98, align 8
+  %100 = and i64 %99, -4398046511105
+  %101 = or i64 %100, 4398046511104
+  store i64 %101, ptr %98, align 8
+  br label %102
+
+102:                                              ; preds = %96, %69
+  br label %243
+
+103:                                              ; preds = %32
+  %104 = load ptr, ptr %10, align 8, !tbaa !52
+  %105 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %104, i32 0, i32 4
+  store i8 9, ptr %105, align 2, !tbaa !56
+  %106 = load ptr, ptr %10, align 8, !tbaa !52
+  %107 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %106, i32 0, i32 5
+  store i8 2, ptr %107, align 1, !tbaa !57
+  %108 = load ptr, ptr %10, align 8, !tbaa !52
+  %109 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %108, i32 0, i32 6
+  store i8 4, ptr %109, align 2, !tbaa !58
+  %110 = load ptr, ptr %10, align 8, !tbaa !52
+  %111 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %110, i32 0, i32 7
+  store i8 2, ptr %111, align 1, !tbaa !59
+  %112 = load ptr, ptr %10, align 8, !tbaa !52
+  %113 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %112, i32 0, i32 8
+  store i8 1, ptr %113, align 2, !tbaa !60
+  %114 = load ptr, ptr %10, align 8, !tbaa !52
+  %115 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %114, i32 0, i32 9
+  store i8 32, ptr %115, align 1, !tbaa !61
+  %116 = load ptr, ptr %10, align 8, !tbaa !52
+  %117 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %116, i32 0, i32 10
+  store i8 40, ptr %117, align 2, !tbaa !62
+  %118 = load ptr, ptr %10, align 8, !tbaa !52
+  %119 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %118, i32 0, i32 11
+  store i8 0, ptr %119, align 1, !tbaa !63
+  %120 = load ptr, ptr %10, align 8, !tbaa !52
+  %121 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %120, i32 0, i32 0
+  store i16 32, ptr %121, align 2, !tbaa !64
+  %122 = load ptr, ptr %10, align 8, !tbaa !52
+  %123 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %122, i32 0, i32 2
+  store i16 16, ptr %123, align 2, !tbaa !65
+  %124 = load ptr, ptr %10, align 8, !tbaa !52
+  %125 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %124, i32 0, i32 1
+  store i16 12, ptr %125, align 2, !tbaa !66
+  %126 = load ptr, ptr %10, align 8, !tbaa !52
+  %127 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %126, i32 0, i32 3
+  store i16 16, ptr %127, align 2, !tbaa !67
+  %128 = load ptr, ptr %11, align 8, !tbaa !54
+  %129 = icmp ne ptr %128, null
+  br i1 %129, label %130, label %136
+
+130:                                              ; preds = %103
+  %131 = load ptr, ptr %11, align 8, !tbaa !54
+  %132 = getelementptr inbounds nuw %struct.Options, ptr %131, i32 0, i32 1
+  %133 = load i64, ptr %132, align 8
+  %134 = and i64 %133, -4398046511105
+  %135 = or i64 %134, 4398046511104
+  store i64 %135, ptr %132, align 8
+  br label %136
+
+136:                                              ; preds = %130, %103
+  br label %243
+
+137:                                              ; preds = %32
+  %138 = load ptr, ptr %10, align 8, !tbaa !52
+  %139 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %138, i32 0, i32 4
+  store i8 9, ptr %139, align 2, !tbaa !56
+  %140 = load ptr, ptr %10, align 8, !tbaa !52
+  %141 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %140, i32 0, i32 5
+  store i8 2, ptr %141, align 1, !tbaa !57
+  %142 = load ptr, ptr %10, align 8, !tbaa !52
+  %143 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %142, i32 0, i32 6
+  store i8 4, ptr %143, align 2, !tbaa !58
+  %144 = load ptr, ptr %10, align 8, !tbaa !52
+  %145 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %144, i32 0, i32 7
+  store i8 7, ptr %145, align 1, !tbaa !59
+  %146 = load ptr, ptr %10, align 8, !tbaa !52
+  %147 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %146, i32 0, i32 8
+  store i8 1, ptr %147, align 2, !tbaa !60
+  %148 = load ptr, ptr %10, align 8, !tbaa !52
+  %149 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %148, i32 0, i32 9
+  store i8 32, ptr %149, align 1, !tbaa !61
+  %150 = load ptr, ptr %10, align 8, !tbaa !52
+  %151 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %150, i32 0, i32 10
+  store i8 40, ptr %151, align 2, !tbaa !62
+  %152 = load ptr, ptr %10, align 8, !tbaa !52
+  %153 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %152, i32 0, i32 11
+  store i8 0, ptr %153, align 1, !tbaa !63
+  %154 = load ptr, ptr %10, align 8, !tbaa !52
+  %155 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %154, i32 0, i32 0
+  store i16 32, ptr %155, align 2, !tbaa !64
+  %156 = load ptr, ptr %10, align 8, !tbaa !52
+  %157 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %156, i32 0, i32 2
+  store i16 16, ptr %157, align 2, !tbaa !65
+  %158 = load ptr, ptr %10, align 8, !tbaa !52
+  %159 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %158, i32 0, i32 1
+  store i16 12, ptr %159, align 2, !tbaa !66
+  %160 = load ptr, ptr %10, align 8, !tbaa !52
+  %161 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %160, i32 0, i32 3
+  store i16 16, ptr %161, align 2, !tbaa !67
+  %162 = load ptr, ptr %11, align 8, !tbaa !54
+  %163 = icmp ne ptr %162, null
+  br i1 %163, label %164, label %170
+
+164:                                              ; preds = %137
+  %165 = load ptr, ptr %11, align 8, !tbaa !54
+  %166 = getelementptr inbounds nuw %struct.Options, ptr %165, i32 0, i32 1
+  %167 = load i64, ptr %166, align 8
+  %168 = and i64 %167, -4398046511105
+  %169 = or i64 %168, 0
+  store i64 %169, ptr %166, align 8
+  br label %170
+
+170:                                              ; preds = %164, %137
+  br label %243
+
+171:                                              ; preds = %32
+  %172 = load ptr, ptr %10, align 8, !tbaa !52
+  %173 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %172, i32 0, i32 4
+  store i8 9, ptr %173, align 2, !tbaa !56
+  %174 = load ptr, ptr %10, align 8, !tbaa !52
+  %175 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %174, i32 0, i32 5
+  store i8 2, ptr %175, align 1, !tbaa !57
+  %176 = load ptr, ptr %10, align 8, !tbaa !52
+  %177 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %176, i32 0, i32 6
+  store i8 4, ptr %177, align 2, !tbaa !58
+  %178 = load ptr, ptr %10, align 8, !tbaa !52
+  %179 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %178, i32 0, i32 7
+  store i8 7, ptr %179, align 1, !tbaa !59
+  %180 = load ptr, ptr %10, align 8, !tbaa !52
+  %181 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %180, i32 0, i32 8
+  store i8 3, ptr %181, align 2, !tbaa !60
+  %182 = load ptr, ptr %10, align 8, !tbaa !52
+  %183 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %182, i32 0, i32 9
+  store i8 32, ptr %183, align 1, !tbaa !61
+  %184 = load ptr, ptr %10, align 8, !tbaa !52
+  %185 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %184, i32 0, i32 10
+  store i8 40, ptr %185, align 2, !tbaa !62
+  %186 = load ptr, ptr %10, align 8, !tbaa !52
+  %187 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %186, i32 0, i32 11
+  store i8 0, ptr %187, align 1, !tbaa !63
+  %188 = load ptr, ptr %10, align 8, !tbaa !52
+  %189 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %188, i32 0, i32 0
+  store i16 32, ptr %189, align 2, !tbaa !64
+  %190 = load ptr, ptr %10, align 8, !tbaa !52
+  %191 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %190, i32 0, i32 2
+  store i16 16, ptr %191, align 2, !tbaa !65
+  %192 = load ptr, ptr %10, align 8, !tbaa !52
+  %193 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %192, i32 0, i32 1
+  store i16 12, ptr %193, align 2, !tbaa !66
+  %194 = load ptr, ptr %10, align 8, !tbaa !52
+  %195 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %194, i32 0, i32 3
+  store i16 16, ptr %195, align 2, !tbaa !67
+  %196 = load ptr, ptr %11, align 8, !tbaa !54
+  %197 = icmp ne ptr %196, null
+  br i1 %197, label %198, label %204
+
+198:                                              ; preds = %171
+  %199 = load ptr, ptr %11, align 8, !tbaa !54
+  %200 = getelementptr inbounds nuw %struct.Options, ptr %199, i32 0, i32 1
+  %201 = load i64, ptr %200, align 8
+  %202 = and i64 %201, -4398046511105
+  %203 = or i64 %202, 0
+  store i64 %203, ptr %200, align 8
+  br label %204
+
+204:                                              ; preds = %198, %171
+  br label %243
+
+205:                                              ; preds = %32
+  %206 = load ptr, ptr %10, align 8, !tbaa !52
+  %207 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %206, i32 0, i32 4
+  store i8 9, ptr %207, align 2, !tbaa !56
+  %208 = load ptr, ptr %10, align 8, !tbaa !52
+  %209 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %208, i32 0, i32 5
+  store i8 2, ptr %209, align 1, !tbaa !57
+  %210 = load ptr, ptr %10, align 8, !tbaa !52
+  %211 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %210, i32 0, i32 6
+  store i8 4, ptr %211, align 2, !tbaa !58
+  %212 = load ptr, ptr %10, align 8, !tbaa !52
+  %213 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %212, i32 0, i32 7
+  store i8 2, ptr %213, align 1, !tbaa !59
+  %214 = load ptr, ptr %10, align 8, !tbaa !52
+  %215 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %214, i32 0, i32 8
+  store i8 1, ptr %215, align 2, !tbaa !60
+  %216 = load ptr, ptr %10, align 8, !tbaa !52
+  %217 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %216, i32 0, i32 9
+  store i8 32, ptr %217, align 1, !tbaa !61
+  %218 = load ptr, ptr %10, align 8, !tbaa !52
+  %219 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %218, i32 0, i32 10
+  store i8 40, ptr %219, align 2, !tbaa !62
+  %220 = load ptr, ptr %10, align 8, !tbaa !52
+  %221 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %220, i32 0, i32 11
+  store i8 0, ptr %221, align 1, !tbaa !63
+  %222 = load ptr, ptr %10, align 8, !tbaa !52
+  %223 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %222, i32 0, i32 0
+  store i16 32, ptr %223, align 2, !tbaa !64
+  %224 = load ptr, ptr %10, align 8, !tbaa !52
+  %225 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %224, i32 0, i32 2
+  store i16 16, ptr %225, align 2, !tbaa !65
+  %226 = load ptr, ptr %10, align 8, !tbaa !52
+  %227 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %226, i32 0, i32 1
+  store i16 12, ptr %227, align 2, !tbaa !66
+  %228 = load ptr, ptr %10, align 8, !tbaa !52
+  %229 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %228, i32 0, i32 3
+  store i16 16, ptr %229, align 2, !tbaa !67
+  %230 = load ptr, ptr %11, align 8, !tbaa !54
+  %231 = icmp ne ptr %230, null
+  br i1 %231, label %232, label %238
+
+232:                                              ; preds = %205
+  %233 = load ptr, ptr %11, align 8, !tbaa !54
+  %234 = getelementptr inbounds nuw %struct.Options, ptr %233, i32 0, i32 1
+  %235 = load i64, ptr %234, align 8
+  %236 = and i64 %235, -4398046511105
+  %237 = or i64 %236, 0
+  store i64 %237, ptr %234, align 8
+  br label %238
+
+238:                                              ; preds = %232, %205
+  br label %243
+
+239:                                              ; preds = %32
+  br label %240
+
+240:                                              ; preds = %239
+  br label %241
+
+241:                                              ; preds = %240
+  br label %242
+
+242:                                              ; preds = %241
+  store i32 -500, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %833
+
+243:                                              ; preds = %238, %204, %170, %136, %102, %68
+  br label %244
+
+244:                                              ; preds = %243, %28
+  %245 = load i8, ptr %8, align 1, !tbaa !51
+  %246 = zext i8 %245 to i32
+  %247 = icmp eq i32 %246, 192
+  br i1 %247, label %248, label %540
+
+248:                                              ; preds = %244
+  %249 = load i8, ptr %9, align 1, !tbaa !51
+  %250 = zext i8 %249 to i32
+  switch i32 %250, label %535 [
+    i32 39, label %251
+    i32 40, label %274
+    i32 19, label %297
+    i32 20, label %320
+    i32 47, label %343
+    i32 48, label %368
+    i32 35, label %393
+    i32 36, label %416
+    i32 9, label %439
+    i32 10, label %462
+    i32 43, label %485
+    i32 44, label %510
+  ]
+
+251:                                              ; preds = %248
+  %252 = load ptr, ptr %10, align 8, !tbaa !52
+  %253 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %252, i32 0, i32 4
+  store i8 6, ptr %253, align 2, !tbaa !56
+  %254 = load ptr, ptr %10, align 8, !tbaa !52
+  %255 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %254, i32 0, i32 5
+  store i8 1, ptr %255, align 1, !tbaa !57
+  %256 = load ptr, ptr %10, align 8, !tbaa !52
+  %257 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %256, i32 0, i32 6
+  store i8 4, ptr %257, align 2, !tbaa !58
+  %258 = load ptr, ptr %10, align 8, !tbaa !52
+  %259 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %258, i32 0, i32 7
+  store i8 7, ptr %259, align 1, !tbaa !59
+  %260 = load ptr, ptr %10, align 8, !tbaa !52
+  %261 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %260, i32 0, i32 8
+  store i8 1, ptr %261, align 2, !tbaa !60
+  %262 = load ptr, ptr %10, align 8, !tbaa !52
+  %263 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %262, i32 0, i32 9
+  store i8 32, ptr %263, align 1, !tbaa !61
+  %264 = load ptr, ptr %10, align 8, !tbaa !52
+  %265 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %264, i32 0, i32 10
+  store i8 40, ptr %265, align 2, !tbaa !62
+  %266 = load ptr, ptr %10, align 8, !tbaa !52
+  %267 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %266, i32 0, i32 11
+  store i8 0, ptr %267, align 1, !tbaa !63
+  %268 = load ptr, ptr %10, align 8, !tbaa !52
+  %269 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %268, i32 0, i32 0
+  store i16 16, ptr %269, align 2, !tbaa !64
+  %270 = load ptr, ptr %10, align 8, !tbaa !52
+  %271 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %270, i32 0, i32 1
+  store i16 16, ptr %271, align 2, !tbaa !66
+  %272 = load ptr, ptr %10, align 8, !tbaa !52
+  %273 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %272, i32 0, i32 2
+  store i16 16, ptr %273, align 2, !tbaa !65
+  br label %539
+
+274:                                              ; preds = %248
+  %275 = load ptr, ptr %10, align 8, !tbaa !52
+  %276 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %275, i32 0, i32 4
+  store i8 6, ptr %276, align 2, !tbaa !56
+  %277 = load ptr, ptr %10, align 8, !tbaa !52
+  %278 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %277, i32 0, i32 5
+  store i8 1, ptr %278, align 1, !tbaa !57
+  %279 = load ptr, ptr %10, align 8, !tbaa !52
+  %280 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %279, i32 0, i32 6
+  store i8 5, ptr %280, align 2, !tbaa !58
+  %281 = load ptr, ptr %10, align 8, !tbaa !52
+  %282 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %281, i32 0, i32 7
+  store i8 7, ptr %282, align 1, !tbaa !59
+  %283 = load ptr, ptr %10, align 8, !tbaa !52
+  %284 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %283, i32 0, i32 8
+  store i8 1, ptr %284, align 2, !tbaa !60
+  %285 = load ptr, ptr %10, align 8, !tbaa !52
+  %286 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %285, i32 0, i32 9
+  store i8 48, ptr %286, align 1, !tbaa !61
+  %287 = load ptr, ptr %10, align 8, !tbaa !52
+  %288 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %287, i32 0, i32 10
+  store i8 40, ptr %288, align 2, !tbaa !62
+  %289 = load ptr, ptr %10, align 8, !tbaa !52
+  %290 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %289, i32 0, i32 11
+  store i8 0, ptr %290, align 1, !tbaa !63
+  %291 = load ptr, ptr %10, align 8, !tbaa !52
+  %292 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %291, i32 0, i32 0
+  store i16 32, ptr %292, align 2, !tbaa !64
+  %293 = load ptr, ptr %10, align 8, !tbaa !52
+  %294 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %293, i32 0, i32 1
+  store i16 16, ptr %294, align 2, !tbaa !66
+  %295 = load ptr, ptr %10, align 8, !tbaa !52
+  %296 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %295, i32 0, i32 2
+  store i16 16, ptr %296, align 2, !tbaa !65
+  br label %539
+
+297:                                              ; preds = %248
+  %298 = load ptr, ptr %10, align 8, !tbaa !52
+  %299 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %298, i32 0, i32 4
+  store i8 6, ptr %299, align 2, !tbaa !56
+  %300 = load ptr, ptr %10, align 8, !tbaa !52
+  %301 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %300, i32 0, i32 5
+  store i8 1, ptr %301, align 1, !tbaa !57
+  %302 = load ptr, ptr %10, align 8, !tbaa !52
+  %303 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %302, i32 0, i32 6
+  store i8 2, ptr %303, align 2, !tbaa !58
+  %304 = load ptr, ptr %10, align 8, !tbaa !52
+  %305 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %304, i32 0, i32 7
+  store i8 7, ptr %305, align 1, !tbaa !59
+  %306 = load ptr, ptr %10, align 8, !tbaa !52
+  %307 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %306, i32 0, i32 8
+  store i8 1, ptr %307, align 2, !tbaa !60
+  %308 = load ptr, ptr %10, align 8, !tbaa !52
+  %309 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %308, i32 0, i32 9
+  store i8 20, ptr %309, align 1, !tbaa !61
+  %310 = load ptr, ptr %10, align 8, !tbaa !52
+  %311 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %310, i32 0, i32 10
+  store i8 40, ptr %311, align 2, !tbaa !62
+  %312 = load ptr, ptr %10, align 8, !tbaa !52
+  %313 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %312, i32 0, i32 11
+  store i8 0, ptr %313, align 1, !tbaa !63
+  %314 = load ptr, ptr %10, align 8, !tbaa !52
+  %315 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %314, i32 0, i32 0
+  store i16 16, ptr %315, align 2, !tbaa !64
+  %316 = load ptr, ptr %10, align 8, !tbaa !52
+  %317 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %316, i32 0, i32 2
+  store i16 16, ptr %317, align 2, !tbaa !65
+  %318 = load ptr, ptr %10, align 8, !tbaa !52
+  %319 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %318, i32 0, i32 1
+  store i16 16, ptr %319, align 2, !tbaa !66
+  br label %539
+
+320:                                              ; preds = %248
+  %321 = load ptr, ptr %10, align 8, !tbaa !52
+  %322 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %321, i32 0, i32 4
+  store i8 6, ptr %322, align 2, !tbaa !56
+  %323 = load ptr, ptr %10, align 8, !tbaa !52
+  %324 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %323, i32 0, i32 5
+  store i8 1, ptr %324, align 1, !tbaa !57
+  %325 = load ptr, ptr %10, align 8, !tbaa !52
+  %326 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %325, i32 0, i32 6
+  store i8 2, ptr %326, align 2, !tbaa !58
+  %327 = load ptr, ptr %10, align 8, !tbaa !52
+  %328 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %327, i32 0, i32 7
+  store i8 7, ptr %328, align 1, !tbaa !59
+  %329 = load ptr, ptr %10, align 8, !tbaa !52
+  %330 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %329, i32 0, i32 8
+  store i8 1, ptr %330, align 2, !tbaa !60
+  %331 = load ptr, ptr %10, align 8, !tbaa !52
+  %332 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %331, i32 0, i32 9
+  store i8 20, ptr %332, align 1, !tbaa !61
+  %333 = load ptr, ptr %10, align 8, !tbaa !52
+  %334 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %333, i32 0, i32 10
+  store i8 40, ptr %334, align 2, !tbaa !62
+  %335 = load ptr, ptr %10, align 8, !tbaa !52
+  %336 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %335, i32 0, i32 11
+  store i8 0, ptr %336, align 1, !tbaa !63
+  %337 = load ptr, ptr %10, align 8, !tbaa !52
+  %338 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %337, i32 0, i32 0
+  store i16 32, ptr %338, align 2, !tbaa !64
+  %339 = load ptr, ptr %10, align 8, !tbaa !52
+  %340 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %339, i32 0, i32 2
+  store i16 16, ptr %340, align 2, !tbaa !65
+  %341 = load ptr, ptr %10, align 8, !tbaa !52
+  %342 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %341, i32 0, i32 1
+  store i16 16, ptr %342, align 2, !tbaa !66
+  br label %539
+
+343:                                              ; preds = %248
+  %344 = load ptr, ptr %10, align 8, !tbaa !52
+  %345 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %344, i32 0, i32 4
+  store i8 7, ptr %345, align 2, !tbaa !56
+  %346 = load ptr, ptr %10, align 8, !tbaa !52
+  %347 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %346, i32 0, i32 5
+  store i8 2, ptr %347, align 1, !tbaa !57
+  %348 = load ptr, ptr %10, align 8, !tbaa !52
+  %349 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %348, i32 0, i32 6
+  store i8 4, ptr %349, align 2, !tbaa !58
+  %350 = load ptr, ptr %10, align 8, !tbaa !52
+  %351 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %350, i32 0, i32 7
+  store i8 7, ptr %351, align 1, !tbaa !59
+  %352 = load ptr, ptr %10, align 8, !tbaa !52
+  %353 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %352, i32 0, i32 8
+  store i8 1, ptr %353, align 2, !tbaa !60
+  %354 = load ptr, ptr %10, align 8, !tbaa !52
+  %355 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %354, i32 0, i32 9
+  store i8 32, ptr %355, align 1, !tbaa !61
+  %356 = load ptr, ptr %10, align 8, !tbaa !52
+  %357 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %356, i32 0, i32 10
+  store i8 40, ptr %357, align 2, !tbaa !62
+  %358 = load ptr, ptr %10, align 8, !tbaa !52
+  %359 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %358, i32 0, i32 11
+  store i8 0, ptr %359, align 1, !tbaa !63
+  %360 = load ptr, ptr %10, align 8, !tbaa !52
+  %361 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %360, i32 0, i32 0
+  store i16 16, ptr %361, align 2, !tbaa !64
+  %362 = load ptr, ptr %10, align 8, !tbaa !52
+  %363 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %362, i32 0, i32 2
+  store i16 16, ptr %363, align 2, !tbaa !65
+  %364 = load ptr, ptr %10, align 8, !tbaa !52
+  %365 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %364, i32 0, i32 1
+  store i16 4, ptr %365, align 2, !tbaa !66
+  %366 = load ptr, ptr %10, align 8, !tbaa !52
+  %367 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %366, i32 0, i32 3
+  store i16 16, ptr %367, align 2, !tbaa !67
+  br label %539
+
+368:                                              ; preds = %248
+  %369 = load ptr, ptr %10, align 8, !tbaa !52
+  %370 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %369, i32 0, i32 4
+  store i8 7, ptr %370, align 2, !tbaa !56
+  %371 = load ptr, ptr %10, align 8, !tbaa !52
+  %372 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %371, i32 0, i32 5
+  store i8 2, ptr %372, align 1, !tbaa !57
+  %373 = load ptr, ptr %10, align 8, !tbaa !52
+  %374 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %373, i32 0, i32 6
+  store i8 5, ptr %374, align 2, !tbaa !58
+  %375 = load ptr, ptr %10, align 8, !tbaa !52
+  %376 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %375, i32 0, i32 7
+  store i8 7, ptr %376, align 1, !tbaa !59
+  %377 = load ptr, ptr %10, align 8, !tbaa !52
+  %378 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %377, i32 0, i32 8
+  store i8 1, ptr %378, align 2, !tbaa !60
+  %379 = load ptr, ptr %10, align 8, !tbaa !52
+  %380 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %379, i32 0, i32 9
+  store i8 48, ptr %380, align 1, !tbaa !61
+  %381 = load ptr, ptr %10, align 8, !tbaa !52
+  %382 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %381, i32 0, i32 10
+  store i8 40, ptr %382, align 2, !tbaa !62
+  %383 = load ptr, ptr %10, align 8, !tbaa !52
+  %384 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %383, i32 0, i32 11
+  store i8 0, ptr %384, align 1, !tbaa !63
+  %385 = load ptr, ptr %10, align 8, !tbaa !52
+  %386 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %385, i32 0, i32 0
+  store i16 32, ptr %386, align 2, !tbaa !64
+  %387 = load ptr, ptr %10, align 8, !tbaa !52
+  %388 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %387, i32 0, i32 2
+  store i16 16, ptr %388, align 2, !tbaa !65
+  %389 = load ptr, ptr %10, align 8, !tbaa !52
+  %390 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %389, i32 0, i32 1
+  store i16 4, ptr %390, align 2, !tbaa !66
+  %391 = load ptr, ptr %10, align 8, !tbaa !52
+  %392 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %391, i32 0, i32 3
+  store i16 16, ptr %392, align 2, !tbaa !67
+  br label %539
+
+393:                                              ; preds = %248
+  %394 = load ptr, ptr %10, align 8, !tbaa !52
+  %395 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %394, i32 0, i32 4
+  store i8 6, ptr %395, align 2, !tbaa !56
+  %396 = load ptr, ptr %10, align 8, !tbaa !52
+  %397 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %396, i32 0, i32 5
+  store i8 1, ptr %397, align 1, !tbaa !57
+  %398 = load ptr, ptr %10, align 8, !tbaa !52
+  %399 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %398, i32 0, i32 6
+  store i8 4, ptr %399, align 2, !tbaa !58
+  %400 = load ptr, ptr %10, align 8, !tbaa !52
+  %401 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %400, i32 0, i32 7
+  store i8 7, ptr %401, align 1, !tbaa !59
+  %402 = load ptr, ptr %10, align 8, !tbaa !52
+  %403 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %402, i32 0, i32 8
+  store i8 3, ptr %403, align 2, !tbaa !60
+  %404 = load ptr, ptr %10, align 8, !tbaa !52
+  %405 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %404, i32 0, i32 9
+  store i8 32, ptr %405, align 1, !tbaa !61
+  %406 = load ptr, ptr %10, align 8, !tbaa !52
+  %407 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %406, i32 0, i32 10
+  store i8 40, ptr %407, align 2, !tbaa !62
+  %408 = load ptr, ptr %10, align 8, !tbaa !52
+  %409 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %408, i32 0, i32 11
+  store i8 0, ptr %409, align 1, !tbaa !63
+  %410 = load ptr, ptr %10, align 8, !tbaa !52
+  %411 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %410, i32 0, i32 0
+  store i16 16, ptr %411, align 2, !tbaa !64
+  %412 = load ptr, ptr %10, align 8, !tbaa !52
+  %413 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %412, i32 0, i32 1
+  store i16 16, ptr %413, align 2, !tbaa !66
+  %414 = load ptr, ptr %10, align 8, !tbaa !52
+  %415 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %414, i32 0, i32 2
+  store i16 16, ptr %415, align 2, !tbaa !65
+  br label %539
+
+416:                                              ; preds = %248
+  %417 = load ptr, ptr %10, align 8, !tbaa !52
+  %418 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %417, i32 0, i32 4
+  store i8 6, ptr %418, align 2, !tbaa !56
+  %419 = load ptr, ptr %10, align 8, !tbaa !52
+  %420 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %419, i32 0, i32 5
+  store i8 1, ptr %420, align 1, !tbaa !57
+  %421 = load ptr, ptr %10, align 8, !tbaa !52
+  %422 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %421, i32 0, i32 6
+  store i8 5, ptr %422, align 2, !tbaa !58
+  %423 = load ptr, ptr %10, align 8, !tbaa !52
+  %424 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %423, i32 0, i32 7
+  store i8 7, ptr %424, align 1, !tbaa !59
+  %425 = load ptr, ptr %10, align 8, !tbaa !52
+  %426 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %425, i32 0, i32 8
+  store i8 3, ptr %426, align 2, !tbaa !60
+  %427 = load ptr, ptr %10, align 8, !tbaa !52
+  %428 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %427, i32 0, i32 9
+  store i8 48, ptr %428, align 1, !tbaa !61
+  %429 = load ptr, ptr %10, align 8, !tbaa !52
+  %430 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %429, i32 0, i32 10
+  store i8 40, ptr %430, align 2, !tbaa !62
+  %431 = load ptr, ptr %10, align 8, !tbaa !52
+  %432 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %431, i32 0, i32 11
+  store i8 0, ptr %432, align 1, !tbaa !63
+  %433 = load ptr, ptr %10, align 8, !tbaa !52
+  %434 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %433, i32 0, i32 0
+  store i16 32, ptr %434, align 2, !tbaa !64
+  %435 = load ptr, ptr %10, align 8, !tbaa !52
+  %436 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %435, i32 0, i32 1
+  store i16 16, ptr %436, align 2, !tbaa !66
+  %437 = load ptr, ptr %10, align 8, !tbaa !52
+  %438 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %437, i32 0, i32 2
+  store i16 16, ptr %438, align 2, !tbaa !65
+  br label %539
+
+439:                                              ; preds = %248
+  %440 = load ptr, ptr %10, align 8, !tbaa !52
+  %441 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %440, i32 0, i32 4
+  store i8 6, ptr %441, align 2, !tbaa !56
+  %442 = load ptr, ptr %10, align 8, !tbaa !52
+  %443 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %442, i32 0, i32 5
+  store i8 1, ptr %443, align 1, !tbaa !57
+  %444 = load ptr, ptr %10, align 8, !tbaa !52
+  %445 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %444, i32 0, i32 6
+  store i8 2, ptr %445, align 2, !tbaa !58
+  %446 = load ptr, ptr %10, align 8, !tbaa !52
+  %447 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %446, i32 0, i32 7
+  store i8 7, ptr %447, align 1, !tbaa !59
+  %448 = load ptr, ptr %10, align 8, !tbaa !52
+  %449 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %448, i32 0, i32 8
+  store i8 3, ptr %449, align 2, !tbaa !60
+  %450 = load ptr, ptr %10, align 8, !tbaa !52
+  %451 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %450, i32 0, i32 9
+  store i8 20, ptr %451, align 1, !tbaa !61
+  %452 = load ptr, ptr %10, align 8, !tbaa !52
+  %453 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %452, i32 0, i32 10
+  store i8 40, ptr %453, align 2, !tbaa !62
+  %454 = load ptr, ptr %10, align 8, !tbaa !52
+  %455 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %454, i32 0, i32 11
+  store i8 0, ptr %455, align 1, !tbaa !63
+  %456 = load ptr, ptr %10, align 8, !tbaa !52
+  %457 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %456, i32 0, i32 0
+  store i16 16, ptr %457, align 2, !tbaa !64
+  %458 = load ptr, ptr %10, align 8, !tbaa !52
+  %459 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %458, i32 0, i32 2
+  store i16 16, ptr %459, align 2, !tbaa !65
+  %460 = load ptr, ptr %10, align 8, !tbaa !52
+  %461 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %460, i32 0, i32 1
+  store i16 16, ptr %461, align 2, !tbaa !66
+  br label %539
+
+462:                                              ; preds = %248
+  %463 = load ptr, ptr %10, align 8, !tbaa !52
+  %464 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %463, i32 0, i32 4
+  store i8 6, ptr %464, align 2, !tbaa !56
+  %465 = load ptr, ptr %10, align 8, !tbaa !52
+  %466 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %465, i32 0, i32 5
+  store i8 1, ptr %466, align 1, !tbaa !57
+  %467 = load ptr, ptr %10, align 8, !tbaa !52
+  %468 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %467, i32 0, i32 6
+  store i8 2, ptr %468, align 2, !tbaa !58
+  %469 = load ptr, ptr %10, align 8, !tbaa !52
+  %470 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %469, i32 0, i32 7
+  store i8 7, ptr %470, align 1, !tbaa !59
+  %471 = load ptr, ptr %10, align 8, !tbaa !52
+  %472 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %471, i32 0, i32 8
+  store i8 3, ptr %472, align 2, !tbaa !60
+  %473 = load ptr, ptr %10, align 8, !tbaa !52
+  %474 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %473, i32 0, i32 9
+  store i8 20, ptr %474, align 1, !tbaa !61
+  %475 = load ptr, ptr %10, align 8, !tbaa !52
+  %476 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %475, i32 0, i32 10
+  store i8 40, ptr %476, align 2, !tbaa !62
+  %477 = load ptr, ptr %10, align 8, !tbaa !52
+  %478 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %477, i32 0, i32 11
+  store i8 0, ptr %478, align 1, !tbaa !63
+  %479 = load ptr, ptr %10, align 8, !tbaa !52
+  %480 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %479, i32 0, i32 0
+  store i16 32, ptr %480, align 2, !tbaa !64
+  %481 = load ptr, ptr %10, align 8, !tbaa !52
+  %482 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %481, i32 0, i32 2
+  store i16 16, ptr %482, align 2, !tbaa !65
+  %483 = load ptr, ptr %10, align 8, !tbaa !52
+  %484 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %483, i32 0, i32 1
+  store i16 16, ptr %484, align 2, !tbaa !66
+  br label %539
+
+485:                                              ; preds = %248
+  %486 = load ptr, ptr %10, align 8, !tbaa !52
+  %487 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %486, i32 0, i32 4
+  store i8 7, ptr %487, align 2, !tbaa !56
+  %488 = load ptr, ptr %10, align 8, !tbaa !52
+  %489 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %488, i32 0, i32 5
+  store i8 2, ptr %489, align 1, !tbaa !57
+  %490 = load ptr, ptr %10, align 8, !tbaa !52
+  %491 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %490, i32 0, i32 6
+  store i8 4, ptr %491, align 2, !tbaa !58
+  %492 = load ptr, ptr %10, align 8, !tbaa !52
+  %493 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %492, i32 0, i32 7
+  store i8 7, ptr %493, align 1, !tbaa !59
+  %494 = load ptr, ptr %10, align 8, !tbaa !52
+  %495 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %494, i32 0, i32 8
+  store i8 3, ptr %495, align 2, !tbaa !60
+  %496 = load ptr, ptr %10, align 8, !tbaa !52
+  %497 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %496, i32 0, i32 9
+  store i8 32, ptr %497, align 1, !tbaa !61
+  %498 = load ptr, ptr %10, align 8, !tbaa !52
+  %499 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %498, i32 0, i32 10
+  store i8 40, ptr %499, align 2, !tbaa !62
+  %500 = load ptr, ptr %10, align 8, !tbaa !52
+  %501 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %500, i32 0, i32 11
+  store i8 0, ptr %501, align 1, !tbaa !63
+  %502 = load ptr, ptr %10, align 8, !tbaa !52
+  %503 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %502, i32 0, i32 0
+  store i16 16, ptr %503, align 2, !tbaa !64
+  %504 = load ptr, ptr %10, align 8, !tbaa !52
+  %505 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %504, i32 0, i32 2
+  store i16 16, ptr %505, align 2, !tbaa !65
+  %506 = load ptr, ptr %10, align 8, !tbaa !52
+  %507 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %506, i32 0, i32 1
+  store i16 4, ptr %507, align 2, !tbaa !66
+  %508 = load ptr, ptr %10, align 8, !tbaa !52
+  %509 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %508, i32 0, i32 3
+  store i16 16, ptr %509, align 2, !tbaa !67
+  br label %539
+
+510:                                              ; preds = %248
+  %511 = load ptr, ptr %10, align 8, !tbaa !52
+  %512 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %511, i32 0, i32 4
+  store i8 7, ptr %512, align 2, !tbaa !56
+  %513 = load ptr, ptr %10, align 8, !tbaa !52
+  %514 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %513, i32 0, i32 5
+  store i8 2, ptr %514, align 1, !tbaa !57
+  %515 = load ptr, ptr %10, align 8, !tbaa !52
+  %516 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %515, i32 0, i32 6
+  store i8 5, ptr %516, align 2, !tbaa !58
+  %517 = load ptr, ptr %10, align 8, !tbaa !52
+  %518 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %517, i32 0, i32 7
+  store i8 7, ptr %518, align 1, !tbaa !59
+  %519 = load ptr, ptr %10, align 8, !tbaa !52
+  %520 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %519, i32 0, i32 8
+  store i8 3, ptr %520, align 2, !tbaa !60
+  %521 = load ptr, ptr %10, align 8, !tbaa !52
+  %522 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %521, i32 0, i32 9
+  store i8 48, ptr %522, align 1, !tbaa !61
+  %523 = load ptr, ptr %10, align 8, !tbaa !52
+  %524 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %523, i32 0, i32 10
+  store i8 40, ptr %524, align 2, !tbaa !62
+  %525 = load ptr, ptr %10, align 8, !tbaa !52
+  %526 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %525, i32 0, i32 11
+  store i8 0, ptr %526, align 1, !tbaa !63
+  %527 = load ptr, ptr %10, align 8, !tbaa !52
+  %528 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %527, i32 0, i32 0
+  store i16 32, ptr %528, align 2, !tbaa !64
+  %529 = load ptr, ptr %10, align 8, !tbaa !52
+  %530 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %529, i32 0, i32 2
+  store i16 16, ptr %530, align 2, !tbaa !65
+  %531 = load ptr, ptr %10, align 8, !tbaa !52
+  %532 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %531, i32 0, i32 1
+  store i16 4, ptr %532, align 2, !tbaa !66
+  %533 = load ptr, ptr %10, align 8, !tbaa !52
+  %534 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %533, i32 0, i32 3
+  store i16 16, ptr %534, align 2, !tbaa !67
+  br label %539
+
+535:                                              ; preds = %248
+  br label %536
+
+536:                                              ; preds = %535
+  br label %537
+
+537:                                              ; preds = %536
+  br label %538
+
+538:                                              ; preds = %537
+  store i32 -500, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %833
+
+539:                                              ; preds = %510, %485, %462, %439, %416, %393, %368, %343, %320, %297, %274, %251
+  br label %540
+
+540:                                              ; preds = %539, %244
+  %541 = load i8, ptr %8, align 1, !tbaa !51
+  %542 = zext i8 %541 to i32
+  %543 = icmp eq i32 %542, 19
+  br i1 %543, label %544, label %633
+
+544:                                              ; preds = %540
+  %545 = load i8, ptr %9, align 1, !tbaa !51
+  %546 = zext i8 %545 to i32
+  switch i32 %546, label %631 [
+    i32 1, label %547
+    i32 2, label %572
+    i32 3, label %597
+  ]
+
+547:                                              ; preds = %544
+  %548 = load ptr, ptr %10, align 8, !tbaa !52
+  %549 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %548, i32 0, i32 4
+  store i8 7, ptr %549, align 2, !tbaa !56
+  %550 = load ptr, ptr %10, align 8, !tbaa !52
+  %551 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %550, i32 0, i32 5
+  store i8 2, ptr %551, align 1, !tbaa !57
+  %552 = load ptr, ptr %10, align 8, !tbaa !52
+  %553 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %552, i32 0, i32 6
+  store i8 4, ptr %553, align 2, !tbaa !58
+  %554 = load ptr, ptr %10, align 8, !tbaa !52
+  %555 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %554, i32 0, i32 7
+  store i8 0, ptr %555, align 1, !tbaa !59
+  %556 = load ptr, ptr %10, align 8, !tbaa !52
+  %557 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %556, i32 0, i32 8
+  store i8 0, ptr %557, align 2, !tbaa !60
+  %558 = load ptr, ptr %10, align 8, !tbaa !52
+  %559 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %558, i32 0, i32 9
+  store i8 32, ptr %559, align 1, !tbaa !61
+  %560 = load ptr, ptr %10, align 8, !tbaa !52
+  %561 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %560, i32 0, i32 10
+  store i8 40, ptr %561, align 2, !tbaa !62
+  %562 = load ptr, ptr %10, align 8, !tbaa !52
+  %563 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %562, i32 0, i32 11
+  store i8 0, ptr %563, align 1, !tbaa !63
+  %564 = load ptr, ptr %10, align 8, !tbaa !52
+  %565 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %564, i32 0, i32 0
+  store i16 16, ptr %565, align 2, !tbaa !64
+  %566 = load ptr, ptr %10, align 8, !tbaa !52
+  %567 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %566, i32 0, i32 2
+  store i16 16, ptr %567, align 2, !tbaa !65
+  %568 = load ptr, ptr %10, align 8, !tbaa !52
+  %569 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %568, i32 0, i32 1
+  store i16 12, ptr %569, align 2, !tbaa !66
+  %570 = load ptr, ptr %10, align 8, !tbaa !52
+  %571 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %570, i32 0, i32 3
+  store i16 16, ptr %571, align 2, !tbaa !67
+  br label %632
+
+572:                                              ; preds = %544
+  %573 = load ptr, ptr %10, align 8, !tbaa !52
+  %574 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %573, i32 0, i32 4
+  store i8 7, ptr %574, align 2, !tbaa !56
+  %575 = load ptr, ptr %10, align 8, !tbaa !52
+  %576 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %575, i32 0, i32 5
+  store i8 2, ptr %576, align 1, !tbaa !57
+  %577 = load ptr, ptr %10, align 8, !tbaa !52
+  %578 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %577, i32 0, i32 6
+  store i8 5, ptr %578, align 2, !tbaa !58
+  %579 = load ptr, ptr %10, align 8, !tbaa !52
+  %580 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %579, i32 0, i32 7
+  store i8 0, ptr %580, align 1, !tbaa !59
+  %581 = load ptr, ptr %10, align 8, !tbaa !52
+  %582 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %581, i32 0, i32 8
+  store i8 0, ptr %582, align 2, !tbaa !60
+  %583 = load ptr, ptr %10, align 8, !tbaa !52
+  %584 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %583, i32 0, i32 9
+  store i8 48, ptr %584, align 1, !tbaa !61
+  %585 = load ptr, ptr %10, align 8, !tbaa !52
+  %586 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %585, i32 0, i32 10
+  store i8 40, ptr %586, align 2, !tbaa !62
+  %587 = load ptr, ptr %10, align 8, !tbaa !52
+  %588 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %587, i32 0, i32 11
+  store i8 0, ptr %588, align 1, !tbaa !63
+  %589 = load ptr, ptr %10, align 8, !tbaa !52
+  %590 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %589, i32 0, i32 0
+  store i16 32, ptr %590, align 2, !tbaa !64
+  %591 = load ptr, ptr %10, align 8, !tbaa !52
+  %592 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %591, i32 0, i32 2
+  store i16 16, ptr %592, align 2, !tbaa !65
+  %593 = load ptr, ptr %10, align 8, !tbaa !52
+  %594 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %593, i32 0, i32 1
+  store i16 12, ptr %594, align 2, !tbaa !66
+  %595 = load ptr, ptr %10, align 8, !tbaa !52
+  %596 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %595, i32 0, i32 3
+  store i16 16, ptr %596, align 2, !tbaa !67
+  br label %632
+
+597:                                              ; preds = %544
+  %598 = load ptr, ptr %10, align 8, !tbaa !52
+  %599 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %598, i32 0, i32 4
+  store i8 9, ptr %599, align 2, !tbaa !56
+  %600 = load ptr, ptr %10, align 8, !tbaa !52
+  %601 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %600, i32 0, i32 5
+  store i8 2, ptr %601, align 1, !tbaa !57
+  %602 = load ptr, ptr %10, align 8, !tbaa !52
+  %603 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %602, i32 0, i32 6
+  store i8 4, ptr %603, align 2, !tbaa !58
+  %604 = load ptr, ptr %10, align 8, !tbaa !52
+  %605 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %604, i32 0, i32 7
+  store i8 0, ptr %605, align 1, !tbaa !59
+  %606 = load ptr, ptr %10, align 8, !tbaa !52
+  %607 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %606, i32 0, i32 8
+  store i8 0, ptr %607, align 2, !tbaa !60
+  %608 = load ptr, ptr %10, align 8, !tbaa !52
+  %609 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %608, i32 0, i32 9
+  store i8 32, ptr %609, align 1, !tbaa !61
+  %610 = load ptr, ptr %10, align 8, !tbaa !52
+  %611 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %610, i32 0, i32 10
+  store i8 40, ptr %611, align 2, !tbaa !62
+  %612 = load ptr, ptr %10, align 8, !tbaa !52
+  %613 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %612, i32 0, i32 11
+  store i8 0, ptr %613, align 1, !tbaa !63
+  %614 = load ptr, ptr %10, align 8, !tbaa !52
+  %615 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %614, i32 0, i32 0
+  store i16 32, ptr %615, align 2, !tbaa !64
+  %616 = load ptr, ptr %10, align 8, !tbaa !52
+  %617 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %616, i32 0, i32 2
+  store i16 16, ptr %617, align 2, !tbaa !65
+  %618 = load ptr, ptr %10, align 8, !tbaa !52
+  %619 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %618, i32 0, i32 1
+  store i16 12, ptr %619, align 2, !tbaa !66
+  %620 = load ptr, ptr %10, align 8, !tbaa !52
+  %621 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %620, i32 0, i32 3
+  store i16 16, ptr %621, align 2, !tbaa !67
+  %622 = load ptr, ptr %11, align 8, !tbaa !54
+  %623 = icmp ne ptr %622, null
+  br i1 %623, label %624, label %630
+
+624:                                              ; preds = %597
+  %625 = load ptr, ptr %11, align 8, !tbaa !54
+  %626 = getelementptr inbounds nuw %struct.Options, ptr %625, i32 0, i32 1
+  %627 = load i64, ptr %626, align 8
+  %628 = and i64 %627, -4398046511105
+  %629 = or i64 %628, 0
+  store i64 %629, ptr %626, align 8
+  br label %630
+
+630:                                              ; preds = %624, %597
+  br label %632
+
+631:                                              ; preds = %544
+  br label %632
+
+632:                                              ; preds = %631, %630, %572, %547
+  br label %633
+
+633:                                              ; preds = %632, %540
+  %634 = load i8, ptr %8, align 1, !tbaa !51
+  %635 = zext i8 %634 to i32
+  %636 = icmp eq i32 %635, 208
+  br i1 %636, label %637, label %642
+
+637:                                              ; preds = %633
+  %638 = load i8, ptr %9, align 1, !tbaa !51
+  %639 = zext i8 %638 to i32
+  switch i32 %639, label %640 [
+  ]
+
+640:                                              ; preds = %637
+  br label %641
+
+641:                                              ; preds = %640
+  br label %642
+
+642:                                              ; preds = %641, %633
+  %643 = load i8, ptr %8, align 1, !tbaa !51
+  %644 = zext i8 %643 to i32
+  %645 = icmp eq i32 %644, 224
+  br i1 %645, label %646, label %651
+
+646:                                              ; preds = %642
+  %647 = load i8, ptr %9, align 1, !tbaa !51
+  %648 = zext i8 %647 to i32
+  switch i32 %648, label %649 [
+  ]
+
+649:                                              ; preds = %646
+  br label %650
+
+650:                                              ; preds = %649
+  br label %651
+
+651:                                              ; preds = %650, %642
+  %652 = load i8, ptr %8, align 1, !tbaa !51
+  %653 = zext i8 %652 to i32
+  %654 = icmp ne i32 %653, 192
+  br i1 %654, label %655, label %817
+
+655:                                              ; preds = %651
+  %656 = load i8, ptr %8, align 1, !tbaa !51
+  %657 = zext i8 %656 to i32
+  %658 = icmp ne i32 %657, 208
+  br i1 %658, label %659, label %817
+
+659:                                              ; preds = %655
+  %660 = load i8, ptr %8, align 1, !tbaa !51
+  %661 = zext i8 %660 to i32
+  %662 = icmp ne i32 %661, 204
+  br i1 %662, label %663, label %817
+
+663:                                              ; preds = %659
+  %664 = load i8, ptr %8, align 1, !tbaa !51
+  %665 = zext i8 %664 to i32
+  %666 = icmp ne i32 %665, 19
+  br i1 %666, label %667, label %817
+
+667:                                              ; preds = %663
+  %668 = load i8, ptr %9, align 1, !tbaa !51
+  %669 = zext i8 %668 to i32
+  switch i32 %669, label %812 [
+    i32 103, label %670
+    i32 107, label %693
+    i32 51, label %716
+    i32 57, label %739
+    i32 158, label %762
+    i32 159, label %787
+  ]
+
+670:                                              ; preds = %667
+  %671 = load ptr, ptr %10, align 8, !tbaa !52
+  %672 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %671, i32 0, i32 4
+  store i8 6, ptr %672, align 2, !tbaa !56
+  %673 = load ptr, ptr %10, align 8, !tbaa !52
+  %674 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %673, i32 0, i32 5
+  store i8 1, ptr %674, align 1, !tbaa !57
+  %675 = load ptr, ptr %10, align 8, !tbaa !52
+  %676 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %675, i32 0, i32 6
+  store i8 4, ptr %676, align 2, !tbaa !58
+  %677 = load ptr, ptr %10, align 8, !tbaa !52
+  %678 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %677, i32 0, i32 7
+  store i8 2, ptr %678, align 1, !tbaa !59
+  %679 = load ptr, ptr %10, align 8, !tbaa !52
+  %680 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %679, i32 0, i32 8
+  store i8 1, ptr %680, align 2, !tbaa !60
+  %681 = load ptr, ptr %10, align 8, !tbaa !52
+  %682 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %681, i32 0, i32 9
+  store i8 32, ptr %682, align 1, !tbaa !61
+  %683 = load ptr, ptr %10, align 8, !tbaa !52
+  %684 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %683, i32 0, i32 10
+  store i8 40, ptr %684, align 2, !tbaa !62
+  %685 = load ptr, ptr %10, align 8, !tbaa !52
+  %686 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %685, i32 0, i32 11
+  store i8 0, ptr %686, align 1, !tbaa !63
+  %687 = load ptr, ptr %10, align 8, !tbaa !52
+  %688 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %687, i32 0, i32 0
+  store i16 16, ptr %688, align 2, !tbaa !64
+  %689 = load ptr, ptr %10, align 8, !tbaa !52
+  %690 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %689, i32 0, i32 2
+  store i16 16, ptr %690, align 2, !tbaa !65
+  %691 = load ptr, ptr %10, align 8, !tbaa !52
+  %692 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %691, i32 0, i32 1
+  store i16 16, ptr %692, align 2, !tbaa !66
+  br label %816
+
+693:                                              ; preds = %667
+  %694 = load ptr, ptr %10, align 8, !tbaa !52
+  %695 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %694, i32 0, i32 4
+  store i8 6, ptr %695, align 2, !tbaa !56
+  %696 = load ptr, ptr %10, align 8, !tbaa !52
+  %697 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %696, i32 0, i32 5
+  store i8 1, ptr %697, align 1, !tbaa !57
+  %698 = load ptr, ptr %10, align 8, !tbaa !52
+  %699 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %698, i32 0, i32 6
+  store i8 4, ptr %699, align 2, !tbaa !58
+  %700 = load ptr, ptr %10, align 8, !tbaa !52
+  %701 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %700, i32 0, i32 7
+  store i8 2, ptr %701, align 1, !tbaa !59
+  %702 = load ptr, ptr %10, align 8, !tbaa !52
+  %703 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %702, i32 0, i32 8
+  store i8 1, ptr %703, align 2, !tbaa !60
+  %704 = load ptr, ptr %10, align 8, !tbaa !52
+  %705 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %704, i32 0, i32 9
+  store i8 32, ptr %705, align 1, !tbaa !61
+  %706 = load ptr, ptr %10, align 8, !tbaa !52
+  %707 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %706, i32 0, i32 10
+  store i8 40, ptr %707, align 2, !tbaa !62
+  %708 = load ptr, ptr %10, align 8, !tbaa !52
+  %709 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %708, i32 0, i32 11
+  store i8 0, ptr %709, align 1, !tbaa !63
+  %710 = load ptr, ptr %10, align 8, !tbaa !52
+  %711 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %710, i32 0, i32 0
+  store i16 32, ptr %711, align 2, !tbaa !64
+  %712 = load ptr, ptr %10, align 8, !tbaa !52
+  %713 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %712, i32 0, i32 2
+  store i16 16, ptr %713, align 2, !tbaa !65
+  %714 = load ptr, ptr %10, align 8, !tbaa !52
+  %715 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %714, i32 0, i32 1
+  store i16 16, ptr %715, align 2, !tbaa !66
+  br label %816
+
+716:                                              ; preds = %667
+  %717 = load ptr, ptr %10, align 8, !tbaa !52
+  %718 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %717, i32 0, i32 4
+  store i8 6, ptr %718, align 2, !tbaa !56
+  %719 = load ptr, ptr %10, align 8, !tbaa !52
+  %720 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %719, i32 0, i32 5
+  store i8 1, ptr %720, align 1, !tbaa !57
+  %721 = load ptr, ptr %10, align 8, !tbaa !52
+  %722 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %721, i32 0, i32 6
+  store i8 2, ptr %722, align 2, !tbaa !58
+  %723 = load ptr, ptr %10, align 8, !tbaa !52
+  %724 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %723, i32 0, i32 7
+  store i8 2, ptr %724, align 1, !tbaa !59
+  %725 = load ptr, ptr %10, align 8, !tbaa !52
+  %726 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %725, i32 0, i32 8
+  store i8 1, ptr %726, align 2, !tbaa !60
+  %727 = load ptr, ptr %10, align 8, !tbaa !52
+  %728 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %727, i32 0, i32 9
+  store i8 20, ptr %728, align 1, !tbaa !61
+  %729 = load ptr, ptr %10, align 8, !tbaa !52
+  %730 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %729, i32 0, i32 10
+  store i8 40, ptr %730, align 2, !tbaa !62
+  %731 = load ptr, ptr %10, align 8, !tbaa !52
+  %732 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %731, i32 0, i32 11
+  store i8 0, ptr %732, align 1, !tbaa !63
+  %733 = load ptr, ptr %10, align 8, !tbaa !52
+  %734 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %733, i32 0, i32 0
+  store i16 16, ptr %734, align 2, !tbaa !64
+  %735 = load ptr, ptr %10, align 8, !tbaa !52
+  %736 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %735, i32 0, i32 2
+  store i16 16, ptr %736, align 2, !tbaa !65
+  %737 = load ptr, ptr %10, align 8, !tbaa !52
+  %738 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %737, i32 0, i32 1
+  store i16 16, ptr %738, align 2, !tbaa !66
+  br label %816
+
+739:                                              ; preds = %667
+  %740 = load ptr, ptr %10, align 8, !tbaa !52
+  %741 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %740, i32 0, i32 4
+  store i8 6, ptr %741, align 2, !tbaa !56
+  %742 = load ptr, ptr %10, align 8, !tbaa !52
+  %743 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %742, i32 0, i32 5
+  store i8 1, ptr %743, align 1, !tbaa !57
+  %744 = load ptr, ptr %10, align 8, !tbaa !52
+  %745 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %744, i32 0, i32 6
+  store i8 2, ptr %745, align 2, !tbaa !58
+  %746 = load ptr, ptr %10, align 8, !tbaa !52
+  %747 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %746, i32 0, i32 7
+  store i8 2, ptr %747, align 1, !tbaa !59
+  %748 = load ptr, ptr %10, align 8, !tbaa !52
+  %749 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %748, i32 0, i32 8
+  store i8 1, ptr %749, align 2, !tbaa !60
+  %750 = load ptr, ptr %10, align 8, !tbaa !52
+  %751 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %750, i32 0, i32 9
+  store i8 20, ptr %751, align 1, !tbaa !61
+  %752 = load ptr, ptr %10, align 8, !tbaa !52
+  %753 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %752, i32 0, i32 10
+  store i8 40, ptr %753, align 2, !tbaa !62
+  %754 = load ptr, ptr %10, align 8, !tbaa !52
+  %755 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %754, i32 0, i32 11
+  store i8 0, ptr %755, align 1, !tbaa !63
+  %756 = load ptr, ptr %10, align 8, !tbaa !52
+  %757 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %756, i32 0, i32 0
+  store i16 32, ptr %757, align 2, !tbaa !64
+  %758 = load ptr, ptr %10, align 8, !tbaa !52
+  %759 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %758, i32 0, i32 2
+  store i16 16, ptr %759, align 2, !tbaa !65
+  %760 = load ptr, ptr %10, align 8, !tbaa !52
+  %761 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %760, i32 0, i32 1
+  store i16 16, ptr %761, align 2, !tbaa !66
+  br label %816
+
+762:                                              ; preds = %667
+  %763 = load ptr, ptr %10, align 8, !tbaa !52
+  %764 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %763, i32 0, i32 4
+  store i8 7, ptr %764, align 2, !tbaa !56
+  %765 = load ptr, ptr %10, align 8, !tbaa !52
+  %766 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %765, i32 0, i32 5
+  store i8 2, ptr %766, align 1, !tbaa !57
+  %767 = load ptr, ptr %10, align 8, !tbaa !52
+  %768 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %767, i32 0, i32 6
+  store i8 4, ptr %768, align 2, !tbaa !58
+  %769 = load ptr, ptr %10, align 8, !tbaa !52
+  %770 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %769, i32 0, i32 7
+  store i8 2, ptr %770, align 1, !tbaa !59
+  %771 = load ptr, ptr %10, align 8, !tbaa !52
+  %772 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %771, i32 0, i32 8
+  store i8 1, ptr %772, align 2, !tbaa !60
+  %773 = load ptr, ptr %10, align 8, !tbaa !52
+  %774 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %773, i32 0, i32 9
+  store i8 32, ptr %774, align 1, !tbaa !61
+  %775 = load ptr, ptr %10, align 8, !tbaa !52
+  %776 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %775, i32 0, i32 10
+  store i8 40, ptr %776, align 2, !tbaa !62
+  %777 = load ptr, ptr %10, align 8, !tbaa !52
+  %778 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %777, i32 0, i32 11
+  store i8 0, ptr %778, align 1, !tbaa !63
+  %779 = load ptr, ptr %10, align 8, !tbaa !52
+  %780 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %779, i32 0, i32 0
+  store i16 16, ptr %780, align 2, !tbaa !64
+  %781 = load ptr, ptr %10, align 8, !tbaa !52
+  %782 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %781, i32 0, i32 2
+  store i16 16, ptr %782, align 2, !tbaa !65
+  %783 = load ptr, ptr %10, align 8, !tbaa !52
+  %784 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %783, i32 0, i32 1
+  store i16 4, ptr %784, align 2, !tbaa !66
+  %785 = load ptr, ptr %10, align 8, !tbaa !52
+  %786 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %785, i32 0, i32 3
+  store i16 16, ptr %786, align 2, !tbaa !67
+  br label %816
+
+787:                                              ; preds = %667
+  %788 = load ptr, ptr %10, align 8, !tbaa !52
+  %789 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %788, i32 0, i32 4
+  store i8 7, ptr %789, align 2, !tbaa !56
+  %790 = load ptr, ptr %10, align 8, !tbaa !52
+  %791 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %790, i32 0, i32 5
+  store i8 2, ptr %791, align 1, !tbaa !57
+  %792 = load ptr, ptr %10, align 8, !tbaa !52
+  %793 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %792, i32 0, i32 6
+  store i8 5, ptr %793, align 2, !tbaa !58
+  %794 = load ptr, ptr %10, align 8, !tbaa !52
+  %795 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %794, i32 0, i32 7
+  store i8 2, ptr %795, align 1, !tbaa !59
+  %796 = load ptr, ptr %10, align 8, !tbaa !52
+  %797 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %796, i32 0, i32 8
+  store i8 1, ptr %797, align 2, !tbaa !60
+  %798 = load ptr, ptr %10, align 8, !tbaa !52
+  %799 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %798, i32 0, i32 9
+  store i8 48, ptr %799, align 1, !tbaa !61
+  %800 = load ptr, ptr %10, align 8, !tbaa !52
+  %801 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %800, i32 0, i32 10
+  store i8 40, ptr %801, align 2, !tbaa !62
+  %802 = load ptr, ptr %10, align 8, !tbaa !52
+  %803 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %802, i32 0, i32 11
+  store i8 0, ptr %803, align 1, !tbaa !63
+  %804 = load ptr, ptr %10, align 8, !tbaa !52
+  %805 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %804, i32 0, i32 0
+  store i16 32, ptr %805, align 2, !tbaa !64
+  %806 = load ptr, ptr %10, align 8, !tbaa !52
+  %807 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %806, i32 0, i32 2
+  store i16 16, ptr %807, align 2, !tbaa !65
+  %808 = load ptr, ptr %10, align 8, !tbaa !52
+  %809 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %808, i32 0, i32 1
+  store i16 4, ptr %809, align 2, !tbaa !66
+  %810 = load ptr, ptr %10, align 8, !tbaa !52
+  %811 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %810, i32 0, i32 3
+  store i16 16, ptr %811, align 2, !tbaa !67
+  br label %816
+
+812:                                              ; preds = %667
+  br label %813
+
+813:                                              ; preds = %812
+  br label %814
+
+814:                                              ; preds = %813
+  br label %815
+
+815:                                              ; preds = %814
+  store i32 -500, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %833
+
+816:                                              ; preds = %787, %762, %739, %716, %693, %670
+  br label %817
+
+817:                                              ; preds = %816, %663, %659, %655, %651
+  %818 = load ptr, ptr %10, align 8, !tbaa !52
+  %819 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %818, i32 0, i32 8
+  %820 = load i8, ptr %819, align 2, !tbaa !60
+  %821 = zext i8 %820 to i32
+  %822 = icmp eq i32 %821, 0
+  br i1 %822, label %823, label %832
+
+823:                                              ; preds = %817
+  %824 = load ptr, ptr %11, align 8, !tbaa !54
+  %825 = icmp ne ptr %824, null
+  br i1 %825, label %826, label %832
+
+826:                                              ; preds = %823
+  %827 = load ptr, ptr %11, align 8, !tbaa !54
+  %828 = getelementptr inbounds nuw %struct.Options, ptr %827, i32 0, i32 1
+  %829 = load i64, ptr %828, align 8
+  %830 = and i64 %829, -281474976710657
+  %831 = or i64 %830, 281474976710656
+  store i64 %831, ptr %828, align 8
+  br label %832
+
+832:                                              ; preds = %826, %823, %817
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %833
+
+833:                                              ; preds = %832, %815, %538, %242, %26
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #5
+  %834 = load i32, ptr %6, align 4
+  ret i32 %834
+}
+
+declare i32 @TLS_hmac(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #2
+
+declare i32 @IsAtLeastTLSv1_3(i16) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare i32 @VerifyClientSuite(i16 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #2
+
+; Function Attrs: nounwind uwtable
+define i32 @SetKeys(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) #0 {
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !68
+  store ptr %1, ptr %12, align 8, !tbaa !68
+  store ptr %2, ptr %13, align 8, !tbaa !70
+  store ptr %3, ptr %14, align 8, !tbaa !52
+  store i32 %4, ptr %15, align 4, !tbaa !45
+  store ptr %5, ptr %16, align 8, !tbaa !72
+  store i32 %6, ptr %17, align 4, !tbaa !45
+  store ptr %7, ptr %18, align 8, !tbaa !73
+  store i32 %8, ptr %19, align 4, !tbaa !45
+  %24 = load ptr, ptr %14, align 8, !tbaa !52
+  %25 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %24, i32 0, i32 4
+  %26 = load i8, ptr %25, align 2, !tbaa !56
+  %27 = zext i8 %26 to i32
+  %28 = icmp eq i32 %27, 9
+  br i1 %28, label %29, label %196
+
+29:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  %30 = load ptr, ptr %11, align 8, !tbaa !68
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %41
+
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %11, align 8, !tbaa !68
+  %34 = getelementptr inbounds nuw %struct.Ciphers, ptr %33, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8, !tbaa !74
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %41
+
+37:                                               ; preds = %32
+  %38 = call ptr @wolfSSL_Malloc(i64 noundef 68)
+  %39 = load ptr, ptr %11, align 8, !tbaa !68
+  %40 = getelementptr inbounds nuw %struct.Ciphers, ptr %39, i32 0, i32 3
+  store ptr %38, ptr %40, align 8, !tbaa !74
+  br label %41
+
+41:                                               ; preds = %37, %32, %29
+  %42 = load ptr, ptr %11, align 8, !tbaa !68
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %50
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %11, align 8, !tbaa !68
+  %46 = getelementptr inbounds nuw %struct.Ciphers, ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %46, align 8, !tbaa !74
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %44
+  store i32 -125, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %193
+
+50:                                               ; preds = %44, %41
+  %51 = load ptr, ptr %12, align 8, !tbaa !68
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %62
+
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %12, align 8, !tbaa !68
+  %55 = getelementptr inbounds nuw %struct.Ciphers, ptr %54, i32 0, i32 3
+  %56 = load ptr, ptr %55, align 8, !tbaa !74
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %62
+
+58:                                               ; preds = %53
+  %59 = call ptr @wolfSSL_Malloc(i64 noundef 68)
+  %60 = load ptr, ptr %12, align 8, !tbaa !68
+  %61 = getelementptr inbounds nuw %struct.Ciphers, ptr %60, i32 0, i32 3
+  store ptr %59, ptr %61, align 8, !tbaa !74
+  br label %62
+
+62:                                               ; preds = %58, %53, %50
+  %63 = load ptr, ptr %12, align 8, !tbaa !68
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %71
+
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %12, align 8, !tbaa !68
+  %67 = getelementptr inbounds nuw %struct.Ciphers, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8, !tbaa !74
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %70, label %71
+
+70:                                               ; preds = %65
+  store i32 -125, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %193
+
+71:                                               ; preds = %65, %62
+  %72 = load i32, ptr %15, align 4, !tbaa !45
+  %73 = icmp eq i32 %72, 1
+  br i1 %73, label %74, label %127
+
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %11, align 8, !tbaa !68
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %100
+
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %11, align 8, !tbaa !68
+  %79 = getelementptr inbounds nuw %struct.Ciphers, ptr %78, i32 0, i32 3
+  %80 = load ptr, ptr %79, align 8, !tbaa !74
+  %81 = load ptr, ptr %13, align 8, !tbaa !70
+  %82 = getelementptr inbounds nuw %struct.Keys, ptr %81, i32 0, i32 2
+  %83 = getelementptr inbounds [32 x i8], ptr %82, i64 0, i64 0
+  %84 = load ptr, ptr %14, align 8, !tbaa !52
+  %85 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %84, i32 0, i32 0
+  %86 = load i16, ptr %85, align 2, !tbaa !64
+  %87 = zext i16 %86 to i32
+  %88 = call i32 @wc_Chacha_SetKey(ptr noundef %80, ptr noundef %83, i32 noundef %87)
+  store i32 %88, ptr %20, align 4, !tbaa !45
+  %89 = load ptr, ptr %13, align 8, !tbaa !70
+  %90 = getelementptr inbounds nuw %struct.Keys, ptr %89, i32 0, i32 7
+  %91 = getelementptr inbounds [12 x i8], ptr %90, i64 0, i64 0
+  %92 = load ptr, ptr %13, align 8, !tbaa !70
+  %93 = getelementptr inbounds nuw %struct.Keys, ptr %92, i32 0, i32 4
+  %94 = getelementptr inbounds [16 x i8], ptr %93, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %91, ptr align 4 %94, i64 12, i1 false)
+  %95 = load i32, ptr %20, align 4, !tbaa !45
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %99
+
+97:                                               ; preds = %77
+  %98 = load i32, ptr %20, align 4, !tbaa !45
+  store i32 %98, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %193
+
+99:                                               ; preds = %77
+  br label %100
+
+100:                                              ; preds = %99, %74
+  %101 = load ptr, ptr %12, align 8, !tbaa !68
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %126
+
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %12, align 8, !tbaa !68
+  %105 = getelementptr inbounds nuw %struct.Ciphers, ptr %104, i32 0, i32 3
+  %106 = load ptr, ptr %105, align 8, !tbaa !74
+  %107 = load ptr, ptr %13, align 8, !tbaa !70
+  %108 = getelementptr inbounds nuw %struct.Keys, ptr %107, i32 0, i32 3
+  %109 = getelementptr inbounds [32 x i8], ptr %108, i64 0, i64 0
+  %110 = load ptr, ptr %14, align 8, !tbaa !52
+  %111 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %110, i32 0, i32 0
+  %112 = load i16, ptr %111, align 2, !tbaa !64
+  %113 = zext i16 %112 to i32
+  %114 = call i32 @wc_Chacha_SetKey(ptr noundef %106, ptr noundef %109, i32 noundef %113)
+  store i32 %114, ptr %20, align 4, !tbaa !45
+  %115 = load ptr, ptr %13, align 8, !tbaa !70
+  %116 = getelementptr inbounds nuw %struct.Keys, ptr %115, i32 0, i32 8
+  %117 = getelementptr inbounds [12 x i8], ptr %116, i64 0, i64 0
+  %118 = load ptr, ptr %13, align 8, !tbaa !70
+  %119 = getelementptr inbounds nuw %struct.Keys, ptr %118, i32 0, i32 5
+  %120 = getelementptr inbounds [16 x i8], ptr %119, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %117, ptr align 4 %120, i64 12, i1 false)
+  %121 = load i32, ptr %20, align 4, !tbaa !45
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %125
+
+123:                                              ; preds = %103
+  %124 = load i32, ptr %20, align 4, !tbaa !45
+  store i32 %124, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %193
+
+125:                                              ; preds = %103
+  br label %126
+
+126:                                              ; preds = %125, %100
+  br label %180
+
+127:                                              ; preds = %71
+  %128 = load ptr, ptr %11, align 8, !tbaa !68
+  %129 = icmp ne ptr %128, null
+  br i1 %129, label %130, label %153
+
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %11, align 8, !tbaa !68
+  %132 = getelementptr inbounds nuw %struct.Ciphers, ptr %131, i32 0, i32 3
+  %133 = load ptr, ptr %132, align 8, !tbaa !74
+  %134 = load ptr, ptr %13, align 8, !tbaa !70
+  %135 = getelementptr inbounds nuw %struct.Keys, ptr %134, i32 0, i32 3
+  %136 = getelementptr inbounds [32 x i8], ptr %135, i64 0, i64 0
+  %137 = load ptr, ptr %14, align 8, !tbaa !52
+  %138 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %137, i32 0, i32 0
+  %139 = load i16, ptr %138, align 2, !tbaa !64
+  %140 = zext i16 %139 to i32
+  %141 = call i32 @wc_Chacha_SetKey(ptr noundef %133, ptr noundef %136, i32 noundef %140)
+  store i32 %141, ptr %20, align 4, !tbaa !45
+  %142 = load ptr, ptr %13, align 8, !tbaa !70
+  %143 = getelementptr inbounds nuw %struct.Keys, ptr %142, i32 0, i32 7
+  %144 = getelementptr inbounds [12 x i8], ptr %143, i64 0, i64 0
+  %145 = load ptr, ptr %13, align 8, !tbaa !70
+  %146 = getelementptr inbounds nuw %struct.Keys, ptr %145, i32 0, i32 5
+  %147 = getelementptr inbounds [16 x i8], ptr %146, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %144, ptr align 4 %147, i64 12, i1 false)
+  %148 = load i32, ptr %20, align 4, !tbaa !45
+  %149 = icmp ne i32 %148, 0
+  br i1 %149, label %150, label %152
+
+150:                                              ; preds = %130
+  %151 = load i32, ptr %20, align 4, !tbaa !45
+  store i32 %151, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %193
+
+152:                                              ; preds = %130
+  br label %153
+
+153:                                              ; preds = %152, %127
+  %154 = load ptr, ptr %12, align 8, !tbaa !68
+  %155 = icmp ne ptr %154, null
+  br i1 %155, label %156, label %179
+
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %12, align 8, !tbaa !68
+  %158 = getelementptr inbounds nuw %struct.Ciphers, ptr %157, i32 0, i32 3
+  %159 = load ptr, ptr %158, align 8, !tbaa !74
+  %160 = load ptr, ptr %13, align 8, !tbaa !70
+  %161 = getelementptr inbounds nuw %struct.Keys, ptr %160, i32 0, i32 2
+  %162 = getelementptr inbounds [32 x i8], ptr %161, i64 0, i64 0
+  %163 = load ptr, ptr %14, align 8, !tbaa !52
+  %164 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %163, i32 0, i32 0
+  %165 = load i16, ptr %164, align 2, !tbaa !64
+  %166 = zext i16 %165 to i32
+  %167 = call i32 @wc_Chacha_SetKey(ptr noundef %159, ptr noundef %162, i32 noundef %166)
+  store i32 %167, ptr %20, align 4, !tbaa !45
+  %168 = load ptr, ptr %13, align 8, !tbaa !70
+  %169 = getelementptr inbounds nuw %struct.Keys, ptr %168, i32 0, i32 8
+  %170 = getelementptr inbounds [12 x i8], ptr %169, i64 0, i64 0
+  %171 = load ptr, ptr %13, align 8, !tbaa !70
+  %172 = getelementptr inbounds nuw %struct.Keys, ptr %171, i32 0, i32 4
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %170, ptr align 4 %173, i64 12, i1 false)
+  %174 = load i32, ptr %20, align 4, !tbaa !45
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %176, label %178
+
+176:                                              ; preds = %156
+  %177 = load i32, ptr %20, align 4, !tbaa !45
+  store i32 %177, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %193
+
+178:                                              ; preds = %156
+  br label %179
+
+179:                                              ; preds = %178, %153
+  br label %180
+
+180:                                              ; preds = %179, %126
+  %181 = load ptr, ptr %11, align 8, !tbaa !68
+  %182 = icmp ne ptr %181, null
+  br i1 %182, label %183, label %186
+
+183:                                              ; preds = %180
+  %184 = load ptr, ptr %11, align 8, !tbaa !68
+  %185 = getelementptr inbounds nuw %struct.Ciphers, ptr %184, i32 0, i32 5
+  store i8 1, ptr %185, align 1, !tbaa !75
+  br label %186
+
+186:                                              ; preds = %183, %180
+  %187 = load ptr, ptr %12, align 8, !tbaa !68
+  %188 = icmp ne ptr %187, null
+  br i1 %188, label %189, label %192
+
+189:                                              ; preds = %186
+  %190 = load ptr, ptr %12, align 8, !tbaa !68
+  %191 = getelementptr inbounds nuw %struct.Ciphers, ptr %190, i32 0, i32 5
+  store i8 1, ptr %191, align 1, !tbaa !75
+  br label %192
+
+192:                                              ; preds = %189, %186
+  store i32 0, ptr %21, align 4
+  br label %193
+
+193:                                              ; preds = %192, %176, %150, %123, %97, %70, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  %194 = load i32, ptr %21, align 4
+  switch i32 %194, label %667 [
+    i32 0, label %195
+    i32 1, label %665
+  ]
+
+195:                                              ; preds = %193
+  br label %196
+
+196:                                              ; preds = %195, %9
+  %197 = load ptr, ptr %14, align 8, !tbaa !52
+  %198 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %197, i32 0, i32 4
+  %199 = load i8, ptr %198, align 2, !tbaa !56
+  %200 = zext i8 %199 to i32
+  %201 = icmp eq i32 %200, 6
+  br i1 %201, label %202, label %399
+
+202:                                              ; preds = %196
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
+  store i32 0, ptr %22, align 4, !tbaa !45
+  %203 = load ptr, ptr %11, align 8, !tbaa !68
+  %204 = icmp ne ptr %203, null
+  br i1 %204, label %205, label %228
+
+205:                                              ; preds = %202
+  %206 = load ptr, ptr %11, align 8, !tbaa !68
+  %207 = getelementptr inbounds nuw %struct.Ciphers, ptr %206, i32 0, i32 0
+  %208 = load ptr, ptr %207, align 8, !tbaa !76
+  %209 = icmp eq ptr %208, null
+  br i1 %209, label %210, label %220
+
+210:                                              ; preds = %205
+  %211 = call ptr @wolfSSL_Malloc(i64 noundef 848)
+  %212 = load ptr, ptr %11, align 8, !tbaa !68
+  %213 = getelementptr inbounds nuw %struct.Ciphers, ptr %212, i32 0, i32 0
+  store ptr %211, ptr %213, align 8, !tbaa !76
+  %214 = load ptr, ptr %11, align 8, !tbaa !68
+  %215 = getelementptr inbounds nuw %struct.Ciphers, ptr %214, i32 0, i32 0
+  %216 = load ptr, ptr %215, align 8, !tbaa !76
+  %217 = icmp eq ptr %216, null
+  br i1 %217, label %218, label %219
+
+218:                                              ; preds = %210
+  store i32 -125, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %396
+
+219:                                              ; preds = %210
+  br label %224
+
+220:                                              ; preds = %205
+  %221 = load ptr, ptr %11, align 8, !tbaa !68
+  %222 = getelementptr inbounds nuw %struct.Ciphers, ptr %221, i32 0, i32 0
+  %223 = load ptr, ptr %222, align 8, !tbaa !76
+  call void @wc_AesFree(ptr noundef %223)
+  br label %224
+
+224:                                              ; preds = %220, %219
+  %225 = load ptr, ptr %11, align 8, !tbaa !68
+  %226 = getelementptr inbounds nuw %struct.Ciphers, ptr %225, i32 0, i32 0
+  %227 = load ptr, ptr %226, align 8, !tbaa !76
+  call void @llvm.memset.p0.i64(ptr align 16 %227, i8 0, i64 848, i1 false)
+  br label %228
+
+228:                                              ; preds = %224, %202
+  %229 = load ptr, ptr %12, align 8, !tbaa !68
+  %230 = icmp ne ptr %229, null
+  br i1 %230, label %231, label %254
+
+231:                                              ; preds = %228
+  %232 = load ptr, ptr %12, align 8, !tbaa !68
+  %233 = getelementptr inbounds nuw %struct.Ciphers, ptr %232, i32 0, i32 0
+  %234 = load ptr, ptr %233, align 8, !tbaa !76
+  %235 = icmp eq ptr %234, null
+  br i1 %235, label %236, label %246
+
+236:                                              ; preds = %231
+  %237 = call ptr @wolfSSL_Malloc(i64 noundef 848)
+  %238 = load ptr, ptr %12, align 8, !tbaa !68
+  %239 = getelementptr inbounds nuw %struct.Ciphers, ptr %238, i32 0, i32 0
+  store ptr %237, ptr %239, align 8, !tbaa !76
+  %240 = load ptr, ptr %12, align 8, !tbaa !68
+  %241 = getelementptr inbounds nuw %struct.Ciphers, ptr %240, i32 0, i32 0
+  %242 = load ptr, ptr %241, align 8, !tbaa !76
+  %243 = icmp eq ptr %242, null
+  br i1 %243, label %244, label %245
+
+244:                                              ; preds = %236
+  store i32 -125, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %396
+
+245:                                              ; preds = %236
+  br label %250
+
+246:                                              ; preds = %231
+  %247 = load ptr, ptr %12, align 8, !tbaa !68
+  %248 = getelementptr inbounds nuw %struct.Ciphers, ptr %247, i32 0, i32 0
+  %249 = load ptr, ptr %248, align 8, !tbaa !76
+  call void @wc_AesFree(ptr noundef %249)
+  br label %250
+
+250:                                              ; preds = %246, %245
+  %251 = load ptr, ptr %12, align 8, !tbaa !68
+  %252 = getelementptr inbounds nuw %struct.Ciphers, ptr %251, i32 0, i32 0
+  %253 = load ptr, ptr %252, align 8, !tbaa !76
+  call void @llvm.memset.p0.i64(ptr align 16 %253, i8 0, i64 848, i1 false)
+  br label %254
+
+254:                                              ; preds = %250, %228
+  %255 = load ptr, ptr %11, align 8, !tbaa !68
+  %256 = icmp ne ptr %255, null
+  br i1 %256, label %257, label %270
+
+257:                                              ; preds = %254
+  %258 = load ptr, ptr %11, align 8, !tbaa !68
+  %259 = getelementptr inbounds nuw %struct.Ciphers, ptr %258, i32 0, i32 0
+  %260 = load ptr, ptr %259, align 8, !tbaa !76
+  %261 = load ptr, ptr %16, align 8, !tbaa !72
+  %262 = load i32, ptr %17, align 4, !tbaa !45
+  %263 = call i32 @wc_AesInit(ptr noundef %260, ptr noundef %261, i32 noundef %262)
+  %264 = icmp ne i32 %263, 0
+  br i1 %264, label %265, label %269
+
+265:                                              ; preds = %257
+  br label %266
+
+266:                                              ; preds = %265
+  br label %267
+
+267:                                              ; preds = %266
+  br label %268
+
+268:                                              ; preds = %267
+  store i32 -182, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %396
+
+269:                                              ; preds = %257
+  br label %270
+
+270:                                              ; preds = %269, %254
+  %271 = load ptr, ptr %12, align 8, !tbaa !68
+  %272 = icmp ne ptr %271, null
+  br i1 %272, label %273, label %286
+
+273:                                              ; preds = %270
+  %274 = load ptr, ptr %12, align 8, !tbaa !68
+  %275 = getelementptr inbounds nuw %struct.Ciphers, ptr %274, i32 0, i32 0
+  %276 = load ptr, ptr %275, align 8, !tbaa !76
+  %277 = load ptr, ptr %16, align 8, !tbaa !72
+  %278 = load i32, ptr %17, align 4, !tbaa !45
+  %279 = call i32 @wc_AesInit(ptr noundef %276, ptr noundef %277, i32 noundef %278)
+  %280 = icmp ne i32 %279, 0
+  br i1 %280, label %281, label %285
+
+281:                                              ; preds = %273
+  br label %282
+
+282:                                              ; preds = %281
+  br label %283
+
+283:                                              ; preds = %282
+  br label %284
+
+284:                                              ; preds = %283
+  store i32 -182, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %396
+
+285:                                              ; preds = %273
+  br label %286
+
+286:                                              ; preds = %285, %270
+  %287 = load i32, ptr %15, align 4, !tbaa !45
+  %288 = icmp eq i32 %287, 1
+  br i1 %288, label %289, label %336
+
+289:                                              ; preds = %286
+  %290 = load ptr, ptr %11, align 8, !tbaa !68
+  %291 = icmp ne ptr %290, null
+  br i1 %291, label %292, label %312
+
+292:                                              ; preds = %289
+  %293 = load ptr, ptr %11, align 8, !tbaa !68
+  %294 = getelementptr inbounds nuw %struct.Ciphers, ptr %293, i32 0, i32 0
+  %295 = load ptr, ptr %294, align 8, !tbaa !76
+  %296 = load ptr, ptr %13, align 8, !tbaa !70
+  %297 = getelementptr inbounds nuw %struct.Keys, ptr %296, i32 0, i32 2
+  %298 = getelementptr inbounds [32 x i8], ptr %297, i64 0, i64 0
+  %299 = load ptr, ptr %14, align 8, !tbaa !52
+  %300 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %299, i32 0, i32 0
+  %301 = load i16, ptr %300, align 2, !tbaa !64
+  %302 = zext i16 %301 to i32
+  %303 = load ptr, ptr %13, align 8, !tbaa !70
+  %304 = getelementptr inbounds nuw %struct.Keys, ptr %303, i32 0, i32 4
+  %305 = getelementptr inbounds [16 x i8], ptr %304, i64 0, i64 0
+  %306 = call i32 @wc_AesSetKey(ptr noundef %295, ptr noundef %298, i32 noundef %302, ptr noundef %305, i32 noundef 0)
+  store i32 %306, ptr %22, align 4, !tbaa !45
+  %307 = load i32, ptr %22, align 4, !tbaa !45
+  %308 = icmp ne i32 %307, 0
+  br i1 %308, label %309, label %311
+
+309:                                              ; preds = %292
+  %310 = load i32, ptr %22, align 4, !tbaa !45
+  store i32 %310, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %396
+
+311:                                              ; preds = %292
+  br label %312
+
+312:                                              ; preds = %311, %289
+  %313 = load ptr, ptr %12, align 8, !tbaa !68
+  %314 = icmp ne ptr %313, null
+  br i1 %314, label %315, label %335
+
+315:                                              ; preds = %312
+  %316 = load ptr, ptr %12, align 8, !tbaa !68
+  %317 = getelementptr inbounds nuw %struct.Ciphers, ptr %316, i32 0, i32 0
+  %318 = load ptr, ptr %317, align 8, !tbaa !76
+  %319 = load ptr, ptr %13, align 8, !tbaa !70
+  %320 = getelementptr inbounds nuw %struct.Keys, ptr %319, i32 0, i32 3
+  %321 = getelementptr inbounds [32 x i8], ptr %320, i64 0, i64 0
+  %322 = load ptr, ptr %14, align 8, !tbaa !52
+  %323 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %322, i32 0, i32 0
+  %324 = load i16, ptr %323, align 2, !tbaa !64
+  %325 = zext i16 %324 to i32
+  %326 = load ptr, ptr %13, align 8, !tbaa !70
+  %327 = getelementptr inbounds nuw %struct.Keys, ptr %326, i32 0, i32 5
+  %328 = getelementptr inbounds [16 x i8], ptr %327, i64 0, i64 0
+  %329 = call i32 @wc_AesSetKey(ptr noundef %318, ptr noundef %321, i32 noundef %325, ptr noundef %328, i32 noundef 1)
+  store i32 %329, ptr %22, align 4, !tbaa !45
+  %330 = load i32, ptr %22, align 4, !tbaa !45
+  %331 = icmp ne i32 %330, 0
+  br i1 %331, label %332, label %334
+
+332:                                              ; preds = %315
+  %333 = load i32, ptr %22, align 4, !tbaa !45
+  store i32 %333, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %396
+
+334:                                              ; preds = %315
+  br label %335
+
+335:                                              ; preds = %334, %312
+  br label %383
+
+336:                                              ; preds = %286
+  %337 = load ptr, ptr %11, align 8, !tbaa !68
+  %338 = icmp ne ptr %337, null
+  br i1 %338, label %339, label %359
+
+339:                                              ; preds = %336
+  %340 = load ptr, ptr %11, align 8, !tbaa !68
+  %341 = getelementptr inbounds nuw %struct.Ciphers, ptr %340, i32 0, i32 0
+  %342 = load ptr, ptr %341, align 8, !tbaa !76
+  %343 = load ptr, ptr %13, align 8, !tbaa !70
+  %344 = getelementptr inbounds nuw %struct.Keys, ptr %343, i32 0, i32 3
+  %345 = getelementptr inbounds [32 x i8], ptr %344, i64 0, i64 0
+  %346 = load ptr, ptr %14, align 8, !tbaa !52
+  %347 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %346, i32 0, i32 0
+  %348 = load i16, ptr %347, align 2, !tbaa !64
+  %349 = zext i16 %348 to i32
+  %350 = load ptr, ptr %13, align 8, !tbaa !70
+  %351 = getelementptr inbounds nuw %struct.Keys, ptr %350, i32 0, i32 5
+  %352 = getelementptr inbounds [16 x i8], ptr %351, i64 0, i64 0
+  %353 = call i32 @wc_AesSetKey(ptr noundef %342, ptr noundef %345, i32 noundef %349, ptr noundef %352, i32 noundef 0)
+  store i32 %353, ptr %22, align 4, !tbaa !45
+  %354 = load i32, ptr %22, align 4, !tbaa !45
+  %355 = icmp ne i32 %354, 0
+  br i1 %355, label %356, label %358
+
+356:                                              ; preds = %339
+  %357 = load i32, ptr %22, align 4, !tbaa !45
+  store i32 %357, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %396
+
+358:                                              ; preds = %339
+  br label %359
+
+359:                                              ; preds = %358, %336
+  %360 = load ptr, ptr %12, align 8, !tbaa !68
+  %361 = icmp ne ptr %360, null
+  br i1 %361, label %362, label %382
+
+362:                                              ; preds = %359
+  %363 = load ptr, ptr %12, align 8, !tbaa !68
+  %364 = getelementptr inbounds nuw %struct.Ciphers, ptr %363, i32 0, i32 0
+  %365 = load ptr, ptr %364, align 8, !tbaa !76
+  %366 = load ptr, ptr %13, align 8, !tbaa !70
+  %367 = getelementptr inbounds nuw %struct.Keys, ptr %366, i32 0, i32 2
+  %368 = getelementptr inbounds [32 x i8], ptr %367, i64 0, i64 0
+  %369 = load ptr, ptr %14, align 8, !tbaa !52
+  %370 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %369, i32 0, i32 0
+  %371 = load i16, ptr %370, align 2, !tbaa !64
+  %372 = zext i16 %371 to i32
+  %373 = load ptr, ptr %13, align 8, !tbaa !70
+  %374 = getelementptr inbounds nuw %struct.Keys, ptr %373, i32 0, i32 4
+  %375 = getelementptr inbounds [16 x i8], ptr %374, i64 0, i64 0
+  %376 = call i32 @wc_AesSetKey(ptr noundef %365, ptr noundef %368, i32 noundef %372, ptr noundef %375, i32 noundef 1)
+  store i32 %376, ptr %22, align 4, !tbaa !45
+  %377 = load i32, ptr %22, align 4, !tbaa !45
+  %378 = icmp ne i32 %377, 0
+  br i1 %378, label %379, label %381
+
+379:                                              ; preds = %362
+  %380 = load i32, ptr %22, align 4, !tbaa !45
+  store i32 %380, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %396
+
+381:                                              ; preds = %362
+  br label %382
+
+382:                                              ; preds = %381, %359
+  br label %383
+
+383:                                              ; preds = %382, %335
+  %384 = load ptr, ptr %11, align 8, !tbaa !68
+  %385 = icmp ne ptr %384, null
+  br i1 %385, label %386, label %389
+
+386:                                              ; preds = %383
+  %387 = load ptr, ptr %11, align 8, !tbaa !68
+  %388 = getelementptr inbounds nuw %struct.Ciphers, ptr %387, i32 0, i32 5
+  store i8 1, ptr %388, align 1, !tbaa !75
+  br label %389
+
+389:                                              ; preds = %386, %383
+  %390 = load ptr, ptr %12, align 8, !tbaa !68
+  %391 = icmp ne ptr %390, null
+  br i1 %391, label %392, label %395
+
+392:                                              ; preds = %389
+  %393 = load ptr, ptr %12, align 8, !tbaa !68
+  %394 = getelementptr inbounds nuw %struct.Ciphers, ptr %393, i32 0, i32 5
+  store i8 1, ptr %394, align 1, !tbaa !75
+  br label %395
+
+395:                                              ; preds = %392, %389
+  store i32 0, ptr %21, align 4
+  br label %396
+
+396:                                              ; preds = %395, %379, %356, %332, %309, %284, %268, %244, %218
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  %397 = load i32, ptr %21, align 4
+  switch i32 %397, label %667 [
+    i32 0, label %398
+    i32 1, label %665
+  ]
+
+398:                                              ; preds = %396
+  br label %399
+
+399:                                              ; preds = %398, %196
+  %400 = load ptr, ptr %14, align 8, !tbaa !52
+  %401 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %400, i32 0, i32 4
+  %402 = load i8, ptr %401, align 2, !tbaa !56
+  %403 = zext i8 %402 to i32
+  %404 = icmp eq i32 %403, 7
+  br i1 %404, label %405, label %648
+
+405:                                              ; preds = %399
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #5
+  %406 = load ptr, ptr %11, align 8, !tbaa !68
+  %407 = icmp ne ptr %406, null
+  br i1 %407, label %408, label %431
+
+408:                                              ; preds = %405
+  %409 = load ptr, ptr %11, align 8, !tbaa !68
+  %410 = getelementptr inbounds nuw %struct.Ciphers, ptr %409, i32 0, i32 0
+  %411 = load ptr, ptr %410, align 8, !tbaa !76
+  %412 = icmp eq ptr %411, null
+  br i1 %412, label %413, label %423
+
+413:                                              ; preds = %408
+  %414 = call ptr @wolfSSL_Malloc(i64 noundef 848)
+  %415 = load ptr, ptr %11, align 8, !tbaa !68
+  %416 = getelementptr inbounds nuw %struct.Ciphers, ptr %415, i32 0, i32 0
+  store ptr %414, ptr %416, align 8, !tbaa !76
+  %417 = load ptr, ptr %11, align 8, !tbaa !68
+  %418 = getelementptr inbounds nuw %struct.Ciphers, ptr %417, i32 0, i32 0
+  %419 = load ptr, ptr %418, align 8, !tbaa !76
+  %420 = icmp eq ptr %419, null
+  br i1 %420, label %421, label %422
+
+421:                                              ; preds = %413
+  store i32 -125, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+422:                                              ; preds = %413
+  br label %427
+
+423:                                              ; preds = %408
+  %424 = load ptr, ptr %11, align 8, !tbaa !68
+  %425 = getelementptr inbounds nuw %struct.Ciphers, ptr %424, i32 0, i32 0
+  %426 = load ptr, ptr %425, align 8, !tbaa !76
+  call void @wc_AesFree(ptr noundef %426)
+  br label %427
+
+427:                                              ; preds = %423, %422
+  %428 = load ptr, ptr %11, align 8, !tbaa !68
+  %429 = getelementptr inbounds nuw %struct.Ciphers, ptr %428, i32 0, i32 0
+  %430 = load ptr, ptr %429, align 8, !tbaa !76
+  call void @llvm.memset.p0.i64(ptr align 16 %430, i8 0, i64 848, i1 false)
+  br label %431
+
+431:                                              ; preds = %427, %405
+  %432 = load ptr, ptr %12, align 8, !tbaa !68
+  %433 = icmp ne ptr %432, null
+  br i1 %433, label %434, label %457
+
+434:                                              ; preds = %431
+  %435 = load ptr, ptr %12, align 8, !tbaa !68
+  %436 = getelementptr inbounds nuw %struct.Ciphers, ptr %435, i32 0, i32 0
+  %437 = load ptr, ptr %436, align 8, !tbaa !76
+  %438 = icmp eq ptr %437, null
+  br i1 %438, label %439, label %449
+
+439:                                              ; preds = %434
+  %440 = call ptr @wolfSSL_Malloc(i64 noundef 848)
+  %441 = load ptr, ptr %12, align 8, !tbaa !68
+  %442 = getelementptr inbounds nuw %struct.Ciphers, ptr %441, i32 0, i32 0
+  store ptr %440, ptr %442, align 8, !tbaa !76
+  %443 = load ptr, ptr %12, align 8, !tbaa !68
+  %444 = getelementptr inbounds nuw %struct.Ciphers, ptr %443, i32 0, i32 0
+  %445 = load ptr, ptr %444, align 8, !tbaa !76
+  %446 = icmp eq ptr %445, null
+  br i1 %446, label %447, label %448
+
+447:                                              ; preds = %439
+  store i32 -125, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+448:                                              ; preds = %439
+  br label %453
+
+449:                                              ; preds = %434
+  %450 = load ptr, ptr %12, align 8, !tbaa !68
+  %451 = getelementptr inbounds nuw %struct.Ciphers, ptr %450, i32 0, i32 0
+  %452 = load ptr, ptr %451, align 8, !tbaa !76
+  call void @wc_AesFree(ptr noundef %452)
+  br label %453
+
+453:                                              ; preds = %449, %448
+  %454 = load ptr, ptr %12, align 8, !tbaa !68
+  %455 = getelementptr inbounds nuw %struct.Ciphers, ptr %454, i32 0, i32 0
+  %456 = load ptr, ptr %455, align 8, !tbaa !76
+  call void @llvm.memset.p0.i64(ptr align 16 %456, i8 0, i64 848, i1 false)
+  br label %457
+
+457:                                              ; preds = %453, %431
+  %458 = load ptr, ptr %11, align 8, !tbaa !68
+  %459 = icmp ne ptr %458, null
+  br i1 %459, label %460, label %473
+
+460:                                              ; preds = %457
+  %461 = load ptr, ptr %11, align 8, !tbaa !68
+  %462 = getelementptr inbounds nuw %struct.Ciphers, ptr %461, i32 0, i32 0
+  %463 = load ptr, ptr %462, align 8, !tbaa !76
+  %464 = load ptr, ptr %16, align 8, !tbaa !72
+  %465 = load i32, ptr %17, align 4, !tbaa !45
+  %466 = call i32 @wc_AesInit(ptr noundef %463, ptr noundef %464, i32 noundef %465)
+  %467 = icmp ne i32 %466, 0
+  br i1 %467, label %468, label %472
+
+468:                                              ; preds = %460
+  br label %469
+
+469:                                              ; preds = %468
+  br label %470
+
+470:                                              ; preds = %469
+  br label %471
+
+471:                                              ; preds = %470
+  store i32 -182, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+472:                                              ; preds = %460
+  br label %473
+
+473:                                              ; preds = %472, %457
+  %474 = load ptr, ptr %12, align 8, !tbaa !68
+  %475 = icmp ne ptr %474, null
+  br i1 %475, label %476, label %489
+
+476:                                              ; preds = %473
+  %477 = load ptr, ptr %12, align 8, !tbaa !68
+  %478 = getelementptr inbounds nuw %struct.Ciphers, ptr %477, i32 0, i32 0
+  %479 = load ptr, ptr %478, align 8, !tbaa !76
+  %480 = load ptr, ptr %16, align 8, !tbaa !72
+  %481 = load i32, ptr %17, align 4, !tbaa !45
+  %482 = call i32 @wc_AesInit(ptr noundef %479, ptr noundef %480, i32 noundef %481)
+  %483 = icmp ne i32 %482, 0
+  br i1 %483, label %484, label %488
+
+484:                                              ; preds = %476
+  br label %485
+
+485:                                              ; preds = %484
+  br label %486
+
+486:                                              ; preds = %485
+  br label %487
+
+487:                                              ; preds = %486
+  store i32 -182, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+488:                                              ; preds = %476
+  br label %489
+
+489:                                              ; preds = %488, %473
+  %490 = load i32, ptr %15, align 4, !tbaa !45
+  %491 = icmp eq i32 %490, 1
+  br i1 %491, label %492, label %562
+
+492:                                              ; preds = %489
+  %493 = load ptr, ptr %11, align 8, !tbaa !68
+  %494 = icmp ne ptr %493, null
+  br i1 %494, label %495, label %535
+
+495:                                              ; preds = %492
+  %496 = load ptr, ptr %11, align 8, !tbaa !68
+  %497 = getelementptr inbounds nuw %struct.Ciphers, ptr %496, i32 0, i32 0
+  %498 = load ptr, ptr %497, align 8, !tbaa !76
+  %499 = load ptr, ptr %13, align 8, !tbaa !70
+  %500 = getelementptr inbounds nuw %struct.Keys, ptr %499, i32 0, i32 2
+  %501 = getelementptr inbounds [32 x i8], ptr %500, i64 0, i64 0
+  %502 = load ptr, ptr %14, align 8, !tbaa !52
+  %503 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %502, i32 0, i32 0
+  %504 = load i16, ptr %503, align 2, !tbaa !64
+  %505 = zext i16 %504 to i32
+  %506 = call i32 @wc_AesGcmSetKey(ptr noundef %498, ptr noundef %501, i32 noundef %505)
+  store i32 %506, ptr %23, align 4, !tbaa !45
+  %507 = load i32, ptr %23, align 4, !tbaa !45
+  %508 = icmp ne i32 %507, 0
+  br i1 %508, label %509, label %511
+
+509:                                              ; preds = %495
+  %510 = load i32, ptr %23, align 4, !tbaa !45
+  store i32 %510, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+511:                                              ; preds = %495
+  %512 = load ptr, ptr %13, align 8, !tbaa !70
+  %513 = getelementptr inbounds nuw %struct.Keys, ptr %512, i32 0, i32 7
+  %514 = getelementptr inbounds [12 x i8], ptr %513, i64 0, i64 0
+  %515 = load ptr, ptr %13, align 8, !tbaa !70
+  %516 = getelementptr inbounds nuw %struct.Keys, ptr %515, i32 0, i32 4
+  %517 = getelementptr inbounds [16 x i8], ptr %516, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %514, ptr align 4 %517, i64 12, i1 false)
+  %518 = load i32, ptr %19, align 4, !tbaa !45
+  %519 = icmp ne i32 %518, 0
+  br i1 %519, label %534, label %520
+
+520:                                              ; preds = %511
+  %521 = load ptr, ptr %11, align 8, !tbaa !68
+  %522 = getelementptr inbounds nuw %struct.Ciphers, ptr %521, i32 0, i32 0
+  %523 = load ptr, ptr %522, align 8, !tbaa !76
+  %524 = load ptr, ptr %13, align 8, !tbaa !70
+  %525 = getelementptr inbounds nuw %struct.Keys, ptr %524, i32 0, i32 4
+  %526 = getelementptr inbounds [16 x i8], ptr %525, i64 0, i64 0
+  %527 = load ptr, ptr %18, align 8, !tbaa !73
+  %528 = call i32 @wc_AesGcmSetIV(ptr noundef %523, i32 noundef 12, ptr noundef %526, i32 noundef 4, ptr noundef %527)
+  store i32 %528, ptr %23, align 4, !tbaa !45
+  %529 = load i32, ptr %23, align 4, !tbaa !45
+  %530 = icmp ne i32 %529, 0
+  br i1 %530, label %531, label %533
+
+531:                                              ; preds = %520
+  %532 = load i32, ptr %23, align 4, !tbaa !45
+  store i32 %532, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+533:                                              ; preds = %520
+  br label %534
+
+534:                                              ; preds = %533, %511
+  br label %535
+
+535:                                              ; preds = %534, %492
+  %536 = load ptr, ptr %12, align 8, !tbaa !68
+  %537 = icmp ne ptr %536, null
+  br i1 %537, label %538, label %561
+
+538:                                              ; preds = %535
+  %539 = load ptr, ptr %12, align 8, !tbaa !68
+  %540 = getelementptr inbounds nuw %struct.Ciphers, ptr %539, i32 0, i32 0
+  %541 = load ptr, ptr %540, align 8, !tbaa !76
+  %542 = load ptr, ptr %13, align 8, !tbaa !70
+  %543 = getelementptr inbounds nuw %struct.Keys, ptr %542, i32 0, i32 3
+  %544 = getelementptr inbounds [32 x i8], ptr %543, i64 0, i64 0
+  %545 = load ptr, ptr %14, align 8, !tbaa !52
+  %546 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %545, i32 0, i32 0
+  %547 = load i16, ptr %546, align 2, !tbaa !64
+  %548 = zext i16 %547 to i32
+  %549 = call i32 @wc_AesGcmSetKey(ptr noundef %541, ptr noundef %544, i32 noundef %548)
+  store i32 %549, ptr %23, align 4, !tbaa !45
+  %550 = load i32, ptr %23, align 4, !tbaa !45
+  %551 = icmp ne i32 %550, 0
+  br i1 %551, label %552, label %554
+
+552:                                              ; preds = %538
+  %553 = load i32, ptr %23, align 4, !tbaa !45
+  store i32 %553, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+554:                                              ; preds = %538
+  %555 = load ptr, ptr %13, align 8, !tbaa !70
+  %556 = getelementptr inbounds nuw %struct.Keys, ptr %555, i32 0, i32 8
+  %557 = getelementptr inbounds [12 x i8], ptr %556, i64 0, i64 0
+  %558 = load ptr, ptr %13, align 8, !tbaa !70
+  %559 = getelementptr inbounds nuw %struct.Keys, ptr %558, i32 0, i32 5
+  %560 = getelementptr inbounds [16 x i8], ptr %559, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %557, ptr align 4 %560, i64 12, i1 false)
+  br label %561
+
+561:                                              ; preds = %554, %535
+  br label %632
+
+562:                                              ; preds = %489
+  %563 = load ptr, ptr %11, align 8, !tbaa !68
+  %564 = icmp ne ptr %563, null
+  br i1 %564, label %565, label %605
+
+565:                                              ; preds = %562
+  %566 = load ptr, ptr %11, align 8, !tbaa !68
+  %567 = getelementptr inbounds nuw %struct.Ciphers, ptr %566, i32 0, i32 0
+  %568 = load ptr, ptr %567, align 8, !tbaa !76
+  %569 = load ptr, ptr %13, align 8, !tbaa !70
+  %570 = getelementptr inbounds nuw %struct.Keys, ptr %569, i32 0, i32 3
+  %571 = getelementptr inbounds [32 x i8], ptr %570, i64 0, i64 0
+  %572 = load ptr, ptr %14, align 8, !tbaa !52
+  %573 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %572, i32 0, i32 0
+  %574 = load i16, ptr %573, align 2, !tbaa !64
+  %575 = zext i16 %574 to i32
+  %576 = call i32 @wc_AesGcmSetKey(ptr noundef %568, ptr noundef %571, i32 noundef %575)
+  store i32 %576, ptr %23, align 4, !tbaa !45
+  %577 = load i32, ptr %23, align 4, !tbaa !45
+  %578 = icmp ne i32 %577, 0
+  br i1 %578, label %579, label %581
+
+579:                                              ; preds = %565
+  %580 = load i32, ptr %23, align 4, !tbaa !45
+  store i32 %580, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+581:                                              ; preds = %565
+  %582 = load ptr, ptr %13, align 8, !tbaa !70
+  %583 = getelementptr inbounds nuw %struct.Keys, ptr %582, i32 0, i32 7
+  %584 = getelementptr inbounds [12 x i8], ptr %583, i64 0, i64 0
+  %585 = load ptr, ptr %13, align 8, !tbaa !70
+  %586 = getelementptr inbounds nuw %struct.Keys, ptr %585, i32 0, i32 5
+  %587 = getelementptr inbounds [16 x i8], ptr %586, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %584, ptr align 4 %587, i64 12, i1 false)
+  %588 = load i32, ptr %19, align 4, !tbaa !45
+  %589 = icmp ne i32 %588, 0
+  br i1 %589, label %604, label %590
+
+590:                                              ; preds = %581
+  %591 = load ptr, ptr %11, align 8, !tbaa !68
+  %592 = getelementptr inbounds nuw %struct.Ciphers, ptr %591, i32 0, i32 0
+  %593 = load ptr, ptr %592, align 8, !tbaa !76
+  %594 = load ptr, ptr %13, align 8, !tbaa !70
+  %595 = getelementptr inbounds nuw %struct.Keys, ptr %594, i32 0, i32 5
+  %596 = getelementptr inbounds [16 x i8], ptr %595, i64 0, i64 0
+  %597 = load ptr, ptr %18, align 8, !tbaa !73
+  %598 = call i32 @wc_AesGcmSetIV(ptr noundef %593, i32 noundef 12, ptr noundef %596, i32 noundef 4, ptr noundef %597)
+  store i32 %598, ptr %23, align 4, !tbaa !45
+  %599 = load i32, ptr %23, align 4, !tbaa !45
+  %600 = icmp ne i32 %599, 0
+  br i1 %600, label %601, label %603
+
+601:                                              ; preds = %590
+  %602 = load i32, ptr %23, align 4, !tbaa !45
+  store i32 %602, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+603:                                              ; preds = %590
+  br label %604
+
+604:                                              ; preds = %603, %581
+  br label %605
+
+605:                                              ; preds = %604, %562
+  %606 = load ptr, ptr %12, align 8, !tbaa !68
+  %607 = icmp ne ptr %606, null
+  br i1 %607, label %608, label %631
+
+608:                                              ; preds = %605
+  %609 = load ptr, ptr %12, align 8, !tbaa !68
+  %610 = getelementptr inbounds nuw %struct.Ciphers, ptr %609, i32 0, i32 0
+  %611 = load ptr, ptr %610, align 8, !tbaa !76
+  %612 = load ptr, ptr %13, align 8, !tbaa !70
+  %613 = getelementptr inbounds nuw %struct.Keys, ptr %612, i32 0, i32 2
+  %614 = getelementptr inbounds [32 x i8], ptr %613, i64 0, i64 0
+  %615 = load ptr, ptr %14, align 8, !tbaa !52
+  %616 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %615, i32 0, i32 0
+  %617 = load i16, ptr %616, align 2, !tbaa !64
+  %618 = zext i16 %617 to i32
+  %619 = call i32 @wc_AesGcmSetKey(ptr noundef %611, ptr noundef %614, i32 noundef %618)
+  store i32 %619, ptr %23, align 4, !tbaa !45
+  %620 = load i32, ptr %23, align 4, !tbaa !45
+  %621 = icmp ne i32 %620, 0
+  br i1 %621, label %622, label %624
+
+622:                                              ; preds = %608
+  %623 = load i32, ptr %23, align 4, !tbaa !45
+  store i32 %623, ptr %10, align 4
+  store i32 1, ptr %21, align 4
+  br label %645
+
+624:                                              ; preds = %608
+  %625 = load ptr, ptr %13, align 8, !tbaa !70
+  %626 = getelementptr inbounds nuw %struct.Keys, ptr %625, i32 0, i32 8
+  %627 = getelementptr inbounds [12 x i8], ptr %626, i64 0, i64 0
+  %628 = load ptr, ptr %13, align 8, !tbaa !70
+  %629 = getelementptr inbounds nuw %struct.Keys, ptr %628, i32 0, i32 4
+  %630 = getelementptr inbounds [16 x i8], ptr %629, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %627, ptr align 4 %630, i64 12, i1 false)
+  br label %631
+
+631:                                              ; preds = %624, %605
+  br label %632
+
+632:                                              ; preds = %631, %561
+  %633 = load ptr, ptr %11, align 8, !tbaa !68
+  %634 = icmp ne ptr %633, null
+  br i1 %634, label %635, label %638
+
+635:                                              ; preds = %632
+  %636 = load ptr, ptr %11, align 8, !tbaa !68
+  %637 = getelementptr inbounds nuw %struct.Ciphers, ptr %636, i32 0, i32 5
+  store i8 1, ptr %637, align 1, !tbaa !75
+  br label %638
+
+638:                                              ; preds = %635, %632
+  %639 = load ptr, ptr %12, align 8, !tbaa !68
+  %640 = icmp ne ptr %639, null
+  br i1 %640, label %641, label %644
+
+641:                                              ; preds = %638
+  %642 = load ptr, ptr %12, align 8, !tbaa !68
+  %643 = getelementptr inbounds nuw %struct.Ciphers, ptr %642, i32 0, i32 5
+  store i8 1, ptr %643, align 1, !tbaa !75
+  br label %644
+
+644:                                              ; preds = %641, %638
+  store i32 0, ptr %21, align 4
+  br label %645
+
+645:                                              ; preds = %644, %622, %601, %579, %552, %531, %509, %487, %471, %447, %421
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #5
+  %646 = load i32, ptr %21, align 4
+  switch i32 %646, label %667 [
+    i32 0, label %647
+    i32 1, label %665
+  ]
+
+647:                                              ; preds = %645
+  br label %648
+
+648:                                              ; preds = %647, %399
+  %649 = load ptr, ptr %11, align 8, !tbaa !68
+  %650 = icmp ne ptr %649, null
+  br i1 %650, label %651, label %656
+
+651:                                              ; preds = %648
+  %652 = load ptr, ptr %13, align 8, !tbaa !70
+  %653 = getelementptr inbounds nuw %struct.Keys, ptr %652, i32 0, i32 11
+  store i32 0, ptr %653, align 4, !tbaa !77
+  %654 = load ptr, ptr %13, align 8, !tbaa !70
+  %655 = getelementptr inbounds nuw %struct.Keys, ptr %654, i32 0, i32 12
+  store i32 0, ptr %655, align 4, !tbaa !78
+  br label %656
+
+656:                                              ; preds = %651, %648
+  %657 = load ptr, ptr %12, align 8, !tbaa !68
+  %658 = icmp ne ptr %657, null
+  br i1 %658, label %659, label %664
+
+659:                                              ; preds = %656
+  %660 = load ptr, ptr %13, align 8, !tbaa !70
+  %661 = getelementptr inbounds nuw %struct.Keys, ptr %660, i32 0, i32 9
+  store i32 0, ptr %661, align 4, !tbaa !79
+  %662 = load ptr, ptr %13, align 8, !tbaa !70
+  %663 = getelementptr inbounds nuw %struct.Keys, ptr %662, i32 0, i32 10
+  store i32 0, ptr %663, align 4, !tbaa !80
+  br label %664
+
+664:                                              ; preds = %659, %656
+  store i32 0, ptr %10, align 4
+  br label %665
+
+665:                                              ; preds = %664, %645, %396, %193
+  %666 = load i32, ptr %10, align 4
+  ret i32 %666
+
+667:                                              ; preds = %645, %396, %193
+  unreachable
+}
+
+declare ptr @wolfSSL_Malloc(i64 noundef) #2
+
+declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+declare void @wc_AesFree(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) #2
+
+declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
+
+declare i32 @wc_AesGcmSetKey(ptr noundef, ptr noundef, i32 noundef) #2
+
+declare i32 @wc_AesGcmSetIV(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define i32 @SetKeysSide(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  store i32 0, ptr %7, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  store ptr null, ptr %8, align 8, !tbaa !68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store ptr null, ptr %9, align 8, !tbaa !68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %12, i32 0, i32 48
+  store ptr %13, ptr %10, align 8, !tbaa !70
+  %14 = load i32, ptr %5, align 4, !tbaa !45
+  switch i32 %14, label %26 [
+    i32 1, label %15
+    i32 2, label %18
+    i32 3, label %21
+  ]
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %16, i32 0, i32 23
+  store ptr %17, ptr %8, align 8, !tbaa !68
+  br label %27
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %19, i32 0, i32 24
+  store ptr %20, ptr %9, align 8, !tbaa !68
+  br label %27
+
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %22, i32 0, i32 23
+  store ptr %23, ptr %8, align 8, !tbaa !68
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %24, i32 0, i32 24
+  store ptr %25, ptr %9, align 8, !tbaa !68
+  br label %27
+
+26:                                               ; preds = %2
+  store i32 -173, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %91
+
+27:                                               ; preds = %21, %18, %15
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %28, i32 0, i32 76
+  %30 = getelementptr inbounds nuw %struct.OneTimeAuth, ptr %29, i32 0, i32 1
+  %31 = load i8, ptr %30, align 8, !tbaa !81
+  %32 = icmp ne i8 %31, 0
+  br i1 %32, label %58, label %33
+
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %34, i32 0, i32 46
+  %36 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %35, i32 0, i32 4
+  %37 = load i8, ptr %36, align 2, !tbaa !82
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %38, 9
+  br i1 %39, label %40, label %58
+
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %41, i32 0, i32 76
+  %43 = load ptr, ptr %10, align 8, !tbaa !70
+  %44 = load ptr, ptr %4, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %44, i32 0, i32 46
+  %46 = load ptr, ptr %4, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %46, i32 0, i32 12
+  %48 = load ptr, ptr %47, align 16, !tbaa !83
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %49, i32 0, i32 75
+  %51 = load i32, ptr %50, align 4, !tbaa !84
+  %52 = call i32 @SetAuthKeys(ptr noundef %42, ptr noundef %43, ptr noundef %45, ptr noundef %48, i32 noundef %51)
+  store i32 %52, ptr %6, align 4, !tbaa !45
+  %53 = load i32, ptr %6, align 4, !tbaa !45
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %40
+  %56 = load i32, ptr %6, align 4, !tbaa !45
+  store i32 %56, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %91
+
+57:                                               ; preds = %40
+  br label %58
+
+58:                                               ; preds = %57, %33, %27
+  %59 = load ptr, ptr %8, align 8, !tbaa !68
+  %60 = load ptr, ptr %9, align 8, !tbaa !68
+  %61 = load ptr, ptr %10, align 8, !tbaa !70
+  %62 = load ptr, ptr %4, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %62, i32 0, i32 46
+  %64 = load ptr, ptr %4, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %64, i32 0, i32 49
+  %66 = getelementptr inbounds nuw %struct.Options, ptr %65, i32 0, i32 1
+  %67 = load i64, ptr %66, align 8
+  %68 = lshr i64 %67, 4
+  %69 = and i64 %68, 3
+  %70 = trunc i64 %69 to i16
+  %71 = zext i16 %70 to i32
+  %72 = load ptr, ptr %4, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %72, i32 0, i32 12
+  %74 = load ptr, ptr %73, align 16, !tbaa !83
+  %75 = load ptr, ptr %4, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %75, i32 0, i32 75
+  %77 = load i32, ptr %76, align 4, !tbaa !84
+  %78 = load ptr, ptr %4, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %78, i32 0, i32 9
+  %80 = load ptr, ptr %79, align 8, !tbaa !85
+  %81 = load ptr, ptr %4, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %81, i32 0, i32 49
+  %83 = getelementptr inbounds nuw %struct.Options, ptr %82, i32 0, i32 1
+  %84 = load i64, ptr %83, align 8
+  %85 = lshr i64 %84, 16
+  %86 = and i64 %85, 1
+  %87 = trunc i64 %86 to i16
+  %88 = zext i16 %87 to i32
+  %89 = call i32 @SetKeys(ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %63, i32 noundef %71, ptr noundef %74, i32 noundef %77, ptr noundef %80, i32 noundef %88)
+  store i32 %89, ptr %6, align 4, !tbaa !45
+  %90 = load i32, ptr %6, align 4, !tbaa !45
+  store i32 %90, ptr %3, align 4
+  store i32 1, ptr %11, align 4
+  br label %91
+
+91:                                               ; preds = %58, %55, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %92 = load i32, ptr %3, align 4
+  ret i32 %92
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @GetCipherSpec(i16 noundef zeroext %side, i8 noundef zeroext %cipherSuite0, i8 noundef zeroext %cipherSuite, ptr noundef %specs, ptr noundef %opts) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %side.addr = alloca i16, align 2
-  %cipherSuite0.addr = alloca i8, align 1
-  %cipherSuite.addr = alloca i8, align 1
-  %specs.addr = alloca ptr, align 8
-  %opts.addr = alloca ptr, align 8
-  %havePSK = alloca i16, align 2
-  store i16 %side, ptr %side.addr, align 2
-  store i8 %cipherSuite0, ptr %cipherSuite0.addr, align 1
-  store i8 %cipherSuite, ptr %cipherSuite.addr, align 1
-  store ptr %specs, ptr %specs.addr, align 8
-  store ptr %opts, ptr %opts.addr, align 8
-  store i16 0, ptr %havePSK, align 2
-  %0 = load i16, ptr %side.addr, align 2
-  %conv = zext i16 %0 to i32
-  %cmp = icmp eq i32 %conv, 1
-  br i1 %cmp, label %if.then, label %if.end5
-
-if.then:                                          ; preds = %entry
-  %1 = load i16, ptr %havePSK, align 2
-  %2 = load i8, ptr %cipherSuite0.addr, align 1
-  %3 = load i8, ptr %cipherSuite.addr, align 1
-  %call = call i32 @VerifyClientSuite(i16 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3)
-  %cmp2 = icmp ne i32 %call, 1
-  br i1 %cmp2, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then
-  br label %do.body
-
-do.body:                                          ; preds = %if.then4
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  store i32 -500, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end, %entry
-  %4 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv6 = zext i8 %4 to i32
-  %cmp7 = icmp eq i32 %conv6, 204
-  br i1 %cmp7, label %if.then9, label %if.end122
-
-if.then9:                                         ; preds = %if.end5
-  %5 = load i8, ptr %cipherSuite.addr, align 1
-  %conv10 = zext i8 %5 to i32
-  switch i32 %conv10, label %sw.default [
-    i32 19, label %sw.bb
-    i32 20, label %sw.bb15
-    i32 21, label %sw.bb36
-    i32 168, label %sw.bb57
-    i32 169, label %sw.bb78
-    i32 170, label %sw.bb99
-  ]
-
-sw.bb:                                            ; preds = %if.then9
-  %6 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm = getelementptr inbounds %struct.CipherSpecs, ptr %6, i32 0, i32 4
-  store i8 9, ptr %bulk_cipher_algorithm, align 2
-  %7 = load ptr, ptr %specs.addr, align 8
-  %cipher_type = getelementptr inbounds %struct.CipherSpecs, ptr %7, i32 0, i32 5
-  store i8 2, ptr %cipher_type, align 1
-  %8 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm = getelementptr inbounds %struct.CipherSpecs, ptr %8, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm, align 2
-  %9 = load ptr, ptr %specs.addr, align 8
-  %kea = getelementptr inbounds %struct.CipherSpecs, ptr %9, i32 0, i32 7
-  store i8 7, ptr %kea, align 1
-  %10 = load ptr, ptr %specs.addr, align 8
-  %sig_algo = getelementptr inbounds %struct.CipherSpecs, ptr %10, i32 0, i32 8
-  store i8 1, ptr %sig_algo, align 2
-  %11 = load ptr, ptr %specs.addr, align 8
-  %hash_size = getelementptr inbounds %struct.CipherSpecs, ptr %11, i32 0, i32 9
-  store i8 32, ptr %hash_size, align 1
-  %12 = load ptr, ptr %specs.addr, align 8
-  %pad_size = getelementptr inbounds %struct.CipherSpecs, ptr %12, i32 0, i32 10
-  store i8 40, ptr %pad_size, align 2
-  %13 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh = getelementptr inbounds %struct.CipherSpecs, ptr %13, i32 0, i32 11
-  store i8 0, ptr %static_ecdh, align 1
-  %14 = load ptr, ptr %specs.addr, align 8
-  %key_size = getelementptr inbounds %struct.CipherSpecs, ptr %14, i32 0, i32 0
-  store i16 32, ptr %key_size, align 2
-  %15 = load ptr, ptr %specs.addr, align 8
-  %block_size = getelementptr inbounds %struct.CipherSpecs, ptr %15, i32 0, i32 2
-  store i16 16, ptr %block_size, align 2
-  %16 = load ptr, ptr %specs.addr, align 8
-  %iv_size = getelementptr inbounds %struct.CipherSpecs, ptr %16, i32 0, i32 1
-  store i16 12, ptr %iv_size, align 2
-  %17 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size = getelementptr inbounds %struct.CipherSpecs, ptr %17, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size, align 2
-  %18 = load ptr, ptr %opts.addr, align 8
-  %cmp11 = icmp ne ptr %18, null
-  br i1 %cmp11, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %sw.bb
-  %19 = load ptr, ptr %opts.addr, align 8
-  %oldPoly = getelementptr inbounds %struct.Options, ptr %19, i32 0, i32 1
-  %bf.load = load i64, ptr %oldPoly, align 8
-  %bf.clear = and i64 %bf.load, -17592186044417
-  %bf.set = or i64 %bf.clear, 17592186044416
-  store i64 %bf.set, ptr %oldPoly, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then13, %sw.bb
-  br label %sw.epilog
-
-sw.bb15:                                          ; preds = %if.then9
-  %20 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm16 = getelementptr inbounds %struct.CipherSpecs, ptr %20, i32 0, i32 4
-  store i8 9, ptr %bulk_cipher_algorithm16, align 2
-  %21 = load ptr, ptr %specs.addr, align 8
-  %cipher_type17 = getelementptr inbounds %struct.CipherSpecs, ptr %21, i32 0, i32 5
-  store i8 2, ptr %cipher_type17, align 1
-  %22 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm18 = getelementptr inbounds %struct.CipherSpecs, ptr %22, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm18, align 2
-  %23 = load ptr, ptr %specs.addr, align 8
-  %kea19 = getelementptr inbounds %struct.CipherSpecs, ptr %23, i32 0, i32 7
-  store i8 7, ptr %kea19, align 1
-  %24 = load ptr, ptr %specs.addr, align 8
-  %sig_algo20 = getelementptr inbounds %struct.CipherSpecs, ptr %24, i32 0, i32 8
-  store i8 3, ptr %sig_algo20, align 2
-  %25 = load ptr, ptr %specs.addr, align 8
-  %hash_size21 = getelementptr inbounds %struct.CipherSpecs, ptr %25, i32 0, i32 9
-  store i8 32, ptr %hash_size21, align 1
-  %26 = load ptr, ptr %specs.addr, align 8
-  %pad_size22 = getelementptr inbounds %struct.CipherSpecs, ptr %26, i32 0, i32 10
-  store i8 40, ptr %pad_size22, align 2
-  %27 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh23 = getelementptr inbounds %struct.CipherSpecs, ptr %27, i32 0, i32 11
-  store i8 0, ptr %static_ecdh23, align 1
-  %28 = load ptr, ptr %specs.addr, align 8
-  %key_size24 = getelementptr inbounds %struct.CipherSpecs, ptr %28, i32 0, i32 0
-  store i16 32, ptr %key_size24, align 2
-  %29 = load ptr, ptr %specs.addr, align 8
-  %block_size25 = getelementptr inbounds %struct.CipherSpecs, ptr %29, i32 0, i32 2
-  store i16 16, ptr %block_size25, align 2
-  %30 = load ptr, ptr %specs.addr, align 8
-  %iv_size26 = getelementptr inbounds %struct.CipherSpecs, ptr %30, i32 0, i32 1
-  store i16 12, ptr %iv_size26, align 2
-  %31 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size27 = getelementptr inbounds %struct.CipherSpecs, ptr %31, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size27, align 2
-  %32 = load ptr, ptr %opts.addr, align 8
-  %cmp28 = icmp ne ptr %32, null
-  br i1 %cmp28, label %if.then30, label %if.end35
-
-if.then30:                                        ; preds = %sw.bb15
-  %33 = load ptr, ptr %opts.addr, align 8
-  %oldPoly31 = getelementptr inbounds %struct.Options, ptr %33, i32 0, i32 1
-  %bf.load32 = load i64, ptr %oldPoly31, align 8
-  %bf.clear33 = and i64 %bf.load32, -17592186044417
-  %bf.set34 = or i64 %bf.clear33, 17592186044416
-  store i64 %bf.set34, ptr %oldPoly31, align 8
-  br label %if.end35
-
-if.end35:                                         ; preds = %if.then30, %sw.bb15
-  br label %sw.epilog
-
-sw.bb36:                                          ; preds = %if.then9
-  %34 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm37 = getelementptr inbounds %struct.CipherSpecs, ptr %34, i32 0, i32 4
-  store i8 9, ptr %bulk_cipher_algorithm37, align 2
-  %35 = load ptr, ptr %specs.addr, align 8
-  %cipher_type38 = getelementptr inbounds %struct.CipherSpecs, ptr %35, i32 0, i32 5
-  store i8 2, ptr %cipher_type38, align 1
-  %36 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm39 = getelementptr inbounds %struct.CipherSpecs, ptr %36, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm39, align 2
-  %37 = load ptr, ptr %specs.addr, align 8
-  %kea40 = getelementptr inbounds %struct.CipherSpecs, ptr %37, i32 0, i32 7
-  store i8 2, ptr %kea40, align 1
-  %38 = load ptr, ptr %specs.addr, align 8
-  %sig_algo41 = getelementptr inbounds %struct.CipherSpecs, ptr %38, i32 0, i32 8
-  store i8 1, ptr %sig_algo41, align 2
-  %39 = load ptr, ptr %specs.addr, align 8
-  %hash_size42 = getelementptr inbounds %struct.CipherSpecs, ptr %39, i32 0, i32 9
-  store i8 32, ptr %hash_size42, align 1
-  %40 = load ptr, ptr %specs.addr, align 8
-  %pad_size43 = getelementptr inbounds %struct.CipherSpecs, ptr %40, i32 0, i32 10
-  store i8 40, ptr %pad_size43, align 2
-  %41 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh44 = getelementptr inbounds %struct.CipherSpecs, ptr %41, i32 0, i32 11
-  store i8 0, ptr %static_ecdh44, align 1
-  %42 = load ptr, ptr %specs.addr, align 8
-  %key_size45 = getelementptr inbounds %struct.CipherSpecs, ptr %42, i32 0, i32 0
-  store i16 32, ptr %key_size45, align 2
-  %43 = load ptr, ptr %specs.addr, align 8
-  %block_size46 = getelementptr inbounds %struct.CipherSpecs, ptr %43, i32 0, i32 2
-  store i16 16, ptr %block_size46, align 2
-  %44 = load ptr, ptr %specs.addr, align 8
-  %iv_size47 = getelementptr inbounds %struct.CipherSpecs, ptr %44, i32 0, i32 1
-  store i16 12, ptr %iv_size47, align 2
-  %45 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size48 = getelementptr inbounds %struct.CipherSpecs, ptr %45, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size48, align 2
-  %46 = load ptr, ptr %opts.addr, align 8
-  %cmp49 = icmp ne ptr %46, null
-  br i1 %cmp49, label %if.then51, label %if.end56
-
-if.then51:                                        ; preds = %sw.bb36
-  %47 = load ptr, ptr %opts.addr, align 8
-  %oldPoly52 = getelementptr inbounds %struct.Options, ptr %47, i32 0, i32 1
-  %bf.load53 = load i64, ptr %oldPoly52, align 8
-  %bf.clear54 = and i64 %bf.load53, -17592186044417
-  %bf.set55 = or i64 %bf.clear54, 17592186044416
-  store i64 %bf.set55, ptr %oldPoly52, align 8
-  br label %if.end56
-
-if.end56:                                         ; preds = %if.then51, %sw.bb36
-  br label %sw.epilog
-
-sw.bb57:                                          ; preds = %if.then9
-  %48 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm58 = getelementptr inbounds %struct.CipherSpecs, ptr %48, i32 0, i32 4
-  store i8 9, ptr %bulk_cipher_algorithm58, align 2
-  %49 = load ptr, ptr %specs.addr, align 8
-  %cipher_type59 = getelementptr inbounds %struct.CipherSpecs, ptr %49, i32 0, i32 5
-  store i8 2, ptr %cipher_type59, align 1
-  %50 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm60 = getelementptr inbounds %struct.CipherSpecs, ptr %50, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm60, align 2
-  %51 = load ptr, ptr %specs.addr, align 8
-  %kea61 = getelementptr inbounds %struct.CipherSpecs, ptr %51, i32 0, i32 7
-  store i8 7, ptr %kea61, align 1
-  %52 = load ptr, ptr %specs.addr, align 8
-  %sig_algo62 = getelementptr inbounds %struct.CipherSpecs, ptr %52, i32 0, i32 8
-  store i8 1, ptr %sig_algo62, align 2
-  %53 = load ptr, ptr %specs.addr, align 8
-  %hash_size63 = getelementptr inbounds %struct.CipherSpecs, ptr %53, i32 0, i32 9
-  store i8 32, ptr %hash_size63, align 1
-  %54 = load ptr, ptr %specs.addr, align 8
-  %pad_size64 = getelementptr inbounds %struct.CipherSpecs, ptr %54, i32 0, i32 10
-  store i8 40, ptr %pad_size64, align 2
-  %55 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh65 = getelementptr inbounds %struct.CipherSpecs, ptr %55, i32 0, i32 11
-  store i8 0, ptr %static_ecdh65, align 1
-  %56 = load ptr, ptr %specs.addr, align 8
-  %key_size66 = getelementptr inbounds %struct.CipherSpecs, ptr %56, i32 0, i32 0
-  store i16 32, ptr %key_size66, align 2
-  %57 = load ptr, ptr %specs.addr, align 8
-  %block_size67 = getelementptr inbounds %struct.CipherSpecs, ptr %57, i32 0, i32 2
-  store i16 16, ptr %block_size67, align 2
-  %58 = load ptr, ptr %specs.addr, align 8
-  %iv_size68 = getelementptr inbounds %struct.CipherSpecs, ptr %58, i32 0, i32 1
-  store i16 12, ptr %iv_size68, align 2
-  %59 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size69 = getelementptr inbounds %struct.CipherSpecs, ptr %59, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size69, align 2
-  %60 = load ptr, ptr %opts.addr, align 8
-  %cmp70 = icmp ne ptr %60, null
-  br i1 %cmp70, label %if.then72, label %if.end77
-
-if.then72:                                        ; preds = %sw.bb57
-  %61 = load ptr, ptr %opts.addr, align 8
-  %oldPoly73 = getelementptr inbounds %struct.Options, ptr %61, i32 0, i32 1
-  %bf.load74 = load i64, ptr %oldPoly73, align 8
-  %bf.clear75 = and i64 %bf.load74, -17592186044417
-  %bf.set76 = or i64 %bf.clear75, 0
-  store i64 %bf.set76, ptr %oldPoly73, align 8
-  br label %if.end77
-
-if.end77:                                         ; preds = %if.then72, %sw.bb57
-  br label %sw.epilog
-
-sw.bb78:                                          ; preds = %if.then9
-  %62 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm79 = getelementptr inbounds %struct.CipherSpecs, ptr %62, i32 0, i32 4
-  store i8 9, ptr %bulk_cipher_algorithm79, align 2
-  %63 = load ptr, ptr %specs.addr, align 8
-  %cipher_type80 = getelementptr inbounds %struct.CipherSpecs, ptr %63, i32 0, i32 5
-  store i8 2, ptr %cipher_type80, align 1
-  %64 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm81 = getelementptr inbounds %struct.CipherSpecs, ptr %64, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm81, align 2
-  %65 = load ptr, ptr %specs.addr, align 8
-  %kea82 = getelementptr inbounds %struct.CipherSpecs, ptr %65, i32 0, i32 7
-  store i8 7, ptr %kea82, align 1
-  %66 = load ptr, ptr %specs.addr, align 8
-  %sig_algo83 = getelementptr inbounds %struct.CipherSpecs, ptr %66, i32 0, i32 8
-  store i8 3, ptr %sig_algo83, align 2
-  %67 = load ptr, ptr %specs.addr, align 8
-  %hash_size84 = getelementptr inbounds %struct.CipherSpecs, ptr %67, i32 0, i32 9
-  store i8 32, ptr %hash_size84, align 1
-  %68 = load ptr, ptr %specs.addr, align 8
-  %pad_size85 = getelementptr inbounds %struct.CipherSpecs, ptr %68, i32 0, i32 10
-  store i8 40, ptr %pad_size85, align 2
-  %69 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh86 = getelementptr inbounds %struct.CipherSpecs, ptr %69, i32 0, i32 11
-  store i8 0, ptr %static_ecdh86, align 1
-  %70 = load ptr, ptr %specs.addr, align 8
-  %key_size87 = getelementptr inbounds %struct.CipherSpecs, ptr %70, i32 0, i32 0
-  store i16 32, ptr %key_size87, align 2
-  %71 = load ptr, ptr %specs.addr, align 8
-  %block_size88 = getelementptr inbounds %struct.CipherSpecs, ptr %71, i32 0, i32 2
-  store i16 16, ptr %block_size88, align 2
-  %72 = load ptr, ptr %specs.addr, align 8
-  %iv_size89 = getelementptr inbounds %struct.CipherSpecs, ptr %72, i32 0, i32 1
-  store i16 12, ptr %iv_size89, align 2
-  %73 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size90 = getelementptr inbounds %struct.CipherSpecs, ptr %73, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size90, align 2
-  %74 = load ptr, ptr %opts.addr, align 8
-  %cmp91 = icmp ne ptr %74, null
-  br i1 %cmp91, label %if.then93, label %if.end98
-
-if.then93:                                        ; preds = %sw.bb78
-  %75 = load ptr, ptr %opts.addr, align 8
-  %oldPoly94 = getelementptr inbounds %struct.Options, ptr %75, i32 0, i32 1
-  %bf.load95 = load i64, ptr %oldPoly94, align 8
-  %bf.clear96 = and i64 %bf.load95, -17592186044417
-  %bf.set97 = or i64 %bf.clear96, 0
-  store i64 %bf.set97, ptr %oldPoly94, align 8
-  br label %if.end98
-
-if.end98:                                         ; preds = %if.then93, %sw.bb78
-  br label %sw.epilog
-
-sw.bb99:                                          ; preds = %if.then9
-  %76 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm100 = getelementptr inbounds %struct.CipherSpecs, ptr %76, i32 0, i32 4
-  store i8 9, ptr %bulk_cipher_algorithm100, align 2
-  %77 = load ptr, ptr %specs.addr, align 8
-  %cipher_type101 = getelementptr inbounds %struct.CipherSpecs, ptr %77, i32 0, i32 5
-  store i8 2, ptr %cipher_type101, align 1
-  %78 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm102 = getelementptr inbounds %struct.CipherSpecs, ptr %78, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm102, align 2
-  %79 = load ptr, ptr %specs.addr, align 8
-  %kea103 = getelementptr inbounds %struct.CipherSpecs, ptr %79, i32 0, i32 7
-  store i8 2, ptr %kea103, align 1
-  %80 = load ptr, ptr %specs.addr, align 8
-  %sig_algo104 = getelementptr inbounds %struct.CipherSpecs, ptr %80, i32 0, i32 8
-  store i8 1, ptr %sig_algo104, align 2
-  %81 = load ptr, ptr %specs.addr, align 8
-  %hash_size105 = getelementptr inbounds %struct.CipherSpecs, ptr %81, i32 0, i32 9
-  store i8 32, ptr %hash_size105, align 1
-  %82 = load ptr, ptr %specs.addr, align 8
-  %pad_size106 = getelementptr inbounds %struct.CipherSpecs, ptr %82, i32 0, i32 10
-  store i8 40, ptr %pad_size106, align 2
-  %83 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh107 = getelementptr inbounds %struct.CipherSpecs, ptr %83, i32 0, i32 11
-  store i8 0, ptr %static_ecdh107, align 1
-  %84 = load ptr, ptr %specs.addr, align 8
-  %key_size108 = getelementptr inbounds %struct.CipherSpecs, ptr %84, i32 0, i32 0
-  store i16 32, ptr %key_size108, align 2
-  %85 = load ptr, ptr %specs.addr, align 8
-  %block_size109 = getelementptr inbounds %struct.CipherSpecs, ptr %85, i32 0, i32 2
-  store i16 16, ptr %block_size109, align 2
-  %86 = load ptr, ptr %specs.addr, align 8
-  %iv_size110 = getelementptr inbounds %struct.CipherSpecs, ptr %86, i32 0, i32 1
-  store i16 12, ptr %iv_size110, align 2
-  %87 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size111 = getelementptr inbounds %struct.CipherSpecs, ptr %87, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size111, align 2
-  %88 = load ptr, ptr %opts.addr, align 8
-  %cmp112 = icmp ne ptr %88, null
-  br i1 %cmp112, label %if.then114, label %if.end119
-
-if.then114:                                       ; preds = %sw.bb99
-  %89 = load ptr, ptr %opts.addr, align 8
-  %oldPoly115 = getelementptr inbounds %struct.Options, ptr %89, i32 0, i32 1
-  %bf.load116 = load i64, ptr %oldPoly115, align 8
-  %bf.clear117 = and i64 %bf.load116, -17592186044417
-  %bf.set118 = or i64 %bf.clear117, 0
-  store i64 %bf.set118, ptr %oldPoly115, align 8
-  br label %if.end119
-
-if.end119:                                        ; preds = %if.then114, %sw.bb99
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %if.then9
-  br label %do.body120
-
-do.body120:                                       ; preds = %sw.default
-  br label %do.end121
-
-do.end121:                                        ; preds = %do.body120
-  store i32 -500, ptr %retval, align 4
-  br label %return
-
-sw.epilog:                                        ; preds = %if.end119, %if.end98, %if.end77, %if.end56, %if.end35, %if.end14
-  br label %if.end122
-
-if.end122:                                        ; preds = %sw.epilog, %if.end5
-  %90 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv123 = zext i8 %90 to i32
-  %cmp124 = icmp eq i32 %conv123, 192
-  br i1 %cmp124, label %if.then126, label %if.end280
-
-if.then126:                                       ; preds = %if.end122
-  %91 = load i8, ptr %cipherSuite.addr, align 1
-  %conv127 = zext i8 %91 to i32
-  switch i32 %conv127, label %sw.default276 [
-    i32 39, label %sw.bb128
-    i32 40, label %sw.bb140
-    i32 19, label %sw.bb152
-    i32 20, label %sw.bb164
-    i32 47, label %sw.bb176
-    i32 48, label %sw.bb189
-    i32 35, label %sw.bb202
-    i32 36, label %sw.bb214
-    i32 9, label %sw.bb226
-    i32 10, label %sw.bb238
-    i32 43, label %sw.bb250
-    i32 44, label %sw.bb263
-  ]
-
-sw.bb128:                                         ; preds = %if.then126
-  %92 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm129 = getelementptr inbounds %struct.CipherSpecs, ptr %92, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm129, align 2
-  %93 = load ptr, ptr %specs.addr, align 8
-  %cipher_type130 = getelementptr inbounds %struct.CipherSpecs, ptr %93, i32 0, i32 5
-  store i8 1, ptr %cipher_type130, align 1
-  %94 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm131 = getelementptr inbounds %struct.CipherSpecs, ptr %94, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm131, align 2
-  %95 = load ptr, ptr %specs.addr, align 8
-  %kea132 = getelementptr inbounds %struct.CipherSpecs, ptr %95, i32 0, i32 7
-  store i8 7, ptr %kea132, align 1
-  %96 = load ptr, ptr %specs.addr, align 8
-  %sig_algo133 = getelementptr inbounds %struct.CipherSpecs, ptr %96, i32 0, i32 8
-  store i8 1, ptr %sig_algo133, align 2
-  %97 = load ptr, ptr %specs.addr, align 8
-  %hash_size134 = getelementptr inbounds %struct.CipherSpecs, ptr %97, i32 0, i32 9
-  store i8 32, ptr %hash_size134, align 1
-  %98 = load ptr, ptr %specs.addr, align 8
-  %pad_size135 = getelementptr inbounds %struct.CipherSpecs, ptr %98, i32 0, i32 10
-  store i8 40, ptr %pad_size135, align 2
-  %99 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh136 = getelementptr inbounds %struct.CipherSpecs, ptr %99, i32 0, i32 11
-  store i8 0, ptr %static_ecdh136, align 1
-  %100 = load ptr, ptr %specs.addr, align 8
-  %key_size137 = getelementptr inbounds %struct.CipherSpecs, ptr %100, i32 0, i32 0
-  store i16 16, ptr %key_size137, align 2
-  %101 = load ptr, ptr %specs.addr, align 8
-  %iv_size138 = getelementptr inbounds %struct.CipherSpecs, ptr %101, i32 0, i32 1
-  store i16 16, ptr %iv_size138, align 2
-  %102 = load ptr, ptr %specs.addr, align 8
-  %block_size139 = getelementptr inbounds %struct.CipherSpecs, ptr %102, i32 0, i32 2
-  store i16 16, ptr %block_size139, align 2
-  br label %sw.epilog279
-
-sw.bb140:                                         ; preds = %if.then126
-  %103 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm141 = getelementptr inbounds %struct.CipherSpecs, ptr %103, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm141, align 2
-  %104 = load ptr, ptr %specs.addr, align 8
-  %cipher_type142 = getelementptr inbounds %struct.CipherSpecs, ptr %104, i32 0, i32 5
-  store i8 1, ptr %cipher_type142, align 1
-  %105 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm143 = getelementptr inbounds %struct.CipherSpecs, ptr %105, i32 0, i32 6
-  store i8 5, ptr %mac_algorithm143, align 2
-  %106 = load ptr, ptr %specs.addr, align 8
-  %kea144 = getelementptr inbounds %struct.CipherSpecs, ptr %106, i32 0, i32 7
-  store i8 7, ptr %kea144, align 1
-  %107 = load ptr, ptr %specs.addr, align 8
-  %sig_algo145 = getelementptr inbounds %struct.CipherSpecs, ptr %107, i32 0, i32 8
-  store i8 1, ptr %sig_algo145, align 2
-  %108 = load ptr, ptr %specs.addr, align 8
-  %hash_size146 = getelementptr inbounds %struct.CipherSpecs, ptr %108, i32 0, i32 9
-  store i8 48, ptr %hash_size146, align 1
-  %109 = load ptr, ptr %specs.addr, align 8
-  %pad_size147 = getelementptr inbounds %struct.CipherSpecs, ptr %109, i32 0, i32 10
-  store i8 40, ptr %pad_size147, align 2
-  %110 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh148 = getelementptr inbounds %struct.CipherSpecs, ptr %110, i32 0, i32 11
-  store i8 0, ptr %static_ecdh148, align 1
-  %111 = load ptr, ptr %specs.addr, align 8
-  %key_size149 = getelementptr inbounds %struct.CipherSpecs, ptr %111, i32 0, i32 0
-  store i16 32, ptr %key_size149, align 2
-  %112 = load ptr, ptr %specs.addr, align 8
-  %iv_size150 = getelementptr inbounds %struct.CipherSpecs, ptr %112, i32 0, i32 1
-  store i16 16, ptr %iv_size150, align 2
-  %113 = load ptr, ptr %specs.addr, align 8
-  %block_size151 = getelementptr inbounds %struct.CipherSpecs, ptr %113, i32 0, i32 2
-  store i16 16, ptr %block_size151, align 2
-  br label %sw.epilog279
-
-sw.bb152:                                         ; preds = %if.then126
-  %114 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm153 = getelementptr inbounds %struct.CipherSpecs, ptr %114, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm153, align 2
-  %115 = load ptr, ptr %specs.addr, align 8
-  %cipher_type154 = getelementptr inbounds %struct.CipherSpecs, ptr %115, i32 0, i32 5
-  store i8 1, ptr %cipher_type154, align 1
-  %116 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm155 = getelementptr inbounds %struct.CipherSpecs, ptr %116, i32 0, i32 6
-  store i8 2, ptr %mac_algorithm155, align 2
-  %117 = load ptr, ptr %specs.addr, align 8
-  %kea156 = getelementptr inbounds %struct.CipherSpecs, ptr %117, i32 0, i32 7
-  store i8 7, ptr %kea156, align 1
-  %118 = load ptr, ptr %specs.addr, align 8
-  %sig_algo157 = getelementptr inbounds %struct.CipherSpecs, ptr %118, i32 0, i32 8
-  store i8 1, ptr %sig_algo157, align 2
-  %119 = load ptr, ptr %specs.addr, align 8
-  %hash_size158 = getelementptr inbounds %struct.CipherSpecs, ptr %119, i32 0, i32 9
-  store i8 20, ptr %hash_size158, align 1
-  %120 = load ptr, ptr %specs.addr, align 8
-  %pad_size159 = getelementptr inbounds %struct.CipherSpecs, ptr %120, i32 0, i32 10
-  store i8 40, ptr %pad_size159, align 2
-  %121 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh160 = getelementptr inbounds %struct.CipherSpecs, ptr %121, i32 0, i32 11
-  store i8 0, ptr %static_ecdh160, align 1
-  %122 = load ptr, ptr %specs.addr, align 8
-  %key_size161 = getelementptr inbounds %struct.CipherSpecs, ptr %122, i32 0, i32 0
-  store i16 16, ptr %key_size161, align 2
-  %123 = load ptr, ptr %specs.addr, align 8
-  %block_size162 = getelementptr inbounds %struct.CipherSpecs, ptr %123, i32 0, i32 2
-  store i16 16, ptr %block_size162, align 2
-  %124 = load ptr, ptr %specs.addr, align 8
-  %iv_size163 = getelementptr inbounds %struct.CipherSpecs, ptr %124, i32 0, i32 1
-  store i16 16, ptr %iv_size163, align 2
-  br label %sw.epilog279
-
-sw.bb164:                                         ; preds = %if.then126
-  %125 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm165 = getelementptr inbounds %struct.CipherSpecs, ptr %125, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm165, align 2
-  %126 = load ptr, ptr %specs.addr, align 8
-  %cipher_type166 = getelementptr inbounds %struct.CipherSpecs, ptr %126, i32 0, i32 5
-  store i8 1, ptr %cipher_type166, align 1
-  %127 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm167 = getelementptr inbounds %struct.CipherSpecs, ptr %127, i32 0, i32 6
-  store i8 2, ptr %mac_algorithm167, align 2
-  %128 = load ptr, ptr %specs.addr, align 8
-  %kea168 = getelementptr inbounds %struct.CipherSpecs, ptr %128, i32 0, i32 7
-  store i8 7, ptr %kea168, align 1
-  %129 = load ptr, ptr %specs.addr, align 8
-  %sig_algo169 = getelementptr inbounds %struct.CipherSpecs, ptr %129, i32 0, i32 8
-  store i8 1, ptr %sig_algo169, align 2
-  %130 = load ptr, ptr %specs.addr, align 8
-  %hash_size170 = getelementptr inbounds %struct.CipherSpecs, ptr %130, i32 0, i32 9
-  store i8 20, ptr %hash_size170, align 1
-  %131 = load ptr, ptr %specs.addr, align 8
-  %pad_size171 = getelementptr inbounds %struct.CipherSpecs, ptr %131, i32 0, i32 10
-  store i8 40, ptr %pad_size171, align 2
-  %132 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh172 = getelementptr inbounds %struct.CipherSpecs, ptr %132, i32 0, i32 11
-  store i8 0, ptr %static_ecdh172, align 1
-  %133 = load ptr, ptr %specs.addr, align 8
-  %key_size173 = getelementptr inbounds %struct.CipherSpecs, ptr %133, i32 0, i32 0
-  store i16 32, ptr %key_size173, align 2
-  %134 = load ptr, ptr %specs.addr, align 8
-  %block_size174 = getelementptr inbounds %struct.CipherSpecs, ptr %134, i32 0, i32 2
-  store i16 16, ptr %block_size174, align 2
-  %135 = load ptr, ptr %specs.addr, align 8
-  %iv_size175 = getelementptr inbounds %struct.CipherSpecs, ptr %135, i32 0, i32 1
-  store i16 16, ptr %iv_size175, align 2
-  br label %sw.epilog279
-
-sw.bb176:                                         ; preds = %if.then126
-  %136 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm177 = getelementptr inbounds %struct.CipherSpecs, ptr %136, i32 0, i32 4
-  store i8 7, ptr %bulk_cipher_algorithm177, align 2
-  %137 = load ptr, ptr %specs.addr, align 8
-  %cipher_type178 = getelementptr inbounds %struct.CipherSpecs, ptr %137, i32 0, i32 5
-  store i8 2, ptr %cipher_type178, align 1
-  %138 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm179 = getelementptr inbounds %struct.CipherSpecs, ptr %138, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm179, align 2
-  %139 = load ptr, ptr %specs.addr, align 8
-  %kea180 = getelementptr inbounds %struct.CipherSpecs, ptr %139, i32 0, i32 7
-  store i8 7, ptr %kea180, align 1
-  %140 = load ptr, ptr %specs.addr, align 8
-  %sig_algo181 = getelementptr inbounds %struct.CipherSpecs, ptr %140, i32 0, i32 8
-  store i8 1, ptr %sig_algo181, align 2
-  %141 = load ptr, ptr %specs.addr, align 8
-  %hash_size182 = getelementptr inbounds %struct.CipherSpecs, ptr %141, i32 0, i32 9
-  store i8 32, ptr %hash_size182, align 1
-  %142 = load ptr, ptr %specs.addr, align 8
-  %pad_size183 = getelementptr inbounds %struct.CipherSpecs, ptr %142, i32 0, i32 10
-  store i8 40, ptr %pad_size183, align 2
-  %143 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh184 = getelementptr inbounds %struct.CipherSpecs, ptr %143, i32 0, i32 11
-  store i8 0, ptr %static_ecdh184, align 1
-  %144 = load ptr, ptr %specs.addr, align 8
-  %key_size185 = getelementptr inbounds %struct.CipherSpecs, ptr %144, i32 0, i32 0
-  store i16 16, ptr %key_size185, align 2
-  %145 = load ptr, ptr %specs.addr, align 8
-  %block_size186 = getelementptr inbounds %struct.CipherSpecs, ptr %145, i32 0, i32 2
-  store i16 16, ptr %block_size186, align 2
-  %146 = load ptr, ptr %specs.addr, align 8
-  %iv_size187 = getelementptr inbounds %struct.CipherSpecs, ptr %146, i32 0, i32 1
-  store i16 4, ptr %iv_size187, align 2
-  %147 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size188 = getelementptr inbounds %struct.CipherSpecs, ptr %147, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size188, align 2
-  br label %sw.epilog279
-
-sw.bb189:                                         ; preds = %if.then126
-  %148 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm190 = getelementptr inbounds %struct.CipherSpecs, ptr %148, i32 0, i32 4
-  store i8 7, ptr %bulk_cipher_algorithm190, align 2
-  %149 = load ptr, ptr %specs.addr, align 8
-  %cipher_type191 = getelementptr inbounds %struct.CipherSpecs, ptr %149, i32 0, i32 5
-  store i8 2, ptr %cipher_type191, align 1
-  %150 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm192 = getelementptr inbounds %struct.CipherSpecs, ptr %150, i32 0, i32 6
-  store i8 5, ptr %mac_algorithm192, align 2
-  %151 = load ptr, ptr %specs.addr, align 8
-  %kea193 = getelementptr inbounds %struct.CipherSpecs, ptr %151, i32 0, i32 7
-  store i8 7, ptr %kea193, align 1
-  %152 = load ptr, ptr %specs.addr, align 8
-  %sig_algo194 = getelementptr inbounds %struct.CipherSpecs, ptr %152, i32 0, i32 8
-  store i8 1, ptr %sig_algo194, align 2
-  %153 = load ptr, ptr %specs.addr, align 8
-  %hash_size195 = getelementptr inbounds %struct.CipherSpecs, ptr %153, i32 0, i32 9
-  store i8 48, ptr %hash_size195, align 1
-  %154 = load ptr, ptr %specs.addr, align 8
-  %pad_size196 = getelementptr inbounds %struct.CipherSpecs, ptr %154, i32 0, i32 10
-  store i8 40, ptr %pad_size196, align 2
-  %155 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh197 = getelementptr inbounds %struct.CipherSpecs, ptr %155, i32 0, i32 11
-  store i8 0, ptr %static_ecdh197, align 1
-  %156 = load ptr, ptr %specs.addr, align 8
-  %key_size198 = getelementptr inbounds %struct.CipherSpecs, ptr %156, i32 0, i32 0
-  store i16 32, ptr %key_size198, align 2
-  %157 = load ptr, ptr %specs.addr, align 8
-  %block_size199 = getelementptr inbounds %struct.CipherSpecs, ptr %157, i32 0, i32 2
-  store i16 16, ptr %block_size199, align 2
-  %158 = load ptr, ptr %specs.addr, align 8
-  %iv_size200 = getelementptr inbounds %struct.CipherSpecs, ptr %158, i32 0, i32 1
-  store i16 4, ptr %iv_size200, align 2
-  %159 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size201 = getelementptr inbounds %struct.CipherSpecs, ptr %159, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size201, align 2
-  br label %sw.epilog279
-
-sw.bb202:                                         ; preds = %if.then126
-  %160 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm203 = getelementptr inbounds %struct.CipherSpecs, ptr %160, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm203, align 2
-  %161 = load ptr, ptr %specs.addr, align 8
-  %cipher_type204 = getelementptr inbounds %struct.CipherSpecs, ptr %161, i32 0, i32 5
-  store i8 1, ptr %cipher_type204, align 1
-  %162 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm205 = getelementptr inbounds %struct.CipherSpecs, ptr %162, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm205, align 2
-  %163 = load ptr, ptr %specs.addr, align 8
-  %kea206 = getelementptr inbounds %struct.CipherSpecs, ptr %163, i32 0, i32 7
-  store i8 7, ptr %kea206, align 1
-  %164 = load ptr, ptr %specs.addr, align 8
-  %sig_algo207 = getelementptr inbounds %struct.CipherSpecs, ptr %164, i32 0, i32 8
-  store i8 3, ptr %sig_algo207, align 2
-  %165 = load ptr, ptr %specs.addr, align 8
-  %hash_size208 = getelementptr inbounds %struct.CipherSpecs, ptr %165, i32 0, i32 9
-  store i8 32, ptr %hash_size208, align 1
-  %166 = load ptr, ptr %specs.addr, align 8
-  %pad_size209 = getelementptr inbounds %struct.CipherSpecs, ptr %166, i32 0, i32 10
-  store i8 40, ptr %pad_size209, align 2
-  %167 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh210 = getelementptr inbounds %struct.CipherSpecs, ptr %167, i32 0, i32 11
-  store i8 0, ptr %static_ecdh210, align 1
-  %168 = load ptr, ptr %specs.addr, align 8
-  %key_size211 = getelementptr inbounds %struct.CipherSpecs, ptr %168, i32 0, i32 0
-  store i16 16, ptr %key_size211, align 2
-  %169 = load ptr, ptr %specs.addr, align 8
-  %iv_size212 = getelementptr inbounds %struct.CipherSpecs, ptr %169, i32 0, i32 1
-  store i16 16, ptr %iv_size212, align 2
-  %170 = load ptr, ptr %specs.addr, align 8
-  %block_size213 = getelementptr inbounds %struct.CipherSpecs, ptr %170, i32 0, i32 2
-  store i16 16, ptr %block_size213, align 2
-  br label %sw.epilog279
-
-sw.bb214:                                         ; preds = %if.then126
-  %171 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm215 = getelementptr inbounds %struct.CipherSpecs, ptr %171, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm215, align 2
-  %172 = load ptr, ptr %specs.addr, align 8
-  %cipher_type216 = getelementptr inbounds %struct.CipherSpecs, ptr %172, i32 0, i32 5
-  store i8 1, ptr %cipher_type216, align 1
-  %173 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm217 = getelementptr inbounds %struct.CipherSpecs, ptr %173, i32 0, i32 6
-  store i8 5, ptr %mac_algorithm217, align 2
-  %174 = load ptr, ptr %specs.addr, align 8
-  %kea218 = getelementptr inbounds %struct.CipherSpecs, ptr %174, i32 0, i32 7
-  store i8 7, ptr %kea218, align 1
-  %175 = load ptr, ptr %specs.addr, align 8
-  %sig_algo219 = getelementptr inbounds %struct.CipherSpecs, ptr %175, i32 0, i32 8
-  store i8 3, ptr %sig_algo219, align 2
-  %176 = load ptr, ptr %specs.addr, align 8
-  %hash_size220 = getelementptr inbounds %struct.CipherSpecs, ptr %176, i32 0, i32 9
-  store i8 48, ptr %hash_size220, align 1
-  %177 = load ptr, ptr %specs.addr, align 8
-  %pad_size221 = getelementptr inbounds %struct.CipherSpecs, ptr %177, i32 0, i32 10
-  store i8 40, ptr %pad_size221, align 2
-  %178 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh222 = getelementptr inbounds %struct.CipherSpecs, ptr %178, i32 0, i32 11
-  store i8 0, ptr %static_ecdh222, align 1
-  %179 = load ptr, ptr %specs.addr, align 8
-  %key_size223 = getelementptr inbounds %struct.CipherSpecs, ptr %179, i32 0, i32 0
-  store i16 32, ptr %key_size223, align 2
-  %180 = load ptr, ptr %specs.addr, align 8
-  %iv_size224 = getelementptr inbounds %struct.CipherSpecs, ptr %180, i32 0, i32 1
-  store i16 16, ptr %iv_size224, align 2
-  %181 = load ptr, ptr %specs.addr, align 8
-  %block_size225 = getelementptr inbounds %struct.CipherSpecs, ptr %181, i32 0, i32 2
-  store i16 16, ptr %block_size225, align 2
-  br label %sw.epilog279
-
-sw.bb226:                                         ; preds = %if.then126
-  %182 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm227 = getelementptr inbounds %struct.CipherSpecs, ptr %182, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm227, align 2
-  %183 = load ptr, ptr %specs.addr, align 8
-  %cipher_type228 = getelementptr inbounds %struct.CipherSpecs, ptr %183, i32 0, i32 5
-  store i8 1, ptr %cipher_type228, align 1
-  %184 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm229 = getelementptr inbounds %struct.CipherSpecs, ptr %184, i32 0, i32 6
-  store i8 2, ptr %mac_algorithm229, align 2
-  %185 = load ptr, ptr %specs.addr, align 8
-  %kea230 = getelementptr inbounds %struct.CipherSpecs, ptr %185, i32 0, i32 7
-  store i8 7, ptr %kea230, align 1
-  %186 = load ptr, ptr %specs.addr, align 8
-  %sig_algo231 = getelementptr inbounds %struct.CipherSpecs, ptr %186, i32 0, i32 8
-  store i8 3, ptr %sig_algo231, align 2
-  %187 = load ptr, ptr %specs.addr, align 8
-  %hash_size232 = getelementptr inbounds %struct.CipherSpecs, ptr %187, i32 0, i32 9
-  store i8 20, ptr %hash_size232, align 1
-  %188 = load ptr, ptr %specs.addr, align 8
-  %pad_size233 = getelementptr inbounds %struct.CipherSpecs, ptr %188, i32 0, i32 10
-  store i8 40, ptr %pad_size233, align 2
-  %189 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh234 = getelementptr inbounds %struct.CipherSpecs, ptr %189, i32 0, i32 11
-  store i8 0, ptr %static_ecdh234, align 1
-  %190 = load ptr, ptr %specs.addr, align 8
-  %key_size235 = getelementptr inbounds %struct.CipherSpecs, ptr %190, i32 0, i32 0
-  store i16 16, ptr %key_size235, align 2
-  %191 = load ptr, ptr %specs.addr, align 8
-  %block_size236 = getelementptr inbounds %struct.CipherSpecs, ptr %191, i32 0, i32 2
-  store i16 16, ptr %block_size236, align 2
-  %192 = load ptr, ptr %specs.addr, align 8
-  %iv_size237 = getelementptr inbounds %struct.CipherSpecs, ptr %192, i32 0, i32 1
-  store i16 16, ptr %iv_size237, align 2
-  br label %sw.epilog279
-
-sw.bb238:                                         ; preds = %if.then126
-  %193 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm239 = getelementptr inbounds %struct.CipherSpecs, ptr %193, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm239, align 2
-  %194 = load ptr, ptr %specs.addr, align 8
-  %cipher_type240 = getelementptr inbounds %struct.CipherSpecs, ptr %194, i32 0, i32 5
-  store i8 1, ptr %cipher_type240, align 1
-  %195 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm241 = getelementptr inbounds %struct.CipherSpecs, ptr %195, i32 0, i32 6
-  store i8 2, ptr %mac_algorithm241, align 2
-  %196 = load ptr, ptr %specs.addr, align 8
-  %kea242 = getelementptr inbounds %struct.CipherSpecs, ptr %196, i32 0, i32 7
-  store i8 7, ptr %kea242, align 1
-  %197 = load ptr, ptr %specs.addr, align 8
-  %sig_algo243 = getelementptr inbounds %struct.CipherSpecs, ptr %197, i32 0, i32 8
-  store i8 3, ptr %sig_algo243, align 2
-  %198 = load ptr, ptr %specs.addr, align 8
-  %hash_size244 = getelementptr inbounds %struct.CipherSpecs, ptr %198, i32 0, i32 9
-  store i8 20, ptr %hash_size244, align 1
-  %199 = load ptr, ptr %specs.addr, align 8
-  %pad_size245 = getelementptr inbounds %struct.CipherSpecs, ptr %199, i32 0, i32 10
-  store i8 40, ptr %pad_size245, align 2
-  %200 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh246 = getelementptr inbounds %struct.CipherSpecs, ptr %200, i32 0, i32 11
-  store i8 0, ptr %static_ecdh246, align 1
-  %201 = load ptr, ptr %specs.addr, align 8
-  %key_size247 = getelementptr inbounds %struct.CipherSpecs, ptr %201, i32 0, i32 0
-  store i16 32, ptr %key_size247, align 2
-  %202 = load ptr, ptr %specs.addr, align 8
-  %block_size248 = getelementptr inbounds %struct.CipherSpecs, ptr %202, i32 0, i32 2
-  store i16 16, ptr %block_size248, align 2
-  %203 = load ptr, ptr %specs.addr, align 8
-  %iv_size249 = getelementptr inbounds %struct.CipherSpecs, ptr %203, i32 0, i32 1
-  store i16 16, ptr %iv_size249, align 2
-  br label %sw.epilog279
-
-sw.bb250:                                         ; preds = %if.then126
-  %204 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm251 = getelementptr inbounds %struct.CipherSpecs, ptr %204, i32 0, i32 4
-  store i8 7, ptr %bulk_cipher_algorithm251, align 2
-  %205 = load ptr, ptr %specs.addr, align 8
-  %cipher_type252 = getelementptr inbounds %struct.CipherSpecs, ptr %205, i32 0, i32 5
-  store i8 2, ptr %cipher_type252, align 1
-  %206 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm253 = getelementptr inbounds %struct.CipherSpecs, ptr %206, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm253, align 2
-  %207 = load ptr, ptr %specs.addr, align 8
-  %kea254 = getelementptr inbounds %struct.CipherSpecs, ptr %207, i32 0, i32 7
-  store i8 7, ptr %kea254, align 1
-  %208 = load ptr, ptr %specs.addr, align 8
-  %sig_algo255 = getelementptr inbounds %struct.CipherSpecs, ptr %208, i32 0, i32 8
-  store i8 3, ptr %sig_algo255, align 2
-  %209 = load ptr, ptr %specs.addr, align 8
-  %hash_size256 = getelementptr inbounds %struct.CipherSpecs, ptr %209, i32 0, i32 9
-  store i8 32, ptr %hash_size256, align 1
-  %210 = load ptr, ptr %specs.addr, align 8
-  %pad_size257 = getelementptr inbounds %struct.CipherSpecs, ptr %210, i32 0, i32 10
-  store i8 40, ptr %pad_size257, align 2
-  %211 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh258 = getelementptr inbounds %struct.CipherSpecs, ptr %211, i32 0, i32 11
-  store i8 0, ptr %static_ecdh258, align 1
-  %212 = load ptr, ptr %specs.addr, align 8
-  %key_size259 = getelementptr inbounds %struct.CipherSpecs, ptr %212, i32 0, i32 0
-  store i16 16, ptr %key_size259, align 2
-  %213 = load ptr, ptr %specs.addr, align 8
-  %block_size260 = getelementptr inbounds %struct.CipherSpecs, ptr %213, i32 0, i32 2
-  store i16 16, ptr %block_size260, align 2
-  %214 = load ptr, ptr %specs.addr, align 8
-  %iv_size261 = getelementptr inbounds %struct.CipherSpecs, ptr %214, i32 0, i32 1
-  store i16 4, ptr %iv_size261, align 2
-  %215 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size262 = getelementptr inbounds %struct.CipherSpecs, ptr %215, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size262, align 2
-  br label %sw.epilog279
-
-sw.bb263:                                         ; preds = %if.then126
-  %216 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm264 = getelementptr inbounds %struct.CipherSpecs, ptr %216, i32 0, i32 4
-  store i8 7, ptr %bulk_cipher_algorithm264, align 2
-  %217 = load ptr, ptr %specs.addr, align 8
-  %cipher_type265 = getelementptr inbounds %struct.CipherSpecs, ptr %217, i32 0, i32 5
-  store i8 2, ptr %cipher_type265, align 1
-  %218 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm266 = getelementptr inbounds %struct.CipherSpecs, ptr %218, i32 0, i32 6
-  store i8 5, ptr %mac_algorithm266, align 2
-  %219 = load ptr, ptr %specs.addr, align 8
-  %kea267 = getelementptr inbounds %struct.CipherSpecs, ptr %219, i32 0, i32 7
-  store i8 7, ptr %kea267, align 1
-  %220 = load ptr, ptr %specs.addr, align 8
-  %sig_algo268 = getelementptr inbounds %struct.CipherSpecs, ptr %220, i32 0, i32 8
-  store i8 3, ptr %sig_algo268, align 2
-  %221 = load ptr, ptr %specs.addr, align 8
-  %hash_size269 = getelementptr inbounds %struct.CipherSpecs, ptr %221, i32 0, i32 9
-  store i8 48, ptr %hash_size269, align 1
-  %222 = load ptr, ptr %specs.addr, align 8
-  %pad_size270 = getelementptr inbounds %struct.CipherSpecs, ptr %222, i32 0, i32 10
-  store i8 40, ptr %pad_size270, align 2
-  %223 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh271 = getelementptr inbounds %struct.CipherSpecs, ptr %223, i32 0, i32 11
-  store i8 0, ptr %static_ecdh271, align 1
-  %224 = load ptr, ptr %specs.addr, align 8
-  %key_size272 = getelementptr inbounds %struct.CipherSpecs, ptr %224, i32 0, i32 0
-  store i16 32, ptr %key_size272, align 2
-  %225 = load ptr, ptr %specs.addr, align 8
-  %block_size273 = getelementptr inbounds %struct.CipherSpecs, ptr %225, i32 0, i32 2
-  store i16 16, ptr %block_size273, align 2
-  %226 = load ptr, ptr %specs.addr, align 8
-  %iv_size274 = getelementptr inbounds %struct.CipherSpecs, ptr %226, i32 0, i32 1
-  store i16 4, ptr %iv_size274, align 2
-  %227 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size275 = getelementptr inbounds %struct.CipherSpecs, ptr %227, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size275, align 2
-  br label %sw.epilog279
-
-sw.default276:                                    ; preds = %if.then126
-  br label %do.body277
-
-do.body277:                                       ; preds = %sw.default276
-  br label %do.end278
-
-do.end278:                                        ; preds = %do.body277
-  store i32 -500, ptr %retval, align 4
-  br label %return
-
-sw.epilog279:                                     ; preds = %sw.bb263, %sw.bb250, %sw.bb238, %sw.bb226, %sw.bb214, %sw.bb202, %sw.bb189, %sw.bb176, %sw.bb164, %sw.bb152, %sw.bb140, %sw.bb128
-  br label %if.end280
-
-if.end280:                                        ; preds = %sw.epilog279, %if.end122
-  %228 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv281 = zext i8 %228 to i32
-  %cmp282 = icmp eq i32 %conv281, 19
-  br i1 %cmp282, label %if.then284, label %if.end335
-
-if.then284:                                       ; preds = %if.end280
-  %229 = load i8, ptr %cipherSuite.addr, align 1
-  %conv285 = zext i8 %229 to i32
-  switch i32 %conv285, label %sw.default333 [
-    i32 1, label %sw.bb286
-    i32 2, label %sw.bb299
-    i32 3, label %sw.bb312
-  ]
-
-sw.bb286:                                         ; preds = %if.then284
-  %230 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm287 = getelementptr inbounds %struct.CipherSpecs, ptr %230, i32 0, i32 4
-  store i8 7, ptr %bulk_cipher_algorithm287, align 2
-  %231 = load ptr, ptr %specs.addr, align 8
-  %cipher_type288 = getelementptr inbounds %struct.CipherSpecs, ptr %231, i32 0, i32 5
-  store i8 2, ptr %cipher_type288, align 1
-  %232 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm289 = getelementptr inbounds %struct.CipherSpecs, ptr %232, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm289, align 2
-  %233 = load ptr, ptr %specs.addr, align 8
-  %kea290 = getelementptr inbounds %struct.CipherSpecs, ptr %233, i32 0, i32 7
-  store i8 0, ptr %kea290, align 1
-  %234 = load ptr, ptr %specs.addr, align 8
-  %sig_algo291 = getelementptr inbounds %struct.CipherSpecs, ptr %234, i32 0, i32 8
-  store i8 0, ptr %sig_algo291, align 2
-  %235 = load ptr, ptr %specs.addr, align 8
-  %hash_size292 = getelementptr inbounds %struct.CipherSpecs, ptr %235, i32 0, i32 9
-  store i8 32, ptr %hash_size292, align 1
-  %236 = load ptr, ptr %specs.addr, align 8
-  %pad_size293 = getelementptr inbounds %struct.CipherSpecs, ptr %236, i32 0, i32 10
-  store i8 40, ptr %pad_size293, align 2
-  %237 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh294 = getelementptr inbounds %struct.CipherSpecs, ptr %237, i32 0, i32 11
-  store i8 0, ptr %static_ecdh294, align 1
-  %238 = load ptr, ptr %specs.addr, align 8
-  %key_size295 = getelementptr inbounds %struct.CipherSpecs, ptr %238, i32 0, i32 0
-  store i16 16, ptr %key_size295, align 2
-  %239 = load ptr, ptr %specs.addr, align 8
-  %block_size296 = getelementptr inbounds %struct.CipherSpecs, ptr %239, i32 0, i32 2
-  store i16 16, ptr %block_size296, align 2
-  %240 = load ptr, ptr %specs.addr, align 8
-  %iv_size297 = getelementptr inbounds %struct.CipherSpecs, ptr %240, i32 0, i32 1
-  store i16 12, ptr %iv_size297, align 2
-  %241 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size298 = getelementptr inbounds %struct.CipherSpecs, ptr %241, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size298, align 2
-  br label %sw.epilog334
-
-sw.bb299:                                         ; preds = %if.then284
-  %242 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm300 = getelementptr inbounds %struct.CipherSpecs, ptr %242, i32 0, i32 4
-  store i8 7, ptr %bulk_cipher_algorithm300, align 2
-  %243 = load ptr, ptr %specs.addr, align 8
-  %cipher_type301 = getelementptr inbounds %struct.CipherSpecs, ptr %243, i32 0, i32 5
-  store i8 2, ptr %cipher_type301, align 1
-  %244 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm302 = getelementptr inbounds %struct.CipherSpecs, ptr %244, i32 0, i32 6
-  store i8 5, ptr %mac_algorithm302, align 2
-  %245 = load ptr, ptr %specs.addr, align 8
-  %kea303 = getelementptr inbounds %struct.CipherSpecs, ptr %245, i32 0, i32 7
-  store i8 0, ptr %kea303, align 1
-  %246 = load ptr, ptr %specs.addr, align 8
-  %sig_algo304 = getelementptr inbounds %struct.CipherSpecs, ptr %246, i32 0, i32 8
-  store i8 0, ptr %sig_algo304, align 2
-  %247 = load ptr, ptr %specs.addr, align 8
-  %hash_size305 = getelementptr inbounds %struct.CipherSpecs, ptr %247, i32 0, i32 9
-  store i8 48, ptr %hash_size305, align 1
-  %248 = load ptr, ptr %specs.addr, align 8
-  %pad_size306 = getelementptr inbounds %struct.CipherSpecs, ptr %248, i32 0, i32 10
-  store i8 40, ptr %pad_size306, align 2
-  %249 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh307 = getelementptr inbounds %struct.CipherSpecs, ptr %249, i32 0, i32 11
-  store i8 0, ptr %static_ecdh307, align 1
-  %250 = load ptr, ptr %specs.addr, align 8
-  %key_size308 = getelementptr inbounds %struct.CipherSpecs, ptr %250, i32 0, i32 0
-  store i16 32, ptr %key_size308, align 2
-  %251 = load ptr, ptr %specs.addr, align 8
-  %block_size309 = getelementptr inbounds %struct.CipherSpecs, ptr %251, i32 0, i32 2
-  store i16 16, ptr %block_size309, align 2
-  %252 = load ptr, ptr %specs.addr, align 8
-  %iv_size310 = getelementptr inbounds %struct.CipherSpecs, ptr %252, i32 0, i32 1
-  store i16 12, ptr %iv_size310, align 2
-  %253 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size311 = getelementptr inbounds %struct.CipherSpecs, ptr %253, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size311, align 2
-  br label %sw.epilog334
-
-sw.bb312:                                         ; preds = %if.then284
-  %254 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm313 = getelementptr inbounds %struct.CipherSpecs, ptr %254, i32 0, i32 4
-  store i8 9, ptr %bulk_cipher_algorithm313, align 2
-  %255 = load ptr, ptr %specs.addr, align 8
-  %cipher_type314 = getelementptr inbounds %struct.CipherSpecs, ptr %255, i32 0, i32 5
-  store i8 2, ptr %cipher_type314, align 1
-  %256 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm315 = getelementptr inbounds %struct.CipherSpecs, ptr %256, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm315, align 2
-  %257 = load ptr, ptr %specs.addr, align 8
-  %kea316 = getelementptr inbounds %struct.CipherSpecs, ptr %257, i32 0, i32 7
-  store i8 0, ptr %kea316, align 1
-  %258 = load ptr, ptr %specs.addr, align 8
-  %sig_algo317 = getelementptr inbounds %struct.CipherSpecs, ptr %258, i32 0, i32 8
-  store i8 0, ptr %sig_algo317, align 2
-  %259 = load ptr, ptr %specs.addr, align 8
-  %hash_size318 = getelementptr inbounds %struct.CipherSpecs, ptr %259, i32 0, i32 9
-  store i8 32, ptr %hash_size318, align 1
-  %260 = load ptr, ptr %specs.addr, align 8
-  %pad_size319 = getelementptr inbounds %struct.CipherSpecs, ptr %260, i32 0, i32 10
-  store i8 40, ptr %pad_size319, align 2
-  %261 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh320 = getelementptr inbounds %struct.CipherSpecs, ptr %261, i32 0, i32 11
-  store i8 0, ptr %static_ecdh320, align 1
-  %262 = load ptr, ptr %specs.addr, align 8
-  %key_size321 = getelementptr inbounds %struct.CipherSpecs, ptr %262, i32 0, i32 0
-  store i16 32, ptr %key_size321, align 2
-  %263 = load ptr, ptr %specs.addr, align 8
-  %block_size322 = getelementptr inbounds %struct.CipherSpecs, ptr %263, i32 0, i32 2
-  store i16 16, ptr %block_size322, align 2
-  %264 = load ptr, ptr %specs.addr, align 8
-  %iv_size323 = getelementptr inbounds %struct.CipherSpecs, ptr %264, i32 0, i32 1
-  store i16 12, ptr %iv_size323, align 2
-  %265 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size324 = getelementptr inbounds %struct.CipherSpecs, ptr %265, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size324, align 2
-  %266 = load ptr, ptr %opts.addr, align 8
-  %cmp325 = icmp ne ptr %266, null
-  br i1 %cmp325, label %if.then327, label %if.end332
-
-if.then327:                                       ; preds = %sw.bb312
-  %267 = load ptr, ptr %opts.addr, align 8
-  %oldPoly328 = getelementptr inbounds %struct.Options, ptr %267, i32 0, i32 1
-  %bf.load329 = load i64, ptr %oldPoly328, align 8
-  %bf.clear330 = and i64 %bf.load329, -17592186044417
-  %bf.set331 = or i64 %bf.clear330, 0
-  store i64 %bf.set331, ptr %oldPoly328, align 8
-  br label %if.end332
-
-if.end332:                                        ; preds = %if.then327, %sw.bb312
-  br label %sw.epilog334
-
-sw.default333:                                    ; preds = %if.then284
-  br label %sw.epilog334
-
-sw.epilog334:                                     ; preds = %sw.default333, %if.end332, %sw.bb299, %sw.bb286
-  br label %if.end335
-
-if.end335:                                        ; preds = %sw.epilog334, %if.end280
-  %268 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv336 = zext i8 %268 to i32
-  %cmp337 = icmp eq i32 %conv336, 208
-  br i1 %cmp337, label %if.then339, label %if.end343
-
-if.then339:                                       ; preds = %if.end335
-  %269 = load i8, ptr %cipherSuite.addr, align 1
-  %conv340 = zext i8 %269 to i32
-  switch i32 %conv340, label %sw.default341 [
-  ]
-
-sw.default341:                                    ; preds = %if.then339
-  br label %sw.epilog342
-
-sw.epilog342:                                     ; preds = %sw.default341
-  br label %if.end343
-
-if.end343:                                        ; preds = %sw.epilog342, %if.end335
-  %270 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv344 = zext i8 %270 to i32
-  %cmp345 = icmp eq i32 %conv344, 224
-  br i1 %cmp345, label %if.then347, label %if.end351
-
-if.then347:                                       ; preds = %if.end343
-  %271 = load i8, ptr %cipherSuite.addr, align 1
-  %conv348 = zext i8 %271 to i32
-  switch i32 %conv348, label %sw.default349 [
-  ]
-
-sw.default349:                                    ; preds = %if.then347
-  br label %sw.epilog350
-
-sw.epilog350:                                     ; preds = %sw.default349
-  br label %if.end351
-
-if.end351:                                        ; preds = %sw.epilog350, %if.end343
-  %272 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv352 = zext i8 %272 to i32
-  %cmp353 = icmp ne i32 %conv352, 192
-  br i1 %cmp353, label %land.lhs.true, label %if.end446
-
-land.lhs.true:                                    ; preds = %if.end351
-  %273 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv355 = zext i8 %273 to i32
-  %cmp356 = icmp ne i32 %conv355, 208
-  br i1 %cmp356, label %land.lhs.true358, label %if.end446
-
-land.lhs.true358:                                 ; preds = %land.lhs.true
-  %274 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv359 = zext i8 %274 to i32
-  %cmp360 = icmp ne i32 %conv359, 204
-  br i1 %cmp360, label %land.lhs.true362, label %if.end446
-
-land.lhs.true362:                                 ; preds = %land.lhs.true358
-  %275 = load i8, ptr %cipherSuite0.addr, align 1
-  %conv363 = zext i8 %275 to i32
-  %cmp364 = icmp ne i32 %conv363, 19
-  br i1 %cmp364, label %if.then366, label %if.end446
-
-if.then366:                                       ; preds = %land.lhs.true362
-  %276 = load i8, ptr %cipherSuite.addr, align 1
-  %conv367 = zext i8 %276 to i32
-  switch i32 %conv367, label %sw.default442 [
-    i32 103, label %sw.bb368
-    i32 107, label %sw.bb380
-    i32 51, label %sw.bb392
-    i32 57, label %sw.bb404
-    i32 158, label %sw.bb416
-    i32 159, label %sw.bb429
-  ]
-
-sw.bb368:                                         ; preds = %if.then366
-  %277 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm369 = getelementptr inbounds %struct.CipherSpecs, ptr %277, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm369, align 2
-  %278 = load ptr, ptr %specs.addr, align 8
-  %cipher_type370 = getelementptr inbounds %struct.CipherSpecs, ptr %278, i32 0, i32 5
-  store i8 1, ptr %cipher_type370, align 1
-  %279 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm371 = getelementptr inbounds %struct.CipherSpecs, ptr %279, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm371, align 2
-  %280 = load ptr, ptr %specs.addr, align 8
-  %kea372 = getelementptr inbounds %struct.CipherSpecs, ptr %280, i32 0, i32 7
-  store i8 2, ptr %kea372, align 1
-  %281 = load ptr, ptr %specs.addr, align 8
-  %sig_algo373 = getelementptr inbounds %struct.CipherSpecs, ptr %281, i32 0, i32 8
-  store i8 1, ptr %sig_algo373, align 2
-  %282 = load ptr, ptr %specs.addr, align 8
-  %hash_size374 = getelementptr inbounds %struct.CipherSpecs, ptr %282, i32 0, i32 9
-  store i8 32, ptr %hash_size374, align 1
-  %283 = load ptr, ptr %specs.addr, align 8
-  %pad_size375 = getelementptr inbounds %struct.CipherSpecs, ptr %283, i32 0, i32 10
-  store i8 40, ptr %pad_size375, align 2
-  %284 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh376 = getelementptr inbounds %struct.CipherSpecs, ptr %284, i32 0, i32 11
-  store i8 0, ptr %static_ecdh376, align 1
-  %285 = load ptr, ptr %specs.addr, align 8
-  %key_size377 = getelementptr inbounds %struct.CipherSpecs, ptr %285, i32 0, i32 0
-  store i16 16, ptr %key_size377, align 2
-  %286 = load ptr, ptr %specs.addr, align 8
-  %block_size378 = getelementptr inbounds %struct.CipherSpecs, ptr %286, i32 0, i32 2
-  store i16 16, ptr %block_size378, align 2
-  %287 = load ptr, ptr %specs.addr, align 8
-  %iv_size379 = getelementptr inbounds %struct.CipherSpecs, ptr %287, i32 0, i32 1
-  store i16 16, ptr %iv_size379, align 2
-  br label %sw.epilog445
-
-sw.bb380:                                         ; preds = %if.then366
-  %288 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm381 = getelementptr inbounds %struct.CipherSpecs, ptr %288, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm381, align 2
-  %289 = load ptr, ptr %specs.addr, align 8
-  %cipher_type382 = getelementptr inbounds %struct.CipherSpecs, ptr %289, i32 0, i32 5
-  store i8 1, ptr %cipher_type382, align 1
-  %290 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm383 = getelementptr inbounds %struct.CipherSpecs, ptr %290, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm383, align 2
-  %291 = load ptr, ptr %specs.addr, align 8
-  %kea384 = getelementptr inbounds %struct.CipherSpecs, ptr %291, i32 0, i32 7
-  store i8 2, ptr %kea384, align 1
-  %292 = load ptr, ptr %specs.addr, align 8
-  %sig_algo385 = getelementptr inbounds %struct.CipherSpecs, ptr %292, i32 0, i32 8
-  store i8 1, ptr %sig_algo385, align 2
-  %293 = load ptr, ptr %specs.addr, align 8
-  %hash_size386 = getelementptr inbounds %struct.CipherSpecs, ptr %293, i32 0, i32 9
-  store i8 32, ptr %hash_size386, align 1
-  %294 = load ptr, ptr %specs.addr, align 8
-  %pad_size387 = getelementptr inbounds %struct.CipherSpecs, ptr %294, i32 0, i32 10
-  store i8 40, ptr %pad_size387, align 2
-  %295 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh388 = getelementptr inbounds %struct.CipherSpecs, ptr %295, i32 0, i32 11
-  store i8 0, ptr %static_ecdh388, align 1
-  %296 = load ptr, ptr %specs.addr, align 8
-  %key_size389 = getelementptr inbounds %struct.CipherSpecs, ptr %296, i32 0, i32 0
-  store i16 32, ptr %key_size389, align 2
-  %297 = load ptr, ptr %specs.addr, align 8
-  %block_size390 = getelementptr inbounds %struct.CipherSpecs, ptr %297, i32 0, i32 2
-  store i16 16, ptr %block_size390, align 2
-  %298 = load ptr, ptr %specs.addr, align 8
-  %iv_size391 = getelementptr inbounds %struct.CipherSpecs, ptr %298, i32 0, i32 1
-  store i16 16, ptr %iv_size391, align 2
-  br label %sw.epilog445
-
-sw.bb392:                                         ; preds = %if.then366
-  %299 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm393 = getelementptr inbounds %struct.CipherSpecs, ptr %299, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm393, align 2
-  %300 = load ptr, ptr %specs.addr, align 8
-  %cipher_type394 = getelementptr inbounds %struct.CipherSpecs, ptr %300, i32 0, i32 5
-  store i8 1, ptr %cipher_type394, align 1
-  %301 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm395 = getelementptr inbounds %struct.CipherSpecs, ptr %301, i32 0, i32 6
-  store i8 2, ptr %mac_algorithm395, align 2
-  %302 = load ptr, ptr %specs.addr, align 8
-  %kea396 = getelementptr inbounds %struct.CipherSpecs, ptr %302, i32 0, i32 7
-  store i8 2, ptr %kea396, align 1
-  %303 = load ptr, ptr %specs.addr, align 8
-  %sig_algo397 = getelementptr inbounds %struct.CipherSpecs, ptr %303, i32 0, i32 8
-  store i8 1, ptr %sig_algo397, align 2
-  %304 = load ptr, ptr %specs.addr, align 8
-  %hash_size398 = getelementptr inbounds %struct.CipherSpecs, ptr %304, i32 0, i32 9
-  store i8 20, ptr %hash_size398, align 1
-  %305 = load ptr, ptr %specs.addr, align 8
-  %pad_size399 = getelementptr inbounds %struct.CipherSpecs, ptr %305, i32 0, i32 10
-  store i8 40, ptr %pad_size399, align 2
-  %306 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh400 = getelementptr inbounds %struct.CipherSpecs, ptr %306, i32 0, i32 11
-  store i8 0, ptr %static_ecdh400, align 1
-  %307 = load ptr, ptr %specs.addr, align 8
-  %key_size401 = getelementptr inbounds %struct.CipherSpecs, ptr %307, i32 0, i32 0
-  store i16 16, ptr %key_size401, align 2
-  %308 = load ptr, ptr %specs.addr, align 8
-  %block_size402 = getelementptr inbounds %struct.CipherSpecs, ptr %308, i32 0, i32 2
-  store i16 16, ptr %block_size402, align 2
-  %309 = load ptr, ptr %specs.addr, align 8
-  %iv_size403 = getelementptr inbounds %struct.CipherSpecs, ptr %309, i32 0, i32 1
-  store i16 16, ptr %iv_size403, align 2
-  br label %sw.epilog445
-
-sw.bb404:                                         ; preds = %if.then366
-  %310 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm405 = getelementptr inbounds %struct.CipherSpecs, ptr %310, i32 0, i32 4
-  store i8 6, ptr %bulk_cipher_algorithm405, align 2
-  %311 = load ptr, ptr %specs.addr, align 8
-  %cipher_type406 = getelementptr inbounds %struct.CipherSpecs, ptr %311, i32 0, i32 5
-  store i8 1, ptr %cipher_type406, align 1
-  %312 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm407 = getelementptr inbounds %struct.CipherSpecs, ptr %312, i32 0, i32 6
-  store i8 2, ptr %mac_algorithm407, align 2
-  %313 = load ptr, ptr %specs.addr, align 8
-  %kea408 = getelementptr inbounds %struct.CipherSpecs, ptr %313, i32 0, i32 7
-  store i8 2, ptr %kea408, align 1
-  %314 = load ptr, ptr %specs.addr, align 8
-  %sig_algo409 = getelementptr inbounds %struct.CipherSpecs, ptr %314, i32 0, i32 8
-  store i8 1, ptr %sig_algo409, align 2
-  %315 = load ptr, ptr %specs.addr, align 8
-  %hash_size410 = getelementptr inbounds %struct.CipherSpecs, ptr %315, i32 0, i32 9
-  store i8 20, ptr %hash_size410, align 1
-  %316 = load ptr, ptr %specs.addr, align 8
-  %pad_size411 = getelementptr inbounds %struct.CipherSpecs, ptr %316, i32 0, i32 10
-  store i8 40, ptr %pad_size411, align 2
-  %317 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh412 = getelementptr inbounds %struct.CipherSpecs, ptr %317, i32 0, i32 11
-  store i8 0, ptr %static_ecdh412, align 1
-  %318 = load ptr, ptr %specs.addr, align 8
-  %key_size413 = getelementptr inbounds %struct.CipherSpecs, ptr %318, i32 0, i32 0
-  store i16 32, ptr %key_size413, align 2
-  %319 = load ptr, ptr %specs.addr, align 8
-  %block_size414 = getelementptr inbounds %struct.CipherSpecs, ptr %319, i32 0, i32 2
-  store i16 16, ptr %block_size414, align 2
-  %320 = load ptr, ptr %specs.addr, align 8
-  %iv_size415 = getelementptr inbounds %struct.CipherSpecs, ptr %320, i32 0, i32 1
-  store i16 16, ptr %iv_size415, align 2
-  br label %sw.epilog445
-
-sw.bb416:                                         ; preds = %if.then366
-  %321 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm417 = getelementptr inbounds %struct.CipherSpecs, ptr %321, i32 0, i32 4
-  store i8 7, ptr %bulk_cipher_algorithm417, align 2
-  %322 = load ptr, ptr %specs.addr, align 8
-  %cipher_type418 = getelementptr inbounds %struct.CipherSpecs, ptr %322, i32 0, i32 5
-  store i8 2, ptr %cipher_type418, align 1
-  %323 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm419 = getelementptr inbounds %struct.CipherSpecs, ptr %323, i32 0, i32 6
-  store i8 4, ptr %mac_algorithm419, align 2
-  %324 = load ptr, ptr %specs.addr, align 8
-  %kea420 = getelementptr inbounds %struct.CipherSpecs, ptr %324, i32 0, i32 7
-  store i8 2, ptr %kea420, align 1
-  %325 = load ptr, ptr %specs.addr, align 8
-  %sig_algo421 = getelementptr inbounds %struct.CipherSpecs, ptr %325, i32 0, i32 8
-  store i8 1, ptr %sig_algo421, align 2
-  %326 = load ptr, ptr %specs.addr, align 8
-  %hash_size422 = getelementptr inbounds %struct.CipherSpecs, ptr %326, i32 0, i32 9
-  store i8 32, ptr %hash_size422, align 1
-  %327 = load ptr, ptr %specs.addr, align 8
-  %pad_size423 = getelementptr inbounds %struct.CipherSpecs, ptr %327, i32 0, i32 10
-  store i8 40, ptr %pad_size423, align 2
-  %328 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh424 = getelementptr inbounds %struct.CipherSpecs, ptr %328, i32 0, i32 11
-  store i8 0, ptr %static_ecdh424, align 1
-  %329 = load ptr, ptr %specs.addr, align 8
-  %key_size425 = getelementptr inbounds %struct.CipherSpecs, ptr %329, i32 0, i32 0
-  store i16 16, ptr %key_size425, align 2
-  %330 = load ptr, ptr %specs.addr, align 8
-  %block_size426 = getelementptr inbounds %struct.CipherSpecs, ptr %330, i32 0, i32 2
-  store i16 16, ptr %block_size426, align 2
-  %331 = load ptr, ptr %specs.addr, align 8
-  %iv_size427 = getelementptr inbounds %struct.CipherSpecs, ptr %331, i32 0, i32 1
-  store i16 4, ptr %iv_size427, align 2
-  %332 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size428 = getelementptr inbounds %struct.CipherSpecs, ptr %332, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size428, align 2
-  br label %sw.epilog445
-
-sw.bb429:                                         ; preds = %if.then366
-  %333 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm430 = getelementptr inbounds %struct.CipherSpecs, ptr %333, i32 0, i32 4
-  store i8 7, ptr %bulk_cipher_algorithm430, align 2
-  %334 = load ptr, ptr %specs.addr, align 8
-  %cipher_type431 = getelementptr inbounds %struct.CipherSpecs, ptr %334, i32 0, i32 5
-  store i8 2, ptr %cipher_type431, align 1
-  %335 = load ptr, ptr %specs.addr, align 8
-  %mac_algorithm432 = getelementptr inbounds %struct.CipherSpecs, ptr %335, i32 0, i32 6
-  store i8 5, ptr %mac_algorithm432, align 2
-  %336 = load ptr, ptr %specs.addr, align 8
-  %kea433 = getelementptr inbounds %struct.CipherSpecs, ptr %336, i32 0, i32 7
-  store i8 2, ptr %kea433, align 1
-  %337 = load ptr, ptr %specs.addr, align 8
-  %sig_algo434 = getelementptr inbounds %struct.CipherSpecs, ptr %337, i32 0, i32 8
-  store i8 1, ptr %sig_algo434, align 2
-  %338 = load ptr, ptr %specs.addr, align 8
-  %hash_size435 = getelementptr inbounds %struct.CipherSpecs, ptr %338, i32 0, i32 9
-  store i8 48, ptr %hash_size435, align 1
-  %339 = load ptr, ptr %specs.addr, align 8
-  %pad_size436 = getelementptr inbounds %struct.CipherSpecs, ptr %339, i32 0, i32 10
-  store i8 40, ptr %pad_size436, align 2
-  %340 = load ptr, ptr %specs.addr, align 8
-  %static_ecdh437 = getelementptr inbounds %struct.CipherSpecs, ptr %340, i32 0, i32 11
-  store i8 0, ptr %static_ecdh437, align 1
-  %341 = load ptr, ptr %specs.addr, align 8
-  %key_size438 = getelementptr inbounds %struct.CipherSpecs, ptr %341, i32 0, i32 0
-  store i16 32, ptr %key_size438, align 2
-  %342 = load ptr, ptr %specs.addr, align 8
-  %block_size439 = getelementptr inbounds %struct.CipherSpecs, ptr %342, i32 0, i32 2
-  store i16 16, ptr %block_size439, align 2
-  %343 = load ptr, ptr %specs.addr, align 8
-  %iv_size440 = getelementptr inbounds %struct.CipherSpecs, ptr %343, i32 0, i32 1
-  store i16 4, ptr %iv_size440, align 2
-  %344 = load ptr, ptr %specs.addr, align 8
-  %aead_mac_size441 = getelementptr inbounds %struct.CipherSpecs, ptr %344, i32 0, i32 3
-  store i16 16, ptr %aead_mac_size441, align 2
-  br label %sw.epilog445
-
-sw.default442:                                    ; preds = %if.then366
-  br label %do.body443
-
-do.body443:                                       ; preds = %sw.default442
-  br label %do.end444
-
-do.end444:                                        ; preds = %do.body443
-  store i32 -500, ptr %retval, align 4
-  br label %return
-
-sw.epilog445:                                     ; preds = %sw.bb429, %sw.bb416, %sw.bb404, %sw.bb392, %sw.bb380, %sw.bb368
-  br label %if.end446
-
-if.end446:                                        ; preds = %sw.epilog445, %land.lhs.true362, %land.lhs.true358, %land.lhs.true, %if.end351
-  %345 = load ptr, ptr %specs.addr, align 8
-  %sig_algo447 = getelementptr inbounds %struct.CipherSpecs, ptr %345, i32 0, i32 8
-  %346 = load i8, ptr %sig_algo447, align 2
-  %conv448 = zext i8 %346 to i32
-  %cmp449 = icmp eq i32 %conv448, 0
-  br i1 %cmp449, label %land.lhs.true451, label %if.end458
-
-land.lhs.true451:                                 ; preds = %if.end446
-  %347 = load ptr, ptr %opts.addr, align 8
-  %cmp452 = icmp ne ptr %347, null
-  br i1 %cmp452, label %if.then454, label %if.end458
-
-if.then454:                                       ; preds = %land.lhs.true451
-  %348 = load ptr, ptr %opts.addr, align 8
-  %peerAuthGood = getelementptr inbounds %struct.Options, ptr %348, i32 0, i32 1
-  %bf.load455 = load i64, ptr %peerAuthGood, align 8
-  %bf.clear456 = and i64 %bf.load455, -1125899906842625
-  %bf.set457 = or i64 %bf.clear456, 1125899906842624
-  store i64 %bf.set457, ptr %peerAuthGood, align 8
-  br label %if.end458
-
-if.end458:                                        ; preds = %if.then454, %land.lhs.true451, %if.end446
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end458, %do.end444, %do.end278, %do.end121, %do.end
-  %349 = load i32, ptr %retval, align 4
-  ret i32 %349
-}
-
-declare i32 @TLS_hmac(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
-
-declare i32 @IsAtLeastTLSv1_3(i16) #1
-
-declare i32 @VerifyClientSuite(i16 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) #1
-
-; Function Attrs: nounwind uwtable
-define i32 @SetKeysSide(ptr noundef %ssl, i32 noundef %side) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ssl.addr = alloca ptr, align 8
-  %side.addr = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %copy = alloca i32, align 4
-  %wc_encrypt = alloca ptr, align 8
-  %wc_decrypt = alloca ptr, align 8
-  %keys = alloca ptr, align 8
-  store ptr %ssl, ptr %ssl.addr, align 8
-  store i32 %side, ptr %side.addr, align 4
-  store i32 0, ptr %copy, align 4
-  store ptr null, ptr %wc_encrypt, align 8
-  store ptr null, ptr %wc_decrypt, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %keys1 = getelementptr inbounds %struct.WOLFSSL, ptr %0, i32 0, i32 46
-  store ptr %keys1, ptr %keys, align 8
-  %1 = load i32, ptr %side.addr, align 4
-  switch i32 %1, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb3
-  ]
-
-sw.bb:                                            ; preds = %entry
-  %2 = load ptr, ptr %ssl.addr, align 8
-  %encrypt = getelementptr inbounds %struct.WOLFSSL, ptr %2, i32 0, i32 22
-  store ptr %encrypt, ptr %wc_encrypt, align 8
-  br label %sw.epilog
-
-sw.bb2:                                           ; preds = %entry
-  %3 = load ptr, ptr %ssl.addr, align 8
-  %decrypt = getelementptr inbounds %struct.WOLFSSL, ptr %3, i32 0, i32 23
-  store ptr %decrypt, ptr %wc_decrypt, align 8
-  br label %sw.epilog
-
-sw.bb3:                                           ; preds = %entry
-  %4 = load ptr, ptr %ssl.addr, align 8
-  %encrypt4 = getelementptr inbounds %struct.WOLFSSL, ptr %4, i32 0, i32 22
-  store ptr %encrypt4, ptr %wc_encrypt, align 8
-  %5 = load ptr, ptr %ssl.addr, align 8
-  %decrypt5 = getelementptr inbounds %struct.WOLFSSL, ptr %5, i32 0, i32 23
-  store ptr %decrypt5, ptr %wc_decrypt, align 8
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %sw.bb
-  %6 = load ptr, ptr %ssl.addr, align 8
-  %auth = getelementptr inbounds %struct.WOLFSSL, ptr %6, i32 0, i32 74
-  %setup = getelementptr inbounds %struct.OneTimeAuth, ptr %auth, i32 0, i32 1
-  %7 = load i8, ptr %setup, align 8
-  %tobool = icmp ne i8 %7, 0
-  br i1 %tobool, label %if.end12, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %sw.epilog
-  %8 = load ptr, ptr %ssl.addr, align 8
-  %specs = getelementptr inbounds %struct.WOLFSSL, ptr %8, i32 0, i32 44
-  %bulk_cipher_algorithm = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i32 0, i32 4
-  %9 = load i8, ptr %bulk_cipher_algorithm, align 2
-  %conv = zext i8 %9 to i32
-  %cmp = icmp eq i32 %conv, 9
-  br i1 %cmp, label %if.then, label %if.end12
-
-if.then:                                          ; preds = %land.lhs.true
-  %10 = load ptr, ptr %ssl.addr, align 8
-  %auth7 = getelementptr inbounds %struct.WOLFSSL, ptr %10, i32 0, i32 74
-  %11 = load ptr, ptr %keys, align 8
-  %12 = load ptr, ptr %ssl.addr, align 8
-  %specs8 = getelementptr inbounds %struct.WOLFSSL, ptr %12, i32 0, i32 44
-  %13 = load ptr, ptr %ssl.addr, align 8
-  %heap = getelementptr inbounds %struct.WOLFSSL, ptr %13, i32 0, i32 11
-  %14 = load ptr, ptr %heap, align 8
-  %15 = load ptr, ptr %ssl.addr, align 8
-  %devId = getelementptr inbounds %struct.WOLFSSL, ptr %15, i32 0, i32 73
-  %16 = load i32, ptr %devId, align 4
-  %call = call i32 @SetAuthKeys(ptr noundef %auth7, ptr noundef %11, ptr noundef %specs8, ptr noundef %14, i32 noundef %16)
-  store i32 %call, ptr %ret, align 4
-  %17 = load i32, ptr %ret, align 4
-  %cmp9 = icmp ne i32 %17, 0
-  br i1 %cmp9, label %if.then11, label %if.end
-
-if.then11:                                        ; preds = %if.then
-  %18 = load i32, ptr %ret, align 4
-  store i32 %18, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end, %land.lhs.true, %sw.epilog
-  %19 = load ptr, ptr %wc_encrypt, align 8
-  %20 = load ptr, ptr %wc_decrypt, align 8
-  %21 = load ptr, ptr %keys, align 8
-  %22 = load ptr, ptr %ssl.addr, align 8
-  %specs13 = getelementptr inbounds %struct.WOLFSSL, ptr %22, i32 0, i32 44
-  %23 = load ptr, ptr %ssl.addr, align 8
-  %options = getelementptr inbounds %struct.WOLFSSL, ptr %23, i32 0, i32 47
-  %side14 = getelementptr inbounds %struct.Options, ptr %options, i32 0, i32 1
-  %bf.load = load i64, ptr %side14, align 8
-  %bf.lshr = lshr i64 %bf.load, 4
-  %bf.clear = and i64 %bf.lshr, 3
-  %bf.cast = trunc i64 %bf.clear to i16
-  %conv15 = zext i16 %bf.cast to i32
-  %24 = load ptr, ptr %ssl.addr, align 8
-  %heap16 = getelementptr inbounds %struct.WOLFSSL, ptr %24, i32 0, i32 11
-  %25 = load ptr, ptr %heap16, align 8
-  %26 = load ptr, ptr %ssl.addr, align 8
-  %devId17 = getelementptr inbounds %struct.WOLFSSL, ptr %26, i32 0, i32 73
-  %27 = load i32, ptr %devId17, align 4
-  %28 = load ptr, ptr %ssl.addr, align 8
-  %rng = getelementptr inbounds %struct.WOLFSSL, ptr %28, i32 0, i32 8
-  %29 = load ptr, ptr %rng, align 16
-  %30 = load ptr, ptr %ssl.addr, align 8
-  %options18 = getelementptr inbounds %struct.WOLFSSL, ptr %30, i32 0, i32 47
-  %tls1_3 = getelementptr inbounds %struct.Options, ptr %options18, i32 0, i32 1
-  %bf.load19 = load i64, ptr %tls1_3, align 8
-  %bf.lshr20 = lshr i64 %bf.load19, 16
-  %bf.clear21 = and i64 %bf.lshr20, 1
-  %bf.cast22 = trunc i64 %bf.clear21 to i16
-  %conv23 = zext i16 %bf.cast22 to i32
-  %call24 = call i32 @SetKeys(ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %specs13, i32 noundef %conv15, ptr noundef %25, i32 noundef %27, ptr noundef %29, i32 noundef %conv23)
-  store i32 %call24, ptr %ret, align 4
-  %31 = load i32, ptr %ret, align 4
-  store i32 %31, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end12, %if.then11, %sw.default
-  %32 = load i32, ptr %retval, align 4
-  ret i32 %32
+define internal i32 @SetAuthKeys(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !86
+  store ptr %1, ptr %8, align 8, !tbaa !70
+  store ptr %2, ptr %9, align 8, !tbaa !52
+  store ptr %3, ptr %10, align 8, !tbaa !72
+  store i32 %4, ptr %11, align 4, !tbaa !45
+  %12 = load ptr, ptr %7, align 8, !tbaa !86
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %23
+
+14:                                               ; preds = %5
+  %15 = load ptr, ptr %7, align 8, !tbaa !86
+  %16 = getelementptr inbounds nuw %struct.OneTimeAuth, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !88
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %23
+
+19:                                               ; preds = %14
+  %20 = call ptr @wolfSSL_Malloc(i64 noundef 96)
+  %21 = load ptr, ptr %7, align 8, !tbaa !86
+  %22 = getelementptr inbounds nuw %struct.OneTimeAuth, ptr %21, i32 0, i32 0
+  store ptr %20, ptr %22, align 8, !tbaa !88
+  br label %23
+
+23:                                               ; preds = %19, %14, %5
+  %24 = load ptr, ptr %7, align 8, !tbaa !86
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %32
+
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %7, align 8, !tbaa !86
+  %28 = getelementptr inbounds nuw %struct.OneTimeAuth, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !88
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %26
+  store i32 -125, ptr %6, align 4
+  br label %39
+
+32:                                               ; preds = %26, %23
+  %33 = load ptr, ptr %7, align 8, !tbaa !86
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %38
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %7, align 8, !tbaa !86
+  %37 = getelementptr inbounds nuw %struct.OneTimeAuth, ptr %36, i32 0, i32 1
+  store i8 1, ptr %37, align 8, !tbaa !89
+  br label %38
+
+38:                                               ; preds = %35, %32
+  store i32 0, ptr %6, align 4
+  br label %39
+
+39:                                               ; preds = %38, %31
+  %40 = load i32, ptr %6, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @SetAuthKeys(ptr noundef %authentication, ptr noundef %keys, ptr noundef %specs, ptr noundef %heap, i32 noundef %devId) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %authentication.addr = alloca ptr, align 8
-  %keys.addr = alloca ptr, align 8
-  %specs.addr = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %devId.addr = alloca i32, align 4
-  store ptr %authentication, ptr %authentication.addr, align 8
-  store ptr %keys, ptr %keys.addr, align 8
-  store ptr %specs, ptr %specs.addr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i32 %devId, ptr %devId.addr, align 4
-  %0 = load ptr, ptr %authentication.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %authentication.addr, align 8
-  %poly1305 = getelementptr inbounds %struct.OneTimeAuth, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %poly1305, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %call = call ptr @wolfSSL_Malloc(i64 noundef 96)
-  %3 = load ptr, ptr %authentication.addr, align 8
-  %poly13051 = getelementptr inbounds %struct.OneTimeAuth, ptr %3, i32 0, i32 0
-  store ptr %call, ptr %poly13051, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %4 = load ptr, ptr %authentication.addr, align 8
-  %tobool2 = icmp ne ptr %4, null
-  br i1 %tobool2, label %land.lhs.true3, label %if.end7
-
-land.lhs.true3:                                   ; preds = %if.end
-  %5 = load ptr, ptr %authentication.addr, align 8
-  %poly13054 = getelementptr inbounds %struct.OneTimeAuth, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %poly13054, align 8
-  %cmp5 = icmp eq ptr %6, null
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %land.lhs.true3
-  store i32 -125, ptr %retval, align 4
-  br label %return
-
-if.end7:                                          ; preds = %land.lhs.true3, %if.end
-  %7 = load ptr, ptr %authentication.addr, align 8
-  %tobool8 = icmp ne ptr %7, null
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end7
-  %8 = load ptr, ptr %authentication.addr, align 8
-  %setup = getelementptr inbounds %struct.OneTimeAuth, ptr %8, i32 0, i32 1
-  store i8 1, ptr %setup, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then9, %if.end7
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then6
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @SetKeys(ptr noundef %enc, ptr noundef %dec, ptr noundef %keys, ptr noundef %specs, i32 noundef %side, ptr noundef %heap, i32 noundef %devId, ptr noundef %rng, i32 noundef %tls13) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %enc.addr = alloca ptr, align 8
-  %dec.addr = alloca ptr, align 8
-  %keys.addr = alloca ptr, align 8
-  %specs.addr = alloca ptr, align 8
-  %side.addr = alloca i32, align 4
-  %heap.addr = alloca ptr, align 8
-  %devId.addr = alloca i32, align 4
-  %rng.addr = alloca ptr, align 8
-  %tls13.addr = alloca i32, align 4
-  %chachaRet = alloca i32, align 4
-  %aesRet = alloca i32, align 4
-  %gcmRet = alloca i32, align 4
-  store ptr %enc, ptr %enc.addr, align 8
-  store ptr %dec, ptr %dec.addr, align 8
-  store ptr %keys, ptr %keys.addr, align 8
-  store ptr %specs, ptr %specs.addr, align 8
-  store i32 %side, ptr %side.addr, align 4
-  store ptr %heap, ptr %heap.addr, align 8
-  store i32 %devId, ptr %devId.addr, align 4
-  store ptr %rng, ptr %rng.addr, align 8
-  store i32 %tls13, ptr %tls13.addr, align 4
-  %0 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm = getelementptr inbounds %struct.CipherSpecs, ptr %0, i32 0, i32 4
-  %1 = load i8, ptr %bulk_cipher_algorithm, align 2
-  %conv = zext i8 %1 to i32
-  %cmp = icmp eq i32 %conv, 9
-  br i1 %cmp, label %if.then, label %if.end100
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %enc.addr, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %if.then
-  %3 = load ptr, ptr %enc.addr, align 8
-  %chacha = getelementptr inbounds %struct.Ciphers, ptr %3, i32 0, i32 3
-  %4 = load ptr, ptr %chacha, align 8
-  %cmp2 = icmp eq ptr %4, null
-  br i1 %cmp2, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %land.lhs.true
-  %call = call ptr @wolfSSL_Malloc(i64 noundef 68)
-  %5 = load ptr, ptr %enc.addr, align 8
-  %chacha5 = getelementptr inbounds %struct.Ciphers, ptr %5, i32 0, i32 3
-  store ptr %call, ptr %chacha5, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %land.lhs.true, %if.then
-  %6 = load ptr, ptr %enc.addr, align 8
-  %tobool6 = icmp ne ptr %6, null
-  br i1 %tobool6, label %land.lhs.true7, label %if.end12
-
-land.lhs.true7:                                   ; preds = %if.end
-  %7 = load ptr, ptr %enc.addr, align 8
-  %chacha8 = getelementptr inbounds %struct.Ciphers, ptr %7, i32 0, i32 3
-  %8 = load ptr, ptr %chacha8, align 8
-  %cmp9 = icmp eq ptr %8, null
-  br i1 %cmp9, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %land.lhs.true7
-  store i32 -125, ptr %retval, align 4
-  br label %return
-
-if.end12:                                         ; preds = %land.lhs.true7, %if.end
-  %9 = load ptr, ptr %dec.addr, align 8
-  %tobool13 = icmp ne ptr %9, null
-  br i1 %tobool13, label %land.lhs.true14, label %if.end21
-
-land.lhs.true14:                                  ; preds = %if.end12
-  %10 = load ptr, ptr %dec.addr, align 8
-  %chacha15 = getelementptr inbounds %struct.Ciphers, ptr %10, i32 0, i32 3
-  %11 = load ptr, ptr %chacha15, align 8
-  %cmp16 = icmp eq ptr %11, null
-  br i1 %cmp16, label %if.then18, label %if.end21
-
-if.then18:                                        ; preds = %land.lhs.true14
-  %call19 = call ptr @wolfSSL_Malloc(i64 noundef 68)
-  %12 = load ptr, ptr %dec.addr, align 8
-  %chacha20 = getelementptr inbounds %struct.Ciphers, ptr %12, i32 0, i32 3
-  store ptr %call19, ptr %chacha20, align 8
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.then18, %land.lhs.true14, %if.end12
-  %13 = load ptr, ptr %dec.addr, align 8
-  %tobool22 = icmp ne ptr %13, null
-  br i1 %tobool22, label %land.lhs.true23, label %if.end28
-
-land.lhs.true23:                                  ; preds = %if.end21
-  %14 = load ptr, ptr %dec.addr, align 8
-  %chacha24 = getelementptr inbounds %struct.Ciphers, ptr %14, i32 0, i32 3
-  %15 = load ptr, ptr %chacha24, align 8
-  %cmp25 = icmp eq ptr %15, null
-  br i1 %cmp25, label %if.then27, label %if.end28
-
-if.then27:                                        ; preds = %land.lhs.true23
-  store i32 -125, ptr %retval, align 4
-  br label %return
-
-if.end28:                                         ; preds = %land.lhs.true23, %if.end21
-  %16 = load i32, ptr %side.addr, align 4
-  %cmp29 = icmp eq i32 %16, 1
-  br i1 %cmp29, label %if.then31, label %if.else
-
-if.then31:                                        ; preds = %if.end28
-  %17 = load ptr, ptr %enc.addr, align 8
-  %tobool32 = icmp ne ptr %17, null
-  br i1 %tobool32, label %if.then33, label %if.end43
-
-if.then33:                                        ; preds = %if.then31
-  %18 = load ptr, ptr %enc.addr, align 8
-  %chacha34 = getelementptr inbounds %struct.Ciphers, ptr %18, i32 0, i32 3
-  %19 = load ptr, ptr %chacha34, align 8
-  %20 = load ptr, ptr %keys.addr, align 8
-  %client_write_key = getelementptr inbounds %struct.Keys, ptr %20, i32 0, i32 2
-  %arraydecay = getelementptr inbounds [32 x i8], ptr %client_write_key, i64 0, i64 0
-  %21 = load ptr, ptr %specs.addr, align 8
-  %key_size = getelementptr inbounds %struct.CipherSpecs, ptr %21, i32 0, i32 0
-  %22 = load i16, ptr %key_size, align 2
-  %conv35 = zext i16 %22 to i32
-  %call36 = call i32 @wc_Chacha_SetKey(ptr noundef %19, ptr noundef %arraydecay, i32 noundef %conv35)
-  store i32 %call36, ptr %chachaRet, align 4
-  %23 = load ptr, ptr %keys.addr, align 8
-  %aead_enc_imp_IV = getelementptr inbounds %struct.Keys, ptr %23, i32 0, i32 7
-  %arraydecay37 = getelementptr inbounds [12 x i8], ptr %aead_enc_imp_IV, i64 0, i64 0
-  %24 = load ptr, ptr %keys.addr, align 8
-  %client_write_IV = getelementptr inbounds %struct.Keys, ptr %24, i32 0, i32 4
-  %arraydecay38 = getelementptr inbounds [16 x i8], ptr %client_write_IV, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay37, ptr align 4 %arraydecay38, i64 12, i1 false)
-  %25 = load i32, ptr %chachaRet, align 4
-  %cmp39 = icmp ne i32 %25, 0
-  br i1 %cmp39, label %if.then41, label %if.end42
-
-if.then41:                                        ; preds = %if.then33
-  %26 = load i32, ptr %chachaRet, align 4
-  store i32 %26, ptr %retval, align 4
-  br label %return
-
-if.end42:                                         ; preds = %if.then33
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.end42, %if.then31
-  %27 = load ptr, ptr %dec.addr, align 8
-  %tobool44 = icmp ne ptr %27, null
-  br i1 %tobool44, label %if.then45, label %if.end57
-
-if.then45:                                        ; preds = %if.end43
-  %28 = load ptr, ptr %dec.addr, align 8
-  %chacha46 = getelementptr inbounds %struct.Ciphers, ptr %28, i32 0, i32 3
-  %29 = load ptr, ptr %chacha46, align 8
-  %30 = load ptr, ptr %keys.addr, align 8
-  %server_write_key = getelementptr inbounds %struct.Keys, ptr %30, i32 0, i32 3
-  %arraydecay47 = getelementptr inbounds [32 x i8], ptr %server_write_key, i64 0, i64 0
-  %31 = load ptr, ptr %specs.addr, align 8
-  %key_size48 = getelementptr inbounds %struct.CipherSpecs, ptr %31, i32 0, i32 0
-  %32 = load i16, ptr %key_size48, align 2
-  %conv49 = zext i16 %32 to i32
-  %call50 = call i32 @wc_Chacha_SetKey(ptr noundef %29, ptr noundef %arraydecay47, i32 noundef %conv49)
-  store i32 %call50, ptr %chachaRet, align 4
-  %33 = load ptr, ptr %keys.addr, align 8
-  %aead_dec_imp_IV = getelementptr inbounds %struct.Keys, ptr %33, i32 0, i32 8
-  %arraydecay51 = getelementptr inbounds [12 x i8], ptr %aead_dec_imp_IV, i64 0, i64 0
-  %34 = load ptr, ptr %keys.addr, align 8
-  %server_write_IV = getelementptr inbounds %struct.Keys, ptr %34, i32 0, i32 5
-  %arraydecay52 = getelementptr inbounds [16 x i8], ptr %server_write_IV, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay51, ptr align 4 %arraydecay52, i64 12, i1 false)
-  %35 = load i32, ptr %chachaRet, align 4
-  %cmp53 = icmp ne i32 %35, 0
-  br i1 %cmp53, label %if.then55, label %if.end56
-
-if.then55:                                        ; preds = %if.then45
-  %36 = load i32, ptr %chachaRet, align 4
-  store i32 %36, ptr %retval, align 4
-  br label %return
-
-if.end56:                                         ; preds = %if.then45
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.end56, %if.end43
-  br label %if.end92
-
-if.else:                                          ; preds = %if.end28
-  %37 = load ptr, ptr %enc.addr, align 8
-  %tobool58 = icmp ne ptr %37, null
-  br i1 %tobool58, label %if.then59, label %if.end74
-
-if.then59:                                        ; preds = %if.else
-  %38 = load ptr, ptr %enc.addr, align 8
-  %chacha60 = getelementptr inbounds %struct.Ciphers, ptr %38, i32 0, i32 3
-  %39 = load ptr, ptr %chacha60, align 8
-  %40 = load ptr, ptr %keys.addr, align 8
-  %server_write_key61 = getelementptr inbounds %struct.Keys, ptr %40, i32 0, i32 3
-  %arraydecay62 = getelementptr inbounds [32 x i8], ptr %server_write_key61, i64 0, i64 0
-  %41 = load ptr, ptr %specs.addr, align 8
-  %key_size63 = getelementptr inbounds %struct.CipherSpecs, ptr %41, i32 0, i32 0
-  %42 = load i16, ptr %key_size63, align 2
-  %conv64 = zext i16 %42 to i32
-  %call65 = call i32 @wc_Chacha_SetKey(ptr noundef %39, ptr noundef %arraydecay62, i32 noundef %conv64)
-  store i32 %call65, ptr %chachaRet, align 4
-  %43 = load ptr, ptr %keys.addr, align 8
-  %aead_enc_imp_IV66 = getelementptr inbounds %struct.Keys, ptr %43, i32 0, i32 7
-  %arraydecay67 = getelementptr inbounds [12 x i8], ptr %aead_enc_imp_IV66, i64 0, i64 0
-  %44 = load ptr, ptr %keys.addr, align 8
-  %server_write_IV68 = getelementptr inbounds %struct.Keys, ptr %44, i32 0, i32 5
-  %arraydecay69 = getelementptr inbounds [16 x i8], ptr %server_write_IV68, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay67, ptr align 4 %arraydecay69, i64 12, i1 false)
-  %45 = load i32, ptr %chachaRet, align 4
-  %cmp70 = icmp ne i32 %45, 0
-  br i1 %cmp70, label %if.then72, label %if.end73
-
-if.then72:                                        ; preds = %if.then59
-  %46 = load i32, ptr %chachaRet, align 4
-  store i32 %46, ptr %retval, align 4
-  br label %return
-
-if.end73:                                         ; preds = %if.then59
-  br label %if.end74
-
-if.end74:                                         ; preds = %if.end73, %if.else
-  %47 = load ptr, ptr %dec.addr, align 8
-  %tobool75 = icmp ne ptr %47, null
-  br i1 %tobool75, label %if.then76, label %if.end91
-
-if.then76:                                        ; preds = %if.end74
-  %48 = load ptr, ptr %dec.addr, align 8
-  %chacha77 = getelementptr inbounds %struct.Ciphers, ptr %48, i32 0, i32 3
-  %49 = load ptr, ptr %chacha77, align 8
-  %50 = load ptr, ptr %keys.addr, align 8
-  %client_write_key78 = getelementptr inbounds %struct.Keys, ptr %50, i32 0, i32 2
-  %arraydecay79 = getelementptr inbounds [32 x i8], ptr %client_write_key78, i64 0, i64 0
-  %51 = load ptr, ptr %specs.addr, align 8
-  %key_size80 = getelementptr inbounds %struct.CipherSpecs, ptr %51, i32 0, i32 0
-  %52 = load i16, ptr %key_size80, align 2
-  %conv81 = zext i16 %52 to i32
-  %call82 = call i32 @wc_Chacha_SetKey(ptr noundef %49, ptr noundef %arraydecay79, i32 noundef %conv81)
-  store i32 %call82, ptr %chachaRet, align 4
-  %53 = load ptr, ptr %keys.addr, align 8
-  %aead_dec_imp_IV83 = getelementptr inbounds %struct.Keys, ptr %53, i32 0, i32 8
-  %arraydecay84 = getelementptr inbounds [12 x i8], ptr %aead_dec_imp_IV83, i64 0, i64 0
-  %54 = load ptr, ptr %keys.addr, align 8
-  %client_write_IV85 = getelementptr inbounds %struct.Keys, ptr %54, i32 0, i32 4
-  %arraydecay86 = getelementptr inbounds [16 x i8], ptr %client_write_IV85, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay84, ptr align 4 %arraydecay86, i64 12, i1 false)
-  %55 = load i32, ptr %chachaRet, align 4
-  %cmp87 = icmp ne i32 %55, 0
-  br i1 %cmp87, label %if.then89, label %if.end90
-
-if.then89:                                        ; preds = %if.then76
-  %56 = load i32, ptr %chachaRet, align 4
-  store i32 %56, ptr %retval, align 4
-  br label %return
-
-if.end90:                                         ; preds = %if.then76
-  br label %if.end91
-
-if.end91:                                         ; preds = %if.end90, %if.end74
-  br label %if.end92
-
-if.end92:                                         ; preds = %if.end91, %if.end57
-  %57 = load ptr, ptr %enc.addr, align 8
-  %tobool93 = icmp ne ptr %57, null
-  br i1 %tobool93, label %if.then94, label %if.end95
-
-if.then94:                                        ; preds = %if.end92
-  %58 = load ptr, ptr %enc.addr, align 8
-  %setup = getelementptr inbounds %struct.Ciphers, ptr %58, i32 0, i32 5
-  store i8 1, ptr %setup, align 1
-  br label %if.end95
-
-if.end95:                                         ; preds = %if.then94, %if.end92
-  %59 = load ptr, ptr %dec.addr, align 8
-  %tobool96 = icmp ne ptr %59, null
-  br i1 %tobool96, label %if.then97, label %if.end99
-
-if.then97:                                        ; preds = %if.end95
-  %60 = load ptr, ptr %dec.addr, align 8
-  %setup98 = getelementptr inbounds %struct.Ciphers, ptr %60, i32 0, i32 5
-  store i8 1, ptr %setup98, align 1
-  br label %if.end99
-
-if.end99:                                         ; preds = %if.then97, %if.end95
-  br label %if.end100
-
-if.end100:                                        ; preds = %if.end99, %entry
-  %61 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm101 = getelementptr inbounds %struct.CipherSpecs, ptr %61, i32 0, i32 4
-  %62 = load i8, ptr %bulk_cipher_algorithm101, align 2
-  %conv102 = zext i8 %62 to i32
-  %cmp103 = icmp eq i32 %conv102, 6
-  br i1 %cmp103, label %if.then105, label %if.end234
-
-if.then105:                                       ; preds = %if.end100
-  store i32 0, ptr %aesRet, align 4
-  %63 = load ptr, ptr %enc.addr, align 8
-  %tobool106 = icmp ne ptr %63, null
-  br i1 %tobool106, label %if.then107, label %if.end122
-
-if.then107:                                       ; preds = %if.then105
-  %64 = load ptr, ptr %enc.addr, align 8
-  %aes = getelementptr inbounds %struct.Ciphers, ptr %64, i32 0, i32 0
-  %65 = load ptr, ptr %aes, align 8
-  %cmp108 = icmp eq ptr %65, null
-  br i1 %cmp108, label %if.then110, label %if.else118
-
-if.then110:                                       ; preds = %if.then107
-  %call111 = call ptr @wolfSSL_Malloc(i64 noundef 848)
-  %66 = load ptr, ptr %enc.addr, align 8
-  %aes112 = getelementptr inbounds %struct.Ciphers, ptr %66, i32 0, i32 0
-  store ptr %call111, ptr %aes112, align 8
-  %67 = load ptr, ptr %enc.addr, align 8
-  %aes113 = getelementptr inbounds %struct.Ciphers, ptr %67, i32 0, i32 0
-  %68 = load ptr, ptr %aes113, align 8
-  %cmp114 = icmp eq ptr %68, null
-  br i1 %cmp114, label %if.then116, label %if.end117
-
-if.then116:                                       ; preds = %if.then110
-  store i32 -125, ptr %retval, align 4
-  br label %return
-
-if.end117:                                        ; preds = %if.then110
-  br label %if.end120
-
-if.else118:                                       ; preds = %if.then107
-  %69 = load ptr, ptr %enc.addr, align 8
-  %aes119 = getelementptr inbounds %struct.Ciphers, ptr %69, i32 0, i32 0
-  %70 = load ptr, ptr %aes119, align 8
-  call void @wc_AesFree(ptr noundef %70)
-  br label %if.end120
-
-if.end120:                                        ; preds = %if.else118, %if.end117
-  %71 = load ptr, ptr %enc.addr, align 8
-  %aes121 = getelementptr inbounds %struct.Ciphers, ptr %71, i32 0, i32 0
-  %72 = load ptr, ptr %aes121, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %72, i8 0, i64 848, i1 false)
-  br label %if.end122
-
-if.end122:                                        ; preds = %if.end120, %if.then105
-  %73 = load ptr, ptr %dec.addr, align 8
-  %tobool123 = icmp ne ptr %73, null
-  br i1 %tobool123, label %if.then124, label %if.end140
-
-if.then124:                                       ; preds = %if.end122
-  %74 = load ptr, ptr %dec.addr, align 8
-  %aes125 = getelementptr inbounds %struct.Ciphers, ptr %74, i32 0, i32 0
-  %75 = load ptr, ptr %aes125, align 8
-  %cmp126 = icmp eq ptr %75, null
-  br i1 %cmp126, label %if.then128, label %if.else136
-
-if.then128:                                       ; preds = %if.then124
-  %call129 = call ptr @wolfSSL_Malloc(i64 noundef 848)
-  %76 = load ptr, ptr %dec.addr, align 8
-  %aes130 = getelementptr inbounds %struct.Ciphers, ptr %76, i32 0, i32 0
-  store ptr %call129, ptr %aes130, align 8
-  %77 = load ptr, ptr %dec.addr, align 8
-  %aes131 = getelementptr inbounds %struct.Ciphers, ptr %77, i32 0, i32 0
-  %78 = load ptr, ptr %aes131, align 8
-  %cmp132 = icmp eq ptr %78, null
-  br i1 %cmp132, label %if.then134, label %if.end135
-
-if.then134:                                       ; preds = %if.then128
-  store i32 -125, ptr %retval, align 4
-  br label %return
-
-if.end135:                                        ; preds = %if.then128
-  br label %if.end138
-
-if.else136:                                       ; preds = %if.then124
-  %79 = load ptr, ptr %dec.addr, align 8
-  %aes137 = getelementptr inbounds %struct.Ciphers, ptr %79, i32 0, i32 0
-  %80 = load ptr, ptr %aes137, align 8
-  call void @wc_AesFree(ptr noundef %80)
-  br label %if.end138
-
-if.end138:                                        ; preds = %if.else136, %if.end135
-  %81 = load ptr, ptr %dec.addr, align 8
-  %aes139 = getelementptr inbounds %struct.Ciphers, ptr %81, i32 0, i32 0
-  %82 = load ptr, ptr %aes139, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %82, i8 0, i64 848, i1 false)
-  br label %if.end140
-
-if.end140:                                        ; preds = %if.end138, %if.end122
-  %83 = load ptr, ptr %enc.addr, align 8
-  %tobool141 = icmp ne ptr %83, null
-  br i1 %tobool141, label %if.then142, label %if.end149
-
-if.then142:                                       ; preds = %if.end140
-  %84 = load ptr, ptr %enc.addr, align 8
-  %aes143 = getelementptr inbounds %struct.Ciphers, ptr %84, i32 0, i32 0
-  %85 = load ptr, ptr %aes143, align 8
-  %86 = load ptr, ptr %heap.addr, align 8
-  %87 = load i32, ptr %devId.addr, align 4
-  %call144 = call i32 @wc_AesInit(ptr noundef %85, ptr noundef %86, i32 noundef %87)
-  %cmp145 = icmp ne i32 %call144, 0
-  br i1 %cmp145, label %if.then147, label %if.end148
-
-if.then147:                                       ; preds = %if.then142
-  br label %do.body
-
-do.body:                                          ; preds = %if.then147
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  store i32 -182, ptr %retval, align 4
-  br label %return
-
-if.end148:                                        ; preds = %if.then142
-  br label %if.end149
-
-if.end149:                                        ; preds = %if.end148, %if.end140
-  %88 = load ptr, ptr %dec.addr, align 8
-  %tobool150 = icmp ne ptr %88, null
-  br i1 %tobool150, label %if.then151, label %if.end160
-
-if.then151:                                       ; preds = %if.end149
-  %89 = load ptr, ptr %dec.addr, align 8
-  %aes152 = getelementptr inbounds %struct.Ciphers, ptr %89, i32 0, i32 0
-  %90 = load ptr, ptr %aes152, align 8
-  %91 = load ptr, ptr %heap.addr, align 8
-  %92 = load i32, ptr %devId.addr, align 4
-  %call153 = call i32 @wc_AesInit(ptr noundef %90, ptr noundef %91, i32 noundef %92)
-  %cmp154 = icmp ne i32 %call153, 0
-  br i1 %cmp154, label %if.then156, label %if.end159
-
-if.then156:                                       ; preds = %if.then151
-  br label %do.body157
-
-do.body157:                                       ; preds = %if.then156
-  br label %do.end158
-
-do.end158:                                        ; preds = %do.body157
-  store i32 -182, ptr %retval, align 4
-  br label %return
-
-if.end159:                                        ; preds = %if.then151
-  br label %if.end160
-
-if.end160:                                        ; preds = %if.end159, %if.end149
-  %93 = load i32, ptr %side.addr, align 4
-  %cmp161 = icmp eq i32 %93, 1
-  br i1 %cmp161, label %if.then163, label %if.else194
-
-if.then163:                                       ; preds = %if.end160
-  %94 = load ptr, ptr %enc.addr, align 8
-  %tobool164 = icmp ne ptr %94, null
-  br i1 %tobool164, label %if.then165, label %if.end178
-
-if.then165:                                       ; preds = %if.then163
-  %95 = load ptr, ptr %enc.addr, align 8
-  %aes166 = getelementptr inbounds %struct.Ciphers, ptr %95, i32 0, i32 0
-  %96 = load ptr, ptr %aes166, align 8
-  %97 = load ptr, ptr %keys.addr, align 8
-  %client_write_key167 = getelementptr inbounds %struct.Keys, ptr %97, i32 0, i32 2
-  %arraydecay168 = getelementptr inbounds [32 x i8], ptr %client_write_key167, i64 0, i64 0
-  %98 = load ptr, ptr %specs.addr, align 8
-  %key_size169 = getelementptr inbounds %struct.CipherSpecs, ptr %98, i32 0, i32 0
-  %99 = load i16, ptr %key_size169, align 2
-  %conv170 = zext i16 %99 to i32
-  %100 = load ptr, ptr %keys.addr, align 8
-  %client_write_IV171 = getelementptr inbounds %struct.Keys, ptr %100, i32 0, i32 4
-  %arraydecay172 = getelementptr inbounds [16 x i8], ptr %client_write_IV171, i64 0, i64 0
-  %call173 = call i32 @wc_AesSetKey(ptr noundef %96, ptr noundef %arraydecay168, i32 noundef %conv170, ptr noundef %arraydecay172, i32 noundef 0)
-  store i32 %call173, ptr %aesRet, align 4
-  %101 = load i32, ptr %aesRet, align 4
-  %cmp174 = icmp ne i32 %101, 0
-  br i1 %cmp174, label %if.then176, label %if.end177
-
-if.then176:                                       ; preds = %if.then165
-  %102 = load i32, ptr %aesRet, align 4
-  store i32 %102, ptr %retval, align 4
-  br label %return
-
-if.end177:                                        ; preds = %if.then165
-  br label %if.end178
-
-if.end178:                                        ; preds = %if.end177, %if.then163
-  %103 = load ptr, ptr %dec.addr, align 8
-  %tobool179 = icmp ne ptr %103, null
-  br i1 %tobool179, label %if.then180, label %if.end193
-
-if.then180:                                       ; preds = %if.end178
-  %104 = load ptr, ptr %dec.addr, align 8
-  %aes181 = getelementptr inbounds %struct.Ciphers, ptr %104, i32 0, i32 0
-  %105 = load ptr, ptr %aes181, align 8
-  %106 = load ptr, ptr %keys.addr, align 8
-  %server_write_key182 = getelementptr inbounds %struct.Keys, ptr %106, i32 0, i32 3
-  %arraydecay183 = getelementptr inbounds [32 x i8], ptr %server_write_key182, i64 0, i64 0
-  %107 = load ptr, ptr %specs.addr, align 8
-  %key_size184 = getelementptr inbounds %struct.CipherSpecs, ptr %107, i32 0, i32 0
-  %108 = load i16, ptr %key_size184, align 2
-  %conv185 = zext i16 %108 to i32
-  %109 = load ptr, ptr %keys.addr, align 8
-  %server_write_IV186 = getelementptr inbounds %struct.Keys, ptr %109, i32 0, i32 5
-  %arraydecay187 = getelementptr inbounds [16 x i8], ptr %server_write_IV186, i64 0, i64 0
-  %call188 = call i32 @wc_AesSetKey(ptr noundef %105, ptr noundef %arraydecay183, i32 noundef %conv185, ptr noundef %arraydecay187, i32 noundef 1)
-  store i32 %call188, ptr %aesRet, align 4
-  %110 = load i32, ptr %aesRet, align 4
-  %cmp189 = icmp ne i32 %110, 0
-  br i1 %cmp189, label %if.then191, label %if.end192
-
-if.then191:                                       ; preds = %if.then180
-  %111 = load i32, ptr %aesRet, align 4
-  store i32 %111, ptr %retval, align 4
-  br label %return
-
-if.end192:                                        ; preds = %if.then180
-  br label %if.end193
-
-if.end193:                                        ; preds = %if.end192, %if.end178
-  br label %if.end225
-
-if.else194:                                       ; preds = %if.end160
-  %112 = load ptr, ptr %enc.addr, align 8
-  %tobool195 = icmp ne ptr %112, null
-  br i1 %tobool195, label %if.then196, label %if.end209
-
-if.then196:                                       ; preds = %if.else194
-  %113 = load ptr, ptr %enc.addr, align 8
-  %aes197 = getelementptr inbounds %struct.Ciphers, ptr %113, i32 0, i32 0
-  %114 = load ptr, ptr %aes197, align 8
-  %115 = load ptr, ptr %keys.addr, align 8
-  %server_write_key198 = getelementptr inbounds %struct.Keys, ptr %115, i32 0, i32 3
-  %arraydecay199 = getelementptr inbounds [32 x i8], ptr %server_write_key198, i64 0, i64 0
-  %116 = load ptr, ptr %specs.addr, align 8
-  %key_size200 = getelementptr inbounds %struct.CipherSpecs, ptr %116, i32 0, i32 0
-  %117 = load i16, ptr %key_size200, align 2
-  %conv201 = zext i16 %117 to i32
-  %118 = load ptr, ptr %keys.addr, align 8
-  %server_write_IV202 = getelementptr inbounds %struct.Keys, ptr %118, i32 0, i32 5
-  %arraydecay203 = getelementptr inbounds [16 x i8], ptr %server_write_IV202, i64 0, i64 0
-  %call204 = call i32 @wc_AesSetKey(ptr noundef %114, ptr noundef %arraydecay199, i32 noundef %conv201, ptr noundef %arraydecay203, i32 noundef 0)
-  store i32 %call204, ptr %aesRet, align 4
-  %119 = load i32, ptr %aesRet, align 4
-  %cmp205 = icmp ne i32 %119, 0
-  br i1 %cmp205, label %if.then207, label %if.end208
-
-if.then207:                                       ; preds = %if.then196
-  %120 = load i32, ptr %aesRet, align 4
-  store i32 %120, ptr %retval, align 4
-  br label %return
-
-if.end208:                                        ; preds = %if.then196
-  br label %if.end209
-
-if.end209:                                        ; preds = %if.end208, %if.else194
-  %121 = load ptr, ptr %dec.addr, align 8
-  %tobool210 = icmp ne ptr %121, null
-  br i1 %tobool210, label %if.then211, label %if.end224
-
-if.then211:                                       ; preds = %if.end209
-  %122 = load ptr, ptr %dec.addr, align 8
-  %aes212 = getelementptr inbounds %struct.Ciphers, ptr %122, i32 0, i32 0
-  %123 = load ptr, ptr %aes212, align 8
-  %124 = load ptr, ptr %keys.addr, align 8
-  %client_write_key213 = getelementptr inbounds %struct.Keys, ptr %124, i32 0, i32 2
-  %arraydecay214 = getelementptr inbounds [32 x i8], ptr %client_write_key213, i64 0, i64 0
-  %125 = load ptr, ptr %specs.addr, align 8
-  %key_size215 = getelementptr inbounds %struct.CipherSpecs, ptr %125, i32 0, i32 0
-  %126 = load i16, ptr %key_size215, align 2
-  %conv216 = zext i16 %126 to i32
-  %127 = load ptr, ptr %keys.addr, align 8
-  %client_write_IV217 = getelementptr inbounds %struct.Keys, ptr %127, i32 0, i32 4
-  %arraydecay218 = getelementptr inbounds [16 x i8], ptr %client_write_IV217, i64 0, i64 0
-  %call219 = call i32 @wc_AesSetKey(ptr noundef %123, ptr noundef %arraydecay214, i32 noundef %conv216, ptr noundef %arraydecay218, i32 noundef 1)
-  store i32 %call219, ptr %aesRet, align 4
-  %128 = load i32, ptr %aesRet, align 4
-  %cmp220 = icmp ne i32 %128, 0
-  br i1 %cmp220, label %if.then222, label %if.end223
-
-if.then222:                                       ; preds = %if.then211
-  %129 = load i32, ptr %aesRet, align 4
-  store i32 %129, ptr %retval, align 4
-  br label %return
-
-if.end223:                                        ; preds = %if.then211
-  br label %if.end224
-
-if.end224:                                        ; preds = %if.end223, %if.end209
-  br label %if.end225
-
-if.end225:                                        ; preds = %if.end224, %if.end193
-  %130 = load ptr, ptr %enc.addr, align 8
-  %tobool226 = icmp ne ptr %130, null
-  br i1 %tobool226, label %if.then227, label %if.end229
-
-if.then227:                                       ; preds = %if.end225
-  %131 = load ptr, ptr %enc.addr, align 8
-  %setup228 = getelementptr inbounds %struct.Ciphers, ptr %131, i32 0, i32 5
-  store i8 1, ptr %setup228, align 1
-  br label %if.end229
-
-if.end229:                                        ; preds = %if.then227, %if.end225
-  %132 = load ptr, ptr %dec.addr, align 8
-  %tobool230 = icmp ne ptr %132, null
-  br i1 %tobool230, label %if.then231, label %if.end233
-
-if.then231:                                       ; preds = %if.end229
-  %133 = load ptr, ptr %dec.addr, align 8
-  %setup232 = getelementptr inbounds %struct.Ciphers, ptr %133, i32 0, i32 5
-  store i8 1, ptr %setup232, align 1
-  br label %if.end233
-
-if.end233:                                        ; preds = %if.then231, %if.end229
-  br label %if.end234
-
-if.end234:                                        ; preds = %if.end233, %if.end100
-  %134 = load ptr, ptr %specs.addr, align 8
-  %bulk_cipher_algorithm235 = getelementptr inbounds %struct.CipherSpecs, ptr %134, i32 0, i32 4
-  %135 = load i8, ptr %bulk_cipher_algorithm235, align 2
-  %conv236 = zext i8 %135 to i32
-  %cmp237 = icmp eq i32 %conv236, 7
-  br i1 %cmp237, label %if.then239, label %if.end401
-
-if.then239:                                       ; preds = %if.end234
-  %136 = load ptr, ptr %enc.addr, align 8
-  %tobool240 = icmp ne ptr %136, null
-  br i1 %tobool240, label %if.then241, label %if.end257
-
-if.then241:                                       ; preds = %if.then239
-  %137 = load ptr, ptr %enc.addr, align 8
-  %aes242 = getelementptr inbounds %struct.Ciphers, ptr %137, i32 0, i32 0
-  %138 = load ptr, ptr %aes242, align 8
-  %cmp243 = icmp eq ptr %138, null
-  br i1 %cmp243, label %if.then245, label %if.else253
-
-if.then245:                                       ; preds = %if.then241
-  %call246 = call ptr @wolfSSL_Malloc(i64 noundef 848)
-  %139 = load ptr, ptr %enc.addr, align 8
-  %aes247 = getelementptr inbounds %struct.Ciphers, ptr %139, i32 0, i32 0
-  store ptr %call246, ptr %aes247, align 8
-  %140 = load ptr, ptr %enc.addr, align 8
-  %aes248 = getelementptr inbounds %struct.Ciphers, ptr %140, i32 0, i32 0
-  %141 = load ptr, ptr %aes248, align 8
-  %cmp249 = icmp eq ptr %141, null
-  br i1 %cmp249, label %if.then251, label %if.end252
-
-if.then251:                                       ; preds = %if.then245
-  store i32 -125, ptr %retval, align 4
-  br label %return
-
-if.end252:                                        ; preds = %if.then245
-  br label %if.end255
-
-if.else253:                                       ; preds = %if.then241
-  %142 = load ptr, ptr %enc.addr, align 8
-  %aes254 = getelementptr inbounds %struct.Ciphers, ptr %142, i32 0, i32 0
-  %143 = load ptr, ptr %aes254, align 8
-  call void @wc_AesFree(ptr noundef %143)
-  br label %if.end255
-
-if.end255:                                        ; preds = %if.else253, %if.end252
-  %144 = load ptr, ptr %enc.addr, align 8
-  %aes256 = getelementptr inbounds %struct.Ciphers, ptr %144, i32 0, i32 0
-  %145 = load ptr, ptr %aes256, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %145, i8 0, i64 848, i1 false)
-  br label %if.end257
-
-if.end257:                                        ; preds = %if.end255, %if.then239
-  %146 = load ptr, ptr %dec.addr, align 8
-  %tobool258 = icmp ne ptr %146, null
-  br i1 %tobool258, label %if.then259, label %if.end275
-
-if.then259:                                       ; preds = %if.end257
-  %147 = load ptr, ptr %dec.addr, align 8
-  %aes260 = getelementptr inbounds %struct.Ciphers, ptr %147, i32 0, i32 0
-  %148 = load ptr, ptr %aes260, align 8
-  %cmp261 = icmp eq ptr %148, null
-  br i1 %cmp261, label %if.then263, label %if.else271
-
-if.then263:                                       ; preds = %if.then259
-  %call264 = call ptr @wolfSSL_Malloc(i64 noundef 848)
-  %149 = load ptr, ptr %dec.addr, align 8
-  %aes265 = getelementptr inbounds %struct.Ciphers, ptr %149, i32 0, i32 0
-  store ptr %call264, ptr %aes265, align 8
-  %150 = load ptr, ptr %dec.addr, align 8
-  %aes266 = getelementptr inbounds %struct.Ciphers, ptr %150, i32 0, i32 0
-  %151 = load ptr, ptr %aes266, align 8
-  %cmp267 = icmp eq ptr %151, null
-  br i1 %cmp267, label %if.then269, label %if.end270
-
-if.then269:                                       ; preds = %if.then263
-  store i32 -125, ptr %retval, align 4
-  br label %return
-
-if.end270:                                        ; preds = %if.then263
-  br label %if.end273
-
-if.else271:                                       ; preds = %if.then259
-  %152 = load ptr, ptr %dec.addr, align 8
-  %aes272 = getelementptr inbounds %struct.Ciphers, ptr %152, i32 0, i32 0
-  %153 = load ptr, ptr %aes272, align 8
-  call void @wc_AesFree(ptr noundef %153)
-  br label %if.end273
-
-if.end273:                                        ; preds = %if.else271, %if.end270
-  %154 = load ptr, ptr %dec.addr, align 8
-  %aes274 = getelementptr inbounds %struct.Ciphers, ptr %154, i32 0, i32 0
-  %155 = load ptr, ptr %aes274, align 8
-  call void @llvm.memset.p0.i64(ptr align 16 %155, i8 0, i64 848, i1 false)
-  br label %if.end275
-
-if.end275:                                        ; preds = %if.end273, %if.end257
-  %156 = load ptr, ptr %enc.addr, align 8
-  %tobool276 = icmp ne ptr %156, null
-  br i1 %tobool276, label %if.then277, label %if.end286
-
-if.then277:                                       ; preds = %if.end275
-  %157 = load ptr, ptr %enc.addr, align 8
-  %aes278 = getelementptr inbounds %struct.Ciphers, ptr %157, i32 0, i32 0
-  %158 = load ptr, ptr %aes278, align 8
-  %159 = load ptr, ptr %heap.addr, align 8
-  %160 = load i32, ptr %devId.addr, align 4
-  %call279 = call i32 @wc_AesInit(ptr noundef %158, ptr noundef %159, i32 noundef %160)
-  %cmp280 = icmp ne i32 %call279, 0
-  br i1 %cmp280, label %if.then282, label %if.end285
-
-if.then282:                                       ; preds = %if.then277
-  br label %do.body283
-
-do.body283:                                       ; preds = %if.then282
-  br label %do.end284
-
-do.end284:                                        ; preds = %do.body283
-  store i32 -182, ptr %retval, align 4
-  br label %return
-
-if.end285:                                        ; preds = %if.then277
-  br label %if.end286
-
-if.end286:                                        ; preds = %if.end285, %if.end275
-  %161 = load ptr, ptr %dec.addr, align 8
-  %tobool287 = icmp ne ptr %161, null
-  br i1 %tobool287, label %if.then288, label %if.end297
-
-if.then288:                                       ; preds = %if.end286
-  %162 = load ptr, ptr %dec.addr, align 8
-  %aes289 = getelementptr inbounds %struct.Ciphers, ptr %162, i32 0, i32 0
-  %163 = load ptr, ptr %aes289, align 8
-  %164 = load ptr, ptr %heap.addr, align 8
-  %165 = load i32, ptr %devId.addr, align 4
-  %call290 = call i32 @wc_AesInit(ptr noundef %163, ptr noundef %164, i32 noundef %165)
-  %cmp291 = icmp ne i32 %call290, 0
-  br i1 %cmp291, label %if.then293, label %if.end296
-
-if.then293:                                       ; preds = %if.then288
-  br label %do.body294
-
-do.body294:                                       ; preds = %if.then293
-  br label %do.end295
-
-do.end295:                                        ; preds = %do.body294
-  store i32 -182, ptr %retval, align 4
-  br label %return
-
-if.end296:                                        ; preds = %if.then288
-  br label %if.end297
-
-if.end297:                                        ; preds = %if.end296, %if.end286
-  %166 = load i32, ptr %side.addr, align 4
-  %cmp298 = icmp eq i32 %166, 1
-  br i1 %cmp298, label %if.then300, label %if.else346
-
-if.then300:                                       ; preds = %if.end297
-  %167 = load ptr, ptr %enc.addr, align 8
-  %tobool301 = icmp ne ptr %167, null
-  br i1 %tobool301, label %if.then302, label %if.end328
-
-if.then302:                                       ; preds = %if.then300
-  %168 = load ptr, ptr %enc.addr, align 8
-  %aes303 = getelementptr inbounds %struct.Ciphers, ptr %168, i32 0, i32 0
-  %169 = load ptr, ptr %aes303, align 8
-  %170 = load ptr, ptr %keys.addr, align 8
-  %client_write_key304 = getelementptr inbounds %struct.Keys, ptr %170, i32 0, i32 2
-  %arraydecay305 = getelementptr inbounds [32 x i8], ptr %client_write_key304, i64 0, i64 0
-  %171 = load ptr, ptr %specs.addr, align 8
-  %key_size306 = getelementptr inbounds %struct.CipherSpecs, ptr %171, i32 0, i32 0
-  %172 = load i16, ptr %key_size306, align 2
-  %conv307 = zext i16 %172 to i32
-  %call308 = call i32 @wc_AesGcmSetKey(ptr noundef %169, ptr noundef %arraydecay305, i32 noundef %conv307)
-  store i32 %call308, ptr %gcmRet, align 4
-  %173 = load i32, ptr %gcmRet, align 4
-  %cmp309 = icmp ne i32 %173, 0
-  br i1 %cmp309, label %if.then311, label %if.end312
-
-if.then311:                                       ; preds = %if.then302
-  %174 = load i32, ptr %gcmRet, align 4
-  store i32 %174, ptr %retval, align 4
-  br label %return
-
-if.end312:                                        ; preds = %if.then302
-  %175 = load ptr, ptr %keys.addr, align 8
-  %aead_enc_imp_IV313 = getelementptr inbounds %struct.Keys, ptr %175, i32 0, i32 7
-  %arraydecay314 = getelementptr inbounds [12 x i8], ptr %aead_enc_imp_IV313, i64 0, i64 0
-  %176 = load ptr, ptr %keys.addr, align 8
-  %client_write_IV315 = getelementptr inbounds %struct.Keys, ptr %176, i32 0, i32 4
-  %arraydecay316 = getelementptr inbounds [16 x i8], ptr %client_write_IV315, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay314, ptr align 4 %arraydecay316, i64 12, i1 false)
-  %177 = load i32, ptr %tls13.addr, align 4
-  %tobool317 = icmp ne i32 %177, 0
-  br i1 %tobool317, label %if.end327, label %if.then318
-
-if.then318:                                       ; preds = %if.end312
-  %178 = load ptr, ptr %enc.addr, align 8
-  %aes319 = getelementptr inbounds %struct.Ciphers, ptr %178, i32 0, i32 0
-  %179 = load ptr, ptr %aes319, align 8
-  %180 = load ptr, ptr %keys.addr, align 8
-  %client_write_IV320 = getelementptr inbounds %struct.Keys, ptr %180, i32 0, i32 4
-  %arraydecay321 = getelementptr inbounds [16 x i8], ptr %client_write_IV320, i64 0, i64 0
-  %181 = load ptr, ptr %rng.addr, align 8
-  %call322 = call i32 @wc_AesGcmSetIV(ptr noundef %179, i32 noundef 12, ptr noundef %arraydecay321, i32 noundef 4, ptr noundef %181)
-  store i32 %call322, ptr %gcmRet, align 4
-  %182 = load i32, ptr %gcmRet, align 4
-  %cmp323 = icmp ne i32 %182, 0
-  br i1 %cmp323, label %if.then325, label %if.end326
-
-if.then325:                                       ; preds = %if.then318
-  %183 = load i32, ptr %gcmRet, align 4
-  store i32 %183, ptr %retval, align 4
-  br label %return
-
-if.end326:                                        ; preds = %if.then318
-  br label %if.end327
-
-if.end327:                                        ; preds = %if.end326, %if.end312
-  br label %if.end328
-
-if.end328:                                        ; preds = %if.end327, %if.then300
-  %184 = load ptr, ptr %dec.addr, align 8
-  %tobool329 = icmp ne ptr %184, null
-  br i1 %tobool329, label %if.then330, label %if.end345
-
-if.then330:                                       ; preds = %if.end328
-  %185 = load ptr, ptr %dec.addr, align 8
-  %aes331 = getelementptr inbounds %struct.Ciphers, ptr %185, i32 0, i32 0
-  %186 = load ptr, ptr %aes331, align 8
-  %187 = load ptr, ptr %keys.addr, align 8
-  %server_write_key332 = getelementptr inbounds %struct.Keys, ptr %187, i32 0, i32 3
-  %arraydecay333 = getelementptr inbounds [32 x i8], ptr %server_write_key332, i64 0, i64 0
-  %188 = load ptr, ptr %specs.addr, align 8
-  %key_size334 = getelementptr inbounds %struct.CipherSpecs, ptr %188, i32 0, i32 0
-  %189 = load i16, ptr %key_size334, align 2
-  %conv335 = zext i16 %189 to i32
-  %call336 = call i32 @wc_AesGcmSetKey(ptr noundef %186, ptr noundef %arraydecay333, i32 noundef %conv335)
-  store i32 %call336, ptr %gcmRet, align 4
-  %190 = load i32, ptr %gcmRet, align 4
-  %cmp337 = icmp ne i32 %190, 0
-  br i1 %cmp337, label %if.then339, label %if.end340
-
-if.then339:                                       ; preds = %if.then330
-  %191 = load i32, ptr %gcmRet, align 4
-  store i32 %191, ptr %retval, align 4
-  br label %return
-
-if.end340:                                        ; preds = %if.then330
-  %192 = load ptr, ptr %keys.addr, align 8
-  %aead_dec_imp_IV341 = getelementptr inbounds %struct.Keys, ptr %192, i32 0, i32 8
-  %arraydecay342 = getelementptr inbounds [12 x i8], ptr %aead_dec_imp_IV341, i64 0, i64 0
-  %193 = load ptr, ptr %keys.addr, align 8
-  %server_write_IV343 = getelementptr inbounds %struct.Keys, ptr %193, i32 0, i32 5
-  %arraydecay344 = getelementptr inbounds [16 x i8], ptr %server_write_IV343, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay342, ptr align 4 %arraydecay344, i64 12, i1 false)
-  br label %if.end345
-
-if.end345:                                        ; preds = %if.end340, %if.end328
-  br label %if.end392
-
-if.else346:                                       ; preds = %if.end297
-  %194 = load ptr, ptr %enc.addr, align 8
-  %tobool347 = icmp ne ptr %194, null
-  br i1 %tobool347, label %if.then348, label %if.end374
-
-if.then348:                                       ; preds = %if.else346
-  %195 = load ptr, ptr %enc.addr, align 8
-  %aes349 = getelementptr inbounds %struct.Ciphers, ptr %195, i32 0, i32 0
-  %196 = load ptr, ptr %aes349, align 8
-  %197 = load ptr, ptr %keys.addr, align 8
-  %server_write_key350 = getelementptr inbounds %struct.Keys, ptr %197, i32 0, i32 3
-  %arraydecay351 = getelementptr inbounds [32 x i8], ptr %server_write_key350, i64 0, i64 0
-  %198 = load ptr, ptr %specs.addr, align 8
-  %key_size352 = getelementptr inbounds %struct.CipherSpecs, ptr %198, i32 0, i32 0
-  %199 = load i16, ptr %key_size352, align 2
-  %conv353 = zext i16 %199 to i32
-  %call354 = call i32 @wc_AesGcmSetKey(ptr noundef %196, ptr noundef %arraydecay351, i32 noundef %conv353)
-  store i32 %call354, ptr %gcmRet, align 4
-  %200 = load i32, ptr %gcmRet, align 4
-  %cmp355 = icmp ne i32 %200, 0
-  br i1 %cmp355, label %if.then357, label %if.end358
-
-if.then357:                                       ; preds = %if.then348
-  %201 = load i32, ptr %gcmRet, align 4
-  store i32 %201, ptr %retval, align 4
-  br label %return
-
-if.end358:                                        ; preds = %if.then348
-  %202 = load ptr, ptr %keys.addr, align 8
-  %aead_enc_imp_IV359 = getelementptr inbounds %struct.Keys, ptr %202, i32 0, i32 7
-  %arraydecay360 = getelementptr inbounds [12 x i8], ptr %aead_enc_imp_IV359, i64 0, i64 0
-  %203 = load ptr, ptr %keys.addr, align 8
-  %server_write_IV361 = getelementptr inbounds %struct.Keys, ptr %203, i32 0, i32 5
-  %arraydecay362 = getelementptr inbounds [16 x i8], ptr %server_write_IV361, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay360, ptr align 4 %arraydecay362, i64 12, i1 false)
-  %204 = load i32, ptr %tls13.addr, align 4
-  %tobool363 = icmp ne i32 %204, 0
-  br i1 %tobool363, label %if.end373, label %if.then364
-
-if.then364:                                       ; preds = %if.end358
-  %205 = load ptr, ptr %enc.addr, align 8
-  %aes365 = getelementptr inbounds %struct.Ciphers, ptr %205, i32 0, i32 0
-  %206 = load ptr, ptr %aes365, align 8
-  %207 = load ptr, ptr %keys.addr, align 8
-  %server_write_IV366 = getelementptr inbounds %struct.Keys, ptr %207, i32 0, i32 5
-  %arraydecay367 = getelementptr inbounds [16 x i8], ptr %server_write_IV366, i64 0, i64 0
-  %208 = load ptr, ptr %rng.addr, align 8
-  %call368 = call i32 @wc_AesGcmSetIV(ptr noundef %206, i32 noundef 12, ptr noundef %arraydecay367, i32 noundef 4, ptr noundef %208)
-  store i32 %call368, ptr %gcmRet, align 4
-  %209 = load i32, ptr %gcmRet, align 4
-  %cmp369 = icmp ne i32 %209, 0
-  br i1 %cmp369, label %if.then371, label %if.end372
-
-if.then371:                                       ; preds = %if.then364
-  %210 = load i32, ptr %gcmRet, align 4
-  store i32 %210, ptr %retval, align 4
-  br label %return
-
-if.end372:                                        ; preds = %if.then364
-  br label %if.end373
-
-if.end373:                                        ; preds = %if.end372, %if.end358
-  br label %if.end374
-
-if.end374:                                        ; preds = %if.end373, %if.else346
-  %211 = load ptr, ptr %dec.addr, align 8
-  %tobool375 = icmp ne ptr %211, null
-  br i1 %tobool375, label %if.then376, label %if.end391
-
-if.then376:                                       ; preds = %if.end374
-  %212 = load ptr, ptr %dec.addr, align 8
-  %aes377 = getelementptr inbounds %struct.Ciphers, ptr %212, i32 0, i32 0
-  %213 = load ptr, ptr %aes377, align 8
-  %214 = load ptr, ptr %keys.addr, align 8
-  %client_write_key378 = getelementptr inbounds %struct.Keys, ptr %214, i32 0, i32 2
-  %arraydecay379 = getelementptr inbounds [32 x i8], ptr %client_write_key378, i64 0, i64 0
-  %215 = load ptr, ptr %specs.addr, align 8
-  %key_size380 = getelementptr inbounds %struct.CipherSpecs, ptr %215, i32 0, i32 0
-  %216 = load i16, ptr %key_size380, align 2
-  %conv381 = zext i16 %216 to i32
-  %call382 = call i32 @wc_AesGcmSetKey(ptr noundef %213, ptr noundef %arraydecay379, i32 noundef %conv381)
-  store i32 %call382, ptr %gcmRet, align 4
-  %217 = load i32, ptr %gcmRet, align 4
-  %cmp383 = icmp ne i32 %217, 0
-  br i1 %cmp383, label %if.then385, label %if.end386
-
-if.then385:                                       ; preds = %if.then376
-  %218 = load i32, ptr %gcmRet, align 4
-  store i32 %218, ptr %retval, align 4
-  br label %return
-
-if.end386:                                        ; preds = %if.then376
-  %219 = load ptr, ptr %keys.addr, align 8
-  %aead_dec_imp_IV387 = getelementptr inbounds %struct.Keys, ptr %219, i32 0, i32 8
-  %arraydecay388 = getelementptr inbounds [12 x i8], ptr %aead_dec_imp_IV387, i64 0, i64 0
-  %220 = load ptr, ptr %keys.addr, align 8
-  %client_write_IV389 = getelementptr inbounds %struct.Keys, ptr %220, i32 0, i32 4
-  %arraydecay390 = getelementptr inbounds [16 x i8], ptr %client_write_IV389, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay388, ptr align 4 %arraydecay390, i64 12, i1 false)
-  br label %if.end391
-
-if.end391:                                        ; preds = %if.end386, %if.end374
-  br label %if.end392
-
-if.end392:                                        ; preds = %if.end391, %if.end345
-  %221 = load ptr, ptr %enc.addr, align 8
-  %tobool393 = icmp ne ptr %221, null
-  br i1 %tobool393, label %if.then394, label %if.end396
-
-if.then394:                                       ; preds = %if.end392
-  %222 = load ptr, ptr %enc.addr, align 8
-  %setup395 = getelementptr inbounds %struct.Ciphers, ptr %222, i32 0, i32 5
-  store i8 1, ptr %setup395, align 1
-  br label %if.end396
-
-if.end396:                                        ; preds = %if.then394, %if.end392
-  %223 = load ptr, ptr %dec.addr, align 8
-  %tobool397 = icmp ne ptr %223, null
-  br i1 %tobool397, label %if.then398, label %if.end400
-
-if.then398:                                       ; preds = %if.end396
-  %224 = load ptr, ptr %dec.addr, align 8
-  %setup399 = getelementptr inbounds %struct.Ciphers, ptr %224, i32 0, i32 5
-  store i8 1, ptr %setup399, align 1
-  br label %if.end400
-
-if.end400:                                        ; preds = %if.then398, %if.end396
-  br label %if.end401
-
-if.end401:                                        ; preds = %if.end400, %if.end234
-  %225 = load ptr, ptr %enc.addr, align 8
-  %tobool402 = icmp ne ptr %225, null
-  br i1 %tobool402, label %if.then403, label %if.end404
-
-if.then403:                                       ; preds = %if.end401
-  %226 = load ptr, ptr %keys.addr, align 8
-  %sequence_number_hi = getelementptr inbounds %struct.Keys, ptr %226, i32 0, i32 11
-  store i32 0, ptr %sequence_number_hi, align 4
-  %227 = load ptr, ptr %keys.addr, align 8
-  %sequence_number_lo = getelementptr inbounds %struct.Keys, ptr %227, i32 0, i32 12
-  store i32 0, ptr %sequence_number_lo, align 4
-  br label %if.end404
-
-if.end404:                                        ; preds = %if.then403, %if.end401
-  %228 = load ptr, ptr %dec.addr, align 8
-  %tobool405 = icmp ne ptr %228, null
-  br i1 %tobool405, label %if.then406, label %if.end407
-
-if.then406:                                       ; preds = %if.end404
-  %229 = load ptr, ptr %keys.addr, align 8
-  %peer_sequence_number_hi = getelementptr inbounds %struct.Keys, ptr %229, i32 0, i32 9
-  store i32 0, ptr %peer_sequence_number_hi, align 4
-  %230 = load ptr, ptr %keys.addr, align 8
-  %peer_sequence_number_lo = getelementptr inbounds %struct.Keys, ptr %230, i32 0, i32 10
-  store i32 0, ptr %peer_sequence_number_lo, align 4
-  br label %if.end407
-
-if.end407:                                        ; preds = %if.then406, %if.end404
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end407, %if.then385, %if.then371, %if.then357, %if.then339, %if.then325, %if.then311, %do.end295, %do.end284, %if.then269, %if.then251, %if.then222, %if.then207, %if.then191, %if.then176, %do.end158, %do.end, %if.then134, %if.then116, %if.then89, %if.then72, %if.then55, %if.then41, %if.then27, %if.then11
-  %231 = load i32, ptr %retval, align 4
-  ret i32 %231
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @StoreKeys(ptr noundef %ssl, ptr noundef %keyData, i32 noundef %side) #0 {
-entry:
-  %ssl.addr = alloca ptr, align 8
-  %keyData.addr = alloca ptr, align 8
-  %side.addr = alloca i32, align 4
-  %sz = alloca i32, align 4
-  %i = alloca i32, align 4
-  %keys = alloca ptr, align 8
-  store ptr %ssl, ptr %ssl.addr, align 8
-  store ptr %keyData, ptr %keyData.addr, align 8
-  store i32 %side, ptr %side.addr, align 4
-  store i32 0, ptr %i, align 4
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %keys1 = getelementptr inbounds %struct.WOLFSSL, ptr %0, i32 0, i32 46
-  store ptr %keys1, ptr %keys, align 8
-  %1 = load ptr, ptr %ssl.addr, align 8
-  %specs = getelementptr inbounds %struct.WOLFSSL, ptr %1, i32 0, i32 44
-  %cipher_type = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i32 0, i32 5
-  %2 = load i8, ptr %cipher_type, align 1
-  %conv = zext i8 %2 to i32
-  %cmp = icmp ne i32 %conv, 2
-  br i1 %cmp, label %if.then, label %if.end16
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %ssl.addr, align 8
-  %specs3 = getelementptr inbounds %struct.WOLFSSL, ptr %3, i32 0, i32 44
-  %hash_size = getelementptr inbounds %struct.CipherSpecs, ptr %specs3, i32 0, i32 9
-  %4 = load i8, ptr %hash_size, align 1
-  %conv4 = zext i8 %4 to i32
-  store i32 %conv4, ptr %sz, align 4
-  %5 = load i32, ptr %side.addr, align 4
-  %and = and i32 %5, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then5, label %if.end
-
-if.then5:                                         ; preds = %if.then
-  %6 = load ptr, ptr %keys, align 8
-  %client_write_MAC_secret = getelementptr inbounds %struct.Keys, ptr %6, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [64 x i8], ptr %client_write_MAC_secret, i64 0, i64 0
-  %7 = load ptr, ptr %keyData.addr, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %7, i64 %idxprom
-  %9 = load i32, ptr %sz, align 4
-  %conv6 = sext i32 %9 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay, ptr align 1 %arrayidx, i64 %conv6, i1 false)
-  %10 = load i32, ptr %sz, align 4
-  %11 = load i32, ptr %i, align 4
-  %add = add nsw i32 %11, %10
-  store i32 %add, ptr %i, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then5, %if.then
-  %12 = load i32, ptr %side.addr, align 4
-  %and7 = and i32 %12, 2
-  %tobool8 = icmp ne i32 %and7, 0
-  br i1 %tobool8, label %if.then9, label %if.end15
-
-if.then9:                                         ; preds = %if.end
-  %13 = load ptr, ptr %keys, align 8
-  %server_write_MAC_secret = getelementptr inbounds %struct.Keys, ptr %13, i32 0, i32 1
-  %arraydecay10 = getelementptr inbounds [64 x i8], ptr %server_write_MAC_secret, i64 0, i64 0
-  %14 = load ptr, ptr %keyData.addr, align 8
-  %15 = load i32, ptr %i, align 4
-  %idxprom11 = sext i32 %15 to i64
-  %arrayidx12 = getelementptr inbounds i8, ptr %14, i64 %idxprom11
-  %16 = load i32, ptr %sz, align 4
-  %conv13 = sext i32 %16 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay10, ptr align 1 %arrayidx12, i64 %conv13, i1 false)
-  %17 = load i32, ptr %sz, align 4
-  %18 = load i32, ptr %i, align 4
-  %add14 = add nsw i32 %18, %17
-  store i32 %add14, ptr %i, align 4
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then9, %if.end
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.end15, %entry
-  %19 = load ptr, ptr %ssl.addr, align 8
-  %specs17 = getelementptr inbounds %struct.WOLFSSL, ptr %19, i32 0, i32 44
-  %key_size = getelementptr inbounds %struct.CipherSpecs, ptr %specs17, i32 0, i32 0
-  %20 = load i16, ptr %key_size, align 2
-  %conv18 = zext i16 %20 to i32
-  store i32 %conv18, ptr %sz, align 4
-  %21 = load i32, ptr %side.addr, align 4
-  %and19 = and i32 %21, 1
-  %tobool20 = icmp ne i32 %and19, 0
-  br i1 %tobool20, label %if.then21, label %if.end27
-
-if.then21:                                        ; preds = %if.end16
-  %22 = load ptr, ptr %keys, align 8
-  %client_write_key = getelementptr inbounds %struct.Keys, ptr %22, i32 0, i32 2
-  %arraydecay22 = getelementptr inbounds [32 x i8], ptr %client_write_key, i64 0, i64 0
-  %23 = load ptr, ptr %keyData.addr, align 8
-  %24 = load i32, ptr %i, align 4
-  %idxprom23 = sext i32 %24 to i64
-  %arrayidx24 = getelementptr inbounds i8, ptr %23, i64 %idxprom23
-  %25 = load i32, ptr %sz, align 4
-  %conv25 = sext i32 %25 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay22, ptr align 1 %arrayidx24, i64 %conv25, i1 false)
-  %26 = load i32, ptr %sz, align 4
-  %27 = load i32, ptr %i, align 4
-  %add26 = add nsw i32 %27, %26
-  store i32 %add26, ptr %i, align 4
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.then21, %if.end16
-  %28 = load i32, ptr %side.addr, align 4
-  %and28 = and i32 %28, 2
-  %tobool29 = icmp ne i32 %and28, 0
-  br i1 %tobool29, label %if.then30, label %if.end36
-
-if.then30:                                        ; preds = %if.end27
-  %29 = load ptr, ptr %keys, align 8
-  %server_write_key = getelementptr inbounds %struct.Keys, ptr %29, i32 0, i32 3
-  %arraydecay31 = getelementptr inbounds [32 x i8], ptr %server_write_key, i64 0, i64 0
-  %30 = load ptr, ptr %keyData.addr, align 8
-  %31 = load i32, ptr %i, align 4
-  %idxprom32 = sext i32 %31 to i64
-  %arrayidx33 = getelementptr inbounds i8, ptr %30, i64 %idxprom32
-  %32 = load i32, ptr %sz, align 4
-  %conv34 = sext i32 %32 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay31, ptr align 1 %arrayidx33, i64 %conv34, i1 false)
-  %33 = load i32, ptr %sz, align 4
-  %34 = load i32, ptr %i, align 4
-  %add35 = add nsw i32 %34, %33
-  store i32 %add35, ptr %i, align 4
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.then30, %if.end27
-  %35 = load ptr, ptr %ssl.addr, align 8
-  %specs37 = getelementptr inbounds %struct.WOLFSSL, ptr %35, i32 0, i32 44
-  %iv_size = getelementptr inbounds %struct.CipherSpecs, ptr %specs37, i32 0, i32 1
-  %36 = load i16, ptr %iv_size, align 2
-  %conv38 = zext i16 %36 to i32
-  store i32 %conv38, ptr %sz, align 4
-  %37 = load i32, ptr %side.addr, align 4
-  %and39 = and i32 %37, 1
-  %tobool40 = icmp ne i32 %and39, 0
-  br i1 %tobool40, label %if.then41, label %if.end47
-
-if.then41:                                        ; preds = %if.end36
-  %38 = load ptr, ptr %keys, align 8
-  %client_write_IV = getelementptr inbounds %struct.Keys, ptr %38, i32 0, i32 4
-  %arraydecay42 = getelementptr inbounds [16 x i8], ptr %client_write_IV, i64 0, i64 0
-  %39 = load ptr, ptr %keyData.addr, align 8
-  %40 = load i32, ptr %i, align 4
-  %idxprom43 = sext i32 %40 to i64
-  %arrayidx44 = getelementptr inbounds i8, ptr %39, i64 %idxprom43
-  %41 = load i32, ptr %sz, align 4
-  %conv45 = sext i32 %41 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay42, ptr align 1 %arrayidx44, i64 %conv45, i1 false)
-  %42 = load i32, ptr %sz, align 4
-  %43 = load i32, ptr %i, align 4
-  %add46 = add nsw i32 %43, %42
-  store i32 %add46, ptr %i, align 4
-  br label %if.end47
-
-if.end47:                                         ; preds = %if.then41, %if.end36
-  %44 = load i32, ptr %side.addr, align 4
-  %and48 = and i32 %44, 2
-  %tobool49 = icmp ne i32 %and48, 0
-  br i1 %tobool49, label %if.then50, label %if.end55
-
-if.then50:                                        ; preds = %if.end47
-  %45 = load ptr, ptr %keys, align 8
-  %server_write_IV = getelementptr inbounds %struct.Keys, ptr %45, i32 0, i32 5
-  %arraydecay51 = getelementptr inbounds [16 x i8], ptr %server_write_IV, i64 0, i64 0
-  %46 = load ptr, ptr %keyData.addr, align 8
-  %47 = load i32, ptr %i, align 4
-  %idxprom52 = sext i32 %47 to i64
-  %arrayidx53 = getelementptr inbounds i8, ptr %46, i64 %idxprom52
-  %48 = load i32, ptr %sz, align 4
-  %conv54 = sext i32 %48 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %arraydecay51, ptr align 1 %arrayidx53, i64 %conv54, i1 false)
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.then50, %if.end47
-  %49 = load ptr, ptr %ssl.addr, align 8
-  %specs56 = getelementptr inbounds %struct.WOLFSSL, ptr %49, i32 0, i32 44
-  %cipher_type57 = getelementptr inbounds %struct.CipherSpecs, ptr %specs56, i32 0, i32 5
-  %50 = load i8, ptr %cipher_type57, align 1
-  %conv58 = zext i8 %50 to i32
-  %cmp59 = icmp eq i32 %conv58, 2
-  br i1 %cmp59, label %if.then61, label %if.end63
-
-if.then61:                                        ; preds = %if.end55
-  %51 = load ptr, ptr %keys, align 8
-  %aead_exp_IV = getelementptr inbounds %struct.Keys, ptr %51, i32 0, i32 6
-  %arraydecay62 = getelementptr inbounds [8 x i8], ptr %aead_exp_IV, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %arraydecay62, i8 0, i64 8, i1 false)
-  br label %if.end63
-
-if.end63:                                         ; preds = %if.then61, %if.end55
+define i32 @StoreKeys(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !90
+  store i32 %2, ptr %6, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %8, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %10, i32 0, i32 48
+  store ptr %11, ptr %9, align 8, !tbaa !70
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %12, i32 0, i32 46
+  %14 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %13, i32 0, i32 5
+  %15 = load i8, ptr %14, align 1, !tbaa !49
+  %16 = zext i8 %15 to i32
+  %17 = icmp ne i32 %16, 2
+  br i1 %17, label %18, label %58
+
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %19, i32 0, i32 46
+  %21 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %20, i32 0, i32 9
+  %22 = load i8, ptr %21, align 1, !tbaa !91
+  %23 = zext i8 %22 to i64
+  store i64 %23, ptr %7, align 8, !tbaa !92
+  %24 = load i32, ptr %6, align 4, !tbaa !45
+  %25 = and i32 %24, 1
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %40
+
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %9, align 8, !tbaa !70
+  %29 = getelementptr inbounds nuw %struct.Keys, ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds [64 x i8], ptr %29, i64 0, i64 0
+  %31 = load ptr, ptr %5, align 8, !tbaa !90
+  %32 = load i32, ptr %8, align 4, !tbaa !45
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %31, i64 %33
+  %35 = load i64, ptr %7, align 8, !tbaa !92
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %30, ptr align 1 %34, i64 %35, i1 false)
+  %36 = load i64, ptr %7, align 8, !tbaa !92
+  %37 = trunc i64 %36 to i32
+  %38 = load i32, ptr %8, align 4, !tbaa !45
+  %39 = add nsw i32 %38, %37
+  store i32 %39, ptr %8, align 4, !tbaa !45
+  br label %40
+
+40:                                               ; preds = %27, %18
+  %41 = load i32, ptr %6, align 4, !tbaa !45
+  %42 = and i32 %41, 2
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %57
+
+44:                                               ; preds = %40
+  %45 = load ptr, ptr %9, align 8, !tbaa !70
+  %46 = getelementptr inbounds nuw %struct.Keys, ptr %45, i32 0, i32 1
+  %47 = getelementptr inbounds [64 x i8], ptr %46, i64 0, i64 0
+  %48 = load ptr, ptr %5, align 8, !tbaa !90
+  %49 = load i32, ptr %8, align 4, !tbaa !45
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i8, ptr %48, i64 %50
+  %52 = load i64, ptr %7, align 8, !tbaa !92
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %47, ptr align 1 %51, i64 %52, i1 false)
+  %53 = load i64, ptr %7, align 8, !tbaa !92
+  %54 = trunc i64 %53 to i32
+  %55 = load i32, ptr %8, align 4, !tbaa !45
+  %56 = add nsw i32 %55, %54
+  store i32 %56, ptr %8, align 4, !tbaa !45
+  br label %57
+
+57:                                               ; preds = %44, %40
+  br label %58
+
+58:                                               ; preds = %57, %3
+  %59 = load ptr, ptr %4, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %59, i32 0, i32 46
+  %61 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %60, i32 0, i32 0
+  %62 = load i16, ptr %61, align 2, !tbaa !93
+  %63 = zext i16 %62 to i64
+  store i64 %63, ptr %7, align 8, !tbaa !92
+  %64 = load i32, ptr %6, align 4, !tbaa !45
+  %65 = and i32 %64, 1
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %80
+
+67:                                               ; preds = %58
+  %68 = load ptr, ptr %9, align 8, !tbaa !70
+  %69 = getelementptr inbounds nuw %struct.Keys, ptr %68, i32 0, i32 2
+  %70 = getelementptr inbounds [32 x i8], ptr %69, i64 0, i64 0
+  %71 = load ptr, ptr %5, align 8, !tbaa !90
+  %72 = load i32, ptr %8, align 4, !tbaa !45
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i8, ptr %71, i64 %73
+  %75 = load i64, ptr %7, align 8, !tbaa !92
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %70, ptr align 1 %74, i64 %75, i1 false)
+  %76 = load i64, ptr %7, align 8, !tbaa !92
+  %77 = trunc i64 %76 to i32
+  %78 = load i32, ptr %8, align 4, !tbaa !45
+  %79 = add nsw i32 %78, %77
+  store i32 %79, ptr %8, align 4, !tbaa !45
+  br label %80
+
+80:                                               ; preds = %67, %58
+  %81 = load i32, ptr %6, align 4, !tbaa !45
+  %82 = and i32 %81, 2
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %97
+
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %9, align 8, !tbaa !70
+  %86 = getelementptr inbounds nuw %struct.Keys, ptr %85, i32 0, i32 3
+  %87 = getelementptr inbounds [32 x i8], ptr %86, i64 0, i64 0
+  %88 = load ptr, ptr %5, align 8, !tbaa !90
+  %89 = load i32, ptr %8, align 4, !tbaa !45
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %88, i64 %90
+  %92 = load i64, ptr %7, align 8, !tbaa !92
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %87, ptr align 1 %91, i64 %92, i1 false)
+  %93 = load i64, ptr %7, align 8, !tbaa !92
+  %94 = trunc i64 %93 to i32
+  %95 = load i32, ptr %8, align 4, !tbaa !45
+  %96 = add nsw i32 %95, %94
+  store i32 %96, ptr %8, align 4, !tbaa !45
+  br label %97
+
+97:                                               ; preds = %84, %80
+  %98 = load ptr, ptr %4, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %98, i32 0, i32 46
+  %100 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %99, i32 0, i32 1
+  %101 = load i16, ptr %100, align 2, !tbaa !94
+  %102 = zext i16 %101 to i64
+  store i64 %102, ptr %7, align 8, !tbaa !92
+  %103 = load i32, ptr %6, align 4, !tbaa !45
+  %104 = and i32 %103, 1
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %119
+
+106:                                              ; preds = %97
+  %107 = load ptr, ptr %9, align 8, !tbaa !70
+  %108 = getelementptr inbounds nuw %struct.Keys, ptr %107, i32 0, i32 4
+  %109 = getelementptr inbounds [16 x i8], ptr %108, i64 0, i64 0
+  %110 = load ptr, ptr %5, align 8, !tbaa !90
+  %111 = load i32, ptr %8, align 4, !tbaa !45
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr %110, i64 %112
+  %114 = load i64, ptr %7, align 8, !tbaa !92
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %109, ptr align 1 %113, i64 %114, i1 false)
+  %115 = load i64, ptr %7, align 8, !tbaa !92
+  %116 = trunc i64 %115 to i32
+  %117 = load i32, ptr %8, align 4, !tbaa !45
+  %118 = add nsw i32 %117, %116
+  store i32 %118, ptr %8, align 4, !tbaa !45
+  br label %119
+
+119:                                              ; preds = %106, %97
+  %120 = load i32, ptr %6, align 4, !tbaa !45
+  %121 = and i32 %120, 2
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %132
+
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %9, align 8, !tbaa !70
+  %125 = getelementptr inbounds nuw %struct.Keys, ptr %124, i32 0, i32 5
+  %126 = getelementptr inbounds [16 x i8], ptr %125, i64 0, i64 0
+  %127 = load ptr, ptr %5, align 8, !tbaa !90
+  %128 = load i32, ptr %8, align 4, !tbaa !45
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds i8, ptr %127, i64 %129
+  %131 = load i64, ptr %7, align 8, !tbaa !92
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %126, ptr align 1 %130, i64 %131, i1 false)
+  br label %132
+
+132:                                              ; preds = %123, %119
+  %133 = load ptr, ptr %4, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %133, i32 0, i32 46
+  %135 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %134, i32 0, i32 5
+  %136 = load i8, ptr %135, align 1, !tbaa !49
+  %137 = zext i8 %136 to i32
+  %138 = icmp eq i32 %137, 2
+  br i1 %138, label %139, label %143
+
+139:                                              ; preds = %132
+  %140 = load ptr, ptr %9, align 8, !tbaa !70
+  %141 = getelementptr inbounds nuw %struct.Keys, ptr %140, i32 0, i32 6
+  %142 = getelementptr inbounds [8 x i8], ptr %141, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %142, i8 0, i64 8, i1 false)
+  br label %143
+
+143:                                              ; preds = %139, %132
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret i32 0
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
-
 ; Function Attrs: nounwind uwtable
-define i32 @DeriveKeys(ptr noundef %ssl) #0 {
-entry:
-  %ssl.addr = alloca ptr, align 8
-  %length = alloca i32, align 4
-  %rounds = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %shaOutput = alloca [20 x i8], align 16
-  %md5Input = alloca [68 x i8], align 16
-  %shaInput = alloca [121 x i8], align 16
-  %keyData = alloca [144 x i8], align 16
-  %md5 = alloca [1 x %struct.wc_Md5], align 16
-  %sha = alloca [1 x %struct.wc_Sha], align 16
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %idx = alloca i32, align 4
-  store ptr %ssl, ptr %ssl.addr, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %specs = getelementptr inbounds %struct.WOLFSSL, ptr %0, i32 0, i32 44
-  %hash_size = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i32 0, i32 9
-  %1 = load i8, ptr %hash_size, align 1
-  %conv = zext i8 %1 to i32
-  %mul = mul nsw i32 2, %conv
-  %2 = load ptr, ptr %ssl.addr, align 8
-  %specs1 = getelementptr inbounds %struct.WOLFSSL, ptr %2, i32 0, i32 44
-  %key_size = getelementptr inbounds %struct.CipherSpecs, ptr %specs1, i32 0, i32 0
-  %3 = load i16, ptr %key_size, align 2
-  %conv2 = zext i16 %3 to i32
-  %mul3 = mul nsw i32 2, %conv2
-  %add = add nsw i32 %mul, %mul3
-  %4 = load ptr, ptr %ssl.addr, align 8
-  %specs4 = getelementptr inbounds %struct.WOLFSSL, ptr %4, i32 0, i32 44
-  %iv_size = getelementptr inbounds %struct.CipherSpecs, ptr %specs4, i32 0, i32 1
-  %5 = load i16, ptr %iv_size, align 2
-  %conv5 = zext i16 %5 to i32
-  %mul6 = mul nsw i32 2, %conv5
-  %add7 = add nsw i32 %add, %mul6
-  store i32 %add7, ptr %length, align 4
-  %6 = load i32, ptr %length, align 4
-  %add8 = add nsw i32 %6, 16
-  %sub = sub nsw i32 %add8, 1
-  %div = sdiv i32 %sub, 16
-  store i32 %div, ptr %rounds, align 4
-  store i32 0, ptr %ret, align 4
-  %arraydecay = getelementptr inbounds [20 x i8], ptr %shaOutput, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %arraydecay, i8 0, i64 20, i1 false)
-  %arraydecay9 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %md5, i64 0, i64 0
-  %call = call i32 @wc_InitMd5(ptr noundef %arraydecay9)
-  store i32 %call, ptr %ret, align 4
-  %7 = load i32, ptr %ret, align 4
-  %cmp = icmp eq i32 %7, 0
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @DeriveKeys(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca [20 x i8], align 16
+  %7 = alloca [68 x i8], align 16
+  %8 = alloca [121 x i8], align 16
+  %9 = alloca [144 x i8], align 16
+  %10 = alloca [1 x %struct.wc_Md5], align 16
+  %11 = alloca [1 x %struct.wc_Sha], align 16
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %16, i32 0, i32 46
+  %18 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %17, i32 0, i32 9
+  %19 = load i8, ptr %18, align 1, !tbaa !91
+  %20 = zext i8 %19 to i32
+  %21 = mul nsw i32 2, %20
+  %22 = load ptr, ptr %2, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %22, i32 0, i32 46
+  %24 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %23, i32 0, i32 0
+  %25 = load i16, ptr %24, align 2, !tbaa !93
+  %26 = zext i16 %25 to i32
+  %27 = mul nsw i32 2, %26
+  %28 = add nsw i32 %21, %27
+  %29 = load ptr, ptr %2, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %29, i32 0, i32 46
+  %31 = getelementptr inbounds nuw %struct.CipherSpecs, ptr %30, i32 0, i32 1
+  %32 = load i16, ptr %31, align 2, !tbaa !94
+  %33 = zext i16 %32 to i32
+  %34 = mul nsw i32 2, %33
+  %35 = add nsw i32 %28, %34
+  store i32 %35, ptr %3, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  %36 = load i32, ptr %3, align 4, !tbaa !45
+  %37 = add nsw i32 %36, 16
+  %38 = sub nsw i32 %37, 1
+  %39 = sdiv i32 %38, 16
+  store i32 %39, ptr %4, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  store i32 0, ptr %5, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 20, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 68, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 121, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 144, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 104, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 104, ptr %11) #5
+  %40 = getelementptr inbounds [20 x i8], ptr %6, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %40, i8 0, i64 20, i1 false)
+  %41 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %10, i64 0, i64 0
+  %42 = call i32 @wc_InitMd5(ptr noundef %41)
+  store i32 %42, ptr %5, align 4, !tbaa !45
+  %43 = load i32, ptr %5, align 4, !tbaa !45
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %48
 
-if.then:                                          ; preds = %entry
-  %arraydecay11 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %sha, i64 0, i64 0
-  %call12 = call i32 @wc_InitSha(ptr noundef %arraydecay11)
-  store i32 %call12, ptr %ret, align 4
-  br label %if.end
+45:                                               ; preds = %1
+  %46 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %11, i64 0, i64 0
+  %47 = call i32 @wc_InitSha(ptr noundef %46)
+  store i32 %47, ptr %5, align 4, !tbaa !45
+  br label %48
 
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load i32, ptr %ret, align 4
-  %cmp13 = icmp eq i32 %8, 0
-  br i1 %cmp13, label %if.then15, label %if.end82
+48:                                               ; preds = %45, %1
+  %49 = load i32, ptr %5, align 4, !tbaa !45
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %154
 
-if.then15:                                        ; preds = %if.end
-  %arraydecay16 = getelementptr inbounds [68 x i8], ptr %md5Input, i64 0, i64 0
-  %9 = load ptr, ptr %ssl.addr, align 8
-  %arrays = getelementptr inbounds %struct.WOLFSSL, ptr %9, i32 0, i32 2
-  %10 = load ptr, ptr %arrays, align 16
-  %masterSecret = getelementptr inbounds %struct.Arrays, ptr %10, i32 0, i32 10
-  %arraydecay17 = getelementptr inbounds [48 x i8], ptr %masterSecret, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay16, ptr align 1 %arraydecay17, i64 48, i1 false)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+51:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  %52 = getelementptr inbounds [68 x i8], ptr %7, i64 0, i64 0
+  %53 = load ptr, ptr %2, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8, !tbaa !95
+  %56 = getelementptr inbounds nuw %struct.Arrays, ptr %55, i32 0, i32 10
+  %57 = getelementptr inbounds [48 x i8], ptr %56, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %52, ptr align 1 %57, i64 48, i1 false)
+  store i32 0, ptr %12, align 4, !tbaa !45
+  br label %58
 
-for.cond:                                         ; preds = %for.inc, %if.then15
-  %11 = load i32, ptr %i, align 4
-  %12 = load i32, ptr %rounds, align 4
-  %cmp18 = icmp slt i32 %11, %12
-  br i1 %cmp18, label %for.body, label %for.end
+58:                                               ; preds = %143, %51
+  %59 = load i32, ptr %12, align 4, !tbaa !45
+  %60 = load i32, ptr %4, align 4, !tbaa !45
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %62, label %146
 
-for.body:                                         ; preds = %for.cond
-  %13 = load i32, ptr %i, align 4
-  %add20 = add nsw i32 %13, 1
-  store i32 %add20, ptr %j, align 4
-  %14 = load i32, ptr %j, align 4
-  store i32 %14, ptr %idx, align 4
-  %arraydecay21 = getelementptr inbounds [121 x i8], ptr %shaInput, i64 0, i64 0
-  %15 = load i32, ptr %i, align 4
-  %call22 = call i32 @SetPrefix(ptr noundef %arraydecay21, i32 noundef %15)
-  %tobool = icmp ne i32 %call22, 0
-  br i1 %tobool, label %if.end24, label %if.then23
+62:                                               ; preds = %58
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  %63 = load i32, ptr %12, align 4, !tbaa !45
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %13, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  %65 = load i32, ptr %13, align 4, !tbaa !45
+  store i32 %65, ptr %14, align 4, !tbaa !45
+  %66 = getelementptr inbounds [121 x i8], ptr %8, i64 0, i64 0
+  %67 = load i32, ptr %12, align 4, !tbaa !45
+  %68 = call i32 @SetPrefix(ptr noundef %66, i32 noundef %67)
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %71, label %70
 
-if.then23:                                        ; preds = %for.body
-  store i32 -302, ptr %ret, align 4
-  br label %for.end
+70:                                               ; preds = %62
+  store i32 -302, ptr %5, align 4, !tbaa !45
+  store i32 2, ptr %15, align 4
+  br label %140
 
-if.end24:                                         ; preds = %for.body
-  %arraydecay25 = getelementptr inbounds [121 x i8], ptr %shaInput, i64 0, i64 0
-  %16 = load i32, ptr %idx, align 4
-  %idx.ext = sext i32 %16 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay25, i64 %idx.ext
-  %17 = load ptr, ptr %ssl.addr, align 8
-  %arrays26 = getelementptr inbounds %struct.WOLFSSL, ptr %17, i32 0, i32 2
-  %18 = load ptr, ptr %arrays26, align 16
-  %masterSecret27 = getelementptr inbounds %struct.Arrays, ptr %18, i32 0, i32 10
-  %arraydecay28 = getelementptr inbounds [48 x i8], ptr %masterSecret27, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %arraydecay28, i64 48, i1 false)
-  %19 = load i32, ptr %idx, align 4
-  %add29 = add nsw i32 %19, 48
-  store i32 %add29, ptr %idx, align 4
-  %arraydecay30 = getelementptr inbounds [121 x i8], ptr %shaInput, i64 0, i64 0
-  %20 = load i32, ptr %idx, align 4
-  %idx.ext31 = sext i32 %20 to i64
-  %add.ptr32 = getelementptr inbounds i8, ptr %arraydecay30, i64 %idx.ext31
-  %21 = load ptr, ptr %ssl.addr, align 8
-  %arrays33 = getelementptr inbounds %struct.WOLFSSL, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %arrays33, align 16
-  %serverRandom = getelementptr inbounds %struct.Arrays, ptr %22, i32 0, i32 6
-  %arraydecay34 = getelementptr inbounds [32 x i8], ptr %serverRandom, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr32, ptr align 4 %arraydecay34, i64 32, i1 false)
-  %23 = load i32, ptr %idx, align 4
-  %add35 = add nsw i32 %23, 32
-  store i32 %add35, ptr %idx, align 4
-  %arraydecay36 = getelementptr inbounds [121 x i8], ptr %shaInput, i64 0, i64 0
-  %24 = load i32, ptr %idx, align 4
-  %idx.ext37 = sext i32 %24 to i64
-  %add.ptr38 = getelementptr inbounds i8, ptr %arraydecay36, i64 %idx.ext37
-  %25 = load ptr, ptr %ssl.addr, align 8
-  %arrays39 = getelementptr inbounds %struct.WOLFSSL, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %arrays39, align 16
-  %clientRandom = getelementptr inbounds %struct.Arrays, ptr %26, i32 0, i32 5
-  %arraydecay40 = getelementptr inbounds [32 x i8], ptr %clientRandom, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr38, ptr align 4 %arraydecay40, i64 32, i1 false)
-  %27 = load i32, ptr %ret, align 4
-  %cmp41 = icmp eq i32 %27, 0
-  br i1 %cmp41, label %if.then43, label %if.end48
+71:                                               ; preds = %62
+  %72 = getelementptr inbounds [121 x i8], ptr %8, i64 0, i64 0
+  %73 = load i32, ptr %14, align 4, !tbaa !45
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %72, i64 %74
+  %76 = load ptr, ptr %2, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %76, i32 0, i32 3
+  %78 = load ptr, ptr %77, align 8, !tbaa !95
+  %79 = getelementptr inbounds nuw %struct.Arrays, ptr %78, i32 0, i32 10
+  %80 = getelementptr inbounds [48 x i8], ptr %79, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %75, ptr align 1 %80, i64 48, i1 false)
+  %81 = load i32, ptr %14, align 4, !tbaa !45
+  %82 = add nsw i32 %81, 48
+  store i32 %82, ptr %14, align 4, !tbaa !45
+  %83 = getelementptr inbounds [121 x i8], ptr %8, i64 0, i64 0
+  %84 = load i32, ptr %14, align 4, !tbaa !45
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %83, i64 %85
+  %87 = load ptr, ptr %2, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %87, i32 0, i32 3
+  %89 = load ptr, ptr %88, align 8, !tbaa !95
+  %90 = getelementptr inbounds nuw %struct.Arrays, ptr %89, i32 0, i32 6
+  %91 = getelementptr inbounds [32 x i8], ptr %90, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 4 %91, i64 32, i1 false)
+  %92 = load i32, ptr %14, align 4, !tbaa !45
+  %93 = add nsw i32 %92, 32
+  store i32 %93, ptr %14, align 4, !tbaa !45
+  %94 = getelementptr inbounds [121 x i8], ptr %8, i64 0, i64 0
+  %95 = load i32, ptr %14, align 4, !tbaa !45
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds i8, ptr %94, i64 %96
+  %98 = load ptr, ptr %2, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %98, i32 0, i32 3
+  %100 = load ptr, ptr %99, align 8, !tbaa !95
+  %101 = getelementptr inbounds nuw %struct.Arrays, ptr %100, i32 0, i32 5
+  %102 = getelementptr inbounds [32 x i8], ptr %101, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %97, ptr align 4 %102, i64 32, i1 false)
+  %103 = load i32, ptr %5, align 4, !tbaa !45
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %111
 
-if.then43:                                        ; preds = %if.end24
-  %arraydecay44 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %sha, i64 0, i64 0
-  %arraydecay45 = getelementptr inbounds [121 x i8], ptr %shaInput, i64 0, i64 0
-  %28 = load i32, ptr %j, align 4
-  %add46 = add nsw i32 112, %28
-  %call47 = call i32 @wc_ShaUpdate(ptr noundef %arraydecay44, ptr noundef %arraydecay45, i32 noundef %add46)
-  store i32 %call47, ptr %ret, align 4
-  br label %if.end48
+105:                                              ; preds = %71
+  %106 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %11, i64 0, i64 0
+  %107 = getelementptr inbounds [121 x i8], ptr %8, i64 0, i64 0
+  %108 = load i32, ptr %13, align 4, !tbaa !45
+  %109 = add nsw i32 112, %108
+  %110 = call i32 @wc_ShaUpdate(ptr noundef %106, ptr noundef %107, i32 noundef %109)
+  store i32 %110, ptr %5, align 4, !tbaa !45
+  br label %111
 
-if.end48:                                         ; preds = %if.then43, %if.end24
-  %29 = load i32, ptr %ret, align 4
-  %cmp49 = icmp eq i32 %29, 0
-  br i1 %cmp49, label %if.then51, label %if.end55
+111:                                              ; preds = %105, %71
+  %112 = load i32, ptr %5, align 4, !tbaa !45
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %118
 
-if.then51:                                        ; preds = %if.end48
-  %arraydecay52 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %sha, i64 0, i64 0
-  %arraydecay53 = getelementptr inbounds [20 x i8], ptr %shaOutput, i64 0, i64 0
-  %call54 = call i32 @wc_ShaFinal(ptr noundef %arraydecay52, ptr noundef %arraydecay53)
-  store i32 %call54, ptr %ret, align 4
-  br label %if.end55
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %11, i64 0, i64 0
+  %116 = getelementptr inbounds [20 x i8], ptr %6, i64 0, i64 0
+  %117 = call i32 @wc_ShaFinal(ptr noundef %115, ptr noundef %116)
+  store i32 %117, ptr %5, align 4, !tbaa !45
+  br label %118
 
-if.end55:                                         ; preds = %if.then51, %if.end48
-  %arraydecay56 = getelementptr inbounds [68 x i8], ptr %md5Input, i64 0, i64 0
-  %add.ptr57 = getelementptr inbounds i8, ptr %arraydecay56, i64 48
-  %arraydecay58 = getelementptr inbounds [20 x i8], ptr %shaOutput, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr57, ptr align 16 %arraydecay58, i64 20, i1 false)
-  %30 = load i32, ptr %ret, align 4
-  %cmp59 = icmp eq i32 %30, 0
-  br i1 %cmp59, label %if.then61, label %if.end65
+118:                                              ; preds = %114, %111
+  %119 = getelementptr inbounds [68 x i8], ptr %7, i64 0, i64 0
+  %120 = getelementptr inbounds i8, ptr %119, i64 48
+  %121 = getelementptr inbounds [20 x i8], ptr %6, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %120, ptr align 16 %121, i64 20, i1 false)
+  %122 = load i32, ptr %5, align 4, !tbaa !45
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %124, label %128
 
-if.then61:                                        ; preds = %if.end55
-  %arraydecay62 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %md5, i64 0, i64 0
-  %arraydecay63 = getelementptr inbounds [68 x i8], ptr %md5Input, i64 0, i64 0
-  %call64 = call i32 @wc_Md5Update(ptr noundef %arraydecay62, ptr noundef %arraydecay63, i32 noundef 68)
-  store i32 %call64, ptr %ret, align 4
-  br label %if.end65
+124:                                              ; preds = %118
+  %125 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %10, i64 0, i64 0
+  %126 = getelementptr inbounds [68 x i8], ptr %7, i64 0, i64 0
+  %127 = call i32 @wc_Md5Update(ptr noundef %125, ptr noundef %126, i32 noundef 68)
+  store i32 %127, ptr %5, align 4, !tbaa !45
+  br label %128
 
-if.end65:                                         ; preds = %if.then61, %if.end55
-  %31 = load i32, ptr %ret, align 4
-  %cmp66 = icmp eq i32 %31, 0
-  br i1 %cmp66, label %if.then68, label %if.end75
+128:                                              ; preds = %124, %118
+  %129 = load i32, ptr %5, align 4, !tbaa !45
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %131, label %139
 
-if.then68:                                        ; preds = %if.end65
-  %arraydecay69 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %md5, i64 0, i64 0
-  %arraydecay70 = getelementptr inbounds [144 x i8], ptr %keyData, i64 0, i64 0
-  %32 = load i32, ptr %i, align 4
-  %mul71 = mul nsw i32 %32, 16
-  %idx.ext72 = sext i32 %mul71 to i64
-  %add.ptr73 = getelementptr inbounds i8, ptr %arraydecay70, i64 %idx.ext72
-  %call74 = call i32 @wc_Md5Final(ptr noundef %arraydecay69, ptr noundef %add.ptr73)
-  store i32 %call74, ptr %ret, align 4
-  br label %if.end75
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %10, i64 0, i64 0
+  %133 = getelementptr inbounds [144 x i8], ptr %9, i64 0, i64 0
+  %134 = load i32, ptr %12, align 4, !tbaa !45
+  %135 = mul nsw i32 %134, 16
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i8, ptr %133, i64 %136
+  %138 = call i32 @wc_Md5Final(ptr noundef %132, ptr noundef %137)
+  store i32 %138, ptr %5, align 4, !tbaa !45
+  br label %139
 
-if.end75:                                         ; preds = %if.then68, %if.end65
-  br label %for.inc
+139:                                              ; preds = %131, %128
+  store i32 0, ptr %15, align 4
+  br label %140
 
-for.inc:                                          ; preds = %if.end75
-  %33 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %33, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %if.then23, %for.cond
-  %34 = load i32, ptr %ret, align 4
-  %cmp76 = icmp eq i32 %34, 0
-  br i1 %cmp76, label %if.then78, label %if.end81
-
-if.then78:                                        ; preds = %for.end
-  %35 = load ptr, ptr %ssl.addr, align 8
-  %arraydecay79 = getelementptr inbounds [144 x i8], ptr %keyData, i64 0, i64 0
-  %call80 = call i32 @StoreKeys(ptr noundef %35, ptr noundef %arraydecay79, i32 noundef 3)
-  store i32 %call80, ptr %ret, align 4
-  br label %if.end81
-
-if.end81:                                         ; preds = %if.then78, %for.end
-  br label %if.end82
-
-if.end82:                                         ; preds = %if.end81, %if.end
-  %36 = load i32, ptr %ret, align 4
-  ret i32 %36
-}
-
-declare i32 @wc_InitMd5(ptr noundef) #1
-
-declare i32 @wc_InitSha(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @SetPrefix(ptr noundef %sha_input, i32 noundef %idx) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha_input.addr = alloca ptr, align 8
-  %idx.addr = alloca i32, align 4
-  store ptr %sha_input, ptr %sha_input.addr, align 8
-  store i32 %idx, ptr %idx.addr, align 4
-  %0 = load i32, ptr %idx.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb3
-    i32 4, label %sw.bb4
-    i32 5, label %sw.bb5
-    i32 6, label %sw.bb6
-    i32 7, label %sw.bb7
-    i32 8, label %sw.bb8
+140:                                              ; preds = %139, %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  %141 = load i32, ptr %15, align 4
+  switch i32 %141, label %156 [
+    i32 0, label %142
+    i32 2, label %146
   ]
 
-sw.bb:                                            ; preds = %entry
-  %1 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 @.str, i64 1, i1 false)
-  br label %sw.epilog
+142:                                              ; preds = %140
+  br label %143
 
-sw.bb1:                                           ; preds = %entry
-  %2 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 @.str.1, i64 2, i1 false)
-  br label %sw.epilog
+143:                                              ; preds = %142
+  %144 = load i32, ptr %12, align 4, !tbaa !45
+  %145 = add nsw i32 %144, 1
+  store i32 %145, ptr %12, align 4, !tbaa !45
+  br label %58, !llvm.loop !96
 
-sw.bb2:                                           ; preds = %entry
-  %3 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 @.str.2, i64 3, i1 false)
-  br label %sw.epilog
+146:                                              ; preds = %140, %58
+  %147 = load i32, ptr %5, align 4, !tbaa !45
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %149, label %153
 
-sw.bb3:                                           ; preds = %entry
-  %4 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 @.str.3, i64 4, i1 false)
-  br label %sw.epilog
+149:                                              ; preds = %146
+  %150 = load ptr, ptr %2, align 8, !tbaa !3
+  %151 = getelementptr inbounds [144 x i8], ptr %9, i64 0, i64 0
+  %152 = call i32 @StoreKeys(ptr noundef %150, ptr noundef %151, i32 noundef 3)
+  store i32 %152, ptr %5, align 4, !tbaa !45
+  br label %153
 
-sw.bb4:                                           ; preds = %entry
-  %5 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 @.str.4, i64 5, i1 false)
-  br label %sw.epilog
+153:                                              ; preds = %149, %146
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  br label %154
 
-sw.bb5:                                           ; preds = %entry
-  %6 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr align 1 @.str.5, i64 6, i1 false)
-  br label %sw.epilog
+154:                                              ; preds = %153, %48
+  %155 = load i32, ptr %5, align 4, !tbaa !45
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 104, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 104, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 144, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 121, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 68, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 20, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
+  ret i32 %155
 
-sw.bb6:                                           ; preds = %entry
-  %7 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 @.str.6, i64 7, i1 false)
-  br label %sw.epilog
-
-sw.bb7:                                           ; preds = %entry
-  %8 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 @.str.7, i64 8, i1 false)
-  br label %sw.epilog
-
-sw.bb8:                                           ; preds = %entry
-  %9 = load ptr, ptr %sha_input.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 @.str.8, i64 9, i1 false)
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %entry
-  br label %do.body
-
-do.body:                                          ; preds = %sw.default
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-sw.epilog:                                        ; preds = %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %sw.epilog, %do.end
-  %10 = load i32, ptr %retval, align 4
-  ret i32 %10
+156:                                              ; preds = %140
+  unreachable
 }
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @wc_InitMd5(ptr noundef) #2
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) #1
-
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) #1
-
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) #1
+declare i32 @wc_InitSha(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @MakeMasterSecret(ptr noundef %ssl) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ssl.addr = alloca ptr, align 8
-  store ptr %ssl, ptr %ssl.addr, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %options = getelementptr inbounds %struct.WOLFSSL, ptr %0, i32 0, i32 47
-  %tls = getelementptr inbounds %struct.Options, ptr %options, i32 0, i32 1
-  %bf.load = load i64, ptr %tls, align 8
-  %bf.lshr = lshr i64 %bf.load, 14
-  %bf.clear = and i64 %bf.lshr, 1
-  %bf.cast = trunc i64 %bf.clear to i16
-  %tobool = icmp ne i16 %bf.cast, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal i32 @SetPrefix(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !90
+  store i32 %1, ptr %5, align 4, !tbaa !45
+  %6 = load i32, ptr %5, align 4, !tbaa !45
+  switch i32 %6, label %25 [
+    i32 0, label %7
+    i32 1, label %9
+    i32 2, label %11
+    i32 3, label %13
+    i32 4, label %15
+    i32 5, label %17
+    i32 6, label %19
+    i32 7, label %21
+    i32 8, label %23
+  ]
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %ssl.addr, align 8
-  %call = call i32 @MakeTlsMasterSecret(ptr noundef %1)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 @.str, i64 1, i1 false)
+  br label %28
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ssl.addr, align 8
-  %call1 = call i32 @MakeSslMasterSecret(ptr noundef %2)
-  store i32 %call1, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 @.str.1, i64 2, i1 false)
+  br label %28
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 @.str.2, i64 3, i1 false)
+  br label %28
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 @.str.3, i64 4, i1 false)
+  br label %28
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 @.str.4, i64 5, i1 false)
+  br label %28
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 @.str.5, i64 6, i1 false)
+  br label %28
+
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 @.str.6, i64 7, i1 false)
+  br label %28
+
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 @.str.7, i64 8, i1 false)
+  br label %28
+
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %4, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 @.str.8, i64 9, i1 false)
+  br label %28
+
+25:                                               ; preds = %2
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  store i32 0, ptr %3, align 4
+  br label %29
+
+28:                                               ; preds = %23, %21, %19, %17, %15, %13, %11, %9, %7
+  store i32 1, ptr %3, align 4
+  br label %29
+
+29:                                               ; preds = %28, %27
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
-declare i32 @MakeTlsMasterSecret(ptr noundef) #1
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) #2
+
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) #2
+
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) #2
+
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @MakeSslMasterSecret(ptr noundef %ssl) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ssl.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %idx = alloca i32, align 4
-  %pmsSz = alloca i32, align 4
-  %shaOutput = alloca [20 x i8], align 16
-  %md5Input = alloca [532 x i8], align 16
-  %shaInput = alloca [579 x i8], align 16
-  %md5 = alloca [1 x %struct.wc_Md5], align 16
-  %sha = alloca [1 x %struct.wc_Sha], align 16
-  %prefix = alloca [9 x i8], align 1
-  store ptr %ssl, ptr %ssl.addr, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %arrays = getelementptr inbounds %struct.WOLFSSL, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %arrays, align 16
-  %preMasterSz = getelementptr inbounds %struct.Arrays, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %preMasterSz, align 8
-  store i32 %2, ptr %pmsSz, align 4
-  %3 = load ptr, ptr %ssl.addr, align 8
-  %arrays1 = getelementptr inbounds %struct.WOLFSSL, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %arrays1, align 16
-  %preMasterSecret = getelementptr inbounds %struct.Arrays, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %preMasterSecret, align 8
-  %cmp = icmp eq ptr %5, null
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @MakeMasterSecret(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %4, i32 0, i32 49
+  %6 = getelementptr inbounds nuw %struct.Options, ptr %5, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  %8 = lshr i64 %7, 14
+  %9 = and i64 %8, 1
+  %10 = trunc i64 %9 to i16
+  %11 = icmp ne i16 %10, 0
+  br i1 %11, label %12, label %15
 
-if.then:                                          ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = call i32 @MakeTlsMasterSecret(ptr noundef %13)
+  store i32 %14, ptr %2, align 4
+  br label %18
 
-if.end:                                           ; preds = %entry
-  %arraydecay = getelementptr inbounds [20 x i8], ptr %shaOutput, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %arraydecay, i8 0, i64 20, i1 false)
-  %arraydecay2 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %md5, i64 0, i64 0
-  %call = call i32 @wc_InitMd5(ptr noundef %arraydecay2)
-  store i32 %call, ptr %ret, align 4
-  %6 = load i32, ptr %ret, align 4
-  %cmp3 = icmp eq i32 %6, 0
-  br i1 %cmp3, label %if.then4, label %if.end7
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = call i32 @MakeSslMasterSecret(ptr noundef %16)
+  store i32 %17, ptr %2, align 4
+  br label %18
 
-if.then4:                                         ; preds = %if.end
-  %arraydecay5 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %sha, i64 0, i64 0
-  %call6 = call i32 @wc_InitSha(ptr noundef %arraydecay5)
-  store i32 %call6, ptr %ret, align 4
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then4, %if.end
-  %7 = load i32, ptr %ret, align 4
-  %cmp8 = icmp eq i32 %7, 0
-  br i1 %cmp8, label %if.then9, label %if.end79
-
-if.then9:                                         ; preds = %if.end7
-  %arraydecay10 = getelementptr inbounds [532 x i8], ptr %md5Input, i64 0, i64 0
-  %8 = load ptr, ptr %ssl.addr, align 8
-  %arrays11 = getelementptr inbounds %struct.WOLFSSL, ptr %8, i32 0, i32 2
-  %9 = load ptr, ptr %arrays11, align 16
-  %preMasterSecret12 = getelementptr inbounds %struct.Arrays, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %preMasterSecret12, align 8
-  %11 = load i32, ptr %pmsSz, align 4
-  %conv = zext i32 %11 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay10, ptr align 1 %10, i64 %conv, i1 false)
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then9
-  %12 = load i32, ptr %i, align 4
-  %cmp13 = icmp slt i32 %12, 3
-  br i1 %cmp13, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %arraydecay15 = getelementptr inbounds [9 x i8], ptr %prefix, i64 0, i64 0
-  %13 = load i32, ptr %i, align 4
-  %call16 = call i32 @SetPrefix(ptr noundef %arraydecay15, i32 noundef %13)
-  %tobool = icmp ne i32 %call16, 0
-  br i1 %tobool, label %if.end18, label %if.then17
-
-if.then17:                                        ; preds = %for.body
-  store i32 -302, ptr %ret, align 4
-  br label %for.end
-
-if.end18:                                         ; preds = %for.body
-  store i32 0, ptr %idx, align 4
-  %arraydecay19 = getelementptr inbounds [579 x i8], ptr %shaInput, i64 0, i64 0
-  %arraydecay20 = getelementptr inbounds [9 x i8], ptr %prefix, i64 0, i64 0
-  %14 = load i32, ptr %i, align 4
-  %add = add nsw i32 %14, 1
-  %conv21 = sext i32 %add to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay19, ptr align 1 %arraydecay20, i64 %conv21, i1 false)
-  %15 = load i32, ptr %i, align 4
-  %add22 = add nsw i32 %15, 1
-  %16 = load i32, ptr %idx, align 4
-  %add23 = add i32 %16, %add22
-  store i32 %add23, ptr %idx, align 4
-  %arraydecay24 = getelementptr inbounds [579 x i8], ptr %shaInput, i64 0, i64 0
-  %17 = load i32, ptr %idx, align 4
-  %idx.ext = zext i32 %17 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay24, i64 %idx.ext
-  %18 = load ptr, ptr %ssl.addr, align 8
-  %arrays25 = getelementptr inbounds %struct.WOLFSSL, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %arrays25, align 16
-  %preMasterSecret26 = getelementptr inbounds %struct.Arrays, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %preMasterSecret26, align 8
-  %21 = load i32, ptr %pmsSz, align 4
-  %conv27 = zext i32 %21 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %20, i64 %conv27, i1 false)
-  %22 = load i32, ptr %pmsSz, align 4
-  %23 = load i32, ptr %idx, align 4
-  %add28 = add i32 %23, %22
-  store i32 %add28, ptr %idx, align 4
-  %arraydecay29 = getelementptr inbounds [579 x i8], ptr %shaInput, i64 0, i64 0
-  %24 = load i32, ptr %idx, align 4
-  %idx.ext30 = zext i32 %24 to i64
-  %add.ptr31 = getelementptr inbounds i8, ptr %arraydecay29, i64 %idx.ext30
-  %25 = load ptr, ptr %ssl.addr, align 8
-  %arrays32 = getelementptr inbounds %struct.WOLFSSL, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %arrays32, align 16
-  %clientRandom = getelementptr inbounds %struct.Arrays, ptr %26, i32 0, i32 5
-  %arraydecay33 = getelementptr inbounds [32 x i8], ptr %clientRandom, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr31, ptr align 4 %arraydecay33, i64 32, i1 false)
-  %27 = load i32, ptr %idx, align 4
-  %add34 = add i32 %27, 32
-  store i32 %add34, ptr %idx, align 4
-  %arraydecay35 = getelementptr inbounds [579 x i8], ptr %shaInput, i64 0, i64 0
-  %28 = load i32, ptr %idx, align 4
-  %idx.ext36 = zext i32 %28 to i64
-  %add.ptr37 = getelementptr inbounds i8, ptr %arraydecay35, i64 %idx.ext36
-  %29 = load ptr, ptr %ssl.addr, align 8
-  %arrays38 = getelementptr inbounds %struct.WOLFSSL, ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %arrays38, align 16
-  %serverRandom = getelementptr inbounds %struct.Arrays, ptr %30, i32 0, i32 6
-  %arraydecay39 = getelementptr inbounds [32 x i8], ptr %serverRandom, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr align 4 %arraydecay39, i64 32, i1 false)
-  %31 = load i32, ptr %idx, align 4
-  %add40 = add i32 %31, 32
-  store i32 %add40, ptr %idx, align 4
-  %32 = load i32, ptr %ret, align 4
-  %cmp41 = icmp eq i32 %32, 0
-  br i1 %cmp41, label %if.then43, label %if.end47
-
-if.then43:                                        ; preds = %if.end18
-  %arraydecay44 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %sha, i64 0, i64 0
-  %arraydecay45 = getelementptr inbounds [579 x i8], ptr %shaInput, i64 0, i64 0
-  %33 = load i32, ptr %idx, align 4
-  %call46 = call i32 @wc_ShaUpdate(ptr noundef %arraydecay44, ptr noundef %arraydecay45, i32 noundef %33)
-  store i32 %call46, ptr %ret, align 4
-  br label %if.end47
-
-if.end47:                                         ; preds = %if.then43, %if.end18
-  %34 = load i32, ptr %ret, align 4
-  %cmp48 = icmp eq i32 %34, 0
-  br i1 %cmp48, label %if.then50, label %if.end54
-
-if.then50:                                        ; preds = %if.end47
-  %arraydecay51 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %sha, i64 0, i64 0
-  %arraydecay52 = getelementptr inbounds [20 x i8], ptr %shaOutput, i64 0, i64 0
-  %call53 = call i32 @wc_ShaFinal(ptr noundef %arraydecay51, ptr noundef %arraydecay52)
-  store i32 %call53, ptr %ret, align 4
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.then50, %if.end47
-  %35 = load i32, ptr %pmsSz, align 4
-  store i32 %35, ptr %idx, align 4
-  %arraydecay55 = getelementptr inbounds [532 x i8], ptr %md5Input, i64 0, i64 0
-  %36 = load i32, ptr %idx, align 4
-  %idx.ext56 = zext i32 %36 to i64
-  %add.ptr57 = getelementptr inbounds i8, ptr %arraydecay55, i64 %idx.ext56
-  %arraydecay58 = getelementptr inbounds [20 x i8], ptr %shaOutput, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr57, ptr align 16 %arraydecay58, i64 20, i1 false)
-  %37 = load i32, ptr %idx, align 4
-  %add59 = add i32 %37, 20
-  store i32 %add59, ptr %idx, align 4
-  %38 = load i32, ptr %ret, align 4
-  %cmp60 = icmp eq i32 %38, 0
-  br i1 %cmp60, label %if.then62, label %if.end66
-
-if.then62:                                        ; preds = %if.end54
-  %arraydecay63 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %md5, i64 0, i64 0
-  %arraydecay64 = getelementptr inbounds [532 x i8], ptr %md5Input, i64 0, i64 0
-  %39 = load i32, ptr %idx, align 4
-  %call65 = call i32 @wc_Md5Update(ptr noundef %arraydecay63, ptr noundef %arraydecay64, i32 noundef %39)
-  store i32 %call65, ptr %ret, align 4
-  br label %if.end66
-
-if.end66:                                         ; preds = %if.then62, %if.end54
-  %40 = load i32, ptr %ret, align 4
-  %cmp67 = icmp eq i32 %40, 0
-  br i1 %cmp67, label %if.then69, label %if.end73
-
-if.then69:                                        ; preds = %if.end66
-  %arraydecay70 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %md5, i64 0, i64 0
-  %41 = load ptr, ptr %ssl.addr, align 8
-  %arrays71 = getelementptr inbounds %struct.WOLFSSL, ptr %41, i32 0, i32 2
-  %42 = load ptr, ptr %arrays71, align 16
-  %masterSecret = getelementptr inbounds %struct.Arrays, ptr %42, i32 0, i32 10
-  %43 = load i32, ptr %i, align 4
-  %mul = mul nsw i32 %43, 16
-  %idxprom = sext i32 %mul to i64
-  %arrayidx = getelementptr inbounds [48 x i8], ptr %masterSecret, i64 0, i64 %idxprom
-  %call72 = call i32 @wc_Md5Final(ptr noundef %arraydecay70, ptr noundef %arrayidx)
-  store i32 %call72, ptr %ret, align 4
-  br label %if.end73
-
-if.end73:                                         ; preds = %if.then69, %if.end66
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end73
-  %44 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %44, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !6
-
-for.end:                                          ; preds = %if.then17, %for.cond
-  %45 = load i32, ptr %ret, align 4
-  %cmp74 = icmp eq i32 %45, 0
-  br i1 %cmp74, label %if.then76, label %if.end78
-
-if.then76:                                        ; preds = %for.end
-  %46 = load ptr, ptr %ssl.addr, align 8
-  %call77 = call i32 @DeriveKeys(ptr noundef %46)
-  store i32 %call77, ptr %ret, align 4
-  br label %if.end78
-
-if.end78:                                         ; preds = %if.then76, %for.end
-  br label %if.end79
-
-if.end79:                                         ; preds = %if.end78, %if.end7
-  %47 = load i32, ptr %ret, align 4
-  %cmp80 = icmp eq i32 %47, 0
-  br i1 %cmp80, label %if.then82, label %if.else
-
-if.then82:                                        ; preds = %if.end79
-  %48 = load ptr, ptr %ssl.addr, align 8
-  %call83 = call i32 @CleanPreMaster(ptr noundef %48)
-  store i32 %call83, ptr %ret, align 4
-  br label %if.end85
-
-if.else:                                          ; preds = %if.end79
-  %49 = load ptr, ptr %ssl.addr, align 8
-  %call84 = call i32 @CleanPreMaster(ptr noundef %49)
-  br label %if.end85
-
-if.end85:                                         ; preds = %if.else, %if.then82
-  %50 = load i32, ptr %ret, align 4
-  store i32 %50, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end85, %if.then
-  %51 = load i32, ptr %retval, align 4
-  ret i32 %51
+18:                                               ; preds = %15, %12
+  %19 = load i32, ptr %2, align 4
+  ret i32 %19
 }
 
-declare ptr @wolfSSL_Malloc(i64 noundef) #1
-
-declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) #1
-
-declare void @wc_AesFree(ptr noundef) #1
-
-declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) #1
-
-declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
-
-declare i32 @wc_AesGcmSetKey(ptr noundef, ptr noundef, i32 noundef) #1
-
-declare i32 @wc_AesGcmSetIV(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @MakeTlsMasterSecret(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @CleanPreMaster(ptr noundef %ssl) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ssl.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %sz = alloca i32, align 4
-  %xp = alloca ptr, align 8
-  store ptr %ssl, ptr %ssl.addr, align 8
-  %0 = load ptr, ptr %ssl.addr, align 8
-  %arrays = getelementptr inbounds %struct.WOLFSSL, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %arrays, align 16
-  %preMasterSz = getelementptr inbounds %struct.Arrays, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %preMasterSz, align 8
-  store i32 %2, ptr %sz, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal i32 @MakeSslMasterSecret(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca [20 x i8], align 16
+  %9 = alloca [532 x i8], align 16
+  %10 = alloca [579 x i8], align 16
+  %11 = alloca [1 x %struct.wc_Md5], align 16
+  %12 = alloca [1 x %struct.wc_Sha], align 16
+  %13 = alloca i32, align 4
+  %14 = alloca [9 x i8], align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  %15 = load ptr, ptr %3, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8, !tbaa !95
+  %18 = getelementptr inbounds nuw %struct.Arrays, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8, !tbaa !98
+  store i32 %19, ptr %7, align 4, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 20, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 532, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 579, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 104, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 104, ptr %12) #5
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8, !tbaa !95
+  %23 = getelementptr inbounds nuw %struct.Arrays, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !100
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %4 = load i32, ptr %sz, align 4
-  %cmp = icmp slt i32 %3, %4
-  br i1 %cmp, label %for.body, label %for.end
+26:                                               ; preds = %1
+  store i32 -173, ptr %2, align 4
+  store i32 1, ptr %13, align 4
+  br label %172
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %ssl.addr, align 8
-  %arrays1 = getelementptr inbounds %struct.WOLFSSL, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %arrays1, align 16
-  %preMasterSecret = getelementptr inbounds %struct.Arrays, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %preMasterSecret, align 8
-  %8 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %8 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %7, i64 %idxprom
-  store i8 0, ptr %arrayidx, align 1
-  br label %for.inc
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %28, i8 0, i64 20, i1 false)
+  %29 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %11, i64 0, i64 0
+  %30 = call i32 @wc_InitMd5(ptr noundef %29)
+  store i32 %30, ptr %5, align 4, !tbaa !45
+  %31 = load i32, ptr %5, align 4, !tbaa !45
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %36
 
-for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %12, i64 0, i64 0
+  %35 = call i32 @wc_InitSha(ptr noundef %34)
+  store i32 %35, ptr %5, align 4, !tbaa !45
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  %10 = load ptr, ptr %ssl.addr, align 8
-  %rng = getelementptr inbounds %struct.WOLFSSL, ptr %10, i32 0, i32 8
-  %11 = load ptr, ptr %rng, align 16
-  %12 = load ptr, ptr %ssl.addr, align 8
-  %arrays2 = getelementptr inbounds %struct.WOLFSSL, ptr %12, i32 0, i32 2
-  %13 = load ptr, ptr %arrays2, align 16
-  %preMasterSecret3 = getelementptr inbounds %struct.Arrays, ptr %13, i32 0, i32 1
-  %14 = load ptr, ptr %preMasterSecret3, align 8
-  %15 = load i32, ptr %sz, align 4
-  %call = call i32 @wc_RNG_GenerateBlock(ptr noundef %11, ptr noundef %14, i32 noundef %15)
-  store i32 %call, ptr %ret, align 4
-  %16 = load i32, ptr %ret, align 4
-  %cmp4 = icmp ne i32 %16, 0
-  br i1 %cmp4, label %if.then, label %if.end
+36:                                               ; preds = %33, %27
+  %37 = load i32, ptr %5, align 4, !tbaa !45
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %161
 
-if.then:                                          ; preds = %for.end
-  %17 = load i32, ptr %ret, align 4
-  store i32 %17, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds [532 x i8], ptr %9, i64 0, i64 0
+  %41 = load ptr, ptr %3, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %41, i32 0, i32 3
+  %43 = load ptr, ptr %42, align 8, !tbaa !95
+  %44 = getelementptr inbounds nuw %struct.Arrays, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !100
+  %46 = load i32, ptr %7, align 4, !tbaa !45
+  %47 = zext i32 %46 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %40, ptr align 1 %45, i64 %47, i1 false)
+  store i32 0, ptr %4, align 4, !tbaa !45
+  br label %48
 
-if.end:                                           ; preds = %for.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond5
+48:                                               ; preds = %151, %39
+  %49 = load i32, ptr %4, align 4, !tbaa !45
+  %50 = icmp slt i32 %49, 3
+  br i1 %50, label %51, label %154
 
-for.cond5:                                        ; preds = %for.inc12, %if.end
-  %18 = load i32, ptr %i, align 4
-  %19 = load i32, ptr %sz, align 4
-  %cmp6 = icmp slt i32 %18, %19
-  br i1 %cmp6, label %for.body7, label %for.end14
+51:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 9, ptr %14) #5
+  %52 = getelementptr inbounds [9 x i8], ptr %14, i64 0, i64 0
+  %53 = load i32, ptr %4, align 4, !tbaa !45
+  %54 = call i32 @SetPrefix(ptr noundef %52, i32 noundef %53)
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %57, label %56
 
-for.body7:                                        ; preds = %for.cond5
-  %20 = load ptr, ptr %ssl.addr, align 8
-  %arrays8 = getelementptr inbounds %struct.WOLFSSL, ptr %20, i32 0, i32 2
-  %21 = load ptr, ptr %arrays8, align 16
-  %preMasterSecret9 = getelementptr inbounds %struct.Arrays, ptr %21, i32 0, i32 1
-  %22 = load ptr, ptr %preMasterSecret9, align 8
-  %23 = load i32, ptr %i, align 4
-  %idxprom10 = sext i32 %23 to i64
-  %arrayidx11 = getelementptr inbounds i8, ptr %22, i64 %idxprom10
-  store i8 0, ptr %arrayidx11, align 1
-  br label %for.inc12
+56:                                               ; preds = %51
+  store i32 -302, ptr %5, align 4, !tbaa !45
+  store i32 2, ptr %13, align 4
+  br label %148
 
-for.inc12:                                        ; preds = %for.body7
-  %24 = load i32, ptr %i, align 4
-  %inc13 = add nsw i32 %24, 1
-  store i32 %inc13, ptr %i, align 4
-  br label %for.cond5, !llvm.loop !8
+57:                                               ; preds = %51
+  store i32 0, ptr %6, align 4, !tbaa !45
+  %58 = getelementptr inbounds [579 x i8], ptr %10, i64 0, i64 0
+  %59 = getelementptr inbounds [9 x i8], ptr %14, i64 0, i64 0
+  %60 = load i32, ptr %4, align 4, !tbaa !45
+  %61 = add nsw i32 %60, 1
+  %62 = sext i32 %61 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %58, ptr align 1 %59, i64 %62, i1 false)
+  %63 = load i32, ptr %4, align 4, !tbaa !45
+  %64 = add nsw i32 %63, 1
+  %65 = load i32, ptr %6, align 4, !tbaa !45
+  %66 = add i32 %65, %64
+  store i32 %66, ptr %6, align 4, !tbaa !45
+  %67 = getelementptr inbounds [579 x i8], ptr %10, i64 0, i64 0
+  %68 = load i32, ptr %6, align 4, !tbaa !45
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %69
+  %71 = load ptr, ptr %3, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %71, i32 0, i32 3
+  %73 = load ptr, ptr %72, align 8, !tbaa !95
+  %74 = getelementptr inbounds nuw %struct.Arrays, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !100
+  %76 = load i32, ptr %7, align 4, !tbaa !45
+  %77 = zext i32 %76 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 1 %75, i64 %77, i1 false)
+  %78 = load i32, ptr %7, align 4, !tbaa !45
+  %79 = load i32, ptr %6, align 4, !tbaa !45
+  %80 = add i32 %79, %78
+  store i32 %80, ptr %6, align 4, !tbaa !45
+  %81 = getelementptr inbounds [579 x i8], ptr %10, i64 0, i64 0
+  %82 = load i32, ptr %6, align 4, !tbaa !45
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
+  %85 = load ptr, ptr %3, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %85, i32 0, i32 3
+  %87 = load ptr, ptr %86, align 8, !tbaa !95
+  %88 = getelementptr inbounds nuw %struct.Arrays, ptr %87, i32 0, i32 5
+  %89 = getelementptr inbounds [32 x i8], ptr %88, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 4 %89, i64 32, i1 false)
+  %90 = load i32, ptr %6, align 4, !tbaa !45
+  %91 = add i32 %90, 32
+  store i32 %91, ptr %6, align 4, !tbaa !45
+  %92 = getelementptr inbounds [579 x i8], ptr %10, i64 0, i64 0
+  %93 = load i32, ptr %6, align 4, !tbaa !45
+  %94 = zext i32 %93 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %94
+  %96 = load ptr, ptr %3, align 8, !tbaa !3
+  %97 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %96, i32 0, i32 3
+  %98 = load ptr, ptr %97, align 8, !tbaa !95
+  %99 = getelementptr inbounds nuw %struct.Arrays, ptr %98, i32 0, i32 6
+  %100 = getelementptr inbounds [32 x i8], ptr %99, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 4 %100, i64 32, i1 false)
+  %101 = load i32, ptr %6, align 4, !tbaa !45
+  %102 = add i32 %101, 32
+  store i32 %102, ptr %6, align 4, !tbaa !45
+  %103 = load i32, ptr %5, align 4, !tbaa !45
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %110
 
-for.end14:                                        ; preds = %for.cond5
-  %25 = load ptr, ptr %ssl.addr, align 8
-  %arrays15 = getelementptr inbounds %struct.WOLFSSL, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %arrays15, align 16
-  %preMasterSecret16 = getelementptr inbounds %struct.Arrays, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %preMasterSecret16, align 8
-  store ptr %27, ptr %xp, align 8
-  %28 = load ptr, ptr %xp, align 8
-  %tobool = icmp ne ptr %28, null
-  br i1 %tobool, label %if.then17, label %if.end18
+105:                                              ; preds = %57
+  %106 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %12, i64 0, i64 0
+  %107 = getelementptr inbounds [579 x i8], ptr %10, i64 0, i64 0
+  %108 = load i32, ptr %6, align 4, !tbaa !45
+  %109 = call i32 @wc_ShaUpdate(ptr noundef %106, ptr noundef %107, i32 noundef %108)
+  store i32 %109, ptr %5, align 4, !tbaa !45
+  br label %110
 
-if.then17:                                        ; preds = %for.end14
-  %29 = load ptr, ptr %xp, align 8
-  call void @wolfSSL_Free(ptr noundef %29)
-  br label %if.end18
+110:                                              ; preds = %105, %57
+  %111 = load i32, ptr %5, align 4, !tbaa !45
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %117
 
-if.end18:                                         ; preds = %if.then17, %for.end14
-  %30 = load ptr, ptr %ssl.addr, align 8
-  %arrays19 = getelementptr inbounds %struct.WOLFSSL, ptr %30, i32 0, i32 2
-  %31 = load ptr, ptr %arrays19, align 16
-  %preMasterSecret20 = getelementptr inbounds %struct.Arrays, ptr %31, i32 0, i32 1
-  store ptr null, ptr %preMasterSecret20, align 8
-  %32 = load ptr, ptr %ssl.addr, align 8
-  %arrays21 = getelementptr inbounds %struct.WOLFSSL, ptr %32, i32 0, i32 2
-  %33 = load ptr, ptr %arrays21, align 16
-  %preMasterSz22 = getelementptr inbounds %struct.Arrays, ptr %33, i32 0, i32 2
-  store i32 0, ptr %preMasterSz22, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds [1 x %struct.wc_Sha], ptr %12, i64 0, i64 0
+  %115 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
+  %116 = call i32 @wc_ShaFinal(ptr noundef %114, ptr noundef %115)
+  store i32 %116, ptr %5, align 4, !tbaa !45
+  br label %117
 
-return:                                           ; preds = %if.end18, %if.then
-  %34 = load i32, ptr %retval, align 4
-  ret i32 %34
+117:                                              ; preds = %113, %110
+  %118 = load i32, ptr %7, align 4, !tbaa !45
+  store i32 %118, ptr %6, align 4, !tbaa !45
+  %119 = getelementptr inbounds [532 x i8], ptr %9, i64 0, i64 0
+  %120 = load i32, ptr %6, align 4, !tbaa !45
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 %121
+  %123 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr align 16 %123, i64 20, i1 false)
+  %124 = load i32, ptr %6, align 4, !tbaa !45
+  %125 = add i32 %124, 20
+  store i32 %125, ptr %6, align 4, !tbaa !45
+  %126 = load i32, ptr %5, align 4, !tbaa !45
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %133
+
+128:                                              ; preds = %117
+  %129 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %11, i64 0, i64 0
+  %130 = getelementptr inbounds [532 x i8], ptr %9, i64 0, i64 0
+  %131 = load i32, ptr %6, align 4, !tbaa !45
+  %132 = call i32 @wc_Md5Update(ptr noundef %129, ptr noundef %130, i32 noundef %131)
+  store i32 %132, ptr %5, align 4, !tbaa !45
+  br label %133
+
+133:                                              ; preds = %128, %117
+  %134 = load i32, ptr %5, align 4, !tbaa !45
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %147
+
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds [1 x %struct.wc_Md5], ptr %11, i64 0, i64 0
+  %138 = load ptr, ptr %3, align 8, !tbaa !3
+  %139 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %138, i32 0, i32 3
+  %140 = load ptr, ptr %139, align 8, !tbaa !95
+  %141 = getelementptr inbounds nuw %struct.Arrays, ptr %140, i32 0, i32 10
+  %142 = load i32, ptr %4, align 4, !tbaa !45
+  %143 = mul nsw i32 %142, 16
+  %144 = sext i32 %143 to i64
+  %145 = getelementptr inbounds [48 x i8], ptr %141, i64 0, i64 %144
+  %146 = call i32 @wc_Md5Final(ptr noundef %137, ptr noundef %145)
+  store i32 %146, ptr %5, align 4, !tbaa !45
+  br label %147
+
+147:                                              ; preds = %136, %133
+  store i32 0, ptr %13, align 4
+  br label %148
+
+148:                                              ; preds = %147, %56
+  call void @llvm.lifetime.end.p0(i64 9, ptr %14) #5
+  %149 = load i32, ptr %13, align 4
+  switch i32 %149, label %174 [
+    i32 0, label %150
+    i32 2, label %154
+  ]
+
+150:                                              ; preds = %148
+  br label %151
+
+151:                                              ; preds = %150
+  %152 = load i32, ptr %4, align 4, !tbaa !45
+  %153 = add nsw i32 %152, 1
+  store i32 %153, ptr %4, align 4, !tbaa !45
+  br label %48, !llvm.loop !101
+
+154:                                              ; preds = %148, %48
+  %155 = load i32, ptr %5, align 4, !tbaa !45
+  %156 = icmp eq i32 %155, 0
+  br i1 %156, label %157, label %160
+
+157:                                              ; preds = %154
+  %158 = load ptr, ptr %3, align 8, !tbaa !3
+  %159 = call i32 @DeriveKeys(ptr noundef %158)
+  store i32 %159, ptr %5, align 4, !tbaa !45
+  br label %160
+
+160:                                              ; preds = %157, %154
+  br label %161
+
+161:                                              ; preds = %160, %36
+  %162 = load i32, ptr %5, align 4, !tbaa !45
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %164, label %167
+
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %3, align 8, !tbaa !3
+  %166 = call i32 @CleanPreMaster(ptr noundef %165)
+  store i32 %166, ptr %5, align 4, !tbaa !45
+  br label %170
+
+167:                                              ; preds = %161
+  %168 = load ptr, ptr %3, align 8, !tbaa !3
+  %169 = call i32 @CleanPreMaster(ptr noundef %168)
+  br label %170
+
+170:                                              ; preds = %167, %164
+  %171 = load i32, ptr %5, align 4, !tbaa !45
+  store i32 %171, ptr %2, align 4
+  store i32 1, ptr %13, align 4
+  br label %172
+
+172:                                              ; preds = %170, %26
+  call void @llvm.lifetime.end.p0(i64 104, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 104, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 579, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 532, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 20, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %173 = load i32, ptr %2, align 4
+  ret i32 %173
+
+174:                                              ; preds = %148
+  unreachable
 }
 
-declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: nounwind uwtable
+define internal i32 @CleanPreMaster(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %9, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8, !tbaa !95
+  %12 = getelementptr inbounds nuw %struct.Arrays, ptr %11, i32 0, i32 2
+  %13 = load i32, ptr %12, align 8, !tbaa !98
+  store i32 %13, ptr %6, align 4, !tbaa !45
+  store i32 0, ptr %4, align 4, !tbaa !45
+  br label %14
 
-declare void @wolfSSL_Free(ptr noundef) #1
+14:                                               ; preds = %27, %1
+  %15 = load i32, ptr %4, align 4, !tbaa !45
+  %16 = load i32, ptr %6, align 4, !tbaa !45
+  %17 = icmp slt i32 %15, %16
+  br i1 %17, label %18, label %30
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8, !tbaa !95
+  %22 = getelementptr inbounds nuw %struct.Arrays, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !100
+  %24 = load i32, ptr %4, align 4, !tbaa !45
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %23, i64 %25
+  store i8 0, ptr %26, align 1, !tbaa !51
+  br label %27
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+27:                                               ; preds = %18
+  %28 = load i32, ptr %4, align 4, !tbaa !45
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %4, align 4, !tbaa !45
+  br label %14, !llvm.loop !102
+
+30:                                               ; preds = %14
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %31, i32 0, i32 9
+  %33 = load ptr, ptr %32, align 8, !tbaa !85
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %34, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8, !tbaa !95
+  %37 = getelementptr inbounds nuw %struct.Arrays, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !100
+  %39 = load i32, ptr %6, align 4, !tbaa !45
+  %40 = call i32 @wc_RNG_GenerateBlock(ptr noundef %33, ptr noundef %38, i32 noundef %39)
+  store i32 %40, ptr %5, align 4, !tbaa !45
+  %41 = load i32, ptr %5, align 4, !tbaa !45
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %45
+
+43:                                               ; preds = %30
+  %44 = load i32, ptr %5, align 4, !tbaa !45
+  store i32 %44, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %84
+
+45:                                               ; preds = %30
+  store i32 0, ptr %4, align 4, !tbaa !45
+  br label %46
+
+46:                                               ; preds = %59, %45
+  %47 = load i32, ptr %4, align 4, !tbaa !45
+  %48 = load i32, ptr %6, align 4, !tbaa !45
+  %49 = icmp slt i32 %47, %48
+  br i1 %49, label %50, label %62
+
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %3, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %51, i32 0, i32 3
+  %53 = load ptr, ptr %52, align 8, !tbaa !95
+  %54 = getelementptr inbounds nuw %struct.Arrays, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8, !tbaa !100
+  %56 = load i32, ptr %4, align 4, !tbaa !45
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i8, ptr %55, i64 %57
+  store i8 0, ptr %58, align 1, !tbaa !51
+  br label %59
+
+59:                                               ; preds = %50
+  %60 = load i32, ptr %4, align 4, !tbaa !45
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %4, align 4, !tbaa !45
+  br label %46, !llvm.loop !103
+
+62:                                               ; preds = %46
+  br label %63
+
+63:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %64 = load ptr, ptr %3, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %64, i32 0, i32 3
+  %66 = load ptr, ptr %65, align 8, !tbaa !95
+  %67 = getelementptr inbounds nuw %struct.Arrays, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8, !tbaa !100
+  store ptr %68, ptr %8, align 8, !tbaa !72
+  %69 = load ptr, ptr %8, align 8, !tbaa !72
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %71, label %73
+
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %8, align 8, !tbaa !72
+  call void @wolfSSL_Free(ptr noundef %72)
+  br label %73
+
+73:                                               ; preds = %71, %63
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  br label %74
+
+74:                                               ; preds = %73
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %3, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %76, i32 0, i32 3
+  %78 = load ptr, ptr %77, align 8, !tbaa !95
+  %79 = getelementptr inbounds nuw %struct.Arrays, ptr %78, i32 0, i32 1
+  store ptr null, ptr %79, align 8, !tbaa !100
+  %80 = load ptr, ptr %3, align 8, !tbaa !3
+  %81 = getelementptr inbounds nuw %struct.WOLFSSL, ptr %80, i32 0, i32 3
+  %82 = load ptr, ptr %81, align 8, !tbaa !95
+  %83 = getelementptr inbounds nuw %struct.Arrays, ptr %82, i32 0, i32 2
+  store i32 0, ptr %83, align 8, !tbaa !98
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %84
+
+84:                                               ; preds = %75, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %85 = load i32, ptr %2, align 4
+  ret i32 %85
+}
+
+declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) #2
+
+declare void @wolfSSL_Free(ptr noundef) #2
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS7WOLFSSL", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !6, i64 1037}
+!9 = !{!"WOLFSSL", !10, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !6, i64 32, !6, i64 80, !13, i64 128, !5, i64 136, !5, i64 144, !14, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !15, i64 216, !5, i64 224, !16, i64 232, !17, i64 240, !5, i64 256, !18, i64 264, !18, i64 304, !22, i64 352, !27, i64 624, !28, i64 632, !29, i64 640, !30, i64 656, !16, i64 664, !16, i64 668, !16, i64 672, !16, i64 676, !16, i64 680, !16, i64 684, !16, i64 688, !31, i64 692, !16, i64 696, !6, i64 700, !32, i64 701, !33, i64 706, !34, i64 710, !34, i64 712, !35, i64 714, !36, i64 732, !37, i64 1016, !39, i64 1072, !6, i64 1080, !31, i64 1082, !6, i64 1084, !6, i64 1104, !31, i64 1106, !31, i64 1108, !6, i64 1110, !16, i64 1148, !16, i64 1152, !40, i64 1160, !6, i64 1168, !6, i64 1169, !40, i64 1176, !40, i64 1184, !31, i64 1192, !6, i64 1194, !16, i64 1196, !6, i64 1200, !16, i64 1204, !41, i64 1208, !43, i64 1224}
+!10 = !{!"p1 _ZTS11WOLFSSL_CTX", !5, i64 0}
+!11 = !{!"p1 _ZTS6Suites", !5, i64 0}
+!12 = !{!"p1 _ZTS6Arrays", !5, i64 0}
+!13 = !{!"p1 _ZTS9HS_Hashes", !5, i64 0}
+!14 = !{!"p1 _ZTS6WC_RNG", !5, i64 0}
+!15 = !{!"p1 _ZTS13WOLFSSL_ASYNC", !5, i64 0}
+!16 = !{!"int", !6, i64 0}
+!17 = !{!"WOLFSSL_CIPHER", !6, i64 0, !6, i64 1, !4, i64 8}
+!18 = !{!"Ciphers", !19, i64 0, !20, i64 8, !20, i64 16, !21, i64 24, !6, i64 32, !6, i64 33}
+!19 = !{!"p1 _ZTS3Aes", !5, i64 0}
+!20 = !{!"p1 omnipotent char", !5, i64 0}
+!21 = !{!"p1 _ZTS6ChaCha", !5, i64 0}
+!22 = !{!"Buffers", !23, i64 0, !23, i64 32, !24, i64 64, !24, i64 80, !24, i64 96, !24, i64 112, !16, i64 128, !16, i64 132, !6, i64 136, !6, i64 137, !6, i64 138, !6, i64 139, !24, i64 144, !24, i64 160, !24, i64 176, !24, i64 192, !25, i64 208, !26, i64 216, !26, i64 224, !6, i64 232, !6, i64 233, !6, i64 233, !16, i64 236, !16, i64 240, !26, i64 248, !16, i64 256, !6, i64 264}
+!23 = !{!"", !6, i64 0, !20, i64 8, !16, i64 16, !16, i64 20, !16, i64 24, !6, i64 28, !6, i64 29}
+!24 = !{!"WOLFSSL_BUFFER_INFO", !20, i64 0, !16, i64 8}
+!25 = !{!"p1 _ZTS5DhKey", !5, i64 0}
+!26 = !{!"p1 _ZTS9DerBuffer", !5, i64 0}
+!27 = !{!"p1 _ZTS15WOLFSSL_SESSION", !5, i64 0}
+!28 = !{!"p1 _ZTS13ClientSession", !5, i64 0}
+!29 = !{!"WOLFSSL_ALERT_HISTORY", !30, i64 0, !30, i64 8}
+!30 = !{!"WOLFSSL_ALERT", !16, i64 0, !16, i64 4}
+!31 = !{!"short", !6, i64 0}
+!32 = !{!"RecordLayerHeader", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3}
+!33 = !{!"MsgsReceived", !31, i64 0, !31, i64 0, !31, i64 0, !31, i64 0, !31, i64 0, !31, i64 0, !31, i64 0, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 2, !31, i64 2, !31, i64 2}
+!34 = !{!"ProtocolVersion", !6, i64 0, !6, i64 1}
+!35 = !{!"CipherSpecs", !31, i64 0, !31, i64 2, !31, i64 4, !31, i64 6, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !6, i64 12, !6, i64 13, !6, i64 14, !6, i64 15}
+!36 = !{!"Keys", !6, i64 0, !6, i64 64, !6, i64 128, !6, i64 160, !6, i64 192, !6, i64 208, !6, i64 224, !6, i64 232, !6, i64 244, !16, i64 256, !16, i64 260, !16, i64 264, !16, i64 268, !16, i64 272, !16, i64 276, !6, i64 280, !6, i64 281, !6, i64 282, !6, i64 283}
+!37 = !{!"Options", !38, i64 0, !31, i64 8, !31, i64 8, !31, i64 8, !31, i64 8, !31, i64 8, !31, i64 8, !31, i64 9, !31, i64 9, !31, i64 9, !31, i64 9, !31, i64 9, !31, i64 9, !31, i64 9, !31, i64 9, !31, i64 10, !31, i64 10, !31, i64 10, !31, i64 10, !31, i64 10, !31, i64 10, !31, i64 10, !31, i64 10, !31, i64 11, !31, i64 11, !31, i64 11, !31, i64 11, !31, i64 11, !31, i64 11, !31, i64 11, !31, i64 11, !31, i64 12, !31, i64 12, !31, i64 12, !31, i64 12, !31, i64 12, !31, i64 12, !31, i64 12, !31, i64 12, !31, i64 13, !31, i64 13, !31, i64 13, !31, i64 13, !31, i64 13, !31, i64 13, !31, i64 13, !31, i64 13, !31, i64 14, !31, i64 14, !31, i64 14, !31, i64 14, !31, i64 14, !31, i64 14, !31, i64 14, !31, i64 14, !31, i64 15, !31, i64 15, !6, i64 16, !6, i64 17, !6, i64 18, !6, i64 19, !6, i64 20, !6, i64 21, !6, i64 22, !6, i64 23, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31, !6, i64 32, !6, i64 33, !6, i64 34, !6, i64 35, !6, i64 36, !31, i64 38, !31, i64 40, !31, i64 42, !31, i64 44, !31, i64 46, !6, i64 48}
+!38 = !{!"long", !6, i64 0}
+!39 = !{!"p1 _ZTS6RsaKey", !5, i64 0}
+!40 = !{!"p1 _ZTS7ecc_key", !5, i64 0}
+!41 = !{!"OneTimeAuth", !42, i64 0, !6, i64 8}
+!42 = !{!"p1 _ZTS8Poly1305", !5, i64 0}
+!43 = !{!"p1 _ZTS4TLSX", !5, i64 0}
+!44 = !{!9, !6, i64 1038}
+!45 = !{!16, !16, i64 0}
+!46 = !{!9, !6, i64 710}
+!47 = !{!9, !6, i64 711}
+!48 = !{!9, !5, i64 256}
+!49 = !{!9, !6, i64 723}
+!50 = !{!31, !31, i64 0}
+!51 = !{!6, !6, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS11CipherSpecs", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS7Options", !5, i64 0}
+!56 = !{!35, !6, i64 8}
+!57 = !{!35, !6, i64 9}
+!58 = !{!35, !6, i64 10}
+!59 = !{!35, !6, i64 11}
+!60 = !{!35, !6, i64 12}
+!61 = !{!35, !6, i64 13}
+!62 = !{!35, !6, i64 14}
+!63 = !{!35, !6, i64 15}
+!64 = !{!35, !31, i64 0}
+!65 = !{!35, !31, i64 4}
+!66 = !{!35, !31, i64 2}
+!67 = !{!35, !31, i64 6}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTS7Ciphers", !5, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p1 _ZTS4Keys", !5, i64 0}
+!72 = !{!5, !5, i64 0}
+!73 = !{!14, !14, i64 0}
+!74 = !{!18, !21, i64 24}
+!75 = !{!18, !6, i64 33}
+!76 = !{!18, !19, i64 0}
+!77 = !{!36, !16, i64 264}
+!78 = !{!36, !16, i64 268}
+!79 = !{!36, !16, i64 256}
+!80 = !{!36, !16, i64 260}
+!81 = !{!9, !6, i64 1216}
+!82 = !{!9, !6, i64 722}
+!83 = !{!9, !5, i64 176}
+!84 = !{!9, !16, i64 1204}
+!85 = !{!9, !14, i64 152}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTS11OneTimeAuth", !5, i64 0}
+!88 = !{!41, !42, i64 0}
+!89 = !{!41, !6, i64 8}
+!90 = !{!20, !20, i64 0}
+!91 = !{!9, !6, i64 727}
+!92 = !{!38, !38, i64 0}
+!93 = !{!9, !31, i64 714}
+!94 = !{!9, !31, i64 716}
+!95 = !{!9, !12, i64 24}
+!96 = distinct !{!96, !97}
+!97 = !{!"llvm.loop.mustprogress"}
+!98 = !{!99, !16, i64 16}
+!99 = !{!"Arrays", !20, i64 0, !20, i64 8, !16, i64 16, !16, i64 20, !16, i64 24, !6, i64 28, !6, i64 60, !6, i64 92, !6, i64 124, !6, i64 125, !6, i64 173, !6, i64 221}
+!100 = !{!99, !20, i64 8}
+!101 = distinct !{!101, !97}
+!102 = distinct !{!102, !97}
+!103 = distinct !{!103, !97}

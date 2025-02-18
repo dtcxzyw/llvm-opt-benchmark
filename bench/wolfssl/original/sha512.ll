@@ -1,3805 +1,3934 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.wc_Sha512 = type { [8 x i64], [16 x i64], i32, i64, i64, ptr }
 
 @K512 = internal constant [80 x i64] [i64 4794697086780616226, i64 8158064640168781261, i64 -5349999486874862801, i64 -1606136188198331460, i64 4131703408338449720, i64 6480981068601479193, i64 -7908458776815382629, i64 -6116909921290321640, i64 -2880145864133508542, i64 1334009975649890238, i64 2608012711638119052, i64 6128411473006802146, i64 8268148722764581231, i64 -9160688886553864527, i64 -7215885187991268811, i64 -4495734319001033068, i64 -1973867731355612462, i64 -1171420211273849373, i64 1135362057144423861, i64 2597628984639134821, i64 3308224258029322869, i64 5365058923640841347, i64 6679025012923562964, i64 8573033837759648693, i64 -7476448914759557205, i64 -6327057829258317296, i64 -5763719355590565569, i64 -4658551843659510044, i64 -4116276920077217854, i64 -3051310485924567259, i64 489312712824947311, i64 1452737877330783856, i64 2861767655752347644, i64 3322285676063803686, i64 5560940570517711597, i64 5996557281743188959, i64 7280758554555802590, i64 8532644243296465576, i64 -9096487096722542874, i64 -7894198246740708037, i64 -6719396339535248540, i64 -6333637450476146687, i64 -4446306890439682159, i64 -4076793802049405392, i64 -3345356375505022440, i64 -2983346525034927856, i64 -860691631967231958, i64 1182934255886127544, i64 1847814050463011016, i64 2177327727835720531, i64 2830643537854262169, i64 3796741975233480872, i64 4115178125766777443, i64 5681478168544905931, i64 6601373596472566643, i64 7507060721942968483, i64 8399075790359081724, i64 8693463985226723168, i64 -8878714635349349518, i64 -8302665154208450068, i64 -8016688836872298968, i64 -6606660893046293015, i64 -4685533653050689259, i64 -4147400797238176981, i64 -3880063495543823972, i64 -3348786107499101689, i64 -1523767162380948706, i64 -757361751448694408, i64 500013540394364858, i64 748580250866718886, i64 1242879168328830382, i64 1977374033974150939, i64 2944078676154940804, i64 3659926193048069267, i64 4368137639120453308, i64 4836135668995329356, i64 5532061633213252278, i64 6448918945643986474, i64 6902733635092675308, i64 7801388544844847127], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_InitSha512_ex(ptr noundef %sha512, ptr noundef %heap, i32 noundef %devId) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %devId.addr = alloca i32, align 4
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i32 %devId, ptr %devId.addr, align 4
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = load i32, ptr %devId.addr, align 4
-  %call = call i32 @InitSha512_Family(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef @InitSha512)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @InitSha512_Family(ptr noundef %sha512, ptr noundef %heap, i32 noundef %devId, ptr noundef %initfp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %devId.addr = alloca i32, align 4
-  %initfp.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i32 %devId, ptr %devId.addr, align 4
-  store ptr %initfp, ptr %initfp.addr, align 8
-  store i32 0, ptr %ret, align 4
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = load ptr, ptr %sha512.addr, align 8
-  %heap1 = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 5
-  store ptr %1, ptr %heap1, align 8
-  %3 = load ptr, ptr %initfp.addr, align 8
-  %4 = load ptr, ptr %sha512.addr, align 8
-  %call = call i32 %3(ptr noundef %4)
-  store i32 %call, ptr %ret, align 4
-  %5 = load i32, ptr %ret, align 4
-  %cmp2 = icmp ne i32 %5, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %6 = load i32, ptr %ret, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %7 = load i32, ptr %ret, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @InitSha512(ptr noundef %sha512) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %sha512.addr, align 8
-  %digest = getelementptr inbounds %struct.wc_Sha512, ptr %1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  store i64 7640891576956012808, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %sha512.addr, align 8
-  %digest1 = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %digest1, i64 0, i64 1
-  store i64 -4942790177534073029, ptr %arrayidx2, align 8
-  %3 = load ptr, ptr %sha512.addr, align 8
-  %digest3 = getelementptr inbounds %struct.wc_Sha512, ptr %3, i32 0, i32 0
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %digest3, i64 0, i64 2
-  store i64 4354685564936845355, ptr %arrayidx4, align 8
-  %4 = load ptr, ptr %sha512.addr, align 8
-  %digest5 = getelementptr inbounds %struct.wc_Sha512, ptr %4, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %digest5, i64 0, i64 3
-  store i64 -6534734903238641935, ptr %arrayidx6, align 8
-  %5 = load ptr, ptr %sha512.addr, align 8
-  %digest7 = getelementptr inbounds %struct.wc_Sha512, ptr %5, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %digest7, i64 0, i64 4
-  store i64 5840696475078001361, ptr %arrayidx8, align 8
-  %6 = load ptr, ptr %sha512.addr, align 8
-  %digest9 = getelementptr inbounds %struct.wc_Sha512, ptr %6, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %digest9, i64 0, i64 5
-  store i64 -7276294671716946913, ptr %arrayidx10, align 8
-  %7 = load ptr, ptr %sha512.addr, align 8
-  %digest11 = getelementptr inbounds %struct.wc_Sha512, ptr %7, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %digest11, i64 0, i64 6
-  store i64 2270897969802886507, ptr %arrayidx12, align 8
-  %8 = load ptr, ptr %sha512.addr, align 8
-  %digest13 = getelementptr inbounds %struct.wc_Sha512, ptr %8, i32 0, i32 0
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %digest13, i64 0, i64 7
-  store i64 6620516959819538809, ptr %arrayidx14, align 8
-  %9 = load ptr, ptr %sha512.addr, align 8
-  %buffLen = getelementptr inbounds %struct.wc_Sha512, ptr %9, i32 0, i32 2
-  store i32 0, ptr %buffLen, align 8
-  %10 = load ptr, ptr %sha512.addr, align 8
-  %loLen = getelementptr inbounds %struct.wc_Sha512, ptr %10, i32 0, i32 3
-  store i64 0, ptr %loLen, align 8
-  %11 = load ptr, ptr %sha512.addr, align 8
-  %hiLen = getelementptr inbounds %struct.wc_Sha512, ptr %11, i32 0, i32 4
-  store i64 0, ptr %hiLen, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_InitSha512_224_ex(ptr noundef %sha512, ptr noundef %heap, i32 noundef %devId) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %devId.addr = alloca i32, align 4
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i32 %devId, ptr %devId.addr, align 4
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = load i32, ptr %devId.addr, align 4
-  %call = call i32 @InitSha512_Family(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef @InitSha512_224)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @InitSha512_224(ptr noundef %sha512) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %sha512.addr, align 8
-  %digest = getelementptr inbounds %struct.wc_Sha512, ptr %1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  store i64 -8341449602262348382, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %sha512.addr, align 8
-  %digest1 = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %digest1, i64 0, i64 1
-  store i64 8350123849800275158, ptr %arrayidx2, align 8
-  %3 = load ptr, ptr %sha512.addr, align 8
-  %digest3 = getelementptr inbounds %struct.wc_Sha512, ptr %3, i32 0, i32 0
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %digest3, i64 0, i64 2
-  store i64 2160240930085379202, ptr %arrayidx4, align 8
-  %4 = load ptr, ptr %sha512.addr, align 8
-  %digest5 = getelementptr inbounds %struct.wc_Sha512, ptr %4, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %digest5, i64 0, i64 3
-  store i64 7466358040605728719, ptr %arrayidx6, align 8
-  %5 = load ptr, ptr %sha512.addr, align 8
-  %digest7 = getelementptr inbounds %struct.wc_Sha512, ptr %5, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %digest7, i64 0, i64 4
-  store i64 1111592415079452072, ptr %arrayidx8, align 8
-  %6 = load ptr, ptr %sha512.addr, align 8
-  %digest9 = getelementptr inbounds %struct.wc_Sha512, ptr %6, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %digest9, i64 0, i64 5
-  store i64 8638871050018654530, ptr %arrayidx10, align 8
-  %7 = load ptr, ptr %sha512.addr, align 8
-  %digest11 = getelementptr inbounds %struct.wc_Sha512, ptr %7, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %digest11, i64 0, i64 6
-  store i64 4583966954114332360, ptr %arrayidx12, align 8
-  %8 = load ptr, ptr %sha512.addr, align 8
-  %digest13 = getelementptr inbounds %struct.wc_Sha512, ptr %8, i32 0, i32 0
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %digest13, i64 0, i64 7
-  store i64 1230299281376055969, ptr %arrayidx14, align 8
-  %9 = load ptr, ptr %sha512.addr, align 8
-  %buffLen = getelementptr inbounds %struct.wc_Sha512, ptr %9, i32 0, i32 2
-  store i32 0, ptr %buffLen, align 8
-  %10 = load ptr, ptr %sha512.addr, align 8
-  %loLen = getelementptr inbounds %struct.wc_Sha512, ptr %10, i32 0, i32 3
-  store i64 0, ptr %loLen, align 8
-  %11 = load ptr, ptr %sha512.addr, align 8
-  %hiLen = getelementptr inbounds %struct.wc_Sha512, ptr %11, i32 0, i32 4
-  store i64 0, ptr %hiLen, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_InitSha512_256_ex(ptr noundef %sha512, ptr noundef %heap, i32 noundef %devId) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %devId.addr = alloca i32, align 4
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i32 %devId, ptr %devId.addr, align 4
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = load i32, ptr %devId.addr, align 4
-  %call = call i32 @InitSha512_Family(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef @InitSha512_256)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @InitSha512_256(ptr noundef %sha512) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %sha512.addr, align 8
-  %digest = getelementptr inbounds %struct.wc_Sha512, ptr %1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  store i64 2463787394917988140, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %sha512.addr, align 8
-  %digest1 = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %digest1, i64 0, i64 1
-  store i64 -6965556091613846334, ptr %arrayidx2, align 8
-  %3 = load ptr, ptr %sha512.addr, align 8
-  %digest3 = getelementptr inbounds %struct.wc_Sha512, ptr %3, i32 0, i32 0
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %digest3, i64 0, i64 2
-  store i64 2563595384472711505, ptr %arrayidx4, align 8
-  %4 = load ptr, ptr %sha512.addr, align 8
-  %digest5 = getelementptr inbounds %struct.wc_Sha512, ptr %4, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %digest5, i64 0, i64 3
-  store i64 -7622211418569250115, ptr %arrayidx6, align 8
-  %5 = load ptr, ptr %sha512.addr, align 8
-  %digest7 = getelementptr inbounds %struct.wc_Sha512, ptr %5, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %digest7, i64 0, i64 4
-  store i64 -7626776825740460061, ptr %arrayidx8, align 8
-  %6 = load ptr, ptr %sha512.addr, align 8
-  %digest9 = getelementptr inbounds %struct.wc_Sha512, ptr %6, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %digest9, i64 0, i64 5
-  store i64 -4729309413028513390, ptr %arrayidx10, align 8
-  %7 = load ptr, ptr %sha512.addr, align 8
-  %digest11 = getelementptr inbounds %struct.wc_Sha512, ptr %7, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %digest11, i64 0, i64 6
-  store i64 3098927326965381290, ptr %arrayidx12, align 8
-  %8 = load ptr, ptr %sha512.addr, align 8
-  %digest13 = getelementptr inbounds %struct.wc_Sha512, ptr %8, i32 0, i32 0
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %digest13, i64 0, i64 7
-  store i64 1060366662362279074, ptr %arrayidx14, align 8
-  %9 = load ptr, ptr %sha512.addr, align 8
-  %buffLen = getelementptr inbounds %struct.wc_Sha512, ptr %9, i32 0, i32 2
-  store i32 0, ptr %buffLen, align 8
-  %10 = load ptr, ptr %sha512.addr, align 8
-  %loLen = getelementptr inbounds %struct.wc_Sha512, ptr %10, i32 0, i32 3
-  store i64 0, ptr %loLen, align 8
-  %11 = load ptr, ptr %sha512.addr, align 8
-  %hiLen = getelementptr inbounds %struct.wc_Sha512, ptr %11, i32 0, i32 4
-  store i64 0, ptr %hiLen, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512Update(ptr noundef %sha512, ptr noundef %data, i32 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %data.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %2 = load i32, ptr %len.addr, align 4
-  %cmp2 = icmp ugt i32 %2, 0
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  %3 = load ptr, ptr %sha512.addr, align 8
-  %4 = load ptr, ptr %data.addr, align 8
-  %5 = load i32, ptr %len.addr, align 4
-  %call = call i32 @Sha512Update(ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  store i32 %call, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @Sha512Update(ptr noundef %sha512, ptr noundef %data, i32 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %ret = alloca i32, align 4
-  %local = alloca ptr, align 8
-  %add = alloca i32, align 4
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  store i32 0, ptr %ret, align 4
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %buffer = getelementptr inbounds %struct.wc_Sha512, ptr %0, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [16 x i64], ptr %buffer, i64 0, i64 0
-  store ptr %arraydecay, ptr %local, align 8
-  %1 = load ptr, ptr %sha512.addr, align 8
-  %buffLen = getelementptr inbounds %struct.wc_Sha512, ptr %1, i32 0, i32 2
-  %2 = load i32, ptr %buffLen, align 8
-  %cmp = icmp uge i32 %2, 128
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -132, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load i32, ptr %len.addr, align 4
-  %cmp1 = icmp eq i32 %3, 0
-  br i1 %cmp1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %sha512.addr, align 8
-  %5 = load i32, ptr %len.addr, align 4
-  call void @AddLength(ptr noundef %4, i32 noundef %5)
-  %6 = load ptr, ptr %sha512.addr, align 8
-  %buffLen4 = getelementptr inbounds %struct.wc_Sha512, ptr %6, i32 0, i32 2
-  %7 = load i32, ptr %buffLen4, align 8
-  %cmp5 = icmp ugt i32 %7, 0
-  br i1 %cmp5, label %if.then6, label %if.end30
-
-if.then6:                                         ; preds = %if.end3
-  %8 = load i32, ptr %len.addr, align 4
-  %9 = load ptr, ptr %sha512.addr, align 8
-  %buffLen7 = getelementptr inbounds %struct.wc_Sha512, ptr %9, i32 0, i32 2
-  %10 = load i32, ptr %buffLen7, align 8
-  %sub = sub i32 128, %10
-  %call = call i32 @min(i32 noundef %8, i32 noundef %sub)
-  store i32 %call, ptr %add, align 4
-  %11 = load i32, ptr %add, align 4
-  %cmp8 = icmp ugt i32 %11, 0
-  br i1 %cmp8, label %if.then9, label %if.end14
-
-if.then9:                                         ; preds = %if.then6
-  %12 = load ptr, ptr %local, align 8
-  %13 = load ptr, ptr %sha512.addr, align 8
-  %buffLen10 = getelementptr inbounds %struct.wc_Sha512, ptr %13, i32 0, i32 2
-  %14 = load i32, ptr %buffLen10, align 8
-  %idxprom = zext i32 %14 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %12, i64 %idxprom
-  %15 = load ptr, ptr %data.addr, align 8
-  %16 = load i32, ptr %add, align 4
-  %conv = zext i32 %16 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx, ptr align 1 %15, i64 %conv, i1 false)
-  %17 = load i32, ptr %add, align 4
-  %18 = load ptr, ptr %sha512.addr, align 8
-  %buffLen11 = getelementptr inbounds %struct.wc_Sha512, ptr %18, i32 0, i32 2
-  %19 = load i32, ptr %buffLen11, align 8
-  %add12 = add i32 %19, %17
-  store i32 %add12, ptr %buffLen11, align 8
-  %20 = load i32, ptr %add, align 4
-  %21 = load ptr, ptr %data.addr, align 8
-  %idx.ext = zext i32 %20 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %21, i64 %idx.ext
-  store ptr %add.ptr, ptr %data.addr, align 8
-  %22 = load i32, ptr %add, align 4
-  %23 = load i32, ptr %len.addr, align 4
-  %sub13 = sub i32 %23, %22
-  store i32 %sub13, ptr %len.addr, align 4
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then9, %if.then6
-  %24 = load ptr, ptr %sha512.addr, align 8
-  %buffLen15 = getelementptr inbounds %struct.wc_Sha512, ptr %24, i32 0, i32 2
-  %25 = load i32, ptr %buffLen15, align 8
-  %cmp16 = icmp eq i32 %25, 128
-  br i1 %cmp16, label %if.then18, label %if.end29
-
-if.then18:                                        ; preds = %if.end14
-  %26 = load ptr, ptr %sha512.addr, align 8
-  %buffer19 = getelementptr inbounds %struct.wc_Sha512, ptr %26, i32 0, i32 1
-  %arraydecay20 = getelementptr inbounds [16 x i64], ptr %buffer19, i64 0, i64 0
-  %27 = load ptr, ptr %sha512.addr, align 8
-  %buffer21 = getelementptr inbounds %struct.wc_Sha512, ptr %27, i32 0, i32 1
-  %arraydecay22 = getelementptr inbounds [16 x i64], ptr %buffer21, i64 0, i64 0
-  call void @ByteReverseWords64(ptr noundef %arraydecay20, ptr noundef %arraydecay22, i32 noundef 128)
-  %28 = load ptr, ptr %sha512.addr, align 8
-  %call23 = call i32 @_Transform_Sha512(ptr noundef %28)
-  store i32 %call23, ptr %ret, align 4
-  %29 = load i32, ptr %ret, align 4
-  %cmp24 = icmp eq i32 %29, 0
-  br i1 %cmp24, label %if.then26, label %if.else
-
-if.then26:                                        ; preds = %if.then18
-  %30 = load ptr, ptr %sha512.addr, align 8
-  %buffLen27 = getelementptr inbounds %struct.wc_Sha512, ptr %30, i32 0, i32 2
-  store i32 0, ptr %buffLen27, align 8
-  br label %if.end28
-
-if.else:                                          ; preds = %if.then18
-  store i32 0, ptr %len.addr, align 4
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.else, %if.then26
-  br label %if.end29
-
-if.end29:                                         ; preds = %if.end28, %if.end14
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.end29, %if.end3
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end43, %if.end30
-  %31 = load i32, ptr %len.addr, align 4
-  %cmp31 = icmp uge i32 %31, 128
-  br i1 %cmp31, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %32 = load ptr, ptr %local, align 8
-  %33 = load ptr, ptr %data.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %33, i64 128, i1 false)
-  %34 = load ptr, ptr %data.addr, align 8
-  %add.ptr33 = getelementptr inbounds i8, ptr %34, i64 128
-  store ptr %add.ptr33, ptr %data.addr, align 8
-  %35 = load i32, ptr %len.addr, align 4
-  %sub34 = sub i32 %35, 128
-  store i32 %sub34, ptr %len.addr, align 4
-  %36 = load ptr, ptr %sha512.addr, align 8
-  %buffer35 = getelementptr inbounds %struct.wc_Sha512, ptr %36, i32 0, i32 1
-  %arraydecay36 = getelementptr inbounds [16 x i64], ptr %buffer35, i64 0, i64 0
-  %37 = load ptr, ptr %sha512.addr, align 8
-  %buffer37 = getelementptr inbounds %struct.wc_Sha512, ptr %37, i32 0, i32 1
-  %arraydecay38 = getelementptr inbounds [16 x i64], ptr %buffer37, i64 0, i64 0
-  call void @ByteReverseWords64(ptr noundef %arraydecay36, ptr noundef %arraydecay38, i32 noundef 128)
-  %38 = load ptr, ptr %sha512.addr, align 8
-  %call39 = call i32 @_Transform_Sha512(ptr noundef %38)
-  store i32 %call39, ptr %ret, align 4
-  %39 = load i32, ptr %ret, align 4
-  %cmp40 = icmp ne i32 %39, 0
-  br i1 %cmp40, label %if.then42, label %if.end43
-
-if.then42:                                        ; preds = %while.body
-  br label %while.end
-
-if.end43:                                         ; preds = %while.body
-  br label %while.cond, !llvm.loop !4
-
-while.end:                                        ; preds = %if.then42, %while.cond
-  %40 = load i32, ptr %ret, align 4
-  %cmp44 = icmp eq i32 %40, 0
-  br i1 %cmp44, label %land.lhs.true, label %if.end51
-
-land.lhs.true:                                    ; preds = %while.end
-  %41 = load i32, ptr %len.addr, align 4
-  %cmp46 = icmp ugt i32 %41, 0
-  br i1 %cmp46, label %if.then48, label %if.end51
-
-if.then48:                                        ; preds = %land.lhs.true
-  %42 = load ptr, ptr %local, align 8
-  %43 = load ptr, ptr %data.addr, align 8
-  %44 = load i32, ptr %len.addr, align 4
-  %conv49 = zext i32 %44 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %conv49, i1 false)
-  %45 = load i32, ptr %len.addr, align 4
-  %46 = load ptr, ptr %sha512.addr, align 8
-  %buffLen50 = getelementptr inbounds %struct.wc_Sha512, ptr %46, i32 0, i32 2
-  store i32 %45, ptr %buffLen50, align 8
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.then48, %land.lhs.true, %while.end
-  %47 = load i32, ptr %ret, align 4
-  store i32 %47, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end51, %if.then2, %if.then
-  %48 = load i32, ptr %retval, align 4
-  ret i32 %48
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512FinalRaw(ptr noundef %sha512, ptr noundef %hash) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512FinalRaw(ptr noundef %0, ptr noundef %1, i64 noundef 64)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @Sha512FinalRaw(ptr noundef %sha512, ptr noundef %hash, i64 noundef %digestSz) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  %digestSz.addr = alloca i64, align 8
-  %digest = alloca [8 x i64], align 16
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i64 %digestSz, ptr %digestSz.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %hash.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %arraydecay = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  %2 = load ptr, ptr %sha512.addr, align 8
-  %digest2 = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 0
-  %arraydecay3 = getelementptr inbounds [8 x i64], ptr %digest2, i64 0, i64 0
-  call void @ByteReverseWords64(ptr noundef %arraydecay, ptr noundef %arraydecay3, i32 noundef 64)
-  %3 = load ptr, ptr %hash.addr, align 8
-  %arraydecay4 = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  %4 = load i64, ptr %digestSz.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 16 %arraydecay4, i64 %4, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512Final(ptr noundef %sha512, ptr noundef %hash) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512_Family_Final(ptr noundef %0, ptr noundef %1, i64 noundef 64, ptr noundef @InitSha512)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @Sha512_Family_Final(ptr noundef %sha512, ptr noundef %hash, i64 noundef %digestSz, ptr noundef %initfp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  %digestSz.addr = alloca i64, align 8
-  %initfp.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i64 %digestSz, ptr %digestSz.addr, align 8
-  store ptr %initfp, ptr %initfp.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %hash.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %sha512.addr, align 8
-  %call = call i32 @Sha512Final(ptr noundef %2)
-  store i32 %call, ptr %ret, align 4
-  %3 = load i32, ptr %ret, align 4
-  %cmp2 = icmp ne i32 %3, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %4 = load i32, ptr %ret, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %5 = load ptr, ptr %hash.addr, align 8
-  %6 = load ptr, ptr %sha512.addr, align 8
-  %digest = getelementptr inbounds %struct.wc_Sha512, ptr %6, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  %7 = load i64, ptr %digestSz.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 8 %arraydecay, i64 %7, i1 false)
-  %8 = load ptr, ptr %initfp.addr, align 8
-  %9 = load ptr, ptr %sha512.addr, align 8
-  %call5 = call i32 %8(ptr noundef %9)
-  store i32 %call5, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %10 = load i32, ptr %retval, align 4
+define i32 @wc_InitSha512_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = call i32 @InitSha512_Family(ptr noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef @InitSha512)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_InitSha512(ptr noundef %sha512) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %devId = alloca i32, align 4
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store i32 -2, ptr %devId, align 4
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load i32, ptr %devId, align 4
-  %call = call i32 @wc_InitSha512_ex(ptr noundef %0, ptr noundef null, i32 noundef %1)
-  ret i32 %call
+define internal i32 @InitSha512_Family(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !9
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 0, ptr %10, align 4, !tbaa !9
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %4
+  store i32 -173, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %28
+
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  %17 = load ptr, ptr %6, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %17, i32 0, i32 5
+  store ptr %16, ptr %18, align 8, !tbaa !11
+  %19 = load ptr, ptr %9, align 8, !tbaa !8
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = call i32 %19(ptr noundef %20)
+  store i32 %21, ptr %10, align 4, !tbaa !9
+  %22 = load i32, ptr %10, align 4, !tbaa !9
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %15
+  %25 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %25, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %28
+
+26:                                               ; preds = %15
+  %27 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %27, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %28
+
+28:                                               ; preds = %26, %24, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %29 = load i32, ptr %5, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
-define void @wc_Sha512Free(ptr noundef %sha512) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @InitSha512(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  br label %return
+6:                                                ; preds = %1
+  store i32 -173, ptr %2, align 4
+  br label %38
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %sha512.addr, align 8
-  call void @ForceZero(ptr noundef %1, i32 noundef 224)
-  br label %return
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [8 x i64], ptr %9, i64 0, i64 0
+  store i64 7640891576956012808, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds [8 x i64], ptr %12, i64 0, i64 1
+  store i64 -4942790177534073029, ptr %13, align 8, !tbaa !14
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [8 x i64], ptr %15, i64 0, i64 2
+  store i64 4354685564936845355, ptr %16, align 8, !tbaa !14
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds [8 x i64], ptr %18, i64 0, i64 3
+  store i64 -6534734903238641935, ptr %19, align 8, !tbaa !14
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds [8 x i64], ptr %21, i64 0, i64 4
+  store i64 5840696475078001361, ptr %22, align 8, !tbaa !14
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [8 x i64], ptr %24, i64 0, i64 5
+  store i64 -7276294671716946913, ptr %25, align 8, !tbaa !14
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [8 x i64], ptr %27, i64 0, i64 6
+  store i64 2270897969802886507, ptr %28, align 8, !tbaa !14
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds [8 x i64], ptr %30, i64 0, i64 7
+  store i64 6620516959819538809, ptr %31, align 8, !tbaa !14
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %32, i32 0, i32 2
+  store i32 0, ptr %33, align 8, !tbaa !15
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %34, i32 0, i32 3
+  store i64 0, ptr %35, align 8, !tbaa !16
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %36, i32 0, i32 4
+  store i64 0, ptr %37, align 8, !tbaa !17
+  store i32 0, ptr %2, align 4
+  br label %38
 
-return:                                           ; preds = %if.end, %if.then
-  ret void
+38:                                               ; preds = %7, %6
+  %39 = load i32, ptr %2, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ForceZero(ptr noundef %mem, i32 noundef %len) #0 {
-entry:
-  %mem.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %z = alloca ptr, align 8
-  %w = alloca ptr, align 8
-  %l = alloca i32, align 4
-  store ptr %mem, ptr %mem.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %mem.addr, align 8
-  store ptr %0, ptr %z, align 8
-  %1 = load ptr, ptr %z, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %and = and i64 %2, 7
-  %sub = sub i64 8, %and
-  %and1 = and i64 %sub, 7
-  %conv = trunc i64 %and1 to i32
-  store i32 %conv, ptr %l, align 4
-  %3 = load i32, ptr %len.addr, align 4
-  %4 = load i32, ptr %l, align 4
-  %cmp = icmp ult i32 %3, %4
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %len.addr, align 4
-  store i32 %5, ptr %l, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load i32, ptr %l, align 4
-  %7 = load i32, ptr %len.addr, align 4
-  %sub3 = sub i32 %7, %6
-  store i32 %sub3, ptr %len.addr, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  %8 = load i32, ptr %l, align 4
-  %dec = add i32 %8, -1
-  store i32 %dec, ptr %l, align 4
-  %tobool = icmp ne i32 %8, 0
-  br i1 %tobool, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %9 = load ptr, ptr %z, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %9, i32 1
-  store ptr %incdec.ptr, ptr %z, align 8
-  store volatile i8 0, ptr %9, align 1
-  br label %while.cond, !llvm.loop !6
-
-while.end:                                        ; preds = %while.cond
-  %10 = load ptr, ptr %z, align 8
-  store ptr %10, ptr %w, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %while.end
-  %11 = load i32, ptr %len.addr, align 4
-  %conv4 = zext i32 %11 to i64
-  %cmp5 = icmp uge i64 %conv4, 8
-  br i1 %cmp5, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %12 = load ptr, ptr %w, align 8
-  %incdec.ptr7 = getelementptr inbounds i64, ptr %12, i32 1
-  store ptr %incdec.ptr7, ptr %w, align 8
-  store volatile i64 0, ptr %12, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %13 = load i32, ptr %len.addr, align 4
-  %sub8 = sub i32 %13, 8
-  store i32 %sub8, ptr %len.addr, align 4
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %for.cond
-  %14 = load ptr, ptr %w, align 8
-  store ptr %14, ptr %z, align 8
-  br label %while.cond9
-
-while.cond9:                                      ; preds = %while.body12, %for.end
-  %15 = load i32, ptr %len.addr, align 4
-  %dec10 = add i32 %15, -1
-  store i32 %dec10, ptr %len.addr, align 4
-  %tobool11 = icmp ne i32 %15, 0
-  br i1 %tobool11, label %while.body12, label %while.end14
-
-while.body12:                                     ; preds = %while.cond9
-  %16 = load ptr, ptr %z, align 8
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %16, i32 1
-  store ptr %incdec.ptr13, ptr %z, align 8
-  store volatile i8 0, ptr %16, align 1
-  br label %while.cond9, !llvm.loop !8
-
-while.end14:                                      ; preds = %while.cond9
-  ret void
+define i32 @wc_InitSha512_224_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = call i32 @InitSha512_Family(ptr noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef @InitSha512_224)
+  ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_Sha384Update(ptr noundef %sha384, ptr noundef %data, i32 noundef %len) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha384.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  store ptr %sha384, ptr %sha384.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %sha384.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal i32 @InitSha512_224(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %data.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %land.lhs.true, label %if.end
+6:                                                ; preds = %1
+  store i32 -173, ptr %2, align 4
+  br label %38
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %2 = load i32, ptr %len.addr, align 4
-  %cmp2 = icmp ugt i32 %2, 0
-  br i1 %cmp2, label %if.then, label %if.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [8 x i64], ptr %9, i64 0, i64 0
+  store i64 -8341449602262348382, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds [8 x i64], ptr %12, i64 0, i64 1
+  store i64 8350123849800275158, ptr %13, align 8, !tbaa !14
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [8 x i64], ptr %15, i64 0, i64 2
+  store i64 2160240930085379202, ptr %16, align 8, !tbaa !14
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds [8 x i64], ptr %18, i64 0, i64 3
+  store i64 7466358040605728719, ptr %19, align 8, !tbaa !14
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds [8 x i64], ptr %21, i64 0, i64 4
+  store i64 1111592415079452072, ptr %22, align 8, !tbaa !14
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [8 x i64], ptr %24, i64 0, i64 5
+  store i64 8638871050018654530, ptr %25, align 8, !tbaa !14
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [8 x i64], ptr %27, i64 0, i64 6
+  store i64 4583966954114332360, ptr %28, align 8, !tbaa !14
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds [8 x i64], ptr %30, i64 0, i64 7
+  store i64 1230299281376055969, ptr %31, align 8, !tbaa !14
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %32, i32 0, i32 2
+  store i32 0, ptr %33, align 8, !tbaa !15
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %34, i32 0, i32 3
+  store i64 0, ptr %35, align 8, !tbaa !16
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %36, i32 0, i32 4
+  store i64 0, ptr %37, align 8, !tbaa !17
+  store i32 0, ptr %2, align 4
+  br label %38
 
-if.then:                                          ; preds = %land.lhs.true, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %7, %6
+  %39 = load i32, ptr %2, align 4
+  ret i32 %39
+}
 
-if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
-  %3 = load ptr, ptr %sha384.addr, align 8
-  %4 = load ptr, ptr %data.addr, align 8
-  %5 = load i32, ptr %len.addr, align 4
-  %call = call i32 @Sha512Update(ptr noundef %3, ptr noundef %4, i32 noundef %5)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+; Function Attrs: nounwind uwtable
+define i32 @wc_InitSha512_256_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = call i32 @InitSha512_Family(ptr noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef @InitSha512_256)
+  ret i32 %10
+}
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i32, ptr %retval, align 4
+; Function Attrs: nounwind uwtable
+define internal i32 @InitSha512_256(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %1
+  store i32 -173, ptr %2, align 4
+  br label %38
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [8 x i64], ptr %9, i64 0, i64 0
+  store i64 2463787394917988140, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds [8 x i64], ptr %12, i64 0, i64 1
+  store i64 -6965556091613846334, ptr %13, align 8, !tbaa !14
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [8 x i64], ptr %15, i64 0, i64 2
+  store i64 2563595384472711505, ptr %16, align 8, !tbaa !14
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds [8 x i64], ptr %18, i64 0, i64 3
+  store i64 -7622211418569250115, ptr %19, align 8, !tbaa !14
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds [8 x i64], ptr %21, i64 0, i64 4
+  store i64 -7626776825740460061, ptr %22, align 8, !tbaa !14
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [8 x i64], ptr %24, i64 0, i64 5
+  store i64 -4729309413028513390, ptr %25, align 8, !tbaa !14
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [8 x i64], ptr %27, i64 0, i64 6
+  store i64 3098927326965381290, ptr %28, align 8, !tbaa !14
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds [8 x i64], ptr %30, i64 0, i64 7
+  store i64 1060366662362279074, ptr %31, align 8, !tbaa !14
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %32, i32 0, i32 2
+  store i32 0, ptr %33, align 8, !tbaa !15
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %34, i32 0, i32 3
+  store i64 0, ptr %35, align 8, !tbaa !16
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %36, i32 0, i32 4
+  store i64 0, ptr %37, align 8, !tbaa !17
+  store i32 0, ptr %2, align 4
+  br label %38
+
+38:                                               ; preds = %7, %6
+  %39 = load i32, ptr %2, align 4
+  ret i32 %39
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512Update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %3
+  store i32 -173, ptr %4, align 4
+  br label %27
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !18
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %11
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  store i32 0, ptr %4, align 4
+  br label %27
+
+18:                                               ; preds = %14, %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !18
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %18
+  store i32 -173, ptr %4, align 4
+  br label %27
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  %24 = load ptr, ptr %6, align 8, !tbaa !18
+  %25 = load i32, ptr %7, align 4, !tbaa !9
+  %26 = call i32 @Sha512Update(ptr noundef %23, ptr noundef %24, i32 noundef %25)
+  store i32 %26, ptr %4, align 4
+  br label %27
+
+27:                                               ; preds = %22, %21, %17, %10
+  %28 = load i32, ptr %4, align 4
+  ret i32 %28
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Sha512Update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds [16 x i64], ptr %13, i64 0, i64 0
+  store ptr %14, ptr %9, align 8, !tbaa !18
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 8, !tbaa !15
+  %18 = icmp uge i32 %17, 128
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %3
+  store i32 -132, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %123
+
+20:                                               ; preds = %3
+  %21 = load i32, ptr %7, align 4, !tbaa !9
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %20
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %123
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %5, align 8, !tbaa !3
+  %26 = load i32, ptr %7, align 4, !tbaa !9
+  call void @AddLength(ptr noundef %25, i32 noundef %26)
+  %27 = load ptr, ptr %5, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %27, i32 0, i32 2
+  %29 = load i32, ptr %28, align 8, !tbaa !15
+  %30 = icmp ugt i32 %29, 0
+  br i1 %30, label %31, label %84
+
+31:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %32 = load i32, ptr %7, align 4, !tbaa !9
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8, !tbaa !15
+  %36 = sub i32 128, %35
+  %37 = call i32 @min(i32 noundef %32, i32 noundef %36)
+  store i32 %37, ptr %11, align 4, !tbaa !9
+  %38 = load i32, ptr %11, align 4, !tbaa !9
+  %39 = icmp ugt i32 %38, 0
+  br i1 %39, label %40, label %62
+
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %9, align 8, !tbaa !18
+  %42 = load ptr, ptr %5, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8, !tbaa !15
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 %45
+  %47 = load ptr, ptr %6, align 8, !tbaa !18
+  %48 = load i32, ptr %11, align 4, !tbaa !9
+  %49 = zext i32 %48 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 1 %47, i64 %49, i1 false)
+  %50 = load i32, ptr %11, align 4, !tbaa !9
+  %51 = load ptr, ptr %5, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %51, i32 0, i32 2
+  %53 = load i32, ptr %52, align 8, !tbaa !15
+  %54 = add i32 %53, %50
+  store i32 %54, ptr %52, align 8, !tbaa !15
+  %55 = load i32, ptr %11, align 4, !tbaa !9
+  %56 = load ptr, ptr %6, align 8, !tbaa !18
+  %57 = zext i32 %55 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
+  store ptr %58, ptr %6, align 8, !tbaa !18
+  %59 = load i32, ptr %11, align 4, !tbaa !9
+  %60 = load i32, ptr %7, align 4, !tbaa !9
+  %61 = sub i32 %60, %59
+  store i32 %61, ptr %7, align 4, !tbaa !9
+  br label %62
+
+62:                                               ; preds = %40, %31
+  %63 = load ptr, ptr %5, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %63, i32 0, i32 2
+  %65 = load i32, ptr %64, align 8, !tbaa !15
+  %66 = icmp eq i32 %65, 128
+  br i1 %66, label %67, label %83
+
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %68, i32 0, i32 1
+  %70 = getelementptr inbounds [16 x i64], ptr %69, i64 0, i64 0
+  %71 = load ptr, ptr %5, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %71, i32 0, i32 1
+  %73 = getelementptr inbounds [16 x i64], ptr %72, i64 0, i64 0
+  call void @ByteReverseWords64(ptr noundef %70, ptr noundef %73, i32 noundef 128)
+  %74 = load ptr, ptr %5, align 8, !tbaa !3
+  %75 = call i32 @_Transform_Sha512(ptr noundef %74)
+  store i32 %75, ptr %8, align 4, !tbaa !9
+  %76 = load i32, ptr %8, align 4, !tbaa !9
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %81
+
+78:                                               ; preds = %67
+  %79 = load ptr, ptr %5, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %79, i32 0, i32 2
+  store i32 0, ptr %80, align 8, !tbaa !15
+  br label %82
+
+81:                                               ; preds = %67
+  store i32 0, ptr %7, align 4, !tbaa !9
+  br label %82
+
+82:                                               ; preds = %81, %78
+  br label %83
+
+83:                                               ; preds = %82, %62
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  br label %84
+
+84:                                               ; preds = %83, %24
+  br label %85
+
+85:                                               ; preds = %106, %84
+  %86 = load i32, ptr %7, align 4, !tbaa !9
+  %87 = icmp uge i32 %86, 128
+  br i1 %87, label %88, label %107
+
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %9, align 8, !tbaa !18
+  %90 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr align 1 %90, i64 128, i1 false)
+  %91 = load ptr, ptr %6, align 8, !tbaa !18
+  %92 = getelementptr inbounds i8, ptr %91, i64 128
+  store ptr %92, ptr %6, align 8, !tbaa !18
+  %93 = load i32, ptr %7, align 4, !tbaa !9
+  %94 = sub i32 %93, 128
+  store i32 %94, ptr %7, align 4, !tbaa !9
+  %95 = load ptr, ptr %5, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %95, i32 0, i32 1
+  %97 = getelementptr inbounds [16 x i64], ptr %96, i64 0, i64 0
+  %98 = load ptr, ptr %5, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %98, i32 0, i32 1
+  %100 = getelementptr inbounds [16 x i64], ptr %99, i64 0, i64 0
+  call void @ByteReverseWords64(ptr noundef %97, ptr noundef %100, i32 noundef 128)
+  %101 = load ptr, ptr %5, align 8, !tbaa !3
+  %102 = call i32 @_Transform_Sha512(ptr noundef %101)
+  store i32 %102, ptr %8, align 4, !tbaa !9
+  %103 = load i32, ptr %8, align 4, !tbaa !9
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %106
+
+105:                                              ; preds = %88
+  br label %107
+
+106:                                              ; preds = %88
+  br label %85, !llvm.loop !20
+
+107:                                              ; preds = %105, %85
+  %108 = load i32, ptr %8, align 4, !tbaa !9
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %121
+
+110:                                              ; preds = %107
+  %111 = load i32, ptr %7, align 4, !tbaa !9
+  %112 = icmp ugt i32 %111, 0
+  br i1 %112, label %113, label %121
+
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %9, align 8, !tbaa !18
+  %115 = load ptr, ptr %6, align 8, !tbaa !18
+  %116 = load i32, ptr %7, align 4, !tbaa !9
+  %117 = zext i32 %116 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr align 1 %115, i64 %117, i1 false)
+  %118 = load i32, ptr %7, align 4, !tbaa !9
+  %119 = load ptr, ptr %5, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %119, i32 0, i32 2
+  store i32 %118, ptr %120, align 8, !tbaa !15
+  br label %121
+
+121:                                              ; preds = %113, %110, %107
+  %122 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %122, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %123
+
+123:                                              ; preds = %121, %23, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %124 = load i32, ptr %4, align 4
+  ret i32 %124
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512FinalRaw(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512FinalRaw(ptr noundef %5, ptr noundef %6, i64 noundef 64)
+  ret i32 %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @Sha512FinalRaw(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store i64 %2, ptr %7, align 8, !tbaa !14
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !18
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %10, %3
+  store i32 -173, ptr %4, align 4
+  br label %26
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %15, i32 0, i32 0
+  %17 = getelementptr inbounds [8 x i64], ptr %16, i64 0, i64 0
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [8 x i64], ptr %19, i64 0, i64 0
+  call void @ByteReverseWords64(ptr noundef %17, ptr noundef %20, i32 noundef 64)
+  %21 = load ptr, ptr %6, align 8, !tbaa !18
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %22, i32 0, i32 0
+  %24 = getelementptr inbounds [8 x i64], ptr %23, i64 0, i64 0
+  %25 = load i64, ptr %7, align 8, !tbaa !14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 8 %24, i64 %25, i1 false)
+  store i32 0, ptr %4, align 4
+  br label %26
+
+26:                                               ; preds = %14, %13
+  %27 = load i32, ptr %4, align 4
+  ret i32 %27
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512Final(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512_Family_Final(ptr noundef %5, ptr noundef %6, i64 noundef 64, ptr noundef @InitSha512)
+  ret i32 %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @Sha512_Family_Final(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !18
+  store i64 %2, ptr %8, align 8, !tbaa !14
+  store ptr %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %17, label %14
+
+14:                                               ; preds = %4
+  %15 = load ptr, ptr %7, align 8, !tbaa !18
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14, %4
+  store i32 -173, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %20 = call i32 @Sha512Final(ptr noundef %19)
+  store i32 %20, ptr %10, align 4, !tbaa !9
+  %21 = load i32, ptr %10, align 4, !tbaa !9
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %18
+  %24 = load i32, ptr %10, align 4, !tbaa !9
+  store i32 %24, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %7, align 8, !tbaa !18
+  %27 = load ptr, ptr %6, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %27, i32 0, i32 0
+  %29 = getelementptr inbounds [8 x i64], ptr %28, i64 0, i64 0
+  %30 = load i64, ptr %8, align 8, !tbaa !14
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 8 %29, i64 %30, i1 false)
+  %31 = load ptr, ptr %9, align 8, !tbaa !8
+  %32 = load ptr, ptr %6, align 8, !tbaa !3
+  %33 = call i32 %31(ptr noundef %32)
+  store i32 %33, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
+
+34:                                               ; preds = %25, %23, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %35 = load i32, ptr %5, align 4
+  ret i32 %35
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @wc_InitSha512(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  store i32 -2, ptr %3, align 4, !tbaa !9
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load i32, ptr %3, align 4, !tbaa !9
+  %6 = call i32 @wc_InitSha512_ex(ptr noundef %4, ptr noundef null, i32 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
   ret i32 %6
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define i32 @wc_Sha384FinalRaw(ptr noundef %sha384, ptr noundef %hash) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha384.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  %digest = alloca [6 x i64], align 16
-  store ptr %sha384, ptr %sha384.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha384.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define void @wc_Sha512Free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %hash.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
+5:                                                ; preds = %1
+  br label %8
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @ForceZero(ptr noundef %7, i32 noundef 224)
+  br label %8
 
-if.end:                                           ; preds = %lor.lhs.false
-  %arraydecay = getelementptr inbounds [6 x i64], ptr %digest, i64 0, i64 0
-  %2 = load ptr, ptr %sha384.addr, align 8
-  %digest2 = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 0
-  %arraydecay3 = getelementptr inbounds [8 x i64], ptr %digest2, i64 0, i64 0
-  call void @ByteReverseWords64(ptr noundef %arraydecay, ptr noundef %arraydecay3, i32 noundef 48)
-  %3 = load ptr, ptr %hash.addr, align 8
-  %arraydecay4 = getelementptr inbounds [6 x i64], ptr %digest, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 16 %arraydecay4, i64 48, i1 false)
-  store i32 0, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %6, %5
+  ret void
+}
 
-return:                                           ; preds = %if.end, %if.then
-  %4 = load i32, ptr %retval, align 4
-  ret i32 %4
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ForceZero(ptr noundef %0, i32 noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  store ptr %8, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  %9 = load ptr, ptr %5, align 8, !tbaa !18
+  %10 = ptrtoint ptr %9 to i64
+  %11 = and i64 %10, 7
+  %12 = sub i64 8, %11
+  %13 = and i64 %12, 7
+  %14 = trunc i64 %13 to i32
+  store i32 %14, ptr %7, align 4, !tbaa !9
+  %15 = load i32, ptr %4, align 4, !tbaa !9
+  %16 = load i32, ptr %7, align 4, !tbaa !9
+  %17 = icmp ult i32 %15, %16
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %2
+  %19 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %19, ptr %7, align 4, !tbaa !9
+  br label %20
+
+20:                                               ; preds = %18, %2
+  %21 = load i32, ptr %7, align 4, !tbaa !9
+  %22 = load i32, ptr %4, align 4, !tbaa !9
+  %23 = sub i32 %22, %21
+  store i32 %23, ptr %4, align 4, !tbaa !9
+  br label %24
+
+24:                                               ; preds = %28, %20
+  %25 = load i32, ptr %7, align 4, !tbaa !9
+  %26 = add i32 %25, -1
+  store i32 %26, ptr %7, align 4, !tbaa !9
+  %27 = icmp ne i32 %25, 0
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %5, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw i8, ptr %29, i32 1
+  store ptr %30, ptr %5, align 8, !tbaa !18
+  store volatile i8 0, ptr %29, align 1, !tbaa !22
+  br label %24, !llvm.loop !23
+
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %5, align 8, !tbaa !18
+  store ptr %32, ptr %6, align 8, !tbaa !24
+  br label %33
+
+33:                                               ; preds = %40, %31
+  %34 = load i32, ptr %4, align 4, !tbaa !9
+  %35 = zext i32 %34 to i64
+  %36 = icmp uge i64 %35, 8
+  br i1 %36, label %37, label %43
+
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8, !tbaa !24
+  %39 = getelementptr inbounds nuw i64, ptr %38, i32 1
+  store ptr %39, ptr %6, align 8, !tbaa !24
+  store volatile i64 0, ptr %38, align 8, !tbaa !14
+  br label %40
+
+40:                                               ; preds = %37
+  %41 = load i32, ptr %4, align 4, !tbaa !9
+  %42 = sub i32 %41, 8
+  store i32 %42, ptr %4, align 4, !tbaa !9
+  br label %33, !llvm.loop !26
+
+43:                                               ; preds = %33
+  %44 = load ptr, ptr %6, align 8, !tbaa !24
+  store ptr %44, ptr %5, align 8, !tbaa !18
+  br label %45
+
+45:                                               ; preds = %49, %43
+  %46 = load i32, ptr %4, align 4, !tbaa !9
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %4, align 4, !tbaa !9
+  %48 = icmp ne i32 %46, 0
+  br i1 %48, label %49, label %52
+
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %5, align 8, !tbaa !18
+  %51 = getelementptr inbounds nuw i8, ptr %50, i32 1
+  store ptr %51, ptr %5, align 8, !tbaa !18
+  store volatile i8 0, ptr %50, align 1, !tbaa !22
+  br label %45, !llvm.loop !27
+
+52:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ByteReverseWords64(ptr noundef %out, ptr noundef %in, i32 noundef %byteCount) #0 {
-entry:
-  %out.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %byteCount.addr = alloca i32, align 4
-  %count = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i32 %byteCount, ptr %byteCount.addr, align 4
-  %0 = load i32, ptr %byteCount.addr, align 4
-  %div = udiv i32 %0, 8
-  store i32 %div, ptr %count, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define i32 @wc_Sha384Update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %2 = load i32, ptr %count, align 4
-  %cmp = icmp ult i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %3
+  store i32 -173, ptr %4, align 4
+  br label %27
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %in.addr, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i64, ptr %3, i64 %idxprom
-  %5 = load i64, ptr %arrayidx, align 8
-  %call = call i64 @ByteReverseWord64(i64 noundef %5)
-  %6 = load ptr, ptr %out.addr, align 8
-  %7 = load i32, ptr %i, align 4
-  %idxprom1 = zext i32 %7 to i64
-  %arrayidx2 = getelementptr inbounds i64, ptr %6, i64 %idxprom1
-  store i64 %call, ptr %arrayidx2, align 8
-  br label %for.inc
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !18
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %18
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i32, ptr %i, align 4
-  %inc = add i32 %8, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+14:                                               ; preds = %11
+  %15 = load i32, ptr %7, align 4, !tbaa !9
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %18
 
-for.end:                                          ; preds = %for.cond
+17:                                               ; preds = %14
+  store i32 0, ptr %4, align 4
+  br label %27
+
+18:                                               ; preds = %14, %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !18
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %18
+  store i32 -173, ptr %4, align 4
+  br label %27
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  %24 = load ptr, ptr %6, align 8, !tbaa !18
+  %25 = load i32, ptr %7, align 4, !tbaa !9
+  %26 = call i32 @Sha512Update(ptr noundef %23, ptr noundef %24, i32 noundef %25)
+  store i32 %26, ptr %4, align 4
+  br label %27
+
+27:                                               ; preds = %22, %21, %17, %10
+  %28 = load i32, ptr %4, align 4
+  ret i32 %28
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha384FinalRaw(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %11, label %8
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %5, align 8, !tbaa !18
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %8, %2
+  store i32 -173, ptr %3, align 4
+  br label %23
+
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds [8 x i64], ptr %14, i64 0, i64 0
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [8 x i64], ptr %17, i64 0, i64 0
+  call void @ByteReverseWords64(ptr noundef %15, ptr noundef %18, i32 noundef 48)
+  %19 = load ptr, ptr %5, align 8, !tbaa !18
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds [8 x i64], ptr %21, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 8 %22, i64 48, i1 false)
+  store i32 0, ptr %3, align 4
+  br label %23
+
+23:                                               ; preds = %12, %11
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @ByteReverseWords64(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = udiv i32 %9, 8
+  store i32 %10, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 0, ptr %8, align 4, !tbaa !9
+  br label %11
+
+11:                                               ; preds = %26, %3
+  %12 = load i32, ptr %8, align 4, !tbaa !9
+  %13 = load i32, ptr %7, align 4, !tbaa !9
+  %14 = icmp ult i32 %12, %13
+  br i1 %14, label %15, label %29
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8, !tbaa !24
+  %17 = load i32, ptr %8, align 4, !tbaa !9
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !14
+  %21 = call i64 @ByteReverseWord64(i64 noundef %20)
+  %22 = load ptr, ptr %4, align 8, !tbaa !24
+  %23 = load i32, ptr %8, align 4, !tbaa !9
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
+  store i64 %21, ptr %25, align 8, !tbaa !14
+  br label %26
+
+26:                                               ; preds = %15
+  %27 = load i32, ptr %8, align 4, !tbaa !9
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %8, align 4, !tbaa !9
+  br label %11, !llvm.loop !28
+
+29:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_Sha384Final(ptr noundef %sha384, ptr noundef %hash) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha384.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %sha384, ptr %sha384.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha384.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @wc_Sha384Final(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %hash.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !18
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %10, %2
+  store i32 -173, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %sha384.addr, align 8
-  %call = call i32 @Sha512Final(ptr noundef %2)
-  store i32 %call, ptr %ret, align 4
-  %3 = load i32, ptr %ret, align 4
-  %cmp2 = icmp ne i32 %3, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = call i32 @Sha512Final(ptr noundef %15)
+  store i32 %16, ptr %6, align 4, !tbaa !9
+  %17 = load i32, ptr %6, align 4, !tbaa !9
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %21
 
-if.then3:                                         ; preds = %if.end
-  %4 = load i32, ptr %ret, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %14
+  %20 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %20, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-if.end4:                                          ; preds = %if.end
-  %5 = load ptr, ptr %hash.addr, align 8
-  %6 = load ptr, ptr %sha384.addr, align 8
-  %digest = getelementptr inbounds %struct.wc_Sha512, ptr %6, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 8 %arraydecay, i64 48, i1 false)
-  %7 = load ptr, ptr %sha384.addr, align 8
-  %call5 = call i32 @InitSha384(ptr noundef %7)
-  store i32 %call5, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %5, align 8, !tbaa !18
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [8 x i64], ptr %24, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 8 %25, i64 48, i1 false)
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = call i32 @InitSha384(ptr noundef %26)
+  store i32 %27, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+28:                                               ; preds = %21, %19, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @Sha512Final(ptr noundef %0) #1 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %1
+  store i32 -173, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %132
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %11, i32 0, i32 1
+  %13 = getelementptr inbounds [16 x i64], ptr %12, i64 0, i64 0
+  store ptr %13, ptr %5, align 8, !tbaa !18
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %15, align 8, !tbaa !15
+  %17 = icmp ugt i32 %16, 127
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %10
+  store i32 -192, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %132
+
+19:                                               ; preds = %10
+  %20 = load ptr, ptr %5, align 8, !tbaa !18
+  %21 = load ptr, ptr %3, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %22, align 8, !tbaa !15
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %22, align 8, !tbaa !15
+  %25 = zext i32 %23 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %25
+  store i8 -128, ptr %26, align 1, !tbaa !22
+  %27 = load ptr, ptr %3, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %27, i32 0, i32 2
+  %29 = load i32, ptr %28, align 8, !tbaa !15
+  %30 = icmp ugt i32 %29, 112
+  br i1 %30, label %31, label %72
+
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %32, i32 0, i32 2
+  %34 = load i32, ptr %33, align 8, !tbaa !15
+  %35 = icmp ult i32 %34, 128
+  br i1 %35, label %36, label %48
+
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %5, align 8, !tbaa !18
+  %38 = load ptr, ptr %3, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 8, !tbaa !15
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 %41
+  %43 = load ptr, ptr %3, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %43, i32 0, i32 2
+  %45 = load i32, ptr %44, align 8, !tbaa !15
+  %46 = sub i32 128, %45
+  %47 = zext i32 %46 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %47, i1 false)
+  br label %48
+
+48:                                               ; preds = %36, %31
+  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %49, i32 0, i32 2
+  %51 = load i32, ptr %50, align 8, !tbaa !15
+  %52 = sub i32 128, %51
+  %53 = load ptr, ptr %3, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %53, i32 0, i32 2
+  %55 = load i32, ptr %54, align 8, !tbaa !15
+  %56 = add i32 %55, %52
+  store i32 %56, ptr %54, align 8, !tbaa !15
+  %57 = load ptr, ptr %3, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %57, i32 0, i32 1
+  %59 = getelementptr inbounds [16 x i64], ptr %58, i64 0, i64 0
+  %60 = load ptr, ptr %3, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %60, i32 0, i32 1
+  %62 = getelementptr inbounds [16 x i64], ptr %61, i64 0, i64 0
+  call void @ByteReverseWords64(ptr noundef %59, ptr noundef %62, i32 noundef 128)
+  %63 = load ptr, ptr %3, align 8, !tbaa !3
+  %64 = call i32 @_Transform_Sha512(ptr noundef %63)
+  store i32 %64, ptr %4, align 4, !tbaa !9
+  %65 = load i32, ptr %4, align 4, !tbaa !9
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %69
+
+67:                                               ; preds = %48
+  %68 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %68, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %132
+
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %3, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %70, i32 0, i32 2
+  store i32 0, ptr %71, align 8, !tbaa !15
+  br label %72
+
+72:                                               ; preds = %69, %19
+  %73 = load ptr, ptr %5, align 8, !tbaa !18
+  %74 = load ptr, ptr %3, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %74, i32 0, i32 2
+  %76 = load i32, ptr %75, align 8, !tbaa !15
+  %77 = zext i32 %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 %77
+  %79 = load ptr, ptr %3, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %79, i32 0, i32 2
+  %81 = load i32, ptr %80, align 8, !tbaa !15
+  %82 = sub i32 112, %81
+  %83 = zext i32 %82 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %78, i8 0, i64 %83, i1 false)
+  %84 = load ptr, ptr %3, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %84, i32 0, i32 3
+  %86 = load i64, ptr %85, align 8, !tbaa !16
+  %87 = lshr i64 %86, 61
+  %88 = load ptr, ptr %3, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %88, i32 0, i32 4
+  %90 = load i64, ptr %89, align 8, !tbaa !17
+  %91 = shl i64 %90, 3
+  %92 = add i64 %87, %91
+  %93 = load ptr, ptr %3, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %93, i32 0, i32 4
+  store i64 %92, ptr %94, align 8, !tbaa !17
+  %95 = load ptr, ptr %3, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %95, i32 0, i32 3
+  %97 = load i64, ptr %96, align 8, !tbaa !16
+  %98 = shl i64 %97, 3
+  %99 = load ptr, ptr %3, align 8, !tbaa !3
+  %100 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %99, i32 0, i32 3
+  store i64 %98, ptr %100, align 8, !tbaa !16
+  %101 = load ptr, ptr %3, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %101, i32 0, i32 1
+  %103 = getelementptr inbounds [16 x i64], ptr %102, i64 0, i64 0
+  %104 = load ptr, ptr %3, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %104, i32 0, i32 1
+  %106 = getelementptr inbounds [16 x i64], ptr %105, i64 0, i64 0
+  call void @ByteReverseWords64(ptr noundef %103, ptr noundef %106, i32 noundef 112)
+  %107 = load ptr, ptr %3, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %107, i32 0, i32 4
+  %109 = load i64, ptr %108, align 8, !tbaa !17
+  %110 = load ptr, ptr %3, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %110, i32 0, i32 1
+  %112 = getelementptr inbounds nuw [16 x i64], ptr %111, i64 0, i64 14
+  store i64 %109, ptr %112, align 8, !tbaa !14
+  %113 = load ptr, ptr %3, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %113, i32 0, i32 3
+  %115 = load i64, ptr %114, align 8, !tbaa !16
+  %116 = load ptr, ptr %3, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %116, i32 0, i32 1
+  %118 = getelementptr inbounds nuw [16 x i64], ptr %117, i64 0, i64 15
+  store i64 %115, ptr %118, align 8, !tbaa !14
+  %119 = load ptr, ptr %3, align 8, !tbaa !3
+  %120 = call i32 @_Transform_Sha512(ptr noundef %119)
+  store i32 %120, ptr %4, align 4, !tbaa !9
+  %121 = load i32, ptr %4, align 4, !tbaa !9
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %125
+
+123:                                              ; preds = %72
+  %124 = load i32, ptr %4, align 4, !tbaa !9
+  store i32 %124, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %132
+
+125:                                              ; preds = %72
+  %126 = load ptr, ptr %3, align 8, !tbaa !3
+  %127 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %126, i32 0, i32 0
+  %128 = getelementptr inbounds [8 x i64], ptr %127, i64 0, i64 0
+  %129 = load ptr, ptr %3, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %129, i32 0, i32 0
+  %131 = getelementptr inbounds [8 x i64], ptr %130, i64 0, i64 0
+  call void @ByteReverseWords64(ptr noundef %128, ptr noundef %131, i32 noundef 64)
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %132
+
+132:                                              ; preds = %125, %123, %67, %18, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %133 = load i32, ptr %2, align 4
+  ret i32 %133
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Sha512Final(ptr noundef %sha512) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %local = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @InitSha384(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+6:                                                ; preds = %1
+  store i32 -173, ptr %2, align 4
+  br label %38
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %sha512.addr, align 8
-  %buffer = getelementptr inbounds %struct.wc_Sha512, ptr %1, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [16 x i64], ptr %buffer, i64 0, i64 0
-  store ptr %arraydecay, ptr %local, align 8
-  %2 = load ptr, ptr %sha512.addr, align 8
-  %buffLen = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 2
-  %3 = load i32, ptr %buffLen, align 8
-  %cmp1 = icmp ugt i32 %3, 127
-  br i1 %cmp1, label %if.then2, label %if.end3
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [8 x i64], ptr %9, i64 0, i64 0
+  store i64 -3766243637369397544, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds [8 x i64], ptr %12, i64 0, i64 1
+  store i64 7105036623409894663, ptr %13, align 8, !tbaa !14
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %14, i32 0, i32 0
+  %16 = getelementptr inbounds [8 x i64], ptr %15, i64 0, i64 2
+  store i64 -7973340178411365097, ptr %16, align 8, !tbaa !14
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %17, i32 0, i32 0
+  %19 = getelementptr inbounds [8 x i64], ptr %18, i64 0, i64 3
+  store i64 1526699215303891257, ptr %19, align 8, !tbaa !14
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds [8 x i64], ptr %21, i64 0, i64 4
+  store i64 7436329637833083697, ptr %22, align 8, !tbaa !14
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %23, i32 0, i32 0
+  %25 = getelementptr inbounds [8 x i64], ptr %24, i64 0, i64 5
+  store i64 -8163818279084223215, ptr %25, align 8, !tbaa !14
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [8 x i64], ptr %27, i64 0, i64 6
+  store i64 -2662702644619276377, ptr %28, align 8, !tbaa !14
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %29, i32 0, i32 0
+  %31 = getelementptr inbounds [8 x i64], ptr %30, i64 0, i64 7
+  store i64 5167115440072839076, ptr %31, align 8, !tbaa !14
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %32, i32 0, i32 2
+  store i32 0, ptr %33, align 8, !tbaa !15
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %34, i32 0, i32 3
+  store i64 0, ptr %35, align 8, !tbaa !16
+  %36 = load ptr, ptr %3, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %36, i32 0, i32 4
+  store i64 0, ptr %37, align 8, !tbaa !17
+  store i32 0, ptr %2, align 4
+  br label %38
 
-if.then2:                                         ; preds = %if.end
-  store i32 -192, ptr %retval, align 4
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %local, align 8
-  %5 = load ptr, ptr %sha512.addr, align 8
-  %buffLen4 = getelementptr inbounds %struct.wc_Sha512, ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %buffLen4, align 8
-  %inc = add i32 %6, 1
-  store i32 %inc, ptr %buffLen4, align 8
-  %idxprom = zext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %idxprom
-  store i8 -128, ptr %arrayidx, align 1
-  %7 = load ptr, ptr %sha512.addr, align 8
-  %buffLen5 = getelementptr inbounds %struct.wc_Sha512, ptr %7, i32 0, i32 2
-  %8 = load i32, ptr %buffLen5, align 8
-  %cmp6 = icmp ugt i32 %8, 112
-  br i1 %cmp6, label %if.then7, label %if.end24
-
-if.then7:                                         ; preds = %if.end3
-  %9 = load ptr, ptr %local, align 8
-  %10 = load ptr, ptr %sha512.addr, align 8
-  %buffLen8 = getelementptr inbounds %struct.wc_Sha512, ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %buffLen8, align 8
-  %idxprom9 = zext i32 %11 to i64
-  %arrayidx10 = getelementptr inbounds i8, ptr %9, i64 %idxprom9
-  %12 = load ptr, ptr %sha512.addr, align 8
-  %buffLen11 = getelementptr inbounds %struct.wc_Sha512, ptr %12, i32 0, i32 2
-  %13 = load i32, ptr %buffLen11, align 8
-  %sub = sub i32 128, %13
-  %conv = zext i32 %sub to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %arrayidx10, i8 0, i64 %conv, i1 false)
-  %14 = load ptr, ptr %sha512.addr, align 8
-  %buffLen12 = getelementptr inbounds %struct.wc_Sha512, ptr %14, i32 0, i32 2
-  %15 = load i32, ptr %buffLen12, align 8
-  %sub13 = sub i32 128, %15
-  %16 = load ptr, ptr %sha512.addr, align 8
-  %buffLen14 = getelementptr inbounds %struct.wc_Sha512, ptr %16, i32 0, i32 2
-  %17 = load i32, ptr %buffLen14, align 8
-  %add = add i32 %17, %sub13
-  store i32 %add, ptr %buffLen14, align 8
-  %18 = load ptr, ptr %sha512.addr, align 8
-  %buffer15 = getelementptr inbounds %struct.wc_Sha512, ptr %18, i32 0, i32 1
-  %arraydecay16 = getelementptr inbounds [16 x i64], ptr %buffer15, i64 0, i64 0
-  %19 = load ptr, ptr %sha512.addr, align 8
-  %buffer17 = getelementptr inbounds %struct.wc_Sha512, ptr %19, i32 0, i32 1
-  %arraydecay18 = getelementptr inbounds [16 x i64], ptr %buffer17, i64 0, i64 0
-  call void @ByteReverseWords64(ptr noundef %arraydecay16, ptr noundef %arraydecay18, i32 noundef 128)
-  %20 = load ptr, ptr %sha512.addr, align 8
-  %call = call i32 @_Transform_Sha512(ptr noundef %20)
-  store i32 %call, ptr %ret, align 4
-  %21 = load i32, ptr %ret, align 4
-  %cmp19 = icmp ne i32 %21, 0
-  br i1 %cmp19, label %if.then21, label %if.end22
-
-if.then21:                                        ; preds = %if.then7
-  %22 = load i32, ptr %ret, align 4
-  store i32 %22, ptr %retval, align 4
-  br label %return
-
-if.end22:                                         ; preds = %if.then7
-  %23 = load ptr, ptr %sha512.addr, align 8
-  %buffLen23 = getelementptr inbounds %struct.wc_Sha512, ptr %23, i32 0, i32 2
-  store i32 0, ptr %buffLen23, align 8
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.end22, %if.end3
-  %24 = load ptr, ptr %local, align 8
-  %25 = load ptr, ptr %sha512.addr, align 8
-  %buffLen25 = getelementptr inbounds %struct.wc_Sha512, ptr %25, i32 0, i32 2
-  %26 = load i32, ptr %buffLen25, align 8
-  %idxprom26 = zext i32 %26 to i64
-  %arrayidx27 = getelementptr inbounds i8, ptr %24, i64 %idxprom26
-  %27 = load ptr, ptr %sha512.addr, align 8
-  %buffLen28 = getelementptr inbounds %struct.wc_Sha512, ptr %27, i32 0, i32 2
-  %28 = load i32, ptr %buffLen28, align 8
-  %sub29 = sub i32 112, %28
-  %conv30 = zext i32 %sub29 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %arrayidx27, i8 0, i64 %conv30, i1 false)
-  %29 = load ptr, ptr %sha512.addr, align 8
-  %loLen = getelementptr inbounds %struct.wc_Sha512, ptr %29, i32 0, i32 3
-  %30 = load i64, ptr %loLen, align 8
-  %shr = lshr i64 %30, 61
-  %31 = load ptr, ptr %sha512.addr, align 8
-  %hiLen = getelementptr inbounds %struct.wc_Sha512, ptr %31, i32 0, i32 4
-  %32 = load i64, ptr %hiLen, align 8
-  %shl = shl i64 %32, 3
-  %add31 = add i64 %shr, %shl
-  %33 = load ptr, ptr %sha512.addr, align 8
-  %hiLen32 = getelementptr inbounds %struct.wc_Sha512, ptr %33, i32 0, i32 4
-  store i64 %add31, ptr %hiLen32, align 8
-  %34 = load ptr, ptr %sha512.addr, align 8
-  %loLen33 = getelementptr inbounds %struct.wc_Sha512, ptr %34, i32 0, i32 3
-  %35 = load i64, ptr %loLen33, align 8
-  %shl34 = shl i64 %35, 3
-  %36 = load ptr, ptr %sha512.addr, align 8
-  %loLen35 = getelementptr inbounds %struct.wc_Sha512, ptr %36, i32 0, i32 3
-  store i64 %shl34, ptr %loLen35, align 8
-  %37 = load ptr, ptr %sha512.addr, align 8
-  %buffer36 = getelementptr inbounds %struct.wc_Sha512, ptr %37, i32 0, i32 1
-  %arraydecay37 = getelementptr inbounds [16 x i64], ptr %buffer36, i64 0, i64 0
-  %38 = load ptr, ptr %sha512.addr, align 8
-  %buffer38 = getelementptr inbounds %struct.wc_Sha512, ptr %38, i32 0, i32 1
-  %arraydecay39 = getelementptr inbounds [16 x i64], ptr %buffer38, i64 0, i64 0
-  call void @ByteReverseWords64(ptr noundef %arraydecay37, ptr noundef %arraydecay39, i32 noundef 112)
-  %39 = load ptr, ptr %sha512.addr, align 8
-  %hiLen40 = getelementptr inbounds %struct.wc_Sha512, ptr %39, i32 0, i32 4
-  %40 = load i64, ptr %hiLen40, align 8
-  %41 = load ptr, ptr %sha512.addr, align 8
-  %buffer41 = getelementptr inbounds %struct.wc_Sha512, ptr %41, i32 0, i32 1
-  %arrayidx42 = getelementptr inbounds [16 x i64], ptr %buffer41, i64 0, i64 14
-  store i64 %40, ptr %arrayidx42, align 8
-  %42 = load ptr, ptr %sha512.addr, align 8
-  %loLen43 = getelementptr inbounds %struct.wc_Sha512, ptr %42, i32 0, i32 3
-  %43 = load i64, ptr %loLen43, align 8
-  %44 = load ptr, ptr %sha512.addr, align 8
-  %buffer44 = getelementptr inbounds %struct.wc_Sha512, ptr %44, i32 0, i32 1
-  %arrayidx45 = getelementptr inbounds [16 x i64], ptr %buffer44, i64 0, i64 15
-  store i64 %43, ptr %arrayidx45, align 8
-  %45 = load ptr, ptr %sha512.addr, align 8
-  %call46 = call i32 @_Transform_Sha512(ptr noundef %45)
-  store i32 %call46, ptr %ret, align 4
-  %46 = load i32, ptr %ret, align 4
-  %cmp47 = icmp ne i32 %46, 0
-  br i1 %cmp47, label %if.then49, label %if.end50
-
-if.then49:                                        ; preds = %if.end24
-  %47 = load i32, ptr %ret, align 4
-  store i32 %47, ptr %retval, align 4
-  br label %return
-
-if.end50:                                         ; preds = %if.end24
-  %48 = load ptr, ptr %sha512.addr, align 8
-  %digest = getelementptr inbounds %struct.wc_Sha512, ptr %48, i32 0, i32 0
-  %arraydecay51 = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  %49 = load ptr, ptr %sha512.addr, align 8
-  %digest52 = getelementptr inbounds %struct.wc_Sha512, ptr %49, i32 0, i32 0
-  %arraydecay53 = getelementptr inbounds [8 x i64], ptr %digest52, i64 0, i64 0
-  call void @ByteReverseWords64(ptr noundef %arraydecay51, ptr noundef %arraydecay53, i32 noundef 64)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end50, %if.then49, %if.then21, %if.then2, %if.then
-  %50 = load i32, ptr %retval, align 4
-  ret i32 %50
+38:                                               ; preds = %7, %6
+  %39 = load i32, ptr %2, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @InitSha384(ptr noundef %sha384) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha384.addr = alloca ptr, align 8
-  store ptr %sha384, ptr %sha384.addr, align 8
-  %0 = load ptr, ptr %sha384.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @wc_InitSha384_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+12:                                               ; preds = %3
+  store i32 -173, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %25
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %sha384.addr, align 8
-  %digest = getelementptr inbounds %struct.wc_Sha512, ptr %1, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  store i64 -3766243637369397544, ptr %arrayidx, align 8
-  %2 = load ptr, ptr %sha384.addr, align 8
-  %digest1 = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 0
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %digest1, i64 0, i64 1
-  store i64 7105036623409894663, ptr %arrayidx2, align 8
-  %3 = load ptr, ptr %sha384.addr, align 8
-  %digest3 = getelementptr inbounds %struct.wc_Sha512, ptr %3, i32 0, i32 0
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %digest3, i64 0, i64 2
-  store i64 -7973340178411365097, ptr %arrayidx4, align 8
-  %4 = load ptr, ptr %sha384.addr, align 8
-  %digest5 = getelementptr inbounds %struct.wc_Sha512, ptr %4, i32 0, i32 0
-  %arrayidx6 = getelementptr inbounds [8 x i64], ptr %digest5, i64 0, i64 3
-  store i64 1526699215303891257, ptr %arrayidx6, align 8
-  %5 = load ptr, ptr %sha384.addr, align 8
-  %digest7 = getelementptr inbounds %struct.wc_Sha512, ptr %5, i32 0, i32 0
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %digest7, i64 0, i64 4
-  store i64 7436329637833083697, ptr %arrayidx8, align 8
-  %6 = load ptr, ptr %sha384.addr, align 8
-  %digest9 = getelementptr inbounds %struct.wc_Sha512, ptr %6, i32 0, i32 0
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %digest9, i64 0, i64 5
-  store i64 -8163818279084223215, ptr %arrayidx10, align 8
-  %7 = load ptr, ptr %sha384.addr, align 8
-  %digest11 = getelementptr inbounds %struct.wc_Sha512, ptr %7, i32 0, i32 0
-  %arrayidx12 = getelementptr inbounds [8 x i64], ptr %digest11, i64 0, i64 6
-  store i64 -2662702644619276377, ptr %arrayidx12, align 8
-  %8 = load ptr, ptr %sha384.addr, align 8
-  %digest13 = getelementptr inbounds %struct.wc_Sha512, ptr %8, i32 0, i32 0
-  %arrayidx14 = getelementptr inbounds [8 x i64], ptr %digest13, i64 0, i64 7
-  store i64 5167115440072839076, ptr %arrayidx14, align 8
-  %9 = load ptr, ptr %sha384.addr, align 8
-  %buffLen = getelementptr inbounds %struct.wc_Sha512, ptr %9, i32 0, i32 2
-  store i32 0, ptr %buffLen, align 8
-  %10 = load ptr, ptr %sha384.addr, align 8
-  %loLen = getelementptr inbounds %struct.wc_Sha512, ptr %10, i32 0, i32 3
-  store i64 0, ptr %loLen, align 8
-  %11 = load ptr, ptr %sha384.addr, align 8
-  %hiLen = getelementptr inbounds %struct.wc_Sha512, ptr %11, i32 0, i32 4
-  store i64 0, ptr %hiLen, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !8
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %15, i32 0, i32 5
+  store ptr %14, ptr %16, align 8, !tbaa !11
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = call i32 @InitSha384(ptr noundef %17)
+  store i32 %18, ptr %8, align 4, !tbaa !9
+  %19 = load i32, ptr %8, align 4, !tbaa !9
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %23
 
-return:                                           ; preds = %if.end, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+21:                                               ; preds = %13
+  %22 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %22, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %25
+
+23:                                               ; preds = %13
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %24, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %25
+
+25:                                               ; preds = %23, %21, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %26 = load i32, ptr %4, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_InitSha384_ex(ptr noundef %sha384, ptr noundef %heap, i32 noundef %devId) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha384.addr = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %devId.addr = alloca i32, align 4
-  %ret = alloca i32, align 4
-  store ptr %sha384, ptr %sha384.addr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i32 %devId, ptr %devId.addr, align 4
-  %0 = load ptr, ptr %sha384.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = load ptr, ptr %sha384.addr, align 8
-  %heap1 = getelementptr inbounds %struct.wc_Sha512, ptr %2, i32 0, i32 5
-  store ptr %1, ptr %heap1, align 8
-  %3 = load ptr, ptr %sha384.addr, align 8
-  %call = call i32 @InitSha384(ptr noundef %3)
-  store i32 %call, ptr %ret, align 4
-  %4 = load i32, ptr %ret, align 4
-  %cmp2 = icmp ne i32 %4, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %5 = load i32, ptr %ret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %6 = load i32, ptr %ret, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_InitSha384(ptr noundef %sha384) #0 {
-entry:
-  %sha384.addr = alloca ptr, align 8
-  %devId = alloca i32, align 4
-  store ptr %sha384, ptr %sha384.addr, align 8
-  store i32 -2, ptr %devId, align 4
-  %0 = load ptr, ptr %sha384.addr, align 8
-  %1 = load i32, ptr %devId, align 4
-  %call = call i32 @wc_InitSha384_ex(ptr noundef %0, ptr noundef null, i32 noundef %1)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define void @wc_Sha384Free(ptr noundef %sha384) #0 {
-entry:
-  %sha384.addr = alloca ptr, align 8
-  store ptr %sha384, ptr %sha384.addr, align 8
-  %0 = load ptr, ptr %sha384.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %sha384.addr, align 8
-  call void @ForceZero(ptr noundef %1, i32 noundef 224)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512GetHash(ptr noundef %sha512, ptr noundef %hash) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512_Family_GetHash(ptr noundef %0, ptr noundef %1, ptr noundef @wc_Sha512Final)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @Sha512_Family_GetHash(ptr noundef %sha512, ptr noundef %hash, ptr noundef %finalfp) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  %finalfp.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %tmpSha512 = alloca [1 x %struct.wc_Sha512], align 16
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %finalfp, ptr %finalfp.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %hash.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %sha512.addr, align 8
-  %arraydecay = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %tmpSha512, i64 0, i64 0
-  %call = call i32 @wc_Sha512Copy(ptr noundef %2, ptr noundef %arraydecay)
-  store i32 %call, ptr %ret, align 4
-  %3 = load i32, ptr %ret, align 4
-  %cmp2 = icmp eq i32 %3, 0
-  br i1 %cmp2, label %if.then3, label %if.end7
-
-if.then3:                                         ; preds = %if.end
-  %4 = load ptr, ptr %finalfp.addr, align 8
-  %arraydecay4 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %tmpSha512, i64 0, i64 0
-  %5 = load ptr, ptr %hash.addr, align 8
-  %call5 = call i32 %4(ptr noundef %arraydecay4, ptr noundef %5)
-  store i32 %call5, ptr %ret, align 4
-  %arraydecay6 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %tmpSha512, i64 0, i64 0
-  call void @wc_Sha512Free(ptr noundef %arraydecay6)
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then3, %if.end
-  %6 = load i32, ptr %ret, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end7, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512Copy(ptr noundef %src, ptr noundef %dst) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store i32 0, ptr %ret, align 4
-  %0 = load ptr, ptr %src.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %dst.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %dst.addr, align 8
-  %3 = load ptr, ptr %src.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 224, i1 false)
-  %4 = load i32, ptr %ret, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_InitSha512_224(ptr noundef %sha) #0 {
-entry:
-  %sha.addr = alloca ptr, align 8
-  store ptr %sha, ptr %sha.addr, align 8
-  %0 = load ptr, ptr %sha.addr, align 8
-  %call = call i32 @wc_InitSha512_224_ex(ptr noundef %0, ptr noundef null, i32 noundef -2)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_224Update(ptr noundef %sha, ptr noundef %data, i32 noundef %len) #0 {
-entry:
-  %sha.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  store ptr %sha, ptr %sha.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %sha.addr, align 8
-  %1 = load ptr, ptr %data.addr, align 8
-  %2 = load i32, ptr %len.addr, align 4
-  %call = call i32 @wc_Sha512Update(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_224FinalRaw(ptr noundef %sha, ptr noundef %hash) #0 {
-entry:
-  %sha.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha, ptr %sha.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512FinalRaw(ptr noundef %0, ptr noundef %1, i64 noundef 28)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_224Final(ptr noundef %sha512, ptr noundef %hash) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512_Family_Final(ptr noundef %0, ptr noundef %1, i64 noundef 28, ptr noundef @InitSha512_224)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define void @wc_Sha512_224Free(ptr noundef %sha) #0 {
-entry:
-  %sha.addr = alloca ptr, align 8
-  store ptr %sha, ptr %sha.addr, align 8
-  %0 = load ptr, ptr %sha.addr, align 8
-  call void @wc_Sha512Free(ptr noundef %0)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_224GetHash(ptr noundef %sha512, ptr noundef %hash) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512_Family_GetHash(ptr noundef %0, ptr noundef %1, ptr noundef @wc_Sha512_224Final)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_224Copy(ptr noundef %src, ptr noundef %dst) #0 {
-entry:
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  %0 = load ptr, ptr %src.addr, align 8
-  %1 = load ptr, ptr %dst.addr, align 8
-  %call = call i32 @wc_Sha512Copy(ptr noundef %0, ptr noundef %1)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_InitSha512_256(ptr noundef %sha) #0 {
-entry:
-  %sha.addr = alloca ptr, align 8
-  store ptr %sha, ptr %sha.addr, align 8
-  %0 = load ptr, ptr %sha.addr, align 8
-  %call = call i32 @wc_InitSha512_256_ex(ptr noundef %0, ptr noundef null, i32 noundef -2)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_256Update(ptr noundef %sha, ptr noundef %data, i32 noundef %len) #0 {
-entry:
-  %sha.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  store ptr %sha, ptr %sha.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %sha.addr, align 8
-  %1 = load ptr, ptr %data.addr, align 8
-  %2 = load i32, ptr %len.addr, align 4
-  %call = call i32 @wc_Sha512Update(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_256FinalRaw(ptr noundef %sha, ptr noundef %hash) #0 {
-entry:
-  %sha.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha, ptr %sha.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512FinalRaw(ptr noundef %0, ptr noundef %1, i64 noundef 32)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_256Final(ptr noundef %sha512, ptr noundef %hash) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512_Family_Final(ptr noundef %0, ptr noundef %1, i64 noundef 32, ptr noundef @InitSha512_256)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define void @wc_Sha512_256Free(ptr noundef %sha) #0 {
-entry:
-  %sha.addr = alloca ptr, align 8
-  store ptr %sha, ptr %sha.addr, align 8
-  %0 = load ptr, ptr %sha.addr, align 8
-  call void @wc_Sha512Free(ptr noundef %0)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_256GetHash(ptr noundef %sha512, ptr noundef %hash) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  %call = call i32 @Sha512_Family_GetHash(ptr noundef %0, ptr noundef %1, ptr noundef @wc_Sha512_256Final)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha512_256Copy(ptr noundef %src, ptr noundef %dst) #0 {
-entry:
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  %0 = load ptr, ptr %src.addr, align 8
-  %1 = load ptr, ptr %dst.addr, align 8
-  %call = call i32 @wc_Sha512Copy(ptr noundef %0, ptr noundef %1)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @wc_Sha384GetHash(ptr noundef %sha384, ptr noundef %hash) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sha384.addr = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  %tmpSha384 = alloca [1 x %struct.wc_Sha512], align 16
-  store ptr %sha384, ptr %sha384.addr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %sha384.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %hash.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %sha384.addr, align 8
-  %arraydecay = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %tmpSha384, i64 0, i64 0
-  %call = call i32 @wc_Sha384Copy(ptr noundef %2, ptr noundef %arraydecay)
-  store i32 %call, ptr %ret, align 4
-  %3 = load i32, ptr %ret, align 4
-  %cmp2 = icmp eq i32 %3, 0
-  br i1 %cmp2, label %if.then3, label %if.end7
-
-if.then3:                                         ; preds = %if.end
-  %arraydecay4 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %tmpSha384, i64 0, i64 0
-  %4 = load ptr, ptr %hash.addr, align 8
-  %call5 = call i32 @wc_Sha384Final(ptr noundef %arraydecay4, ptr noundef %4)
-  store i32 %call5, ptr %ret, align 4
-  %arraydecay6 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %tmpSha384, i64 0, i64 0
-  call void @wc_Sha384Free(ptr noundef %arraydecay6)
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then3, %if.end
-  %5 = load i32, ptr %ret, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end7, %if.then
-  %6 = load i32, ptr %retval, align 4
+define i32 @wc_InitSha384(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  store i32 -2, ptr %3, align 4, !tbaa !9
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load i32, ptr %3, align 4, !tbaa !9
+  %6 = call i32 @wc_InitSha384_ex(ptr noundef %4, ptr noundef null, i32 noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_Sha384Copy(ptr noundef %src, ptr noundef %dst) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %src.addr = alloca ptr, align 8
-  %dst.addr = alloca ptr, align 8
-  %ret = alloca i32, align 4
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store i32 0, ptr %ret, align 4
-  %0 = load ptr, ptr %src.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define void @wc_Sha384Free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %dst.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
+5:                                                ; preds = %1
+  br label %8
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 -173, ptr %retval, align 4
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @ForceZero(ptr noundef %7, i32 noundef 224)
+  br label %8
 
-if.end:                                           ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %dst.addr, align 8
-  %3 = load ptr, ptr %src.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 224, i1 false)
-  %4 = load i32, ptr %ret, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @AddLength(ptr noundef %sha512, i32 noundef %len) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %tmp = alloca i64, align 8
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %loLen = getelementptr inbounds %struct.wc_Sha512, ptr %0, i32 0, i32 3
-  %1 = load i64, ptr %loLen, align 8
-  store i64 %1, ptr %tmp, align 8
-  %2 = load i32, ptr %len.addr, align 4
-  %conv = zext i32 %2 to i64
-  %3 = load ptr, ptr %sha512.addr, align 8
-  %loLen1 = getelementptr inbounds %struct.wc_Sha512, ptr %3, i32 0, i32 3
-  %4 = load i64, ptr %loLen1, align 8
-  %add = add i64 %4, %conv
-  store i64 %add, ptr %loLen1, align 8
-  %5 = load i64, ptr %tmp, align 8
-  %cmp = icmp ult i64 %add, %5
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %sha512.addr, align 8
-  %hiLen = getelementptr inbounds %struct.wc_Sha512, ptr %6, i32 0, i32 4
-  %7 = load i64, ptr %hiLen, align 8
-  %inc = add i64 %7, 1
-  store i64 %inc, ptr %hiLen, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
+8:                                                ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @min(i32 noundef %a, i32 noundef %b) #0 {
-entry:
-  %a.addr = alloca i32, align 4
-  %b.addr = alloca i32, align 4
-  store i32 %a, ptr %a.addr, align 4
-  store i32 %b, ptr %b.addr, align 4
-  %0 = load i32, ptr %a.addr, align 4
-  %1 = load i32, ptr %b.addr, align 4
-  %cmp = icmp ugt i32 %0, %1
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %2 = load i32, ptr %b.addr, align 4
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %3 = load i32, ptr %a.addr, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %2, %cond.true ], [ %3, %cond.false ]
-  ret i32 %cond
+define i32 @wc_Sha512GetHash(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512_Family_GetHash(ptr noundef %5, ptr noundef %6, ptr noundef @wc_Sha512Final)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_Transform_Sha512(ptr noundef %sha512) #0 {
-entry:
-  %sha512.addr = alloca ptr, align 8
-  %K = alloca ptr, align 8
-  %j = alloca i32, align 4
-  %T = alloca [8 x i64], align 16
-  %W = alloca [16 x i64], align 16
-  store ptr %sha512, ptr %sha512.addr, align 8
-  store ptr @K512, ptr %K, align 8
-  %arraydecay = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %0 = load ptr, ptr %sha512.addr, align 8
-  %digest = getelementptr inbounds %struct.wc_Sha512, ptr %0, i32 0, i32 0
-  %arraydecay1 = getelementptr inbounds [8 x i64], ptr %digest, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %arraydecay, ptr align 8 %arraydecay1, i64 64, i1 false)
-  store i32 0, ptr %j, align 4
-  br label %for.cond
+define internal i32 @Sha512_Family_GetHash(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca [1 x %struct.wc_Sha512], align 16
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 224, ptr %9) #5
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %16, label %13
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %j, align 4
-  %cmp = icmp ult i32 %1, 80
-  br i1 %cmp, label %for.body, label %for.end
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !18
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %2 = load i64, ptr %arrayidx, align 16
-  %call = call i64 @rotrFixed64(i64 noundef %2, i64 noundef 14)
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %3 = load i64, ptr %arrayidx2, align 16
-  %call3 = call i64 @rotrFixed64(i64 noundef %3, i64 noundef 18)
-  %xor = xor i64 %call, %call3
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %4 = load i64, ptr %arrayidx4, align 16
-  %call5 = call i64 @rotrFixed64(i64 noundef %4, i64 noundef 41)
-  %xor6 = xor i64 %xor, %call5
-  %arrayidx7 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %5 = load i64, ptr %arrayidx7, align 16
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %6 = load i64, ptr %arrayidx8, align 16
-  %arrayidx9 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %7 = load i64, ptr %arrayidx9, align 8
-  %arrayidx10 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %8 = load i64, ptr %arrayidx10, align 16
-  %xor11 = xor i64 %7, %8
-  %and = and i64 %6, %xor11
-  %xor12 = xor i64 %5, %and
-  %add = add i64 %xor6, %xor12
-  %9 = load ptr, ptr %K, align 8
-  %10 = load i32, ptr %j, align 4
-  %add13 = add i32 0, %10
-  %idxprom = zext i32 %add13 to i64
-  %arrayidx14 = getelementptr inbounds i64, ptr %9, i64 %idxprom
-  %11 = load i64, ptr %arrayidx14, align 8
-  %add15 = add i64 %add, %11
-  %12 = load i32, ptr %j, align 4
-  %tobool = icmp ne i32 %12, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+16:                                               ; preds = %13, %3
+  store i32 -173, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %31
 
-cond.true:                                        ; preds = %for.body
-  %arrayidx16 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  %13 = load i64, ptr %arrayidx16, align 16
-  %call17 = call i64 @rotrFixed64(i64 noundef %13, i64 noundef 19)
-  %arrayidx18 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  %14 = load i64, ptr %arrayidx18, align 16
-  %call19 = call i64 @rotrFixed64(i64 noundef %14, i64 noundef 61)
-  %xor20 = xor i64 %call17, %call19
-  %arrayidx21 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  %15 = load i64, ptr %arrayidx21, align 16
-  %shr = lshr i64 %15, 6
-  %xor22 = xor i64 %xor20, %shr
-  %arrayidx23 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  %16 = load i64, ptr %arrayidx23, align 8
-  %add24 = add i64 %xor22, %16
-  %arrayidx25 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  %17 = load i64, ptr %arrayidx25, align 8
-  %call26 = call i64 @rotrFixed64(i64 noundef %17, i64 noundef 1)
-  %arrayidx27 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  %18 = load i64, ptr %arrayidx27, align 8
-  %call28 = call i64 @rotrFixed64(i64 noundef %18, i64 noundef 8)
-  %xor29 = xor i64 %call26, %call28
-  %arrayidx30 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  %19 = load i64, ptr %arrayidx30, align 8
-  %shr31 = lshr i64 %19, 7
-  %xor32 = xor i64 %xor29, %shr31
-  %add33 = add i64 %add24, %xor32
-  %arrayidx34 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  %20 = load i64, ptr %arrayidx34, align 16
-  %add35 = add i64 %20, %add33
-  store i64 %add35, ptr %arrayidx34, align 16
-  br label %cond.end
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %9, i64 0, i64 0
+  %20 = call i32 @wc_Sha512Copy(ptr noundef %18, ptr noundef %19)
+  store i32 %20, ptr %8, align 4, !tbaa !9
+  %21 = load i32, ptr %8, align 4, !tbaa !9
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %29
 
-cond.false:                                       ; preds = %for.body
-  %21 = load ptr, ptr %sha512.addr, align 8
-  %buffer = getelementptr inbounds %struct.wc_Sha512, ptr %21, i32 0, i32 1
-  %arrayidx36 = getelementptr inbounds [16 x i64], ptr %buffer, i64 0, i64 0
-  %22 = load i64, ptr %arrayidx36, align 8
-  %arrayidx37 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  store i64 %22, ptr %arrayidx37, align 16
-  br label %cond.end
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %7, align 8, !tbaa !8
+  %25 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %9, i64 0, i64 0
+  %26 = load ptr, ptr %6, align 8, !tbaa !18
+  %27 = call i32 %24(ptr noundef %25, ptr noundef %26)
+  store i32 %27, ptr %8, align 4, !tbaa !9
+  %28 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %9, i64 0, i64 0
+  call void @wc_Sha512Free(ptr noundef %28)
+  br label %29
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %add35, %cond.true ], [ %22, %cond.false ]
-  %add38 = add i64 %add15, %cond
-  %arrayidx39 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %23 = load i64, ptr %arrayidx39, align 8
-  %add40 = add i64 %23, %add38
-  store i64 %add40, ptr %arrayidx39, align 8
-  %arrayidx41 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %24 = load i64, ptr %arrayidx41, align 8
-  %arrayidx42 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %25 = load i64, ptr %arrayidx42, align 8
-  %add43 = add i64 %25, %24
-  store i64 %add43, ptr %arrayidx42, align 8
-  %arrayidx44 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %26 = load i64, ptr %arrayidx44, align 16
-  %call45 = call i64 @rotrFixed64(i64 noundef %26, i64 noundef 28)
-  %arrayidx46 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %27 = load i64, ptr %arrayidx46, align 16
-  %call47 = call i64 @rotrFixed64(i64 noundef %27, i64 noundef 34)
-  %xor48 = xor i64 %call45, %call47
-  %arrayidx49 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %28 = load i64, ptr %arrayidx49, align 16
-  %call50 = call i64 @rotrFixed64(i64 noundef %28, i64 noundef 39)
-  %xor51 = xor i64 %xor48, %call50
-  %arrayidx52 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %29 = load i64, ptr %arrayidx52, align 16
-  %arrayidx53 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %30 = load i64, ptr %arrayidx53, align 8
-  %and54 = and i64 %29, %30
-  %arrayidx55 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %31 = load i64, ptr %arrayidx55, align 16
-  %arrayidx56 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %32 = load i64, ptr %arrayidx56, align 16
-  %arrayidx57 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %33 = load i64, ptr %arrayidx57, align 8
-  %or = or i64 %32, %33
-  %and58 = and i64 %31, %or
-  %or59 = or i64 %and54, %and58
-  %add60 = add i64 %xor51, %or59
-  %arrayidx61 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %34 = load i64, ptr %arrayidx61, align 8
-  %add62 = add i64 %34, %add60
-  store i64 %add62, ptr %arrayidx61, align 8
-  %arrayidx63 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %35 = load i64, ptr %arrayidx63, align 8
-  %call64 = call i64 @rotrFixed64(i64 noundef %35, i64 noundef 14)
-  %arrayidx65 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %36 = load i64, ptr %arrayidx65, align 8
-  %call66 = call i64 @rotrFixed64(i64 noundef %36, i64 noundef 18)
-  %xor67 = xor i64 %call64, %call66
-  %arrayidx68 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %37 = load i64, ptr %arrayidx68, align 8
-  %call69 = call i64 @rotrFixed64(i64 noundef %37, i64 noundef 41)
-  %xor70 = xor i64 %xor67, %call69
-  %arrayidx71 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %38 = load i64, ptr %arrayidx71, align 8
-  %arrayidx72 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %39 = load i64, ptr %arrayidx72, align 8
-  %arrayidx73 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %40 = load i64, ptr %arrayidx73, align 16
-  %arrayidx74 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %41 = load i64, ptr %arrayidx74, align 8
-  %xor75 = xor i64 %40, %41
-  %and76 = and i64 %39, %xor75
-  %xor77 = xor i64 %38, %and76
-  %add78 = add i64 %xor70, %xor77
-  %42 = load ptr, ptr %K, align 8
-  %43 = load i32, ptr %j, align 4
-  %add79 = add i32 1, %43
-  %idxprom80 = zext i32 %add79 to i64
-  %arrayidx81 = getelementptr inbounds i64, ptr %42, i64 %idxprom80
-  %44 = load i64, ptr %arrayidx81, align 8
-  %add82 = add i64 %add78, %44
-  %45 = load i32, ptr %j, align 4
-  %tobool83 = icmp ne i32 %45, 0
-  br i1 %tobool83, label %cond.true84, label %cond.false106
+29:                                               ; preds = %23, %17
+  %30 = load i32, ptr %8, align 4, !tbaa !9
+  store i32 %30, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %31
 
-cond.true84:                                      ; preds = %cond.end
-  %arrayidx85 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  %46 = load i64, ptr %arrayidx85, align 8
-  %call86 = call i64 @rotrFixed64(i64 noundef %46, i64 noundef 19)
-  %arrayidx87 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  %47 = load i64, ptr %arrayidx87, align 8
-  %call88 = call i64 @rotrFixed64(i64 noundef %47, i64 noundef 61)
-  %xor89 = xor i64 %call86, %call88
-  %arrayidx90 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  %48 = load i64, ptr %arrayidx90, align 8
-  %shr91 = lshr i64 %48, 6
-  %xor92 = xor i64 %xor89, %shr91
-  %arrayidx93 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  %49 = load i64, ptr %arrayidx93, align 16
-  %add94 = add i64 %xor92, %49
-  %arrayidx95 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  %50 = load i64, ptr %arrayidx95, align 16
-  %call96 = call i64 @rotrFixed64(i64 noundef %50, i64 noundef 1)
-  %arrayidx97 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  %51 = load i64, ptr %arrayidx97, align 16
-  %call98 = call i64 @rotrFixed64(i64 noundef %51, i64 noundef 8)
-  %xor99 = xor i64 %call96, %call98
-  %arrayidx100 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  %52 = load i64, ptr %arrayidx100, align 16
-  %shr101 = lshr i64 %52, 7
-  %xor102 = xor i64 %xor99, %shr101
-  %add103 = add i64 %add94, %xor102
-  %arrayidx104 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  %53 = load i64, ptr %arrayidx104, align 8
-  %add105 = add i64 %53, %add103
-  store i64 %add105, ptr %arrayidx104, align 8
-  br label %cond.end110
+31:                                               ; preds = %29, %16
+  call void @llvm.lifetime.end.p0(i64 224, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %32 = load i32, ptr %4, align 4
+  ret i32 %32
+}
 
-cond.false106:                                    ; preds = %cond.end
-  %54 = load ptr, ptr %sha512.addr, align 8
-  %buffer107 = getelementptr inbounds %struct.wc_Sha512, ptr %54, i32 0, i32 1
-  %arrayidx108 = getelementptr inbounds [16 x i64], ptr %buffer107, i64 0, i64 1
-  %55 = load i64, ptr %arrayidx108, align 8
-  %arrayidx109 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  store i64 %55, ptr %arrayidx109, align 8
-  br label %cond.end110
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512Copy(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  store i32 0, ptr %6, align 4, !tbaa !9
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
 
-cond.end110:                                      ; preds = %cond.false106, %cond.true84
-  %cond111 = phi i64 [ %add105, %cond.true84 ], [ %55, %cond.false106 ]
-  %add112 = add i64 %add82, %cond111
-  %arrayidx113 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %56 = load i64, ptr %arrayidx113, align 16
-  %add114 = add i64 %56, %add112
-  store i64 %add114, ptr %arrayidx113, align 16
-  %arrayidx115 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %57 = load i64, ptr %arrayidx115, align 16
-  %arrayidx116 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %58 = load i64, ptr %arrayidx116, align 16
-  %add117 = add i64 %58, %57
-  store i64 %add117, ptr %arrayidx116, align 16
-  %arrayidx118 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %59 = load i64, ptr %arrayidx118, align 8
-  %call119 = call i64 @rotrFixed64(i64 noundef %59, i64 noundef 28)
-  %arrayidx120 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %60 = load i64, ptr %arrayidx120, align 8
-  %call121 = call i64 @rotrFixed64(i64 noundef %60, i64 noundef 34)
-  %xor122 = xor i64 %call119, %call121
-  %arrayidx123 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %61 = load i64, ptr %arrayidx123, align 8
-  %call124 = call i64 @rotrFixed64(i64 noundef %61, i64 noundef 39)
-  %xor125 = xor i64 %xor122, %call124
-  %arrayidx126 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %62 = load i64, ptr %arrayidx126, align 8
-  %arrayidx127 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %63 = load i64, ptr %arrayidx127, align 16
-  %and128 = and i64 %62, %63
-  %arrayidx129 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %64 = load i64, ptr %arrayidx129, align 8
-  %arrayidx130 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %65 = load i64, ptr %arrayidx130, align 8
-  %arrayidx131 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %66 = load i64, ptr %arrayidx131, align 16
-  %or132 = or i64 %65, %66
-  %and133 = and i64 %64, %or132
-  %or134 = or i64 %and128, %and133
-  %add135 = add i64 %xor125, %or134
-  %arrayidx136 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %67 = load i64, ptr %arrayidx136, align 16
-  %add137 = add i64 %67, %add135
-  store i64 %add137, ptr %arrayidx136, align 16
-  %arrayidx138 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %68 = load i64, ptr %arrayidx138, align 16
-  %call139 = call i64 @rotrFixed64(i64 noundef %68, i64 noundef 14)
-  %arrayidx140 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %69 = load i64, ptr %arrayidx140, align 16
-  %call141 = call i64 @rotrFixed64(i64 noundef %69, i64 noundef 18)
-  %xor142 = xor i64 %call139, %call141
-  %arrayidx143 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %70 = load i64, ptr %arrayidx143, align 16
-  %call144 = call i64 @rotrFixed64(i64 noundef %70, i64 noundef 41)
-  %xor145 = xor i64 %xor142, %call144
-  %arrayidx146 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %71 = load i64, ptr %arrayidx146, align 16
-  %arrayidx147 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %72 = load i64, ptr %arrayidx147, align 16
-  %arrayidx148 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %73 = load i64, ptr %arrayidx148, align 8
-  %arrayidx149 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %74 = load i64, ptr %arrayidx149, align 16
-  %xor150 = xor i64 %73, %74
-  %and151 = and i64 %72, %xor150
-  %xor152 = xor i64 %71, %and151
-  %add153 = add i64 %xor145, %xor152
-  %75 = load ptr, ptr %K, align 8
-  %76 = load i32, ptr %j, align 4
-  %add154 = add i32 2, %76
-  %idxprom155 = zext i32 %add154 to i64
-  %arrayidx156 = getelementptr inbounds i64, ptr %75, i64 %idxprom155
-  %77 = load i64, ptr %arrayidx156, align 8
-  %add157 = add i64 %add153, %77
-  %78 = load i32, ptr %j, align 4
-  %tobool158 = icmp ne i32 %78, 0
-  br i1 %tobool158, label %cond.true159, label %cond.false181
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-cond.true159:                                     ; preds = %cond.end110
-  %arrayidx160 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  %79 = load i64, ptr %arrayidx160, align 16
-  %call161 = call i64 @rotrFixed64(i64 noundef %79, i64 noundef 19)
-  %arrayidx162 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  %80 = load i64, ptr %arrayidx162, align 16
-  %call163 = call i64 @rotrFixed64(i64 noundef %80, i64 noundef 61)
-  %xor164 = xor i64 %call161, %call163
-  %arrayidx165 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  %81 = load i64, ptr %arrayidx165, align 16
-  %shr166 = lshr i64 %81, 6
-  %xor167 = xor i64 %xor164, %shr166
-  %arrayidx168 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  %82 = load i64, ptr %arrayidx168, align 8
-  %add169 = add i64 %xor167, %82
-  %arrayidx170 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  %83 = load i64, ptr %arrayidx170, align 8
-  %call171 = call i64 @rotrFixed64(i64 noundef %83, i64 noundef 1)
-  %arrayidx172 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  %84 = load i64, ptr %arrayidx172, align 8
-  %call173 = call i64 @rotrFixed64(i64 noundef %84, i64 noundef 8)
-  %xor174 = xor i64 %call171, %call173
-  %arrayidx175 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  %85 = load i64, ptr %arrayidx175, align 8
-  %shr176 = lshr i64 %85, 7
-  %xor177 = xor i64 %xor174, %shr176
-  %add178 = add i64 %add169, %xor177
-  %arrayidx179 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  %86 = load i64, ptr %arrayidx179, align 16
-  %add180 = add i64 %86, %add178
-  store i64 %add180, ptr %arrayidx179, align 16
-  br label %cond.end185
+13:                                               ; preds = %10, %2
+  store i32 -173, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %18
 
-cond.false181:                                    ; preds = %cond.end110
-  %87 = load ptr, ptr %sha512.addr, align 8
-  %buffer182 = getelementptr inbounds %struct.wc_Sha512, ptr %87, i32 0, i32 1
-  %arrayidx183 = getelementptr inbounds [16 x i64], ptr %buffer182, i64 0, i64 2
-  %88 = load i64, ptr %arrayidx183, align 8
-  %arrayidx184 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  store i64 %88, ptr %arrayidx184, align 16
-  br label %cond.end185
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 224, i1 false)
+  %17 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %17, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %18
 
-cond.end185:                                      ; preds = %cond.false181, %cond.true159
-  %cond186 = phi i64 [ %add180, %cond.true159 ], [ %88, %cond.false181 ]
-  %add187 = add i64 %add157, %cond186
-  %arrayidx188 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %89 = load i64, ptr %arrayidx188, align 8
-  %add189 = add i64 %89, %add187
-  store i64 %add189, ptr %arrayidx188, align 8
-  %arrayidx190 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %90 = load i64, ptr %arrayidx190, align 8
-  %arrayidx191 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %91 = load i64, ptr %arrayidx191, align 8
-  %add192 = add i64 %91, %90
-  store i64 %add192, ptr %arrayidx191, align 8
-  %arrayidx193 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %92 = load i64, ptr %arrayidx193, align 16
-  %call194 = call i64 @rotrFixed64(i64 noundef %92, i64 noundef 28)
-  %arrayidx195 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %93 = load i64, ptr %arrayidx195, align 16
-  %call196 = call i64 @rotrFixed64(i64 noundef %93, i64 noundef 34)
-  %xor197 = xor i64 %call194, %call196
-  %arrayidx198 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %94 = load i64, ptr %arrayidx198, align 16
-  %call199 = call i64 @rotrFixed64(i64 noundef %94, i64 noundef 39)
-  %xor200 = xor i64 %xor197, %call199
-  %arrayidx201 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %95 = load i64, ptr %arrayidx201, align 16
-  %arrayidx202 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %96 = load i64, ptr %arrayidx202, align 8
-  %and203 = and i64 %95, %96
-  %arrayidx204 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %97 = load i64, ptr %arrayidx204, align 16
-  %arrayidx205 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %98 = load i64, ptr %arrayidx205, align 16
-  %arrayidx206 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %99 = load i64, ptr %arrayidx206, align 8
-  %or207 = or i64 %98, %99
-  %and208 = and i64 %97, %or207
-  %or209 = or i64 %and203, %and208
-  %add210 = add i64 %xor200, %or209
-  %arrayidx211 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %100 = load i64, ptr %arrayidx211, align 8
-  %add212 = add i64 %100, %add210
-  store i64 %add212, ptr %arrayidx211, align 8
-  %arrayidx213 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %101 = load i64, ptr %arrayidx213, align 8
-  %call214 = call i64 @rotrFixed64(i64 noundef %101, i64 noundef 14)
-  %arrayidx215 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %102 = load i64, ptr %arrayidx215, align 8
-  %call216 = call i64 @rotrFixed64(i64 noundef %102, i64 noundef 18)
-  %xor217 = xor i64 %call214, %call216
-  %arrayidx218 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %103 = load i64, ptr %arrayidx218, align 8
-  %call219 = call i64 @rotrFixed64(i64 noundef %103, i64 noundef 41)
-  %xor220 = xor i64 %xor217, %call219
-  %arrayidx221 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %104 = load i64, ptr %arrayidx221, align 8
-  %arrayidx222 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %105 = load i64, ptr %arrayidx222, align 8
-  %arrayidx223 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %106 = load i64, ptr %arrayidx223, align 16
-  %arrayidx224 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %107 = load i64, ptr %arrayidx224, align 8
-  %xor225 = xor i64 %106, %107
-  %and226 = and i64 %105, %xor225
-  %xor227 = xor i64 %104, %and226
-  %add228 = add i64 %xor220, %xor227
-  %108 = load ptr, ptr %K, align 8
-  %109 = load i32, ptr %j, align 4
-  %add229 = add i32 3, %109
-  %idxprom230 = zext i32 %add229 to i64
-  %arrayidx231 = getelementptr inbounds i64, ptr %108, i64 %idxprom230
-  %110 = load i64, ptr %arrayidx231, align 8
-  %add232 = add i64 %add228, %110
-  %111 = load i32, ptr %j, align 4
-  %tobool233 = icmp ne i32 %111, 0
-  br i1 %tobool233, label %cond.true234, label %cond.false256
+18:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %19 = load i32, ptr %3, align 4
+  ret i32 %19
+}
 
-cond.true234:                                     ; preds = %cond.end185
-  %arrayidx235 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  %112 = load i64, ptr %arrayidx235, align 8
-  %call236 = call i64 @rotrFixed64(i64 noundef %112, i64 noundef 19)
-  %arrayidx237 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  %113 = load i64, ptr %arrayidx237, align 8
-  %call238 = call i64 @rotrFixed64(i64 noundef %113, i64 noundef 61)
-  %xor239 = xor i64 %call236, %call238
-  %arrayidx240 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  %114 = load i64, ptr %arrayidx240, align 8
-  %shr241 = lshr i64 %114, 6
-  %xor242 = xor i64 %xor239, %shr241
-  %arrayidx243 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  %115 = load i64, ptr %arrayidx243, align 16
-  %add244 = add i64 %xor242, %115
-  %arrayidx245 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  %116 = load i64, ptr %arrayidx245, align 16
-  %call246 = call i64 @rotrFixed64(i64 noundef %116, i64 noundef 1)
-  %arrayidx247 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  %117 = load i64, ptr %arrayidx247, align 16
-  %call248 = call i64 @rotrFixed64(i64 noundef %117, i64 noundef 8)
-  %xor249 = xor i64 %call246, %call248
-  %arrayidx250 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  %118 = load i64, ptr %arrayidx250, align 16
-  %shr251 = lshr i64 %118, 7
-  %xor252 = xor i64 %xor249, %shr251
-  %add253 = add i64 %add244, %xor252
-  %arrayidx254 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  %119 = load i64, ptr %arrayidx254, align 8
-  %add255 = add i64 %119, %add253
-  store i64 %add255, ptr %arrayidx254, align 8
-  br label %cond.end260
+; Function Attrs: nounwind uwtable
+define i32 @wc_InitSha512_224(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = call i32 @wc_InitSha512_224_ex(ptr noundef %3, ptr noundef null, i32 noundef -2)
+  ret i32 %4
+}
 
-cond.false256:                                    ; preds = %cond.end185
-  %120 = load ptr, ptr %sha512.addr, align 8
-  %buffer257 = getelementptr inbounds %struct.wc_Sha512, ptr %120, i32 0, i32 1
-  %arrayidx258 = getelementptr inbounds [16 x i64], ptr %buffer257, i64 0, i64 3
-  %121 = load i64, ptr %arrayidx258, align 8
-  %arrayidx259 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  store i64 %121, ptr %arrayidx259, align 8
-  br label %cond.end260
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_224Update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !18
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = call i32 @wc_Sha512Update(ptr noundef %7, ptr noundef %8, i32 noundef %9)
+  ret i32 %10
+}
 
-cond.end260:                                      ; preds = %cond.false256, %cond.true234
-  %cond261 = phi i64 [ %add255, %cond.true234 ], [ %121, %cond.false256 ]
-  %add262 = add i64 %add232, %cond261
-  %arrayidx263 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %122 = load i64, ptr %arrayidx263, align 16
-  %add264 = add i64 %122, %add262
-  store i64 %add264, ptr %arrayidx263, align 16
-  %arrayidx265 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %123 = load i64, ptr %arrayidx265, align 16
-  %arrayidx266 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %124 = load i64, ptr %arrayidx266, align 16
-  %add267 = add i64 %124, %123
-  store i64 %add267, ptr %arrayidx266, align 16
-  %arrayidx268 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %125 = load i64, ptr %arrayidx268, align 8
-  %call269 = call i64 @rotrFixed64(i64 noundef %125, i64 noundef 28)
-  %arrayidx270 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %126 = load i64, ptr %arrayidx270, align 8
-  %call271 = call i64 @rotrFixed64(i64 noundef %126, i64 noundef 34)
-  %xor272 = xor i64 %call269, %call271
-  %arrayidx273 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %127 = load i64, ptr %arrayidx273, align 8
-  %call274 = call i64 @rotrFixed64(i64 noundef %127, i64 noundef 39)
-  %xor275 = xor i64 %xor272, %call274
-  %arrayidx276 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %128 = load i64, ptr %arrayidx276, align 8
-  %arrayidx277 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %129 = load i64, ptr %arrayidx277, align 16
-  %and278 = and i64 %128, %129
-  %arrayidx279 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %130 = load i64, ptr %arrayidx279, align 8
-  %arrayidx280 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %131 = load i64, ptr %arrayidx280, align 8
-  %arrayidx281 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %132 = load i64, ptr %arrayidx281, align 16
-  %or282 = or i64 %131, %132
-  %and283 = and i64 %130, %or282
-  %or284 = or i64 %and278, %and283
-  %add285 = add i64 %xor275, %or284
-  %arrayidx286 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %133 = load i64, ptr %arrayidx286, align 16
-  %add287 = add i64 %133, %add285
-  store i64 %add287, ptr %arrayidx286, align 16
-  %arrayidx288 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %134 = load i64, ptr %arrayidx288, align 16
-  %call289 = call i64 @rotrFixed64(i64 noundef %134, i64 noundef 14)
-  %arrayidx290 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %135 = load i64, ptr %arrayidx290, align 16
-  %call291 = call i64 @rotrFixed64(i64 noundef %135, i64 noundef 18)
-  %xor292 = xor i64 %call289, %call291
-  %arrayidx293 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %136 = load i64, ptr %arrayidx293, align 16
-  %call294 = call i64 @rotrFixed64(i64 noundef %136, i64 noundef 41)
-  %xor295 = xor i64 %xor292, %call294
-  %arrayidx296 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %137 = load i64, ptr %arrayidx296, align 16
-  %arrayidx297 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %138 = load i64, ptr %arrayidx297, align 16
-  %arrayidx298 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %139 = load i64, ptr %arrayidx298, align 8
-  %arrayidx299 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %140 = load i64, ptr %arrayidx299, align 16
-  %xor300 = xor i64 %139, %140
-  %and301 = and i64 %138, %xor300
-  %xor302 = xor i64 %137, %and301
-  %add303 = add i64 %xor295, %xor302
-  %141 = load ptr, ptr %K, align 8
-  %142 = load i32, ptr %j, align 4
-  %add304 = add i32 4, %142
-  %idxprom305 = zext i32 %add304 to i64
-  %arrayidx306 = getelementptr inbounds i64, ptr %141, i64 %idxprom305
-  %143 = load i64, ptr %arrayidx306, align 8
-  %add307 = add i64 %add303, %143
-  %144 = load i32, ptr %j, align 4
-  %tobool308 = icmp ne i32 %144, 0
-  br i1 %tobool308, label %cond.true309, label %cond.false331
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_224FinalRaw(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512FinalRaw(ptr noundef %5, ptr noundef %6, i64 noundef 28)
+  ret i32 %7
+}
 
-cond.true309:                                     ; preds = %cond.end260
-  %arrayidx310 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  %145 = load i64, ptr %arrayidx310, align 16
-  %call311 = call i64 @rotrFixed64(i64 noundef %145, i64 noundef 19)
-  %arrayidx312 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  %146 = load i64, ptr %arrayidx312, align 16
-  %call313 = call i64 @rotrFixed64(i64 noundef %146, i64 noundef 61)
-  %xor314 = xor i64 %call311, %call313
-  %arrayidx315 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  %147 = load i64, ptr %arrayidx315, align 16
-  %shr316 = lshr i64 %147, 6
-  %xor317 = xor i64 %xor314, %shr316
-  %arrayidx318 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  %148 = load i64, ptr %arrayidx318, align 8
-  %add319 = add i64 %xor317, %148
-  %arrayidx320 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  %149 = load i64, ptr %arrayidx320, align 8
-  %call321 = call i64 @rotrFixed64(i64 noundef %149, i64 noundef 1)
-  %arrayidx322 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  %150 = load i64, ptr %arrayidx322, align 8
-  %call323 = call i64 @rotrFixed64(i64 noundef %150, i64 noundef 8)
-  %xor324 = xor i64 %call321, %call323
-  %arrayidx325 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  %151 = load i64, ptr %arrayidx325, align 8
-  %shr326 = lshr i64 %151, 7
-  %xor327 = xor i64 %xor324, %shr326
-  %add328 = add i64 %add319, %xor327
-  %arrayidx329 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  %152 = load i64, ptr %arrayidx329, align 16
-  %add330 = add i64 %152, %add328
-  store i64 %add330, ptr %arrayidx329, align 16
-  br label %cond.end335
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_224Final(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512_Family_Final(ptr noundef %5, ptr noundef %6, i64 noundef 28, ptr noundef @InitSha512_224)
+  ret i32 %7
+}
 
-cond.false331:                                    ; preds = %cond.end260
-  %153 = load ptr, ptr %sha512.addr, align 8
-  %buffer332 = getelementptr inbounds %struct.wc_Sha512, ptr %153, i32 0, i32 1
-  %arrayidx333 = getelementptr inbounds [16 x i64], ptr %buffer332, i64 0, i64 4
-  %154 = load i64, ptr %arrayidx333, align 8
-  %arrayidx334 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  store i64 %154, ptr %arrayidx334, align 16
-  br label %cond.end335
+; Function Attrs: nounwind uwtable
+define void @wc_Sha512_224Free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @wc_Sha512Free(ptr noundef %3)
+  ret void
+}
 
-cond.end335:                                      ; preds = %cond.false331, %cond.true309
-  %cond336 = phi i64 [ %add330, %cond.true309 ], [ %154, %cond.false331 ]
-  %add337 = add i64 %add307, %cond336
-  %arrayidx338 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %155 = load i64, ptr %arrayidx338, align 8
-  %add339 = add i64 %155, %add337
-  store i64 %add339, ptr %arrayidx338, align 8
-  %arrayidx340 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %156 = load i64, ptr %arrayidx340, align 8
-  %arrayidx341 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %157 = load i64, ptr %arrayidx341, align 8
-  %add342 = add i64 %157, %156
-  store i64 %add342, ptr %arrayidx341, align 8
-  %arrayidx343 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %158 = load i64, ptr %arrayidx343, align 16
-  %call344 = call i64 @rotrFixed64(i64 noundef %158, i64 noundef 28)
-  %arrayidx345 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %159 = load i64, ptr %arrayidx345, align 16
-  %call346 = call i64 @rotrFixed64(i64 noundef %159, i64 noundef 34)
-  %xor347 = xor i64 %call344, %call346
-  %arrayidx348 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %160 = load i64, ptr %arrayidx348, align 16
-  %call349 = call i64 @rotrFixed64(i64 noundef %160, i64 noundef 39)
-  %xor350 = xor i64 %xor347, %call349
-  %arrayidx351 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %161 = load i64, ptr %arrayidx351, align 16
-  %arrayidx352 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %162 = load i64, ptr %arrayidx352, align 8
-  %and353 = and i64 %161, %162
-  %arrayidx354 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %163 = load i64, ptr %arrayidx354, align 16
-  %arrayidx355 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %164 = load i64, ptr %arrayidx355, align 16
-  %arrayidx356 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %165 = load i64, ptr %arrayidx356, align 8
-  %or357 = or i64 %164, %165
-  %and358 = and i64 %163, %or357
-  %or359 = or i64 %and353, %and358
-  %add360 = add i64 %xor350, %or359
-  %arrayidx361 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %166 = load i64, ptr %arrayidx361, align 8
-  %add362 = add i64 %166, %add360
-  store i64 %add362, ptr %arrayidx361, align 8
-  %arrayidx363 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %167 = load i64, ptr %arrayidx363, align 8
-  %call364 = call i64 @rotrFixed64(i64 noundef %167, i64 noundef 14)
-  %arrayidx365 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %168 = load i64, ptr %arrayidx365, align 8
-  %call366 = call i64 @rotrFixed64(i64 noundef %168, i64 noundef 18)
-  %xor367 = xor i64 %call364, %call366
-  %arrayidx368 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %169 = load i64, ptr %arrayidx368, align 8
-  %call369 = call i64 @rotrFixed64(i64 noundef %169, i64 noundef 41)
-  %xor370 = xor i64 %xor367, %call369
-  %arrayidx371 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %170 = load i64, ptr %arrayidx371, align 8
-  %arrayidx372 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %171 = load i64, ptr %arrayidx372, align 8
-  %arrayidx373 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %172 = load i64, ptr %arrayidx373, align 16
-  %arrayidx374 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %173 = load i64, ptr %arrayidx374, align 8
-  %xor375 = xor i64 %172, %173
-  %and376 = and i64 %171, %xor375
-  %xor377 = xor i64 %170, %and376
-  %add378 = add i64 %xor370, %xor377
-  %174 = load ptr, ptr %K, align 8
-  %175 = load i32, ptr %j, align 4
-  %add379 = add i32 5, %175
-  %idxprom380 = zext i32 %add379 to i64
-  %arrayidx381 = getelementptr inbounds i64, ptr %174, i64 %idxprom380
-  %176 = load i64, ptr %arrayidx381, align 8
-  %add382 = add i64 %add378, %176
-  %177 = load i32, ptr %j, align 4
-  %tobool383 = icmp ne i32 %177, 0
-  br i1 %tobool383, label %cond.true384, label %cond.false406
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_224GetHash(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512_Family_GetHash(ptr noundef %5, ptr noundef %6, ptr noundef @wc_Sha512_224Final)
+  ret i32 %7
+}
 
-cond.true384:                                     ; preds = %cond.end335
-  %arrayidx385 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  %178 = load i64, ptr %arrayidx385, align 8
-  %call386 = call i64 @rotrFixed64(i64 noundef %178, i64 noundef 19)
-  %arrayidx387 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  %179 = load i64, ptr %arrayidx387, align 8
-  %call388 = call i64 @rotrFixed64(i64 noundef %179, i64 noundef 61)
-  %xor389 = xor i64 %call386, %call388
-  %arrayidx390 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  %180 = load i64, ptr %arrayidx390, align 8
-  %shr391 = lshr i64 %180, 6
-  %xor392 = xor i64 %xor389, %shr391
-  %arrayidx393 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  %181 = load i64, ptr %arrayidx393, align 16
-  %add394 = add i64 %xor392, %181
-  %arrayidx395 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  %182 = load i64, ptr %arrayidx395, align 16
-  %call396 = call i64 @rotrFixed64(i64 noundef %182, i64 noundef 1)
-  %arrayidx397 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  %183 = load i64, ptr %arrayidx397, align 16
-  %call398 = call i64 @rotrFixed64(i64 noundef %183, i64 noundef 8)
-  %xor399 = xor i64 %call396, %call398
-  %arrayidx400 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  %184 = load i64, ptr %arrayidx400, align 16
-  %shr401 = lshr i64 %184, 7
-  %xor402 = xor i64 %xor399, %shr401
-  %add403 = add i64 %add394, %xor402
-  %arrayidx404 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  %185 = load i64, ptr %arrayidx404, align 8
-  %add405 = add i64 %185, %add403
-  store i64 %add405, ptr %arrayidx404, align 8
-  br label %cond.end410
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_224Copy(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = call i32 @wc_Sha512Copy(ptr noundef %5, ptr noundef %6)
+  ret i32 %7
+}
 
-cond.false406:                                    ; preds = %cond.end335
-  %186 = load ptr, ptr %sha512.addr, align 8
-  %buffer407 = getelementptr inbounds %struct.wc_Sha512, ptr %186, i32 0, i32 1
-  %arrayidx408 = getelementptr inbounds [16 x i64], ptr %buffer407, i64 0, i64 5
-  %187 = load i64, ptr %arrayidx408, align 8
-  %arrayidx409 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  store i64 %187, ptr %arrayidx409, align 8
-  br label %cond.end410
+; Function Attrs: nounwind uwtable
+define i32 @wc_InitSha512_256(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = call i32 @wc_InitSha512_256_ex(ptr noundef %3, ptr noundef null, i32 noundef -2)
+  ret i32 %4
+}
 
-cond.end410:                                      ; preds = %cond.false406, %cond.true384
-  %cond411 = phi i64 [ %add405, %cond.true384 ], [ %187, %cond.false406 ]
-  %add412 = add i64 %add382, %cond411
-  %arrayidx413 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %188 = load i64, ptr %arrayidx413, align 16
-  %add414 = add i64 %188, %add412
-  store i64 %add414, ptr %arrayidx413, align 16
-  %arrayidx415 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %189 = load i64, ptr %arrayidx415, align 16
-  %arrayidx416 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %190 = load i64, ptr %arrayidx416, align 16
-  %add417 = add i64 %190, %189
-  store i64 %add417, ptr %arrayidx416, align 16
-  %arrayidx418 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %191 = load i64, ptr %arrayidx418, align 8
-  %call419 = call i64 @rotrFixed64(i64 noundef %191, i64 noundef 28)
-  %arrayidx420 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %192 = load i64, ptr %arrayidx420, align 8
-  %call421 = call i64 @rotrFixed64(i64 noundef %192, i64 noundef 34)
-  %xor422 = xor i64 %call419, %call421
-  %arrayidx423 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %193 = load i64, ptr %arrayidx423, align 8
-  %call424 = call i64 @rotrFixed64(i64 noundef %193, i64 noundef 39)
-  %xor425 = xor i64 %xor422, %call424
-  %arrayidx426 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %194 = load i64, ptr %arrayidx426, align 8
-  %arrayidx427 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %195 = load i64, ptr %arrayidx427, align 16
-  %and428 = and i64 %194, %195
-  %arrayidx429 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %196 = load i64, ptr %arrayidx429, align 8
-  %arrayidx430 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %197 = load i64, ptr %arrayidx430, align 8
-  %arrayidx431 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %198 = load i64, ptr %arrayidx431, align 16
-  %or432 = or i64 %197, %198
-  %and433 = and i64 %196, %or432
-  %or434 = or i64 %and428, %and433
-  %add435 = add i64 %xor425, %or434
-  %arrayidx436 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %199 = load i64, ptr %arrayidx436, align 16
-  %add437 = add i64 %199, %add435
-  store i64 %add437, ptr %arrayidx436, align 16
-  %arrayidx438 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %200 = load i64, ptr %arrayidx438, align 16
-  %call439 = call i64 @rotrFixed64(i64 noundef %200, i64 noundef 14)
-  %arrayidx440 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %201 = load i64, ptr %arrayidx440, align 16
-  %call441 = call i64 @rotrFixed64(i64 noundef %201, i64 noundef 18)
-  %xor442 = xor i64 %call439, %call441
-  %arrayidx443 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %202 = load i64, ptr %arrayidx443, align 16
-  %call444 = call i64 @rotrFixed64(i64 noundef %202, i64 noundef 41)
-  %xor445 = xor i64 %xor442, %call444
-  %arrayidx446 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %203 = load i64, ptr %arrayidx446, align 16
-  %arrayidx447 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %204 = load i64, ptr %arrayidx447, align 16
-  %arrayidx448 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %205 = load i64, ptr %arrayidx448, align 8
-  %arrayidx449 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %206 = load i64, ptr %arrayidx449, align 16
-  %xor450 = xor i64 %205, %206
-  %and451 = and i64 %204, %xor450
-  %xor452 = xor i64 %203, %and451
-  %add453 = add i64 %xor445, %xor452
-  %207 = load ptr, ptr %K, align 8
-  %208 = load i32, ptr %j, align 4
-  %add454 = add i32 6, %208
-  %idxprom455 = zext i32 %add454 to i64
-  %arrayidx456 = getelementptr inbounds i64, ptr %207, i64 %idxprom455
-  %209 = load i64, ptr %arrayidx456, align 8
-  %add457 = add i64 %add453, %209
-  %210 = load i32, ptr %j, align 4
-  %tobool458 = icmp ne i32 %210, 0
-  br i1 %tobool458, label %cond.true459, label %cond.false481
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_256Update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !18
+  %9 = load i32, ptr %6, align 4, !tbaa !9
+  %10 = call i32 @wc_Sha512Update(ptr noundef %7, ptr noundef %8, i32 noundef %9)
+  ret i32 %10
+}
 
-cond.true459:                                     ; preds = %cond.end410
-  %arrayidx460 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  %211 = load i64, ptr %arrayidx460, align 16
-  %call461 = call i64 @rotrFixed64(i64 noundef %211, i64 noundef 19)
-  %arrayidx462 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  %212 = load i64, ptr %arrayidx462, align 16
-  %call463 = call i64 @rotrFixed64(i64 noundef %212, i64 noundef 61)
-  %xor464 = xor i64 %call461, %call463
-  %arrayidx465 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  %213 = load i64, ptr %arrayidx465, align 16
-  %shr466 = lshr i64 %213, 6
-  %xor467 = xor i64 %xor464, %shr466
-  %arrayidx468 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  %214 = load i64, ptr %arrayidx468, align 8
-  %add469 = add i64 %xor467, %214
-  %arrayidx470 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  %215 = load i64, ptr %arrayidx470, align 8
-  %call471 = call i64 @rotrFixed64(i64 noundef %215, i64 noundef 1)
-  %arrayidx472 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  %216 = load i64, ptr %arrayidx472, align 8
-  %call473 = call i64 @rotrFixed64(i64 noundef %216, i64 noundef 8)
-  %xor474 = xor i64 %call471, %call473
-  %arrayidx475 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  %217 = load i64, ptr %arrayidx475, align 8
-  %shr476 = lshr i64 %217, 7
-  %xor477 = xor i64 %xor474, %shr476
-  %add478 = add i64 %add469, %xor477
-  %arrayidx479 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  %218 = load i64, ptr %arrayidx479, align 16
-  %add480 = add i64 %218, %add478
-  store i64 %add480, ptr %arrayidx479, align 16
-  br label %cond.end485
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_256FinalRaw(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512FinalRaw(ptr noundef %5, ptr noundef %6, i64 noundef 32)
+  ret i32 %7
+}
 
-cond.false481:                                    ; preds = %cond.end410
-  %219 = load ptr, ptr %sha512.addr, align 8
-  %buffer482 = getelementptr inbounds %struct.wc_Sha512, ptr %219, i32 0, i32 1
-  %arrayidx483 = getelementptr inbounds [16 x i64], ptr %buffer482, i64 0, i64 6
-  %220 = load i64, ptr %arrayidx483, align 8
-  %arrayidx484 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  store i64 %220, ptr %arrayidx484, align 16
-  br label %cond.end485
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_256Final(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512_Family_Final(ptr noundef %5, ptr noundef %6, i64 noundef 32, ptr noundef @InitSha512_256)
+  ret i32 %7
+}
 
-cond.end485:                                      ; preds = %cond.false481, %cond.true459
-  %cond486 = phi i64 [ %add480, %cond.true459 ], [ %220, %cond.false481 ]
-  %add487 = add i64 %add457, %cond486
-  %arrayidx488 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %221 = load i64, ptr %arrayidx488, align 8
-  %add489 = add i64 %221, %add487
-  store i64 %add489, ptr %arrayidx488, align 8
-  %arrayidx490 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %222 = load i64, ptr %arrayidx490, align 8
-  %arrayidx491 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %223 = load i64, ptr %arrayidx491, align 8
-  %add492 = add i64 %223, %222
-  store i64 %add492, ptr %arrayidx491, align 8
-  %arrayidx493 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %224 = load i64, ptr %arrayidx493, align 16
-  %call494 = call i64 @rotrFixed64(i64 noundef %224, i64 noundef 28)
-  %arrayidx495 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %225 = load i64, ptr %arrayidx495, align 16
-  %call496 = call i64 @rotrFixed64(i64 noundef %225, i64 noundef 34)
-  %xor497 = xor i64 %call494, %call496
-  %arrayidx498 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %226 = load i64, ptr %arrayidx498, align 16
-  %call499 = call i64 @rotrFixed64(i64 noundef %226, i64 noundef 39)
-  %xor500 = xor i64 %xor497, %call499
-  %arrayidx501 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %227 = load i64, ptr %arrayidx501, align 16
-  %arrayidx502 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %228 = load i64, ptr %arrayidx502, align 8
-  %and503 = and i64 %227, %228
-  %arrayidx504 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %229 = load i64, ptr %arrayidx504, align 16
-  %arrayidx505 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %230 = load i64, ptr %arrayidx505, align 16
-  %arrayidx506 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %231 = load i64, ptr %arrayidx506, align 8
-  %or507 = or i64 %230, %231
-  %and508 = and i64 %229, %or507
-  %or509 = or i64 %and503, %and508
-  %add510 = add i64 %xor500, %or509
-  %arrayidx511 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %232 = load i64, ptr %arrayidx511, align 8
-  %add512 = add i64 %232, %add510
-  store i64 %add512, ptr %arrayidx511, align 8
-  %arrayidx513 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %233 = load i64, ptr %arrayidx513, align 8
-  %call514 = call i64 @rotrFixed64(i64 noundef %233, i64 noundef 14)
-  %arrayidx515 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %234 = load i64, ptr %arrayidx515, align 8
-  %call516 = call i64 @rotrFixed64(i64 noundef %234, i64 noundef 18)
-  %xor517 = xor i64 %call514, %call516
-  %arrayidx518 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %235 = load i64, ptr %arrayidx518, align 8
-  %call519 = call i64 @rotrFixed64(i64 noundef %235, i64 noundef 41)
-  %xor520 = xor i64 %xor517, %call519
-  %arrayidx521 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %236 = load i64, ptr %arrayidx521, align 8
-  %arrayidx522 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %237 = load i64, ptr %arrayidx522, align 8
-  %arrayidx523 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %238 = load i64, ptr %arrayidx523, align 16
-  %arrayidx524 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %239 = load i64, ptr %arrayidx524, align 8
-  %xor525 = xor i64 %238, %239
-  %and526 = and i64 %237, %xor525
-  %xor527 = xor i64 %236, %and526
-  %add528 = add i64 %xor520, %xor527
-  %240 = load ptr, ptr %K, align 8
-  %241 = load i32, ptr %j, align 4
-  %add529 = add i32 7, %241
-  %idxprom530 = zext i32 %add529 to i64
-  %arrayidx531 = getelementptr inbounds i64, ptr %240, i64 %idxprom530
-  %242 = load i64, ptr %arrayidx531, align 8
-  %add532 = add i64 %add528, %242
-  %243 = load i32, ptr %j, align 4
-  %tobool533 = icmp ne i32 %243, 0
-  br i1 %tobool533, label %cond.true534, label %cond.false556
+; Function Attrs: nounwind uwtable
+define void @wc_Sha512_256Free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @wc_Sha512Free(ptr noundef %3)
+  ret void
+}
 
-cond.true534:                                     ; preds = %cond.end485
-  %arrayidx535 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  %244 = load i64, ptr %arrayidx535, align 8
-  %call536 = call i64 @rotrFixed64(i64 noundef %244, i64 noundef 19)
-  %arrayidx537 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  %245 = load i64, ptr %arrayidx537, align 8
-  %call538 = call i64 @rotrFixed64(i64 noundef %245, i64 noundef 61)
-  %xor539 = xor i64 %call536, %call538
-  %arrayidx540 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  %246 = load i64, ptr %arrayidx540, align 8
-  %shr541 = lshr i64 %246, 6
-  %xor542 = xor i64 %xor539, %shr541
-  %arrayidx543 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  %247 = load i64, ptr %arrayidx543, align 16
-  %add544 = add i64 %xor542, %247
-  %arrayidx545 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  %248 = load i64, ptr %arrayidx545, align 16
-  %call546 = call i64 @rotrFixed64(i64 noundef %248, i64 noundef 1)
-  %arrayidx547 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  %249 = load i64, ptr %arrayidx547, align 16
-  %call548 = call i64 @rotrFixed64(i64 noundef %249, i64 noundef 8)
-  %xor549 = xor i64 %call546, %call548
-  %arrayidx550 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  %250 = load i64, ptr %arrayidx550, align 16
-  %shr551 = lshr i64 %250, 7
-  %xor552 = xor i64 %xor549, %shr551
-  %add553 = add i64 %add544, %xor552
-  %arrayidx554 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  %251 = load i64, ptr %arrayidx554, align 8
-  %add555 = add i64 %251, %add553
-  store i64 %add555, ptr %arrayidx554, align 8
-  br label %cond.end560
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_256GetHash(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = call i32 @Sha512_Family_GetHash(ptr noundef %5, ptr noundef %6, ptr noundef @wc_Sha512_256Final)
+  ret i32 %7
+}
 
-cond.false556:                                    ; preds = %cond.end485
-  %252 = load ptr, ptr %sha512.addr, align 8
-  %buffer557 = getelementptr inbounds %struct.wc_Sha512, ptr %252, i32 0, i32 1
-  %arrayidx558 = getelementptr inbounds [16 x i64], ptr %buffer557, i64 0, i64 7
-  %253 = load i64, ptr %arrayidx558, align 8
-  %arrayidx559 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  store i64 %253, ptr %arrayidx559, align 8
-  br label %cond.end560
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha512_256Copy(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = call i32 @wc_Sha512Copy(ptr noundef %5, ptr noundef %6)
+  ret i32 %7
+}
 
-cond.end560:                                      ; preds = %cond.false556, %cond.true534
-  %cond561 = phi i64 [ %add555, %cond.true534 ], [ %253, %cond.false556 ]
-  %add562 = add i64 %add532, %cond561
-  %arrayidx563 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %254 = load i64, ptr %arrayidx563, align 16
-  %add564 = add i64 %254, %add562
-  store i64 %add564, ptr %arrayidx563, align 16
-  %arrayidx565 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %255 = load i64, ptr %arrayidx565, align 16
-  %arrayidx566 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %256 = load i64, ptr %arrayidx566, align 16
-  %add567 = add i64 %256, %255
-  store i64 %add567, ptr %arrayidx566, align 16
-  %arrayidx568 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %257 = load i64, ptr %arrayidx568, align 8
-  %call569 = call i64 @rotrFixed64(i64 noundef %257, i64 noundef 28)
-  %arrayidx570 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %258 = load i64, ptr %arrayidx570, align 8
-  %call571 = call i64 @rotrFixed64(i64 noundef %258, i64 noundef 34)
-  %xor572 = xor i64 %call569, %call571
-  %arrayidx573 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %259 = load i64, ptr %arrayidx573, align 8
-  %call574 = call i64 @rotrFixed64(i64 noundef %259, i64 noundef 39)
-  %xor575 = xor i64 %xor572, %call574
-  %arrayidx576 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %260 = load i64, ptr %arrayidx576, align 8
-  %arrayidx577 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %261 = load i64, ptr %arrayidx577, align 16
-  %and578 = and i64 %260, %261
-  %arrayidx579 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %262 = load i64, ptr %arrayidx579, align 8
-  %arrayidx580 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %263 = load i64, ptr %arrayidx580, align 8
-  %arrayidx581 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %264 = load i64, ptr %arrayidx581, align 16
-  %or582 = or i64 %263, %264
-  %and583 = and i64 %262, %or582
-  %or584 = or i64 %and578, %and583
-  %add585 = add i64 %xor575, %or584
-  %arrayidx586 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %265 = load i64, ptr %arrayidx586, align 16
-  %add587 = add i64 %265, %add585
-  store i64 %add587, ptr %arrayidx586, align 16
-  %arrayidx588 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %266 = load i64, ptr %arrayidx588, align 16
-  %call589 = call i64 @rotrFixed64(i64 noundef %266, i64 noundef 14)
-  %arrayidx590 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %267 = load i64, ptr %arrayidx590, align 16
-  %call591 = call i64 @rotrFixed64(i64 noundef %267, i64 noundef 18)
-  %xor592 = xor i64 %call589, %call591
-  %arrayidx593 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %268 = load i64, ptr %arrayidx593, align 16
-  %call594 = call i64 @rotrFixed64(i64 noundef %268, i64 noundef 41)
-  %xor595 = xor i64 %xor592, %call594
-  %arrayidx596 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %269 = load i64, ptr %arrayidx596, align 16
-  %arrayidx597 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %270 = load i64, ptr %arrayidx597, align 16
-  %arrayidx598 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %271 = load i64, ptr %arrayidx598, align 8
-  %arrayidx599 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %272 = load i64, ptr %arrayidx599, align 16
-  %xor600 = xor i64 %271, %272
-  %and601 = and i64 %270, %xor600
-  %xor602 = xor i64 %269, %and601
-  %add603 = add i64 %xor595, %xor602
-  %273 = load ptr, ptr %K, align 8
-  %274 = load i32, ptr %j, align 4
-  %add604 = add i32 8, %274
-  %idxprom605 = zext i32 %add604 to i64
-  %arrayidx606 = getelementptr inbounds i64, ptr %273, i64 %idxprom605
-  %275 = load i64, ptr %arrayidx606, align 8
-  %add607 = add i64 %add603, %275
-  %276 = load i32, ptr %j, align 4
-  %tobool608 = icmp ne i32 %276, 0
-  br i1 %tobool608, label %cond.true609, label %cond.false631
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha384GetHash(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca [1 x %struct.wc_Sha512], align 16
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 224, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %14, label %11
 
-cond.true609:                                     ; preds = %cond.end560
-  %arrayidx610 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  %277 = load i64, ptr %arrayidx610, align 16
-  %call611 = call i64 @rotrFixed64(i64 noundef %277, i64 noundef 19)
-  %arrayidx612 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  %278 = load i64, ptr %arrayidx612, align 16
-  %call613 = call i64 @rotrFixed64(i64 noundef %278, i64 noundef 61)
-  %xor614 = xor i64 %call611, %call613
-  %arrayidx615 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  %279 = load i64, ptr %arrayidx615, align 16
-  %shr616 = lshr i64 %279, 6
-  %xor617 = xor i64 %xor614, %shr616
-  %arrayidx618 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 1
-  %280 = load i64, ptr %arrayidx618, align 8
-  %add619 = add i64 %xor617, %280
-  %arrayidx620 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  %281 = load i64, ptr %arrayidx620, align 8
-  %call621 = call i64 @rotrFixed64(i64 noundef %281, i64 noundef 1)
-  %arrayidx622 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  %282 = load i64, ptr %arrayidx622, align 8
-  %call623 = call i64 @rotrFixed64(i64 noundef %282, i64 noundef 8)
-  %xor624 = xor i64 %call621, %call623
-  %arrayidx625 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  %283 = load i64, ptr %arrayidx625, align 8
-  %shr626 = lshr i64 %283, 7
-  %xor627 = xor i64 %xor624, %shr626
-  %add628 = add i64 %add619, %xor627
-  %arrayidx629 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  %284 = load i64, ptr %arrayidx629, align 16
-  %add630 = add i64 %284, %add628
-  store i64 %add630, ptr %arrayidx629, align 16
-  br label %cond.end635
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !18
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
-cond.false631:                                    ; preds = %cond.end560
-  %285 = load ptr, ptr %sha512.addr, align 8
-  %buffer632 = getelementptr inbounds %struct.wc_Sha512, ptr %285, i32 0, i32 1
-  %arrayidx633 = getelementptr inbounds [16 x i64], ptr %buffer632, i64 0, i64 8
-  %286 = load i64, ptr %arrayidx633, align 8
-  %arrayidx634 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  store i64 %286, ptr %arrayidx634, align 16
-  br label %cond.end635
+14:                                               ; preds = %11, %2
+  store i32 -173, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %28
 
-cond.end635:                                      ; preds = %cond.false631, %cond.true609
-  %cond636 = phi i64 [ %add630, %cond.true609 ], [ %286, %cond.false631 ]
-  %add637 = add i64 %add607, %cond636
-  %arrayidx638 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %287 = load i64, ptr %arrayidx638, align 8
-  %add639 = add i64 %287, %add637
-  store i64 %add639, ptr %arrayidx638, align 8
-  %arrayidx640 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %288 = load i64, ptr %arrayidx640, align 8
-  %arrayidx641 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %289 = load i64, ptr %arrayidx641, align 8
-  %add642 = add i64 %289, %288
-  store i64 %add642, ptr %arrayidx641, align 8
-  %arrayidx643 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %290 = load i64, ptr %arrayidx643, align 16
-  %call644 = call i64 @rotrFixed64(i64 noundef %290, i64 noundef 28)
-  %arrayidx645 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %291 = load i64, ptr %arrayidx645, align 16
-  %call646 = call i64 @rotrFixed64(i64 noundef %291, i64 noundef 34)
-  %xor647 = xor i64 %call644, %call646
-  %arrayidx648 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %292 = load i64, ptr %arrayidx648, align 16
-  %call649 = call i64 @rotrFixed64(i64 noundef %292, i64 noundef 39)
-  %xor650 = xor i64 %xor647, %call649
-  %arrayidx651 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %293 = load i64, ptr %arrayidx651, align 16
-  %arrayidx652 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %294 = load i64, ptr %arrayidx652, align 8
-  %and653 = and i64 %293, %294
-  %arrayidx654 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %295 = load i64, ptr %arrayidx654, align 16
-  %arrayidx655 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %296 = load i64, ptr %arrayidx655, align 16
-  %arrayidx656 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %297 = load i64, ptr %arrayidx656, align 8
-  %or657 = or i64 %296, %297
-  %and658 = and i64 %295, %or657
-  %or659 = or i64 %and653, %and658
-  %add660 = add i64 %xor650, %or659
-  %arrayidx661 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %298 = load i64, ptr %arrayidx661, align 8
-  %add662 = add i64 %298, %add660
-  store i64 %add662, ptr %arrayidx661, align 8
-  %arrayidx663 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %299 = load i64, ptr %arrayidx663, align 8
-  %call664 = call i64 @rotrFixed64(i64 noundef %299, i64 noundef 14)
-  %arrayidx665 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %300 = load i64, ptr %arrayidx665, align 8
-  %call666 = call i64 @rotrFixed64(i64 noundef %300, i64 noundef 18)
-  %xor667 = xor i64 %call664, %call666
-  %arrayidx668 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %301 = load i64, ptr %arrayidx668, align 8
-  %call669 = call i64 @rotrFixed64(i64 noundef %301, i64 noundef 41)
-  %xor670 = xor i64 %xor667, %call669
-  %arrayidx671 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %302 = load i64, ptr %arrayidx671, align 8
-  %arrayidx672 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %303 = load i64, ptr %arrayidx672, align 8
-  %arrayidx673 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %304 = load i64, ptr %arrayidx673, align 16
-  %arrayidx674 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %305 = load i64, ptr %arrayidx674, align 8
-  %xor675 = xor i64 %304, %305
-  %and676 = and i64 %303, %xor675
-  %xor677 = xor i64 %302, %and676
-  %add678 = add i64 %xor670, %xor677
-  %306 = load ptr, ptr %K, align 8
-  %307 = load i32, ptr %j, align 4
-  %add679 = add i32 9, %307
-  %idxprom680 = zext i32 %add679 to i64
-  %arrayidx681 = getelementptr inbounds i64, ptr %306, i64 %idxprom680
-  %308 = load i64, ptr %arrayidx681, align 8
-  %add682 = add i64 %add678, %308
-  %309 = load i32, ptr %j, align 4
-  %tobool683 = icmp ne i32 %309, 0
-  br i1 %tobool683, label %cond.true684, label %cond.false706
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %7, i64 0, i64 0
+  %18 = call i32 @wc_Sha384Copy(ptr noundef %16, ptr noundef %17)
+  store i32 %18, ptr %6, align 4, !tbaa !9
+  %19 = load i32, ptr %6, align 4, !tbaa !9
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %26
 
-cond.true684:                                     ; preds = %cond.end635
-  %arrayidx685 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  %310 = load i64, ptr %arrayidx685, align 8
-  %call686 = call i64 @rotrFixed64(i64 noundef %310, i64 noundef 19)
-  %arrayidx687 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  %311 = load i64, ptr %arrayidx687, align 8
-  %call688 = call i64 @rotrFixed64(i64 noundef %311, i64 noundef 61)
-  %xor689 = xor i64 %call686, %call688
-  %arrayidx690 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  %312 = load i64, ptr %arrayidx690, align 8
-  %shr691 = lshr i64 %312, 6
-  %xor692 = xor i64 %xor689, %shr691
-  %arrayidx693 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 2
-  %313 = load i64, ptr %arrayidx693, align 16
-  %add694 = add i64 %xor692, %313
-  %arrayidx695 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  %314 = load i64, ptr %arrayidx695, align 16
-  %call696 = call i64 @rotrFixed64(i64 noundef %314, i64 noundef 1)
-  %arrayidx697 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  %315 = load i64, ptr %arrayidx697, align 16
-  %call698 = call i64 @rotrFixed64(i64 noundef %315, i64 noundef 8)
-  %xor699 = xor i64 %call696, %call698
-  %arrayidx700 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  %316 = load i64, ptr %arrayidx700, align 16
-  %shr701 = lshr i64 %316, 7
-  %xor702 = xor i64 %xor699, %shr701
-  %add703 = add i64 %add694, %xor702
-  %arrayidx704 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  %317 = load i64, ptr %arrayidx704, align 8
-  %add705 = add i64 %317, %add703
-  store i64 %add705, ptr %arrayidx704, align 8
-  br label %cond.end710
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %7, i64 0, i64 0
+  %23 = load ptr, ptr %5, align 8, !tbaa !18
+  %24 = call i32 @wc_Sha384Final(ptr noundef %22, ptr noundef %23)
+  store i32 %24, ptr %6, align 4, !tbaa !9
+  %25 = getelementptr inbounds [1 x %struct.wc_Sha512], ptr %7, i64 0, i64 0
+  call void @wc_Sha384Free(ptr noundef %25)
+  br label %26
 
-cond.false706:                                    ; preds = %cond.end635
-  %318 = load ptr, ptr %sha512.addr, align 8
-  %buffer707 = getelementptr inbounds %struct.wc_Sha512, ptr %318, i32 0, i32 1
-  %arrayidx708 = getelementptr inbounds [16 x i64], ptr %buffer707, i64 0, i64 9
-  %319 = load i64, ptr %arrayidx708, align 8
-  %arrayidx709 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  store i64 %319, ptr %arrayidx709, align 8
-  br label %cond.end710
+26:                                               ; preds = %21, %15
+  %27 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %27, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %28
 
-cond.end710:                                      ; preds = %cond.false706, %cond.true684
-  %cond711 = phi i64 [ %add705, %cond.true684 ], [ %319, %cond.false706 ]
-  %add712 = add i64 %add682, %cond711
-  %arrayidx713 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %320 = load i64, ptr %arrayidx713, align 16
-  %add714 = add i64 %320, %add712
-  store i64 %add714, ptr %arrayidx713, align 16
-  %arrayidx715 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %321 = load i64, ptr %arrayidx715, align 16
-  %arrayidx716 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %322 = load i64, ptr %arrayidx716, align 16
-  %add717 = add i64 %322, %321
-  store i64 %add717, ptr %arrayidx716, align 16
-  %arrayidx718 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %323 = load i64, ptr %arrayidx718, align 8
-  %call719 = call i64 @rotrFixed64(i64 noundef %323, i64 noundef 28)
-  %arrayidx720 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %324 = load i64, ptr %arrayidx720, align 8
-  %call721 = call i64 @rotrFixed64(i64 noundef %324, i64 noundef 34)
-  %xor722 = xor i64 %call719, %call721
-  %arrayidx723 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %325 = load i64, ptr %arrayidx723, align 8
-  %call724 = call i64 @rotrFixed64(i64 noundef %325, i64 noundef 39)
-  %xor725 = xor i64 %xor722, %call724
-  %arrayidx726 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %326 = load i64, ptr %arrayidx726, align 8
-  %arrayidx727 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %327 = load i64, ptr %arrayidx727, align 16
-  %and728 = and i64 %326, %327
-  %arrayidx729 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %328 = load i64, ptr %arrayidx729, align 8
-  %arrayidx730 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %329 = load i64, ptr %arrayidx730, align 8
-  %arrayidx731 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %330 = load i64, ptr %arrayidx731, align 16
-  %or732 = or i64 %329, %330
-  %and733 = and i64 %328, %or732
-  %or734 = or i64 %and728, %and733
-  %add735 = add i64 %xor725, %or734
-  %arrayidx736 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %331 = load i64, ptr %arrayidx736, align 16
-  %add737 = add i64 %331, %add735
-  store i64 %add737, ptr %arrayidx736, align 16
-  %arrayidx738 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %332 = load i64, ptr %arrayidx738, align 16
-  %call739 = call i64 @rotrFixed64(i64 noundef %332, i64 noundef 14)
-  %arrayidx740 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %333 = load i64, ptr %arrayidx740, align 16
-  %call741 = call i64 @rotrFixed64(i64 noundef %333, i64 noundef 18)
-  %xor742 = xor i64 %call739, %call741
-  %arrayidx743 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %334 = load i64, ptr %arrayidx743, align 16
-  %call744 = call i64 @rotrFixed64(i64 noundef %334, i64 noundef 41)
-  %xor745 = xor i64 %xor742, %call744
-  %arrayidx746 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %335 = load i64, ptr %arrayidx746, align 16
-  %arrayidx747 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %336 = load i64, ptr %arrayidx747, align 16
-  %arrayidx748 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %337 = load i64, ptr %arrayidx748, align 8
-  %arrayidx749 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %338 = load i64, ptr %arrayidx749, align 16
-  %xor750 = xor i64 %337, %338
-  %and751 = and i64 %336, %xor750
-  %xor752 = xor i64 %335, %and751
-  %add753 = add i64 %xor745, %xor752
-  %339 = load ptr, ptr %K, align 8
-  %340 = load i32, ptr %j, align 4
-  %add754 = add i32 10, %340
-  %idxprom755 = zext i32 %add754 to i64
-  %arrayidx756 = getelementptr inbounds i64, ptr %339, i64 %idxprom755
-  %341 = load i64, ptr %arrayidx756, align 8
-  %add757 = add i64 %add753, %341
-  %342 = load i32, ptr %j, align 4
-  %tobool758 = icmp ne i32 %342, 0
-  br i1 %tobool758, label %cond.true759, label %cond.false781
+28:                                               ; preds = %26, %14
+  call void @llvm.lifetime.end.p0(i64 224, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
+}
 
-cond.true759:                                     ; preds = %cond.end710
-  %arrayidx760 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  %343 = load i64, ptr %arrayidx760, align 16
-  %call761 = call i64 @rotrFixed64(i64 noundef %343, i64 noundef 19)
-  %arrayidx762 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  %344 = load i64, ptr %arrayidx762, align 16
-  %call763 = call i64 @rotrFixed64(i64 noundef %344, i64 noundef 61)
-  %xor764 = xor i64 %call761, %call763
-  %arrayidx765 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  %345 = load i64, ptr %arrayidx765, align 16
-  %shr766 = lshr i64 %345, 6
-  %xor767 = xor i64 %xor764, %shr766
-  %arrayidx768 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 3
-  %346 = load i64, ptr %arrayidx768, align 8
-  %add769 = add i64 %xor767, %346
-  %arrayidx770 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  %347 = load i64, ptr %arrayidx770, align 8
-  %call771 = call i64 @rotrFixed64(i64 noundef %347, i64 noundef 1)
-  %arrayidx772 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  %348 = load i64, ptr %arrayidx772, align 8
-  %call773 = call i64 @rotrFixed64(i64 noundef %348, i64 noundef 8)
-  %xor774 = xor i64 %call771, %call773
-  %arrayidx775 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  %349 = load i64, ptr %arrayidx775, align 8
-  %shr776 = lshr i64 %349, 7
-  %xor777 = xor i64 %xor774, %shr776
-  %add778 = add i64 %add769, %xor777
-  %arrayidx779 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  %350 = load i64, ptr %arrayidx779, align 16
-  %add780 = add i64 %350, %add778
-  store i64 %add780, ptr %arrayidx779, align 16
-  br label %cond.end785
+; Function Attrs: nounwind uwtable
+define i32 @wc_Sha384Copy(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  store i32 0, ptr %6, align 4, !tbaa !9
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
 
-cond.false781:                                    ; preds = %cond.end710
-  %351 = load ptr, ptr %sha512.addr, align 8
-  %buffer782 = getelementptr inbounds %struct.wc_Sha512, ptr %351, i32 0, i32 1
-  %arrayidx783 = getelementptr inbounds [16 x i64], ptr %buffer782, i64 0, i64 10
-  %352 = load i64, ptr %arrayidx783, align 8
-  %arrayidx784 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  store i64 %352, ptr %arrayidx784, align 16
-  br label %cond.end785
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
-cond.end785:                                      ; preds = %cond.false781, %cond.true759
-  %cond786 = phi i64 [ %add780, %cond.true759 ], [ %352, %cond.false781 ]
-  %add787 = add i64 %add757, %cond786
-  %arrayidx788 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %353 = load i64, ptr %arrayidx788, align 8
-  %add789 = add i64 %353, %add787
-  store i64 %add789, ptr %arrayidx788, align 8
-  %arrayidx790 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %354 = load i64, ptr %arrayidx790, align 8
-  %arrayidx791 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %355 = load i64, ptr %arrayidx791, align 8
-  %add792 = add i64 %355, %354
-  store i64 %add792, ptr %arrayidx791, align 8
-  %arrayidx793 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %356 = load i64, ptr %arrayidx793, align 16
-  %call794 = call i64 @rotrFixed64(i64 noundef %356, i64 noundef 28)
-  %arrayidx795 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %357 = load i64, ptr %arrayidx795, align 16
-  %call796 = call i64 @rotrFixed64(i64 noundef %357, i64 noundef 34)
-  %xor797 = xor i64 %call794, %call796
-  %arrayidx798 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %358 = load i64, ptr %arrayidx798, align 16
-  %call799 = call i64 @rotrFixed64(i64 noundef %358, i64 noundef 39)
-  %xor800 = xor i64 %xor797, %call799
-  %arrayidx801 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %359 = load i64, ptr %arrayidx801, align 16
-  %arrayidx802 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %360 = load i64, ptr %arrayidx802, align 8
-  %and803 = and i64 %359, %360
-  %arrayidx804 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %361 = load i64, ptr %arrayidx804, align 16
-  %arrayidx805 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %362 = load i64, ptr %arrayidx805, align 16
-  %arrayidx806 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %363 = load i64, ptr %arrayidx806, align 8
-  %or807 = or i64 %362, %363
-  %and808 = and i64 %361, %or807
-  %or809 = or i64 %and803, %and808
-  %add810 = add i64 %xor800, %or809
-  %arrayidx811 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %364 = load i64, ptr %arrayidx811, align 8
-  %add812 = add i64 %364, %add810
-  store i64 %add812, ptr %arrayidx811, align 8
-  %arrayidx813 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %365 = load i64, ptr %arrayidx813, align 8
-  %call814 = call i64 @rotrFixed64(i64 noundef %365, i64 noundef 14)
-  %arrayidx815 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %366 = load i64, ptr %arrayidx815, align 8
-  %call816 = call i64 @rotrFixed64(i64 noundef %366, i64 noundef 18)
-  %xor817 = xor i64 %call814, %call816
-  %arrayidx818 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %367 = load i64, ptr %arrayidx818, align 8
-  %call819 = call i64 @rotrFixed64(i64 noundef %367, i64 noundef 41)
-  %xor820 = xor i64 %xor817, %call819
-  %arrayidx821 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %368 = load i64, ptr %arrayidx821, align 8
-  %arrayidx822 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %369 = load i64, ptr %arrayidx822, align 8
-  %arrayidx823 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %370 = load i64, ptr %arrayidx823, align 16
-  %arrayidx824 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %371 = load i64, ptr %arrayidx824, align 8
-  %xor825 = xor i64 %370, %371
-  %and826 = and i64 %369, %xor825
-  %xor827 = xor i64 %368, %and826
-  %add828 = add i64 %xor820, %xor827
-  %372 = load ptr, ptr %K, align 8
-  %373 = load i32, ptr %j, align 4
-  %add829 = add i32 11, %373
-  %idxprom830 = zext i32 %add829 to i64
-  %arrayidx831 = getelementptr inbounds i64, ptr %372, i64 %idxprom830
-  %374 = load i64, ptr %arrayidx831, align 8
-  %add832 = add i64 %add828, %374
-  %375 = load i32, ptr %j, align 4
-  %tobool833 = icmp ne i32 %375, 0
-  br i1 %tobool833, label %cond.true834, label %cond.false856
+13:                                               ; preds = %10, %2
+  store i32 -173, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %18
 
-cond.true834:                                     ; preds = %cond.end785
-  %arrayidx835 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  %376 = load i64, ptr %arrayidx835, align 8
-  %call836 = call i64 @rotrFixed64(i64 noundef %376, i64 noundef 19)
-  %arrayidx837 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  %377 = load i64, ptr %arrayidx837, align 8
-  %call838 = call i64 @rotrFixed64(i64 noundef %377, i64 noundef 61)
-  %xor839 = xor i64 %call836, %call838
-  %arrayidx840 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 9
-  %378 = load i64, ptr %arrayidx840, align 8
-  %shr841 = lshr i64 %378, 6
-  %xor842 = xor i64 %xor839, %shr841
-  %arrayidx843 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 4
-  %379 = load i64, ptr %arrayidx843, align 16
-  %add844 = add i64 %xor842, %379
-  %arrayidx845 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  %380 = load i64, ptr %arrayidx845, align 16
-  %call846 = call i64 @rotrFixed64(i64 noundef %380, i64 noundef 1)
-  %arrayidx847 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  %381 = load i64, ptr %arrayidx847, align 16
-  %call848 = call i64 @rotrFixed64(i64 noundef %381, i64 noundef 8)
-  %xor849 = xor i64 %call846, %call848
-  %arrayidx850 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  %382 = load i64, ptr %arrayidx850, align 16
-  %shr851 = lshr i64 %382, 7
-  %xor852 = xor i64 %xor849, %shr851
-  %add853 = add i64 %add844, %xor852
-  %arrayidx854 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  %383 = load i64, ptr %arrayidx854, align 8
-  %add855 = add i64 %383, %add853
-  store i64 %add855, ptr %arrayidx854, align 8
-  br label %cond.end860
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %16, i64 224, i1 false)
+  %17 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %17, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %18
 
-cond.false856:                                    ; preds = %cond.end785
-  %384 = load ptr, ptr %sha512.addr, align 8
-  %buffer857 = getelementptr inbounds %struct.wc_Sha512, ptr %384, i32 0, i32 1
-  %arrayidx858 = getelementptr inbounds [16 x i64], ptr %buffer857, i64 0, i64 11
-  %385 = load i64, ptr %arrayidx858, align 8
-  %arrayidx859 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  store i64 %385, ptr %arrayidx859, align 8
-  br label %cond.end860
+18:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %19 = load i32, ptr %3, align 4
+  ret i32 %19
+}
 
-cond.end860:                                      ; preds = %cond.false856, %cond.true834
-  %cond861 = phi i64 [ %add855, %cond.true834 ], [ %385, %cond.false856 ]
-  %add862 = add i64 %add832, %cond861
-  %arrayidx863 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %386 = load i64, ptr %arrayidx863, align 16
-  %add864 = add i64 %386, %add862
-  store i64 %add864, ptr %arrayidx863, align 16
-  %arrayidx865 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %387 = load i64, ptr %arrayidx865, align 16
-  %arrayidx866 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %388 = load i64, ptr %arrayidx866, align 16
-  %add867 = add i64 %388, %387
-  store i64 %add867, ptr %arrayidx866, align 16
-  %arrayidx868 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %389 = load i64, ptr %arrayidx868, align 8
-  %call869 = call i64 @rotrFixed64(i64 noundef %389, i64 noundef 28)
-  %arrayidx870 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %390 = load i64, ptr %arrayidx870, align 8
-  %call871 = call i64 @rotrFixed64(i64 noundef %390, i64 noundef 34)
-  %xor872 = xor i64 %call869, %call871
-  %arrayidx873 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %391 = load i64, ptr %arrayidx873, align 8
-  %call874 = call i64 @rotrFixed64(i64 noundef %391, i64 noundef 39)
-  %xor875 = xor i64 %xor872, %call874
-  %arrayidx876 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %392 = load i64, ptr %arrayidx876, align 8
-  %arrayidx877 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %393 = load i64, ptr %arrayidx877, align 16
-  %and878 = and i64 %392, %393
-  %arrayidx879 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %394 = load i64, ptr %arrayidx879, align 8
-  %arrayidx880 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %395 = load i64, ptr %arrayidx880, align 8
-  %arrayidx881 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %396 = load i64, ptr %arrayidx881, align 16
-  %or882 = or i64 %395, %396
-  %and883 = and i64 %394, %or882
-  %or884 = or i64 %and878, %and883
-  %add885 = add i64 %xor875, %or884
-  %arrayidx886 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %397 = load i64, ptr %arrayidx886, align 16
-  %add887 = add i64 %397, %add885
-  store i64 %add887, ptr %arrayidx886, align 16
-  %arrayidx888 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %398 = load i64, ptr %arrayidx888, align 16
-  %call889 = call i64 @rotrFixed64(i64 noundef %398, i64 noundef 14)
-  %arrayidx890 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %399 = load i64, ptr %arrayidx890, align 16
-  %call891 = call i64 @rotrFixed64(i64 noundef %399, i64 noundef 18)
-  %xor892 = xor i64 %call889, %call891
-  %arrayidx893 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %400 = load i64, ptr %arrayidx893, align 16
-  %call894 = call i64 @rotrFixed64(i64 noundef %400, i64 noundef 41)
-  %xor895 = xor i64 %xor892, %call894
-  %arrayidx896 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %401 = load i64, ptr %arrayidx896, align 16
-  %arrayidx897 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %402 = load i64, ptr %arrayidx897, align 16
-  %arrayidx898 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %403 = load i64, ptr %arrayidx898, align 8
-  %arrayidx899 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %404 = load i64, ptr %arrayidx899, align 16
-  %xor900 = xor i64 %403, %404
-  %and901 = and i64 %402, %xor900
-  %xor902 = xor i64 %401, %and901
-  %add903 = add i64 %xor895, %xor902
-  %405 = load ptr, ptr %K, align 8
-  %406 = load i32, ptr %j, align 4
-  %add904 = add i32 12, %406
-  %idxprom905 = zext i32 %add904 to i64
-  %arrayidx906 = getelementptr inbounds i64, ptr %405, i64 %idxprom905
-  %407 = load i64, ptr %arrayidx906, align 8
-  %add907 = add i64 %add903, %407
-  %408 = load i32, ptr %j, align 4
-  %tobool908 = icmp ne i32 %408, 0
-  br i1 %tobool908, label %cond.true909, label %cond.false931
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @AddLength(ptr noundef %0, i32 noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %6, i32 0, i32 3
+  %8 = load i64, ptr %7, align 8, !tbaa !16
+  store i64 %8, ptr %5, align 8, !tbaa !14
+  %9 = load i32, ptr %4, align 4, !tbaa !9
+  %10 = zext i32 %9 to i64
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %11, i32 0, i32 3
+  %13 = load i64, ptr %12, align 8, !tbaa !16
+  %14 = add i64 %13, %10
+  store i64 %14, ptr %12, align 8, !tbaa !16
+  %15 = load i64, ptr %5, align 8, !tbaa !14
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %17, label %22
 
-cond.true909:                                     ; preds = %cond.end860
-  %arrayidx910 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  %409 = load i64, ptr %arrayidx910, align 16
-  %call911 = call i64 @rotrFixed64(i64 noundef %409, i64 noundef 19)
-  %arrayidx912 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  %410 = load i64, ptr %arrayidx912, align 16
-  %call913 = call i64 @rotrFixed64(i64 noundef %410, i64 noundef 61)
-  %xor914 = xor i64 %call911, %call913
-  %arrayidx915 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 10
-  %411 = load i64, ptr %arrayidx915, align 16
-  %shr916 = lshr i64 %411, 6
-  %xor917 = xor i64 %xor914, %shr916
-  %arrayidx918 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 5
-  %412 = load i64, ptr %arrayidx918, align 8
-  %add919 = add i64 %xor917, %412
-  %arrayidx920 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  %413 = load i64, ptr %arrayidx920, align 8
-  %call921 = call i64 @rotrFixed64(i64 noundef %413, i64 noundef 1)
-  %arrayidx922 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  %414 = load i64, ptr %arrayidx922, align 8
-  %call923 = call i64 @rotrFixed64(i64 noundef %414, i64 noundef 8)
-  %xor924 = xor i64 %call921, %call923
-  %arrayidx925 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  %415 = load i64, ptr %arrayidx925, align 8
-  %shr926 = lshr i64 %415, 7
-  %xor927 = xor i64 %xor924, %shr926
-  %add928 = add i64 %add919, %xor927
-  %arrayidx929 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  %416 = load i64, ptr %arrayidx929, align 16
-  %add930 = add i64 %416, %add928
-  store i64 %add930, ptr %arrayidx929, align 16
-  br label %cond.end935
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %18, i32 0, i32 4
+  %20 = load i64, ptr %19, align 8, !tbaa !17
+  %21 = add i64 %20, 1
+  store i64 %21, ptr %19, align 8, !tbaa !17
+  br label %22
 
-cond.false931:                                    ; preds = %cond.end860
-  %417 = load ptr, ptr %sha512.addr, align 8
-  %buffer932 = getelementptr inbounds %struct.wc_Sha512, ptr %417, i32 0, i32 1
-  %arrayidx933 = getelementptr inbounds [16 x i64], ptr %buffer932, i64 0, i64 12
-  %418 = load i64, ptr %arrayidx933, align 8
-  %arrayidx934 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  store i64 %418, ptr %arrayidx934, align 16
-  br label %cond.end935
+22:                                               ; preds = %17, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  ret void
+}
 
-cond.end935:                                      ; preds = %cond.false931, %cond.true909
-  %cond936 = phi i64 [ %add930, %cond.true909 ], [ %418, %cond.false931 ]
-  %add937 = add i64 %add907, %cond936
-  %arrayidx938 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %419 = load i64, ptr %arrayidx938, align 8
-  %add939 = add i64 %419, %add937
-  store i64 %add939, ptr %arrayidx938, align 8
-  %arrayidx940 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %420 = load i64, ptr %arrayidx940, align 8
-  %arrayidx941 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %421 = load i64, ptr %arrayidx941, align 8
-  %add942 = add i64 %421, %420
-  store i64 %add942, ptr %arrayidx941, align 8
-  %arrayidx943 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %422 = load i64, ptr %arrayidx943, align 16
-  %call944 = call i64 @rotrFixed64(i64 noundef %422, i64 noundef 28)
-  %arrayidx945 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %423 = load i64, ptr %arrayidx945, align 16
-  %call946 = call i64 @rotrFixed64(i64 noundef %423, i64 noundef 34)
-  %xor947 = xor i64 %call944, %call946
-  %arrayidx948 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %424 = load i64, ptr %arrayidx948, align 16
-  %call949 = call i64 @rotrFixed64(i64 noundef %424, i64 noundef 39)
-  %xor950 = xor i64 %xor947, %call949
-  %arrayidx951 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %425 = load i64, ptr %arrayidx951, align 16
-  %arrayidx952 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %426 = load i64, ptr %arrayidx952, align 8
-  %and953 = and i64 %425, %426
-  %arrayidx954 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %427 = load i64, ptr %arrayidx954, align 16
-  %arrayidx955 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %428 = load i64, ptr %arrayidx955, align 16
-  %arrayidx956 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %429 = load i64, ptr %arrayidx956, align 8
-  %or957 = or i64 %428, %429
-  %and958 = and i64 %427, %or957
-  %or959 = or i64 %and953, %and958
-  %add960 = add i64 %xor950, %or959
-  %arrayidx961 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %430 = load i64, ptr %arrayidx961, align 8
-  %add962 = add i64 %430, %add960
-  store i64 %add962, ptr %arrayidx961, align 8
-  %arrayidx963 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %431 = load i64, ptr %arrayidx963, align 8
-  %call964 = call i64 @rotrFixed64(i64 noundef %431, i64 noundef 14)
-  %arrayidx965 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %432 = load i64, ptr %arrayidx965, align 8
-  %call966 = call i64 @rotrFixed64(i64 noundef %432, i64 noundef 18)
-  %xor967 = xor i64 %call964, %call966
-  %arrayidx968 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %433 = load i64, ptr %arrayidx968, align 8
-  %call969 = call i64 @rotrFixed64(i64 noundef %433, i64 noundef 41)
-  %xor970 = xor i64 %xor967, %call969
-  %arrayidx971 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %434 = load i64, ptr %arrayidx971, align 8
-  %arrayidx972 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %435 = load i64, ptr %arrayidx972, align 8
-  %arrayidx973 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %436 = load i64, ptr %arrayidx973, align 16
-  %arrayidx974 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %437 = load i64, ptr %arrayidx974, align 8
-  %xor975 = xor i64 %436, %437
-  %and976 = and i64 %435, %xor975
-  %xor977 = xor i64 %434, %and976
-  %add978 = add i64 %xor970, %xor977
-  %438 = load ptr, ptr %K, align 8
-  %439 = load i32, ptr %j, align 4
-  %add979 = add i32 13, %439
-  %idxprom980 = zext i32 %add979 to i64
-  %arrayidx981 = getelementptr inbounds i64, ptr %438, i64 %idxprom980
-  %440 = load i64, ptr %arrayidx981, align 8
-  %add982 = add i64 %add978, %440
-  %441 = load i32, ptr %j, align 4
-  %tobool983 = icmp ne i32 %441, 0
-  br i1 %tobool983, label %cond.true984, label %cond.false1006
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @min(i32 noundef %0, i32 noundef %1) #1 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  %6 = load i32, ptr %3, align 4, !tbaa !9
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  %8 = call i32 @ctMaskWord32GTE(i32 noundef %6, i32 noundef %7)
+  store i32 %8, ptr %5, align 4, !tbaa !9
+  %9 = load i32, ptr %3, align 4, !tbaa !9
+  %10 = load i32, ptr %5, align 4, !tbaa !9
+  %11 = xor i32 %10, -1
+  %12 = and i32 %9, %11
+  %13 = load i32, ptr %4, align 4, !tbaa !9
+  %14 = load i32, ptr %5, align 4, !tbaa !9
+  %15 = and i32 %13, %14
+  %16 = or i32 %12, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  ret i32 %16
+}
 
-cond.true984:                                     ; preds = %cond.end935
-  %arrayidx985 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  %442 = load i64, ptr %arrayidx985, align 8
-  %call986 = call i64 @rotrFixed64(i64 noundef %442, i64 noundef 19)
-  %arrayidx987 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  %443 = load i64, ptr %arrayidx987, align 8
-  %call988 = call i64 @rotrFixed64(i64 noundef %443, i64 noundef 61)
-  %xor989 = xor i64 %call986, %call988
-  %arrayidx990 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 11
-  %444 = load i64, ptr %arrayidx990, align 8
-  %shr991 = lshr i64 %444, 6
-  %xor992 = xor i64 %xor989, %shr991
-  %arrayidx993 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 6
-  %445 = load i64, ptr %arrayidx993, align 16
-  %add994 = add i64 %xor992, %445
-  %arrayidx995 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  %446 = load i64, ptr %arrayidx995, align 16
-  %call996 = call i64 @rotrFixed64(i64 noundef %446, i64 noundef 1)
-  %arrayidx997 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  %447 = load i64, ptr %arrayidx997, align 16
-  %call998 = call i64 @rotrFixed64(i64 noundef %447, i64 noundef 8)
-  %xor999 = xor i64 %call996, %call998
-  %arrayidx1000 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  %448 = load i64, ptr %arrayidx1000, align 16
-  %shr1001 = lshr i64 %448, 7
-  %xor1002 = xor i64 %xor999, %shr1001
-  %add1003 = add i64 %add994, %xor1002
-  %arrayidx1004 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  %449 = load i64, ptr %arrayidx1004, align 8
-  %add1005 = add i64 %449, %add1003
-  store i64 %add1005, ptr %arrayidx1004, align 8
-  br label %cond.end1010
+; Function Attrs: nounwind uwtable
+define internal i32 @_Transform_Sha512(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca [8 x i64], align 16
+  %6 = alloca [16 x i64], align 16
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  store ptr @K512, ptr %3, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 128, ptr %6) #5
+  %7 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [8 x i64], ptr %9, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %7, ptr align 8 %10, i64 64, i1 false)
+  store i32 0, ptr %4, align 4, !tbaa !9
+  br label %11
 
-cond.false1006:                                   ; preds = %cond.end935
-  %450 = load ptr, ptr %sha512.addr, align 8
-  %buffer1007 = getelementptr inbounds %struct.wc_Sha512, ptr %450, i32 0, i32 1
-  %arrayidx1008 = getelementptr inbounds [16 x i64], ptr %buffer1007, i64 0, i64 13
-  %451 = load i64, ptr %arrayidx1008, align 8
-  %arrayidx1009 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  store i64 %451, ptr %arrayidx1009, align 8
-  br label %cond.end1010
+11:                                               ; preds = %1743, %1
+  %12 = load i32, ptr %4, align 4, !tbaa !9
+  %13 = icmp ult i32 %12, 80
+  br i1 %13, label %14, label %1746
 
-cond.end1010:                                     ; preds = %cond.false1006, %cond.true984
-  %cond1011 = phi i64 [ %add1005, %cond.true984 ], [ %451, %cond.false1006 ]
-  %add1012 = add i64 %add982, %cond1011
-  %arrayidx1013 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %452 = load i64, ptr %arrayidx1013, align 16
-  %add1014 = add i64 %452, %add1012
-  store i64 %add1014, ptr %arrayidx1013, align 16
-  %arrayidx1015 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %453 = load i64, ptr %arrayidx1015, align 16
-  %arrayidx1016 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %454 = load i64, ptr %arrayidx1016, align 16
-  %add1017 = add i64 %454, %453
-  store i64 %add1017, ptr %arrayidx1016, align 16
-  %arrayidx1018 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %455 = load i64, ptr %arrayidx1018, align 8
-  %call1019 = call i64 @rotrFixed64(i64 noundef %455, i64 noundef 28)
-  %arrayidx1020 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %456 = load i64, ptr %arrayidx1020, align 8
-  %call1021 = call i64 @rotrFixed64(i64 noundef %456, i64 noundef 34)
-  %xor1022 = xor i64 %call1019, %call1021
-  %arrayidx1023 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %457 = load i64, ptr %arrayidx1023, align 8
-  %call1024 = call i64 @rotrFixed64(i64 noundef %457, i64 noundef 39)
-  %xor1025 = xor i64 %xor1022, %call1024
-  %arrayidx1026 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %458 = load i64, ptr %arrayidx1026, align 8
-  %arrayidx1027 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %459 = load i64, ptr %arrayidx1027, align 16
-  %and1028 = and i64 %458, %459
-  %arrayidx1029 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %460 = load i64, ptr %arrayidx1029, align 8
-  %arrayidx1030 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %461 = load i64, ptr %arrayidx1030, align 8
-  %arrayidx1031 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %462 = load i64, ptr %arrayidx1031, align 16
-  %or1032 = or i64 %461, %462
-  %and1033 = and i64 %460, %or1032
-  %or1034 = or i64 %and1028, %and1033
-  %add1035 = add i64 %xor1025, %or1034
-  %arrayidx1036 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %463 = load i64, ptr %arrayidx1036, align 16
-  %add1037 = add i64 %463, %add1035
-  store i64 %add1037, ptr %arrayidx1036, align 16
-  %arrayidx1038 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %464 = load i64, ptr %arrayidx1038, align 16
-  %call1039 = call i64 @rotrFixed64(i64 noundef %464, i64 noundef 14)
-  %arrayidx1040 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %465 = load i64, ptr %arrayidx1040, align 16
-  %call1041 = call i64 @rotrFixed64(i64 noundef %465, i64 noundef 18)
-  %xor1042 = xor i64 %call1039, %call1041
-  %arrayidx1043 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %466 = load i64, ptr %arrayidx1043, align 16
-  %call1044 = call i64 @rotrFixed64(i64 noundef %466, i64 noundef 41)
-  %xor1045 = xor i64 %xor1042, %call1044
-  %arrayidx1046 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %467 = load i64, ptr %arrayidx1046, align 16
-  %arrayidx1047 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %468 = load i64, ptr %arrayidx1047, align 16
-  %arrayidx1048 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %469 = load i64, ptr %arrayidx1048, align 8
-  %arrayidx1049 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %470 = load i64, ptr %arrayidx1049, align 16
-  %xor1050 = xor i64 %469, %470
-  %and1051 = and i64 %468, %xor1050
-  %xor1052 = xor i64 %467, %and1051
-  %add1053 = add i64 %xor1045, %xor1052
-  %471 = load ptr, ptr %K, align 8
-  %472 = load i32, ptr %j, align 4
-  %add1054 = add i32 14, %472
-  %idxprom1055 = zext i32 %add1054 to i64
-  %arrayidx1056 = getelementptr inbounds i64, ptr %471, i64 %idxprom1055
-  %473 = load i64, ptr %arrayidx1056, align 8
-  %add1057 = add i64 %add1053, %473
-  %474 = load i32, ptr %j, align 4
-  %tobool1058 = icmp ne i32 %474, 0
-  br i1 %tobool1058, label %cond.true1059, label %cond.false1081
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %16 = load i64, ptr %15, align 16, !tbaa !14
+  %17 = call i64 @rotrFixed64(i64 noundef %16, i64 noundef 14)
+  %18 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %19 = load i64, ptr %18, align 16, !tbaa !14
+  %20 = call i64 @rotrFixed64(i64 noundef %19, i64 noundef 18)
+  %21 = xor i64 %17, %20
+  %22 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %23 = load i64, ptr %22, align 16, !tbaa !14
+  %24 = call i64 @rotrFixed64(i64 noundef %23, i64 noundef 41)
+  %25 = xor i64 %21, %24
+  %26 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %27 = load i64, ptr %26, align 16, !tbaa !14
+  %28 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %29 = load i64, ptr %28, align 16, !tbaa !14
+  %30 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %31 = load i64, ptr %30, align 8, !tbaa !14
+  %32 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %33 = load i64, ptr %32, align 16, !tbaa !14
+  %34 = xor i64 %31, %33
+  %35 = and i64 %29, %34
+  %36 = xor i64 %27, %35
+  %37 = add i64 %25, %36
+  %38 = load ptr, ptr %3, align 8, !tbaa !24
+  %39 = load i32, ptr %4, align 4, !tbaa !9
+  %40 = add i32 0, %39
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw i64, ptr %38, i64 %41
+  %43 = load i64, ptr %42, align 8, !tbaa !14
+  %44 = add i64 %37, %43
+  %45 = load i32, ptr %4, align 4, !tbaa !9
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %77
 
-cond.true1059:                                    ; preds = %cond.end1010
-  %arrayidx1060 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  %475 = load i64, ptr %arrayidx1060, align 16
-  %call1061 = call i64 @rotrFixed64(i64 noundef %475, i64 noundef 19)
-  %arrayidx1062 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  %476 = load i64, ptr %arrayidx1062, align 16
-  %call1063 = call i64 @rotrFixed64(i64 noundef %476, i64 noundef 61)
-  %xor1064 = xor i64 %call1061, %call1063
-  %arrayidx1065 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 12
-  %477 = load i64, ptr %arrayidx1065, align 16
-  %shr1066 = lshr i64 %477, 6
-  %xor1067 = xor i64 %xor1064, %shr1066
-  %arrayidx1068 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 7
-  %478 = load i64, ptr %arrayidx1068, align 8
-  %add1069 = add i64 %xor1067, %478
-  %arrayidx1070 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  %479 = load i64, ptr %arrayidx1070, align 8
-  %call1071 = call i64 @rotrFixed64(i64 noundef %479, i64 noundef 1)
-  %arrayidx1072 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  %480 = load i64, ptr %arrayidx1072, align 8
-  %call1073 = call i64 @rotrFixed64(i64 noundef %480, i64 noundef 8)
-  %xor1074 = xor i64 %call1071, %call1073
-  %arrayidx1075 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  %481 = load i64, ptr %arrayidx1075, align 8
-  %shr1076 = lshr i64 %481, 7
-  %xor1077 = xor i64 %xor1074, %shr1076
-  %add1078 = add i64 %add1069, %xor1077
-  %arrayidx1079 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  %482 = load i64, ptr %arrayidx1079, align 16
-  %add1080 = add i64 %482, %add1078
-  store i64 %add1080, ptr %arrayidx1079, align 16
-  br label %cond.end1085
+47:                                               ; preds = %14
+  %48 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  %49 = load i64, ptr %48, align 16, !tbaa !14
+  %50 = call i64 @rotrFixed64(i64 noundef %49, i64 noundef 19)
+  %51 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  %52 = load i64, ptr %51, align 16, !tbaa !14
+  %53 = call i64 @rotrFixed64(i64 noundef %52, i64 noundef 61)
+  %54 = xor i64 %50, %53
+  %55 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  %56 = load i64, ptr %55, align 16, !tbaa !14
+  %57 = lshr i64 %56, 6
+  %58 = xor i64 %54, %57
+  %59 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  %60 = load i64, ptr %59, align 8, !tbaa !14
+  %61 = add i64 %58, %60
+  %62 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  %63 = load i64, ptr %62, align 8, !tbaa !14
+  %64 = call i64 @rotrFixed64(i64 noundef %63, i64 noundef 1)
+  %65 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  %66 = load i64, ptr %65, align 8, !tbaa !14
+  %67 = call i64 @rotrFixed64(i64 noundef %66, i64 noundef 8)
+  %68 = xor i64 %64, %67
+  %69 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  %70 = load i64, ptr %69, align 8, !tbaa !14
+  %71 = lshr i64 %70, 7
+  %72 = xor i64 %68, %71
+  %73 = add i64 %61, %72
+  %74 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  %75 = load i64, ptr %74, align 16, !tbaa !14
+  %76 = add i64 %75, %73
+  store i64 %76, ptr %74, align 16, !tbaa !14
+  br label %83
 
-cond.false1081:                                   ; preds = %cond.end1010
-  %483 = load ptr, ptr %sha512.addr, align 8
-  %buffer1082 = getelementptr inbounds %struct.wc_Sha512, ptr %483, i32 0, i32 1
-  %arrayidx1083 = getelementptr inbounds [16 x i64], ptr %buffer1082, i64 0, i64 14
-  %484 = load i64, ptr %arrayidx1083, align 8
-  %arrayidx1084 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 14
-  store i64 %484, ptr %arrayidx1084, align 16
-  br label %cond.end1085
+77:                                               ; preds = %14
+  %78 = load ptr, ptr %2, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %78, i32 0, i32 1
+  %80 = getelementptr inbounds [16 x i64], ptr %79, i64 0, i64 0
+  %81 = load i64, ptr %80, align 8, !tbaa !14
+  %82 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  store i64 %81, ptr %82, align 16, !tbaa !14
+  br label %83
 
-cond.end1085:                                     ; preds = %cond.false1081, %cond.true1059
-  %cond1086 = phi i64 [ %add1080, %cond.true1059 ], [ %484, %cond.false1081 ]
-  %add1087 = add i64 %add1057, %cond1086
-  %arrayidx1088 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %485 = load i64, ptr %arrayidx1088, align 8
-  %add1089 = add i64 %485, %add1087
-  store i64 %add1089, ptr %arrayidx1088, align 8
-  %arrayidx1090 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %486 = load i64, ptr %arrayidx1090, align 8
-  %arrayidx1091 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %487 = load i64, ptr %arrayidx1091, align 8
-  %add1092 = add i64 %487, %486
-  store i64 %add1092, ptr %arrayidx1091, align 8
-  %arrayidx1093 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %488 = load i64, ptr %arrayidx1093, align 16
-  %call1094 = call i64 @rotrFixed64(i64 noundef %488, i64 noundef 28)
-  %arrayidx1095 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %489 = load i64, ptr %arrayidx1095, align 16
-  %call1096 = call i64 @rotrFixed64(i64 noundef %489, i64 noundef 34)
-  %xor1097 = xor i64 %call1094, %call1096
-  %arrayidx1098 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %490 = load i64, ptr %arrayidx1098, align 16
-  %call1099 = call i64 @rotrFixed64(i64 noundef %490, i64 noundef 39)
-  %xor1100 = xor i64 %xor1097, %call1099
-  %arrayidx1101 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %491 = load i64, ptr %arrayidx1101, align 16
-  %arrayidx1102 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %492 = load i64, ptr %arrayidx1102, align 8
-  %and1103 = and i64 %491, %492
-  %arrayidx1104 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %493 = load i64, ptr %arrayidx1104, align 16
-  %arrayidx1105 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %494 = load i64, ptr %arrayidx1105, align 16
-  %arrayidx1106 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %495 = load i64, ptr %arrayidx1106, align 8
-  %or1107 = or i64 %494, %495
-  %and1108 = and i64 %493, %or1107
-  %or1109 = or i64 %and1103, %and1108
-  %add1110 = add i64 %xor1100, %or1109
-  %arrayidx1111 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %496 = load i64, ptr %arrayidx1111, align 8
-  %add1112 = add i64 %496, %add1110
-  store i64 %add1112, ptr %arrayidx1111, align 8
-  %arrayidx1113 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %497 = load i64, ptr %arrayidx1113, align 8
-  %call1114 = call i64 @rotrFixed64(i64 noundef %497, i64 noundef 14)
-  %arrayidx1115 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %498 = load i64, ptr %arrayidx1115, align 8
-  %call1116 = call i64 @rotrFixed64(i64 noundef %498, i64 noundef 18)
-  %xor1117 = xor i64 %call1114, %call1116
-  %arrayidx1118 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %499 = load i64, ptr %arrayidx1118, align 8
-  %call1119 = call i64 @rotrFixed64(i64 noundef %499, i64 noundef 41)
-  %xor1120 = xor i64 %xor1117, %call1119
-  %arrayidx1121 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %500 = load i64, ptr %arrayidx1121, align 8
-  %arrayidx1122 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %501 = load i64, ptr %arrayidx1122, align 8
-  %arrayidx1123 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %502 = load i64, ptr %arrayidx1123, align 16
-  %arrayidx1124 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %503 = load i64, ptr %arrayidx1124, align 8
-  %xor1125 = xor i64 %502, %503
-  %and1126 = and i64 %501, %xor1125
-  %xor1127 = xor i64 %500, %and1126
-  %add1128 = add i64 %xor1120, %xor1127
-  %504 = load ptr, ptr %K, align 8
-  %505 = load i32, ptr %j, align 4
-  %add1129 = add i32 15, %505
-  %idxprom1130 = zext i32 %add1129 to i64
-  %arrayidx1131 = getelementptr inbounds i64, ptr %504, i64 %idxprom1130
-  %506 = load i64, ptr %arrayidx1131, align 8
-  %add1132 = add i64 %add1128, %506
-  %507 = load i32, ptr %j, align 4
-  %tobool1133 = icmp ne i32 %507, 0
-  br i1 %tobool1133, label %cond.true1134, label %cond.false1156
+83:                                               ; preds = %77, %47
+  %84 = phi i64 [ %76, %47 ], [ %81, %77 ]
+  %85 = add i64 %44, %84
+  %86 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %87 = load i64, ptr %86, align 8, !tbaa !14
+  %88 = add i64 %87, %85
+  store i64 %88, ptr %86, align 8, !tbaa !14
+  %89 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %90 = load i64, ptr %89, align 8, !tbaa !14
+  %91 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %92 = load i64, ptr %91, align 8, !tbaa !14
+  %93 = add i64 %92, %90
+  store i64 %93, ptr %91, align 8, !tbaa !14
+  %94 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %95 = load i64, ptr %94, align 16, !tbaa !14
+  %96 = call i64 @rotrFixed64(i64 noundef %95, i64 noundef 28)
+  %97 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %98 = load i64, ptr %97, align 16, !tbaa !14
+  %99 = call i64 @rotrFixed64(i64 noundef %98, i64 noundef 34)
+  %100 = xor i64 %96, %99
+  %101 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %102 = load i64, ptr %101, align 16, !tbaa !14
+  %103 = call i64 @rotrFixed64(i64 noundef %102, i64 noundef 39)
+  %104 = xor i64 %100, %103
+  %105 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %106 = load i64, ptr %105, align 16, !tbaa !14
+  %107 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %108 = load i64, ptr %107, align 8, !tbaa !14
+  %109 = and i64 %106, %108
+  %110 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %111 = load i64, ptr %110, align 16, !tbaa !14
+  %112 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %113 = load i64, ptr %112, align 16, !tbaa !14
+  %114 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %115 = load i64, ptr %114, align 8, !tbaa !14
+  %116 = or i64 %113, %115
+  %117 = and i64 %111, %116
+  %118 = or i64 %109, %117
+  %119 = add i64 %104, %118
+  %120 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %121 = load i64, ptr %120, align 8, !tbaa !14
+  %122 = add i64 %121, %119
+  store i64 %122, ptr %120, align 8, !tbaa !14
+  %123 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %124 = load i64, ptr %123, align 8, !tbaa !14
+  %125 = call i64 @rotrFixed64(i64 noundef %124, i64 noundef 14)
+  %126 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %127 = load i64, ptr %126, align 8, !tbaa !14
+  %128 = call i64 @rotrFixed64(i64 noundef %127, i64 noundef 18)
+  %129 = xor i64 %125, %128
+  %130 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %131 = load i64, ptr %130, align 8, !tbaa !14
+  %132 = call i64 @rotrFixed64(i64 noundef %131, i64 noundef 41)
+  %133 = xor i64 %129, %132
+  %134 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %135 = load i64, ptr %134, align 8, !tbaa !14
+  %136 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %137 = load i64, ptr %136, align 8, !tbaa !14
+  %138 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %139 = load i64, ptr %138, align 16, !tbaa !14
+  %140 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %141 = load i64, ptr %140, align 8, !tbaa !14
+  %142 = xor i64 %139, %141
+  %143 = and i64 %137, %142
+  %144 = xor i64 %135, %143
+  %145 = add i64 %133, %144
+  %146 = load ptr, ptr %3, align 8, !tbaa !24
+  %147 = load i32, ptr %4, align 4, !tbaa !9
+  %148 = add i32 1, %147
+  %149 = zext i32 %148 to i64
+  %150 = getelementptr inbounds nuw i64, ptr %146, i64 %149
+  %151 = load i64, ptr %150, align 8, !tbaa !14
+  %152 = add i64 %145, %151
+  %153 = load i32, ptr %4, align 4, !tbaa !9
+  %154 = icmp ne i32 %153, 0
+  br i1 %154, label %155, label %185
 
-cond.true1134:                                    ; preds = %cond.end1085
-  %arrayidx1135 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  %508 = load i64, ptr %arrayidx1135, align 8
-  %call1136 = call i64 @rotrFixed64(i64 noundef %508, i64 noundef 19)
-  %arrayidx1137 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  %509 = load i64, ptr %arrayidx1137, align 8
-  %call1138 = call i64 @rotrFixed64(i64 noundef %509, i64 noundef 61)
-  %xor1139 = xor i64 %call1136, %call1138
-  %arrayidx1140 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 13
-  %510 = load i64, ptr %arrayidx1140, align 8
-  %shr1141 = lshr i64 %510, 6
-  %xor1142 = xor i64 %xor1139, %shr1141
-  %arrayidx1143 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 8
-  %511 = load i64, ptr %arrayidx1143, align 16
-  %add1144 = add i64 %xor1142, %511
-  %arrayidx1145 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  %512 = load i64, ptr %arrayidx1145, align 16
-  %call1146 = call i64 @rotrFixed64(i64 noundef %512, i64 noundef 1)
-  %arrayidx1147 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  %513 = load i64, ptr %arrayidx1147, align 16
-  %call1148 = call i64 @rotrFixed64(i64 noundef %513, i64 noundef 8)
-  %xor1149 = xor i64 %call1146, %call1148
-  %arrayidx1150 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  %514 = load i64, ptr %arrayidx1150, align 16
-  %shr1151 = lshr i64 %514, 7
-  %xor1152 = xor i64 %xor1149, %shr1151
-  %add1153 = add i64 %add1144, %xor1152
-  %arrayidx1154 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  %515 = load i64, ptr %arrayidx1154, align 8
-  %add1155 = add i64 %515, %add1153
-  store i64 %add1155, ptr %arrayidx1154, align 8
-  br label %cond.end1160
+155:                                              ; preds = %83
+  %156 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  %157 = load i64, ptr %156, align 8, !tbaa !14
+  %158 = call i64 @rotrFixed64(i64 noundef %157, i64 noundef 19)
+  %159 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  %160 = load i64, ptr %159, align 8, !tbaa !14
+  %161 = call i64 @rotrFixed64(i64 noundef %160, i64 noundef 61)
+  %162 = xor i64 %158, %161
+  %163 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  %164 = load i64, ptr %163, align 8, !tbaa !14
+  %165 = lshr i64 %164, 6
+  %166 = xor i64 %162, %165
+  %167 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  %168 = load i64, ptr %167, align 16, !tbaa !14
+  %169 = add i64 %166, %168
+  %170 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  %171 = load i64, ptr %170, align 16, !tbaa !14
+  %172 = call i64 @rotrFixed64(i64 noundef %171, i64 noundef 1)
+  %173 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  %174 = load i64, ptr %173, align 16, !tbaa !14
+  %175 = call i64 @rotrFixed64(i64 noundef %174, i64 noundef 8)
+  %176 = xor i64 %172, %175
+  %177 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  %178 = load i64, ptr %177, align 16, !tbaa !14
+  %179 = lshr i64 %178, 7
+  %180 = xor i64 %176, %179
+  %181 = add i64 %169, %180
+  %182 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  %183 = load i64, ptr %182, align 8, !tbaa !14
+  %184 = add i64 %183, %181
+  store i64 %184, ptr %182, align 8, !tbaa !14
+  br label %191
 
-cond.false1156:                                   ; preds = %cond.end1085
-  %516 = load ptr, ptr %sha512.addr, align 8
-  %buffer1157 = getelementptr inbounds %struct.wc_Sha512, ptr %516, i32 0, i32 1
-  %arrayidx1158 = getelementptr inbounds [16 x i64], ptr %buffer1157, i64 0, i64 15
-  %517 = load i64, ptr %arrayidx1158, align 8
-  %arrayidx1159 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 15
-  store i64 %517, ptr %arrayidx1159, align 8
-  br label %cond.end1160
+185:                                              ; preds = %83
+  %186 = load ptr, ptr %2, align 8, !tbaa !3
+  %187 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %186, i32 0, i32 1
+  %188 = getelementptr inbounds [16 x i64], ptr %187, i64 0, i64 1
+  %189 = load i64, ptr %188, align 8, !tbaa !14
+  %190 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  store i64 %189, ptr %190, align 8, !tbaa !14
+  br label %191
 
-cond.end1160:                                     ; preds = %cond.false1156, %cond.true1134
-  %cond1161 = phi i64 [ %add1155, %cond.true1134 ], [ %517, %cond.false1156 ]
-  %add1162 = add i64 %add1132, %cond1161
-  %arrayidx1163 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %518 = load i64, ptr %arrayidx1163, align 16
-  %add1164 = add i64 %518, %add1162
-  store i64 %add1164, ptr %arrayidx1163, align 16
-  %arrayidx1165 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %519 = load i64, ptr %arrayidx1165, align 16
-  %arrayidx1166 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %520 = load i64, ptr %arrayidx1166, align 16
-  %add1167 = add i64 %520, %519
-  store i64 %add1167, ptr %arrayidx1166, align 16
-  %arrayidx1168 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %521 = load i64, ptr %arrayidx1168, align 8
-  %call1169 = call i64 @rotrFixed64(i64 noundef %521, i64 noundef 28)
-  %arrayidx1170 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %522 = load i64, ptr %arrayidx1170, align 8
-  %call1171 = call i64 @rotrFixed64(i64 noundef %522, i64 noundef 34)
-  %xor1172 = xor i64 %call1169, %call1171
-  %arrayidx1173 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %523 = load i64, ptr %arrayidx1173, align 8
-  %call1174 = call i64 @rotrFixed64(i64 noundef %523, i64 noundef 39)
-  %xor1175 = xor i64 %xor1172, %call1174
-  %arrayidx1176 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %524 = load i64, ptr %arrayidx1176, align 8
-  %arrayidx1177 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %525 = load i64, ptr %arrayidx1177, align 16
-  %and1178 = and i64 %524, %525
-  %arrayidx1179 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %526 = load i64, ptr %arrayidx1179, align 8
-  %arrayidx1180 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %527 = load i64, ptr %arrayidx1180, align 8
-  %arrayidx1181 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %528 = load i64, ptr %arrayidx1181, align 16
-  %or1182 = or i64 %527, %528
-  %and1183 = and i64 %526, %or1182
-  %or1184 = or i64 %and1178, %and1183
-  %add1185 = add i64 %xor1175, %or1184
-  %arrayidx1186 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %529 = load i64, ptr %arrayidx1186, align 16
-  %add1187 = add i64 %529, %add1185
-  store i64 %add1187, ptr %arrayidx1186, align 16
-  br label %for.inc
+191:                                              ; preds = %185, %155
+  %192 = phi i64 [ %184, %155 ], [ %189, %185 ]
+  %193 = add i64 %152, %192
+  %194 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %195 = load i64, ptr %194, align 16, !tbaa !14
+  %196 = add i64 %195, %193
+  store i64 %196, ptr %194, align 16, !tbaa !14
+  %197 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %198 = load i64, ptr %197, align 16, !tbaa !14
+  %199 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %200 = load i64, ptr %199, align 16, !tbaa !14
+  %201 = add i64 %200, %198
+  store i64 %201, ptr %199, align 16, !tbaa !14
+  %202 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %203 = load i64, ptr %202, align 8, !tbaa !14
+  %204 = call i64 @rotrFixed64(i64 noundef %203, i64 noundef 28)
+  %205 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %206 = load i64, ptr %205, align 8, !tbaa !14
+  %207 = call i64 @rotrFixed64(i64 noundef %206, i64 noundef 34)
+  %208 = xor i64 %204, %207
+  %209 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %210 = load i64, ptr %209, align 8, !tbaa !14
+  %211 = call i64 @rotrFixed64(i64 noundef %210, i64 noundef 39)
+  %212 = xor i64 %208, %211
+  %213 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %214 = load i64, ptr %213, align 8, !tbaa !14
+  %215 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %216 = load i64, ptr %215, align 16, !tbaa !14
+  %217 = and i64 %214, %216
+  %218 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %219 = load i64, ptr %218, align 8, !tbaa !14
+  %220 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %221 = load i64, ptr %220, align 8, !tbaa !14
+  %222 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %223 = load i64, ptr %222, align 16, !tbaa !14
+  %224 = or i64 %221, %223
+  %225 = and i64 %219, %224
+  %226 = or i64 %217, %225
+  %227 = add i64 %212, %226
+  %228 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %229 = load i64, ptr %228, align 16, !tbaa !14
+  %230 = add i64 %229, %227
+  store i64 %230, ptr %228, align 16, !tbaa !14
+  %231 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %232 = load i64, ptr %231, align 16, !tbaa !14
+  %233 = call i64 @rotrFixed64(i64 noundef %232, i64 noundef 14)
+  %234 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %235 = load i64, ptr %234, align 16, !tbaa !14
+  %236 = call i64 @rotrFixed64(i64 noundef %235, i64 noundef 18)
+  %237 = xor i64 %233, %236
+  %238 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %239 = load i64, ptr %238, align 16, !tbaa !14
+  %240 = call i64 @rotrFixed64(i64 noundef %239, i64 noundef 41)
+  %241 = xor i64 %237, %240
+  %242 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %243 = load i64, ptr %242, align 16, !tbaa !14
+  %244 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %245 = load i64, ptr %244, align 16, !tbaa !14
+  %246 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %247 = load i64, ptr %246, align 8, !tbaa !14
+  %248 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %249 = load i64, ptr %248, align 16, !tbaa !14
+  %250 = xor i64 %247, %249
+  %251 = and i64 %245, %250
+  %252 = xor i64 %243, %251
+  %253 = add i64 %241, %252
+  %254 = load ptr, ptr %3, align 8, !tbaa !24
+  %255 = load i32, ptr %4, align 4, !tbaa !9
+  %256 = add i32 2, %255
+  %257 = zext i32 %256 to i64
+  %258 = getelementptr inbounds nuw i64, ptr %254, i64 %257
+  %259 = load i64, ptr %258, align 8, !tbaa !14
+  %260 = add i64 %253, %259
+  %261 = load i32, ptr %4, align 4, !tbaa !9
+  %262 = icmp ne i32 %261, 0
+  br i1 %262, label %263, label %293
 
-for.inc:                                          ; preds = %cond.end1160
-  %530 = load i32, ptr %j, align 4
-  %add1188 = add i32 %530, 16
-  store i32 %add1188, ptr %j, align 4
-  br label %for.cond, !llvm.loop !10
+263:                                              ; preds = %191
+  %264 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  %265 = load i64, ptr %264, align 16, !tbaa !14
+  %266 = call i64 @rotrFixed64(i64 noundef %265, i64 noundef 19)
+  %267 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  %268 = load i64, ptr %267, align 16, !tbaa !14
+  %269 = call i64 @rotrFixed64(i64 noundef %268, i64 noundef 61)
+  %270 = xor i64 %266, %269
+  %271 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  %272 = load i64, ptr %271, align 16, !tbaa !14
+  %273 = lshr i64 %272, 6
+  %274 = xor i64 %270, %273
+  %275 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  %276 = load i64, ptr %275, align 8, !tbaa !14
+  %277 = add i64 %274, %276
+  %278 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  %279 = load i64, ptr %278, align 8, !tbaa !14
+  %280 = call i64 @rotrFixed64(i64 noundef %279, i64 noundef 1)
+  %281 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  %282 = load i64, ptr %281, align 8, !tbaa !14
+  %283 = call i64 @rotrFixed64(i64 noundef %282, i64 noundef 8)
+  %284 = xor i64 %280, %283
+  %285 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  %286 = load i64, ptr %285, align 8, !tbaa !14
+  %287 = lshr i64 %286, 7
+  %288 = xor i64 %284, %287
+  %289 = add i64 %277, %288
+  %290 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  %291 = load i64, ptr %290, align 16, !tbaa !14
+  %292 = add i64 %291, %289
+  store i64 %292, ptr %290, align 16, !tbaa !14
+  br label %299
 
-for.end:                                          ; preds = %for.cond
-  %arrayidx1189 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  %531 = load i64, ptr %arrayidx1189, align 16
-  %532 = load ptr, ptr %sha512.addr, align 8
-  %digest1190 = getelementptr inbounds %struct.wc_Sha512, ptr %532, i32 0, i32 0
-  %arrayidx1191 = getelementptr inbounds [8 x i64], ptr %digest1190, i64 0, i64 0
-  %533 = load i64, ptr %arrayidx1191, align 8
-  %add1192 = add i64 %533, %531
-  store i64 %add1192, ptr %arrayidx1191, align 8
-  %arrayidx1193 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 1
-  %534 = load i64, ptr %arrayidx1193, align 8
-  %535 = load ptr, ptr %sha512.addr, align 8
-  %digest1194 = getelementptr inbounds %struct.wc_Sha512, ptr %535, i32 0, i32 0
-  %arrayidx1195 = getelementptr inbounds [8 x i64], ptr %digest1194, i64 0, i64 1
-  %536 = load i64, ptr %arrayidx1195, align 8
-  %add1196 = add i64 %536, %534
-  store i64 %add1196, ptr %arrayidx1195, align 8
-  %arrayidx1197 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 2
-  %537 = load i64, ptr %arrayidx1197, align 16
-  %538 = load ptr, ptr %sha512.addr, align 8
-  %digest1198 = getelementptr inbounds %struct.wc_Sha512, ptr %538, i32 0, i32 0
-  %arrayidx1199 = getelementptr inbounds [8 x i64], ptr %digest1198, i64 0, i64 2
-  %539 = load i64, ptr %arrayidx1199, align 8
-  %add1200 = add i64 %539, %537
-  store i64 %add1200, ptr %arrayidx1199, align 8
-  %arrayidx1201 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 3
-  %540 = load i64, ptr %arrayidx1201, align 8
-  %541 = load ptr, ptr %sha512.addr, align 8
-  %digest1202 = getelementptr inbounds %struct.wc_Sha512, ptr %541, i32 0, i32 0
-  %arrayidx1203 = getelementptr inbounds [8 x i64], ptr %digest1202, i64 0, i64 3
-  %542 = load i64, ptr %arrayidx1203, align 8
-  %add1204 = add i64 %542, %540
-  store i64 %add1204, ptr %arrayidx1203, align 8
-  %arrayidx1205 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 4
-  %543 = load i64, ptr %arrayidx1205, align 16
-  %544 = load ptr, ptr %sha512.addr, align 8
-  %digest1206 = getelementptr inbounds %struct.wc_Sha512, ptr %544, i32 0, i32 0
-  %arrayidx1207 = getelementptr inbounds [8 x i64], ptr %digest1206, i64 0, i64 4
-  %545 = load i64, ptr %arrayidx1207, align 8
-  %add1208 = add i64 %545, %543
-  store i64 %add1208, ptr %arrayidx1207, align 8
-  %arrayidx1209 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 5
-  %546 = load i64, ptr %arrayidx1209, align 8
-  %547 = load ptr, ptr %sha512.addr, align 8
-  %digest1210 = getelementptr inbounds %struct.wc_Sha512, ptr %547, i32 0, i32 0
-  %arrayidx1211 = getelementptr inbounds [8 x i64], ptr %digest1210, i64 0, i64 5
-  %548 = load i64, ptr %arrayidx1211, align 8
-  %add1212 = add i64 %548, %546
-  store i64 %add1212, ptr %arrayidx1211, align 8
-  %arrayidx1213 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 6
-  %549 = load i64, ptr %arrayidx1213, align 16
-  %550 = load ptr, ptr %sha512.addr, align 8
-  %digest1214 = getelementptr inbounds %struct.wc_Sha512, ptr %550, i32 0, i32 0
-  %arrayidx1215 = getelementptr inbounds [8 x i64], ptr %digest1214, i64 0, i64 6
-  %551 = load i64, ptr %arrayidx1215, align 8
-  %add1216 = add i64 %551, %549
-  store i64 %add1216, ptr %arrayidx1215, align 8
-  %arrayidx1217 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 7
-  %552 = load i64, ptr %arrayidx1217, align 8
-  %553 = load ptr, ptr %sha512.addr, align 8
-  %digest1218 = getelementptr inbounds %struct.wc_Sha512, ptr %553, i32 0, i32 0
-  %arrayidx1219 = getelementptr inbounds [8 x i64], ptr %digest1218, i64 0, i64 7
-  %554 = load i64, ptr %arrayidx1219, align 8
-  %add1220 = add i64 %554, %552
-  store i64 %add1220, ptr %arrayidx1219, align 8
-  %arraydecay1221 = getelementptr inbounds [16 x i64], ptr %W, i64 0, i64 0
-  call void @ForceZero(ptr noundef %arraydecay1221, i32 noundef 128)
-  %arraydecay1222 = getelementptr inbounds [8 x i64], ptr %T, i64 0, i64 0
-  call void @ForceZero(ptr noundef %arraydecay1222, i32 noundef 64)
+293:                                              ; preds = %191
+  %294 = load ptr, ptr %2, align 8, !tbaa !3
+  %295 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %294, i32 0, i32 1
+  %296 = getelementptr inbounds [16 x i64], ptr %295, i64 0, i64 2
+  %297 = load i64, ptr %296, align 8, !tbaa !14
+  %298 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  store i64 %297, ptr %298, align 16, !tbaa !14
+  br label %299
+
+299:                                              ; preds = %293, %263
+  %300 = phi i64 [ %292, %263 ], [ %297, %293 ]
+  %301 = add i64 %260, %300
+  %302 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %303 = load i64, ptr %302, align 8, !tbaa !14
+  %304 = add i64 %303, %301
+  store i64 %304, ptr %302, align 8, !tbaa !14
+  %305 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %306 = load i64, ptr %305, align 8, !tbaa !14
+  %307 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %308 = load i64, ptr %307, align 8, !tbaa !14
+  %309 = add i64 %308, %306
+  store i64 %309, ptr %307, align 8, !tbaa !14
+  %310 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %311 = load i64, ptr %310, align 16, !tbaa !14
+  %312 = call i64 @rotrFixed64(i64 noundef %311, i64 noundef 28)
+  %313 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %314 = load i64, ptr %313, align 16, !tbaa !14
+  %315 = call i64 @rotrFixed64(i64 noundef %314, i64 noundef 34)
+  %316 = xor i64 %312, %315
+  %317 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %318 = load i64, ptr %317, align 16, !tbaa !14
+  %319 = call i64 @rotrFixed64(i64 noundef %318, i64 noundef 39)
+  %320 = xor i64 %316, %319
+  %321 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %322 = load i64, ptr %321, align 16, !tbaa !14
+  %323 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %324 = load i64, ptr %323, align 8, !tbaa !14
+  %325 = and i64 %322, %324
+  %326 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %327 = load i64, ptr %326, align 16, !tbaa !14
+  %328 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %329 = load i64, ptr %328, align 16, !tbaa !14
+  %330 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %331 = load i64, ptr %330, align 8, !tbaa !14
+  %332 = or i64 %329, %331
+  %333 = and i64 %327, %332
+  %334 = or i64 %325, %333
+  %335 = add i64 %320, %334
+  %336 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %337 = load i64, ptr %336, align 8, !tbaa !14
+  %338 = add i64 %337, %335
+  store i64 %338, ptr %336, align 8, !tbaa !14
+  %339 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %340 = load i64, ptr %339, align 8, !tbaa !14
+  %341 = call i64 @rotrFixed64(i64 noundef %340, i64 noundef 14)
+  %342 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %343 = load i64, ptr %342, align 8, !tbaa !14
+  %344 = call i64 @rotrFixed64(i64 noundef %343, i64 noundef 18)
+  %345 = xor i64 %341, %344
+  %346 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %347 = load i64, ptr %346, align 8, !tbaa !14
+  %348 = call i64 @rotrFixed64(i64 noundef %347, i64 noundef 41)
+  %349 = xor i64 %345, %348
+  %350 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %351 = load i64, ptr %350, align 8, !tbaa !14
+  %352 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %353 = load i64, ptr %352, align 8, !tbaa !14
+  %354 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %355 = load i64, ptr %354, align 16, !tbaa !14
+  %356 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %357 = load i64, ptr %356, align 8, !tbaa !14
+  %358 = xor i64 %355, %357
+  %359 = and i64 %353, %358
+  %360 = xor i64 %351, %359
+  %361 = add i64 %349, %360
+  %362 = load ptr, ptr %3, align 8, !tbaa !24
+  %363 = load i32, ptr %4, align 4, !tbaa !9
+  %364 = add i32 3, %363
+  %365 = zext i32 %364 to i64
+  %366 = getelementptr inbounds nuw i64, ptr %362, i64 %365
+  %367 = load i64, ptr %366, align 8, !tbaa !14
+  %368 = add i64 %361, %367
+  %369 = load i32, ptr %4, align 4, !tbaa !9
+  %370 = icmp ne i32 %369, 0
+  br i1 %370, label %371, label %401
+
+371:                                              ; preds = %299
+  %372 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  %373 = load i64, ptr %372, align 8, !tbaa !14
+  %374 = call i64 @rotrFixed64(i64 noundef %373, i64 noundef 19)
+  %375 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  %376 = load i64, ptr %375, align 8, !tbaa !14
+  %377 = call i64 @rotrFixed64(i64 noundef %376, i64 noundef 61)
+  %378 = xor i64 %374, %377
+  %379 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  %380 = load i64, ptr %379, align 8, !tbaa !14
+  %381 = lshr i64 %380, 6
+  %382 = xor i64 %378, %381
+  %383 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  %384 = load i64, ptr %383, align 16, !tbaa !14
+  %385 = add i64 %382, %384
+  %386 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  %387 = load i64, ptr %386, align 16, !tbaa !14
+  %388 = call i64 @rotrFixed64(i64 noundef %387, i64 noundef 1)
+  %389 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  %390 = load i64, ptr %389, align 16, !tbaa !14
+  %391 = call i64 @rotrFixed64(i64 noundef %390, i64 noundef 8)
+  %392 = xor i64 %388, %391
+  %393 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  %394 = load i64, ptr %393, align 16, !tbaa !14
+  %395 = lshr i64 %394, 7
+  %396 = xor i64 %392, %395
+  %397 = add i64 %385, %396
+  %398 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  %399 = load i64, ptr %398, align 8, !tbaa !14
+  %400 = add i64 %399, %397
+  store i64 %400, ptr %398, align 8, !tbaa !14
+  br label %407
+
+401:                                              ; preds = %299
+  %402 = load ptr, ptr %2, align 8, !tbaa !3
+  %403 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %402, i32 0, i32 1
+  %404 = getelementptr inbounds [16 x i64], ptr %403, i64 0, i64 3
+  %405 = load i64, ptr %404, align 8, !tbaa !14
+  %406 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  store i64 %405, ptr %406, align 8, !tbaa !14
+  br label %407
+
+407:                                              ; preds = %401, %371
+  %408 = phi i64 [ %400, %371 ], [ %405, %401 ]
+  %409 = add i64 %368, %408
+  %410 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %411 = load i64, ptr %410, align 16, !tbaa !14
+  %412 = add i64 %411, %409
+  store i64 %412, ptr %410, align 16, !tbaa !14
+  %413 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %414 = load i64, ptr %413, align 16, !tbaa !14
+  %415 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %416 = load i64, ptr %415, align 16, !tbaa !14
+  %417 = add i64 %416, %414
+  store i64 %417, ptr %415, align 16, !tbaa !14
+  %418 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %419 = load i64, ptr %418, align 8, !tbaa !14
+  %420 = call i64 @rotrFixed64(i64 noundef %419, i64 noundef 28)
+  %421 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %422 = load i64, ptr %421, align 8, !tbaa !14
+  %423 = call i64 @rotrFixed64(i64 noundef %422, i64 noundef 34)
+  %424 = xor i64 %420, %423
+  %425 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %426 = load i64, ptr %425, align 8, !tbaa !14
+  %427 = call i64 @rotrFixed64(i64 noundef %426, i64 noundef 39)
+  %428 = xor i64 %424, %427
+  %429 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %430 = load i64, ptr %429, align 8, !tbaa !14
+  %431 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %432 = load i64, ptr %431, align 16, !tbaa !14
+  %433 = and i64 %430, %432
+  %434 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %435 = load i64, ptr %434, align 8, !tbaa !14
+  %436 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %437 = load i64, ptr %436, align 8, !tbaa !14
+  %438 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %439 = load i64, ptr %438, align 16, !tbaa !14
+  %440 = or i64 %437, %439
+  %441 = and i64 %435, %440
+  %442 = or i64 %433, %441
+  %443 = add i64 %428, %442
+  %444 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %445 = load i64, ptr %444, align 16, !tbaa !14
+  %446 = add i64 %445, %443
+  store i64 %446, ptr %444, align 16, !tbaa !14
+  %447 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %448 = load i64, ptr %447, align 16, !tbaa !14
+  %449 = call i64 @rotrFixed64(i64 noundef %448, i64 noundef 14)
+  %450 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %451 = load i64, ptr %450, align 16, !tbaa !14
+  %452 = call i64 @rotrFixed64(i64 noundef %451, i64 noundef 18)
+  %453 = xor i64 %449, %452
+  %454 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %455 = load i64, ptr %454, align 16, !tbaa !14
+  %456 = call i64 @rotrFixed64(i64 noundef %455, i64 noundef 41)
+  %457 = xor i64 %453, %456
+  %458 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %459 = load i64, ptr %458, align 16, !tbaa !14
+  %460 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %461 = load i64, ptr %460, align 16, !tbaa !14
+  %462 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %463 = load i64, ptr %462, align 8, !tbaa !14
+  %464 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %465 = load i64, ptr %464, align 16, !tbaa !14
+  %466 = xor i64 %463, %465
+  %467 = and i64 %461, %466
+  %468 = xor i64 %459, %467
+  %469 = add i64 %457, %468
+  %470 = load ptr, ptr %3, align 8, !tbaa !24
+  %471 = load i32, ptr %4, align 4, !tbaa !9
+  %472 = add i32 4, %471
+  %473 = zext i32 %472 to i64
+  %474 = getelementptr inbounds nuw i64, ptr %470, i64 %473
+  %475 = load i64, ptr %474, align 8, !tbaa !14
+  %476 = add i64 %469, %475
+  %477 = load i32, ptr %4, align 4, !tbaa !9
+  %478 = icmp ne i32 %477, 0
+  br i1 %478, label %479, label %509
+
+479:                                              ; preds = %407
+  %480 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  %481 = load i64, ptr %480, align 16, !tbaa !14
+  %482 = call i64 @rotrFixed64(i64 noundef %481, i64 noundef 19)
+  %483 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  %484 = load i64, ptr %483, align 16, !tbaa !14
+  %485 = call i64 @rotrFixed64(i64 noundef %484, i64 noundef 61)
+  %486 = xor i64 %482, %485
+  %487 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  %488 = load i64, ptr %487, align 16, !tbaa !14
+  %489 = lshr i64 %488, 6
+  %490 = xor i64 %486, %489
+  %491 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  %492 = load i64, ptr %491, align 8, !tbaa !14
+  %493 = add i64 %490, %492
+  %494 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  %495 = load i64, ptr %494, align 8, !tbaa !14
+  %496 = call i64 @rotrFixed64(i64 noundef %495, i64 noundef 1)
+  %497 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  %498 = load i64, ptr %497, align 8, !tbaa !14
+  %499 = call i64 @rotrFixed64(i64 noundef %498, i64 noundef 8)
+  %500 = xor i64 %496, %499
+  %501 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  %502 = load i64, ptr %501, align 8, !tbaa !14
+  %503 = lshr i64 %502, 7
+  %504 = xor i64 %500, %503
+  %505 = add i64 %493, %504
+  %506 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  %507 = load i64, ptr %506, align 16, !tbaa !14
+  %508 = add i64 %507, %505
+  store i64 %508, ptr %506, align 16, !tbaa !14
+  br label %515
+
+509:                                              ; preds = %407
+  %510 = load ptr, ptr %2, align 8, !tbaa !3
+  %511 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %510, i32 0, i32 1
+  %512 = getelementptr inbounds [16 x i64], ptr %511, i64 0, i64 4
+  %513 = load i64, ptr %512, align 8, !tbaa !14
+  %514 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  store i64 %513, ptr %514, align 16, !tbaa !14
+  br label %515
+
+515:                                              ; preds = %509, %479
+  %516 = phi i64 [ %508, %479 ], [ %513, %509 ]
+  %517 = add i64 %476, %516
+  %518 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %519 = load i64, ptr %518, align 8, !tbaa !14
+  %520 = add i64 %519, %517
+  store i64 %520, ptr %518, align 8, !tbaa !14
+  %521 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %522 = load i64, ptr %521, align 8, !tbaa !14
+  %523 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %524 = load i64, ptr %523, align 8, !tbaa !14
+  %525 = add i64 %524, %522
+  store i64 %525, ptr %523, align 8, !tbaa !14
+  %526 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %527 = load i64, ptr %526, align 16, !tbaa !14
+  %528 = call i64 @rotrFixed64(i64 noundef %527, i64 noundef 28)
+  %529 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %530 = load i64, ptr %529, align 16, !tbaa !14
+  %531 = call i64 @rotrFixed64(i64 noundef %530, i64 noundef 34)
+  %532 = xor i64 %528, %531
+  %533 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %534 = load i64, ptr %533, align 16, !tbaa !14
+  %535 = call i64 @rotrFixed64(i64 noundef %534, i64 noundef 39)
+  %536 = xor i64 %532, %535
+  %537 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %538 = load i64, ptr %537, align 16, !tbaa !14
+  %539 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %540 = load i64, ptr %539, align 8, !tbaa !14
+  %541 = and i64 %538, %540
+  %542 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %543 = load i64, ptr %542, align 16, !tbaa !14
+  %544 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %545 = load i64, ptr %544, align 16, !tbaa !14
+  %546 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %547 = load i64, ptr %546, align 8, !tbaa !14
+  %548 = or i64 %545, %547
+  %549 = and i64 %543, %548
+  %550 = or i64 %541, %549
+  %551 = add i64 %536, %550
+  %552 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %553 = load i64, ptr %552, align 8, !tbaa !14
+  %554 = add i64 %553, %551
+  store i64 %554, ptr %552, align 8, !tbaa !14
+  %555 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %556 = load i64, ptr %555, align 8, !tbaa !14
+  %557 = call i64 @rotrFixed64(i64 noundef %556, i64 noundef 14)
+  %558 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %559 = load i64, ptr %558, align 8, !tbaa !14
+  %560 = call i64 @rotrFixed64(i64 noundef %559, i64 noundef 18)
+  %561 = xor i64 %557, %560
+  %562 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %563 = load i64, ptr %562, align 8, !tbaa !14
+  %564 = call i64 @rotrFixed64(i64 noundef %563, i64 noundef 41)
+  %565 = xor i64 %561, %564
+  %566 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %567 = load i64, ptr %566, align 8, !tbaa !14
+  %568 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %569 = load i64, ptr %568, align 8, !tbaa !14
+  %570 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %571 = load i64, ptr %570, align 16, !tbaa !14
+  %572 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %573 = load i64, ptr %572, align 8, !tbaa !14
+  %574 = xor i64 %571, %573
+  %575 = and i64 %569, %574
+  %576 = xor i64 %567, %575
+  %577 = add i64 %565, %576
+  %578 = load ptr, ptr %3, align 8, !tbaa !24
+  %579 = load i32, ptr %4, align 4, !tbaa !9
+  %580 = add i32 5, %579
+  %581 = zext i32 %580 to i64
+  %582 = getelementptr inbounds nuw i64, ptr %578, i64 %581
+  %583 = load i64, ptr %582, align 8, !tbaa !14
+  %584 = add i64 %577, %583
+  %585 = load i32, ptr %4, align 4, !tbaa !9
+  %586 = icmp ne i32 %585, 0
+  br i1 %586, label %587, label %617
+
+587:                                              ; preds = %515
+  %588 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  %589 = load i64, ptr %588, align 8, !tbaa !14
+  %590 = call i64 @rotrFixed64(i64 noundef %589, i64 noundef 19)
+  %591 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  %592 = load i64, ptr %591, align 8, !tbaa !14
+  %593 = call i64 @rotrFixed64(i64 noundef %592, i64 noundef 61)
+  %594 = xor i64 %590, %593
+  %595 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  %596 = load i64, ptr %595, align 8, !tbaa !14
+  %597 = lshr i64 %596, 6
+  %598 = xor i64 %594, %597
+  %599 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  %600 = load i64, ptr %599, align 16, !tbaa !14
+  %601 = add i64 %598, %600
+  %602 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  %603 = load i64, ptr %602, align 16, !tbaa !14
+  %604 = call i64 @rotrFixed64(i64 noundef %603, i64 noundef 1)
+  %605 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  %606 = load i64, ptr %605, align 16, !tbaa !14
+  %607 = call i64 @rotrFixed64(i64 noundef %606, i64 noundef 8)
+  %608 = xor i64 %604, %607
+  %609 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  %610 = load i64, ptr %609, align 16, !tbaa !14
+  %611 = lshr i64 %610, 7
+  %612 = xor i64 %608, %611
+  %613 = add i64 %601, %612
+  %614 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  %615 = load i64, ptr %614, align 8, !tbaa !14
+  %616 = add i64 %615, %613
+  store i64 %616, ptr %614, align 8, !tbaa !14
+  br label %623
+
+617:                                              ; preds = %515
+  %618 = load ptr, ptr %2, align 8, !tbaa !3
+  %619 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %618, i32 0, i32 1
+  %620 = getelementptr inbounds [16 x i64], ptr %619, i64 0, i64 5
+  %621 = load i64, ptr %620, align 8, !tbaa !14
+  %622 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  store i64 %621, ptr %622, align 8, !tbaa !14
+  br label %623
+
+623:                                              ; preds = %617, %587
+  %624 = phi i64 [ %616, %587 ], [ %621, %617 ]
+  %625 = add i64 %584, %624
+  %626 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %627 = load i64, ptr %626, align 16, !tbaa !14
+  %628 = add i64 %627, %625
+  store i64 %628, ptr %626, align 16, !tbaa !14
+  %629 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %630 = load i64, ptr %629, align 16, !tbaa !14
+  %631 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %632 = load i64, ptr %631, align 16, !tbaa !14
+  %633 = add i64 %632, %630
+  store i64 %633, ptr %631, align 16, !tbaa !14
+  %634 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %635 = load i64, ptr %634, align 8, !tbaa !14
+  %636 = call i64 @rotrFixed64(i64 noundef %635, i64 noundef 28)
+  %637 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %638 = load i64, ptr %637, align 8, !tbaa !14
+  %639 = call i64 @rotrFixed64(i64 noundef %638, i64 noundef 34)
+  %640 = xor i64 %636, %639
+  %641 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %642 = load i64, ptr %641, align 8, !tbaa !14
+  %643 = call i64 @rotrFixed64(i64 noundef %642, i64 noundef 39)
+  %644 = xor i64 %640, %643
+  %645 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %646 = load i64, ptr %645, align 8, !tbaa !14
+  %647 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %648 = load i64, ptr %647, align 16, !tbaa !14
+  %649 = and i64 %646, %648
+  %650 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %651 = load i64, ptr %650, align 8, !tbaa !14
+  %652 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %653 = load i64, ptr %652, align 8, !tbaa !14
+  %654 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %655 = load i64, ptr %654, align 16, !tbaa !14
+  %656 = or i64 %653, %655
+  %657 = and i64 %651, %656
+  %658 = or i64 %649, %657
+  %659 = add i64 %644, %658
+  %660 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %661 = load i64, ptr %660, align 16, !tbaa !14
+  %662 = add i64 %661, %659
+  store i64 %662, ptr %660, align 16, !tbaa !14
+  %663 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %664 = load i64, ptr %663, align 16, !tbaa !14
+  %665 = call i64 @rotrFixed64(i64 noundef %664, i64 noundef 14)
+  %666 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %667 = load i64, ptr %666, align 16, !tbaa !14
+  %668 = call i64 @rotrFixed64(i64 noundef %667, i64 noundef 18)
+  %669 = xor i64 %665, %668
+  %670 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %671 = load i64, ptr %670, align 16, !tbaa !14
+  %672 = call i64 @rotrFixed64(i64 noundef %671, i64 noundef 41)
+  %673 = xor i64 %669, %672
+  %674 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %675 = load i64, ptr %674, align 16, !tbaa !14
+  %676 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %677 = load i64, ptr %676, align 16, !tbaa !14
+  %678 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %679 = load i64, ptr %678, align 8, !tbaa !14
+  %680 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %681 = load i64, ptr %680, align 16, !tbaa !14
+  %682 = xor i64 %679, %681
+  %683 = and i64 %677, %682
+  %684 = xor i64 %675, %683
+  %685 = add i64 %673, %684
+  %686 = load ptr, ptr %3, align 8, !tbaa !24
+  %687 = load i32, ptr %4, align 4, !tbaa !9
+  %688 = add i32 6, %687
+  %689 = zext i32 %688 to i64
+  %690 = getelementptr inbounds nuw i64, ptr %686, i64 %689
+  %691 = load i64, ptr %690, align 8, !tbaa !14
+  %692 = add i64 %685, %691
+  %693 = load i32, ptr %4, align 4, !tbaa !9
+  %694 = icmp ne i32 %693, 0
+  br i1 %694, label %695, label %725
+
+695:                                              ; preds = %623
+  %696 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  %697 = load i64, ptr %696, align 16, !tbaa !14
+  %698 = call i64 @rotrFixed64(i64 noundef %697, i64 noundef 19)
+  %699 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  %700 = load i64, ptr %699, align 16, !tbaa !14
+  %701 = call i64 @rotrFixed64(i64 noundef %700, i64 noundef 61)
+  %702 = xor i64 %698, %701
+  %703 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  %704 = load i64, ptr %703, align 16, !tbaa !14
+  %705 = lshr i64 %704, 6
+  %706 = xor i64 %702, %705
+  %707 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  %708 = load i64, ptr %707, align 8, !tbaa !14
+  %709 = add i64 %706, %708
+  %710 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  %711 = load i64, ptr %710, align 8, !tbaa !14
+  %712 = call i64 @rotrFixed64(i64 noundef %711, i64 noundef 1)
+  %713 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  %714 = load i64, ptr %713, align 8, !tbaa !14
+  %715 = call i64 @rotrFixed64(i64 noundef %714, i64 noundef 8)
+  %716 = xor i64 %712, %715
+  %717 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  %718 = load i64, ptr %717, align 8, !tbaa !14
+  %719 = lshr i64 %718, 7
+  %720 = xor i64 %716, %719
+  %721 = add i64 %709, %720
+  %722 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  %723 = load i64, ptr %722, align 16, !tbaa !14
+  %724 = add i64 %723, %721
+  store i64 %724, ptr %722, align 16, !tbaa !14
+  br label %731
+
+725:                                              ; preds = %623
+  %726 = load ptr, ptr %2, align 8, !tbaa !3
+  %727 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %726, i32 0, i32 1
+  %728 = getelementptr inbounds [16 x i64], ptr %727, i64 0, i64 6
+  %729 = load i64, ptr %728, align 8, !tbaa !14
+  %730 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  store i64 %729, ptr %730, align 16, !tbaa !14
+  br label %731
+
+731:                                              ; preds = %725, %695
+  %732 = phi i64 [ %724, %695 ], [ %729, %725 ]
+  %733 = add i64 %692, %732
+  %734 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %735 = load i64, ptr %734, align 8, !tbaa !14
+  %736 = add i64 %735, %733
+  store i64 %736, ptr %734, align 8, !tbaa !14
+  %737 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %738 = load i64, ptr %737, align 8, !tbaa !14
+  %739 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %740 = load i64, ptr %739, align 8, !tbaa !14
+  %741 = add i64 %740, %738
+  store i64 %741, ptr %739, align 8, !tbaa !14
+  %742 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %743 = load i64, ptr %742, align 16, !tbaa !14
+  %744 = call i64 @rotrFixed64(i64 noundef %743, i64 noundef 28)
+  %745 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %746 = load i64, ptr %745, align 16, !tbaa !14
+  %747 = call i64 @rotrFixed64(i64 noundef %746, i64 noundef 34)
+  %748 = xor i64 %744, %747
+  %749 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %750 = load i64, ptr %749, align 16, !tbaa !14
+  %751 = call i64 @rotrFixed64(i64 noundef %750, i64 noundef 39)
+  %752 = xor i64 %748, %751
+  %753 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %754 = load i64, ptr %753, align 16, !tbaa !14
+  %755 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %756 = load i64, ptr %755, align 8, !tbaa !14
+  %757 = and i64 %754, %756
+  %758 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %759 = load i64, ptr %758, align 16, !tbaa !14
+  %760 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %761 = load i64, ptr %760, align 16, !tbaa !14
+  %762 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %763 = load i64, ptr %762, align 8, !tbaa !14
+  %764 = or i64 %761, %763
+  %765 = and i64 %759, %764
+  %766 = or i64 %757, %765
+  %767 = add i64 %752, %766
+  %768 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %769 = load i64, ptr %768, align 8, !tbaa !14
+  %770 = add i64 %769, %767
+  store i64 %770, ptr %768, align 8, !tbaa !14
+  %771 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %772 = load i64, ptr %771, align 8, !tbaa !14
+  %773 = call i64 @rotrFixed64(i64 noundef %772, i64 noundef 14)
+  %774 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %775 = load i64, ptr %774, align 8, !tbaa !14
+  %776 = call i64 @rotrFixed64(i64 noundef %775, i64 noundef 18)
+  %777 = xor i64 %773, %776
+  %778 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %779 = load i64, ptr %778, align 8, !tbaa !14
+  %780 = call i64 @rotrFixed64(i64 noundef %779, i64 noundef 41)
+  %781 = xor i64 %777, %780
+  %782 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %783 = load i64, ptr %782, align 8, !tbaa !14
+  %784 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %785 = load i64, ptr %784, align 8, !tbaa !14
+  %786 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %787 = load i64, ptr %786, align 16, !tbaa !14
+  %788 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %789 = load i64, ptr %788, align 8, !tbaa !14
+  %790 = xor i64 %787, %789
+  %791 = and i64 %785, %790
+  %792 = xor i64 %783, %791
+  %793 = add i64 %781, %792
+  %794 = load ptr, ptr %3, align 8, !tbaa !24
+  %795 = load i32, ptr %4, align 4, !tbaa !9
+  %796 = add i32 7, %795
+  %797 = zext i32 %796 to i64
+  %798 = getelementptr inbounds nuw i64, ptr %794, i64 %797
+  %799 = load i64, ptr %798, align 8, !tbaa !14
+  %800 = add i64 %793, %799
+  %801 = load i32, ptr %4, align 4, !tbaa !9
+  %802 = icmp ne i32 %801, 0
+  br i1 %802, label %803, label %833
+
+803:                                              ; preds = %731
+  %804 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  %805 = load i64, ptr %804, align 8, !tbaa !14
+  %806 = call i64 @rotrFixed64(i64 noundef %805, i64 noundef 19)
+  %807 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  %808 = load i64, ptr %807, align 8, !tbaa !14
+  %809 = call i64 @rotrFixed64(i64 noundef %808, i64 noundef 61)
+  %810 = xor i64 %806, %809
+  %811 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  %812 = load i64, ptr %811, align 8, !tbaa !14
+  %813 = lshr i64 %812, 6
+  %814 = xor i64 %810, %813
+  %815 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  %816 = load i64, ptr %815, align 16, !tbaa !14
+  %817 = add i64 %814, %816
+  %818 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  %819 = load i64, ptr %818, align 16, !tbaa !14
+  %820 = call i64 @rotrFixed64(i64 noundef %819, i64 noundef 1)
+  %821 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  %822 = load i64, ptr %821, align 16, !tbaa !14
+  %823 = call i64 @rotrFixed64(i64 noundef %822, i64 noundef 8)
+  %824 = xor i64 %820, %823
+  %825 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  %826 = load i64, ptr %825, align 16, !tbaa !14
+  %827 = lshr i64 %826, 7
+  %828 = xor i64 %824, %827
+  %829 = add i64 %817, %828
+  %830 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  %831 = load i64, ptr %830, align 8, !tbaa !14
+  %832 = add i64 %831, %829
+  store i64 %832, ptr %830, align 8, !tbaa !14
+  br label %839
+
+833:                                              ; preds = %731
+  %834 = load ptr, ptr %2, align 8, !tbaa !3
+  %835 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %834, i32 0, i32 1
+  %836 = getelementptr inbounds [16 x i64], ptr %835, i64 0, i64 7
+  %837 = load i64, ptr %836, align 8, !tbaa !14
+  %838 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  store i64 %837, ptr %838, align 8, !tbaa !14
+  br label %839
+
+839:                                              ; preds = %833, %803
+  %840 = phi i64 [ %832, %803 ], [ %837, %833 ]
+  %841 = add i64 %800, %840
+  %842 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %843 = load i64, ptr %842, align 16, !tbaa !14
+  %844 = add i64 %843, %841
+  store i64 %844, ptr %842, align 16, !tbaa !14
+  %845 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %846 = load i64, ptr %845, align 16, !tbaa !14
+  %847 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %848 = load i64, ptr %847, align 16, !tbaa !14
+  %849 = add i64 %848, %846
+  store i64 %849, ptr %847, align 16, !tbaa !14
+  %850 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %851 = load i64, ptr %850, align 8, !tbaa !14
+  %852 = call i64 @rotrFixed64(i64 noundef %851, i64 noundef 28)
+  %853 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %854 = load i64, ptr %853, align 8, !tbaa !14
+  %855 = call i64 @rotrFixed64(i64 noundef %854, i64 noundef 34)
+  %856 = xor i64 %852, %855
+  %857 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %858 = load i64, ptr %857, align 8, !tbaa !14
+  %859 = call i64 @rotrFixed64(i64 noundef %858, i64 noundef 39)
+  %860 = xor i64 %856, %859
+  %861 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %862 = load i64, ptr %861, align 8, !tbaa !14
+  %863 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %864 = load i64, ptr %863, align 16, !tbaa !14
+  %865 = and i64 %862, %864
+  %866 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %867 = load i64, ptr %866, align 8, !tbaa !14
+  %868 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %869 = load i64, ptr %868, align 8, !tbaa !14
+  %870 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %871 = load i64, ptr %870, align 16, !tbaa !14
+  %872 = or i64 %869, %871
+  %873 = and i64 %867, %872
+  %874 = or i64 %865, %873
+  %875 = add i64 %860, %874
+  %876 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %877 = load i64, ptr %876, align 16, !tbaa !14
+  %878 = add i64 %877, %875
+  store i64 %878, ptr %876, align 16, !tbaa !14
+  %879 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %880 = load i64, ptr %879, align 16, !tbaa !14
+  %881 = call i64 @rotrFixed64(i64 noundef %880, i64 noundef 14)
+  %882 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %883 = load i64, ptr %882, align 16, !tbaa !14
+  %884 = call i64 @rotrFixed64(i64 noundef %883, i64 noundef 18)
+  %885 = xor i64 %881, %884
+  %886 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %887 = load i64, ptr %886, align 16, !tbaa !14
+  %888 = call i64 @rotrFixed64(i64 noundef %887, i64 noundef 41)
+  %889 = xor i64 %885, %888
+  %890 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %891 = load i64, ptr %890, align 16, !tbaa !14
+  %892 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %893 = load i64, ptr %892, align 16, !tbaa !14
+  %894 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %895 = load i64, ptr %894, align 8, !tbaa !14
+  %896 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %897 = load i64, ptr %896, align 16, !tbaa !14
+  %898 = xor i64 %895, %897
+  %899 = and i64 %893, %898
+  %900 = xor i64 %891, %899
+  %901 = add i64 %889, %900
+  %902 = load ptr, ptr %3, align 8, !tbaa !24
+  %903 = load i32, ptr %4, align 4, !tbaa !9
+  %904 = add i32 8, %903
+  %905 = zext i32 %904 to i64
+  %906 = getelementptr inbounds nuw i64, ptr %902, i64 %905
+  %907 = load i64, ptr %906, align 8, !tbaa !14
+  %908 = add i64 %901, %907
+  %909 = load i32, ptr %4, align 4, !tbaa !9
+  %910 = icmp ne i32 %909, 0
+  br i1 %910, label %911, label %941
+
+911:                                              ; preds = %839
+  %912 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  %913 = load i64, ptr %912, align 16, !tbaa !14
+  %914 = call i64 @rotrFixed64(i64 noundef %913, i64 noundef 19)
+  %915 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  %916 = load i64, ptr %915, align 16, !tbaa !14
+  %917 = call i64 @rotrFixed64(i64 noundef %916, i64 noundef 61)
+  %918 = xor i64 %914, %917
+  %919 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  %920 = load i64, ptr %919, align 16, !tbaa !14
+  %921 = lshr i64 %920, 6
+  %922 = xor i64 %918, %921
+  %923 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 1
+  %924 = load i64, ptr %923, align 8, !tbaa !14
+  %925 = add i64 %922, %924
+  %926 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  %927 = load i64, ptr %926, align 8, !tbaa !14
+  %928 = call i64 @rotrFixed64(i64 noundef %927, i64 noundef 1)
+  %929 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  %930 = load i64, ptr %929, align 8, !tbaa !14
+  %931 = call i64 @rotrFixed64(i64 noundef %930, i64 noundef 8)
+  %932 = xor i64 %928, %931
+  %933 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  %934 = load i64, ptr %933, align 8, !tbaa !14
+  %935 = lshr i64 %934, 7
+  %936 = xor i64 %932, %935
+  %937 = add i64 %925, %936
+  %938 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  %939 = load i64, ptr %938, align 16, !tbaa !14
+  %940 = add i64 %939, %937
+  store i64 %940, ptr %938, align 16, !tbaa !14
+  br label %947
+
+941:                                              ; preds = %839
+  %942 = load ptr, ptr %2, align 8, !tbaa !3
+  %943 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %942, i32 0, i32 1
+  %944 = getelementptr inbounds [16 x i64], ptr %943, i64 0, i64 8
+  %945 = load i64, ptr %944, align 8, !tbaa !14
+  %946 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  store i64 %945, ptr %946, align 16, !tbaa !14
+  br label %947
+
+947:                                              ; preds = %941, %911
+  %948 = phi i64 [ %940, %911 ], [ %945, %941 ]
+  %949 = add i64 %908, %948
+  %950 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %951 = load i64, ptr %950, align 8, !tbaa !14
+  %952 = add i64 %951, %949
+  store i64 %952, ptr %950, align 8, !tbaa !14
+  %953 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %954 = load i64, ptr %953, align 8, !tbaa !14
+  %955 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %956 = load i64, ptr %955, align 8, !tbaa !14
+  %957 = add i64 %956, %954
+  store i64 %957, ptr %955, align 8, !tbaa !14
+  %958 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %959 = load i64, ptr %958, align 16, !tbaa !14
+  %960 = call i64 @rotrFixed64(i64 noundef %959, i64 noundef 28)
+  %961 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %962 = load i64, ptr %961, align 16, !tbaa !14
+  %963 = call i64 @rotrFixed64(i64 noundef %962, i64 noundef 34)
+  %964 = xor i64 %960, %963
+  %965 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %966 = load i64, ptr %965, align 16, !tbaa !14
+  %967 = call i64 @rotrFixed64(i64 noundef %966, i64 noundef 39)
+  %968 = xor i64 %964, %967
+  %969 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %970 = load i64, ptr %969, align 16, !tbaa !14
+  %971 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %972 = load i64, ptr %971, align 8, !tbaa !14
+  %973 = and i64 %970, %972
+  %974 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %975 = load i64, ptr %974, align 16, !tbaa !14
+  %976 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %977 = load i64, ptr %976, align 16, !tbaa !14
+  %978 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %979 = load i64, ptr %978, align 8, !tbaa !14
+  %980 = or i64 %977, %979
+  %981 = and i64 %975, %980
+  %982 = or i64 %973, %981
+  %983 = add i64 %968, %982
+  %984 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %985 = load i64, ptr %984, align 8, !tbaa !14
+  %986 = add i64 %985, %983
+  store i64 %986, ptr %984, align 8, !tbaa !14
+  %987 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %988 = load i64, ptr %987, align 8, !tbaa !14
+  %989 = call i64 @rotrFixed64(i64 noundef %988, i64 noundef 14)
+  %990 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %991 = load i64, ptr %990, align 8, !tbaa !14
+  %992 = call i64 @rotrFixed64(i64 noundef %991, i64 noundef 18)
+  %993 = xor i64 %989, %992
+  %994 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %995 = load i64, ptr %994, align 8, !tbaa !14
+  %996 = call i64 @rotrFixed64(i64 noundef %995, i64 noundef 41)
+  %997 = xor i64 %993, %996
+  %998 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %999 = load i64, ptr %998, align 8, !tbaa !14
+  %1000 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1001 = load i64, ptr %1000, align 8, !tbaa !14
+  %1002 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1003 = load i64, ptr %1002, align 16, !tbaa !14
+  %1004 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1005 = load i64, ptr %1004, align 8, !tbaa !14
+  %1006 = xor i64 %1003, %1005
+  %1007 = and i64 %1001, %1006
+  %1008 = xor i64 %999, %1007
+  %1009 = add i64 %997, %1008
+  %1010 = load ptr, ptr %3, align 8, !tbaa !24
+  %1011 = load i32, ptr %4, align 4, !tbaa !9
+  %1012 = add i32 9, %1011
+  %1013 = zext i32 %1012 to i64
+  %1014 = getelementptr inbounds nuw i64, ptr %1010, i64 %1013
+  %1015 = load i64, ptr %1014, align 8, !tbaa !14
+  %1016 = add i64 %1009, %1015
+  %1017 = load i32, ptr %4, align 4, !tbaa !9
+  %1018 = icmp ne i32 %1017, 0
+  br i1 %1018, label %1019, label %1049
+
+1019:                                             ; preds = %947
+  %1020 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  %1021 = load i64, ptr %1020, align 8, !tbaa !14
+  %1022 = call i64 @rotrFixed64(i64 noundef %1021, i64 noundef 19)
+  %1023 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  %1024 = load i64, ptr %1023, align 8, !tbaa !14
+  %1025 = call i64 @rotrFixed64(i64 noundef %1024, i64 noundef 61)
+  %1026 = xor i64 %1022, %1025
+  %1027 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  %1028 = load i64, ptr %1027, align 8, !tbaa !14
+  %1029 = lshr i64 %1028, 6
+  %1030 = xor i64 %1026, %1029
+  %1031 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 2
+  %1032 = load i64, ptr %1031, align 16, !tbaa !14
+  %1033 = add i64 %1030, %1032
+  %1034 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  %1035 = load i64, ptr %1034, align 16, !tbaa !14
+  %1036 = call i64 @rotrFixed64(i64 noundef %1035, i64 noundef 1)
+  %1037 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  %1038 = load i64, ptr %1037, align 16, !tbaa !14
+  %1039 = call i64 @rotrFixed64(i64 noundef %1038, i64 noundef 8)
+  %1040 = xor i64 %1036, %1039
+  %1041 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  %1042 = load i64, ptr %1041, align 16, !tbaa !14
+  %1043 = lshr i64 %1042, 7
+  %1044 = xor i64 %1040, %1043
+  %1045 = add i64 %1033, %1044
+  %1046 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  %1047 = load i64, ptr %1046, align 8, !tbaa !14
+  %1048 = add i64 %1047, %1045
+  store i64 %1048, ptr %1046, align 8, !tbaa !14
+  br label %1055
+
+1049:                                             ; preds = %947
+  %1050 = load ptr, ptr %2, align 8, !tbaa !3
+  %1051 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1050, i32 0, i32 1
+  %1052 = getelementptr inbounds [16 x i64], ptr %1051, i64 0, i64 9
+  %1053 = load i64, ptr %1052, align 8, !tbaa !14
+  %1054 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  store i64 %1053, ptr %1054, align 8, !tbaa !14
+  br label %1055
+
+1055:                                             ; preds = %1049, %1019
+  %1056 = phi i64 [ %1048, %1019 ], [ %1053, %1049 ]
+  %1057 = add i64 %1016, %1056
+  %1058 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1059 = load i64, ptr %1058, align 16, !tbaa !14
+  %1060 = add i64 %1059, %1057
+  store i64 %1060, ptr %1058, align 16, !tbaa !14
+  %1061 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1062 = load i64, ptr %1061, align 16, !tbaa !14
+  %1063 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1064 = load i64, ptr %1063, align 16, !tbaa !14
+  %1065 = add i64 %1064, %1062
+  store i64 %1065, ptr %1063, align 16, !tbaa !14
+  %1066 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1067 = load i64, ptr %1066, align 8, !tbaa !14
+  %1068 = call i64 @rotrFixed64(i64 noundef %1067, i64 noundef 28)
+  %1069 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1070 = load i64, ptr %1069, align 8, !tbaa !14
+  %1071 = call i64 @rotrFixed64(i64 noundef %1070, i64 noundef 34)
+  %1072 = xor i64 %1068, %1071
+  %1073 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1074 = load i64, ptr %1073, align 8, !tbaa !14
+  %1075 = call i64 @rotrFixed64(i64 noundef %1074, i64 noundef 39)
+  %1076 = xor i64 %1072, %1075
+  %1077 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1078 = load i64, ptr %1077, align 8, !tbaa !14
+  %1079 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1080 = load i64, ptr %1079, align 16, !tbaa !14
+  %1081 = and i64 %1078, %1080
+  %1082 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1083 = load i64, ptr %1082, align 8, !tbaa !14
+  %1084 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1085 = load i64, ptr %1084, align 8, !tbaa !14
+  %1086 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1087 = load i64, ptr %1086, align 16, !tbaa !14
+  %1088 = or i64 %1085, %1087
+  %1089 = and i64 %1083, %1088
+  %1090 = or i64 %1081, %1089
+  %1091 = add i64 %1076, %1090
+  %1092 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1093 = load i64, ptr %1092, align 16, !tbaa !14
+  %1094 = add i64 %1093, %1091
+  store i64 %1094, ptr %1092, align 16, !tbaa !14
+  %1095 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1096 = load i64, ptr %1095, align 16, !tbaa !14
+  %1097 = call i64 @rotrFixed64(i64 noundef %1096, i64 noundef 14)
+  %1098 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1099 = load i64, ptr %1098, align 16, !tbaa !14
+  %1100 = call i64 @rotrFixed64(i64 noundef %1099, i64 noundef 18)
+  %1101 = xor i64 %1097, %1100
+  %1102 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1103 = load i64, ptr %1102, align 16, !tbaa !14
+  %1104 = call i64 @rotrFixed64(i64 noundef %1103, i64 noundef 41)
+  %1105 = xor i64 %1101, %1104
+  %1106 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1107 = load i64, ptr %1106, align 16, !tbaa !14
+  %1108 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1109 = load i64, ptr %1108, align 16, !tbaa !14
+  %1110 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1111 = load i64, ptr %1110, align 8, !tbaa !14
+  %1112 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1113 = load i64, ptr %1112, align 16, !tbaa !14
+  %1114 = xor i64 %1111, %1113
+  %1115 = and i64 %1109, %1114
+  %1116 = xor i64 %1107, %1115
+  %1117 = add i64 %1105, %1116
+  %1118 = load ptr, ptr %3, align 8, !tbaa !24
+  %1119 = load i32, ptr %4, align 4, !tbaa !9
+  %1120 = add i32 10, %1119
+  %1121 = zext i32 %1120 to i64
+  %1122 = getelementptr inbounds nuw i64, ptr %1118, i64 %1121
+  %1123 = load i64, ptr %1122, align 8, !tbaa !14
+  %1124 = add i64 %1117, %1123
+  %1125 = load i32, ptr %4, align 4, !tbaa !9
+  %1126 = icmp ne i32 %1125, 0
+  br i1 %1126, label %1127, label %1157
+
+1127:                                             ; preds = %1055
+  %1128 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  %1129 = load i64, ptr %1128, align 16, !tbaa !14
+  %1130 = call i64 @rotrFixed64(i64 noundef %1129, i64 noundef 19)
+  %1131 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  %1132 = load i64, ptr %1131, align 16, !tbaa !14
+  %1133 = call i64 @rotrFixed64(i64 noundef %1132, i64 noundef 61)
+  %1134 = xor i64 %1130, %1133
+  %1135 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  %1136 = load i64, ptr %1135, align 16, !tbaa !14
+  %1137 = lshr i64 %1136, 6
+  %1138 = xor i64 %1134, %1137
+  %1139 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 3
+  %1140 = load i64, ptr %1139, align 8, !tbaa !14
+  %1141 = add i64 %1138, %1140
+  %1142 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  %1143 = load i64, ptr %1142, align 8, !tbaa !14
+  %1144 = call i64 @rotrFixed64(i64 noundef %1143, i64 noundef 1)
+  %1145 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  %1146 = load i64, ptr %1145, align 8, !tbaa !14
+  %1147 = call i64 @rotrFixed64(i64 noundef %1146, i64 noundef 8)
+  %1148 = xor i64 %1144, %1147
+  %1149 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  %1150 = load i64, ptr %1149, align 8, !tbaa !14
+  %1151 = lshr i64 %1150, 7
+  %1152 = xor i64 %1148, %1151
+  %1153 = add i64 %1141, %1152
+  %1154 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  %1155 = load i64, ptr %1154, align 16, !tbaa !14
+  %1156 = add i64 %1155, %1153
+  store i64 %1156, ptr %1154, align 16, !tbaa !14
+  br label %1163
+
+1157:                                             ; preds = %1055
+  %1158 = load ptr, ptr %2, align 8, !tbaa !3
+  %1159 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1158, i32 0, i32 1
+  %1160 = getelementptr inbounds [16 x i64], ptr %1159, i64 0, i64 10
+  %1161 = load i64, ptr %1160, align 8, !tbaa !14
+  %1162 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  store i64 %1161, ptr %1162, align 16, !tbaa !14
+  br label %1163
+
+1163:                                             ; preds = %1157, %1127
+  %1164 = phi i64 [ %1156, %1127 ], [ %1161, %1157 ]
+  %1165 = add i64 %1124, %1164
+  %1166 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1167 = load i64, ptr %1166, align 8, !tbaa !14
+  %1168 = add i64 %1167, %1165
+  store i64 %1168, ptr %1166, align 8, !tbaa !14
+  %1169 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1170 = load i64, ptr %1169, align 8, !tbaa !14
+  %1171 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1172 = load i64, ptr %1171, align 8, !tbaa !14
+  %1173 = add i64 %1172, %1170
+  store i64 %1173, ptr %1171, align 8, !tbaa !14
+  %1174 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1175 = load i64, ptr %1174, align 16, !tbaa !14
+  %1176 = call i64 @rotrFixed64(i64 noundef %1175, i64 noundef 28)
+  %1177 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1178 = load i64, ptr %1177, align 16, !tbaa !14
+  %1179 = call i64 @rotrFixed64(i64 noundef %1178, i64 noundef 34)
+  %1180 = xor i64 %1176, %1179
+  %1181 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1182 = load i64, ptr %1181, align 16, !tbaa !14
+  %1183 = call i64 @rotrFixed64(i64 noundef %1182, i64 noundef 39)
+  %1184 = xor i64 %1180, %1183
+  %1185 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1186 = load i64, ptr %1185, align 16, !tbaa !14
+  %1187 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1188 = load i64, ptr %1187, align 8, !tbaa !14
+  %1189 = and i64 %1186, %1188
+  %1190 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1191 = load i64, ptr %1190, align 16, !tbaa !14
+  %1192 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1193 = load i64, ptr %1192, align 16, !tbaa !14
+  %1194 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1195 = load i64, ptr %1194, align 8, !tbaa !14
+  %1196 = or i64 %1193, %1195
+  %1197 = and i64 %1191, %1196
+  %1198 = or i64 %1189, %1197
+  %1199 = add i64 %1184, %1198
+  %1200 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1201 = load i64, ptr %1200, align 8, !tbaa !14
+  %1202 = add i64 %1201, %1199
+  store i64 %1202, ptr %1200, align 8, !tbaa !14
+  %1203 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1204 = load i64, ptr %1203, align 8, !tbaa !14
+  %1205 = call i64 @rotrFixed64(i64 noundef %1204, i64 noundef 14)
+  %1206 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1207 = load i64, ptr %1206, align 8, !tbaa !14
+  %1208 = call i64 @rotrFixed64(i64 noundef %1207, i64 noundef 18)
+  %1209 = xor i64 %1205, %1208
+  %1210 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1211 = load i64, ptr %1210, align 8, !tbaa !14
+  %1212 = call i64 @rotrFixed64(i64 noundef %1211, i64 noundef 41)
+  %1213 = xor i64 %1209, %1212
+  %1214 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1215 = load i64, ptr %1214, align 8, !tbaa !14
+  %1216 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1217 = load i64, ptr %1216, align 8, !tbaa !14
+  %1218 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1219 = load i64, ptr %1218, align 16, !tbaa !14
+  %1220 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1221 = load i64, ptr %1220, align 8, !tbaa !14
+  %1222 = xor i64 %1219, %1221
+  %1223 = and i64 %1217, %1222
+  %1224 = xor i64 %1215, %1223
+  %1225 = add i64 %1213, %1224
+  %1226 = load ptr, ptr %3, align 8, !tbaa !24
+  %1227 = load i32, ptr %4, align 4, !tbaa !9
+  %1228 = add i32 11, %1227
+  %1229 = zext i32 %1228 to i64
+  %1230 = getelementptr inbounds nuw i64, ptr %1226, i64 %1229
+  %1231 = load i64, ptr %1230, align 8, !tbaa !14
+  %1232 = add i64 %1225, %1231
+  %1233 = load i32, ptr %4, align 4, !tbaa !9
+  %1234 = icmp ne i32 %1233, 0
+  br i1 %1234, label %1235, label %1265
+
+1235:                                             ; preds = %1163
+  %1236 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  %1237 = load i64, ptr %1236, align 8, !tbaa !14
+  %1238 = call i64 @rotrFixed64(i64 noundef %1237, i64 noundef 19)
+  %1239 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  %1240 = load i64, ptr %1239, align 8, !tbaa !14
+  %1241 = call i64 @rotrFixed64(i64 noundef %1240, i64 noundef 61)
+  %1242 = xor i64 %1238, %1241
+  %1243 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 9
+  %1244 = load i64, ptr %1243, align 8, !tbaa !14
+  %1245 = lshr i64 %1244, 6
+  %1246 = xor i64 %1242, %1245
+  %1247 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 4
+  %1248 = load i64, ptr %1247, align 16, !tbaa !14
+  %1249 = add i64 %1246, %1248
+  %1250 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  %1251 = load i64, ptr %1250, align 16, !tbaa !14
+  %1252 = call i64 @rotrFixed64(i64 noundef %1251, i64 noundef 1)
+  %1253 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  %1254 = load i64, ptr %1253, align 16, !tbaa !14
+  %1255 = call i64 @rotrFixed64(i64 noundef %1254, i64 noundef 8)
+  %1256 = xor i64 %1252, %1255
+  %1257 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  %1258 = load i64, ptr %1257, align 16, !tbaa !14
+  %1259 = lshr i64 %1258, 7
+  %1260 = xor i64 %1256, %1259
+  %1261 = add i64 %1249, %1260
+  %1262 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  %1263 = load i64, ptr %1262, align 8, !tbaa !14
+  %1264 = add i64 %1263, %1261
+  store i64 %1264, ptr %1262, align 8, !tbaa !14
+  br label %1271
+
+1265:                                             ; preds = %1163
+  %1266 = load ptr, ptr %2, align 8, !tbaa !3
+  %1267 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1266, i32 0, i32 1
+  %1268 = getelementptr inbounds [16 x i64], ptr %1267, i64 0, i64 11
+  %1269 = load i64, ptr %1268, align 8, !tbaa !14
+  %1270 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  store i64 %1269, ptr %1270, align 8, !tbaa !14
+  br label %1271
+
+1271:                                             ; preds = %1265, %1235
+  %1272 = phi i64 [ %1264, %1235 ], [ %1269, %1265 ]
+  %1273 = add i64 %1232, %1272
+  %1274 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1275 = load i64, ptr %1274, align 16, !tbaa !14
+  %1276 = add i64 %1275, %1273
+  store i64 %1276, ptr %1274, align 16, !tbaa !14
+  %1277 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1278 = load i64, ptr %1277, align 16, !tbaa !14
+  %1279 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1280 = load i64, ptr %1279, align 16, !tbaa !14
+  %1281 = add i64 %1280, %1278
+  store i64 %1281, ptr %1279, align 16, !tbaa !14
+  %1282 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1283 = load i64, ptr %1282, align 8, !tbaa !14
+  %1284 = call i64 @rotrFixed64(i64 noundef %1283, i64 noundef 28)
+  %1285 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1286 = load i64, ptr %1285, align 8, !tbaa !14
+  %1287 = call i64 @rotrFixed64(i64 noundef %1286, i64 noundef 34)
+  %1288 = xor i64 %1284, %1287
+  %1289 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1290 = load i64, ptr %1289, align 8, !tbaa !14
+  %1291 = call i64 @rotrFixed64(i64 noundef %1290, i64 noundef 39)
+  %1292 = xor i64 %1288, %1291
+  %1293 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1294 = load i64, ptr %1293, align 8, !tbaa !14
+  %1295 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1296 = load i64, ptr %1295, align 16, !tbaa !14
+  %1297 = and i64 %1294, %1296
+  %1298 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1299 = load i64, ptr %1298, align 8, !tbaa !14
+  %1300 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1301 = load i64, ptr %1300, align 8, !tbaa !14
+  %1302 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1303 = load i64, ptr %1302, align 16, !tbaa !14
+  %1304 = or i64 %1301, %1303
+  %1305 = and i64 %1299, %1304
+  %1306 = or i64 %1297, %1305
+  %1307 = add i64 %1292, %1306
+  %1308 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1309 = load i64, ptr %1308, align 16, !tbaa !14
+  %1310 = add i64 %1309, %1307
+  store i64 %1310, ptr %1308, align 16, !tbaa !14
+  %1311 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1312 = load i64, ptr %1311, align 16, !tbaa !14
+  %1313 = call i64 @rotrFixed64(i64 noundef %1312, i64 noundef 14)
+  %1314 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1315 = load i64, ptr %1314, align 16, !tbaa !14
+  %1316 = call i64 @rotrFixed64(i64 noundef %1315, i64 noundef 18)
+  %1317 = xor i64 %1313, %1316
+  %1318 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1319 = load i64, ptr %1318, align 16, !tbaa !14
+  %1320 = call i64 @rotrFixed64(i64 noundef %1319, i64 noundef 41)
+  %1321 = xor i64 %1317, %1320
+  %1322 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1323 = load i64, ptr %1322, align 16, !tbaa !14
+  %1324 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1325 = load i64, ptr %1324, align 16, !tbaa !14
+  %1326 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1327 = load i64, ptr %1326, align 8, !tbaa !14
+  %1328 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1329 = load i64, ptr %1328, align 16, !tbaa !14
+  %1330 = xor i64 %1327, %1329
+  %1331 = and i64 %1325, %1330
+  %1332 = xor i64 %1323, %1331
+  %1333 = add i64 %1321, %1332
+  %1334 = load ptr, ptr %3, align 8, !tbaa !24
+  %1335 = load i32, ptr %4, align 4, !tbaa !9
+  %1336 = add i32 12, %1335
+  %1337 = zext i32 %1336 to i64
+  %1338 = getelementptr inbounds nuw i64, ptr %1334, i64 %1337
+  %1339 = load i64, ptr %1338, align 8, !tbaa !14
+  %1340 = add i64 %1333, %1339
+  %1341 = load i32, ptr %4, align 4, !tbaa !9
+  %1342 = icmp ne i32 %1341, 0
+  br i1 %1342, label %1343, label %1373
+
+1343:                                             ; preds = %1271
+  %1344 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  %1345 = load i64, ptr %1344, align 16, !tbaa !14
+  %1346 = call i64 @rotrFixed64(i64 noundef %1345, i64 noundef 19)
+  %1347 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  %1348 = load i64, ptr %1347, align 16, !tbaa !14
+  %1349 = call i64 @rotrFixed64(i64 noundef %1348, i64 noundef 61)
+  %1350 = xor i64 %1346, %1349
+  %1351 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 10
+  %1352 = load i64, ptr %1351, align 16, !tbaa !14
+  %1353 = lshr i64 %1352, 6
+  %1354 = xor i64 %1350, %1353
+  %1355 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 5
+  %1356 = load i64, ptr %1355, align 8, !tbaa !14
+  %1357 = add i64 %1354, %1356
+  %1358 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  %1359 = load i64, ptr %1358, align 8, !tbaa !14
+  %1360 = call i64 @rotrFixed64(i64 noundef %1359, i64 noundef 1)
+  %1361 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  %1362 = load i64, ptr %1361, align 8, !tbaa !14
+  %1363 = call i64 @rotrFixed64(i64 noundef %1362, i64 noundef 8)
+  %1364 = xor i64 %1360, %1363
+  %1365 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  %1366 = load i64, ptr %1365, align 8, !tbaa !14
+  %1367 = lshr i64 %1366, 7
+  %1368 = xor i64 %1364, %1367
+  %1369 = add i64 %1357, %1368
+  %1370 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  %1371 = load i64, ptr %1370, align 16, !tbaa !14
+  %1372 = add i64 %1371, %1369
+  store i64 %1372, ptr %1370, align 16, !tbaa !14
+  br label %1379
+
+1373:                                             ; preds = %1271
+  %1374 = load ptr, ptr %2, align 8, !tbaa !3
+  %1375 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1374, i32 0, i32 1
+  %1376 = getelementptr inbounds [16 x i64], ptr %1375, i64 0, i64 12
+  %1377 = load i64, ptr %1376, align 8, !tbaa !14
+  %1378 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  store i64 %1377, ptr %1378, align 16, !tbaa !14
+  br label %1379
+
+1379:                                             ; preds = %1373, %1343
+  %1380 = phi i64 [ %1372, %1343 ], [ %1377, %1373 ]
+  %1381 = add i64 %1340, %1380
+  %1382 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1383 = load i64, ptr %1382, align 8, !tbaa !14
+  %1384 = add i64 %1383, %1381
+  store i64 %1384, ptr %1382, align 8, !tbaa !14
+  %1385 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1386 = load i64, ptr %1385, align 8, !tbaa !14
+  %1387 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1388 = load i64, ptr %1387, align 8, !tbaa !14
+  %1389 = add i64 %1388, %1386
+  store i64 %1389, ptr %1387, align 8, !tbaa !14
+  %1390 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1391 = load i64, ptr %1390, align 16, !tbaa !14
+  %1392 = call i64 @rotrFixed64(i64 noundef %1391, i64 noundef 28)
+  %1393 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1394 = load i64, ptr %1393, align 16, !tbaa !14
+  %1395 = call i64 @rotrFixed64(i64 noundef %1394, i64 noundef 34)
+  %1396 = xor i64 %1392, %1395
+  %1397 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1398 = load i64, ptr %1397, align 16, !tbaa !14
+  %1399 = call i64 @rotrFixed64(i64 noundef %1398, i64 noundef 39)
+  %1400 = xor i64 %1396, %1399
+  %1401 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1402 = load i64, ptr %1401, align 16, !tbaa !14
+  %1403 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1404 = load i64, ptr %1403, align 8, !tbaa !14
+  %1405 = and i64 %1402, %1404
+  %1406 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1407 = load i64, ptr %1406, align 16, !tbaa !14
+  %1408 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1409 = load i64, ptr %1408, align 16, !tbaa !14
+  %1410 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1411 = load i64, ptr %1410, align 8, !tbaa !14
+  %1412 = or i64 %1409, %1411
+  %1413 = and i64 %1407, %1412
+  %1414 = or i64 %1405, %1413
+  %1415 = add i64 %1400, %1414
+  %1416 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1417 = load i64, ptr %1416, align 8, !tbaa !14
+  %1418 = add i64 %1417, %1415
+  store i64 %1418, ptr %1416, align 8, !tbaa !14
+  %1419 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1420 = load i64, ptr %1419, align 8, !tbaa !14
+  %1421 = call i64 @rotrFixed64(i64 noundef %1420, i64 noundef 14)
+  %1422 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1423 = load i64, ptr %1422, align 8, !tbaa !14
+  %1424 = call i64 @rotrFixed64(i64 noundef %1423, i64 noundef 18)
+  %1425 = xor i64 %1421, %1424
+  %1426 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1427 = load i64, ptr %1426, align 8, !tbaa !14
+  %1428 = call i64 @rotrFixed64(i64 noundef %1427, i64 noundef 41)
+  %1429 = xor i64 %1425, %1428
+  %1430 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1431 = load i64, ptr %1430, align 8, !tbaa !14
+  %1432 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1433 = load i64, ptr %1432, align 8, !tbaa !14
+  %1434 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1435 = load i64, ptr %1434, align 16, !tbaa !14
+  %1436 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1437 = load i64, ptr %1436, align 8, !tbaa !14
+  %1438 = xor i64 %1435, %1437
+  %1439 = and i64 %1433, %1438
+  %1440 = xor i64 %1431, %1439
+  %1441 = add i64 %1429, %1440
+  %1442 = load ptr, ptr %3, align 8, !tbaa !24
+  %1443 = load i32, ptr %4, align 4, !tbaa !9
+  %1444 = add i32 13, %1443
+  %1445 = zext i32 %1444 to i64
+  %1446 = getelementptr inbounds nuw i64, ptr %1442, i64 %1445
+  %1447 = load i64, ptr %1446, align 8, !tbaa !14
+  %1448 = add i64 %1441, %1447
+  %1449 = load i32, ptr %4, align 4, !tbaa !9
+  %1450 = icmp ne i32 %1449, 0
+  br i1 %1450, label %1451, label %1481
+
+1451:                                             ; preds = %1379
+  %1452 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  %1453 = load i64, ptr %1452, align 8, !tbaa !14
+  %1454 = call i64 @rotrFixed64(i64 noundef %1453, i64 noundef 19)
+  %1455 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  %1456 = load i64, ptr %1455, align 8, !tbaa !14
+  %1457 = call i64 @rotrFixed64(i64 noundef %1456, i64 noundef 61)
+  %1458 = xor i64 %1454, %1457
+  %1459 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 11
+  %1460 = load i64, ptr %1459, align 8, !tbaa !14
+  %1461 = lshr i64 %1460, 6
+  %1462 = xor i64 %1458, %1461
+  %1463 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 6
+  %1464 = load i64, ptr %1463, align 16, !tbaa !14
+  %1465 = add i64 %1462, %1464
+  %1466 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  %1467 = load i64, ptr %1466, align 16, !tbaa !14
+  %1468 = call i64 @rotrFixed64(i64 noundef %1467, i64 noundef 1)
+  %1469 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  %1470 = load i64, ptr %1469, align 16, !tbaa !14
+  %1471 = call i64 @rotrFixed64(i64 noundef %1470, i64 noundef 8)
+  %1472 = xor i64 %1468, %1471
+  %1473 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  %1474 = load i64, ptr %1473, align 16, !tbaa !14
+  %1475 = lshr i64 %1474, 7
+  %1476 = xor i64 %1472, %1475
+  %1477 = add i64 %1465, %1476
+  %1478 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  %1479 = load i64, ptr %1478, align 8, !tbaa !14
+  %1480 = add i64 %1479, %1477
+  store i64 %1480, ptr %1478, align 8, !tbaa !14
+  br label %1487
+
+1481:                                             ; preds = %1379
+  %1482 = load ptr, ptr %2, align 8, !tbaa !3
+  %1483 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1482, i32 0, i32 1
+  %1484 = getelementptr inbounds [16 x i64], ptr %1483, i64 0, i64 13
+  %1485 = load i64, ptr %1484, align 8, !tbaa !14
+  %1486 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  store i64 %1485, ptr %1486, align 8, !tbaa !14
+  br label %1487
+
+1487:                                             ; preds = %1481, %1451
+  %1488 = phi i64 [ %1480, %1451 ], [ %1485, %1481 ]
+  %1489 = add i64 %1448, %1488
+  %1490 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1491 = load i64, ptr %1490, align 16, !tbaa !14
+  %1492 = add i64 %1491, %1489
+  store i64 %1492, ptr %1490, align 16, !tbaa !14
+  %1493 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1494 = load i64, ptr %1493, align 16, !tbaa !14
+  %1495 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1496 = load i64, ptr %1495, align 16, !tbaa !14
+  %1497 = add i64 %1496, %1494
+  store i64 %1497, ptr %1495, align 16, !tbaa !14
+  %1498 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1499 = load i64, ptr %1498, align 8, !tbaa !14
+  %1500 = call i64 @rotrFixed64(i64 noundef %1499, i64 noundef 28)
+  %1501 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1502 = load i64, ptr %1501, align 8, !tbaa !14
+  %1503 = call i64 @rotrFixed64(i64 noundef %1502, i64 noundef 34)
+  %1504 = xor i64 %1500, %1503
+  %1505 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1506 = load i64, ptr %1505, align 8, !tbaa !14
+  %1507 = call i64 @rotrFixed64(i64 noundef %1506, i64 noundef 39)
+  %1508 = xor i64 %1504, %1507
+  %1509 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1510 = load i64, ptr %1509, align 8, !tbaa !14
+  %1511 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1512 = load i64, ptr %1511, align 16, !tbaa !14
+  %1513 = and i64 %1510, %1512
+  %1514 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1515 = load i64, ptr %1514, align 8, !tbaa !14
+  %1516 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1517 = load i64, ptr %1516, align 8, !tbaa !14
+  %1518 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1519 = load i64, ptr %1518, align 16, !tbaa !14
+  %1520 = or i64 %1517, %1519
+  %1521 = and i64 %1515, %1520
+  %1522 = or i64 %1513, %1521
+  %1523 = add i64 %1508, %1522
+  %1524 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1525 = load i64, ptr %1524, align 16, !tbaa !14
+  %1526 = add i64 %1525, %1523
+  store i64 %1526, ptr %1524, align 16, !tbaa !14
+  %1527 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1528 = load i64, ptr %1527, align 16, !tbaa !14
+  %1529 = call i64 @rotrFixed64(i64 noundef %1528, i64 noundef 14)
+  %1530 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1531 = load i64, ptr %1530, align 16, !tbaa !14
+  %1532 = call i64 @rotrFixed64(i64 noundef %1531, i64 noundef 18)
+  %1533 = xor i64 %1529, %1532
+  %1534 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1535 = load i64, ptr %1534, align 16, !tbaa !14
+  %1536 = call i64 @rotrFixed64(i64 noundef %1535, i64 noundef 41)
+  %1537 = xor i64 %1533, %1536
+  %1538 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1539 = load i64, ptr %1538, align 16, !tbaa !14
+  %1540 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1541 = load i64, ptr %1540, align 16, !tbaa !14
+  %1542 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1543 = load i64, ptr %1542, align 8, !tbaa !14
+  %1544 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1545 = load i64, ptr %1544, align 16, !tbaa !14
+  %1546 = xor i64 %1543, %1545
+  %1547 = and i64 %1541, %1546
+  %1548 = xor i64 %1539, %1547
+  %1549 = add i64 %1537, %1548
+  %1550 = load ptr, ptr %3, align 8, !tbaa !24
+  %1551 = load i32, ptr %4, align 4, !tbaa !9
+  %1552 = add i32 14, %1551
+  %1553 = zext i32 %1552 to i64
+  %1554 = getelementptr inbounds nuw i64, ptr %1550, i64 %1553
+  %1555 = load i64, ptr %1554, align 8, !tbaa !14
+  %1556 = add i64 %1549, %1555
+  %1557 = load i32, ptr %4, align 4, !tbaa !9
+  %1558 = icmp ne i32 %1557, 0
+  br i1 %1558, label %1559, label %1589
+
+1559:                                             ; preds = %1487
+  %1560 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  %1561 = load i64, ptr %1560, align 16, !tbaa !14
+  %1562 = call i64 @rotrFixed64(i64 noundef %1561, i64 noundef 19)
+  %1563 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  %1564 = load i64, ptr %1563, align 16, !tbaa !14
+  %1565 = call i64 @rotrFixed64(i64 noundef %1564, i64 noundef 61)
+  %1566 = xor i64 %1562, %1565
+  %1567 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 12
+  %1568 = load i64, ptr %1567, align 16, !tbaa !14
+  %1569 = lshr i64 %1568, 6
+  %1570 = xor i64 %1566, %1569
+  %1571 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 7
+  %1572 = load i64, ptr %1571, align 8, !tbaa !14
+  %1573 = add i64 %1570, %1572
+  %1574 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  %1575 = load i64, ptr %1574, align 8, !tbaa !14
+  %1576 = call i64 @rotrFixed64(i64 noundef %1575, i64 noundef 1)
+  %1577 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  %1578 = load i64, ptr %1577, align 8, !tbaa !14
+  %1579 = call i64 @rotrFixed64(i64 noundef %1578, i64 noundef 8)
+  %1580 = xor i64 %1576, %1579
+  %1581 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  %1582 = load i64, ptr %1581, align 8, !tbaa !14
+  %1583 = lshr i64 %1582, 7
+  %1584 = xor i64 %1580, %1583
+  %1585 = add i64 %1573, %1584
+  %1586 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  %1587 = load i64, ptr %1586, align 16, !tbaa !14
+  %1588 = add i64 %1587, %1585
+  store i64 %1588, ptr %1586, align 16, !tbaa !14
+  br label %1595
+
+1589:                                             ; preds = %1487
+  %1590 = load ptr, ptr %2, align 8, !tbaa !3
+  %1591 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1590, i32 0, i32 1
+  %1592 = getelementptr inbounds [16 x i64], ptr %1591, i64 0, i64 14
+  %1593 = load i64, ptr %1592, align 8, !tbaa !14
+  %1594 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 14
+  store i64 %1593, ptr %1594, align 16, !tbaa !14
+  br label %1595
+
+1595:                                             ; preds = %1589, %1559
+  %1596 = phi i64 [ %1588, %1559 ], [ %1593, %1589 ]
+  %1597 = add i64 %1556, %1596
+  %1598 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1599 = load i64, ptr %1598, align 8, !tbaa !14
+  %1600 = add i64 %1599, %1597
+  store i64 %1600, ptr %1598, align 8, !tbaa !14
+  %1601 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1602 = load i64, ptr %1601, align 8, !tbaa !14
+  %1603 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1604 = load i64, ptr %1603, align 8, !tbaa !14
+  %1605 = add i64 %1604, %1602
+  store i64 %1605, ptr %1603, align 8, !tbaa !14
+  %1606 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1607 = load i64, ptr %1606, align 16, !tbaa !14
+  %1608 = call i64 @rotrFixed64(i64 noundef %1607, i64 noundef 28)
+  %1609 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1610 = load i64, ptr %1609, align 16, !tbaa !14
+  %1611 = call i64 @rotrFixed64(i64 noundef %1610, i64 noundef 34)
+  %1612 = xor i64 %1608, %1611
+  %1613 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1614 = load i64, ptr %1613, align 16, !tbaa !14
+  %1615 = call i64 @rotrFixed64(i64 noundef %1614, i64 noundef 39)
+  %1616 = xor i64 %1612, %1615
+  %1617 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1618 = load i64, ptr %1617, align 16, !tbaa !14
+  %1619 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1620 = load i64, ptr %1619, align 8, !tbaa !14
+  %1621 = and i64 %1618, %1620
+  %1622 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1623 = load i64, ptr %1622, align 16, !tbaa !14
+  %1624 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1625 = load i64, ptr %1624, align 16, !tbaa !14
+  %1626 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1627 = load i64, ptr %1626, align 8, !tbaa !14
+  %1628 = or i64 %1625, %1627
+  %1629 = and i64 %1623, %1628
+  %1630 = or i64 %1621, %1629
+  %1631 = add i64 %1616, %1630
+  %1632 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1633 = load i64, ptr %1632, align 8, !tbaa !14
+  %1634 = add i64 %1633, %1631
+  store i64 %1634, ptr %1632, align 8, !tbaa !14
+  %1635 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1636 = load i64, ptr %1635, align 8, !tbaa !14
+  %1637 = call i64 @rotrFixed64(i64 noundef %1636, i64 noundef 14)
+  %1638 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1639 = load i64, ptr %1638, align 8, !tbaa !14
+  %1640 = call i64 @rotrFixed64(i64 noundef %1639, i64 noundef 18)
+  %1641 = xor i64 %1637, %1640
+  %1642 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1643 = load i64, ptr %1642, align 8, !tbaa !14
+  %1644 = call i64 @rotrFixed64(i64 noundef %1643, i64 noundef 41)
+  %1645 = xor i64 %1641, %1644
+  %1646 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1647 = load i64, ptr %1646, align 8, !tbaa !14
+  %1648 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1649 = load i64, ptr %1648, align 8, !tbaa !14
+  %1650 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1651 = load i64, ptr %1650, align 16, !tbaa !14
+  %1652 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1653 = load i64, ptr %1652, align 8, !tbaa !14
+  %1654 = xor i64 %1651, %1653
+  %1655 = and i64 %1649, %1654
+  %1656 = xor i64 %1647, %1655
+  %1657 = add i64 %1645, %1656
+  %1658 = load ptr, ptr %3, align 8, !tbaa !24
+  %1659 = load i32, ptr %4, align 4, !tbaa !9
+  %1660 = add i32 15, %1659
+  %1661 = zext i32 %1660 to i64
+  %1662 = getelementptr inbounds nuw i64, ptr %1658, i64 %1661
+  %1663 = load i64, ptr %1662, align 8, !tbaa !14
+  %1664 = add i64 %1657, %1663
+  %1665 = load i32, ptr %4, align 4, !tbaa !9
+  %1666 = icmp ne i32 %1665, 0
+  br i1 %1666, label %1667, label %1697
+
+1667:                                             ; preds = %1595
+  %1668 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  %1669 = load i64, ptr %1668, align 8, !tbaa !14
+  %1670 = call i64 @rotrFixed64(i64 noundef %1669, i64 noundef 19)
+  %1671 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  %1672 = load i64, ptr %1671, align 8, !tbaa !14
+  %1673 = call i64 @rotrFixed64(i64 noundef %1672, i64 noundef 61)
+  %1674 = xor i64 %1670, %1673
+  %1675 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 13
+  %1676 = load i64, ptr %1675, align 8, !tbaa !14
+  %1677 = lshr i64 %1676, 6
+  %1678 = xor i64 %1674, %1677
+  %1679 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 8
+  %1680 = load i64, ptr %1679, align 16, !tbaa !14
+  %1681 = add i64 %1678, %1680
+  %1682 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  %1683 = load i64, ptr %1682, align 16, !tbaa !14
+  %1684 = call i64 @rotrFixed64(i64 noundef %1683, i64 noundef 1)
+  %1685 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  %1686 = load i64, ptr %1685, align 16, !tbaa !14
+  %1687 = call i64 @rotrFixed64(i64 noundef %1686, i64 noundef 8)
+  %1688 = xor i64 %1684, %1687
+  %1689 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  %1690 = load i64, ptr %1689, align 16, !tbaa !14
+  %1691 = lshr i64 %1690, 7
+  %1692 = xor i64 %1688, %1691
+  %1693 = add i64 %1681, %1692
+  %1694 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  %1695 = load i64, ptr %1694, align 8, !tbaa !14
+  %1696 = add i64 %1695, %1693
+  store i64 %1696, ptr %1694, align 8, !tbaa !14
+  br label %1703
+
+1697:                                             ; preds = %1595
+  %1698 = load ptr, ptr %2, align 8, !tbaa !3
+  %1699 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1698, i32 0, i32 1
+  %1700 = getelementptr inbounds [16 x i64], ptr %1699, i64 0, i64 15
+  %1701 = load i64, ptr %1700, align 8, !tbaa !14
+  %1702 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 15
+  store i64 %1701, ptr %1702, align 8, !tbaa !14
+  br label %1703
+
+1703:                                             ; preds = %1697, %1667
+  %1704 = phi i64 [ %1696, %1667 ], [ %1701, %1697 ]
+  %1705 = add i64 %1664, %1704
+  %1706 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1707 = load i64, ptr %1706, align 16, !tbaa !14
+  %1708 = add i64 %1707, %1705
+  store i64 %1708, ptr %1706, align 16, !tbaa !14
+  %1709 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1710 = load i64, ptr %1709, align 16, !tbaa !14
+  %1711 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1712 = load i64, ptr %1711, align 16, !tbaa !14
+  %1713 = add i64 %1712, %1710
+  store i64 %1713, ptr %1711, align 16, !tbaa !14
+  %1714 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1715 = load i64, ptr %1714, align 8, !tbaa !14
+  %1716 = call i64 @rotrFixed64(i64 noundef %1715, i64 noundef 28)
+  %1717 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1718 = load i64, ptr %1717, align 8, !tbaa !14
+  %1719 = call i64 @rotrFixed64(i64 noundef %1718, i64 noundef 34)
+  %1720 = xor i64 %1716, %1719
+  %1721 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1722 = load i64, ptr %1721, align 8, !tbaa !14
+  %1723 = call i64 @rotrFixed64(i64 noundef %1722, i64 noundef 39)
+  %1724 = xor i64 %1720, %1723
+  %1725 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1726 = load i64, ptr %1725, align 8, !tbaa !14
+  %1727 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1728 = load i64, ptr %1727, align 16, !tbaa !14
+  %1729 = and i64 %1726, %1728
+  %1730 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1731 = load i64, ptr %1730, align 8, !tbaa !14
+  %1732 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1733 = load i64, ptr %1732, align 8, !tbaa !14
+  %1734 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1735 = load i64, ptr %1734, align 16, !tbaa !14
+  %1736 = or i64 %1733, %1735
+  %1737 = and i64 %1731, %1736
+  %1738 = or i64 %1729, %1737
+  %1739 = add i64 %1724, %1738
+  %1740 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1741 = load i64, ptr %1740, align 16, !tbaa !14
+  %1742 = add i64 %1741, %1739
+  store i64 %1742, ptr %1740, align 16, !tbaa !14
+  br label %1743
+
+1743:                                             ; preds = %1703
+  %1744 = load i32, ptr %4, align 4, !tbaa !9
+  %1745 = add i32 %1744, 16
+  store i32 %1745, ptr %4, align 4, !tbaa !9
+  br label %11, !llvm.loop !29
+
+1746:                                             ; preds = %11
+  %1747 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  %1748 = load i64, ptr %1747, align 16, !tbaa !14
+  %1749 = load ptr, ptr %2, align 8, !tbaa !3
+  %1750 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1749, i32 0, i32 0
+  %1751 = getelementptr inbounds [8 x i64], ptr %1750, i64 0, i64 0
+  %1752 = load i64, ptr %1751, align 8, !tbaa !14
+  %1753 = add i64 %1752, %1748
+  store i64 %1753, ptr %1751, align 8, !tbaa !14
+  %1754 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 1
+  %1755 = load i64, ptr %1754, align 8, !tbaa !14
+  %1756 = load ptr, ptr %2, align 8, !tbaa !3
+  %1757 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1756, i32 0, i32 0
+  %1758 = getelementptr inbounds [8 x i64], ptr %1757, i64 0, i64 1
+  %1759 = load i64, ptr %1758, align 8, !tbaa !14
+  %1760 = add i64 %1759, %1755
+  store i64 %1760, ptr %1758, align 8, !tbaa !14
+  %1761 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 2
+  %1762 = load i64, ptr %1761, align 16, !tbaa !14
+  %1763 = load ptr, ptr %2, align 8, !tbaa !3
+  %1764 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1763, i32 0, i32 0
+  %1765 = getelementptr inbounds [8 x i64], ptr %1764, i64 0, i64 2
+  %1766 = load i64, ptr %1765, align 8, !tbaa !14
+  %1767 = add i64 %1766, %1762
+  store i64 %1767, ptr %1765, align 8, !tbaa !14
+  %1768 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 3
+  %1769 = load i64, ptr %1768, align 8, !tbaa !14
+  %1770 = load ptr, ptr %2, align 8, !tbaa !3
+  %1771 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1770, i32 0, i32 0
+  %1772 = getelementptr inbounds [8 x i64], ptr %1771, i64 0, i64 3
+  %1773 = load i64, ptr %1772, align 8, !tbaa !14
+  %1774 = add i64 %1773, %1769
+  store i64 %1774, ptr %1772, align 8, !tbaa !14
+  %1775 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 4
+  %1776 = load i64, ptr %1775, align 16, !tbaa !14
+  %1777 = load ptr, ptr %2, align 8, !tbaa !3
+  %1778 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1777, i32 0, i32 0
+  %1779 = getelementptr inbounds [8 x i64], ptr %1778, i64 0, i64 4
+  %1780 = load i64, ptr %1779, align 8, !tbaa !14
+  %1781 = add i64 %1780, %1776
+  store i64 %1781, ptr %1779, align 8, !tbaa !14
+  %1782 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 5
+  %1783 = load i64, ptr %1782, align 8, !tbaa !14
+  %1784 = load ptr, ptr %2, align 8, !tbaa !3
+  %1785 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1784, i32 0, i32 0
+  %1786 = getelementptr inbounds [8 x i64], ptr %1785, i64 0, i64 5
+  %1787 = load i64, ptr %1786, align 8, !tbaa !14
+  %1788 = add i64 %1787, %1783
+  store i64 %1788, ptr %1786, align 8, !tbaa !14
+  %1789 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 6
+  %1790 = load i64, ptr %1789, align 16, !tbaa !14
+  %1791 = load ptr, ptr %2, align 8, !tbaa !3
+  %1792 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1791, i32 0, i32 0
+  %1793 = getelementptr inbounds [8 x i64], ptr %1792, i64 0, i64 6
+  %1794 = load i64, ptr %1793, align 8, !tbaa !14
+  %1795 = add i64 %1794, %1790
+  store i64 %1795, ptr %1793, align 8, !tbaa !14
+  %1796 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 7
+  %1797 = load i64, ptr %1796, align 8, !tbaa !14
+  %1798 = load ptr, ptr %2, align 8, !tbaa !3
+  %1799 = getelementptr inbounds nuw %struct.wc_Sha512, ptr %1798, i32 0, i32 0
+  %1800 = getelementptr inbounds [8 x i64], ptr %1799, i64 0, i64 7
+  %1801 = load i64, ptr %1800, align 8, !tbaa !14
+  %1802 = add i64 %1801, %1797
+  store i64 %1802, ptr %1800, align 8, !tbaa !14
+  %1803 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 0
+  call void @ForceZero(ptr noundef %1803, i32 noundef 128)
+  %1804 = getelementptr inbounds [8 x i64], ptr %5, i64 0, i64 0
+  call void @ForceZero(ptr noundef %1804, i32 noundef 64)
+  call void @llvm.lifetime.end.p0(i64 128, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @rotrFixed64(i64 noundef %x, i64 noundef %y) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  %y.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  store i64 %y, ptr %y.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %1 = load i64, ptr %y.addr, align 8
-  %shr = lshr i64 %0, %1
-  %2 = load i64, ptr %x.addr, align 8
-  %3 = load i64, ptr %y.addr, align 8
-  %sub = sub i64 64, %3
-  %shl = shl i64 %2, %sub
-  %or = or i64 %shr, %shl
-  ret i64 %or
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @ctMaskWord32GTE(i32 noundef %0, i32 noundef %1) #1 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !9
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %3, align 4, !tbaa !9
+  %6 = zext i32 %5 to i64
+  %7 = load i32, ptr %4, align 4, !tbaa !9
+  %8 = zext i32 %7 to i64
+  %9 = sub i64 %6, %8
+  %10 = lshr i64 %9, 63
+  %11 = sub i64 %10, 1
+  %12 = trunc i64 %11 to i32
+  ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @ByteReverseWord64(i64 noundef %value) #0 {
-entry:
-  %value.addr = alloca i64, align 8
-  store i64 %value, ptr %value.addr, align 8
-  %0 = load i64, ptr %value.addr, align 8
-  %and = and i64 %0, -71777214294589696
-  %shr = lshr i64 %and, 8
-  %1 = load i64, ptr %value.addr, align 8
-  %and1 = and i64 %1, 71777214294589695
-  %shl = shl i64 %and1, 8
-  %or = or i64 %shr, %shl
-  store i64 %or, ptr %value.addr, align 8
-  %2 = load i64, ptr %value.addr, align 8
-  %and2 = and i64 %2, -281470681808896
-  %shr3 = lshr i64 %and2, 16
-  %3 = load i64, ptr %value.addr, align 8
-  %and4 = and i64 %3, 281470681808895
-  %shl5 = shl i64 %and4, 16
-  %or6 = or i64 %shr3, %shl5
-  store i64 %or6, ptr %value.addr, align 8
-  %4 = load i64, ptr %value.addr, align 8
-  %call = call i64 @rotlFixed64(i64 noundef %4, i64 noundef 32)
-  ret i64 %call
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @rotrFixed64(i64 noundef %0, i64 noundef %1) #1 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !14
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load i64, ptr %3, align 8, !tbaa !14
+  %6 = load i64, ptr %4, align 8, !tbaa !14
+  %7 = lshr i64 %5, %6
+  %8 = load i64, ptr %3, align 8, !tbaa !14
+  %9 = load i64, ptr %4, align 8, !tbaa !14
+  %10 = sub i64 64, %9
+  %11 = shl i64 %8, %10
+  %12 = or i64 %7, %11
+  ret i64 %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @rotlFixed64(i64 noundef %x, i64 noundef %y) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  %y.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  store i64 %y, ptr %y.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %1 = load i64, ptr %y.addr, align 8
-  %shl = shl i64 %0, %1
-  %2 = load i64, ptr %x.addr, align 8
-  %3 = load i64, ptr %y.addr, align 8
-  %sub = sub i64 64, %3
-  %shr = lshr i64 %2, %sub
-  %or = or i64 %shl, %shr
-  ret i64 %or
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @ByteReverseWord64(i64 noundef %0) #1 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !14
+  %3 = load i64, ptr %2, align 8, !tbaa !14
+  %4 = and i64 %3, -71777214294589696
+  %5 = lshr i64 %4, 8
+  %6 = load i64, ptr %2, align 8, !tbaa !14
+  %7 = and i64 %6, 71777214294589695
+  %8 = shl i64 %7, 8
+  %9 = or i64 %5, %8
+  store i64 %9, ptr %2, align 8, !tbaa !14
+  %10 = load i64, ptr %2, align 8, !tbaa !14
+  %11 = and i64 %10, -281470681808896
+  %12 = lshr i64 %11, 16
+  %13 = load i64, ptr %2, align 8, !tbaa !14
+  %14 = and i64 %13, 281470681808895
+  %15 = shl i64 %14, 16
+  %16 = or i64 %12, %15
+  store i64 %16, ptr %2, align 8, !tbaa !14
+  %17 = load i64, ptr %2, align 8, !tbaa !14
+  %18 = call i64 @rotlFixed64(i64 noundef %17, i64 noundef 32)
+  ret i64 %18
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @rotlFixed64(i64 noundef %0, i64 noundef %1) #1 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !14
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load i64, ptr %3, align 8, !tbaa !14
+  %6 = load i64, ptr %4, align 8, !tbaa !14
+  %7 = shl i64 %5, %6
+  %8 = load i64, ptr %3, align 8, !tbaa !14
+  %9 = load i64, ptr %4, align 8, !tbaa !14
+  %10 = sub i64 64, %9
+  %11 = lshr i64 %8, %10
+  %12 = or i64 %7, %11
+  ret i64 %12
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS9wc_Sha512", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!12, !5, i64 216}
+!12 = !{!"wc_Sha512", !6, i64 0, !6, i64 64, !10, i64 192, !13, i64 200, !13, i64 208, !5, i64 216}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!13, !13, i64 0}
+!15 = !{!12, !10, i64 192}
+!16 = !{!12, !13, i64 200}
+!17 = !{!12, !13, i64 208}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !5, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!6, !6, i64 0}
+!23 = distinct !{!23, !21}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 long", !5, i64 0}
+!26 = distinct !{!26, !21}
+!27 = distinct !{!27, !21}
+!28 = distinct !{!28, !21}
+!29 = distinct !{!29, !21}

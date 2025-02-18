@@ -62,6 +62,7 @@ supported_project = [
     "stb",
     "sundials",
     "wireshark",
+    "wolfssl",
 ]
 
 modify_only = [
@@ -83,6 +84,7 @@ modify_only = [
     "ruby",
     "slurm",
     "wireshark",
+    "wolfssl",
 ]
 
 
