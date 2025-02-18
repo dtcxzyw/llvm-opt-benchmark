@@ -35490,10 +35490,10 @@ define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$co
 define hidden void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h69480e3b5da690cdE"(ptr noalias noundef writeonly sret({ { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %.sroa.0 = alloca { ptr, i64, i64, i64 }, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i64, ptr %4, align 8, !alias.scope !6682, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load i64, ptr %6, align 8, !alias.scope !6682, !noundef !4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %6 = load i64, ptr %5, align 8, !alias.scope !6682, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %8 = load i64, ptr %7, align 8, !alias.scope !6682, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6685)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -35501,42 +35501,42 @@ define hidden void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %12
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) @anon.ac22d30623b4aa6a7590c0e28ed98fa6.174.llvm.15361875792781664197, i64 32, i1 false), !noalias !6685
   br label %"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h452c8cff2fab1adbE.exit"
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !6690
-  %13 = add i64 %9, 1
-  call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17h90cbb646610cf21aE.llvm.15361875792781664197"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %3, i64 noundef %13, i1 noundef zeroext true), !noalias !6690
+  %14 = add i64 %9, 1
+  call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17h90cbb646610cf21aE.llvm.15361875792781664197"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %3, i64 noundef %14, i1 noundef zeroext true), !noalias !6690
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17h0a05ad8203e21eb2E.llvm.15361875792781664197"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
           to label %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17hcb15d79cab066ccdE.llvm.15361875792781664197.exit.i" unwind label %14, !noalias !6688
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr126drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$exr..meta..attribute..Text$C$exr..meta..attribute..AttributeValue$RP$$GT$$GT$17hf0f559e313ce6425E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #44
-          to label %18 unwind label %16, !noalias !6688
+          to label %21 unwind label %19, !noalias !6688
 
-"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17hcb15d79cab066ccdE.llvm.15361875792781664197.exit.i": ; preds = %12
+"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17hcb15d79cab066ccdE.llvm.15361875792781664197.exit.i": ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !6685
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !6690
   br label %"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h452c8cff2fab1adbE.exit"
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43, !noalias !6688
   unreachable
 
-18:                                               ; preds = %14
-  resume { ptr, i32 } %15
+21:                                               ; preds = %17
+  resume { ptr, i32 } %18
 
-"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h452c8cff2fab1adbE.exit": ; preds = %11, %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17hcb15d79cab066ccdE.llvm.15361875792781664197.exit.i"
+"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h452c8cff2fab1adbE.exit": ; preds = %12, %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17hcb15d79cab066ccdE.llvm.15361875792781664197.exit.i"
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %5, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %7, ptr %20, align 8
+  store i64 %8, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   ret void

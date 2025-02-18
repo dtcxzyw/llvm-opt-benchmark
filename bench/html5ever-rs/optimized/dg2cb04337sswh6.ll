@@ -64,7 +64,7 @@ define hidden noundef i32 @"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash1
   br label %20
 
 26:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #7
   unreachable
 }
 
@@ -114,7 +114,7 @@ define hidden noundef i32 @"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash1
   br label %20
 
 26:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #7
   unreachable
 }
 
@@ -164,7 +164,7 @@ define hidden noundef i32 @"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash1
   br label %20
 
 26:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #6
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0188de436e3200b94ad31815fc9bf42.1.llvm.1310227565007215243) #7
   unreachable
 }
 
@@ -473,9 +473,9 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hadb5a17b279cb8c2E.exit"
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hadb5a17b279cb8c2E.exit": ; preds = %1, %3
-  %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %5 = inttoptr i64 %4 to ptr
-  tail call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull %5)
+  %6 = load i64, ptr %0, align 8, !range !4, !noundef !5
+  %7 = inttoptr i64 %6 to ptr
+  tail call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull %7)
   ret void
 }
 
@@ -490,9 +490,9 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hadb5a17b279cb8c2E.exit"
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hadb5a17b279cb8c2E.exit": ; preds = %1, %3
-  %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %5 = inttoptr i64 %4 to ptr
-  tail call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull %5)
+  %6 = load i64, ptr %0, align 8, !range !4, !noundef !5
+  %7 = inttoptr i64 %6 to ptr
+  tail call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull %7)
   ret void
 }
 
@@ -507,9 +507,9 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hadb5a17b279cb8c2E.exit"
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hadb5a17b279cb8c2E.exit": ; preds = %1, %3
-  %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %5 = inttoptr i64 %4 to ptr
-  tail call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull %5)
+  %6 = load i64, ptr %0, align 8, !range !4, !noundef !5
+  %7 = inttoptr i64 %6 to ptr
+  tail call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull %7)
   ret void
 }
 
@@ -550,13 +550,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h811edb334e38b6b5E.llvm.9547364939642047668(ptr noundef, i8 noundef) unnamed_addr #3
+declare hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17h811edb334e38b6b5E.llvm.9547364939642047668(ptr noundef, i8 noundef) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hee5d833d57c6652aE"(ptr noundef nonnull align 8, ptr noundef nonnull align 8) unnamed_addr #4
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hee5d833d57c6652aE"(ptr noundef nonnull align 8, ptr noundef nonnull align 8) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #5
+declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

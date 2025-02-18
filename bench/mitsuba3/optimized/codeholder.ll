@@ -1223,7 +1223,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
 
 7:                                                ; preds = %3
   store ptr %1, ptr %0, align 8, !tbaa !99
-  br label %150
+  br label %149
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
@@ -1333,28 +1333,28 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %84 = inttoptr i64 %83 to ptr
   %85 = icmp ne i64 %83, 0
   tail call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds nuw [2 x i64], ptr %84, i64 0, i64 %78
+  %87 = getelementptr inbounds nuw [2 x i64], ptr %84, i64 0, i64 %78
   %87 = load i64, ptr %86, align 8, !tbaa !104
   %88 = and i64 %87, -2
   br i1 %76, label %89, label %92
 
-89:                                               ; preds = %65
+89:; preds = %65
   %90 = and i64 %82, 1
   %91 = or disjoint i64 %88, %90
   br label %114
 
-92:                                               ; preds = %65
+92:; preds = %65
   %93 = inttoptr i64 %88 to ptr
   %94 = icmp ne i64 %88, 0
   tail call void @llvm.assume(i1 %94)
-  %95 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %80
-  %96 = load i64, ptr %95, align 8, !tbaa !104
-  %97 = and i64 %96, -2
+  %96 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %80
+  %97 = load i64, ptr %96, align 8, !tbaa !104
+  %98 = and i64 %96, -2
   %98 = and i64 %87, 1
   %99 = or disjoint i64 %97, %98
   store i64 %99, ptr %86, align 8, !tbaa !104
-  %100 = load i64, ptr %95, align 8, !tbaa !104
-  %101 = and i64 %100, 1
+  %101 = load i64, ptr %95, align 8, !tbaa !104
+  %101 = and i64 %101, 1
   %102 = or disjoint i64 %101, %83
   store i64 %102, ptr %95, align 8, !tbaa !104
   %103 = load i64, ptr %84, align 8, !tbaa !104
@@ -1363,24 +1363,24 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %105 = load i64, ptr %93, align 8, !tbaa !104
   %106 = and i64 %105, -2
   store i64 %106, ptr %93, align 8, !tbaa !104
-  %107 = load i64, ptr %81, align 8, !tbaa !104
-  %108 = and i64 %107, 1
+  %108 = load i64, ptr %81, align 8, !tbaa !104
+  %108 = and i64 %108, 1
   %109 = or disjoint i64 %108, %88
   store i64 %109, ptr %81, align 8, !tbaa !104
-  %110 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %78
-  %111 = load i64, ptr %110, align 8, !tbaa !104
+  %111 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %78
+  %112 = load i64, ptr %111, align 8, !tbaa !104
   %112 = and i64 %111, -2
   %113 = or disjoint i64 %112, %108
   br label %114
 
-114:                                              ; preds = %92, %89
-  %115 = phi i64 [ %113, %92 ], [ %91, %89 ]
-  %116 = phi ptr [ %110, %92 ], [ %86, %89 ]
+114:; preds = %92, %89
+  %116 = phi i64 [ %113, %92 ], [ %91, %89 ]
+  %117 = phi ptr [ %110, %92 ], [ %86, %89 ]
   %117 = phi ptr [ %93, %92 ], [ %84, %89 ]
   %118 = phi i64 [ %88, %92 ], [ %83, %89 ]
   store i64 %115, ptr %81, align 8, !tbaa !104
-  %119 = load i64, ptr %116, align 8, !tbaa !104
-  %120 = and i64 %119, 1
+  %120 = load i64, ptr %116, align 8, !tbaa !104
+  %121 = and i64 %119, 1
   %121 = ptrtoint ptr %16 to i64
   %122 = or i64 %120, %121
   store i64 %122, ptr %116, align 8, !tbaa !104
@@ -1390,42 +1390,42 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %125 = load i64, ptr %117, align 8, !tbaa !104
   %126 = and i64 %125, -2
   store i64 %126, ptr %117, align 8, !tbaa !104
-  %127 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %71
-  %128 = load i64, ptr %127, align 8, !tbaa !104
+  %128 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %71
+  %129 = load i64, ptr %128, align 8, !tbaa !104
   %129 = and i64 %128, 1
   %130 = or disjoint i64 %129, %118
   store i64 %130, ptr %127, align 8, !tbaa !104
   br label %131
 
-131:                                              ; preds = %114, %61, %54
+131:; preds = %114, %61, %54
   %132 = icmp eq ptr %55, %1
   br i1 %132, label %145, label %133
 
-133:                                              ; preds = %131
-  %134 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %135 = load i64, ptr %134, align 8, !tbaa !100
+133:   ; preds = %131
+  %135 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %136 = load i64, ptr %134, align 8, !tbaa !100
   %136 = load i64, ptr %14, align 8, !tbaa !100
-  %137 = icmp ult i64 %135, %136
-  %138 = zext i1 %137 to i64
-  %139 = icmp eq ptr %16, null
-  %140 = select i1 %139, ptr %18, ptr %16
-  %141 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %138
-  %142 = load i64, ptr %141, align 8, !tbaa !104
+  %138 = icmp ult i64 %136, %136
+  %139 = zext i1 %138 to i64
+  %140 = icmp eq ptr %16, null
+  %141 = select i1 %140, ptr %18, ptr %16
+  %142 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %138
+  %143 = load i64, ptr %142, align 8, !tbaa !104
   %143 = and i64 %142, -2
   %144 = inttoptr i64 %143 to ptr
   br label %15, !llvm.loop !110
 
-145:                                              ; preds = %131
-  %146 = load i64, ptr %10, align 8, !tbaa !104
-  %147 = inttoptr i64 %146 to ptr
-  store ptr %147, ptr %0, align 8, !tbaa !99
-  %148 = load i64, ptr %147, align 8, !tbaa !104
-  %149 = and i64 %148, -2
-  store i64 %149, ptr %147, align 8, !tbaa !104
+144:                                              ; preds = %131
+  %145 = load i64, ptr %10, align 8, !tbaa !104
+  %146 = inttoptr i64 %145 to ptr
+  store ptr %146, ptr %0, align 8, !tbaa !99
+  %147 = load i64, ptr %146, align 8, !tbaa !104
+  %148 = and i64 %147, -2
+  store i64 %148, ptr %146, align 8, !tbaa !104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  br label %150
+  br label %149
 
-150:                                              ; preds = %145, %7
+149:                                              ; preds = %144, %7
   ret void
 }
 

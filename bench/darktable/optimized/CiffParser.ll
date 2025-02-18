@@ -125,86 +125,86 @@ define hidden void @_ZN8rawspeed10CiffParser9parseDataEv(ptr noundef nonnull ali
 _ZN8rawspeed10ByteStream6getU16Ev.exit:           ; preds = %1
   %.0.copyload.i.i.i.i.i.i = load i16, ptr %.sroa.02.0.copyload, align 1
   %.not = icmp eq i16 %.0.copyload.i.i.i.i.i.i, 18761
-  br i1 %.not, label %6, label %5
+  br i1 %.not, label %7, label %6
 
-5:                                                ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit
+6:                                                ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19CiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10CiffParser9parseDataEv) #15
   unreachable
 
-6:                                                ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit
+7:                                                ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit
   %.not.i.i.i.i.i.i6 = icmp ult i32 %.sroa.23.0.copyload, 6
-  br i1 %.not.i.i.i.i.i.i6, label %7, label %_ZN8rawspeed10ByteStream6getU32Ev.exit
+  br i1 %.not.i.i.i.i.i.i6, label %8, label %_ZN8rawspeed10ByteStream6getU32Ev.exit
 
-7:                                                ; preds = %6
+8:                                                ; preds = %7
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #15
   unreachable
 
-_ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %6
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 2
-  %.0.copyload.i.i.i.i.i.i7 = load i32, ptr %8, align 1
-  %9 = tail call noundef zeroext i1 @_ZN8rawspeed10CrwDecoder5isCRWENS_6BufferE(ptr nonnull %.sroa.02.0.copyload, i32 %.sroa.23.0.copyload)
-  br i1 %9, label %11, label %10
+_ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %7
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 2
+  %.0.copyload.i.i.i.i.i.i7 = load i32, ptr %9, align 1
+  %10 = tail call noundef zeroext i1 @_ZN8rawspeed10CrwDecoder5isCRWENS_6BufferE(ptr nonnull %.sroa.02.0.copyload, i32 %.sroa.23.0.copyload)
+  br i1 %10, label %12, label %11
 
-10:                                               ; preds = %_ZN8rawspeed10ByteStream6getU32Ev.exit
+11:                                               ; preds = %_ZN8rawspeed10ByteStream6getU32Ev.exit
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19CiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed10CiffParser9parseDataEv) #15
   unreachable
 
-11:                                               ; preds = %_ZN8rawspeed10ByteStream6getU32Ev.exit
+12:                                               ; preds = %_ZN8rawspeed10ByteStream6getU32Ev.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %.not.i.i = icmp ugt i32 %.0.copyload.i.i.i.i.i.i7, %.sroa.23.0.copyload
-  br i1 %.not.i.i, label %12, label %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit
+  br i1 %.not.i.i, label %13, label %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit
 
-12:                                               ; preds = %11
+13:                                               ; preds = %12
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEj) #15, !noalias !18
   unreachable
 
-_ZNK8rawspeed10ByteStream12getSubStreamEj.exit:   ; preds = %11
-  %13 = zext nneg i32 %.0.copyload.i.i.i.i.i.i7 to i64
-  %14 = sub nuw nsw i32 %.sroa.23.0.copyload, %.0.copyload.i.i.i.i.i.i7
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 %13
-  %.sroa.2.8.insert.ext.i = zext nneg i32 %14 to i64
+_ZNK8rawspeed10ByteStream12getSubStreamEj.exit:   ; preds = %12
+  %14 = zext nneg i32 %.0.copyload.i.i.i.i.i.i7 to i64
+  %15 = sub nuw nsw i32 %.sroa.23.0.copyload, %.0.copyload.i.i.i.i.i.i7
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 %14
+  %.sroa.2.8.insert.ext.i = zext nneg i32 %15 to i64
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.2.8.insert.ext.i, 244834610708480
-  store ptr %15, ptr %2, align 8, !alias.scope !18
+  store ptr %16, ptr %2, align 8, !alias.scope !18
   %.sroa.2.0..0..sroa_idx.i3.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.2.8.insert.insert.i, ptr %.sroa.2.0..0..sroa_idx.i3.i, align 8, !alias.scope !18
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %16, align 8, !tbaa !21, !alias.scope !18
-  %17 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #27, !noalias !26
-  invoke void @_ZN8rawspeed7CiffIFDC1EPS0_NS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef null, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %2)
-          to label %_ZSt11make_uniqueIN8rawspeed7CiffIFDEJDnRNS0_10ByteStreamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %18, !noalias !26
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %17, align 8, !tbaa !21, !alias.scope !18
+  %18 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #27, !noalias !26
+  invoke void @_ZN8rawspeed7CiffIFDC1EPS0_NS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef null, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %2)
+          to label %_ZSt11make_uniqueIN8rawspeed7CiffIFDEJDnRNS0_10ByteStreamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %19, !noalias !26
 
-18:                                               ; preds = %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit
+  %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #28, !noalias !26
-  resume { ptr, i32 } %19
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 88) #28, !noalias !26
+  resume { ptr, i32 } %20
 
 _ZSt11make_uniqueIN8rawspeed7CiffIFDEJDnRNS0_10ByteStreamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNK8rawspeed10ByteStream12getSubStreamEj.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
-  store ptr %17, ptr %20, align 8, !tbaa !29
-  %.not.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN8rawspeed7CiffIFDESt14default_deleteIS1_EED2Ev.exit, label %22
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  store ptr %18, ptr %21, align 8, !tbaa !29
+  %.not.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN8rawspeed7CiffIFDESt14default_deleteIS1_EED2Ev.exit, label %23
 
-22:                                               ; preds = %_ZSt11make_uniqueIN8rawspeed7CiffIFDEJDnRNS0_10ByteStreamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !30
-  invoke void @_ZNSt8_Rb_treeIN8rawspeed7CiffTagESt4pairIKS1_St10unique_ptrIKNS0_9CiffEntryESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %25)
-          to label %_ZNKSt14default_deleteIKN8rawspeed7CiffIFDEEclEPS2_.exit.i.i.i unwind label %26
+23:                                               ; preds = %_ZSt11make_uniqueIN8rawspeed7CiffIFDEJDnRNS0_10ByteStreamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  invoke void @_ZNSt8_Rb_treeIN8rawspeed7CiffTagESt4pairIKS1_St10unique_ptrIKNS0_9CiffEntryESt14default_deleteIS6_EEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %26)
+          to label %_ZNKSt14default_deleteIKN8rawspeed7CiffIFDEEclEPS2_.exit.i.i.i unwind label %27
 
-26:                                               ; preds = %22
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %23
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #29
+  %29 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %29) #29
   unreachable
 
-_ZNKSt14default_deleteIKN8rawspeed7CiffIFDEEclEPS2_.exit.i.i.i: ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  tail call void @_ZNSt6vectorISt10unique_ptrIKN8rawspeed7CiffIFDESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #26
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 88) #28
+_ZNKSt14default_deleteIKN8rawspeed7CiffIFDEEclEPS2_.exit.i.i.i: ; preds = %23
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  tail call void @_ZNSt6vectorISt10unique_ptrIKN8rawspeed7CiffIFDESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 88) #28
   br label %_ZNSt10unique_ptrIN8rawspeed7CiffIFDESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8rawspeed7CiffIFDESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIKN8rawspeed7CiffIFDEEclEPS2_.exit.i.i.i, %_ZSt11make_uniqueIN8rawspeed7CiffIFDEJDnRNS0_10ByteStreamEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit

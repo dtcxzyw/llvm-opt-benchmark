@@ -99,7 +99,7 @@ define void @_ZN21tree_sitter_highlight22HighlightConfiguration27nonconformant_c
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %16
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -121,20 +121,20 @@ define void @_ZN21tree_sitter_highlight22HighlightConfiguration27nonconformant_c
 "_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h01dde2e238d6f6d4E.exit": ; preds = %11, %14
   %15 = load ptr, ptr %6, align 8, !nonnull !4, !align !11, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %16
+  br label %18
 
-16:                                               ; preds = %3, %"_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h01dde2e238d6f6d4E.exit"
+18:                                               ; preds = %3, %"_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h01dde2e238d6f6d4E.exit"
   %.0 = phi ptr [ %15, %"_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h01dde2e238d6f6d4E.exit" ], [ %2, %3 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %18 = call { ptr, i64 } @_ZN11tree_sitter5Query13capture_names17hec32939f859f506cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %17)
-  %19 = extractvalue { ptr, i64 } %18, 0
-  %20 = extractvalue { ptr, i64 } %18, 1
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %19, i64 %20
-  %22 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %22)
-  store ptr %19, ptr %7, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %20 = call { ptr, i64 } @_ZN11tree_sitter5Query13capture_names17hec32939f859f506cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %19)
+  %21 = extractvalue { ptr, i64 } %20, 0
+  %22 = extractvalue { ptr, i64 } %20, 1
+  %23 = getelementptr inbounds { ptr, i64 }, ptr %21, i64 %22
+  %24 = icmp ne ptr %21, null
+  call void @llvm.assume(i1 %24)
+  store ptr %21, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %21, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %23, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.0, ptr %.sroa.5.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h391773b272f87a91E.llvm.23857589297000235"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)

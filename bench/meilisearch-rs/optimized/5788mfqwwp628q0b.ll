@@ -1910,10 +1910,10 @@ define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h8197a2a427695187E.llvm.13625133489657380139(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 24, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %3, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %3, ptr %10, align 8
   ret void
 }
 

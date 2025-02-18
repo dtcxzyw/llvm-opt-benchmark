@@ -5867,11 +5867,11 @@ define hidden void @_ZN5tokio7runtime7context14with_scheduler17h3a2d10752ae054c9
   %or.cond = select i1 %6, i1 %8, i1 false
   br i1 %or.cond, label %10, label %9
 
-9:                                                ; preds = %3
+10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.832e62666b6255bc19293ed26de40573.54.llvm.9340333246167201960, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.832e62666b6255bc19293ed26de40573.56.llvm.9340333246167201960) #29
   unreachable
 }
