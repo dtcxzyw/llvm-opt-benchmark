@@ -78,6 +78,7 @@ supported_project = [
     "crow",
     "csmith",
     "cvc5",
+    "cxxopts",
 ]
 
 modify_only = [
