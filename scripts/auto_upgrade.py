@@ -70,6 +70,7 @@ supported_project = [
     "annoy",
     "arrow",
     "assimp",
+    "box2d",
 ]
 
 modify_only = [
