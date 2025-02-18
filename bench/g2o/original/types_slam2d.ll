@@ -41,43 +41,44 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._Guard = type { ptr }
 %"class.g2o::HyperGraphElementCreator" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
 %"class.g2o::AbstractHyperGraphElementCreator" = type { ptr }
+%struct._Guard.31 = type { ptr }
 %"class.std::_Sp_counted_ptr" = type { %"class.std::_Sp_counted_base", ptr }
 %"class.std::type_info" = type { ptr, ptr }
-%"class.g2o::HyperGraphElementCreator.59" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.60" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.81" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.82" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.93" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.94" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.115" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.116" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.149" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.150" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.170" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.171" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.181" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.182" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.233" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.234" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.277" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.278" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.289" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.290" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.291" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.292" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.293" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.294" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.305" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.306" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.333" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.334" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.g2o::HyperGraphElementCreator.360" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
-%"class.std::_Sp_counted_ptr.361" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.372" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.60" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.61" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.82" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.83" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.94" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.95" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.116" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.117" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.150" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.151" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.171" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.172" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.182" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.183" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.234" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.235" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.278" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.279" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.290" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.291" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.292" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.293" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.294" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.295" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.306" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.307" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.334" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.335" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.g2o::HyperGraphElementCreator.361" = type { %"class.g2o::AbstractHyperGraphElementCreator", %"class.std::__cxx11::basic_string" }
+%"class.std::_Sp_counted_ptr.362" = type { %"class.std::_Sp_counted_base", ptr }
 %"class.std::_Sp_counted_ptr.373" = type { %"class.std::_Sp_counted_base", ptr }
 %"class.std::_Sp_counted_ptr.374" = type { %"class.std::_Sp_counted_base", ptr }
 %"class.std::_Sp_counted_ptr.375" = type { %"class.std::_Sp_counted_base", ptr }
 %"class.std::_Sp_counted_ptr.376" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.377" = type { %"class.std::_Sp_counted_base", ptr }
 
 $_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev = comdat any
 
@@ -175,25 +176,41 @@ $_ZN3g2o19RegisterActionProxyINS_39EdgeSE2PointXYBearingWriteGnuplotActionEED2Ev
 
 $_ZN5Eigen8internal8FixedIntILi1EEC2Ev = comdat any
 
-$_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev = comdat any
-
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv = comdat any
+
+$_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii = comdat any
 
 $__clang_call_terminate = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
+$_ZN9__gnu_cxx20__is_single_threadedEv = comdat any
+
+$_ZN9__gnu_cxx25__exchange_and_add_singleEPii = comdat any
+
+$_ZN9__gnu_cxx18__exchange_and_addEPVii = comdat any
+
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv = comdat any
 
-$_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev = comdat any
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
 
 $_ZNSt11char_traitsIcE6lengthEPKc = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
 
 $_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
 
@@ -204,6 +221,10 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 $_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
 
 $_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
 
 $_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv = comdat any
 
@@ -216,6 +237,22 @@ $_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev = comdat any
 $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_9VertexSE2EEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_ = comdat any
 
 $_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEC2Ev = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_ = comdat any
+
+$_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ = comdat any
 
 $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
 
@@ -237,8 +274,6 @@ $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__g
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -246,8 +281,6 @@ $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__g
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
-
-$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -287,8 +320,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElemen
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -318,8 +349,6 @@ $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18ParameterSE2OffsetEEEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
-
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -351,8 +380,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElemen
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -382,8 +409,6 @@ $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_12EdgeSE2PriorEEEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
-
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -415,8 +440,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElemen
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -446,8 +469,6 @@ $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_7EdgeSE2EEEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
-
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -479,8 +500,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElemen
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -510,8 +529,6 @@ $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_21EdgeSE2PointXYBearingEEEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
-
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -543,8 +560,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElemen
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -574,8 +589,6 @@ $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13EdgeSE2OffsetEEEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
-
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -607,8 +620,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElemen
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -638,8 +649,6 @@ $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgePointXYEEEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
-
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -671,8 +680,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElemen
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -703,8 +710,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElemen
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -734,8 +739,6 @@ $_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgeXYPriorEEEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
-
-$_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -773,8 +776,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o27VertexSE2WriteGn
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -797,8 +798,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o31VertexPointXYWri
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -818,8 +817,6 @@ $_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o25EdgeSE2WriteGnuplotActionEEET_ = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_ = comdat any
-
-$_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -841,8 +838,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o32EdgeSE2PointXYWr
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -863,7 +858,7 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o39EdgeSE2PointXYBe
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -875,241 +870,241 @@ $_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
+$_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
 $_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = comdat any
+$_ZTIN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = comdat any
 
-$_ZTSN3g2o32AbstractHyperGraphElementCreatorE = comdat any
+$_ZTSN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = comdat any
 
 $_ZTIN3g2o32AbstractHyperGraphElementCreatorE = comdat any
 
-$_ZTIN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = comdat any
+$_ZTSN3g2o32AbstractHyperGraphElementCreatorE = comdat any
 
 $_ZTVN3g2o32AbstractHyperGraphElementCreatorE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE = comdat any
 
-$_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE = comdat any
-
 $_ZTIN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE = comdat any
+
+$_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -1156,143 +1151,143 @@ $_ZTISt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gn
 @_ZN3g2oL54g_action_proxy_EdgeSE2PointXYBearingWriteGnuplotActionE = internal global %"class.g2o::RegisterActionProxy.22" zeroinitializer, align 8
 @__libc_single_threaded = external global i8, align 1
 @.str.41 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
+@_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [101 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [47 x i8] c"St11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
-@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @__cxa_pure_virtual, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_9VertexSE2EE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EED0Ev] }, comdat, align 8
 @_ZTIN3g2o9VertexSE2E = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = linkonce_odr constant [49 x i8] c"N3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE\00", comdat, align 1
-@_ZTSN3g2o32AbstractHyperGraphElementCreatorE = linkonce_odr constant [41 x i8] c"N3g2o32AbstractHyperGraphElementCreatorE\00", comdat, align 1
-@_ZTIN3g2o32AbstractHyperGraphElementCreatorE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
 @_ZTIN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
+@_ZTSN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE = linkonce_odr constant [49 x i8] c"N3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE\00", comdat, align 1
+@_ZTIN3g2o32AbstractHyperGraphElementCreatorE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
+@_ZTSN3g2o32AbstractHyperGraphElementCreatorE = linkonce_odr constant [41 x i8] c"N3g2o32AbstractHyperGraphElementCreatorE\00", comdat, align 1
 @_ZTVN3g2o32AbstractHyperGraphElementCreatorE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev, ptr @_ZN3g2o32AbstractHyperGraphElementCreatorD0Ev] }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [106 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [106 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_13VertexPointXYEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEED0Ev] }, comdat, align 8
 @_ZTIN3g2o13VertexPointXYE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE = linkonce_odr constant [54 x i8] c"N3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [111 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE = linkonce_odr constant [54 x i8] c"N3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [111 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEED0Ev] }, comdat, align 8
 @_ZTIN3g2o18ParameterSE2OffsetE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE = linkonce_odr constant [59 x i8] c"N3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [107 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE = linkonce_odr constant [59 x i8] c"N3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [107 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEED0Ev] }, comdat, align 8
 @_ZTIN3g2o14CacheSE2OffsetE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE = linkonce_odr constant [55 x i8] c"N3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [105 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE = linkonce_odr constant [55 x i8] c"N3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [105 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEED0Ev] }, comdat, align 8
 @_ZTIN3g2o12EdgeSE2PriorE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE = linkonce_odr constant [53 x i8] c"N3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [107 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE = linkonce_odr constant [53 x i8] c"N3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [107 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEED0Ev] }, comdat, align 8
 @_ZTIN3g2o14EdgeSE2XYPriorE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE = linkonce_odr constant [55 x i8] c"N3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [99 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE = linkonce_odr constant [55 x i8] c"N3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [99 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_7EdgeSE2EE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EED0Ev] }, comdat, align 8
 @_ZTIN3g2o7EdgeSE2E = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE = linkonce_odr constant [47 x i8] c"N3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [107 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE = linkonce_odr constant [47 x i8] c"N3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [107 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEED0Ev] }, comdat, align 8
 @_ZTIN3g2o14EdgeSE2PointXYE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE = linkonce_odr constant [55 x i8] c"N3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [114 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE = linkonce_odr constant [55 x i8] c"N3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [114 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEED0Ev] }, comdat, align 8
 @_ZTIN3g2o21EdgeSE2PointXYBearingE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE = linkonce_odr constant [62 x i8] c"N3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [112 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE = linkonce_odr constant [62 x i8] c"N3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [112 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19EdgeSE2PointXYCalibE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE = linkonce_odr constant [60 x i8] c"N3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [106 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE = linkonce_odr constant [60 x i8] c"N3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [106 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEED0Ev] }, comdat, align 8
 @_ZTIN3g2o13EdgeSE2OffsetE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE = linkonce_odr constant [54 x i8] c"N3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [113 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE = linkonce_odr constant [54 x i8] c"N3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [113 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEED0Ev] }, comdat, align 8
 @_ZTIN3g2o20EdgeSE2PointXYOffsetE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE = linkonce_odr constant [61 x i8] c"N3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [104 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE = linkonce_odr constant [61 x i8] c"N3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [104 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_11EdgePointXYEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEED0Ev] }, comdat, align 8
 @_ZTIN3g2o11EdgePointXYE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE = linkonce_odr constant [52 x i8] c"N3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [111 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE = linkonce_odr constant [52 x i8] c"N3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [111 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEED0Ev] }, comdat, align 8
 @_ZTIN3g2o18EdgeSE2TwoPointsXYE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE = linkonce_odr constant [59 x i8] c"N3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [108 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE = linkonce_odr constant [59 x i8] c"N3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [108 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEED0Ev] }, comdat, align 8
 @_ZTIN3g2o15EdgeSE2LotsOfXYE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE = linkonce_odr constant [56 x i8] c"N3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [104 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE = linkonce_odr constant [56 x i8] c"N3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [104 x i8] c"St15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE, ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEE9constructEv, ptr @_ZNK3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEE4nameB5cxx11Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEED2Ev, ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEED0Ev] }, comdat, align 8
 @_ZTIN3g2o11EdgeXYPriorE = external constant ptr
-@_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE = linkonce_odr constant [52 x i8] c"N3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE\00", comdat, align 1
 @_ZTIN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE, ptr @_ZTIN3g2o32AbstractHyperGraphElementCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [87 x i8] c"St15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE = linkonce_odr constant [52 x i8] c"N3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [91 x i8] c"St15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [87 x i8] c"St15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [85 x i8] c"St15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [91 x i8] c"St15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [92 x i8] c"St15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [85 x i8] c"St15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [99 x i8] c"St15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [92 x i8] c"St15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [99 x i8] c"St15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.40, ptr null }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_types_slam2d.cpp, ptr null }]
 
 ; Function Attrs: uwtable
@@ -1313,53 +1308,61 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
   call void @_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL4lastE)
+  %1 = call ptr @llvm.invariant.start.p0(i64 1, ptr @_ZN5EigenL4lastE)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
   call void @_ZNK5Eigen8internal8FixedIntILi1EEclEv(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3fixILi1EEE)
   call void @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL4lastE)
+  %1 = call ptr @llvm.invariant.start.p0(i64 2, ptr @_ZN5EigenL6lastp1E)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+define linkonce_odr void @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
   %2 = alloca %"class.Eigen::symbolic::AddExpr", align 1
   %3 = alloca ptr, align 8
   %4 = alloca %"class.Eigen::symbolic::ValueExpr", align 1
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
   %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #3
   call void @_ZN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @_ZN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEENS0_9ValueExprINS3_8FixedIntILi1EEEEEEC2ERKS5_RKS9_(ptr noundef nonnull align 1 dereferenceable(2) %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK5Eigen8internal8FixedIntILi1EEclEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.3() #0 section ".text.startup" {
   call void @_ZN5Eigen8internal5all_tC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3allE)
+  %1 = call ptr @llvm.invariant.start.p0(i64 1, ptr @_ZN5EigenL3allE)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Eigen8internal5all_tC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   ret void
 }
 
@@ -1379,7 +1382,9 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -1388,8 +1393,10 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_9VertexSE2EED2Ev, ptr @_ZN3g2oL22g_type_proxy_VertexSE2E, ptr @__dso_handle) #3
   ret void
 
@@ -1409,11 +1416,13 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -1424,89 +1433,113 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
   resume { ptr, i32 } %21
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !14
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  %14 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !18
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.41) #11
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.41) #19
           to label %17 unwind label %18
 
 17:                                               ; preds = %16
   unreachable
 
-18:                                               ; preds = %26, %22, %16
+18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %7, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  br label %31
+  br label %35
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %23 = load ptr, ptr %5, align 8, !tbaa !18
+  %24 = load ptr, ptr %5, align 8, !tbaa !18
   %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
-          to label %26 unwind label %18
+          to label %26 unwind label %31
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %23, i64 %25
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8, !tbaa !18
+  %28 = load ptr, ptr %5, align 8, !tbaa !18
+  %29 = load ptr, ptr %9, align 8, !tbaa !18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
-          to label %30 unwind label %18
+          to label %30 unwind label %31
 
 30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
 
-31:                                               ; preds = %18
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+31:                                               ; preds = %26, %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  br label %35
+
+35:                                               ; preds = %31, %18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_9VertexSE2EEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_9VertexSE2EEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -1546,12 +1579,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_9VertexSE2EEC2ERKNSt7__c
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -1562,21 +1595,39 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_9VertexSE2EEC2ERKNSt7__c
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_9VertexSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #22
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_9VertexSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -1591,7 +1642,9 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" perso
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -1600,8 +1653,10 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" perso
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_13VertexPointXYEED2Ev, ptr @_ZN3g2oL26g_type_proxy_VertexPointXYE, ptr @__dso_handle) #3
   ret void
 
@@ -1621,11 +1676,13 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" perso
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -1637,21 +1694,21 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" perso
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13VertexPointXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13VertexPointXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.1", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.1", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.1", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -1691,12 +1748,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13VertexPointXYEEC2ERKNS
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -1707,15 +1764,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13VertexPointXYEEC2ERKNS
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13VertexPointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13VertexPointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !22
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.1", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.1", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -1730,7 +1787,9 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -1739,8 +1798,10 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_18ParameterSE2OffsetEED2Ev, ptr @_ZN3g2oL31g_type_proxy_ParameterSE2OffsetE, ptr @__dso_handle) #3
   ret void
 
@@ -1760,11 +1821,13 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -1776,21 +1839,21 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18ParameterSE2OffsetEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18ParameterSE2OffsetEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.2", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.2", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.2", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -1830,12 +1893,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18ParameterSE2OffsetEEC2
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -1846,15 +1909,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18ParameterSE2OffsetEEC2
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18ParameterSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18ParameterSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.2", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.2", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -1869,7 +1932,9 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -1878,8 +1943,10 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_14CacheSE2OffsetEED2Ev, ptr @_ZN3g2oL27g_type_proxy_CacheSE2OffsetE, ptr @__dso_handle) #3
   ret void
 
@@ -1899,11 +1966,13 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -1915,21 +1984,21 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14CacheSE2OffsetEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14CacheSE2OffsetEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.3", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.3", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.3", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -1969,12 +2038,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14CacheSE2OffsetEEC2ERKN
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -1985,15 +2054,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14CacheSE2OffsetEEC2ERKN
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14CacheSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14CacheSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.3", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.3", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -2008,7 +2077,9 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2017,8 +2088,10 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_12EdgeSE2PriorEED2Ev, ptr @_ZN3g2oL25g_type_proxy_EdgeSE2PriorE, ptr @__dso_handle) #3
   ret void
 
@@ -2038,11 +2111,13 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -2054,21 +2129,21 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_12EdgeSE2PriorEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_12EdgeSE2PriorEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.4", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.4", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.4", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -2108,12 +2183,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_12EdgeSE2PriorEEC2ERKNSt
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -2124,15 +2199,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_12EdgeSE2PriorEEC2ERKNSt
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_12EdgeSE2PriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_12EdgeSE2PriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.4", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.4", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -2147,7 +2222,9 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2156,8 +2233,10 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2XYPriorEED2Ev, ptr @_ZN3g2oL27g_type_proxy_EdgeSE2XYPriorE, ptr @__dso_handle) #3
   ret void
 
@@ -2177,11 +2256,13 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -2193,21 +2274,21 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2XYPriorEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2XYPriorEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.5", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.5", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.5", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -2247,12 +2328,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2XYPriorEEC2ERKN
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -2263,15 +2344,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2XYPriorEEC2ERKN
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2XYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2XYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !30
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.5", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.5", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -2286,7 +2367,9 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2295,8 +2378,10 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_7EdgeSE2EED2Ev, ptr @_ZN3g2oL20g_type_proxy_EdgeSE2E, ptr @__dso_handle) #3
   ret void
 
@@ -2316,11 +2401,13 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -2332,21 +2419,21 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_7EdgeSE2EEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_7EdgeSE2EEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.6", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.6", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.6", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -2386,12 +2473,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_7EdgeSE2EEC2ERKNSt7__cxx
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -2402,15 +2489,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_7EdgeSE2EEC2ERKNSt7__cxx
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_7EdgeSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_7EdgeSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.6", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.6", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -2425,7 +2512,9 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2434,8 +2523,10 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2PointXYEED2Ev, ptr @_ZN3g2oL27g_type_proxy_EdgeSE2PointXYE, ptr @__dso_handle) #3
   ret void
 
@@ -2455,11 +2546,13 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -2471,21 +2564,21 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2PointXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2PointXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.7", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.7", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.7", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -2525,12 +2618,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2PointXYEEC2ERKN
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -2541,15 +2634,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2PointXYEEC2ERKN
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2PointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_14EdgeSE2PointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.7", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.7", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -2564,7 +2657,9 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2573,8 +2668,10 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_21EdgeSE2PointXYBearingEED2Ev, ptr @_ZN3g2oL34g_type_proxy_EdgeSE2PointXYBearingE, ptr @__dso_handle) #3
   ret void
 
@@ -2594,11 +2691,13 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -2610,21 +2709,21 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_21EdgeSE2PointXYBearingEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_21EdgeSE2PointXYBearingEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.8", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.8", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.8", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -2664,12 +2763,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_21EdgeSE2PointXYBearingE
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -2680,15 +2779,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_21EdgeSE2PointXYBearingE
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_21EdgeSE2PointXYBearingEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_21EdgeSE2PointXYBearingEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.8", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.8", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -2703,7 +2802,9 @@ define internal void @__cxx_global_var_init.21() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.22, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2712,8 +2813,10 @@ define internal void @__cxx_global_var_init.21() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_19EdgeSE2PointXYCalibEED2Ev, ptr @_ZN3g2oL32g_type_proxy_EdgeSE2PointXYCalibE, ptr @__dso_handle) #3
   ret void
 
@@ -2733,11 +2836,13 @@ define internal void @__cxx_global_var_init.21() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -2749,21 +2854,21 @@ define internal void @__cxx_global_var_init.21() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_19EdgeSE2PointXYCalibEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_19EdgeSE2PointXYCalibEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.9", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.9", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.9", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -2803,12 +2908,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_19EdgeSE2PointXYCalibEEC
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -2819,15 +2924,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_19EdgeSE2PointXYCalibEEC
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_19EdgeSE2PointXYCalibEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_19EdgeSE2PointXYCalibEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.9", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.9", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -2842,7 +2947,9 @@ define internal void @__cxx_global_var_init.23() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2851,8 +2958,10 @@ define internal void @__cxx_global_var_init.23() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_13EdgeSE2OffsetEED2Ev, ptr @_ZN3g2oL26g_type_proxy_EdgeSE2OffsetE, ptr @__dso_handle) #3
   ret void
 
@@ -2872,11 +2981,13 @@ define internal void @__cxx_global_var_init.23() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -2888,21 +2999,21 @@ define internal void @__cxx_global_var_init.23() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13EdgeSE2OffsetEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13EdgeSE2OffsetEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.10", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.10", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.10", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -2942,12 +3053,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13EdgeSE2OffsetEEC2ERKNS
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -2958,15 +3069,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13EdgeSE2OffsetEEC2ERKNS
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13EdgeSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_13EdgeSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.10", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.10", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -2981,7 +3092,9 @@ define internal void @__cxx_global_var_init.25() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2990,8 +3103,10 @@ define internal void @__cxx_global_var_init.25() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_20EdgeSE2PointXYOffsetEED2Ev, ptr @_ZN3g2oL33g_type_proxy_EdgeSE2PointXYOffsetE, ptr @__dso_handle) #3
   ret void
 
@@ -3011,11 +3126,13 @@ define internal void @__cxx_global_var_init.25() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -3027,21 +3144,21 @@ define internal void @__cxx_global_var_init.25() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_20EdgeSE2PointXYOffsetEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_20EdgeSE2PointXYOffsetEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.11", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.11", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.11", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -3081,12 +3198,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_20EdgeSE2PointXYOffsetEE
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -3097,15 +3214,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_20EdgeSE2PointXYOffsetEE
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_20EdgeSE2PointXYOffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_20EdgeSE2PointXYOffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.11", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.11", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -3120,7 +3237,9 @@ define internal void @__cxx_global_var_init.27() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -3129,8 +3248,10 @@ define internal void @__cxx_global_var_init.27() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_11EdgePointXYEED2Ev, ptr @_ZN3g2oL24g_type_proxy_EdgePointXYE, ptr @__dso_handle) #3
   ret void
 
@@ -3150,11 +3271,13 @@ define internal void @__cxx_global_var_init.27() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -3166,21 +3289,21 @@ define internal void @__cxx_global_var_init.27() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgePointXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgePointXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !44
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.12", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.12", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.12", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -3220,12 +3343,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgePointXYEEC2ERKNSt7
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -3236,15 +3359,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgePointXYEEC2ERKNSt7
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgePointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgePointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.12", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.12", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -3259,7 +3382,9 @@ define internal void @__cxx_global_var_init.29() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.30, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -3268,8 +3393,10 @@ define internal void @__cxx_global_var_init.29() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_18EdgeSE2TwoPointsXYEED2Ev, ptr @_ZN3g2oL31g_type_proxy_EdgeSE2TwoPointsXYE, ptr @__dso_handle) #3
   ret void
 
@@ -3289,11 +3416,13 @@ define internal void @__cxx_global_var_init.29() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -3305,21 +3434,21 @@ define internal void @__cxx_global_var_init.29() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18EdgeSE2TwoPointsXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18EdgeSE2TwoPointsXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.13", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.13", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.13", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -3359,12 +3488,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18EdgeSE2TwoPointsXYEEC2
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -3375,15 +3504,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18EdgeSE2TwoPointsXYEEC2
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18EdgeSE2TwoPointsXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_18EdgeSE2TwoPointsXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !46
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.13", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.13", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -3398,7 +3527,9 @@ define internal void @__cxx_global_var_init.31() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.32, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -3407,8 +3538,10 @@ define internal void @__cxx_global_var_init.31() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_15EdgeSE2LotsOfXYEED2Ev, ptr @_ZN3g2oL28g_type_proxy_EdgeSE2LotsOfXYE, ptr @__dso_handle) #3
   ret void
 
@@ -3428,11 +3561,13 @@ define internal void @__cxx_global_var_init.31() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -3444,21 +3579,21 @@ define internal void @__cxx_global_var_init.31() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_15EdgeSE2LotsOfXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_15EdgeSE2LotsOfXYEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !48
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.14", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.14", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.14", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -3498,12 +3633,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_15EdgeSE2LotsOfXYEEC2ERK
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -3514,15 +3649,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_15EdgeSE2LotsOfXYEEC2ERK
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_15EdgeSE2LotsOfXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_15EdgeSE2LotsOfXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.14", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.14", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -3537,7 +3672,9 @@ define internal void @__cxx_global_var_init.33() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.34, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -3546,8 +3683,10 @@ define internal void @__cxx_global_var_init.33() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o17RegisterTypeProxyINS_11EdgeXYPriorEED2Ev, ptr @_ZN3g2oL24g_type_proxy_EdgeXYPriorE, ptr @__dso_handle) #3
   ret void
 
@@ -3567,11 +3706,13 @@ define internal void @__cxx_global_var_init.33() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #3
   br label %17
 
 17:                                               ; preds = %16
@@ -3583,21 +3724,21 @@ define internal void @__cxx_global_var_init.33() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgeXYPriorEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgeXYPriorEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.15", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %9 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.15", ptr %7, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   %11 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.15", ptr %7, i32 0, i32 1
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #12
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #20
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
@@ -3637,12 +3778,12 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgeXYPriorEEC2ERKNSt7
   store ptr %27, ptr %5, align 8
   %28 = extractvalue { ptr, i32 } %26, 1
   store i32 %28, ptr %6, align 4
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #21
   br label %29
 
 29:                                               ; preds = %25, %21
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   br label %30
 
 30:                                               ; preds = %29
@@ -3653,15 +3794,15 @@ define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgeXYPriorEEC2ERKNSt7
   resume { ptr, i32 } %34
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgeXYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RegisterTypeProxyINS_11EdgeXYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.15", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds nuw %"class.g2o::RegisterTypeProxy.15", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
@@ -3678,16 +3819,16 @@ define internal void @__cxx_global_var_init.35() #0 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_27VertexSE2WriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_27VertexSE2WriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy", ptr %5, i32 0, i32 0
   call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   %7 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy", ptr %5, i32 0, i32 0
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #12
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #20
           to label %9 unwind label %17
 
 9:                                                ; preds = %1
@@ -3726,11 +3867,11 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_27VertexSE2WriteGnuplo
   store ptr %23, ptr %3, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #21
   br label %25
 
 25:                                               ; preds = %21, %17
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   br label %26
 
 26:                                               ; preds = %25
@@ -3741,13 +3882,13 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_27VertexSE2WriteGnuplo
   resume { ptr, i32 } %30
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_27VertexSE2WriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_27VertexSE2WriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy", ptr %3, i32 0, i32 0
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   ret void
 }
 
@@ -3764,16 +3905,16 @@ define internal void @__cxx_global_var_init.36() #0 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_31VertexPointXYWriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_31VertexPointXYWriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.19", ptr %5, i32 0, i32 0
   call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   %7 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.19", ptr %5, i32 0, i32 0
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #12
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #20
           to label %9 unwind label %17
 
 9:                                                ; preds = %1
@@ -3812,11 +3953,11 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_31VertexPointXYWriteGn
   store ptr %23, ptr %3, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #21
   br label %25
 
 25:                                               ; preds = %21, %17
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   br label %26
 
 26:                                               ; preds = %25
@@ -3827,13 +3968,13 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_31VertexPointXYWriteGn
   resume { ptr, i32 } %30
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_31VertexPointXYWriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_31VertexPointXYWriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.19", ptr %3, i32 0, i32 0
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   ret void
 }
 
@@ -3850,16 +3991,16 @@ define internal void @__cxx_global_var_init.37() #0 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_25EdgeSE2WriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_25EdgeSE2WriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.20", ptr %5, i32 0, i32 0
   call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   %7 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.20", ptr %5, i32 0, i32 0
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #12
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #20
           to label %9 unwind label %17
 
 9:                                                ; preds = %1
@@ -3898,11 +4039,11 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_25EdgeSE2WriteGnuplotA
   store ptr %23, ptr %3, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #21
   br label %25
 
 25:                                               ; preds = %21, %17
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   br label %26
 
 26:                                               ; preds = %25
@@ -3913,13 +4054,13 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_25EdgeSE2WriteGnuplotA
   resume { ptr, i32 } %30
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_25EdgeSE2WriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_25EdgeSE2WriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.20", ptr %3, i32 0, i32 0
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   ret void
 }
 
@@ -3936,16 +4077,16 @@ define internal void @__cxx_global_var_init.38() #0 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_32EdgeSE2PointXYWriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_32EdgeSE2PointXYWriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.21", ptr %5, i32 0, i32 0
   call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   %7 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.21", ptr %5, i32 0, i32 0
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #12
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #20
           to label %9 unwind label %17
 
 9:                                                ; preds = %1
@@ -3984,11 +4125,11 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_32EdgeSE2PointXYWriteG
   store ptr %23, ptr %3, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #21
   br label %25
 
 25:                                               ; preds = %21, %17
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   br label %26
 
 26:                                               ; preds = %25
@@ -3999,13 +4140,13 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_32EdgeSE2PointXYWriteG
   resume { ptr, i32 } %30
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_32EdgeSE2PointXYWriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_32EdgeSE2PointXYWriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.21", ptr %3, i32 0, i32 0
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   ret void
 }
 
@@ -4022,16 +4163,16 @@ define internal void @__cxx_global_var_init.39() #0 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_39EdgeSE2PointXYBearingWriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_39EdgeSE2PointXYBearingWriteGnuplotActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !60
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.22", ptr %5, i32 0, i32 0
   call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   %7 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.22", ptr %5, i32 0, i32 0
-  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #12
+  %8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #20
           to label %9 unwind label %17
 
 9:                                                ; preds = %1
@@ -4070,11 +4211,11 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_39EdgeSE2PointXYBearin
   store ptr %23, ptr %3, align 8
   %24 = extractvalue { ptr, i32 } %22, 1
   store i32 %24, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 72) #21
   br label %25
 
 25:                                               ; preds = %21, %17
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   br label %26
 
 26:                                               ; preds = %25
@@ -4085,51 +4226,43 @@ define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_39EdgeSE2PointXYBearin
   resume { ptr, i32 } %30
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_39EdgeSE2PointXYBearingWriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RegisterActionProxyINS_39EdgeSE2PointXYBearingWriteGnuplotActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !60
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterActionProxy.22", ptr %3, i32 0, i32 0
-  call void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
+  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.40() #0 section ".text.startup" {
   call void @_ZN5Eigen8internal8FixedIntILi1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3fixILi1EEE)
+  %1 = call ptr @llvm.invariant.start.p0(i64 1, ptr @_ZN5EigenL3fixILi1EEE)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Eigen8internal8FixedIntILi1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !64
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
   br label %10
 
@@ -4137,126 +4270,148 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i8, align 1
-  %14 = alloca i8, align 1
-  %15 = alloca i8, align 1
-  %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca i64, align 8
-  store ptr %0, ptr %12, align 8
-  %21 = load ptr, ptr %12, align 8
-  store i8 1, ptr %13, align 1
-  store i8 1, ptr %14, align 1
-  store i8 1, ptr %15, align 1
-  store i32 32, ptr %16, align 4
-  store i32 32, ptr %17, align 4
-  store i64 4294967297, ptr %18, align 8
-  %22 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store ptr %22, ptr %19, align 8
-  %23 = load ptr, ptr %19, align 8
-  %24 = load atomic i64, ptr %23 acquire, align 8
-  store i64 %24, ptr %20, align 8
-  %25 = load i64, ptr %20, align 8
-  %26 = icmp eq i64 %25, 4294967297
-  br i1 %26, label %27, label %36
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %12 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  store i8 1, ptr %3, align 1, !tbaa !68
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #3
+  store i8 1, ptr %4, align 1, !tbaa !68
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  store i8 1, ptr %5, align 1, !tbaa !68
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  store i32 32, ptr %6, align 4, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 32, ptr %7, align 4, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  store i64 4294967297, ptr %8, align 8, !tbaa !72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %13 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %9, align 8, !tbaa !74
+  %14 = load ptr, ptr %9, align 8, !tbaa !74
+  %15 = load atomic i64, ptr %14 acquire, align 8
+  store i64 %15, ptr %10, align 8
+  %16 = load i64, ptr %10, align 8, !tbaa !72
+  %17 = icmp eq i64 %16, 4294967297
+  br i1 %17, label %18, label %27
+
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store i32 0, ptr %19, align 8, !tbaa !76
+  %20 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 2
+  store i32 0, ptr %20, align 4, !tbaa !78
+  %21 = load ptr, ptr %12, align 8, !tbaa !79
+  %22 = getelementptr inbounds ptr, ptr %21, i64 2
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  %24 = load ptr, ptr %12, align 8, !tbaa !79
+  %25 = getelementptr inbounds ptr, ptr %24, i64 3
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  store i32 1, ptr %11, align 4
+  br label %35
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 2
-  store i32 0, ptr %29, align 4
-  %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 2
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
-  %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 3
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
-  br label %63
+  %28 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  %29 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %28, i32 noundef -1)
+          to label %30 unwind label %41
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store ptr %37, ptr %10, align 8
-  store i32 -1, ptr %11, align 4
-  %38 = load i8, ptr @__libc_single_threaded, align 1
-  %39 = icmp ne i8 %38, 0
-  br i1 %39, label %40, label %50
+30:                                               ; preds = %27
+  %31 = icmp eq i32 %29, 1
+  %32 = call i1 @llvm.expect.i1(i1 %31, i1 false)
+  br i1 %32, label %33, label %34
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr %11, align 4
-  store ptr %41, ptr %6, align 8
-  store i32 %42, ptr %7, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %43, align 4
-  store i32 %44, ptr %8, align 4
-  %45 = load i32, ptr %7, align 4
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %47, %45
-  store i32 %48, ptr %46, align 4
-  %49 = load i32, ptr %8, align 4
-  store i32 %49, ptr %9, align 4
-  br label %58
+33:                                               ; preds = %30
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
+  store i32 1, ptr %11, align 4
+  br label %35
 
-50:                                               ; preds = %36
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr %11, align 4
-  store ptr %51, ptr %2, align 8
-  store i32 %52, ptr %3, align 4
-  %53 = load ptr, ptr %2, align 8
-  %54 = load i32, ptr %3, align 4
-  store i32 %54, ptr %4, align 4
-  %55 = load i32, ptr %4, align 4
-  %56 = atomicrmw volatile add ptr %53, i32 %55 acq_rel, align 4
-  store i32 %56, ptr %5, align 4
-  %57 = load i32, ptr %5, align 4
-  store i32 %57, ptr %9, align 4
-  br label %58
+34:                                               ; preds = %30
+  store i32 0, ptr %11, align 4
+  br label %35
 
-58:                                               ; preds = %50, %40
-  %59 = load i32, ptr %9, align 4
-  br label %60
+35:                                               ; preds = %34, %33, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %36 = load i32, ptr %11, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+  ]
 
-60:                                               ; preds = %58
-  %61 = icmp eq i32 %59, 1
-  br i1 %61, label %62, label %63
+37:                                               ; preds = %35
+  store i32 0, ptr %11, align 4
+  br label %38
 
-62:                                               ; preds = %60
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #3
-  br label %63
+38:                                               ; preds = %37, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
+  %39 = load i32, ptr %11, align 4
+  switch i32 %39, label %44 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
 
-63:                                               ; preds = %62, %60, %27
+40:                                               ; preds = %38, %38
   ret void
 
-64:                                               ; No predecessors!
-  %65 = landingpad { ptr, i32 }
+41:                                               ; preds = %27
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #14
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #22
+  unreachable
+
+44:                                               ; preds = %38
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %0, i32 noundef %1) #8 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !81
+  store i32 %1, ptr %5, align 4, !tbaa !70
+  %6 = call noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #3
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !81
+  %9 = load i32, ptr %5, align 4, !tbaa !70
+  %10 = call noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %8, i32 noundef %9)
+  store i32 %10, ptr %3, align 4
+  br label %15
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !81
+  %13 = load i32, ptr %5, align 4, !tbaa !70
+  %14 = call noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %12, i32 noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
+
+15:                                               ; preds = %11, %7
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
+}
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #14
+  call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -4264,270 +4419,522 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.expect.i1(i1, i1) #10
+
+; Function Attrs: mustprogress noinline nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #12 comdat {
+  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !83
+  %2 = icmp ne i8 %1, 0
+  ret i1 %2
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %0, i32 noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !81
+  store i32 %1, ptr %4, align 4, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !81
+  %7 = load i32, ptr %6, align 4, !tbaa !70
+  store i32 %7, ptr %5, align 4, !tbaa !70
+  %8 = load i32, ptr %4, align 4, !tbaa !70
+  %9 = load ptr, ptr %3, align 8, !tbaa !81
+  %10 = load i32, ptr %9, align 4, !tbaa !70
+  %11 = add nsw i32 %10, %8
+  store i32 %11, ptr %9, align 4, !tbaa !70
+  %12 = load i32, ptr %5, align 4, !tbaa !70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  ret i32 %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %0, i32 noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !81
+  store i32 %1, ptr %4, align 4, !tbaa !70
+  %7 = load ptr, ptr %3, align 8, !tbaa !81
+  %8 = load i32, ptr %4, align 4, !tbaa !70
+  store i32 %8, ptr %5, align 4, !tbaa !70
+  %9 = load i32, ptr %5, align 4
+  %10 = atomicrmw volatile add ptr %7, i32 %9 acq_rel, align 4
+  store i32 %10, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !70
+  ret i32 %11
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %12, align 8
-  %13 = load ptr, ptr %12, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !79
+  %5 = getelementptr inbounds ptr, ptr %4, i64 2
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  %7 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  %8 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %7, i32 noundef -1)
+          to label %9 unwind label %16
+
+9:                                                ; preds = %1
+  %10 = icmp eq i32 %8, 1
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !79
+  %13 = getelementptr inbounds ptr, ptr %12, i64 3
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 2
-  %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  %17 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %13, i32 0, i32 2
-  store ptr %17, ptr %10, align 8
-  store i32 -1, ptr %11, align 4
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %19 = icmp ne i8 %18, 0
-  br i1 %19, label %20, label %30
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  br label %15
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %8, align 4
-  %25 = load i32, ptr %7, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %26, align 4
-  %28 = add nsw i32 %27, %25
-  store i32 %28, ptr %26, align 4
-  %29 = load i32, ptr %8, align 4
-  store i32 %29, ptr %9, align 4
-  br label %38
-
-30:                                               ; preds = %1
-  %31 = load ptr, ptr %10, align 8
-  %32 = load i32, ptr %11, align 4
-  store ptr %31, ptr %2, align 8
-  store i32 %32, ptr %3, align 4
-  %33 = load ptr, ptr %2, align 8
-  %34 = load i32, ptr %3, align 4
-  store i32 %34, ptr %4, align 4
-  %35 = load i32, ptr %4, align 4
-  %36 = atomicrmw volatile add ptr %33, i32 %35 acq_rel, align 4
-  store i32 %36, ptr %5, align 4
-  %37 = load i32, ptr %5, align 4
-  store i32 %37, ptr %9, align 4
-  br label %38
-
-38:                                               ; preds = %30, %20
-  %39 = load i32, ptr %9, align 4
-  br label %40
-
-40:                                               ; preds = %38
-  %41 = icmp eq i32 %39, 1
-  br i1 %41, label %42, label %46
-
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 3
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
-  br label %46
-
-46:                                               ; preds = %42, %40
+15:                                               ; preds = %11, %9
   ret void
 
-47:                                               ; No predecessors!
-  %48 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #14
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  store ptr %0, ptr %2, align 8, !tbaa !84
   ret void
 }
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !83
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #3
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !84
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !86
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store i64 %1, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %3, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %12
+
+7:                                                ; preds = %2
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %9 = load i64, ptr %4, align 8, !tbaa !90
+  %10 = add i64 %9, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8, i64 noundef %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %7
+  ret void
+
+12:                                               ; preds = %7, %2
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #22
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !14
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store i64 %2, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %4, align 8, !tbaa !14
+  %8 = load ptr, ptr %5, align 8, !tbaa !18
+  %9 = load i64, ptr %6, align 8, !tbaa !90
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !84
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store i64 %2, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %5, align 8, !tbaa !18
+  %8 = load i64, ptr %6, align 8, !tbaa !90
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #21
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #13
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !18
+  store ptr %10, ptr %9, align 8, !tbaa !94
+  ret void
+}
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #7
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = call i64 @strlen(ptr noundef %3) #3
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca %struct._Guard, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %13, ptr noundef %14)
-  store i64 %15, ptr %8, align 8
-  %16 = load i64, ptr %8, align 8
-  %17 = icmp ugt i64 %16, 15
-  br i1 %17, label %18, label %21
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !18
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %12 = load ptr, ptr %5, align 8, !tbaa !18
+  %13 = load ptr, ptr %6, align 8, !tbaa !18
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !90
+  %15 = load i64, ptr %7, align 8, !tbaa !90
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
 
-18:                                               ; preds = %3
-  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %19)
-  %20 = load i64, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %20)
-  br label %28
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !90
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
 
-21:                                               ; preds = %3
-  store ptr %12, ptr %4, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %27 unwind label %24
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %22
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
-          catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #14
-  unreachable
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !18
+  %25 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #3
+  %26 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !95
+  %27 = load i64, ptr %7, align 8, !tbaa !90
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
 
-27:                                               ; preds = %21
-  br label %28
-
-28:                                               ; preds = %27, %18
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
-  %29 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %30 unwind label %36
-
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef %31, ptr noundef %32) #3
-  %33 = getelementptr inbounds nuw %struct._Guard, ptr %9, i32 0, i32 0
-  store ptr null, ptr %33, align 8
-  %34 = load i64, ptr %8, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %34)
-          to label %35 unwind label %36
-
-35:                                               ; preds = %30
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 
-36:                                               ; preds = %30, %28
-  %37 = landingpad { ptr, i32 }
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %10, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %11, align 4
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %40
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %33
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr %11, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !84
+  store ptr %1, ptr %4, align 8, !tbaa !84
   ret void
 }
 
 ; Function Attrs: nounwind
 declare i64 @strlen(ptr noundef) #2
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #15 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
   call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
   ret i64 %7
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !91
+  ret void
+}
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store i64 %1, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !90
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !83
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !97
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  store ptr %7, ptr %6, align 8, !tbaa !95
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %4, align 8, !tbaa !18
+  %8 = load ptr, ptr %5, align 8, !tbaa !18
+  %9 = load ptr, ptr %6, align 8, !tbaa !18
+  %10 = load ptr, ptr %5, align 8, !tbaa !18
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
 
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+14:                                               ; preds = %3
+  ret void
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #22
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store i64 %1, ptr %4, align 8, !tbaa !90
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !90
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !90
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  store i8 0, ptr %5, align 1, !tbaa !83
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !97
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !95
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !95
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %10 unwind label %12
 
@@ -4541,40 +4948,124 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #14
+  call void @__clang_call_terminate(ptr %14) #22
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #7 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #6 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store i64 %2, ptr %6, align 8, !tbaa !90
+  %7 = load i64, ptr %6, align 8, !tbaa !90
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !18
+  %11 = load ptr, ptr %5, align 8, !tbaa !18
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !18
+  %14 = load ptr, ptr %5, align 8, !tbaa !18
+  %15 = load i64, ptr %6, align 8, !tbaa !90
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %6 = load i8, ptr %5, align 1, !tbaa !83
+  %7 = load ptr, ptr %3, align 8, !tbaa !18
+  store i8 %6, ptr %7, align 1, !tbaa !83
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %1, ptr %6, align 8, !tbaa !18
+  store i64 %2, ptr %7, align 8, !tbaa !90
+  %8 = load i64, ptr %7, align 8, !tbaa !90
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !18
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %14 = load ptr, ptr %6, align 8, !tbaa !18
+  %15 = load i64, ptr %7, align 8, !tbaa !90
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store i64 %1, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !90
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !86
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -4582,7 +5073,7 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
   ret void
 }
 
@@ -4591,30 +5082,92 @@ define linkonce_odr void @_ZN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8intern
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !103
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !101
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i32 0, i32 0
+  %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %22
+
+13:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  %14 = load ptr, ptr %4, align 8, !tbaa !16
+  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %16 = load ptr, ptr %4, align 8, !tbaa !16
+  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %18 = load ptr, ptr %4, align 8, !tbaa !16
+  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %15, ptr noundef %20)
+          to label %21 unwind label %26
+
+21:                                               ; preds = %13
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %6, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  br label %30
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %6, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %30
+
+30:                                               ; preds = %26, %22
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i32, ptr %7, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !105
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_9VertexSE2EEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_9VertexSE2EEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !109
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -4622,34 +5175,38 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !109
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_9VertexSE2EEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) #17
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !109
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE, i32 0, i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
   %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o9VertexSE2E) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -4659,7 +5216,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEC2Ev(
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -4671,20 +5229,265 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEC2Ev(
   resume { ptr, i32 } %18
 }
 
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) #9
-
 declare noundef ptr @_ZN3g2o7Factory8instanceEv() #1
 
 declare void @_ZN3g2o7Factory12registerTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_32AbstractHyperGraphElementCreatorEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !18
+  store ptr %10, ptr %9, align 8, !tbaa !94
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard.31, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !18
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %12 = load ptr, ptr %5, align 8, !tbaa !18
+  %13 = load ptr, ptr %6, align 8, !tbaa !18
+  %14 = call noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !90
+  %15 = load i64, ptr %7, align 8, !tbaa !90
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !90
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !18
+  %25 = load ptr, ptr %6, align 8, !tbaa !18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #3
+  %26 = getelementptr inbounds nuw %struct._Guard.31, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !111
+  %27 = load i64, ptr %7, align 8, !tbaa !90
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
+
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  ret void
+
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %33
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !86
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !14
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %0, ptr noundef %1) #15 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !18
+  call void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !113
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard.31, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  store ptr %7, ptr %6, align 8, !tbaa !111
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %4, align 8, !tbaa !18
+  %8 = load ptr, ptr %5, align 8, !tbaa !18
+  %9 = load ptr, ptr %6, align 8, !tbaa !18
+  %10 = load ptr, ptr %5, align 8, !tbaa !18
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #22
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !113
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard.31, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard.31, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !111
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #22
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8, !tbaa !18
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  ret void
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !107
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !115
   %5 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
@@ -4693,27 +5496,27 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !62
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !64
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_9VertexSE2EEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_9VertexSE2EEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !109
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !109
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !109
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_9VertexSE2EEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !109
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_9VertexSE2EEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
@@ -4722,15 +5525,15 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !107
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !107
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
   call void @_ZSt4swapIPN3g2o32AbstractHyperGraphElementCreatorEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   %9 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !107
   %11 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %10, i32 0, i32 1
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
   ret void
@@ -4739,7 +5542,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !107
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
@@ -4747,13 +5550,13 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_9VertexSE2EEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_9VertexSE2EEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !109
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !109
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_9VertexSE2EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -4762,30 +5565,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_9VertexSE2EEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !109
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_9VertexSE2EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_9VertexSE2EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !109
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !109
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -4800,19 +5603,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !109
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -4842,7 +5645,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -4853,14 +5656,14 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store ptr %1, ptr %4, align 8, !tbaa !109
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
   %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !109
+  store ptr %7, ptr %6, align 8, !tbaa !120
   ret void
 }
 
@@ -4871,47 +5674,38 @@ declare void @__cxa_end_catch()
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
+  store i32 1, ptr %4, align 8, !tbaa !76
   %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  store i32 1, ptr %5, align 4, !tbaa !78
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !120
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -4924,14 +5718,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -4942,23 +5736,16 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #14
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  call void @llvm.trap() #22
   unreachable
 }
 
@@ -4967,13 +5754,13 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !79
   %7 = getelementptr inbounds ptr, ptr %6, i64 1
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -4984,25 +5771,27 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #10
+declare void @llvm.trap() #18
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIPN3g2o32AbstractHyperGraphElementCreatorEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPN3g2o32AbstractHyperGraphElementCreatorEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !124
+  store ptr %1, ptr %4, align 8, !tbaa !124
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !124
+  %7 = load ptr, ptr %6, align 8, !tbaa !126
+  store ptr %7, ptr %5, align 8, !tbaa !126
+  %8 = load ptr, ptr %4, align 8, !tbaa !124
+  %9 = load ptr, ptr %8, align 8, !tbaa !126
+  %10 = load ptr, ptr %3, align 8, !tbaa !124
+  store ptr %9, ptr %10, align 8, !tbaa !126
+  %11 = load ptr, ptr %5, align 8, !tbaa !126
+  %12 = load ptr, ptr %4, align 8, !tbaa !124
+  store ptr %11, ptr %12, align 8, !tbaa !126
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret void
 }
 
@@ -5011,55 +5800,57 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !62
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %7 = load ptr, ptr %4, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %5, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  store ptr %9, ptr %5, align 8, !tbaa !67
   %10 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !64
+  %12 = load ptr, ptr %4, align 8, !tbaa !62
   %13 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %12, i32 0, i32 0
-  store ptr %11, ptr %13, align 8
-  %14 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %13, align 8, !tbaa !64
+  %14 = load ptr, ptr %5, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  store ptr %14, ptr %15, align 8
+  store ptr %14, ptr %15, align 8, !tbaa !64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !126
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o32AbstractHyperGraphElementCreatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o32AbstractHyperGraphElementCreatorE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !122
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !127
   %6 = getelementptr inbounds i8, ptr %5, i64 0
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 1, !tbaa !83
   %8 = sext i8 %7 to i32
   %9 = icmp eq i32 %8, 42
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !127
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   br label %17
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !127
   br label %17
 
 17:                                               ; preds = %14, %10
@@ -5068,12 +5859,12 @@ define linkonce_odr noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 240) #12
+  store ptr %0, ptr %2, align 8, !tbaa !109
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 240) #20
   invoke void @_ZN3g2o9VertexSE2C1Ev(ptr noundef nonnull align 16 dereferenceable(232) %5)
           to label %6 unwind label %7
 
@@ -5087,7 +5878,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 240) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 240) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -5101,58 +5892,58 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_9VertexSE2EE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !109
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !109
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !109
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_9VertexSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !126
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o32AbstractHyperGraphElementCreatorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #14
+  store ptr %0, ptr %2, align 8, !tbaa !126
+  call void @llvm.trap() #22
   unreachable
 }
 
 declare void @_ZN3g2o9VertexSE2C1Ev(ptr noundef nonnull align 16 dereferenceable(232)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_13VertexPointXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_13VertexPointXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !129
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -5160,31 +5951,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !129
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_13VertexPointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.59", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.60", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o13VertexPointXYE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -5194,7 +5989,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEE
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -5207,31 +6003,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_13VertexPointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_13VertexPointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !129
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !129
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !129
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13VertexPointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !129
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_13VertexPointXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13VertexPointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13VertexPointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !129
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !129
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13VertexPointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -5240,30 +6036,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_13VertexPointXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !129
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13VertexPointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13VertexPointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !129
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !129
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -5278,19 +6074,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !129
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -5320,7 +6116,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -5331,48 +6127,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
+  store ptr %1, ptr %4, align 8, !tbaa !129
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.60", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.61", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !129
+  store ptr %7, ptr %6, align 8, !tbaa !133
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.60", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.61", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !133
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -5385,14 +6172,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !131
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -5403,18 +6190,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !131
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #12
+  store ptr %0, ptr %2, align 8, !tbaa !129
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN3g2o13VertexPointXYC1Ev(ptr noundef nonnull align 16 dereferenceable(200) %5)
           to label %6 unwind label %7
 
@@ -5428,7 +6215,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPo
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 208) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 208) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -5442,43 +6229,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_13VertexPointXYEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.59", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.60", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.59", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.60", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !129
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o13VertexPointXYC1Ev(ptr noundef nonnull align 16 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !135
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -5486,31 +6273,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !135
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !135
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.81", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.82", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o18ParameterSE2OffsetE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -5520,7 +6311,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2Off
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -5533,31 +6325,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2Off
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !135
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !135
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !135
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18ParameterSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !135
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18ParameterSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18ParameterSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !135
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !135
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18ParameterSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -5566,30 +6358,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !135
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18ParameterSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18ParameterSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !135
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !135
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -5604,19 +6396,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !135
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -5646,7 +6438,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -5657,48 +6449,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store ptr %1, ptr %4, align 8, !tbaa !135
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.82", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.83", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !135
+  store ptr %7, ptr %6, align 8, !tbaa !139
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.82", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.83", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !139
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -5711,14 +6494,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -5729,18 +6512,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #12
+  store ptr %0, ptr %2, align 8, !tbaa !135
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #20
   invoke void @_ZN3g2o18ParameterSE2OffsetC1Ev(ptr noundef nonnull align 16 dereferenceable(192) %5)
           to label %6 unwind label %7
 
@@ -5754,7 +6537,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_18Paramete
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 192) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 192) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -5768,43 +6551,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_18Paramete
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !135
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.81", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.82", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !135
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.81", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.82", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !135
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o18ParameterSE2OffsetC1Ev(ptr noundef nonnull align 16 dereferenceable(192)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -5812,31 +6595,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.93", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.94", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o14CacheSE2OffsetE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -5846,7 +6633,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetE
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -5859,31 +6647,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !141
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14CacheSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14CacheSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14CacheSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14CacheSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -5892,30 +6680,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !141
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14CacheSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14CacheSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -5930,19 +6718,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !141
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -5972,7 +6760,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -5983,48 +6771,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.94", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.95", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !141
+  store ptr %7, ptr %6, align 8, !tbaa !145
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !143
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !143
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.94", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.95", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !145
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -6037,14 +6816,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !143
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -6055,18 +6834,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 432) #12
+  store ptr %0, ptr %2, align 8, !tbaa !141
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 432) #20
   invoke void @_ZN3g2o14CacheSE2OffsetC1Ev(ptr noundef nonnull align 16 dereferenceable(432) %5)
           to label %6 unwind label %7
 
@@ -6080,7 +6859,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 432) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 432) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -6094,43 +6873,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.93", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.94", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.93", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.94", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o14CacheSE2OffsetC1Ev(ptr noundef nonnull align 16 dereferenceable(432)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !147
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -6138,31 +6917,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !147
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.115", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.116", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o12EdgeSE2PriorE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -6172,7 +6955,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEC
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -6185,31 +6969,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEC
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !147
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !147
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !147
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_12EdgeSE2PriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !147
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_12EdgeSE2PriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_12EdgeSE2PriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !147
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !147
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_12EdgeSE2PriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -6218,30 +7002,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !147
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_12EdgeSE2PriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_12EdgeSE2PriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !147
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !147
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -6256,19 +7040,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !147
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -6298,7 +7082,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -6309,48 +7093,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !149
+  store ptr %1, ptr %4, align 8, !tbaa !147
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.116", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.117", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !147
+  store ptr %7, ptr %6, align 8, !tbaa !151
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.116", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.117", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !151
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -6363,14 +7138,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -6381,18 +7156,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !149
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 368) #12
+  store ptr %0, ptr %2, align 8, !tbaa !147
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN3g2o12EdgeSE2PriorC1Ev(ptr noundef nonnull align 16 dereferenceable(368) %5)
           to label %6 unwind label %7
 
@@ -6406,7 +7181,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2P
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 368) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 368) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -6420,43 +7195,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2P
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.115", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.116", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.115", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.116", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !147
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o12EdgeSE2PriorC1Ev(ptr noundef nonnull align 16 dereferenceable(368)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !153
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -6464,31 +7239,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !153
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !153
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.149", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.150", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o14EdgeSE2XYPriorE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -6498,7 +7277,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorE
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -6511,31 +7291,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !153
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !153
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2XYPriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !153
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2XYPriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2XYPriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !153
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !153
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2XYPriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -6544,30 +7324,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !153
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2XYPriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2XYPriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !153
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !153
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -6582,19 +7362,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !153
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -6624,7 +7404,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -6635,48 +7415,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !155
+  store ptr %1, ptr %4, align 8, !tbaa !153
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.150", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.151", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !153
+  store ptr %7, ptr %6, align 8, !tbaa !157
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !155
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !155
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.150", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.151", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !157
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -6689,14 +7460,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !155
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -6707,18 +7478,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !155
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #12
+  store ptr %0, ptr %2, align 8, !tbaa !153
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #20
   invoke void @_ZN3g2o14EdgeSE2XYPriorC1Ev(ptr noundef nonnull align 16 dereferenceable(272) %5)
           to label %6 unwind label %7
 
@@ -6732,7 +7503,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2X
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 272) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 272) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -6746,43 +7517,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2X
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !153
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.149", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.150", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !153
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.149", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.150", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !153
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o14EdgeSE2XYPriorC1Ev(ptr noundef nonnull align 16 dereferenceable(272)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_7EdgeSE2EEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_7EdgeSE2EEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !159
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -6790,31 +7561,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !159
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_7EdgeSE2EEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !159
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.170", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.171", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o7EdgeSE2E) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -6824,7 +7599,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEC2Ev(pt
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -6837,31 +7613,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEC2Ev(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_7EdgeSE2EEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_7EdgeSE2EEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !159
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !159
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !159
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_7EdgeSE2EEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !159
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_7EdgeSE2EEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_7EdgeSE2EEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_7EdgeSE2EEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !159
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !159
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_7EdgeSE2EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -6870,30 +7646,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_7EdgeSE2EEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_7EdgeSE2EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_7EdgeSE2EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !159
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !159
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -6908,19 +7684,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !159
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -6950,7 +7726,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -6961,48 +7737,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !161
+  store ptr %1, ptr %4, align 8, !tbaa !159
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.171", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.172", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !159
+  store ptr %7, ptr %6, align 8, !tbaa !163
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !161
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !161
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.171", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.172", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !163
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -7015,14 +7782,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !161
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -7033,18 +7800,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !161
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 432) #12
+  store ptr %0, ptr %2, align 8, !tbaa !159
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 432) #20
   invoke void @_ZN3g2o7EdgeSE2C1Ev(ptr noundef nonnull align 16 dereferenceable(432) %5)
           to label %6 unwind label %7
 
@@ -7058,7 +7825,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EE
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 432) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 432) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -7072,43 +7839,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_7EdgeSE2EE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !159
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.170", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.171", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !159
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.170", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.171", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !159
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o7EdgeSE2C1Ev(ptr noundef nonnull align 16 dereferenceable(432)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !165
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -7116,31 +7883,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !165
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !165
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.181", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.182", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o14EdgeSE2PointXYE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -7150,7 +7921,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYE
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -7163,31 +7935,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !165
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !165
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !165
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2PointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !165
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2PointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2PointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !165
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !165
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2PointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -7196,30 +7968,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !165
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2PointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_14EdgeSE2PointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !165
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !165
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -7234,19 +8006,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !165
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -7276,7 +8048,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -7287,48 +8059,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !167
+  store ptr %1, ptr %4, align 8, !tbaa !165
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.182", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.183", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !165
+  store ptr %7, ptr %6, align 8, !tbaa !169
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.182", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.183", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !169
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -7341,14 +8104,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -7359,18 +8122,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !167
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #12
+  store ptr %0, ptr %2, align 8, !tbaa !165
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #20
   invoke void @_ZN3g2o14EdgeSE2PointXYC1Ev(ptr noundef nonnull align 16 dereferenceable(328) %5)
           to label %6 unwind label %7
 
@@ -7384,7 +8147,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2P
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 336) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 336) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -7398,43 +8161,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2P
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !165
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.181", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.182", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !165
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.181", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.182", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !165
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o14EdgeSE2PointXYC1Ev(ptr noundef nonnull align 16 dereferenceable(328)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !171
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -7442,31 +8205,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !171
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.233", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.234", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o21EdgeSE2PointXYBearingE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -7476,7 +8243,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYB
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -7489,31 +8257,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYB
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !171
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !171
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !171
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_21EdgeSE2PointXYBearingEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !171
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_21EdgeSE2PointXYBearingEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_21EdgeSE2PointXYBearingEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !171
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !171
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_21EdgeSE2PointXYBearingEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -7522,30 +8290,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !171
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_21EdgeSE2PointXYBearingEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_21EdgeSE2PointXYBearingEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !171
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !171
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -7560,19 +8328,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !171
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -7602,7 +8370,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -7613,48 +8381,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !171
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.234", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.235", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !171
+  store ptr %7, ptr %6, align 8, !tbaa !175
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.234", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.235", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !175
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -7667,14 +8426,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -7685,18 +8444,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !173
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #12
+  store ptr %0, ptr %2, align 8, !tbaa !171
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN3g2o21EdgeSE2PointXYBearingC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %5)
           to label %6 unwind label %7
 
@@ -7710,7 +8469,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2P
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 288) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 288) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -7724,43 +8483,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2P
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.233", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.234", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.233", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.234", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !171
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o21EdgeSE2PointXYBearingC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !177
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -7768,31 +8527,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !177
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !177
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.277", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.278", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o19EdgeSE2PointXYCalibE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -7802,7 +8565,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYC
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -7815,31 +8579,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYC
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !177
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !177
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !177
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_19EdgeSE2PointXYCalibEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !177
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_19EdgeSE2PointXYCalibEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_19EdgeSE2PointXYCalibEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !177
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !177
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_19EdgeSE2PointXYCalibEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -7848,30 +8612,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !177
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_19EdgeSE2PointXYCalibEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_19EdgeSE2PointXYCalibEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !177
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !177
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -7886,19 +8650,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !177
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -7928,7 +8692,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -7939,48 +8703,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !179
+  store ptr %1, ptr %4, align 8, !tbaa !177
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.278", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.279", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !177
+  store ptr %7, ptr %6, align 8, !tbaa !181
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.278", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.279", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !181
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -7993,14 +8748,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -8011,18 +8766,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !179
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #12
+  store ptr %0, ptr %2, align 8, !tbaa !177
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN3g2o19EdgeSE2PointXYCalibC1Ev(ptr noundef nonnull align 16 dereferenceable(288) %5)
           to label %6 unwind label %7
 
@@ -8036,7 +8791,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2P
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 288) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 288) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -8050,43 +8805,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2P
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !177
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.277", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.278", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !177
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.277", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.278", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !177
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o19EdgeSE2PointXYCalibC1Ev(ptr noundef nonnull align 16 dereferenceable(288)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !183
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -8094,31 +8849,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !183
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.289", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.290", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o13EdgeSE2OffsetE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -8128,7 +8887,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEE
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -8141,31 +8901,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !183
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !183
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !183
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13EdgeSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !183
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13EdgeSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13EdgeSE2OffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !183
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !183
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13EdgeSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -8174,30 +8934,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !183
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13EdgeSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_13EdgeSE2OffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !183
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !183
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -8212,19 +8972,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !183
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -8254,7 +9014,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -8265,48 +9025,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !185
+  store ptr %1, ptr %4, align 8, !tbaa !183
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.290", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.291", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !183
+  store ptr %7, ptr %6, align 8, !tbaa !187
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.290", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.291", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !187
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -8319,14 +9070,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -8337,18 +9088,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !185
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 464) #12
+  store ptr %0, ptr %2, align 8, !tbaa !183
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 464) #20
   invoke void @_ZN3g2o13EdgeSE2OffsetC1Ev(ptr noundef nonnull align 16 dereferenceable(464) %5)
           to label %6 unwind label %7
 
@@ -8362,7 +9113,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2O
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 464) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 464) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -8376,43 +9127,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2O
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.289", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.290", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.289", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.290", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !183
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o13EdgeSE2OffsetC1Ev(ptr noundef nonnull align 16 dereferenceable(464)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !189
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -8420,31 +9171,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !189
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.291", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.292", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o20EdgeSE2PointXYOffsetE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -8454,7 +9209,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYO
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -8467,31 +9223,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYO
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !189
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !189
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !189
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_20EdgeSE2PointXYOffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !189
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_20EdgeSE2PointXYOffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_20EdgeSE2PointXYOffsetEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !189
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !189
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_20EdgeSE2PointXYOffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -8500,30 +9256,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !189
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_20EdgeSE2PointXYOffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_20EdgeSE2PointXYOffsetEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !189
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !189
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -8538,19 +9294,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !189
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -8580,7 +9336,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -8591,48 +9347,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !191
+  store ptr %1, ptr %4, align 8, !tbaa !189
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.292", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.293", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !189
+  store ptr %7, ptr %6, align 8, !tbaa !193
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !191
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !191
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.292", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.293", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !193
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -8645,14 +9392,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !191
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -8663,18 +9410,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !191
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 352) #12
+  store ptr %0, ptr %2, align 8, !tbaa !189
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 352) #20
   invoke void @_ZN3g2o20EdgeSE2PointXYOffsetC1Ev(ptr noundef nonnull align 16 dereferenceable(344) %5)
           to label %6 unwind label %7
 
@@ -8688,7 +9435,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2P
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 352) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 352) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -8702,43 +9449,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2P
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.291", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.292", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.291", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.292", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o20EdgeSE2PointXYOffsetC1Ev(ptr noundef nonnull align 16 dereferenceable(344)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_11EdgePointXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_11EdgePointXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !195
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -8746,31 +9493,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !195
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_11EdgePointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !195
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.293", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.294", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o11EdgePointXYE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -8780,7 +9531,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEC2
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -8793,31 +9545,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEC2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_11EdgePointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_11EdgePointXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !195
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !195
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !195
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgePointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !195
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_11EdgePointXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgePointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgePointXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !195
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !195
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgePointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -8826,30 +9578,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_11EdgePointXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !195
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgePointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgePointXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !195
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !195
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -8864,19 +9616,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !195
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -8906,7 +9658,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -8917,48 +9669,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !197
+  store ptr %1, ptr %4, align 8, !tbaa !195
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.294", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.295", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !195
+  store ptr %7, ptr %6, align 8, !tbaa !199
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.294", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.295", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !199
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -8971,14 +9714,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -8989,18 +9732,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !197
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #12
+  store ptr %0, ptr %2, align 8, !tbaa !195
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #20
   invoke void @_ZN3g2o11EdgePointXYC1Ev(ptr noundef nonnull align 16 dereferenceable(328) %5)
           to label %6 unwind label %7
 
@@ -9014,7 +9757,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePoin
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 336) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 336) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -9028,43 +9771,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePoin
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_11EdgePointXYEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !195
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.293", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.294", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !195
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.293", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.294", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !195
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o11EdgePointXYC1Ev(ptr noundef nonnull align 16 dereferenceable(328)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !201
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -9072,31 +9815,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !201
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.305", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.306", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o18EdgeSE2TwoPointsXYE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -9106,7 +9853,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPoint
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -9119,31 +9867,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPoint
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !201
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !201
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !201
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18EdgeSE2TwoPointsXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !201
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18EdgeSE2TwoPointsXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18EdgeSE2TwoPointsXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !201
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !201
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18EdgeSE2TwoPointsXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -9152,30 +9900,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !201
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18EdgeSE2TwoPointsXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_18EdgeSE2TwoPointsXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !201
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !201
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -9190,19 +9938,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !201
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -9232,7 +9980,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -9243,48 +9991,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !203
+  store ptr %1, ptr %4, align 8, !tbaa !201
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.306", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.307", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !201
+  store ptr %7, ptr %6, align 8, !tbaa !205
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.306", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.307", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !205
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -9297,14 +10036,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -9315,18 +10054,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !203
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 416) #12
+  store ptr %0, ptr %2, align 8, !tbaa !201
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 416) #20
   invoke void @_ZN3g2o18EdgeSE2TwoPointsXYC1Ev(ptr noundef nonnull align 16 dereferenceable(416) %5)
           to label %6 unwind label %7
 
@@ -9340,7 +10079,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2T
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 416) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 416) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -9354,43 +10093,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2T
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.305", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.306", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.305", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.306", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o18EdgeSE2TwoPointsXYC1Ev(ptr noundef nonnull align 16 dereferenceable(416)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !207
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -9398,31 +10137,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !207
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !207
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.333", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.334", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o15EdgeSE2LotsOfXYE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -9432,7 +10175,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXY
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -9445,31 +10189,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXY
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !207
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !207
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !207
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_15EdgeSE2LotsOfXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !207
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_15EdgeSE2LotsOfXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_15EdgeSE2LotsOfXYEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !207
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !207
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_15EdgeSE2LotsOfXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -9478,30 +10222,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !207
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_15EdgeSE2LotsOfXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_15EdgeSE2LotsOfXYEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !207
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !207
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -9516,19 +10260,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !207
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -9558,7 +10302,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -9569,48 +10313,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !209
+  store ptr %1, ptr %4, align 8, !tbaa !207
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.334", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.335", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !207
+  store ptr %7, ptr %6, align 8, !tbaa !211
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !209
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !209
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.334", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.335", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !211
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -9623,14 +10358,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !209
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -9641,18 +10376,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !209
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #12
+  store ptr %0, ptr %2, align 8, !tbaa !207
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN3g2o15EdgeSE2LotsOfXYC1Ev(ptr noundef nonnull align 8 dereferenceable(284) %5)
           to label %6 unwind label %7
 
@@ -9666,7 +10401,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2L
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 288) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 288) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -9680,43 +10415,43 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2L
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !207
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.333", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.334", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !207
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.333", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.334", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !207
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
 declare void @_ZN3g2o15EdgeSE2LotsOfXYC1Ev(ptr noundef nonnull align 8 dereferenceable(284)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_11EdgeXYPriorEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_24HyperGraphElementCreatorINS0_11EdgeXYPriorEEEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !213
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -9724,31 +10459,35 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCr
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !213
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_11EdgeXYPriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !213
   %6 = load ptr, ptr %2, align 8
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE, i32 0, i32 0, i32 2), ptr %6, align 8
-  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.360", ptr %6, i32 0, i32 1
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE, i32 0, i32 0, i32 2), ptr %6, align 8, !tbaa !79
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.361", ptr %6, i32 0, i32 1
   %8 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN3g2o11EdgeXYPriorE) #3
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %10
 
 9:                                                ; preds = %1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret void
 
 10:                                               ; preds = %1
@@ -9758,7 +10497,8 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEC2
   store ptr %12, ptr %4, align 8
   %13 = extractvalue { ptr, i32 } %11, 1
   store i32 %13, ptr %5, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   br label %14
 
@@ -9771,31 +10511,31 @@ define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEC2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_11EdgeXYPriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_24HyperGraphElementCreatorINS0_11EdgeXYPriorEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !213
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !213
+  store ptr %7, ptr %6, align 8, !tbaa !115
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !213
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgeXYPriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !213
   call void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_11EdgeXYPriorEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgeXYPriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgeXYPriorEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !213
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !213
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgeXYPriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -9804,30 +10544,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_24HyperGraphElementCreatorINS0_11EdgeXYPriorEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !213
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgeXYPriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o24HyperGraphElementCreatorINS4_11EdgeXYPriorEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !213
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !213
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -9842,19 +10582,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !213
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -9884,7 +10624,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -9895,48 +10635,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !215
+  store ptr %1, ptr %4, align 8, !tbaa !213
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.361", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.362", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !213
+  store ptr %7, ptr %6, align 8, !tbaa !217
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !215
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !215
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.361", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.362", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !217
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
@@ -9949,14 +10680,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !215
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -9967,18 +10698,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreato
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !215
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEE9constructEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #12
+  store ptr %0, ptr %2, align 8, !tbaa !213
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 272) #20
   invoke void @_ZN3g2o11EdgeXYPriorC1Ev(ptr noundef nonnull align 16 dereferenceable(272) %5)
           to label %6 unwind label %7
 
@@ -9992,7 +10723,7 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPr
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 272) #13
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 272) #21
   br label %11
 
 11:                                               ; preds = %7
@@ -10006,31 +10737,31 @@ define linkonce_odr noundef ptr @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEE4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !213
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.360", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.361", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !213
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE, i32 0, i32 0, i32 2), ptr %3, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.360", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !79
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraphElementCreator.361", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN3g2o32AbstractHyperGraphElementCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !213
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #21
   ret void
 }
 
@@ -10039,19 +10770,19 @@ declare void @_ZN3g2o11EdgeXYPriorC1Ev(ptr noundef nonnull align 16 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !219
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_27VertexSE2WriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_27VertexSE2WriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr.17", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !223
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -10059,10 +10790,12 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !223
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_27VertexSE2WriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
@@ -10075,29 +10808,29 @@ declare noundef zeroext i1 @_ZN3g2o23HyperGraphActionLibrary14registerActionERKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !221
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !225
   %5 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %3, i32 0, i32 1
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_27VertexSE2WriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_27VertexSE2WriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !223
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !223
+  store ptr %7, ptr %6, align 8, !tbaa !225
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !223
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o27VertexSE2WriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !223
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_27VertexSE2WriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
@@ -10106,15 +10839,15 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !221
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !221
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %7, i32 0, i32 0
   call void @_ZSt4swapIPN3g2o23HyperGraphElementActionEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   %9 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !221
   %11 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %10, i32 0, i32 1
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE7_M_swapERS2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
   ret void
@@ -10123,7 +10856,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !221
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %3, i32 0, i32 1
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
@@ -10131,13 +10864,13 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o27VertexSE2WriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o27VertexSE2WriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !223
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !223
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o27VertexSE2WriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -10146,30 +10879,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_27VertexSE2WriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !223
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o27VertexSE2WriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o27VertexSE2WriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !223
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !223
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -10184,19 +10917,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !223
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(72) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -10226,7 +10959,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -10237,48 +10970,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !228
+  store ptr %1, ptr %4, align 8, !tbaa !223
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.372", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.373", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !223
+  store ptr %7, ptr %6, align 8, !tbaa !230
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !228
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !228
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.372", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.373", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !230
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(72) %5) #3
@@ -10291,14 +11015,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotAc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !228
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -10309,38 +11033,40 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotAc
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !228
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIPN3g2o23HyperGraphElementActionEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt4swapIPN3g2o23HyperGraphElementActionEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !232
+  store ptr %1, ptr %4, align 8, !tbaa !232
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !232
+  %7 = load ptr, ptr %6, align 8, !tbaa !234
+  store ptr %7, ptr %5, align 8, !tbaa !234
+  %8 = load ptr, ptr %4, align 8, !tbaa !232
+  %9 = load ptr, ptr %8, align 8, !tbaa !234
+  %10 = load ptr, ptr %3, align 8, !tbaa !232
+  store ptr %9, ptr %10, align 8, !tbaa !234
+  %11 = load ptr, ptr %5, align 8, !tbaa !234
+  %12 = load ptr, ptr %4, align 8, !tbaa !232
+  store ptr %11, ptr %12, align 8, !tbaa !234
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_31VertexPointXYWriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_31VertexPointXYWriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr.17", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !235
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -10348,41 +11074,43 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !235
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_31VertexPointXYWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 declare void @_ZN3g2o31VertexPointXYWriteGnuplotActionC1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_31VertexPointXYWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_31VertexPointXYWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !235
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !235
+  store ptr %7, ptr %6, align 8, !tbaa !225
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !235
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o31VertexPointXYWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !235
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_31VertexPointXYWriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o31VertexPointXYWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o31VertexPointXYWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !235
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !235
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o31VertexPointXYWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -10391,30 +11119,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_31VertexPointXYWriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !235
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o31VertexPointXYWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o31VertexPointXYWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !235
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !235
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -10429,19 +11157,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !235
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(72) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -10471,7 +11199,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -10482,48 +11210,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !237
+  store ptr %1, ptr %4, align 8, !tbaa !235
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.373", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.374", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !235
+  store ptr %7, ptr %6, align 8, !tbaa !239
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !237
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !237
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.373", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.374", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !239
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(72) %5) #3
@@ -10536,14 +11255,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnupl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !237
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -10554,18 +11273,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnupl
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !237
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_25EdgeSE2WriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_25EdgeSE2WriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr.17", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !241
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -10573,41 +11292,43 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !241
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_25EdgeSE2WriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 declare void @_ZN3g2o25EdgeSE2WriteGnuplotActionC1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_25EdgeSE2WriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_25EdgeSE2WriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !241
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !241
+  store ptr %7, ptr %6, align 8, !tbaa !225
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !241
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o25EdgeSE2WriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !241
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_25EdgeSE2WriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o25EdgeSE2WriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o25EdgeSE2WriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !241
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !241
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o25EdgeSE2WriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -10616,30 +11337,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_25EdgeSE2WriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !241
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o25EdgeSE2WriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o25EdgeSE2WriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !241
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !241
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -10654,19 +11375,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !241
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(72) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -10696,7 +11417,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -10707,48 +11428,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !243
+  store ptr %1, ptr %4, align 8, !tbaa !241
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.374", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.375", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !241
+  store ptr %7, ptr %6, align 8, !tbaa !245
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !243
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !243
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.374", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.375", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !245
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(72) %5) #3
@@ -10761,14 +11473,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !243
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -10779,18 +11491,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActi
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !243
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_32EdgeSE2PointXYWriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_32EdgeSE2PointXYWriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr.17", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !247
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -10798,41 +11510,43 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !247
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_32EdgeSE2PointXYWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 declare void @_ZN3g2o32EdgeSE2PointXYWriteGnuplotActionC1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_32EdgeSE2PointXYWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_32EdgeSE2PointXYWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !247
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !247
+  store ptr %7, ptr %6, align 8, !tbaa !225
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !247
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o32EdgeSE2PointXYWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !247
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_32EdgeSE2PointXYWriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o32EdgeSE2PointXYWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o32EdgeSE2PointXYWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !247
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !247
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o32EdgeSE2PointXYWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -10841,30 +11555,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_32EdgeSE2PointXYWriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !247
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o32EdgeSE2PointXYWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o32EdgeSE2PointXYWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !247
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !247
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -10879,19 +11593,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !247
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(72) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -10921,7 +11635,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -10932,48 +11646,39 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !249
+  store ptr %1, ptr %4, align 8, !tbaa !247
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.375", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.376", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !247
+  store ptr %7, ptr %6, align 8, !tbaa !251
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !249
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !249
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.375", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.376", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !251
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(72) %5) #3
@@ -10986,14 +11691,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnup
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !249
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -11004,18 +11709,18 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnup
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !249
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_39EdgeSE2PointXYBearingWriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_39EdgeSE2PointXYBearingWriteGnuplotActionEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__shared_ptr.17", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !253
   %6 = load ptr, ptr %3, align 8
   br label %7
 
@@ -11023,41 +11728,43 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
   br label %8
 
 8:                                                ; preds = %7
-  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !253
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_39EdgeSE2PointXYBearingWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %9)
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
 declare void @_ZN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionC1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_39EdgeSE2PointXYBearingWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EEC2INS0_39EdgeSE2PointXYBearingWriteGnuplotActionEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !253
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !253
+  store ptr %7, ptr %6, align 8, !tbaa !225
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.17", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !253
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !253
   call void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_39EdgeSE2PointXYBearingWriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !253
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !253
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -11066,30 +11773,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_39EdgeSE2PointXYBearingWriteGnuplotActionES6_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !221
+  store ptr %1, ptr %4, align 8, !tbaa !253
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !253
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #12
+  store ptr null, ptr %8, align 8, !tbaa !64
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !253
   call void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #3
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !64
   br label %32
 
 13:                                               ; preds = %2
@@ -11104,19 +11811,19 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
   %19 = call ptr @__cxa_begin_catch(ptr %18) #3
-  %20 = load ptr, ptr %4, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !253
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !79
   %24 = getelementptr inbounds ptr, ptr %23, i64 3
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(72) %20) #3
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #11
+  invoke void @__cxa_rethrow() #19
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -11146,7 +11853,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #14
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 41:                                               ; preds = %26
@@ -11157,48 +11864,46 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EEC2ES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !255
+  store ptr %1, ptr %4, align 8, !tbaa !253
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.376", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !79
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.377", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !253
+  store ptr %7, ptr %6, align 8, !tbaa !257
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  store ptr %0, ptr %2, align 8, !tbaa !67
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !255
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !255
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.376", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.377", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !257
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
   %9 = getelementptr inbounds ptr, ptr %8, i64 3
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(72) %5) #3
@@ -11211,14 +11916,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !255
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #13
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #21
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -11229,8 +11934,8 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWr
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !255
+  store ptr %1, ptr %4, align 8, !tbaa !122
   ret ptr null
 }
 
@@ -11264,25 +11969,288 @@ define internal void @_GLOBAL__sub_I_types_slam2d.cpp() #0 section ".text.startu
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { noreturn }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #11 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #19 = { noreturn }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { builtin nounwind }
+attributes #22 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN5Eigen8internal8FixedIntILi1EEE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN5Eigen8internal5all_tE", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !5, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_9VertexSE2EEE", !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_13VertexPointXYEEE", !5, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_18ParameterSE2OffsetEEE", !5, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_14CacheSE2OffsetEEE", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_12EdgeSE2PriorEEE", !5, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_14EdgeSE2XYPriorEEE", !5, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_7EdgeSE2EEE", !5, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_14EdgeSE2PointXYEEE", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_21EdgeSE2PointXYBearingEEE", !5, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_19EdgeSE2PointXYCalibEEE", !5, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_13EdgeSE2OffsetEEE", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_20EdgeSE2PointXYOffsetEEE", !5, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_11EdgePointXYEEE", !5, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_18EdgeSE2TwoPointsXYEEE", !5, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_15EdgeSE2LotsOfXYEEE", !5, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSN3g2o17RegisterTypeProxyINS_11EdgeXYPriorEEE", !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN3g2o19RegisterActionProxyINS_27VertexSE2WriteGnuplotActionEEE", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSN3g2o19RegisterActionProxyINS_31VertexPointXYWriteGnuplotActionEEE", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSN3g2o19RegisterActionProxyINS_25EdgeSE2WriteGnuplotActionEEE", !5, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN3g2o19RegisterActionProxyINS_32EdgeSE2PointXYWriteGnuplotActionEEE", !5, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTSN3g2o19RegisterActionProxyINS_39EdgeSE2PointXYBearingWriteGnuplotActionEEE", !5, i64 0}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!64 = !{!65, !66, i64 0}
+!65 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !66, i64 0}
+!66 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!67 = !{!66, !66, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"bool", !6, i64 0}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"int", !6, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"long long", !6, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 long long", !5, i64 0}
+!76 = !{!77, !71, i64 8}
+!77 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !71, i64 8, !71, i64 12}
+!78 = !{!77, !71, i64 12}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"vtable pointer", !7, i64 0}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 int", !5, i64 0}
+!83 = !{!6, !6, i64 0}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!86 = !{!87, !89, i64 8}
+!87 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !88, i64 0, !89, i64 8, !6, i64 16}
+!88 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !19, i64 0}
+!89 = !{!"long", !6, i64 0}
+!90 = !{!89, !89, i64 0}
+!91 = !{!87, !19, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!94 = !{!88, !19, i64 0}
+!95 = !{!96, !17, i64 0}
+!96 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !17, i64 0}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p2 omnipotent char", !5, i64 0}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTSN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEE", !5, i64 0}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTSN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEENS0_9ValueExprINS3_8FixedIntILi1EEEEEEE", !5, i64 0}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTSSt10shared_ptrIN3g2o32AbstractHyperGraphElementCreatorEE", !5, i64 0}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTSSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_9VertexSE2EEE", !5, i64 0}
+!111 = !{!112, !17, i64 0}
+!112 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !17, i64 0}
+!113 = !{!114, !114, i64 0}
+!114 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!115 = !{!116, !117, i64 0}
+!116 = !{!"_ZTSSt12__shared_ptrIN3g2o32AbstractHyperGraphElementCreatorELN9__gnu_cxx12_Lock_policyE2EE", !117, i64 0, !65, i64 8}
+!117 = !{!"p1 _ZTSN3g2o32AbstractHyperGraphElementCreatorE", !5, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!120 = !{!121, !110, i64 16}
+!121 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_9VertexSE2EEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !110, i64 16}
+!122 = !{!123, !123, i64 0}
+!123 = !{!"p1 _ZTSSt9type_info", !5, i64 0}
+!124 = !{!125, !125, i64 0}
+!125 = !{!"p2 _ZTSN3g2o32AbstractHyperGraphElementCreatorE", !5, i64 0}
+!126 = !{!117, !117, i64 0}
+!127 = !{!128, !19, i64 8}
+!128 = !{!"_ZTSSt9type_info", !19, i64 8}
+!129 = !{!130, !130, i64 0}
+!130 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_13VertexPointXYEEE", !5, i64 0}
+!131 = !{!132, !132, i64 0}
+!132 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!133 = !{!134, !130, i64 16}
+!134 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13VertexPointXYEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !130, i64 16}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_18ParameterSE2OffsetEEE", !5, i64 0}
+!137 = !{!138, !138, i64 0}
+!138 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!139 = !{!140, !136, i64 16}
+!140 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18ParameterSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !136, i64 16}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_14CacheSE2OffsetEEE", !5, i64 0}
+!143 = !{!144, !144, i64 0}
+!144 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!145 = !{!146, !142, i64 16}
+!146 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14CacheSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !142, i64 16}
+!147 = !{!148, !148, i64 0}
+!148 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_12EdgeSE2PriorEEE", !5, i64 0}
+!149 = !{!150, !150, i64 0}
+!150 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!151 = !{!152, !148, i64 16}
+!152 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_12EdgeSE2PriorEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !148, i64 16}
+!153 = !{!154, !154, i64 0}
+!154 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2XYPriorEEE", !5, i64 0}
+!155 = !{!156, !156, i64 0}
+!156 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!157 = !{!158, !154, i64 16}
+!158 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2XYPriorEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !154, i64 16}
+!159 = !{!160, !160, i64 0}
+!160 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_7EdgeSE2EEE", !5, i64 0}
+!161 = !{!162, !162, i64 0}
+!162 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!163 = !{!164, !160, i64 16}
+!164 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_7EdgeSE2EEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !160, i64 16}
+!165 = !{!166, !166, i64 0}
+!166 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_14EdgeSE2PointXYEEE", !5, i64 0}
+!167 = !{!168, !168, i64 0}
+!168 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!169 = !{!170, !166, i64 16}
+!170 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_14EdgeSE2PointXYEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !166, i64 16}
+!171 = !{!172, !172, i64 0}
+!172 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_21EdgeSE2PointXYBearingEEE", !5, i64 0}
+!173 = !{!174, !174, i64 0}
+!174 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!175 = !{!176, !172, i64 16}
+!176 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_21EdgeSE2PointXYBearingEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !172, i64 16}
+!177 = !{!178, !178, i64 0}
+!178 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_19EdgeSE2PointXYCalibEEE", !5, i64 0}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!181 = !{!182, !178, i64 16}
+!182 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_19EdgeSE2PointXYCalibEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !178, i64 16}
+!183 = !{!184, !184, i64 0}
+!184 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_13EdgeSE2OffsetEEE", !5, i64 0}
+!185 = !{!186, !186, i64 0}
+!186 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!187 = !{!188, !184, i64 16}
+!188 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_13EdgeSE2OffsetEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !184, i64 16}
+!189 = !{!190, !190, i64 0}
+!190 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_20EdgeSE2PointXYOffsetEEE", !5, i64 0}
+!191 = !{!192, !192, i64 0}
+!192 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!193 = !{!194, !190, i64 16}
+!194 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_20EdgeSE2PointXYOffsetEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !190, i64 16}
+!195 = !{!196, !196, i64 0}
+!196 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_11EdgePointXYEEE", !5, i64 0}
+!197 = !{!198, !198, i64 0}
+!198 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!199 = !{!200, !196, i64 16}
+!200 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgePointXYEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !196, i64 16}
+!201 = !{!202, !202, i64 0}
+!202 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_18EdgeSE2TwoPointsXYEEE", !5, i64 0}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!205 = !{!206, !202, i64 16}
+!206 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_18EdgeSE2TwoPointsXYEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !202, i64 16}
+!207 = !{!208, !208, i64 0}
+!208 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_15EdgeSE2LotsOfXYEEE", !5, i64 0}
+!209 = !{!210, !210, i64 0}
+!210 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!211 = !{!212, !208, i64 16}
+!212 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_15EdgeSE2LotsOfXYEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !208, i64 16}
+!213 = !{!214, !214, i64 0}
+!214 = !{!"p1 _ZTSN3g2o24HyperGraphElementCreatorINS_11EdgeXYPriorEEE", !5, i64 0}
+!215 = !{!216, !216, i64 0}
+!216 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!217 = !{!218, !214, i64 16}
+!218 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o24HyperGraphElementCreatorINS0_11EdgeXYPriorEEELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !214, i64 16}
+!219 = !{!220, !220, i64 0}
+!220 = !{!"p1 _ZTSSt10shared_ptrIN3g2o23HyperGraphElementActionEE", !5, i64 0}
+!221 = !{!222, !222, i64 0}
+!222 = !{!"p1 _ZTSSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!223 = !{!224, !224, i64 0}
+!224 = !{!"p1 _ZTSN3g2o27VertexSE2WriteGnuplotActionE", !5, i64 0}
+!225 = !{!226, !227, i64 0}
+!226 = !{!"_ZTSSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE", !227, i64 0, !65, i64 8}
+!227 = !{!"p1 _ZTSN3g2o23HyperGraphElementActionE", !5, i64 0}
+!228 = !{!229, !229, i64 0}
+!229 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!230 = !{!231, !224, i64 16}
+!231 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o27VertexSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !224, i64 16}
+!232 = !{!233, !233, i64 0}
+!233 = !{!"p2 _ZTSN3g2o23HyperGraphElementActionE", !5, i64 0}
+!234 = !{!227, !227, i64 0}
+!235 = !{!236, !236, i64 0}
+!236 = !{!"p1 _ZTSN3g2o31VertexPointXYWriteGnuplotActionE", !5, i64 0}
+!237 = !{!238, !238, i64 0}
+!238 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!239 = !{!240, !236, i64 16}
+!240 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o31VertexPointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !236, i64 16}
+!241 = !{!242, !242, i64 0}
+!242 = !{!"p1 _ZTSN3g2o25EdgeSE2WriteGnuplotActionE", !5, i64 0}
+!243 = !{!244, !244, i64 0}
+!244 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!245 = !{!246, !242, i64 16}
+!246 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o25EdgeSE2WriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !242, i64 16}
+!247 = !{!248, !248, i64 0}
+!248 = !{!"p1 _ZTSN3g2o32EdgeSE2PointXYWriteGnuplotActionE", !5, i64 0}
+!249 = !{!250, !250, i64 0}
+!250 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!251 = !{!252, !248, i64 16}
+!252 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o32EdgeSE2PointXYWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !248, i64 16}
+!253 = !{!254, !254, i64 0}
+!254 = !{!"p1 _ZTSN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionE", !5, i64 0}
+!255 = !{!256, !256, i64 0}
+!256 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!257 = !{!258, !254, i64 16}
+!258 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o39EdgeSE2PointXYBearingWriteGnuplotActionELN9__gnu_cxx12_Lock_policyE2EE", !77, i64 0, !254, i64 16}

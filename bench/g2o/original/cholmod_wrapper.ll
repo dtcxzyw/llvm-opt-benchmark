@@ -1,13 +1,13 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.g2o::cholmod::Cholmod" = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
+%"class.g2o::cholmod::Cholmod" = type { %"class.std::unique_ptr" }
 %"class.g2o::cholmod::Cholmod::Impl" = type { %struct.cholmod_common_struct, %"struct.g2o::cholmod::CholmodExt", ptr }
 %struct.cholmod_common_struct = type { double, double, double, i64, i64, double, i32, i32, i32, i32, i32, i32, i32, [3 x double], [3 x i64], i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, [10 x %"struct.cholmod_common_struct::cholmod_method_struct"], i32, i32, double, double, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, i32, i32, i32, i32, double, double, double, double, i64, i64, i64, double, double, double, double, double, i32, i32, double, double, i32, i32, double, double, double, double, double, double, double, [10 x i64], i32, i64, double, i64, double, i64, i32, ptr, [8 x ptr], [3 x ptr], ptr, [8 x ptr], ptr, i64, ptr, i64, i64, i32, double, double, double, double, double, double, double, double, double, double, double, i64, i64, i64, i64, i64, i64, i64, i64 }
 %"struct.cholmod_common_struct::cholmod_method_struct" = type { double, double, double, double, double, [4 x double], i64, [4 x i64], i32, i32, i32, i32, i32, i32, [4 x i64] }
@@ -98,25 +98,24 @@ $_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERKS5_ = comdat 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o7cholmod7CholmodC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  call void @_ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %4)
+  call void @_ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %3)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0) #0 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0) #1 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 2768) #7
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 2768) #9
   invoke void @_ZN3g2o7cholmod7Cholmod4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(2768) %5)
           to label %6 unwind label %7
 
 6:                                                ; preds = %1
-  call void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5) #8
+  call void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5) #10
   ret void
 
 7:                                                ; preds = %1
@@ -126,7 +125,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 2768) #9
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 2768) #11
   br label %11
 
 11:                                               ; preds = %7
@@ -138,33 +137,34 @@ define linkonce_odr void @_ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o7cholmod7CholmodD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
+define void @_ZN3g2o7cholmod7CholmodD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  call void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  call void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %5 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %4, i32 0, i32 0
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %7, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  store ptr %6, ptr %3, align 8, !tbaa !10
+  %7 = load ptr, ptr %3, align 8, !tbaa !10
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %1
-  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %12 = load ptr, ptr %3, align 8, !tbaa !10
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
   invoke void @_ZNKSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %13)
           to label %14 unwind label %17
 
@@ -172,45 +172,46 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14defau
   br label %15
 
 15:                                               ; preds = %14, %1
-  %16 = load ptr, ptr %3, align 8
-  store ptr null, ptr %16, align 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !10
+  store ptr null, ptr %16, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #10
+  call void @__clang_call_terminate(ptr %19) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o7cholmod7Cholmod10freeFactorEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   call void @_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv(ptr noundef nonnull align 8 dereferenceable(2768) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  %4 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv(ptr noundef nonnull align 8 dereferenceable(2768) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %12
 
@@ -219,7 +220,7 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv(ptr noundef
   %9 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %3, i32 0, i32 0
   %10 = call i32 @cholmod_free_factor(ptr noundef %8, ptr noundef %9)
   %11 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %3, i32 0, i32 2
-  store ptr null, ptr %11, align 8
+  store ptr null, ptr %11, align 8, !tbaa !14
   br label %12
 
 12:                                               ; preds = %7, %1
@@ -227,14 +228,14 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3g2o7cholmod7Cholmod9hasFactorEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 align 2 {
+define noundef zeroext i1 @_ZNK3g2o7cholmod7Cholmod9hasFactorEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   %6 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = icmp ne ptr %7, null
   ret i1 %8
 }
@@ -246,101 +247,113 @@ define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod3amdERNS1_10SparseViewEPi(ptr 
   %6 = alloca ptr, align 8
   %7 = alloca %struct.cholmod_sparse_struct, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !25
   %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 88, ptr %7) #10
+  %10 = load ptr, ptr %5, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i64, ptr %12, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
+  %13 = load i64, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 2
-  store i64 %13, ptr %14, align 8
-  %15 = load ptr, ptr %5, align 8
+  store i64 %13, ptr %14, align 8, !tbaa !33
+  %15 = load ptr, ptr %5, align 8, !tbaa !23
   %16 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i64, ptr %17, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %18 = load i64, ptr %17, align 8, !tbaa !32
   %19 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 0
-  store i64 %18, ptr %19, align 8
-  %20 = load ptr, ptr %5, align 8
+  store i64 %18, ptr %19, align 8, !tbaa !35
+  %20 = load ptr, ptr %5, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i64, ptr %22, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %23 = load i64, ptr %22, align 8, !tbaa !32
   %24 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 1
-  store i64 %23, ptr %24, align 8
-  %25 = load ptr, ptr %5, align 8
+  store i64 %23, ptr %24, align 8, !tbaa !37
+  %25 = load ptr, ptr %5, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %25, i32 0, i32 3
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %27, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !38
+  %28 = load ptr, ptr %27, align 8, !tbaa !25
   %29 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 3
-  store ptr %28, ptr %29, align 8
-  %30 = load ptr, ptr %5, align 8
+  store ptr %28, ptr %29, align 8, !tbaa !39
+  %30 = load ptr, ptr %5, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %30, i32 0, i32 4
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !40
+  %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 4
-  store ptr %33, ptr %34, align 8
+  store ptr %33, ptr %34, align 8, !tbaa !41
   %35 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 5
-  store ptr null, ptr %35, align 8
+  store ptr null, ptr %35, align 8, !tbaa !42
   %36 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 6
-  store ptr null, ptr %36, align 8
+  store ptr null, ptr %36, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 7
-  store ptr null, ptr %37, align 8
+  store ptr null, ptr %37, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 8
-  store i32 1, ptr %38, align 8
+  store i32 1, ptr %38, align 8, !tbaa !45
   %39 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 10
-  store i32 0, ptr %39, align 8
+  store i32 0, ptr %39, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 9
-  store i32 0, ptr %40, align 4
+  store i32 0, ptr %40, align 4, !tbaa !47
   %41 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 11
-  store i32 0, ptr %41, align 4
+  store i32 0, ptr %41, align 4, !tbaa !48
   %42 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 12
-  store i32 1, ptr %42, align 8
+  store i32 1, ptr %42, align 8, !tbaa !49
   %43 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %7, i32 0, i32 13
-  store i32 1, ptr %43, align 4
-  %44 = load ptr, ptr %6, align 8
+  store i32 1, ptr %43, align 4, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %44 = load ptr, ptr %6, align 8, !tbaa !25
   %45 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %9, i32 0, i32 0
-  %46 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %45) #8
+  %46 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %45) #10
   %47 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %46, i32 0, i32 0
   %48 = call i32 @cholmod_amd(ptr noundef %7, ptr noundef null, i64 noundef 0, ptr noundef %44, ptr noundef %47)
-  store i32 %48, ptr %8, align 4
-  %49 = load i32, ptr %8, align 4
+  store i32 %48, ptr %8, align 4, !tbaa !51
+  %49 = load i32, ptr %8, align 4, !tbaa !51
   %50 = icmp ne i32 %49, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 88, ptr %7) #10
   ret i1 %50
 }
 
-declare i32 @cholmod_amd(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+declare i32 @cholmod_amd(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o7cholmod7Cholmod10sparseViewEv(ptr dead_on_unwind noalias writable sret(%"struct.g2o::cholmod::Cholmod::SparseView") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !3
   %5 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %6 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %5, i32 0, i32 0
-  %7 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  %7 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
   %8 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %4, align 8
-  %9 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %4, align 8, !tbaa !52
+  %9 = load ptr, ptr %4, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %4, align 8
+  %13 = load ptr, ptr %4, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %15, i32 0, i32 3
-  %17 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %4, align 8, !tbaa !52
   %18 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %17, i32 0, i32 4
-  %19 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !52
   %20 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %19, i32 0, i32 6
-  %21 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %4, align 8, !tbaa !52
   %22 = getelementptr inbounds nuw %"struct.g2o::cholmod::CholmodExt", ptr %21, i32 0, i32 1
   call void @_ZN3g2o7cholmod7Cholmod10SparseViewC2ERmS3_S3_RPiS5_RPdS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o7cholmod7Cholmod10SparseViewC2ERmS3_S3_RPiS5_RPdS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZN3g2o7cholmod7Cholmod10SparseViewC2ERmS3_S3_RPiS5_RPdS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #2 comdat align 2 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -349,36 +362,36 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod10SparseViewC2ERmS3_S3_RPiS5_RP
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store ptr %4, ptr %13, align 8
-  store ptr %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  store ptr %7, ptr %16, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !23
+  store ptr %1, ptr %10, align 8, !tbaa !54
+  store ptr %2, ptr %11, align 8, !tbaa !54
+  store ptr %3, ptr %12, align 8, !tbaa !54
+  store ptr %4, ptr %13, align 8, !tbaa !55
+  store ptr %5, ptr %14, align 8, !tbaa !55
+  store ptr %6, ptr %15, align 8, !tbaa !56
+  store ptr %7, ptr %16, align 8, !tbaa !54
   %17 = load ptr, ptr %9, align 8
   %18 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %10, align 8
-  store ptr %19, ptr %18, align 8
+  %19 = load ptr, ptr %10, align 8, !tbaa !54
+  store ptr %19, ptr %18, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %17, i32 0, i32 1
-  %21 = load ptr, ptr %11, align 8
-  store ptr %21, ptr %20, align 8
+  %21 = load ptr, ptr %11, align 8, !tbaa !54
+  store ptr %21, ptr %20, align 8, !tbaa !54
   %22 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %17, i32 0, i32 2
-  %23 = load ptr, ptr %12, align 8
-  store ptr %23, ptr %22, align 8
+  %23 = load ptr, ptr %12, align 8, !tbaa !54
+  store ptr %23, ptr %22, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %17, i32 0, i32 3
-  %25 = load ptr, ptr %13, align 8
-  store ptr %25, ptr %24, align 8
+  %25 = load ptr, ptr %13, align 8, !tbaa !55
+  store ptr %25, ptr %24, align 8, !tbaa !55
   %26 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %17, i32 0, i32 4
-  %27 = load ptr, ptr %14, align 8
-  store ptr %27, ptr %26, align 8
+  %27 = load ptr, ptr %14, align 8, !tbaa !55
+  store ptr %27, ptr %26, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %17, i32 0, i32 5
-  %29 = load ptr, ptr %15, align 8
-  store ptr %29, ptr %28, align 8
+  %29 = load ptr, ptr %15, align 8, !tbaa !56
+  store ptr %29, ptr %28, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::SparseView", ptr %17, i32 0, i32 6
-  %31 = load ptr, ptr %16, align 8
-  store ptr %31, ptr %30, align 8
+  %31 = load ptr, ptr %16, align 8, !tbaa !54
+  store ptr %31, ptr %30, align 8, !tbaa !54
   ret void
 }
 
@@ -386,57 +399,59 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod10SparseViewC2ERmS3_S3_RPiS5_RP
 define void @_ZN3g2o7cholmod7Cholmod6factorEv(ptr dead_on_unwind noalias writable sret(%"struct.g2o::cholmod::Cholmod::FactorView") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !3
   %5 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %6 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %5, i32 0, i32 0
-  %7 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  %7 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
   %8 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %4, align 8
-  %10 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
+  store ptr %9, ptr %4, align 8, !tbaa !57
+  %10 = load ptr, ptr %4, align 8, !tbaa !57
   %11 = getelementptr inbounds nuw %struct.cholmod_factor_struct, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !57
   %13 = getelementptr inbounds nuw %struct.cholmod_factor_struct, ptr %12, i32 0, i32 6
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw %struct.cholmod_factor_struct, ptr %14, i32 0, i32 7
-  %16 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %4, align 8, !tbaa !57
   %17 = getelementptr inbounds nuw %struct.cholmod_factor_struct, ptr %16, i32 0, i32 8
-  %18 = load ptr, ptr %4, align 8
+  %18 = load ptr, ptr %4, align 8, !tbaa !57
   %19 = getelementptr inbounds nuw %struct.cholmod_factor_struct, ptr %18, i32 0, i32 2
   call void @_ZN3g2o7cholmod7Cholmod10FactorViewC2ERmRPiS5_RPdS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o7cholmod7Cholmod10FactorViewC2ERmRPiS5_RPdS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZN3g2o7cholmod7Cholmod10FactorViewC2ERmRPiS5_RPdS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #2 comdat align 2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !58
+  store ptr %1, ptr %8, align 8, !tbaa !54
+  store ptr %2, ptr %9, align 8, !tbaa !55
+  store ptr %3, ptr %10, align 8, !tbaa !55
+  store ptr %4, ptr %11, align 8, !tbaa !56
+  store ptr %5, ptr %12, align 8, !tbaa !55
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::FactorView", ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %8, align 8
-  store ptr %15, ptr %14, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !54
+  store ptr %15, ptr %14, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::FactorView", ptr %13, i32 0, i32 1
-  %17 = load ptr, ptr %9, align 8
-  store ptr %17, ptr %16, align 8
+  %17 = load ptr, ptr %9, align 8, !tbaa !55
+  store ptr %17, ptr %16, align 8, !tbaa !55
   %18 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::FactorView", ptr %13, i32 0, i32 2
-  %19 = load ptr, ptr %10, align 8
-  store ptr %19, ptr %18, align 8
+  %19 = load ptr, ptr %10, align 8, !tbaa !55
+  store ptr %19, ptr %18, align 8, !tbaa !55
   %20 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::FactorView", ptr %13, i32 0, i32 3
-  %21 = load ptr, ptr %11, align 8
-  store ptr %21, ptr %20, align 8
+  %21 = load ptr, ptr %11, align 8, !tbaa !56
+  store ptr %21, ptr %20, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw %"struct.g2o::cholmod::Cholmod::FactorView", ptr %13, i32 0, i32 4
-  %23 = load ptr, ptr %12, align 8
-  store ptr %23, ptr %22, align 8
+  %23 = load ptr, ptr %12, align 8, !tbaa !55
+  store ptr %23, ptr %22, align 8, !tbaa !55
   ret void
 }
 
@@ -447,140 +462,144 @@ define void @_ZNK3g2o7cholmod7Cholmod5solveEPdS2_(ptr noundef nonnull align 8 de
   %6 = alloca ptr, align 8
   %7 = alloca %struct.cholmod_dense_struct, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !60
+  store ptr %2, ptr %6, align 8, !tbaa !60
   %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr %7) #10
   %10 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %9, i32 0, i32 0
-  %11 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  %11 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #10
   %12 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %11, i32 0, i32 1
   %13 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %12, i32 0, i32 0
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw %struct.cholmod_dense_struct, ptr %7, i32 0, i32 3
-  store i64 %14, ptr %15, align 8
+  store i64 %14, ptr %15, align 8, !tbaa !62
   %16 = getelementptr inbounds nuw %struct.cholmod_dense_struct, ptr %7, i32 0, i32 0
-  store i64 %14, ptr %16, align 8
+  store i64 %14, ptr %16, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw %struct.cholmod_dense_struct, ptr %7, i32 0, i32 1
-  store i64 1, ptr %17, align 8
-  %18 = load ptr, ptr %6, align 8
+  store i64 1, ptr %17, align 8, !tbaa !65
+  %18 = load ptr, ptr %6, align 8, !tbaa !60
   %19 = getelementptr inbounds nuw %struct.cholmod_dense_struct, ptr %7, i32 0, i32 4
-  store ptr %18, ptr %19, align 8
+  store ptr %18, ptr %19, align 8, !tbaa !66
   %20 = getelementptr inbounds nuw %struct.cholmod_dense_struct, ptr %7, i32 0, i32 6
-  store i32 1, ptr %20, align 8
+  store i32 1, ptr %20, align 8, !tbaa !67
   %21 = getelementptr inbounds nuw %struct.cholmod_dense_struct, ptr %7, i32 0, i32 7
-  store i32 0, ptr %21, align 4
+  store i32 0, ptr %21, align 4, !tbaa !68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   %22 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %9, i32 0, i32 0
-  %23 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #8
+  %23 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #10
   %24 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %23, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %9, i32 0, i32 0
-  %27 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #8
+  %27 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %26) #10
   %28 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %27, i32 0, i32 0
   %29 = call ptr @cholmod_solve(i32 noundef 0, ptr noundef %25, ptr noundef %7, ptr noundef %28)
-  store ptr %29, ptr %8, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %8, align 8
+  store ptr %29, ptr %8, align 8, !tbaa !69
+  %30 = load ptr, ptr %5, align 8, !tbaa !60
+  %31 = load ptr, ptr %8, align 8, !tbaa !69
   %32 = getelementptr inbounds nuw %struct.cholmod_dense_struct, ptr %31, i32 0, i32 4
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !66
   %34 = getelementptr inbounds nuw %struct.cholmod_dense_struct, ptr %7, i32 0, i32 0
-  %35 = load i64, ptr %34, align 8
+  %35 = load i64, ptr %34, align 8, !tbaa !64
   %36 = mul i64 8, %35
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 1 %33, i64 %36, i1 false)
   %37 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %9, i32 0, i32 0
-  %38 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %37) #8
+  %38 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %37) #10
   %39 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %38, i32 0, i32 0
   %40 = call i32 @cholmod_free_dense(ptr noundef %8, ptr noundef %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 56, ptr %7) #10
   ret void
 }
 
-declare ptr @cholmod_solve(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @cholmod_solve(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @cholmod_free_dense(ptr noundef, ptr noundef) #2
+declare i32 @cholmod_free_dense(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod7analyzeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   %6 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %6, i32 0, i32 23
-  store i32 1, ptr %7, align 8
+  store i32 1, ptr %7, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %9 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #8
+  %9 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #10
   %10 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %9, i32 0, i32 0
   %11 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %10, i32 0, i32 26
   %12 = getelementptr inbounds [10 x %"struct.cholmod_common_struct::cholmod_method_struct"], ptr %11, i64 0, i64 0
   %13 = getelementptr inbounds nuw %"struct.cholmod_common_struct::cholmod_method_struct", ptr %12, i32 0, i32 13
-  store i32 2, ptr %13, align 4
+  store i32 2, ptr %13, align 4, !tbaa !72
   %14 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %15 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #8
+  %15 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #10
   %16 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %15, i32 0, i32 1
   %17 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %18 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #8
+  %18 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #10
   %19 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %18, i32 0, i32 0
   %20 = call ptr @cholmod_analyze(ptr noundef %16, ptr noundef %19)
   %21 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %22 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #8
+  %22 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #10
   %23 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %22, i32 0, i32 2
-  store ptr %20, ptr %23, align 8
+  store ptr %20, ptr %23, align 8, !tbaa !14
   ret i1 true
 }
 
-declare ptr @cholmod_analyze(ptr noundef, ptr noundef) #2
+declare ptr @cholmod_analyze(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9analyze_pEPi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !25
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %5, i32 0, i32 0
-  %7 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  %7 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
   %8 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %7, i32 0, i32 0
   %9 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %8, i32 0, i32 23
-  store i32 1, ptr %9, align 8
+  store i32 1, ptr %9, align 8, !tbaa !71
   %10 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %5, i32 0, i32 0
-  %11 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  %11 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #10
   %12 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %11, i32 0, i32 0
   %13 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %12, i32 0, i32 26
   %14 = getelementptr inbounds [10 x %"struct.cholmod_common_struct::cholmod_method_struct"], ptr %13, i64 0, i64 0
   %15 = getelementptr inbounds nuw %"struct.cholmod_common_struct::cholmod_method_struct", ptr %14, i32 0, i32 13
-  store i32 1, ptr %15, align 4
+  store i32 1, ptr %15, align 4, !tbaa !72
   %16 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %5, i32 0, i32 0
-  %17 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #8
+  %17 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #10
   %18 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %5, i32 0, i32 0
-  %21 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #8
+  %21 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #10
   %22 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %21, i32 0, i32 0
   %23 = call ptr @cholmod_analyze_p(ptr noundef %18, ptr noundef %19, ptr noundef null, i64 noundef 0, ptr noundef %22)
   %24 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %5, i32 0, i32 0
-  %25 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #8
+  %25 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #10
   %26 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %25, i32 0, i32 2
-  store ptr %23, ptr %26, align 8
+  store ptr %23, ptr %26, align 8, !tbaa !14
   ret i1 true
 }
 
-declare ptr @cholmod_analyze_p(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare ptr @cholmod_analyze_p(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3g2o7cholmod7Cholmod10choleskyNzEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 align 2 {
+define noundef i32 @_ZNK3g2o7cholmod7Cholmod10choleskyNzEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   %6 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %6, i32 0, i32 26
   %8 = getelementptr inbounds [10 x %"struct.cholmod_common_struct::cholmod_method_struct"], ptr %7, i64 0, i64 0
   %9 = getelementptr inbounds nuw %"struct.cholmod_common_struct::cholmod_method_struct", ptr %8, i32 0, i32 0
-  %10 = load double, ptr %9, align 8
+  %10 = load double, ptr %9, align 8, !tbaa !74
   %11 = fptosi double %10 to i32
   ret i32 %11
 }
@@ -588,68 +607,70 @@ define noundef i32 @_ZNK3g2o7cholmod7Cholmod10choleskyNzEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9factorizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   %6 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %8 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
+  %8 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
   %9 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %12 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  %12 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #10
   %13 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %12, i32 0, i32 0
   %14 = call i32 @cholmod_factorize(ptr noundef %6, ptr noundef %10, ptr noundef %13)
   %15 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %3, i32 0, i32 0
-  %16 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #8
+  %16 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #10
   %17 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %16, i32 0, i32 0
   %18 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %17, i32 0, i32 43
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 4, !tbaa !75
   %20 = icmp eq i32 %19, 0
   ret i1 %20
 }
 
-declare i32 @cholmod_factorize(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @cholmod_factorize(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod14simplifyFactorEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
   %5 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %4, i32 0, i32 0
-  %6 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  %6 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
   %7 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %6, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod", ptr %4, i32 0, i32 0
-  %10 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
+  %10 = call noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #10
   %11 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %10, i32 0, i32 0
   %12 = call i32 @cholmod_change_factor(i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef %8, ptr noundef %11)
-  store i32 %12, ptr %3, align 4
-  %13 = load i32, ptr %3, align 4
+  store i32 %12, ptr %3, align 4, !tbaa !51
+  %13 = load i32, ptr %3, align 4, !tbaa !51
   %14 = icmp ne i32 %13, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
   ret i1 %14
 }
 
-declare i32 @cholmod_change_factor(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare i32 @cholmod_change_factor(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @cholmod_free_factor(ptr noundef, ptr noundef) #2
+declare i32 @cholmod_free_factor(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(2768) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 1
   call void @_ZN3g2o7cholmod10CholmodExtC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6)
   %7 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 2
-  store ptr null, ptr %7, align 8
+  store ptr null, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 0
   %9 = invoke i32 @cholmod_start(ptr noundef %8)
           to label %10 unwind label %19
@@ -657,15 +678,15 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4ImplC2Ev(ptr noundef nonnull a
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 0
   %12 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %11, i32 0, i32 23
-  store i32 1, ptr %12, align 8
+  store i32 1, ptr %12, align 8, !tbaa !71
   %13 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 0
   %14 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %13, i32 0, i32 26
   %15 = getelementptr inbounds [10 x %"struct.cholmod_common_struct::cholmod_method_struct"], ptr %14, i64 0, i64 0
   %16 = getelementptr inbounds nuw %"struct.cholmod_common_struct::cholmod_method_struct", ptr %15, i32 0, i32 13
-  store i32 2, ptr %16, align 4
+  store i32 2, ptr %16, align 4, !tbaa !72
   %17 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %5, i32 0, i32 0
   %18 = getelementptr inbounds nuw %struct.cholmod_common_struct, ptr %17, i32 0, i32 6
-  store i32 1, ptr %18, align 8
+  store i32 1, ptr %18, align 8, !tbaa !76
   ret void
 
 19:                                               ; preds = %1
@@ -675,7 +696,7 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4ImplC2Ev(ptr noundef nonnull a
   store ptr %21, ptr %3, align 8
   %22 = extractvalue { ptr, i32 } %20, 1
   store i32 %22, ptr %4, align 4
-  call void @_ZN3g2o7cholmod10CholmodExtD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #8
+  call void @_ZN3g2o7cholmod10CholmodExtD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #10
   br label %23
 
 23:                                               ; preds = %19
@@ -689,17 +710,17 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4ImplC2Ev(ptr noundef nonnull a
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEC2IS5_vEEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !12
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !12
   invoke void @_ZNSt15__uniq_ptr_dataIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
           to label %8 unwind label %9
 
@@ -710,113 +731,113 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14defau
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #10
+  call void @__clang_call_terminate(ptr %11) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o7cholmod10CholmodExtC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZN3g2o7cholmod10CholmodExtC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.g2o::cholmod::CholmodExt", ptr %3, i32 0, i32 1
-  store i64 0, ptr %4, align 8
+  store i64 0, ptr %4, align 8, !tbaa !77
   %5 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 2
-  store i64 0, ptr %5, align 8
+  store i64 0, ptr %5, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 0
-  store i64 0, ptr %6, align 8
+  store i64 0, ptr %6, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 1
-  store i64 0, ptr %7, align 8
+  store i64 0, ptr %7, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 3
-  store ptr null, ptr %8, align 8
+  store ptr null, ptr %8, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 4
-  store ptr null, ptr %9, align 8
+  store ptr null, ptr %9, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 5
-  store ptr null, ptr %10, align 8
+  store ptr null, ptr %10, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 6
-  store ptr null, ptr %11, align 8
+  store ptr null, ptr %11, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 7
-  store ptr null, ptr %12, align 8
+  store ptr null, ptr %12, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 8
-  store i32 1, ptr %13, align 8
+  store i32 1, ptr %13, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 9
-  store i32 0, ptr %14, align 4
+  store i32 0, ptr %14, align 4, !tbaa !47
   %15 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 10
-  store i32 1, ptr %15, align 8
+  store i32 1, ptr %15, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 11
-  store i32 0, ptr %16, align 4
+  store i32 0, ptr %16, align 4, !tbaa !48
   %17 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 12
-  store i32 1, ptr %17, align 8
+  store i32 1, ptr %17, align 8, !tbaa !49
   %18 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 13
-  store i32 1, ptr %18, align 4
+  store i32 1, ptr %18, align 4, !tbaa !50
   ret void
 }
 
-declare i32 @cholmod_start(ptr noundef) #2
+declare i32 @cholmod_start(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o7cholmod10CholmodExtD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZN3g2o7cholmod10CholmodExtD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 3
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
-  call void @_ZdaPv(ptr noundef %5) #9
+  call void @_ZdaPv(ptr noundef %5) #11
   br label %8
 
 8:                                                ; preds = %7, %1
   %9 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 3
-  store ptr null, ptr %9, align 8
+  store ptr null, ptr %9, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 6
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %8
-  call void @_ZdaPv(ptr noundef %11) #9
+  call void @_ZdaPv(ptr noundef %11) #11
   br label %14
 
 14:                                               ; preds = %13, %8
   %15 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 6
-  store ptr null, ptr %15, align 8
+  store ptr null, ptr %15, align 8, !tbaa !43
   %16 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 4
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %14
-  call void @_ZdaPv(ptr noundef %17) #9
+  call void @_ZdaPv(ptr noundef %17) #11
   br label %20
 
 20:                                               ; preds = %19, %14
   %21 = getelementptr inbounds nuw %struct.cholmod_sparse_struct, ptr %3, i32 0, i32 4
-  store ptr null, ptr %21, align 8
+  store ptr null, ptr %21, align 8, !tbaa !41
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) #5
+declare void @_ZdaPv(ptr noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZNSt15__uniq_ptr_dataIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_ELb1ELb1EECI2St15__uniq_ptr_implIS3_S5_EEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  store ptr %1, ptr %4, align 8, !tbaa !12
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
   call void @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
-  call void @_ZSt9terminatev() #10
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
+  call void @_ZSt9terminatev() #12
   unreachable
 }
 
@@ -825,24 +846,24 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !80
+  store ptr %1, ptr %4, align 8, !tbaa !12
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %5, i32 0, i32 0
-  call void @_ZNSt5tupleIJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES4_S6_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  store ptr %7, ptr %8, align 8
+  call void @_ZNSt5tupleIJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES4_S6_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %7 = load ptr, ptr %4, align 8, !tbaa !12
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  store ptr %7, ptr %8, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5tupleIJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES4_S6_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt5tupleIJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEEC2ILb1ETnNSt9enable_ifIXclsr17_TupleConstraintsIXT_ES4_S6_EE37__is_implicitly_default_constructibleEEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !82
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
@@ -854,24 +875,24 @@ define linkonce_odr void @_ZNSt5tupleIJPN3g2o7cholmod7Cholmod4ImplESt14default_d
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #10
+  call void @__clang_call_terminate(ptr %7) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !84
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -881,88 +902,88 @@ define linkonce_odr void @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !86
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !90
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZNSt10_Head_baseILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !92
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3g2o7cholmod7Cholmod4ImplEJSt14default_deleteIS3_EEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8, !tbaa !82
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3g2o7cholmod7Cholmod4ImplEJSt14default_deleteIS3_EEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3g2o7cholmod7Cholmod4ImplEJSt14default_deleteIS3_EEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3g2o7cholmod7Cholmod4ImplEJSt14default_deleteIS3_EEERT0_RSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE7_M_headERS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE11get_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNKSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #1 comdat align 2 {
+define linkonce_odr void @_ZNKSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEclEPS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !94
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  call void @_ZN3g2o7cholmod7Cholmod4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(2768) %5) #8
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 2768) #9
+  call void @_ZN3g2o7cholmod7Cholmod4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(2768) %5) #10
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 2768) #11
   br label %8
 
 8:                                                ; preds = %7, %2
@@ -970,54 +991,54 @@ define linkonce_odr void @_ZNKSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEclE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE10_M_deleterEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt3getILm1EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEJEERT0_RSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8, !tbaa !82
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEJEERT0_RSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEJEERT0_RSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat {
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZSt12__get_helperILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEJEERT0_RSt11_Tuple_implIXT_EJS6_DpT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEEE7_M_headERS6_(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !86
+  %3 = load ptr, ptr %2, align 8, !tbaa !86
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEEE7_M_headERS6_(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEEE7_M_headERS6_(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Tuple_implILm1EJSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEEE7_M_headERS6_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEELb1EE7_M_headERS6_(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !86
+  %3 = load ptr, ptr %2, align 8, !tbaa !86
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEELb1EE7_M_headERS6_(ptr noundef nonnull align 1 dereferenceable(1) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEELb1EE7_M_headERS6_(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt10_Head_baseILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEELb1EE7_M_headERS6_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !92
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(2768) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(2768) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv(ptr noundef nonnull align 8 dereferenceable(2768) %3)
           to label %4 unwind label %9
@@ -1029,91 +1050,185 @@ define linkonce_odr void @_ZN3g2o7cholmod7Cholmod4ImplD2Ev(ptr noundef nonnull a
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw %"class.g2o::cholmod::Cholmod::Impl", ptr %3, i32 0, i32 1
-  call void @_ZN3g2o7cholmod10CholmodExtD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #8
+  call void @_ZN3g2o7cholmod10CholmodExtD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #10
   ret void
 
 9:                                                ; preds = %4, %1
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #10
+  call void @__clang_call_terminate(ptr %11) #12
   unreachable
 }
 
-declare i32 @cholmod_finish(ptr noundef) #2
+declare i32 @cholmod_finish(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNKSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNKSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
-  %6 = load ptr, ptr %5, align 8
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3g2o7cholmod7Cholmod4ImplEJSt14default_deleteIS3_EEERKT0_RKSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8, !tbaa !82
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3g2o7cholmod7Cholmod4ImplEJSt14default_deleteIS3_EEERKT0_RKSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3g2o7cholmod7Cholmod4ImplEJSt14default_deleteIS3_EEERKT0_RKSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EPN3g2o7cholmod7Cholmod4ImplEJSt14default_deleteIS3_EEERKT0_RKSt11_Tuple_implIXT_EJS7_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE7_M_headERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE7_M_headERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE7_M_headERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE7_M_headERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  store ptr %0, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE7_M_headERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw %"struct.std::_Head_base.1", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { builtin allocsize(0) }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { builtin allocsize(0) }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
+attributes #12 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3g2o7cholmod7CholmodE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSSt10unique_ptrIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p2 _ZTSN3g2o7cholmod7Cholmod4ImplE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN3g2o7cholmod7Cholmod4ImplE", !5, i64 0}
+!14 = !{!15, !22, i64 2760}
+!15 = !{!"_ZTSN3g2o7cholmod7Cholmod4ImplE", !16, i64 0, !20, i64 2664, !22, i64 2760}
+!16 = !{!"_ZTS21cholmod_common_struct", !17, i64 0, !17, i64 8, !17, i64 16, !18, i64 24, !18, i64 32, !17, i64 40, !19, i64 48, !19, i64 52, !19, i64 56, !19, i64 60, !19, i64 64, !19, i64 68, !19, i64 72, !6, i64 80, !6, i64 104, !19, i64 128, !19, i64 132, !19, i64 136, !19, i64 140, !19, i64 144, !19, i64 148, !19, i64 152, !5, i64 160, !19, i64 168, !19, i64 172, !19, i64 176, !6, i64 184, !19, i64 1864, !19, i64 1868, !17, i64 1872, !17, i64 1880, !18, i64 1888, !18, i64 1896, !18, i64 1904, !18, i64 1912, !18, i64 1920, !5, i64 1928, !5, i64 1936, !5, i64 1944, !5, i64 1952, !19, i64 1960, !19, i64 1964, !19, i64 1968, !19, i64 1972, !17, i64 1976, !17, i64 1984, !17, i64 1992, !17, i64 2000, !18, i64 2008, !18, i64 2016, !18, i64 2024, !17, i64 2032, !17, i64 2040, !17, i64 2048, !17, i64 2056, !17, i64 2064, !19, i64 2072, !19, i64 2076, !17, i64 2080, !17, i64 2088, !19, i64 2096, !19, i64 2100, !17, i64 2104, !17, i64 2112, !17, i64 2120, !17, i64 2128, !17, i64 2136, !17, i64 2144, !17, i64 2152, !6, i64 2160, !19, i64 2240, !18, i64 2248, !17, i64 2256, !18, i64 2264, !17, i64 2272, !18, i64 2280, !19, i64 2288, !5, i64 2296, !6, i64 2304, !6, i64 2368, !5, i64 2392, !6, i64 2400, !5, i64 2464, !18, i64 2472, !5, i64 2480, !18, i64 2488, !18, i64 2496, !19, i64 2504, !17, i64 2512, !17, i64 2520, !17, i64 2528, !17, i64 2536, !17, i64 2544, !17, i64 2552, !17, i64 2560, !17, i64 2568, !17, i64 2576, !17, i64 2584, !17, i64 2592, !18, i64 2600, !18, i64 2608, !18, i64 2616, !18, i64 2624, !18, i64 2632, !18, i64 2640, !18, i64 2648, !18, i64 2656}
+!17 = !{!"double", !6, i64 0}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!"_ZTSN3g2o7cholmod10CholmodExtE", !21, i64 0, !18, i64 88}
+!21 = !{!"_ZTS21cholmod_sparse_struct", !18, i64 0, !18, i64 8, !18, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !19, i64 64, !19, i64 68, !19, i64 72, !19, i64 76, !19, i64 80, !19, i64 84}
+!22 = !{!"p1 _ZTS21cholmod_factor_struct", !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN3g2o7cholmod7Cholmod10SparseViewE", !5, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 int", !5, i64 0}
+!27 = !{!28, !29, i64 16}
+!28 = !{!"_ZTSN3g2o7cholmod7Cholmod10SparseViewE", !29, i64 0, !29, i64 8, !29, i64 16, !30, i64 24, !30, i64 32, !31, i64 40, !29, i64 48}
+!29 = !{!"p1 long", !5, i64 0}
+!30 = !{!"p2 int", !5, i64 0}
+!31 = !{!"p2 double", !5, i64 0}
+!32 = !{!18, !18, i64 0}
+!33 = !{!21, !18, i64 16}
+!34 = !{!28, !29, i64 0}
+!35 = !{!21, !18, i64 0}
+!36 = !{!28, !29, i64 8}
+!37 = !{!21, !18, i64 8}
+!38 = !{!28, !30, i64 24}
+!39 = !{!21, !5, i64 24}
+!40 = !{!28, !30, i64 32}
+!41 = !{!21, !5, i64 32}
+!42 = !{!21, !5, i64 40}
+!43 = !{!21, !5, i64 48}
+!44 = !{!21, !5, i64 56}
+!45 = !{!21, !19, i64 64}
+!46 = !{!21, !19, i64 72}
+!47 = !{!21, !19, i64 68}
+!48 = !{!21, !19, i64 76}
+!49 = !{!21, !19, i64 80}
+!50 = !{!21, !19, i64 84}
+!51 = !{!19, !19, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN3g2o7cholmod10CholmodExtE", !5, i64 0}
+!54 = !{!29, !29, i64 0}
+!55 = !{!30, !30, i64 0}
+!56 = !{!31, !31, i64 0}
+!57 = !{!22, !22, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN3g2o7cholmod7Cholmod10FactorViewE", !5, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 double", !5, i64 0}
+!62 = !{!63, !18, i64 24}
+!63 = !{!"_ZTS20cholmod_dense_struct", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !5, i64 32, !5, i64 40, !19, i64 48, !19, i64 52}
+!64 = !{!63, !18, i64 0}
+!65 = !{!63, !18, i64 8}
+!66 = !{!63, !5, i64 32}
+!67 = !{!63, !19, i64 48}
+!68 = !{!63, !19, i64 52}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTS20cholmod_dense_struct", !5, i64 0}
+!71 = !{!15, !19, i64 168}
+!72 = !{!73, !19, i64 132}
+!73 = !{!"_ZTSN21cholmod_common_struct21cholmod_method_structE", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !6, i64 40, !18, i64 72, !6, i64 80, !19, i64 112, !19, i64 116, !19, i64 120, !19, i64 124, !19, i64 128, !19, i64 132, !6, i64 136}
+!74 = !{!73, !17, i64 0}
+!75 = !{!15, !19, i64 1972}
+!76 = !{!15, !19, i64 48}
+!77 = !{!20, !18, i64 88}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 _ZTSSt15__uniq_ptr_dataIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_ELb1ELb1EE", !5, i64 0}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTSSt15__uniq_ptr_implIN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EE", !5, i64 0}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTSSt5tupleIJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE", !5, i64 0}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTSSt11_Tuple_implILm0EJPN3g2o7cholmod7Cholmod4ImplESt14default_deleteIS3_EEE", !5, i64 0}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTSSt11_Tuple_implILm1EJSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEEEE", !5, i64 0}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"p1 _ZTSSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE", !5, i64 0}
+!90 = !{!91, !13, i64 0}
+!91 = !{!"_ZTSSt10_Head_baseILm0EPN3g2o7cholmod7Cholmod4ImplELb0EE", !13, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTSSt10_Head_baseILm1ESt14default_deleteIN3g2o7cholmod7Cholmod4ImplEELb1EE", !5, i64 0}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTSSt14default_deleteIN3g2o7cholmod7Cholmod4ImplEE", !5, i64 0}

@@ -35,15 +35,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
 %"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
 %"struct.Eigen::internal::plain_array" = type { [3 x double] }
+%struct._Guard.18 = type { ptr }
 %"class.std::_Sp_counted_ptr" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.19" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.21" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.23" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.25" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.27" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.29" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.31" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.std::_Sp_counted_ptr.33" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.20" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.22" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.24" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.26" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.28" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.30" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.32" = type { %"class.std::_Sp_counted_base", ptr }
+%"class.std::_Sp_counted_ptr.34" = type { %"class.std::_Sp_counted_base", ptr }
 
 $_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev = comdat any
 
@@ -109,39 +110,23 @@ $_ZN3g2o22RobustKernelScaleDeltaD2Ev = comdat any
 
 $_ZN3g2o22RobustKernelScaleDeltaD0Ev = comdat any
 
-$_ZN3g2o17RobustKernelHuberD2Ev = comdat any
-
 $_ZN3g2o17RobustKernelHuberD0Ev = comdat any
-
-$_ZN3g2o23RobustKernelPseudoHuberD2Ev = comdat any
 
 $_ZN3g2o23RobustKernelPseudoHuberD0Ev = comdat any
 
-$_ZN3g2o18RobustKernelCauchyD2Ev = comdat any
-
 $_ZN3g2o18RobustKernelCauchyD0Ev = comdat any
-
-$_ZN3g2o24RobustKernelGemanMcClureD2Ev = comdat any
 
 $_ZN3g2o24RobustKernelGemanMcClureD0Ev = comdat any
 
-$_ZN3g2o18RobustKernelWelschD2Ev = comdat any
-
 $_ZN3g2o18RobustKernelWelschD0Ev = comdat any
-
-$_ZN3g2o16RobustKernelFairD2Ev = comdat any
 
 $_ZN3g2o16RobustKernelFairD0Ev = comdat any
 
-$_ZN3g2o17RobustKernelTukeyD2Ev = comdat any
-
 $_ZN3g2o17RobustKernelTukeyD0Ev = comdat any
-
-$_ZN3g2o21RobustKernelSaturatedD2Ev = comdat any
 
 $_ZN3g2o21RobustKernelSaturatedD0Ev = comdat any
 
-$_ZN3g2o15RobustKernelDCSD2Ev = comdat any
+$_ZN3g2o12RobustKernelD2Ev = comdat any
 
 $_ZN3g2o15RobustKernelDCSD0Ev = comdat any
 
@@ -155,6 +140,14 @@ $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv = com
 
 $__clang_call_terminate = comdat any
 
+$_ZN9__gnu_cxx21__atomic_add_dispatchEPii = comdat any
+
+$_ZN9__gnu_cxx20__is_single_threadedEv = comdat any
+
+$_ZN9__gnu_cxx19__atomic_add_singleEPii = comdat any
+
+$_ZN9__gnu_cxx12__atomic_addEPVii = comdat any
+
 $_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
 
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
@@ -165,23 +158,37 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_ = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv = comdat any
 
+$_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii = comdat any
+
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
+$_ZN9__gnu_cxx25__exchange_and_add_singleEPii = comdat any
+
+$_ZN9__gnu_cxx18__exchange_and_addEPVii = comdat any
+
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv = comdat any
-
-$_ZNSt10shared_ptrIN3g2o12RobustKernelEED2Ev = comdat any
-
-$_ZN3g2o12RobustKernelD2Ev = comdat any
 
 $_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
+
 $_ZNSt11char_traitsIcE6lengthEPKc = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
 
 $_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
 
@@ -192,6 +199,10 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 $_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
 
 $_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
 
 $_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv = comdat any
 
@@ -209,7 +220,7 @@ $_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_ = comd
 
 $_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEE8coeffRefEl = comdat any
 
-$_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev = comdat any
+$_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev = comdat any
 
 $_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEC2ERKS5_ = comdat any
 
@@ -219,29 +230,37 @@ $_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE4dataEv = comdat
 
 $_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEC2EPKdl = comdat any
 
-$_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev = comdat any
-
 $_ZNK5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv = comdat any
 
 $_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_ = comdat any
-
-$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEC2Ev = comdat any
 
 $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEEvEEPT_ = comdat any
 
-$_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev = comdat any
+$_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_ = comdat any
+
+$_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ = comdat any
 
 $_ZN3g2o27AbstractRobustKernelCreatorC2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEE9constructEv = comdat any
 
-$_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED2Ev = comdat any
-
 $_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED0Ev = comdat any
-
-$_ZN3g2o27AbstractRobustKernelCreatorD2Ev = comdat any
 
 $_ZN3g2o27AbstractRobustKernelCreatorD0Ev = comdat any
 
@@ -259,8 +278,6 @@ $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -269,21 +286,15 @@ $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info = comdat any
 
-$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv = comdat any
-
-$_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEC2Ev = comdat any
 
 $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEEvEEPT_ = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEE9constructEv = comdat any
-
-$_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED0Ev = comdat any
 
@@ -299,8 +310,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCrea
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -314,8 +323,6 @@ $_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEC2Ev = comdat any
 $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEEvEEPT_ = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEE9constructEv = comdat any
-
-$_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED0Ev = comdat any
 
@@ -331,8 +338,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCrea
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -346,8 +351,6 @@ $_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEC2Ev = comdat any
 $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEEvEEPT_ = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEE9constructEv = comdat any
-
-$_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED0Ev = comdat any
 
@@ -363,8 +366,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCrea
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -378,8 +379,6 @@ $_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEC2Ev = comdat any
 $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEEvEEPT_ = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEE9constructEv = comdat any
-
-$_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED0Ev = comdat any
 
@@ -395,8 +394,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCrea
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -410,8 +407,6 @@ $_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEC2Ev = comdat any
 $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_16RobustKernelFairEEEvEEPT_ = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEE9constructEv = comdat any
-
-$_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED0Ev = comdat any
 
@@ -427,8 +422,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCrea
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -442,8 +435,6 @@ $_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEC2Ev = comdat any
 $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEEvEEPT_ = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEE9constructEv = comdat any
-
-$_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED0Ev = comdat any
 
@@ -459,8 +450,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCrea
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -474,8 +463,6 @@ $_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEC2Ev = comdat any
 $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEEvEEPT_ = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEE9constructEv = comdat any
-
-$_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED0Ev = comdat any
 
@@ -491,8 +478,6 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCrea
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
-
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv = comdat any
@@ -507,7 +492,7 @@ $_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCrea
 
 $_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEE9constructEv = comdat any
 
-$_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED2Ev = comdat any
+$_ZN3g2o27AbstractRobustKernelCreatorD2Ev = comdat any
 
 $_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED0Ev = comdat any
 
@@ -523,7 +508,7 @@ $_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCrea
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_ = comdat any
 
-$_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
 
@@ -535,127 +520,127 @@ $_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9_
 
 $_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = comdat any
+$_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = comdat any
 
-$_ZTSN3g2o27AbstractRobustKernelCreatorE = comdat any
+$_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = comdat any
 
 $_ZTIN3g2o27AbstractRobustKernelCreatorE = comdat any
 
-$_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = comdat any
+$_ZTSN3g2o27AbstractRobustKernelCreatorE = comdat any
 
 $_ZTVN3g2o27AbstractRobustKernelCreatorE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
+$_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
 $_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
-$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+$_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = comdat any
-
 $_ZTIN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = comdat any
+
+$_ZTSN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = comdat any
-
 $_ZTIN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = comdat any
+
+$_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = comdat any
-
 $_ZTIN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = comdat any
+
+$_ZTSN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = comdat any
-
 $_ZTIN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = comdat any
+
+$_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = comdat any
-
 $_ZTIN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = comdat any
+
+$_ZTSN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = comdat any
-
 $_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = comdat any
+
+$_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = comdat any
-
 $_ZTIN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = comdat any
+
+$_ZTSN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 $_ZTVN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = comdat any
 
-$_ZTSN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = comdat any
-
 $_ZTIN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = comdat any
+
+$_ZTSN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = comdat any
 
 $_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
-$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
-
 $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
+
+$_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 @_ZN5EigenL4lastE = internal global %"class.Eigen::symbolic::SymbolExpr" zeroinitializer, align 1
 @_ZN5EigenL6lastp1E = internal global %"class.Eigen::symbolic::AddExpr" zeroinitializer, align 1
@@ -682,102 +667,102 @@ $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9
 @.str.18 = private unnamed_addr constant [10 x i8] c"Saturated\00", align 1
 @_ZN3g2oL37g_robust_kernel_proxy_RobustKernelDCSE = internal global %"class.g2o::RegisterRobustKernelProxy.10" zeroinitializer, align 8
 @.str.20 = private unnamed_addr constant [4 x i8] c"DCS\00", align 1
+@_ZTIN3g2o22RobustKernelScaleDeltaE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o22RobustKernelScaleDeltaE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3g2o22RobustKernelScaleDeltaE = constant [31 x i8] c"N3g2o22RobustKernelScaleDeltaE\00", align 1
 @_ZTIN3g2o12RobustKernelE = external constant ptr
-@_ZTIN3g2o22RobustKernelScaleDeltaE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o22RobustKernelScaleDeltaE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o17RobustKernelHuberE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o17RobustKernelHuberE, ptr @_ZN3g2o17RobustKernelHuberD2Ev, ptr @_ZN3g2o17RobustKernelHuberD0Ev, ptr @_ZNK3g2o17RobustKernelHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o17RobustKernelHuberE = constant [26 x i8] c"N3g2o17RobustKernelHuberE\00", align 1
+@_ZTVN3g2o17RobustKernelHuberE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o17RobustKernelHuberE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o17RobustKernelHuberD0Ev, ptr @_ZNK3g2o17RobustKernelHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o17RobustKernelHuberE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o17RobustKernelHuberE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o23RobustKernelPseudoHuberE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o23RobustKernelPseudoHuberE, ptr @_ZN3g2o23RobustKernelPseudoHuberD2Ev, ptr @_ZN3g2o23RobustKernelPseudoHuberD0Ev, ptr @_ZNK3g2o23RobustKernelPseudoHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o23RobustKernelPseudoHuberE = constant [32 x i8] c"N3g2o23RobustKernelPseudoHuberE\00", align 1
+@_ZTSN3g2o17RobustKernelHuberE = constant [26 x i8] c"N3g2o17RobustKernelHuberE\00", align 1
+@_ZTVN3g2o23RobustKernelPseudoHuberE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o23RobustKernelPseudoHuberE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o23RobustKernelPseudoHuberD0Ev, ptr @_ZNK3g2o23RobustKernelPseudoHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o23RobustKernelPseudoHuberE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o23RobustKernelPseudoHuberE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o18RobustKernelCauchyE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o18RobustKernelCauchyE, ptr @_ZN3g2o18RobustKernelCauchyD2Ev, ptr @_ZN3g2o18RobustKernelCauchyD0Ev, ptr @_ZNK3g2o18RobustKernelCauchy9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o18RobustKernelCauchyE = constant [27 x i8] c"N3g2o18RobustKernelCauchyE\00", align 1
+@_ZTSN3g2o23RobustKernelPseudoHuberE = constant [32 x i8] c"N3g2o23RobustKernelPseudoHuberE\00", align 1
+@_ZTVN3g2o18RobustKernelCauchyE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o18RobustKernelCauchyE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o18RobustKernelCauchyD0Ev, ptr @_ZNK3g2o18RobustKernelCauchy9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o18RobustKernelCauchyE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o18RobustKernelCauchyE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o24RobustKernelGemanMcClureE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24RobustKernelGemanMcClureE, ptr @_ZN3g2o24RobustKernelGemanMcClureD2Ev, ptr @_ZN3g2o24RobustKernelGemanMcClureD0Ev, ptr @_ZNK3g2o24RobustKernelGemanMcClure9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o24RobustKernelGemanMcClureE = constant [33 x i8] c"N3g2o24RobustKernelGemanMcClureE\00", align 1
+@_ZTSN3g2o18RobustKernelCauchyE = constant [27 x i8] c"N3g2o18RobustKernelCauchyE\00", align 1
+@_ZTVN3g2o24RobustKernelGemanMcClureE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o24RobustKernelGemanMcClureE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o24RobustKernelGemanMcClureD0Ev, ptr @_ZNK3g2o24RobustKernelGemanMcClure9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o24RobustKernelGemanMcClureE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o24RobustKernelGemanMcClureE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o18RobustKernelWelschE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o18RobustKernelWelschE, ptr @_ZN3g2o18RobustKernelWelschD2Ev, ptr @_ZN3g2o18RobustKernelWelschD0Ev, ptr @_ZNK3g2o18RobustKernelWelsch9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o18RobustKernelWelschE = constant [27 x i8] c"N3g2o18RobustKernelWelschE\00", align 1
+@_ZTSN3g2o24RobustKernelGemanMcClureE = constant [33 x i8] c"N3g2o24RobustKernelGemanMcClureE\00", align 1
+@_ZTVN3g2o18RobustKernelWelschE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o18RobustKernelWelschE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o18RobustKernelWelschD0Ev, ptr @_ZNK3g2o18RobustKernelWelsch9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o18RobustKernelWelschE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o18RobustKernelWelschE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o16RobustKernelFairE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o16RobustKernelFairE, ptr @_ZN3g2o16RobustKernelFairD2Ev, ptr @_ZN3g2o16RobustKernelFairD0Ev, ptr @_ZNK3g2o16RobustKernelFair9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o16RobustKernelFairE = constant [25 x i8] c"N3g2o16RobustKernelFairE\00", align 1
+@_ZTSN3g2o18RobustKernelWelschE = constant [27 x i8] c"N3g2o18RobustKernelWelschE\00", align 1
+@_ZTVN3g2o16RobustKernelFairE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o16RobustKernelFairE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o16RobustKernelFairD0Ev, ptr @_ZNK3g2o16RobustKernelFair9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o16RobustKernelFairE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o16RobustKernelFairE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o17RobustKernelTukeyE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o17RobustKernelTukeyE, ptr @_ZN3g2o17RobustKernelTukeyD2Ev, ptr @_ZN3g2o17RobustKernelTukeyD0Ev, ptr @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o17RobustKernelTukeyE = constant [26 x i8] c"N3g2o17RobustKernelTukeyE\00", align 1
+@_ZTSN3g2o16RobustKernelFairE = constant [25 x i8] c"N3g2o16RobustKernelFairE\00", align 1
+@_ZTVN3g2o17RobustKernelTukeyE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o17RobustKernelTukeyE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o17RobustKernelTukeyD0Ev, ptr @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o17RobustKernelTukeyE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o17RobustKernelTukeyE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o21RobustKernelSaturatedE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o21RobustKernelSaturatedE, ptr @_ZN3g2o21RobustKernelSaturatedD2Ev, ptr @_ZN3g2o21RobustKernelSaturatedD0Ev, ptr @_ZNK3g2o21RobustKernelSaturated9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o21RobustKernelSaturatedE = constant [30 x i8] c"N3g2o21RobustKernelSaturatedE\00", align 1
+@_ZTSN3g2o17RobustKernelTukeyE = constant [26 x i8] c"N3g2o17RobustKernelTukeyE\00", align 1
+@_ZTVN3g2o21RobustKernelSaturatedE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o21RobustKernelSaturatedE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o21RobustKernelSaturatedD0Ev, ptr @_ZNK3g2o21RobustKernelSaturated9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o21RobustKernelSaturatedE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o21RobustKernelSaturatedE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
-@_ZTVN3g2o15RobustKernelDCSE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o15RobustKernelDCSE, ptr @_ZN3g2o15RobustKernelDCSD2Ev, ptr @_ZN3g2o15RobustKernelDCSD0Ev, ptr @_ZNK3g2o15RobustKernelDCS9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
-@_ZTSN3g2o15RobustKernelDCSE = constant [24 x i8] c"N3g2o15RobustKernelDCSE\00", align 1
+@_ZTSN3g2o21RobustKernelSaturatedE = constant [30 x i8] c"N3g2o21RobustKernelSaturatedE\00", align 1
+@_ZTVN3g2o15RobustKernelDCSE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o15RobustKernelDCSE, ptr @_ZN3g2o12RobustKernelD2Ev, ptr @_ZN3g2o15RobustKernelDCSD0Ev, ptr @_ZNK3g2o15RobustKernelDCS9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE, ptr @_ZN3g2o12RobustKernel8setDeltaEd] }, align 8
 @_ZTIN3g2o15RobustKernelDCSE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o15RobustKernelDCSE, ptr @_ZTIN3g2o12RobustKernelE }, align 8
+@_ZTSN3g2o15RobustKernelDCSE = constant [24 x i8] c"N3g2o15RobustKernelDCSE\00", align 1
 @__libc_single_threaded = external global i8, align 1
 @.str.22 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED0Ev] }, comdat, align 8
+@_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED0Ev] }, comdat, align 8
+@_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
 @_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = linkonce_odr constant [53 x i8] c"N3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE\00", comdat, align 1
+@_ZTIN3g2o27AbstractRobustKernelCreatorE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN3g2o27AbstractRobustKernelCreatorE = linkonce_odr constant [36 x i8] c"N3g2o27AbstractRobustKernelCreatorE\00", comdat, align 1
-@_ZTIN3g2o27AbstractRobustKernelCreatorE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
 @_ZTVN3g2o27AbstractRobustKernelCreatorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE, ptr @__cxa_pure_virtual, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o27AbstractRobustKernelCreatorD0Ev] }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [105 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
-@_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
-@_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [47 x i8] c"St11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
-@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [105 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [47 x i8] c"St11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @__cxa_pure_virtual, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @__cxa_pure_virtual] }, comdat, align 8
-@_ZTVN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED0Ev] }, comdat, align 8
-@_ZTSN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = linkonce_odr constant [59 x i8] c"N3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE\00", comdat, align 1
+@_ZTVN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [111 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE = linkonce_odr constant [59 x i8] c"N3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED0Ev] }, comdat, align 8
-@_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = linkonce_odr constant [54 x i8] c"N3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [111 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [106 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE = linkonce_odr constant [54 x i8] c"N3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED0Ev] }, comdat, align 8
-@_ZTSN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = linkonce_odr constant [60 x i8] c"N3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [106 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [112 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE = linkonce_odr constant [60 x i8] c"N3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED0Ev] }, comdat, align 8
-@_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = linkonce_odr constant [54 x i8] c"N3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [112 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [106 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE = linkonce_odr constant [54 x i8] c"N3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED0Ev] }, comdat, align 8
-@_ZTSN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = linkonce_odr constant [52 x i8] c"N3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [106 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [104 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE = linkonce_odr constant [52 x i8] c"N3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED0Ev] }, comdat, align 8
-@_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = linkonce_odr constant [53 x i8] c"N3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [104 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [105 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE = linkonce_odr constant [53 x i8] c"N3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED0Ev] }, comdat, align 8
-@_ZTSN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = linkonce_odr constant [57 x i8] c"N3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [105 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [109 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE = linkonce_odr constant [57 x i8] c"N3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
-@_ZTVN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEE9constructEv, ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED0Ev] }, comdat, align 8
-@_ZTSN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = linkonce_odr constant [51 x i8] c"N3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE\00", comdat, align 1
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [109 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTVN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE, ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEE9constructEv, ptr @_ZN3g2o27AbstractRobustKernelCreatorD2Ev, ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED0Ev] }, comdat, align 8
 @_ZTIN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE, ptr @_ZTIN3g2o27AbstractRobustKernelCreatorE }, comdat, align 8
-@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
-@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [103 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
+@_ZTSN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE = linkonce_odr constant [51 x i8] c"N3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE\00", comdat, align 1
+@_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
+@_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [103 x i8] c"St15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.21, ptr null }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_robust_kernel_impl.cpp, ptr null }]
 
 @_ZN3g2o22RobustKernelScaleDeltaC1ERKSt10shared_ptrINS_12RobustKernelEEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN3g2o22RobustKernelScaleDeltaC2ERKSt10shared_ptrINS_12RobustKernelEEd
@@ -786,124 +771,132 @@ $_ZTISt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
   call void @_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL4lastE)
+  %1 = call ptr @llvm.invariant.start.p0(i64 1, ptr @_ZN5EigenL4lastE)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
   call void @_ZNK5Eigen8internal8FixedIntILi1EEclEv(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3fixILi1EEE)
   call void @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL4lastE)
+  %1 = call ptr @llvm.invariant.start.p0(i64 2, ptr @_ZN5EigenL6lastp1E)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+define linkonce_odr void @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
   %2 = alloca %"class.Eigen::symbolic::AddExpr", align 1
   %3 = alloca ptr, align 8
   %4 = alloca %"class.Eigen::symbolic::ValueExpr", align 1
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
   %5 = load ptr, ptr %3, align 8
   %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #6
   call void @_ZN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @_ZN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEENS0_9ValueExprINS3_8FixedIntILi1EEEEEEC2ERKS5_RKS9_(ptr noundef nonnull align 1 dereferenceable(2) %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK5Eigen8internal8FixedIntILi1EEclEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
   call void @_ZN5Eigen8internal5all_tC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3allE)
+  %1 = call ptr @llvm.invariant.start.p0(i64 1, ptr @_ZN5EigenL3allE)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Eigen8internal5all_tC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.3() #0 section ".text.startup" {
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #5
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #6
   ret void
 }
 
-declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) #5
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o22RobustKernelScaleDeltaC2ERKSt10shared_ptrINS_12RobustKernelEEd(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, double noundef %2) unnamed_addr #2 align 2 {
+define void @_ZN3g2o22RobustKernelScaleDeltaC2ERKSt10shared_ptrINS_12RobustKernelEEd(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, double noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store double %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !14
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store double %2, ptr %6, align 8, !tbaa !18
   %7 = load ptr, ptr %4, align 8
-  %8 = load double, ptr %6, align 8
+  %8 = load double, ptr %6, align 8, !tbaa !18
   call void @_ZN3g2o12RobustKernelC2Ed(ptr noundef nonnull align 8 dereferenceable(16) %7, double noundef %8)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o22RobustKernelScaleDeltaE, i32 0, i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o22RobustKernelScaleDeltaE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw %"class.g2o::RobustKernelScaleDelta", ptr %7, i32 0, i32 1
-  %10 = load ptr, ptr %5, align 8
-  call void @_ZNSt10shared_ptrIN3g2o12RobustKernelEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !16
+  call void @_ZNSt10shared_ptrIN3g2o12RobustKernelEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #6
   ret void
 }
 
-declare void @_ZN3g2o12RobustKernelC2Ed(ptr noundef nonnull align 8 dereferenceable(16), double noundef) unnamed_addr #3
+declare void @_ZN3g2o12RobustKernelC2Ed(ptr noundef nonnull align 8 dereferenceable(16), double noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN3g2o12RobustKernelEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #5
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o22RobustKernelScaleDeltaC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1) unnamed_addr #2 align 2 {
+define void @_ZN3g2o22RobustKernelScaleDeltaC2Ed(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1) unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  store double %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store double %1, ptr %4, align 8, !tbaa !18
   %5 = load ptr, ptr %3, align 8
-  %6 = load double, ptr %4, align 8
+  %6 = load double, ptr %4, align 8, !tbaa !18
   call void @_ZN3g2o12RobustKernelC2Ed(ptr noundef nonnull align 8 dereferenceable(16) %5, double noundef %6)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o22RobustKernelScaleDeltaE, i32 0, i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o22RobustKernelScaleDeltaE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw %"class.g2o::RobustKernelScaleDelta", ptr %5, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o12RobustKernelEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt10shared_ptrIN3g2o12RobustKernelEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN3g2o12RobustKernelEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  call void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   ret void
 }
 
@@ -911,12 +904,12 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3g2o12RobustKernelEEC2Ev(ptr nounde
 define void @_ZN3g2o22RobustKernelScaleDelta9setKernelERKSt10shared_ptrINS_12RobustKernelEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw %"class.g2o::RobustKernelScaleDelta", ptr %5, i32 0, i32 1
-  %8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3g2o12RobustKernelEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6) #5
+  %8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3g2o12RobustKernelEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6) #6
   ret void
 }
 
@@ -924,75 +917,79 @@ define void @_ZN3g2o22RobustKernelScaleDelta9setKernelERKSt10shared_ptrINS_12Rob
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3g2o12RobustKernelEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #5
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #6
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o22RobustKernelScaleDelta9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o22RobustKernelScaleDelta9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !14
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds nuw %"class.g2o::RobustKernelScaleDelta", ptr %9, i32 0, i32 1
-  %11 = call noundef ptr @_ZNKSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #5
+  %11 = call noundef ptr @_ZNKSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #6
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %14 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %9, i32 0, i32 1
-  %15 = load double, ptr %14, align 8
+  %15 = load double, ptr %14, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %9, i32 0, i32 1
-  %17 = load double, ptr %16, align 8
+  %17 = load double, ptr %16, align 8, !tbaa !24
   %18 = fmul double %15, %17
-  store double %18, ptr %7, align 8
-  %19 = load double, ptr %7, align 8
+  store double %18, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %19 = load double, ptr %7, align 8, !tbaa !18
   %20 = fdiv double 1.000000e+00, %19
-  store double %20, ptr %8, align 8
+  store double %20, ptr %8, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw %"class.g2o::RobustKernelScaleDelta", ptr %9, i32 0, i32 1
-  %22 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %21) #5
-  %23 = load double, ptr %8, align 8
-  %24 = load double, ptr %5, align 8
+  %22 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %21) #6
+  %23 = load double, ptr %8, align 8, !tbaa !18
+  %24 = load double, ptr %5, align 8, !tbaa !18
   %25 = fmul double %23, %24
-  %26 = load ptr, ptr %6, align 8
-  %27 = load ptr, ptr %22, align 8
+  %26 = load ptr, ptr %6, align 8, !tbaa !22
+  %27 = load ptr, ptr %22, align 8, !tbaa !20
   %28 = getelementptr inbounds ptr, ptr %27, i64 2
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %22, double noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %26)
-  %30 = load double, ptr %7, align 8
-  %31 = load ptr, ptr %6, align 8
+  %30 = load double, ptr %7, align 8, !tbaa !18
+  %31 = load ptr, ptr %6, align 8, !tbaa !22
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %31, i64 noundef 0)
-  %33 = load double, ptr %32, align 8
+  %33 = load double, ptr %32, align 8, !tbaa !18
   %34 = fmul double %33, %30
-  store double %34, ptr %32, align 8
-  %35 = load double, ptr %8, align 8
-  %36 = load ptr, ptr %6, align 8
+  store double %34, ptr %32, align 8, !tbaa !18
+  %35 = load double, ptr %8, align 8, !tbaa !18
+  %36 = load ptr, ptr %6, align 8, !tbaa !22
   %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %36, i64 noundef 2)
-  %38 = load double, ptr %37, align 8
+  %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = fmul double %38, %35
-  store double %39, ptr %37, align 8
+  store double %39, ptr %37, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   br label %48
 
 40:                                               ; preds = %3
-  %41 = load double, ptr %5, align 8
-  %42 = load ptr, ptr %6, align 8
+  %41 = load double, ptr %5, align 8, !tbaa !18
+  %42 = load ptr, ptr %6, align 8, !tbaa !22
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %42, i64 noundef 0)
-  store double %41, ptr %43, align 8
-  %44 = load ptr, ptr %6, align 8
+  store double %41, ptr %43, align 8, !tbaa !18
+  %44 = load ptr, ptr %6, align 8, !tbaa !22
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %44, i64 noundef 1)
-  store double 1.000000e+00, ptr %45, align 8
-  %46 = load ptr, ptr %6, align 8
+  store double 1.000000e+00, ptr %45, align 8, !tbaa !18
+  %46 = load ptr, ptr %6, align 8, !tbaa !22
   %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %46, i64 noundef 2)
-  store double 0.000000e+00, ptr %47, align 8
+  store double 0.000000e+00, ptr %47, align 8, !tbaa !18
   br label %48
 
 48:                                               ; preds = %40, %13
@@ -1002,113 +999,123 @@ define void @_ZNK3g2o22RobustKernelScaleDelta9robustifyEdRN5Eigen6MatrixIdLi3ELi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   ret ptr %5
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
+  %4 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i64 %1, ptr %4, align 8, !tbaa !37
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !37
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EE8coeffRefEl(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6)
   ret ptr %7
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o17RobustKernelHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o17RobustKernelHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !39
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %10 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %9, i32 0, i32 1
-  %11 = load double, ptr %10, align 8
+  %11 = load double, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %9, i32 0, i32 1
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !24
   %14 = fmul double %11, %13
-  store double %14, ptr %7, align 8
-  %15 = load double, ptr %5, align 8
-  %16 = load double, ptr %7, align 8
+  store double %14, ptr %7, align 8, !tbaa !18
+  %15 = load double, ptr %5, align 8, !tbaa !18
+  %16 = load double, ptr %7, align 8, !tbaa !18
   %17 = fcmp ole double %15, %16
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %3
-  %19 = load double, ptr %5, align 8
-  %20 = load ptr, ptr %6, align 8
+  %19 = load double, ptr %5, align 8, !tbaa !18
+  %20 = load ptr, ptr %6, align 8, !tbaa !22
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %20, i64 noundef 0)
-  store double %19, ptr %21, align 8
-  %22 = load ptr, ptr %6, align 8
+  store double %19, ptr %21, align 8, !tbaa !18
+  %22 = load ptr, ptr %6, align 8, !tbaa !22
   %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %22, i64 noundef 1)
-  store double 1.000000e+00, ptr %23, align 8
-  %24 = load ptr, ptr %6, align 8
+  store double 1.000000e+00, ptr %23, align 8, !tbaa !18
+  %24 = load ptr, ptr %6, align 8, !tbaa !22
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %24, i64 noundef 2)
-  store double 0.000000e+00, ptr %25, align 8
+  store double 0.000000e+00, ptr %25, align 8, !tbaa !18
   br label %52
 
 26:                                               ; preds = %3
-  %27 = load double, ptr %5, align 8
-  %28 = call double @sqrt(double noundef %27) #5
-  store double %28, ptr %8, align 8
-  %29 = load double, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %27 = load double, ptr %5, align 8, !tbaa !18
+  %28 = call double @sqrt(double noundef %27) #6, !tbaa !41
+  store double %28, ptr %8, align 8, !tbaa !18
+  %29 = load double, ptr %8, align 8, !tbaa !18
   %30 = fmul double 2.000000e+00, %29
   %31 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %9, i32 0, i32 1
-  %32 = load double, ptr %31, align 8
-  %33 = load double, ptr %7, align 8
+  %32 = load double, ptr %31, align 8, !tbaa !24
+  %33 = load double, ptr %7, align 8, !tbaa !18
   %34 = fneg double %33
   %35 = call double @llvm.fmuladd.f64(double %30, double %32, double %34)
-  %36 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %6, align 8, !tbaa !22
   %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %36, i64 noundef 0)
-  store double %35, ptr %37, align 8
+  store double %35, ptr %37, align 8, !tbaa !18
   %38 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %9, i32 0, i32 1
-  %39 = load double, ptr %38, align 8
-  %40 = load double, ptr %8, align 8
+  %39 = load double, ptr %38, align 8, !tbaa !24
+  %40 = load double, ptr %8, align 8, !tbaa !18
   %41 = fdiv double %39, %40
-  %42 = load ptr, ptr %6, align 8
+  %42 = load ptr, ptr %6, align 8, !tbaa !22
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %42, i64 noundef 1)
-  store double %41, ptr %43, align 8
-  %44 = load ptr, ptr %6, align 8
+  store double %41, ptr %43, align 8, !tbaa !18
+  %44 = load ptr, ptr %6, align 8, !tbaa !22
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %44, i64 noundef 1)
-  %46 = load double, ptr %45, align 8
+  %46 = load double, ptr %45, align 8, !tbaa !18
   %47 = fmul double -5.000000e-01, %46
-  %48 = load double, ptr %5, align 8
+  %48 = load double, ptr %5, align 8, !tbaa !18
   %49 = fdiv double %47, %48
-  %50 = load ptr, ptr %6, align 8
+  %50 = load ptr, ptr %6, align 8, !tbaa !22
   %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %50, i64 noundef 2)
-  store double %49, ptr %51, align 8
+  store double %49, ptr %51, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
   br label %52
 
 52:                                               ; preds = %26, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #4
+declare double @sqrt(double noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o23RobustKernelPseudoHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o23RobustKernelPseudoHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
@@ -1116,220 +1123,242 @@ define void @_ZNK3g2o23RobustKernelPseudoHuber9robustifyEdRN5Eigen6MatrixIdLi3EL
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !43
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %12 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %11, i32 0, i32 1
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %11, i32 0, i32 1
-  %15 = load double, ptr %14, align 8
+  %15 = load double, ptr %14, align 8, !tbaa !24
   %16 = fmul double %13, %15
-  store double %16, ptr %7, align 8
-  %17 = load double, ptr %7, align 8
+  store double %16, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %17 = load double, ptr %7, align 8, !tbaa !18
   %18 = fdiv double 1.000000e+00, %17
-  store double %18, ptr %8, align 8
-  %19 = load double, ptr %8, align 8
-  %20 = load double, ptr %5, align 8
+  store double %18, ptr %8, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %19 = load double, ptr %8, align 8, !tbaa !18
+  %20 = load double, ptr %5, align 8, !tbaa !18
   %21 = call double @llvm.fmuladd.f64(double %19, double %20, double 1.000000e+00)
-  store double %21, ptr %9, align 8
-  %22 = load double, ptr %9, align 8
-  %23 = call double @sqrt(double noundef %22) #5
-  store double %23, ptr %10, align 8
-  %24 = load double, ptr %7, align 8
+  store double %21, ptr %9, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %22 = load double, ptr %9, align 8, !tbaa !18
+  %23 = call double @sqrt(double noundef %22) #6, !tbaa !41
+  store double %23, ptr %10, align 8, !tbaa !18
+  %24 = load double, ptr %7, align 8, !tbaa !18
   %25 = fmul double 2.000000e+00, %24
-  %26 = load double, ptr %10, align 8
+  %26 = load double, ptr %10, align 8, !tbaa !18
   %27 = fsub double %26, 1.000000e+00
   %28 = fmul double %25, %27
-  %29 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %6, align 8, !tbaa !22
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %29, i64 noundef 0)
-  store double %28, ptr %30, align 8
-  %31 = load double, ptr %10, align 8
+  store double %28, ptr %30, align 8, !tbaa !18
+  %31 = load double, ptr %10, align 8, !tbaa !18
   %32 = fdiv double 1.000000e+00, %31
-  %33 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %6, align 8, !tbaa !22
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %33, i64 noundef 1)
-  store double %32, ptr %34, align 8
-  %35 = load double, ptr %8, align 8
+  store double %32, ptr %34, align 8, !tbaa !18
+  %35 = load double, ptr %8, align 8, !tbaa !18
   %36 = fmul double -5.000000e-01, %35
-  %37 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %6, align 8, !tbaa !22
   %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %37, i64 noundef 1)
-  %39 = load double, ptr %38, align 8
+  %39 = load double, ptr %38, align 8, !tbaa !18
   %40 = fmul double %36, %39
-  %41 = load double, ptr %9, align 8
+  %41 = load double, ptr %9, align 8, !tbaa !18
   %42 = fdiv double %40, %41
-  %43 = load ptr, ptr %6, align 8
+  %43 = load ptr, ptr %6, align 8, !tbaa !22
   %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %43, i64 noundef 2)
-  store double %42, ptr %44, align 8
+  store double %42, ptr %44, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o18RobustKernelCauchy9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o18RobustKernelCauchy9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !45
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %11 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %10, i32 0, i32 1
-  %12 = load double, ptr %11, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %10, i32 0, i32 1
-  %14 = load double, ptr %13, align 8
+  %14 = load double, ptr %13, align 8, !tbaa !24
   %15 = fmul double %12, %14
-  store double %15, ptr %7, align 8
-  %16 = load double, ptr %7, align 8
+  store double %15, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %16 = load double, ptr %7, align 8, !tbaa !18
   %17 = fdiv double 1.000000e+00, %16
-  store double %17, ptr %8, align 8
-  %18 = load double, ptr %8, align 8
-  %19 = load double, ptr %5, align 8
+  store double %17, ptr %8, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %18 = load double, ptr %8, align 8, !tbaa !18
+  %19 = load double, ptr %5, align 8, !tbaa !18
   %20 = call double @llvm.fmuladd.f64(double %18, double %19, double 1.000000e+00)
-  store double %20, ptr %9, align 8
-  %21 = load double, ptr %7, align 8
-  %22 = load double, ptr %9, align 8
-  %23 = call double @log(double noundef %22) #5
+  store double %20, ptr %9, align 8, !tbaa !18
+  %21 = load double, ptr %7, align 8, !tbaa !18
+  %22 = load double, ptr %9, align 8, !tbaa !18
+  %23 = call double @log(double noundef %22) #6, !tbaa !41
   %24 = fmul double %21, %23
-  %25 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %6, align 8, !tbaa !22
   %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %25, i64 noundef 0)
-  store double %24, ptr %26, align 8
-  %27 = load double, ptr %9, align 8
+  store double %24, ptr %26, align 8, !tbaa !18
+  %27 = load double, ptr %9, align 8, !tbaa !18
   %28 = fdiv double 1.000000e+00, %27
-  %29 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %6, align 8, !tbaa !22
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %29, i64 noundef 1)
-  store double %28, ptr %30, align 8
-  %31 = load double, ptr %8, align 8
+  store double %28, ptr %30, align 8, !tbaa !18
+  %31 = load double, ptr %8, align 8, !tbaa !18
   %32 = fneg double %31
-  %33 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %6, align 8, !tbaa !22
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %33, i64 noundef 1)
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !18
   %36 = call noundef double @_ZSt3powIdiEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(double noundef %35, i32 noundef 2)
   %37 = fmul double %32, %36
-  %38 = load ptr, ptr %6, align 8
+  %38 = load ptr, ptr %6, align 8, !tbaa !22
   %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %38, i64 noundef 2)
-  store double %37, ptr %39, align 8
+  store double %37, ptr %39, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: nounwind
-declare double @log(double noundef) #4
+declare double @log(double noundef) #5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef double @_ZSt3powIdiEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(double noundef %0, i32 noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef double @_ZSt3powIdiEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(double noundef %0, i32 noundef %1) #9 comdat {
   %3 = alloca double, align 8
   %4 = alloca i32, align 4
-  store double %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load double, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  store double %0, ptr %3, align 8, !tbaa !18
+  store i32 %1, ptr %4, align 4, !tbaa !41
+  %5 = load double, ptr %3, align 8, !tbaa !18
+  %6 = load i32, ptr %4, align 4, !tbaa !41
   %7 = sitofp i32 %6 to double
-  %8 = call double @pow(double noundef %5, double noundef %7) #5
+  %8 = call double @pow(double noundef %5, double noundef %7) #6, !tbaa !41
   ret double %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o24RobustKernelGemanMcClure9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o24RobustKernelGemanMcClure9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !47
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %9 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %8, i32 0, i32 1
-  %10 = load double, ptr %9, align 8
-  %11 = load double, ptr %5, align 8
+  %10 = load double, ptr %9, align 8, !tbaa !24
+  %11 = load double, ptr %5, align 8, !tbaa !18
   %12 = fadd double %10, %11
   %13 = fdiv double 1.000000e+00, %12
-  store double %13, ptr %7, align 8
+  store double %13, ptr %7, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %8, i32 0, i32 1
-  %15 = load double, ptr %14, align 8
-  %16 = load double, ptr %5, align 8
+  %15 = load double, ptr %14, align 8, !tbaa !24
+  %16 = load double, ptr %5, align 8, !tbaa !18
   %17 = fmul double %15, %16
-  %18 = load double, ptr %7, align 8
+  %18 = load double, ptr %7, align 8, !tbaa !18
   %19 = fmul double %17, %18
-  %20 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8, !tbaa !22
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %20, i64 noundef 0)
-  store double %19, ptr %21, align 8
+  store double %19, ptr %21, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %8, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
+  %23 = load double, ptr %22, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %8, i32 0, i32 1
-  %25 = load double, ptr %24, align 8
+  %25 = load double, ptr %24, align 8, !tbaa !24
   %26 = fmul double %23, %25
-  %27 = load double, ptr %7, align 8
+  %27 = load double, ptr %7, align 8, !tbaa !18
   %28 = fmul double %26, %27
-  %29 = load double, ptr %7, align 8
+  %29 = load double, ptr %7, align 8, !tbaa !18
   %30 = fmul double %28, %29
-  %31 = load ptr, ptr %6, align 8
+  %31 = load ptr, ptr %6, align 8, !tbaa !22
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %31, i64 noundef 1)
-  store double %30, ptr %32, align 8
-  %33 = load ptr, ptr %6, align 8
+  store double %30, ptr %32, align 8, !tbaa !18
+  %33 = load ptr, ptr %6, align 8, !tbaa !22
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %33, i64 noundef 1)
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !18
   %36 = fmul double -2.000000e+00, %35
-  %37 = load double, ptr %7, align 8
+  %37 = load double, ptr %7, align 8, !tbaa !18
   %38 = fmul double %36, %37
-  %39 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %6, align 8, !tbaa !22
   %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %39, i64 noundef 2)
-  store double %38, ptr %40, align 8
+  store double %38, ptr %40, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o18RobustKernelWelsch9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o18RobustKernelWelsch9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !49
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %11 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %10, i32 0, i32 1
-  %12 = load double, ptr %11, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %10, i32 0, i32 1
-  %14 = load double, ptr %13, align 8
+  %14 = load double, ptr %13, align 8, !tbaa !24
   %15 = fmul double %12, %14
-  store double %15, ptr %7, align 8
-  %16 = load double, ptr %5, align 8
-  %17 = load double, ptr %7, align 8
+  store double %15, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %16 = load double, ptr %5, align 8, !tbaa !18
+  %17 = load double, ptr %7, align 8, !tbaa !18
   %18 = fdiv double %16, %17
-  store double %18, ptr %8, align 8
-  %19 = load double, ptr %8, align 8
+  store double %18, ptr %8, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %19 = load double, ptr %8, align 8, !tbaa !18
   %20 = fneg double %19
-  %21 = call double @exp(double noundef %20) #5
-  store double %21, ptr %9, align 8
-  %22 = load double, ptr %7, align 8
-  %23 = load double, ptr %9, align 8
+  %21 = call double @exp(double noundef %20) #6, !tbaa !41
+  store double %21, ptr %9, align 8, !tbaa !18
+  %22 = load double, ptr %7, align 8, !tbaa !18
+  %23 = load double, ptr %9, align 8, !tbaa !18
   %24 = fsub double 1.000000e+00, %23
   %25 = fmul double %22, %24
-  %26 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %6, align 8, !tbaa !22
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %26, i64 noundef 0)
-  store double %25, ptr %27, align 8
-  %28 = load double, ptr %9, align 8
-  %29 = load ptr, ptr %6, align 8
+  store double %25, ptr %27, align 8, !tbaa !18
+  %28 = load double, ptr %9, align 8, !tbaa !18
+  %29 = load ptr, ptr %6, align 8, !tbaa !22
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %29, i64 noundef 1)
-  store double %28, ptr %30, align 8
-  %31 = load double, ptr %9, align 8
+  store double %28, ptr %30, align 8, !tbaa !18
+  %31 = load double, ptr %9, align 8, !tbaa !18
   %32 = fneg double %31
-  %33 = load double, ptr %7, align 8
+  %33 = load double, ptr %7, align 8, !tbaa !18
   %34 = fdiv double %32, %33
-  %35 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %6, align 8, !tbaa !22
   %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %35, i64 noundef 2)
-  store double %34, ptr %36, align 8
+  store double %34, ptr %36, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: nounwind
-declare double @exp(double noundef) #4
+declare double @exp(double noundef) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o16RobustKernelFair9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o16RobustKernelFair9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
@@ -1339,300 +1368,324 @@ define void @_ZNK3g2o16RobustKernelFair9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0E
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   %12 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !51
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %13 = load ptr, ptr %4, align 8
-  %14 = load double, ptr %5, align 8
-  %15 = call double @sqrt(double noundef %14) #5
-  store double %15, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %14 = load double, ptr %5, align 8, !tbaa !18
+  %15 = call double @sqrt(double noundef %14) #6, !tbaa !41
+  store double %15, ptr %7, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %16 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %13, i32 0, i32 1
-  %17 = load double, ptr %16, align 8
+  %17 = load double, ptr %16, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %13, i32 0, i32 1
-  %19 = load double, ptr %18, align 8
+  %19 = load double, ptr %18, align 8, !tbaa !24
   %20 = fmul double %17, %19
-  store double %20, ptr %8, align 8
-  %21 = load double, ptr %7, align 8
+  store double %20, ptr %8, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %21 = load double, ptr %7, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %13, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
+  %23 = load double, ptr %22, align 8, !tbaa !24
   %24 = fdiv double %21, %23
-  store double %24, ptr %9, align 8
-  %25 = load double, ptr %8, align 8
+  store double %24, ptr %9, align 8, !tbaa !18
+  %25 = load double, ptr %8, align 8, !tbaa !18
   %26 = fmul double 2.000000e+00, %25
-  %27 = load double, ptr %9, align 8
-  %28 = load double, ptr %9, align 8
-  %29 = call double @log1p(double noundef %28) #5
+  %27 = load double, ptr %9, align 8, !tbaa !18
+  %28 = load double, ptr %9, align 8, !tbaa !18
+  %29 = call double @log1p(double noundef %28) #6, !tbaa !41
   %30 = fsub double %27, %29
   %31 = fmul double %26, %30
-  %32 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %6, align 8, !tbaa !22
   %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %32, i64 noundef 0)
-  store double %31, ptr %33, align 8
-  %34 = load double, ptr %9, align 8
+  store double %31, ptr %33, align 8, !tbaa !18
+  %34 = load double, ptr %9, align 8, !tbaa !18
   %35 = fadd double 1.000000e+00, %34
   %36 = fdiv double 1.000000e+00, %35
-  %37 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %6, align 8, !tbaa !22
   %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %37, i64 noundef 1)
-  store double %36, ptr %38, align 8
+  store double %36, ptr %38, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %39 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %13, i32 0, i32 1
-  %40 = load double, ptr %39, align 8
+  %40 = load double, ptr %39, align 8, !tbaa !24
   %41 = fdiv double 1.000000e+00, %40
-  store double %41, ptr %10, align 8
-  %42 = load double, ptr %7, align 8
-  %43 = load double, ptr %5, align 8
+  store double %41, ptr %10, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %42 = load double, ptr %7, align 8, !tbaa !18
+  %43 = load double, ptr %5, align 8, !tbaa !18
   %44 = fmul double %42, %43
   %45 = fdiv double 1.000000e+00, %44
-  store double %45, ptr %11, align 8
-  %46 = load double, ptr %10, align 8
-  %47 = load double, ptr %7, align 8
+  store double %45, ptr %11, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %46 = load double, ptr %10, align 8, !tbaa !18
+  %47 = load double, ptr %7, align 8, !tbaa !18
   %48 = call double @llvm.fmuladd.f64(double %46, double %47, double 1.000000e+00)
-  store double %48, ptr %12, align 8
-  %49 = load double, ptr %8, align 8
+  store double %48, ptr %12, align 8, !tbaa !18
+  %49 = load double, ptr %8, align 8, !tbaa !18
   %50 = fmul double 2.000000e+00, %49
-  %51 = load double, ptr %8, align 8
+  %51 = load double, ptr %8, align 8, !tbaa !18
   %52 = fmul double 4.000000e+00, %51
-  %53 = load double, ptr %12, align 8
+  %53 = load double, ptr %12, align 8, !tbaa !18
   %54 = fmul double %52, %53
-  %55 = load double, ptr %12, align 8
+  %55 = load double, ptr %12, align 8, !tbaa !18
   %56 = fmul double %54, %55
-  %57 = load double, ptr %5, align 8
+  %57 = load double, ptr %5, align 8, !tbaa !18
   %58 = fmul double %56, %57
   %59 = fdiv double 1.000000e+00, %58
-  %60 = load double, ptr %10, align 8
-  %61 = load double, ptr %11, align 8
+  %60 = load double, ptr %10, align 8, !tbaa !18
+  %61 = load double, ptr %11, align 8, !tbaa !18
   %62 = fmul double %60, %61
-  %63 = load double, ptr %12, align 8
+  %63 = load double, ptr %12, align 8, !tbaa !18
   %64 = fmul double 4.000000e+00, %63
   %65 = fdiv double %62, %64
   %66 = fadd double %59, %65
-  %67 = load double, ptr %10, align 8
-  %68 = load double, ptr %11, align 8
+  %67 = load double, ptr %10, align 8, !tbaa !18
+  %68 = load double, ptr %11, align 8, !tbaa !18
   %69 = fmul double %67, %68
   %70 = fdiv double %69, 4.000000e+00
   %71 = fsub double %66, %70
   %72 = fmul double %50, %71
-  %73 = load ptr, ptr %6, align 8
+  %73 = load ptr, ptr %6, align 8, !tbaa !22
   %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %73, i64 noundef 2)
-  store double %72, ptr %74, align 8
+  store double %72, ptr %74, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: nounwind
-declare double @log1p(double noundef) #4
+declare double @log1p(double noundef) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %10 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %9, i32 0, i32 1
-  %11 = load double, ptr %10, align 8
+  %11 = load double, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %9, i32 0, i32 1
-  %13 = load double, ptr %12, align 8
+  %13 = load double, ptr %12, align 8, !tbaa !24
   %14 = fmul double %11, %13
-  store double %14, ptr %7, align 8
-  %15 = load double, ptr %5, align 8
-  %16 = load double, ptr %7, align 8
+  store double %14, ptr %7, align 8, !tbaa !18
+  %15 = load double, ptr %5, align 8, !tbaa !18
+  %16 = load double, ptr %7, align 8, !tbaa !18
   %17 = fcmp ole double %15, %16
   br i1 %17, label %18, label %43
 
 18:                                               ; preds = %3
-  %19 = load double, ptr %5, align 8
-  %20 = load double, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %19 = load double, ptr %5, align 8, !tbaa !18
+  %20 = load double, ptr %7, align 8, !tbaa !18
   %21 = fdiv double %19, %20
-  store double %21, ptr %8, align 8
-  %22 = load double, ptr %7, align 8
-  %23 = load double, ptr %8, align 8
+  store double %21, ptr %8, align 8, !tbaa !18
+  %22 = load double, ptr %7, align 8, !tbaa !18
+  %23 = load double, ptr %8, align 8, !tbaa !18
   %24 = fsub double 1.000000e+00, %23
   %25 = call noundef double @_ZSt3powIdiEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(double noundef %24, i32 noundef 3)
   %26 = fsub double 1.000000e+00, %25
   %27 = fmul double %22, %26
   %28 = fdiv double %27, 3.000000e+00
-  %29 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %6, align 8, !tbaa !22
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %29, i64 noundef 0)
-  store double %28, ptr %30, align 8
-  %31 = load double, ptr %8, align 8
+  store double %28, ptr %30, align 8, !tbaa !18
+  %31 = load double, ptr %8, align 8, !tbaa !18
   %32 = fsub double 1.000000e+00, %31
   %33 = call noundef double @_ZSt3powIdiEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(double noundef %32, i32 noundef 2)
-  %34 = load ptr, ptr %6, align 8
+  %34 = load ptr, ptr %6, align 8, !tbaa !22
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %34, i64 noundef 1)
-  store double %33, ptr %35, align 8
-  %36 = load double, ptr %8, align 8
+  store double %33, ptr %35, align 8, !tbaa !18
+  %36 = load double, ptr %8, align 8, !tbaa !18
   %37 = fsub double 1.000000e+00, %36
   %38 = fmul double -2.000000e+00, %37
-  %39 = load double, ptr %7, align 8
+  %39 = load double, ptr %7, align 8, !tbaa !18
   %40 = fdiv double %38, %39
-  %41 = load ptr, ptr %6, align 8
+  %41 = load ptr, ptr %6, align 8, !tbaa !22
   %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %41, i64 noundef 2)
-  store double %40, ptr %42, align 8
+  store double %40, ptr %42, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
   br label %52
 
 43:                                               ; preds = %3
-  %44 = load double, ptr %7, align 8
+  %44 = load double, ptr %7, align 8, !tbaa !18
   %45 = fdiv double %44, 3.000000e+00
-  %46 = load ptr, ptr %6, align 8
+  %46 = load ptr, ptr %6, align 8, !tbaa !22
   %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %46, i64 noundef 0)
-  store double %45, ptr %47, align 8
-  %48 = load ptr, ptr %6, align 8
+  store double %45, ptr %47, align 8, !tbaa !18
+  %48 = load ptr, ptr %6, align 8, !tbaa !22
   %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %48, i64 noundef 1)
-  store double 0.000000e+00, ptr %49, align 8
-  %50 = load ptr, ptr %6, align 8
+  store double 0.000000e+00, ptr %49, align 8, !tbaa !18
+  %50 = load ptr, ptr %6, align 8, !tbaa !22
   %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %50, i64 noundef 2)
-  store double 0.000000e+00, ptr %51, align 8
+  store double 0.000000e+00, ptr %51, align 8, !tbaa !18
   br label %52
 
 52:                                               ; preds = %43, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o21RobustKernelSaturated9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o21RobustKernelSaturated9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !55
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %9 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %8, i32 0, i32 1
-  %10 = load double, ptr %9, align 8
+  %10 = load double, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %8, i32 0, i32 1
-  %12 = load double, ptr %11, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !24
   %13 = fmul double %10, %12
-  store double %13, ptr %7, align 8
-  %14 = load double, ptr %5, align 8
-  %15 = load double, ptr %7, align 8
+  store double %13, ptr %7, align 8, !tbaa !18
+  %14 = load double, ptr %5, align 8, !tbaa !18
+  %15 = load double, ptr %7, align 8, !tbaa !18
   %16 = fcmp ole double %14, %15
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %3
-  %18 = load double, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
+  %18 = load double, ptr %5, align 8, !tbaa !18
+  %19 = load ptr, ptr %6, align 8, !tbaa !22
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %19, i64 noundef 0)
-  store double %18, ptr %20, align 8
-  %21 = load ptr, ptr %6, align 8
+  store double %18, ptr %20, align 8, !tbaa !18
+  %21 = load ptr, ptr %6, align 8, !tbaa !22
   %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %21, i64 noundef 1)
-  store double 1.000000e+00, ptr %22, align 8
-  %23 = load ptr, ptr %6, align 8
+  store double 1.000000e+00, ptr %22, align 8, !tbaa !18
+  %23 = load ptr, ptr %6, align 8, !tbaa !22
   %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %23, i64 noundef 2)
-  store double 0.000000e+00, ptr %24, align 8
+  store double 0.000000e+00, ptr %24, align 8, !tbaa !18
   br label %33
 
 25:                                               ; preds = %3
-  %26 = load double, ptr %7, align 8
-  %27 = load ptr, ptr %6, align 8
+  %26 = load double, ptr %7, align 8, !tbaa !18
+  %27 = load ptr, ptr %6, align 8, !tbaa !22
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %27, i64 noundef 0)
-  store double %26, ptr %28, align 8
-  %29 = load ptr, ptr %6, align 8
+  store double %26, ptr %28, align 8, !tbaa !18
+  %29 = load ptr, ptr %6, align 8, !tbaa !22
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %29, i64 noundef 1)
-  store double 0.000000e+00, ptr %30, align 8
-  %31 = load ptr, ptr %6, align 8
+  store double 0.000000e+00, ptr %30, align 8, !tbaa !18
+  %31 = load ptr, ptr %6, align 8, !tbaa !22
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %31, i64 noundef 2)
-  store double 0.000000e+00, ptr %32, align 8
+  store double 0.000000e+00, ptr %32, align 8, !tbaa !18
   br label %33
 
 33:                                               ; preds = %25, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o15RobustKernelDCS9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK3g2o15RobustKernelDCS9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !57
+  store double %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !22
   %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %11 = getelementptr inbounds nuw %"class.g2o::RobustKernel", ptr %10, i32 0, i32 1
-  store ptr %11, ptr %7, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load double, ptr %12, align 8
+  store ptr %11, ptr %7, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %12 = load ptr, ptr %7, align 8, !tbaa !59
+  %13 = load double, ptr %12, align 8, !tbaa !18
   %14 = fmul double 2.000000e+00, %13
-  %15 = load ptr, ptr %7, align 8
-  %16 = load double, ptr %15, align 8
-  %17 = load double, ptr %5, align 8
+  %15 = load ptr, ptr %7, align 8, !tbaa !59
+  %16 = load double, ptr %15, align 8, !tbaa !18
+  %17 = load double, ptr %5, align 8, !tbaa !18
   %18 = fadd double %16, %17
   %19 = fdiv double %14, %18
-  store double %19, ptr %8, align 8
-  %20 = load double, ptr %8, align 8
+  store double %19, ptr %8, align 8, !tbaa !18
+  %20 = load double, ptr %8, align 8, !tbaa !18
   %21 = fcmp oge double %20, 1.000000e+00
   br i1 %21, label %22, label %30
 
 22:                                               ; preds = %3
-  %23 = load double, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
+  %23 = load double, ptr %5, align 8, !tbaa !18
+  %24 = load ptr, ptr %6, align 8, !tbaa !22
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %24, i64 noundef 0)
-  store double %23, ptr %25, align 8
-  %26 = load ptr, ptr %6, align 8
+  store double %23, ptr %25, align 8, !tbaa !18
+  %26 = load ptr, ptr %6, align 8, !tbaa !22
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %26, i64 noundef 1)
-  store double 1.000000e+00, ptr %27, align 8
-  %28 = load ptr, ptr %6, align 8
+  store double 1.000000e+00, ptr %27, align 8, !tbaa !18
+  %28 = load ptr, ptr %6, align 8, !tbaa !22
   %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %28, i64 noundef 2)
-  store double 0.000000e+00, ptr %29, align 8
+  store double 0.000000e+00, ptr %29, align 8, !tbaa !18
   br label %75
 
 30:                                               ; preds = %3
-  %31 = load ptr, ptr %7, align 8
-  %32 = load double, ptr %31, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = load double, ptr %33, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %31 = load ptr, ptr %7, align 8, !tbaa !59
+  %32 = load double, ptr %31, align 8, !tbaa !18
+  %33 = load ptr, ptr %7, align 8, !tbaa !59
+  %34 = load double, ptr %33, align 8, !tbaa !18
   %35 = fmul double %32, %34
-  store double %35, ptr %9, align 8
-  %36 = load double, ptr %8, align 8
-  %37 = load double, ptr %5, align 8
+  store double %35, ptr %9, align 8, !tbaa !18
+  %36 = load double, ptr %8, align 8, !tbaa !18
+  %37 = load double, ptr %5, align 8, !tbaa !18
   %38 = fmul double %36, %37
-  %39 = load double, ptr %8, align 8
+  %39 = load double, ptr %8, align 8, !tbaa !18
   %40 = fmul double %38, %39
-  %41 = load ptr, ptr %6, align 8
+  %41 = load ptr, ptr %6, align 8, !tbaa !22
   %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %41, i64 noundef 0)
-  store double %40, ptr %42, align 8
-  %43 = load double, ptr %9, align 8
+  store double %40, ptr %42, align 8, !tbaa !18
+  %43 = load double, ptr %9, align 8, !tbaa !18
   %44 = fmul double 4.000000e+00, %43
-  %45 = load ptr, ptr %7, align 8
-  %46 = load double, ptr %45, align 8
-  %47 = load double, ptr %5, align 8
+  %45 = load ptr, ptr %7, align 8, !tbaa !59
+  %46 = load double, ptr %45, align 8, !tbaa !18
+  %47 = load double, ptr %5, align 8, !tbaa !18
   %48 = fsub double %46, %47
   %49 = fmul double %44, %48
-  %50 = load ptr, ptr %7, align 8
-  %51 = load double, ptr %50, align 8
-  %52 = load double, ptr %5, align 8
+  %50 = load ptr, ptr %7, align 8, !tbaa !59
+  %51 = load double, ptr %50, align 8, !tbaa !18
+  %52 = load double, ptr %5, align 8, !tbaa !18
   %53 = fadd double %51, %52
   %54 = call noundef double @_ZSt3powIdiEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(double noundef %53, i32 noundef 3)
   %55 = fdiv double %49, %54
-  %56 = load ptr, ptr %6, align 8
+  %56 = load ptr, ptr %6, align 8, !tbaa !22
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %56, i64 noundef 1)
-  store double %55, ptr %57, align 8
-  %58 = load double, ptr %9, align 8
+  store double %55, ptr %57, align 8, !tbaa !18
+  %58 = load double, ptr %9, align 8, !tbaa !18
   %59 = fmul double 8.000000e+00, %58
-  %60 = load ptr, ptr %7, align 8
-  %61 = load double, ptr %60, align 8
-  %62 = load double, ptr %5, align 8
+  %60 = load ptr, ptr %7, align 8, !tbaa !59
+  %61 = load double, ptr %60, align 8, !tbaa !18
+  %62 = load double, ptr %5, align 8, !tbaa !18
   %63 = fneg double %62
   %64 = call double @llvm.fmuladd.f64(double 2.000000e+00, double %61, double %63)
   %65 = fmul double %59, %64
   %66 = fneg double %65
-  %67 = load ptr, ptr %7, align 8
-  %68 = load double, ptr %67, align 8
-  %69 = load double, ptr %5, align 8
+  %67 = load ptr, ptr %7, align 8, !tbaa !59
+  %68 = load double, ptr %67, align 8, !tbaa !18
+  %69 = load double, ptr %5, align 8, !tbaa !18
   %70 = fadd double %68, %69
   %71 = call noundef double @_ZSt3powIdiEN9__gnu_cxx9__promoteIDTplcvNS1_IT_Xsr3std12__is_integerIS2_EE7__valueEE6__typeELi0EcvNS1_IT0_Xsr3std12__is_integerIS5_EE7__valueEE6__typeELi0EEXsr3std12__is_integerIS8_EE7__valueEE6__typeES2_S5_(double noundef %70, i32 noundef 4)
   %72 = fdiv double %66, %71
-  %73 = load ptr, ptr %6, align 8
+  %73 = load ptr, ptr %6, align 8, !tbaa !22
   %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %73, i64 noundef 2)
-  store double %72, ptr %74, align 8
+  store double %72, ptr %74, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   br label %75
 
 75:                                               ; preds = %30, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
@@ -1647,7 +1700,9 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -1656,9 +1711,11 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelHuberEED2Ev, ptr @_ZN3g2oL39g_robust_kernel_proxy_RobustKernelHuberE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelHuberEED2Ev, ptr @_ZN3g2oL39g_robust_kernel_proxy_RobustKernelHuberE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -1677,11 +1734,13 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -1692,152 +1751,203 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" perso
   resume { ptr, i32 } %21
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #6
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !63
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !61
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  %14 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8, !tbaa !61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !65
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.22) #13
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.22) #21
           to label %17 unwind label %18
 
 17:                                               ; preds = %16
   unreachable
 
-18:                                               ; preds = %26, %22, %16
+18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %7, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #5
-  br label %31
+  br label %35
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %23 = load ptr, ptr %5, align 8, !tbaa !65
+  %24 = load ptr, ptr %5, align 8, !tbaa !65
   %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
-          to label %26 unwind label %18
+          to label %26 unwind label %31
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %23, i64 %25
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8, !tbaa !65
+  %28 = load ptr, ptr %5, align 8, !tbaa !65
+  %29 = load ptr, ptr %9, align 8, !tbaa !65
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
-          to label %30 unwind label %18
+          to label %30 unwind label %31
 
 30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret void
 
-31:                                               ; preds = %18
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+31:                                               ; preds = %26, %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  br label %35
+
+35:                                               ; preds = %31, %18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelHuberEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelHuberEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelHuberEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #23
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelHuberEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
@@ -1852,7 +1962,9 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" perso
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.6, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -1861,9 +1973,11 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" perso
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_23RobustKernelPseudoHuberEED2Ev, ptr @_ZN3g2oL45g_robust_kernel_proxy_RobustKernelPseudoHuberE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_23RobustKernelPseudoHuberEED2Ev, ptr @_ZN3g2oL45g_robust_kernel_proxy_RobustKernelPseudoHuberE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -1882,11 +1996,13 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" perso
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -1898,78 +2014,93 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" perso
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_23RobustKernelPseudoHuberEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_23RobustKernelPseudoHuberEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.3", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.3", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_23RobustKernelPseudoHuberEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_23RobustKernelPseudoHuberEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !69
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.3", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
@@ -1984,7 +2115,9 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -1993,9 +2126,11 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelCauchyEED2Ev, ptr @_ZN3g2oL40g_robust_kernel_proxy_RobustKernelCauchyE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelCauchyEED2Ev, ptr @_ZN3g2oL40g_robust_kernel_proxy_RobustKernelCauchyE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -2014,11 +2149,13 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -2030,78 +2167,93 @@ define internal void @__cxx_global_var_init.7() #0 section ".text.startup" perso
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelCauchyEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelCauchyEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !71
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.4", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.4", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelCauchyEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelCauchyEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !71
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.4", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
@@ -2116,7 +2268,9 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2125,9 +2279,11 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_24RobustKernelGemanMcClureEED2Ev, ptr @_ZN3g2oL46g_robust_kernel_proxy_RobustKernelGemanMcClureE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_24RobustKernelGemanMcClureEED2Ev, ptr @_ZN3g2oL46g_robust_kernel_proxy_RobustKernelGemanMcClureE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -2146,11 +2302,13 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -2162,78 +2320,93 @@ define internal void @__cxx_global_var_init.9() #0 section ".text.startup" perso
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_24RobustKernelGemanMcClureEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_24RobustKernelGemanMcClureEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.5", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.5", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_24RobustKernelGemanMcClureEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_24RobustKernelGemanMcClureEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !73
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.5", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
@@ -2248,7 +2421,9 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2257,9 +2432,11 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelWelschEED2Ev, ptr @_ZN3g2oL40g_robust_kernel_proxy_RobustKernelWelschE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelWelschEED2Ev, ptr @_ZN3g2oL40g_robust_kernel_proxy_RobustKernelWelschE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -2278,11 +2455,13 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -2294,78 +2473,93 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelWelschEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelWelschEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !75
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.6", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.6", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelWelschEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_18RobustKernelWelschEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !75
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.6", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
@@ -2380,7 +2574,9 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2389,9 +2585,11 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_16RobustKernelFairEED2Ev, ptr @_ZN3g2oL38g_robust_kernel_proxy_RobustKernelFairE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_16RobustKernelFairEED2Ev, ptr @_ZN3g2oL38g_robust_kernel_proxy_RobustKernelFairE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -2410,11 +2608,13 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -2426,78 +2626,93 @@ define internal void @__cxx_global_var_init.13() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_16RobustKernelFairEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_16RobustKernelFairEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !77
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.7", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.7", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_16RobustKernelFairEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_16RobustKernelFairEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_16RobustKernelFairEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.7", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
@@ -2512,7 +2727,9 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2521,9 +2738,11 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelTukeyEED2Ev, ptr @_ZN3g2oL39g_robust_kernel_proxy_RobustKernelTukeyE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelTukeyEED2Ev, ptr @_ZN3g2oL39g_robust_kernel_proxy_RobustKernelTukeyE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -2542,11 +2761,13 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -2558,78 +2779,93 @@ define internal void @__cxx_global_var_init.15() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelTukeyEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelTukeyEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !79
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.8", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.8", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelTukeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_17RobustKernelTukeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !79
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.8", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
@@ -2644,7 +2880,9 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2653,9 +2891,11 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_21RobustKernelSaturatedEED2Ev, ptr @_ZN3g2oL43g_robust_kernel_proxy_RobustKernelSaturatedE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_21RobustKernelSaturatedEED2Ev, ptr @_ZN3g2oL43g_robust_kernel_proxy_RobustKernelSaturatedE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -2674,11 +2914,13 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -2690,78 +2932,93 @@ define internal void @__cxx_global_var_init.17() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_21RobustKernelSaturatedEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_21RobustKernelSaturatedEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !81
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.9", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.9", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_21RobustKernelSaturatedEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_21RobustKernelSaturatedEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !81
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.9", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
@@ -2776,7 +3033,9 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" pers
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %2) #6
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %8
 
@@ -2785,9 +3044,11 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" pers
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
-  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_15RobustKernelDCSEED2Ev, ptr @_ZN3g2oL37g_robust_kernel_proxy_RobustKernelDCSE, ptr @__dso_handle) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
+  %7 = call i32 @__cxa_atexit(ptr @_ZN3g2o25RegisterRobustKernelProxyINS_15RobustKernelDCSEED2Ev, ptr @_ZN3g2oL37g_robust_kernel_proxy_RobustKernelDCSE, ptr @__dso_handle) #6
   ret void
 
 8:                                                ; preds = %0
@@ -2806,11 +3067,13 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" pers
   store ptr %14, ptr %3, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %4, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #6
   br label %16
 
 16:                                               ; preds = %12, %8
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #5
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %1) #6
   br label %17
 
 17:                                               ; preds = %16
@@ -2822,286 +3085,228 @@ define internal void @__cxx_global_var_init.19() #0 section ".text.startup" pers
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_15RobustKernelDCSEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_15RobustKernelDCSEEC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::shared_ptr.15", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !83
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.10", ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %10 = load ptr, ptr %4, align 8, !tbaa !63
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   %11 = invoke noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv()
           to label %12 unwind label %18
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.10", ptr %8, i32 0, i32 0
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #14
-          to label %15 unwind label %18
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #6
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #22
+          to label %15 unwind label %22
 
 15:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 8, i1 false)
-  call void @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #5
+  call void @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #6
   invoke void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-          to label %16 unwind label %18
+          to label %16 unwind label %22
 
 16:                                               ; preds = %15
   invoke void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %17 unwind label %22
+          to label %17 unwind label %26
 
 17:                                               ; preds = %16
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
   ret void
 
-18:                                               ; preds = %15, %12, %2
+18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %5, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %6, align 4
-  br label %26
+  br label %31
 
-22:                                               ; preds = %16
+22:                                               ; preds = %15, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = extractvalue { ptr, i32 } %23, 0
   store ptr %24, ptr %5, align 8
   %25 = extractvalue { ptr, i32 } %23, 1
   store i32 %25, ptr %6, align 4
-  call void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #5
-  br label %26
+  br label %30
 
-26:                                               ; preds = %22, %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #5
-  br label %27
+26:                                               ; preds = %16
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #6
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
-  resume { ptr, i32 } %31
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #6
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #6
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_15RobustKernelDCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_15RobustKernelDCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !83
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.g2o::RegisterRobustKernelProxy.10", ptr %3, i32 0, i32 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #6
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o22RobustKernelScaleDeltaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o22RobustKernelScaleDeltaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o22RobustKernelScaleDeltaE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o22RobustKernelScaleDeltaE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw %"class.g2o::RobustKernelScaleDelta", ptr %3, i32 0, i32 1
-  call void @_ZNSt10shared_ptrIN3g2o12RobustKernelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #5
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  call void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #6
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o22RobustKernelScaleDeltaD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o22RobustKernelScaleDeltaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 32) #24
+  ret void
+}
+
+declare void @_ZN3g2o12RobustKernel8setDeltaEd(ptr noundef nonnull align 8 dereferenceable(16), double noundef) unnamed_addr #4
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RobustKernelHuberD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o23RobustKernelPseudoHuberD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o18RobustKernelCauchyD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o24RobustKernelGemanMcClureD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o18RobustKernelWelschD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o16RobustKernelFairD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o17RobustKernelTukeyD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o21RobustKernelSaturatedD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o22RobustKernelScaleDeltaD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o22RobustKernelScaleDeltaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 32) #15
+  store ptr %0, ptr %2, align 8, !tbaa !85
   ret void
 }
 
-declare void @_ZN3g2o12RobustKernel8setDeltaEd(ptr noundef nonnull align 8 dereferenceable(16), double noundef) unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RobustKernelHuberD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o15RobustKernelDCSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RobustKernelHuberD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o17RobustKernelHuberD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o23RobustKernelPseudoHuberD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o23RobustKernelPseudoHuberD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o23RobustKernelPseudoHuberD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o18RobustKernelCauchyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o18RobustKernelCauchyD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o18RobustKernelCauchyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24RobustKernelGemanMcClureD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o24RobustKernelGemanMcClureD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o24RobustKernelGemanMcClureD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o18RobustKernelWelschD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o18RobustKernelWelschD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o18RobustKernelWelschD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o16RobustKernelFairD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o16RobustKernelFairD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o16RobustKernelFairD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RobustKernelTukeyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o17RobustKernelTukeyD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o17RobustKernelTukeyD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o21RobustKernelSaturatedD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o21RobustKernelSaturatedD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o21RobustKernelSaturatedD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o15RobustKernelDCSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o15RobustKernelDCSD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o15RobustKernelDCSD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #15
+  call void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #24
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.21() #0 section ".text.startup" {
   call void @_ZN5Eigen8internal8FixedIntILi1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3fixILi1EEE)
+  %1 = call ptr @llvm.invariant.start.p0(i64 1, ptr @_ZN5EigenL3fixILi1EEE)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Eigen8internal8FixedIntILi1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
@@ -3109,18 +3314,18 @@ define linkonce_odr void @_ZN5Eigen8internal8FixedIntILi1EEC2Ev(ptr noundef nonn
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  store ptr %9, ptr %6, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %11, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #5
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #6
   ret void
 }
 
@@ -3128,22 +3333,22 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12
 define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !86
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !86
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  store ptr %9, ptr %6, align 8, !tbaa !88
   %10 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %5, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !88
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %5, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !88
   invoke void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %16 unwind label %18
 
@@ -3157,63 +3362,24 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #16
+  call void @__clang_call_terminate(ptr %20) #23
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  store ptr %0, ptr %10, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %11, i32 0, i32 1
-  store ptr %12, ptr %8, align 8
-  store i32 1, ptr %9, align 4
-  %13 = load i8, ptr @__libc_single_threaded, align 1
-  %14 = icmp ne i8 %13, 0
-  br i1 %14, label %15, label %22
-
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %8, align 8
-  %17 = load i32, ptr %9, align 4
-  store ptr %16, ptr %6, align 8
-  store i32 %17, ptr %7, align 4
-  %18 = load i32, ptr %7, align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i32, ptr %19, align 4
-  %21 = add nsw i32 %20, %18
-  store i32 %21, ptr %19, align 4
-  br label %29
-
-22:                                               ; preds = %1
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i32, ptr %9, align 4
-  store ptr %23, ptr %2, align 8
-  store i32 %24, ptr %3, align 4
-  %25 = load ptr, ptr %2, align 8
-  %26 = load i32, ptr %3, align 4
-  store i32 %26, ptr %4, align 4
-  %27 = load i32, ptr %4, align 4
-  %28 = atomicrmw volatile add ptr %25, i32 %27 acq_rel, align 4
-  store i32 %28, ptr %5, align 4
-  br label %29
-
-29:                                               ; preds = %22, %15
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
+  call void @_ZN9__gnu_cxx21__atomic_add_dispatchEPii(ptr noundef %4, i32 noundef 1)
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #5
-  call void @_ZSt9terminatev() #16
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #6
+  call void @_ZSt9terminatev() #23
   unreachable
 }
 
@@ -3221,25 +3387,88 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx21__atomic_add_dispatchEPii(ptr noundef %0, i32 noundef %1) #11 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !90
+  store i32 %1, ptr %4, align 4, !tbaa !41
+  %5 = call noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #6
+  br i1 %5, label %6, label %9
+
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %3, align 8, !tbaa !90
+  %8 = load i32, ptr %4, align 4, !tbaa !41
+  call void @_ZN9__gnu_cxx19__atomic_add_singleEPii(ptr noundef %7, i32 noundef %8)
+  br label %12
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !90
+  %11 = load i32, ptr %4, align 4, !tbaa !41
+  call void @_ZN9__gnu_cxx12__atomic_addEPVii(ptr noundef %10, i32 noundef %11)
+  br label %12
+
+12:                                               ; preds = %9, %6
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #12 comdat {
+  %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !92
+  %2 = icmp ne i8 %1, 0
+  ret i1 %2
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx19__atomic_add_singleEPii(ptr noundef %0, i32 noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !90
+  store i32 %1, ptr %4, align 4, !tbaa !41
+  %5 = load i32, ptr %4, align 4, !tbaa !41
+  %6 = load ptr, ptr %3, align 8, !tbaa !90
+  %7 = load i32, ptr %6, align 4, !tbaa !41
+  %8 = add nsw i32 %7, %5
+  store i32 %8, ptr %6, align 4, !tbaa !41
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx12__atomic_addEPVii(ptr noundef %0, i32 noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !90
+  store i32 %1, ptr %4, align 4, !tbaa !41
+  %7 = load ptr, ptr %3, align 8, !tbaa !90
+  %8 = load i32, ptr %4, align 4, !tbaa !41
+  store i32 %8, ptr %5, align 4, !tbaa !41
+  %9 = load i32, ptr %5, align 4
+  %10 = atomicrmw volatile add ptr %7, i32 %9 acq_rel, align 4
+  store i32 %10, ptr %6, align 4
+  ret void
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !86
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !88
   ret void
 }
 
@@ -3247,18 +3476,18 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 0
-  store ptr %8, ptr %9, align 8
+  store ptr %8, ptr %9, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %5, i32 0, i32 1
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %11, i32 0, i32 1
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #5
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #6
   ret ptr %5
 }
 
@@ -3267,26 +3496,27 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__sha
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !86
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %4, align 8, !tbaa !86
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  store ptr %9, ptr %5, align 8, !tbaa !89
+  %10 = load ptr, ptr %5, align 8, !tbaa !89
   %11 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !88
   %13 = icmp ne ptr %10, %12
   br i1 %13, label %14, label %30
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %5, align 8, !tbaa !89
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %5, align 8, !tbaa !89
   invoke void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %19 unwind label %31
 
@@ -3295,285 +3525,285 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14__sha
 
 20:                                               ; preds = %19, %14
   %21 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !88
   %23 = icmp ne ptr %22, null
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #5
+  %26 = load ptr, ptr %25, align 8, !tbaa !88
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #6
   br label %27
 
 27:                                               ; preds = %24, %20
-  %28 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %5, align 8, !tbaa !89
   %29 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %6, i32 0, i32 0
-  store ptr %28, ptr %29, align 8
+  store ptr %28, ptr %29, align 8, !tbaa !88
   br label %30
 
 30:                                               ; preds = %27, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret ptr %6
 
 31:                                               ; preds = %17
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #16
+  call void @__clang_call_terminate(ptr %33) #23
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i8, align 1
-  %14 = alloca i8, align 1
-  %15 = alloca i8, align 1
-  %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca i64, align 8
-  store ptr %0, ptr %12, align 8
-  %21 = load ptr, ptr %12, align 8
-  store i8 1, ptr %13, align 1
-  store i8 1, ptr %14, align 1
-  store i8 1, ptr %15, align 1
-  store i32 32, ptr %16, align 4
-  store i32 32, ptr %17, align 4
-  store i64 4294967297, ptr %18, align 8
-  %22 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store ptr %22, ptr %19, align 8
-  %23 = load ptr, ptr %19, align 8
-  %24 = load atomic i64, ptr %23 acquire, align 8
-  store i64 %24, ptr %20, align 8
-  %25 = load i64, ptr %20, align 8
-  %26 = icmp eq i64 %25, 4294967297
-  br i1 %26, label %27, label %36
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %12 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #6
+  store i8 1, ptr %3, align 1, !tbaa !93
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #6
+  store i8 1, ptr %4, align 1, !tbaa !93
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #6
+  store i8 1, ptr %5, align 1, !tbaa !93
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  store i32 32, ptr %6, align 4, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  store i32 32, ptr %7, align 4, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  store i64 4294967297, ptr %8, align 8, !tbaa !95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %13 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %9, align 8, !tbaa !97
+  %14 = load ptr, ptr %9, align 8, !tbaa !97
+  %15 = load atomic i64, ptr %14 acquire, align 8
+  store i64 %15, ptr %10, align 8
+  %16 = load i64, ptr %10, align 8, !tbaa !95
+  %17 = icmp eq i64 %16, 4294967297
+  br i1 %17, label %18, label %27
+
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  store i32 0, ptr %19, align 8, !tbaa !99
+  %20 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 2
+  store i32 0, ptr %20, align 4, !tbaa !101
+  %21 = load ptr, ptr %12, align 8, !tbaa !20
+  %22 = getelementptr inbounds ptr, ptr %21, i64 2
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(16) %12) #6
+  %24 = load ptr, ptr %12, align 8, !tbaa !20
+  %25 = getelementptr inbounds ptr, ptr %24, i64 3
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(16) %12) #6
+  store i32 1, ptr %11, align 4
+  br label %35
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 2
-  store i32 0, ptr %29, align 4
-  %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 2
-  %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %21) #5
-  %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 3
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %21) #5
-  br label %63
+  %28 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %12, i32 0, i32 1
+  %29 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %28, i32 noundef -1)
+          to label %30 unwind label %41
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %21, i32 0, i32 1
-  store ptr %37, ptr %10, align 8
-  store i32 -1, ptr %11, align 4
-  %38 = load i8, ptr @__libc_single_threaded, align 1
-  %39 = icmp ne i8 %38, 0
-  br i1 %39, label %40, label %50
+30:                                               ; preds = %27
+  %31 = icmp eq i32 %29, 1
+  %32 = call i1 @llvm.expect.i1(i1 %31, i1 false)
+  br i1 %32, label %33, label %34
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr %11, align 4
-  store ptr %41, ptr %6, align 8
-  store i32 %42, ptr %7, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %43, align 4
-  store i32 %44, ptr %8, align 4
-  %45 = load i32, ptr %7, align 4
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %47, %45
-  store i32 %48, ptr %46, align 4
-  %49 = load i32, ptr %8, align 4
-  store i32 %49, ptr %9, align 4
-  br label %58
+33:                                               ; preds = %30
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #6
+  store i32 1, ptr %11, align 4
+  br label %35
 
-50:                                               ; preds = %36
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr %11, align 4
-  store ptr %51, ptr %2, align 8
-  store i32 %52, ptr %3, align 4
-  %53 = load ptr, ptr %2, align 8
-  %54 = load i32, ptr %3, align 4
-  store i32 %54, ptr %4, align 4
-  %55 = load i32, ptr %4, align 4
-  %56 = atomicrmw volatile add ptr %53, i32 %55 acq_rel, align 4
-  store i32 %56, ptr %5, align 4
-  %57 = load i32, ptr %5, align 4
-  store i32 %57, ptr %9, align 4
-  br label %58
+34:                                               ; preds = %30
+  store i32 0, ptr %11, align 4
+  br label %35
 
-58:                                               ; preds = %50, %40
-  %59 = load i32, ptr %9, align 4
-  br label %60
+35:                                               ; preds = %34, %33, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  %36 = load i32, ptr %11, align 4
+  switch i32 %36, label %38 [
+    i32 0, label %37
+  ]
 
-60:                                               ; preds = %58
-  %61 = icmp eq i32 %59, 1
-  br i1 %61, label %62, label %63
+37:                                               ; preds = %35
+  store i32 0, ptr %11, align 4
+  br label %38
 
-62:                                               ; preds = %60
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #5
-  br label %63
+38:                                               ; preds = %37, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #6
+  %39 = load i32, ptr %11, align 4
+  switch i32 %39, label %44 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
 
-63:                                               ; preds = %62, %60, %27
+40:                                               ; preds = %38, %38
   ret void
 
-64:                                               ; No predecessors!
-  %65 = landingpad { ptr, i32 }
+41:                                               ; preds = %27
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #16
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #23
+  unreachable
+
+44:                                               ; preds = %38
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %0, i32 noundef %1) #11 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !90
+  store i32 %1, ptr %5, align 4, !tbaa !41
+  %6 = call noundef zeroext i1 @_ZN9__gnu_cxx20__is_single_threadedEv() #6
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !90
+  %9 = load i32, ptr %5, align 4, !tbaa !41
+  %10 = call noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %8, i32 noundef %9)
+  store i32 %10, ptr %3, align 4
+  br label %15
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !90
+  %13 = load i32, ptr %5, align 4, !tbaa !41
+  %14 = call noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %12, i32 noundef %13)
+  store i32 %14, ptr %3, align 4
+  br label %15
+
+15:                                               ; preds = %11, %7
+  %16 = load i32, ptr %3, align 4
+  ret i32 %16
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.expect.i1(i1, i1) #13
+
+; Function Attrs: mustprogress noinline nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx25__exchange_and_add_singleEPii(ptr noundef %0, i32 noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !90
+  store i32 %1, ptr %4, align 4, !tbaa !41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !90
+  %7 = load i32, ptr %6, align 4, !tbaa !41
+  store i32 %7, ptr %5, align 4, !tbaa !41
+  %8 = load i32, ptr %4, align 4, !tbaa !41
+  %9 = load ptr, ptr %3, align 8, !tbaa !90
+  %10 = load i32, ptr %9, align 4, !tbaa !41
+  %11 = add nsw i32 %10, %8
+  store i32 %11, ptr %9, align 4, !tbaa !41
+  %12 = load i32, ptr %5, align 4, !tbaa !41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  ret i32 %12
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN9__gnu_cxx18__exchange_and_addEPVii(ptr noundef %0, i32 noundef %1) #12 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !90
+  store i32 %1, ptr %4, align 4, !tbaa !41
+  %7 = load ptr, ptr %3, align 8, !tbaa !90
+  %8 = load i32, ptr %4, align 4, !tbaa !41
+  store i32 %8, ptr %5, align 4, !tbaa !41
+  %9 = load i32, ptr %5, align 4
+  %10 = atomicrmw volatile add ptr %7, i32 %9 acq_rel, align 4
+  store i32 %10, ptr %6, align 4
+  %11 = load i32, ptr %6, align 4, !tbaa !41
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %12, align 8
-  %13 = load ptr, ptr %12, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
+  %5 = getelementptr inbounds ptr, ptr %4, i64 2
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  %7 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
+  %8 = invoke noundef i32 @_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii(ptr noundef %7, i32 noundef -1)
+          to label %9 unwind label %16
+
+9:                                                ; preds = %1
+  %10 = icmp eq i32 %8, 1
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !20
+  %13 = getelementptr inbounds ptr, ptr %12, i64 3
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 2
-  %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #5
-  %17 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %13, i32 0, i32 2
-  store ptr %17, ptr %10, align 8
-  store i32 -1, ptr %11, align 4
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %19 = icmp ne i8 %18, 0
-  br i1 %19, label %20, label %30
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
+  br label %15
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  store ptr %21, ptr %6, align 8
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %8, align 4
-  %25 = load i32, ptr %7, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %26, align 4
-  %28 = add nsw i32 %27, %25
-  store i32 %28, ptr %26, align 4
-  %29 = load i32, ptr %8, align 4
-  store i32 %29, ptr %9, align 4
-  br label %38
-
-30:                                               ; preds = %1
-  %31 = load ptr, ptr %10, align 8
-  %32 = load i32, ptr %11, align 4
-  store ptr %31, ptr %2, align 8
-  store i32 %32, ptr %3, align 4
-  %33 = load ptr, ptr %2, align 8
-  %34 = load i32, ptr %3, align 4
-  store i32 %34, ptr %4, align 4
-  %35 = load i32, ptr %4, align 4
-  %36 = atomicrmw volatile add ptr %33, i32 %35 acq_rel, align 4
-  store i32 %36, ptr %5, align 4
-  %37 = load i32, ptr %5, align 4
-  store i32 %37, ptr %9, align 4
-  br label %38
-
-38:                                               ; preds = %30, %20
-  %39 = load i32, ptr %9, align 4
-  br label %40
-
-40:                                               ; preds = %38
-  %41 = icmp eq i32 %39, 1
-  br i1 %41, label %42, label %46
-
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 3
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %13) #5
-  br label %46
-
-46:                                               ; preds = %42, %40
+15:                                               ; preds = %11, %9
   ret void
 
-47:                                               ; No predecessors!
-  %48 = landingpad { ptr, i32 }
+16:                                               ; preds = %1
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #16
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #23
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #4
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o12RobustKernelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o12RobustKernelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
+declare double @pow(double noundef, double noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_ptr", ptr %3, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !86
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !88
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #5
+  %9 = load ptr, ptr %8, align 8, !tbaa !88
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #6
   br label %10
 
 10:                                               ; preds = %7, %1
@@ -3581,170 +3811,428 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #15
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
+  ret void
+}
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !92
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #6
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #3 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !104
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i64 %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %12
+
+7:                                                ; preds = %2
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %9 = load i64, ptr %4, align 8, !tbaa !37
+  %10 = add i64 %9, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8, i64 noundef %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %7
+  ret void
+
+12:                                               ; preds = %7, %2
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #23
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !107
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store i64 %2, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %4, align 8, !tbaa !61
+  %8 = load ptr, ptr %5, align 8, !tbaa !65
+  %9 = load i64, ptr %6, align 8, !tbaa !37
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !102
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store i64 %2, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %5, align 8, !tbaa !65
+  %8 = load i64, ptr %6, align 8, !tbaa !37
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #24
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !108
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !61
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !61
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #6
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !65
+  store ptr %10, ptr %9, align 8, !tbaa !110
+  ret void
+}
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #9
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call i64 @strlen(ptr noundef %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %4 = call i64 @strlen(ptr noundef %3) #6
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca %struct._Guard, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %13, ptr noundef %14)
-  store i64 %15, ptr %8, align 8
-  %16 = load i64, ptr %8, align 8
-  %17 = icmp ugt i64 %16, 15
-  br i1 %17, label %18, label %21
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !63
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %12 = load ptr, ptr %5, align 8, !tbaa !65
+  %13 = load ptr, ptr %6, align 8, !tbaa !65
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !37
+  %15 = load i64, ptr %7, align 8, !tbaa !37
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
 
-18:                                               ; preds = %3
-  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %19)
-  %20 = load i64, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %20)
-  br label %28
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
 
-21:                                               ; preds = %3
-  store ptr %12, ptr %4, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %27 unwind label %24
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #6
+  br label %22
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
-          catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #16
-  unreachable
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !65
+  %25 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #6
+  %26 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !111
+  %27 = load i64, ptr %7, align 8, !tbaa !37
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
 
-27:                                               ; preds = %21
-  br label %28
-
-28:                                               ; preds = %27, %18
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
-  %29 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %30 unwind label %36
-
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef %31, ptr noundef %32) #5
-  %33 = getelementptr inbounds nuw %struct._Guard, ptr %9, i32 0, i32 0
-  store ptr null, ptr %33, align 8
-  %34 = load i64, ptr %8, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %34)
-          to label %35 unwind label %36
-
-35:                                               ; preds = %30
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 
-36:                                               ; preds = %30, %28
-  %37 = landingpad { ptr, i32 }
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %10, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %11, align 4
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #5
-  br label %40
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  br label %33
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr %11, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !102
+  store ptr %1, ptr %4, align 8, !tbaa !102
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #5
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #7 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %3, align 8, !tbaa !65
+  %6 = load ptr, ptr %4, align 8, !tbaa !65
   call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
   ret i64 %7
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #3
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !65
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !107
+  ret void
+}
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #3
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #4
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #3
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i64 %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !37
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !92
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !113
+  store ptr %1, ptr %4, align 8, !tbaa !63
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !63
+  store ptr %7, ptr %6, align 8, !tbaa !111
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #4
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = load ptr, ptr %5, align 8, !tbaa !65
+  %9 = load ptr, ptr %6, align 8, !tbaa !65
+  %10 = load ptr, ptr %5, align 8, !tbaa !65
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
 
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
+14:                                               ; preds = %3
+  ret void
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #3
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #23
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i64 %1, ptr %4, align 8, !tbaa !37
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !37
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #6
+  store i8 0, ptr %5, align 1, !tbaa !92
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #6
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !113
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !111
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !111
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %10 unwind label %12
 
@@ -3758,40 +4246,124 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #16
+  call void @__clang_call_terminate(ptr %14) #23
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !65
+  %6 = load ptr, ptr %3, align 8, !tbaa !65
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #3
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store i64 %2, ptr %6, align 8, !tbaa !37
+  %7 = load i64, ptr %6, align 8, !tbaa !37
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !65
+  %11 = load ptr, ptr %5, align 8, !tbaa !65
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #6
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !65
+  %14 = load ptr, ptr %5, align 8, !tbaa !65
+  %15 = load i64, ptr %6, align 8, !tbaa !37
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !65
+  %6 = load i8, ptr %5, align 1, !tbaa !92
+  %7 = load ptr, ptr %3, align 8, !tbaa !65
+  store i8 %6, ptr %7, align 1, !tbaa !92
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !65
+  store ptr %1, ptr %6, align 8, !tbaa !65
+  store i64 %2, ptr %7, align 8, !tbaa !37
+  %8 = load i64, ptr %7, align 8, !tbaa !37
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !65
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !65
+  %14 = load ptr, ptr %6, align 8, !tbaa !65
+  %15 = load i64, ptr %7, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store i64 %1, ptr %4, align 8, !tbaa !37
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !37
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !104
+  ret void
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -3799,7 +4371,7 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !117
   ret void
 }
 
@@ -3808,39 +4380,41 @@ define linkonce_odr void @_ZN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8intern
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !119
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !117
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt19__shared_ptr_accessIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !33
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  %4 = call noundef ptr @_ZNKSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EE8coeffRefEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EE8coeffRefEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"struct.Eigen::internal::evaluator", align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store i64 %1, ptr %4, align 8, !tbaa !37
   %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
   %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %10 = load i64, ptr %4, align 8
+  %10 = load i64, ptr %4, align 8, !tbaa !37
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEE8coeffRefEl(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %10)
           to label %12 unwind label %13
 
 12:                                               ; preds = %2
-  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret ptr %11
 
 13:                                               ; preds = %2
@@ -3850,7 +4424,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15D
   store ptr %15, ptr %6, align 8
   %16 = extractvalue { ptr, i32 } %14, 1
   store i32 %16, ptr %7, align 4
-  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   br label %17
 
 17:                                               ; preds = %13
@@ -3864,59 +4439,57 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15D
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !121
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !123
+  store ptr %1, ptr %4, align 8, !tbaa !22
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !22
   call void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEE8coeffRefEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEE8coeffRefEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
+  store i64 %1, ptr %4, align 8, !tbaa !37
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.11", ptr %5, i32 0, i32 0
   %7 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !127
+  %9 = load i64, ptr %4, align 8, !tbaa !37
   %10 = getelementptr inbounds double, ptr %8, i64 %9
   ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !130
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !125
+  store ptr %1, ptr %4, align 8, !tbaa !132
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
   %8 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.11", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !132
   %10 = invoke noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %11 unwind label %13
 
@@ -3934,7 +4507,7 @@ define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6
   store ptr %15, ptr %5, align 8
   %16 = extractvalue { ptr, i32 } %14, 1
   store i32 %16, ptr %6, align 4
-  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #6
   br label %17
 
 17:                                               ; preds = %13
@@ -3945,50 +4518,43 @@ define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6
   resume { ptr, i32 } %21
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !130
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !132
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %3, i32 0, i32 0
   %5 = call noundef ptr @_ZNK5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEC2EPKdl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEC2EPKdl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !134
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  store i64 %2, ptr %6, align 8, !tbaa !37
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !59
+  store ptr %9, ptr %8, align 8, !tbaa !136
   call void @_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage", ptr %3, i32 0, i32 0
   %5 = getelementptr inbounds nuw %"struct.Eigen::internal::plain_array", ptr %4, i32 0, i32 0
@@ -3996,81 +4562,383 @@ define linkonce_odr noundef ptr @_ZNK5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dat
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #5
-  ret void
-}
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
-
-declare noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv() #3
-
-declare void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) #3
-
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #10
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !139
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i32 0, i32 0
+  %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #6
+  %11 = load ptr, ptr %4, align 8, !tbaa !63
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %22
+
+13:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #6
+  %14 = load ptr, ptr %4, align 8, !tbaa !63
+  %15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %16 = load ptr, ptr %4, align 8, !tbaa !63
+  %17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %18 = load ptr, ptr %4, align 8, !tbaa !63
+  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #6
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %15, ptr noundef %20)
+          to label %21 unwind label %26
+
+21:                                               ; preds = %13
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %6, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #6
+  br label %30
+
+26:                                               ; preds = %13
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %6, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #6
+  br label %30
+
+30:                                               ; preds = %26, %22
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i32, ptr %7, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
+}
+
+declare noundef ptr @_ZN3g2o19RobustKernelFactory8instanceEv() #4
+
+declare void @_ZN3g2o19RobustKernelFactory20registerRobustKernelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_27AbstractRobustKernelCreatorEE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) #4
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #18
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !145
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o27AbstractRobustKernelCreatorE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %3, i32 0, i32 1
+  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !108
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !61
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !61
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #6
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !65
+  store ptr %10, ptr %9, align 8, !tbaa !110
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard.18, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !63
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %12 = load ptr, ptr %5, align 8, !tbaa !65
+  %13 = load ptr, ptr %6, align 8, !tbaa !65
+  %14 = call noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !37
+  %15 = load i64, ptr %7, align 8, !tbaa !37
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #6
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !65
+  %25 = load ptr, ptr %6, align 8, !tbaa !65
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #6
+  %26 = getelementptr inbounds nuw %struct._Guard.18, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !147
+  %27 = load i64, ptr %7, align 8, !tbaa !37
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
+
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  ret void
+
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  br label %33
+
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !104
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #6
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #6
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %0, ptr noundef %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %3, align 8, !tbaa !65
+  %6 = load ptr, ptr %4, align 8, !tbaa !65
+  call void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !149
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard.18, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !63
+  store ptr %7, ptr %6, align 8, !tbaa !147
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %5, align 8, !tbaa !65
+  store ptr %2, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = load ptr, ptr %5, align 8, !tbaa !65
+  %9 = load ptr, ptr %6, align 8, !tbaa !65
+  %10 = load ptr, ptr %5, align 8, !tbaa !65
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #23
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !149
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard.18, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !147
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard.18, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !147
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #23
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #9 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !65
+  %6 = load ptr, ptr %3, align 8, !tbaa !65
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !115
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !151
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o27AbstractRobustKernelCreatorE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !141
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o17RobustKernelHuberC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -4084,7 +4952,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelH
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -4095,83 +4963,67 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelH
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !141
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o27AbstractRobustKernelCreatorD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #16
+  store ptr %0, ptr %2, align 8, !tbaa !151
+  call void @llvm.trap() #23
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #12
+declare void @llvm.trap() #20
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RobustKernelHuberC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o17RobustKernelHuberC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o17RobustKernelHuberE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o17RobustKernelHuberE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
-declare void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !141
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelHuberEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !141
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelHuberEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelHuberEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !141
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelHuberEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -4180,30 +5032,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_17RobustKernelHuberEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !141
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelHuberEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelHuberEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !141
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -4217,20 +5069,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !141
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -4260,7 +5112,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -4271,14 +5123,14 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !155
+  store ptr %1, ptr %4, align 8, !tbaa !141
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !141
+  store ptr %7, ptr %6, align 8, !tbaa !157
   ret void
 }
 
@@ -4289,50 +5141,41 @@ declare void @__cxa_end_catch()
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
-  store i32 1, ptr %4, align 8
+  store i32 1, ptr %4, align 8, !tbaa !99
   %5 = getelementptr inbounds nuw %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
-  store i32 1, ptr %5, align 4
+  store i32 1, ptr %5, align 4, !tbaa !101
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !155
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !155
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !157
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -4342,14 +5185,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !155
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -4360,84 +5203,67 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !155
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #16
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  call void @llvm.trap() #23
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !20
   %7 = getelementptr inbounds ptr, ptr %6, i64 1
   %8 = load ptr, ptr %7, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %9
 
 9:                                                ; preds = %5, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !161
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %3, i32 0, i32 1
-  call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !161
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !161
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !161
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o23RobustKernelPseudoHuberC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -4451,7 +5277,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelP
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -4462,61 +5288,52 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelP
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !161
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o23RobustKernelPseudoHuberC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o23RobustKernelPseudoHuberC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o23RobustKernelPseudoHuberE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o23RobustKernelPseudoHuberE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !161
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !161
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !161
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_23RobustKernelPseudoHuberEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !161
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_23RobustKernelPseudoHuberEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_23RobustKernelPseudoHuberEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !161
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !161
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_23RobustKernelPseudoHuberEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -4525,30 +5342,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !161
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_23RobustKernelPseudoHuberEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_23RobustKernelPseudoHuberEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !161
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !161
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -4562,20 +5379,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !161
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -4605,7 +5422,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -4616,51 +5433,42 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !163
+  store ptr %1, ptr %4, align 8, !tbaa !161
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.19", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.20", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !161
+  store ptr %7, ptr %6, align 8, !tbaa !165
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !163
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !163
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.19", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.20", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !165
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -4670,14 +5478,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !163
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -4688,40 +5496,40 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !163
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !167
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !167
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !167
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o18RobustKernelCauchyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -4735,7 +5543,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelC
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -4746,61 +5554,52 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelC
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !167
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o18RobustKernelCauchyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o18RobustKernelCauchyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o18RobustKernelCauchyE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o18RobustKernelCauchyE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !167
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !167
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !167
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelCauchyEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !167
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelCauchyEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelCauchyEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !167
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !167
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelCauchyEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -4809,30 +5608,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_18RobustKernelCauchyEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !167
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelCauchyEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelCauchyEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !167
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !167
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -4846,20 +5645,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !167
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -4889,7 +5688,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -4900,51 +5699,42 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !169
+  store ptr %1, ptr %4, align 8, !tbaa !167
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.21", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.22", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !167
+  store ptr %7, ptr %6, align 8, !tbaa !171
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !169
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !169
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.21", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.22", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !171
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -4954,14 +5744,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !169
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -4972,40 +5762,40 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !169
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !173
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !173
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !173
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o24RobustKernelGemanMcClureC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -5019,7 +5809,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelG
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -5030,61 +5820,52 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelG
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !173
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o24RobustKernelGemanMcClureC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o24RobustKernelGemanMcClureC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24RobustKernelGemanMcClureE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o24RobustKernelGemanMcClureE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !173
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !173
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !173
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_24RobustKernelGemanMcClureEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !173
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_24RobustKernelGemanMcClureEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_24RobustKernelGemanMcClureEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !173
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !173
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_24RobustKernelGemanMcClureEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -5093,30 +5874,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !173
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_24RobustKernelGemanMcClureEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_24RobustKernelGemanMcClureEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !173
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !173
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -5130,20 +5911,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !173
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -5173,7 +5954,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -5184,51 +5965,42 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !175
+  store ptr %1, ptr %4, align 8, !tbaa !173
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.23", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.24", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !173
+  store ptr %7, ptr %6, align 8, !tbaa !177
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !175
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !175
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.23", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.24", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !177
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -5238,14 +6010,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !175
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -5256,40 +6028,40 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !175
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !179
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !179
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !179
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o18RobustKernelWelschC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -5303,7 +6075,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelW
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -5314,61 +6086,52 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelW
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !179
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o18RobustKernelWelschC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o18RobustKernelWelschC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o18RobustKernelWelschE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o18RobustKernelWelschE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !179
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !179
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !179
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelWelschEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !179
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelWelschEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelWelschEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !179
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !179
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelWelschEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -5377,30 +6140,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_18RobustKernelWelschEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !179
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelWelschEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_18RobustKernelWelschEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !179
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !179
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -5414,20 +6177,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !179
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -5457,7 +6220,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -5468,51 +6231,42 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !181
+  store ptr %1, ptr %4, align 8, !tbaa !179
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.25", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.26", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !179
+  store ptr %7, ptr %6, align 8, !tbaa !183
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !181
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !181
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.25", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.26", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !183
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -5522,14 +6276,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !181
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -5540,40 +6294,40 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !181
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_16RobustKernelFairEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_16RobustKernelFairEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !185
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_16RobustKernelFairEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !185
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o16RobustKernelFairC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -5587,7 +6341,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelF
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -5598,61 +6352,52 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelF
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !185
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o16RobustKernelFairC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_16RobustKernelFairEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o16RobustKernelFairC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o16RobustKernelFairE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o16RobustKernelFairE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_16RobustKernelFairEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_16RobustKernelFairEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !185
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !185
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_16RobustKernelFairEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_16RobustKernelFairEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !185
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_16RobustKernelFairEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_16RobustKernelFairEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_16RobustKernelFairEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !185
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_16RobustKernelFairEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -5661,30 +6406,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_16RobustKernelFairEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !185
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_16RobustKernelFairEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_16RobustKernelFairEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !185
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -5698,20 +6443,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !185
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -5741,7 +6486,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -5752,51 +6497,42 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !187
+  store ptr %1, ptr %4, align 8, !tbaa !185
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.27", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.28", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !185
+  store ptr %7, ptr %6, align 8, !tbaa !189
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !187
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !187
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.27", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.28", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !189
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -5806,14 +6542,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !187
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -5824,40 +6560,40 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !187
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !191
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !191
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !191
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !191
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o17RobustKernelTukeyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -5871,7 +6607,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelT
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -5882,61 +6618,52 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelT
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !191
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o17RobustKernelTukeyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o17RobustKernelTukeyC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o17RobustKernelTukeyE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o17RobustKernelTukeyE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !191
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !191
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !191
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelTukeyEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !191
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelTukeyEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelTukeyEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !191
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !191
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelTukeyEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -5945,30 +6672,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_17RobustKernelTukeyEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !191
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelTukeyEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_17RobustKernelTukeyEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !191
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !191
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -5982,20 +6709,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !191
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -6025,7 +6752,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -6036,51 +6763,42 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !193
+  store ptr %1, ptr %4, align 8, !tbaa !191
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.29", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.30", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !191
+  store ptr %7, ptr %6, align 8, !tbaa !195
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.29", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.30", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !195
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -6090,14 +6808,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -6108,40 +6826,40 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !193
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !197
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !197
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !197
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o21RobustKernelSaturatedC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -6155,7 +6873,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelS
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -6166,61 +6884,52 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelS
   resume { ptr, i32 } %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !197
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o21RobustKernelSaturatedC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o21RobustKernelSaturatedC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o21RobustKernelSaturatedE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o21RobustKernelSaturatedE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !197
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !197
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !197
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_21RobustKernelSaturatedEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !197
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_21RobustKernelSaturatedEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_21RobustKernelSaturatedEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !197
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !197
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_21RobustKernelSaturatedEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -6229,30 +6938,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_21RobustKernelSaturatedEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !197
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_21RobustKernelSaturatedEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_21RobustKernelSaturatedEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !197
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !197
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -6266,20 +6975,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !197
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -6309,7 +7018,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -6320,51 +7029,42 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !199
+  store ptr %1, ptr %4, align 8, !tbaa !197
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.31", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.32", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !197
+  store ptr %7, ptr %6, align 8, !tbaa !201
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !199
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !199
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.31", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.32", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !201
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -6374,14 +7074,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !199
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -6392,40 +7092,40 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !199
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o27AbstractRobustKernelCreatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEEC2INS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !143
+  store ptr %1, ptr %4, align 8, !tbaa !203
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !203
   call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEE9constructEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #14
+  store ptr %0, ptr %2, align 8, !tbaa !203
+  %5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #22
   invoke void @_ZN3g2o15RobustKernelDCSC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %7
 
@@ -6439,7 +7139,7 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelD
   store ptr %9, ptr %3, align 8
   %10 = extractvalue { ptr, i32 } %8, 1
   store i32 %10, ptr %4, align 4
-  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #15
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 16) #24
   br label %11
 
 11:                                               ; preds = %7
@@ -6451,60 +7151,58 @@ define linkonce_odr noundef ptr @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !151
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !203
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #15
+  call void @_ZN3g2o27AbstractRobustKernelCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 8) #24
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3g2o15RobustKernelDCSC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3g2o15RobustKernelDCSC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3g2o12RobustKernelC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o15RobustKernelDCSE, i32 0, i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o15RobustKernelDCSE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EEC2INS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEEvEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !203
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !203
+  store ptr %7, ptr %6, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw %"class.std::__shared_ptr.16", ptr %5, i32 0, i32 1
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !203
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_15RobustKernelDCSEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = load ptr, ptr %4, align 8
-  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !203
+  call void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %10) #6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_15RobustKernelDCSEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_15RobustKernelDCSEEEEET_St17integral_constantIbLb0EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !203
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !203
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_15RobustKernelDCSEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
@@ -6513,30 +7211,30 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE31_M_enable_shared_from_this_withINS0_19RobustKernelCreatorINS0_15RobustKernelDCSEEES8_EENSt9enable_ifIXntsr15__has_esft_baseIT0_EE5valueEvE4typeEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !145
+  store ptr %1, ptr %4, align 8, !tbaa !203
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_15RobustKernelDCSEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3g2o19RobustKernelCreatorINS4_15RobustKernelDCSEEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store ptr %1, ptr %4, align 8, !tbaa !203
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr null, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  store ptr null, ptr %8, align 8, !tbaa !88
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #22
           to label %10 unwind label %13
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !203
+  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %11) #6
   %12 = getelementptr inbounds nuw %"class.std::__shared_count", ptr %7, i32 0, i32 0
-  store ptr %9, ptr %12, align 8
+  store ptr %9, ptr %12, align 8, !tbaa !88
   br label %32
 
 13:                                               ; preds = %2
@@ -6550,20 +7248,20 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @__cxa_begin_catch(ptr %18) #5
-  %20 = load ptr, ptr %4, align 8
+  %19 = call ptr @__cxa_begin_catch(ptr %18) #6
+  %20 = load ptr, ptr %4, align 8, !tbaa !203
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %17
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds ptr, ptr %23, i64 2
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #5
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   br label %26
 
 26:                                               ; preds = %22, %17
-  invoke void @__cxa_rethrow() #13
+  invoke void @__cxa_rethrow() #21
           to label %41 unwind label %27
 
 27:                                               ; preds = %26
@@ -6593,7 +7291,7 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #16
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
 41:                                               ; preds = %26
@@ -6604,51 +7302,49 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EEC2ES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !205
+  store ptr %1, ptr %4, align 8, !tbaa !203
   %5 = load ptr, ptr %3, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #5
-  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
-  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.33", ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #6
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !20
+  %6 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.34", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !203
+  store ptr %7, ptr %6, align 8, !tbaa !207
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #5
+  store ptr %0, ptr %2, align 8, !tbaa !89
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !205
   %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !205
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.33", ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Sp_counted_ptr.34", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !207
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
   %9 = getelementptr inbounds ptr, ptr %8, i64 2
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #6
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -6658,14 +7354,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !205
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  call void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #5
-  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #15
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #24
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -6676,8 +7372,8 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0
 define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !205
+  store ptr %1, ptr %4, align 8, !tbaa !159
   ret ptr null
 }
 
@@ -6699,27 +7395,240 @@ define internal void @_GLOBAL__sub_I_robust_kernel_impl.cpp() #0 section ".text.
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { noreturn }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #14 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #21 = { noreturn }
+attributes #22 = { builtin allocsize(0) }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN5Eigen8internal8FixedIntILi1EEE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN5Eigen8internal5all_tE", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN3g2o22RobustKernelScaleDeltaE", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSSt10shared_ptrIN3g2o12RobustKernelEE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"vtable pointer", !7, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE", !5, i64 0}
+!24 = !{!25, !19, i64 8}
+!25 = !{!"_ZTSN3g2o12RobustKernelE", !19, i64 8}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!28 = !{!29, !30, i64 0}
+!29 = !{!"_ZTSSt12__shared_ptrIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2EE", !30, i64 0, !31, i64 8}
+!30 = !{!"p1 _ZTSN3g2o12RobustKernelE", !5, i64 0}
+!31 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !32, i64 0}
+!32 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSSt19__shared_ptr_accessIN3g2o12RobustKernelELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EE", !5, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTSN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi1EEE", !5, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"long", !6, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSN3g2o17RobustKernelHuberE", !5, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"int", !6, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSN3g2o23RobustKernelPseudoHuberE", !5, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTSN3g2o18RobustKernelCauchyE", !5, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN3g2o24RobustKernelGemanMcClureE", !5, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTSN3g2o18RobustKernelWelschE", !5, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTSN3g2o16RobustKernelFairE", !5, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSN3g2o17RobustKernelTukeyE", !5, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTSN3g2o21RobustKernelSaturatedE", !5, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTSN3g2o15RobustKernelDCSE", !5, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 double", !5, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 omnipotent char", !5, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_17RobustKernelHuberEEE", !5, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_23RobustKernelPseudoHuberEEE", !5, i64 0}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_18RobustKernelCauchyEEE", !5, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_24RobustKernelGemanMcClureEEE", !5, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_18RobustKernelWelschEEE", !5, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_16RobustKernelFairEEE", !5, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_17RobustKernelTukeyEEE", !5, i64 0}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_21RobustKernelSaturatedEEE", !5, i64 0}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTSN3g2o25RegisterRobustKernelProxyINS_15RobustKernelDCSEEE", !5, i64 0}
+!85 = !{!30, !30, i64 0}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!88 = !{!31, !32, i64 0}
+!89 = !{!32, !32, i64 0}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 int", !5, i64 0}
+!92 = !{!6, !6, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"bool", !6, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"long long", !6, i64 0}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 long long", !5, i64 0}
+!99 = !{!100, !42, i64 8}
+!100 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !42, i64 8, !42, i64 12}
+!101 = !{!100, !42, i64 12}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!104 = !{!105, !38, i64 8}
+!105 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !106, i64 0, !38, i64 8, !6, i64 16}
+!106 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !66, i64 0}
+!107 = !{!105, !66, i64 0}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!110 = !{!106, !66, i64 0}
+!111 = !{!112, !64, i64 0}
+!112 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !64, i64 0}
+!113 = !{!114, !114, i64 0}
+!114 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!115 = !{!116, !116, i64 0}
+!116 = !{!"p2 omnipotent char", !5, i64 0}
+!117 = !{!118, !118, i64 0}
+!118 = !{!"p1 _ZTSN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEE", !5, i64 0}
+!119 = !{!120, !120, i64 0}
+!120 = !{!"p1 _ZTSN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEENS0_9ValueExprINS3_8FixedIntILi1EEEEEEE", !5, i64 0}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"p1 _ZTSN5Eigen9EigenBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEE", !5, i64 0}
+!123 = !{!124, !124, i64 0}
+!124 = !{!"p1 _ZTSN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEE", !5, i64 0}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 _ZTSN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEE", !5, i64 0}
+!127 = !{!128, !60, i64 0}
+!128 = !{!"_ZTSN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEE", !129, i64 0}
+!129 = !{!"_ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEE", !60, i64 0}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 _ZTSN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEE", !5, i64 0}
+!132 = !{!133, !133, i64 0}
+!133 = !{!"p1 _ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEE", !5, i64 0}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"p1 _ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEE", !5, i64 0}
+!136 = !{!129, !60, i64 0}
+!137 = !{!138, !138, i64 0}
+!138 = !{!"p1 _ZTSN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EEE", !5, i64 0}
+!139 = !{!140, !140, i64 0}
+!140 = !{!"p1 long", !5, i64 0}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelHuberEEE", !5, i64 0}
+!143 = !{!144, !144, i64 0}
+!144 = !{!"p1 _ZTSSt10shared_ptrIN3g2o27AbstractRobustKernelCreatorEE", !5, i64 0}
+!145 = !{!146, !146, i64 0}
+!146 = !{!"p1 _ZTSSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!147 = !{!148, !64, i64 0}
+!148 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !64, i64 0}
+!149 = !{!150, !150, i64 0}
+!150 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!151 = !{!152, !152, i64 0}
+!152 = !{!"p1 _ZTSN3g2o27AbstractRobustKernelCreatorE", !5, i64 0}
+!153 = !{!154, !152, i64 0}
+!154 = !{!"_ZTSSt12__shared_ptrIN3g2o27AbstractRobustKernelCreatorELN9__gnu_cxx12_Lock_policyE2EE", !152, i64 0, !31, i64 8}
+!155 = !{!156, !156, i64 0}
+!156 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!157 = !{!158, !142, i64 16}
+!158 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelHuberEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !142, i64 16}
+!159 = !{!160, !160, i64 0}
+!160 = !{!"p1 _ZTSSt9type_info", !5, i64 0}
+!161 = !{!162, !162, i64 0}
+!162 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_23RobustKernelPseudoHuberEEE", !5, i64 0}
+!163 = !{!164, !164, i64 0}
+!164 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!165 = !{!166, !162, i64 16}
+!166 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_23RobustKernelPseudoHuberEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !162, i64 16}
+!167 = !{!168, !168, i64 0}
+!168 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelCauchyEEE", !5, i64 0}
+!169 = !{!170, !170, i64 0}
+!170 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!171 = !{!172, !168, i64 16}
+!172 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelCauchyEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !168, i64 16}
+!173 = !{!174, !174, i64 0}
+!174 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_24RobustKernelGemanMcClureEEE", !5, i64 0}
+!175 = !{!176, !176, i64 0}
+!176 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!177 = !{!178, !174, i64 16}
+!178 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_24RobustKernelGemanMcClureEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !174, i64 16}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_18RobustKernelWelschEEE", !5, i64 0}
+!181 = !{!182, !182, i64 0}
+!182 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!183 = !{!184, !180, i64 16}
+!184 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_18RobustKernelWelschEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !180, i64 16}
+!185 = !{!186, !186, i64 0}
+!186 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_16RobustKernelFairEEE", !5, i64 0}
+!187 = !{!188, !188, i64 0}
+!188 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!189 = !{!190, !186, i64 16}
+!190 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_16RobustKernelFairEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !186, i64 16}
+!191 = !{!192, !192, i64 0}
+!192 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_17RobustKernelTukeyEEE", !5, i64 0}
+!193 = !{!194, !194, i64 0}
+!194 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!195 = !{!196, !192, i64 16}
+!196 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_17RobustKernelTukeyEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !192, i64 16}
+!197 = !{!198, !198, i64 0}
+!198 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_21RobustKernelSaturatedEEE", !5, i64 0}
+!199 = !{!200, !200, i64 0}
+!200 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!201 = !{!202, !198, i64 16}
+!202 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_21RobustKernelSaturatedEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !198, i64 16}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"p1 _ZTSN3g2o19RobustKernelCreatorINS_15RobustKernelDCSEEE", !5, i64 0}
+!205 = !{!206, !206, i64 0}
+!206 = !{!"p1 _ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!207 = !{!208, !204, i64 16}
+!208 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o19RobustKernelCreatorINS0_15RobustKernelDCSEEELN9__gnu_cxx12_Lock_policyE2EE", !100, i64 0, !204, i64 16}
