@@ -74,6 +74,7 @@ supported_project = [
     "bullet3",
     "casadi",
     "ceres",
+    "cpp-httplib",
 ]
 
 modify_only = [
