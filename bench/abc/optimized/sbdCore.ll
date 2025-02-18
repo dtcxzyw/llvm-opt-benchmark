@@ -5650,8 +5650,6 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr noundef captures(none) %0, i32 no
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 60
   %36 = load i32, ptr %35, align 4, !tbaa !166
   %.not = icmp eq i32 %36, 0
-  %indvars.iv358.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %indvars.iv358.sroa.gep419 = getelementptr inbounds nuw i8, ptr %11, i64 1024
   br i1 %.not, label %39, label %37
 
 37:                                               ; preds = %3
@@ -6044,12 +6042,17 @@ Sbd_TransposeMatrix64.exit246:                    ; preds = %177, %.loopexit407,
   %.phi.trans.insert396 = getelementptr inbounds nuw i8, ptr %.pre, i64 60
   %.pre397 = load i32, ptr %.phi.trans.insert396, align 4, !tbaa !166
   %235 = icmp eq i32 %.pre397, 0
-  br i1 %235, label %.loopexit291, label %.preheader290
+  br i1 %235, label %.loopexit291, label %.preheader290.preheader
 
-.preheader290:                                    ; preds = %230, %._crit_edge
-  %.not191 = phi i1 [ false, %._crit_edge ], [ true, %230 ]
-  %indvars.iv358.sroa.phi = phi ptr [ %indvars.iv358.sroa.gep, %._crit_edge ], [ %13, %230 ]
-  %indvars.iv358.sroa.phi418 = phi ptr [ %indvars.iv358.sroa.gep419, %._crit_edge ], [ %11, %230 ]
+.preheader290.preheader:                          ; preds = %230
+  %indvars.iv358.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %indvars.iv358.sroa.gep419 = getelementptr inbounds nuw i8, ptr %11, i64 1024
+  br label %.preheader290
+
+.preheader290:                                    ; preds = %.preheader290.preheader, %._crit_edge
+  %.not191 = phi i1 [ false, %._crit_edge ], [ true, %.preheader290.preheader ]
+  %indvars.iv358.sroa.phi = phi ptr [ %indvars.iv358.sroa.gep, %._crit_edge ], [ %13, %.preheader290.preheader ]
+  %indvars.iv358.sroa.phi418 = phi ptr [ %indvars.iv358.sroa.gep419, %._crit_edge ], [ %11, %.preheader290.preheader ]
   %236 = select i1 %.not191, ptr @.str.18, ptr @.str.17
   %237 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef nonnull %236)
   %238 = load i32, ptr %indvars.iv358.sroa.phi, align 4, !tbaa !50

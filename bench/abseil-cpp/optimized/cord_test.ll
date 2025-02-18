@@ -201846,8 +201846,6 @@ define linkonce_odr dso_local void @_ZN4absl13AbslHashValueINS_13hash_internal16
   %11 = load ptr, ptr %10, align 8, !noalias !3060
   %12 = icmp eq ptr %11, null
   %13 = select i1 %.not.i.i, i1 true, i1 %12
-  %.sink30.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink30.sroa.gep32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %3
@@ -201981,6 +201979,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt12__shared_ptrISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   %64 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %52, %_ZNSt12__shared_ptrISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
   %.not.i.i.i1.i = icmp eq ptr %64, null
+  %.sink30.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %.not.i.i.i1.i, label %_ZN4absl13hash_internal16SpyHashStateImplINS_4CordEED2Ev.exit, label %_ZN4absl13hash_internal16SpyHashStateImplINS_4CordEED2Ev.exit.sink.split
 
 65:                                               ; preds = %26
@@ -202086,6 +202085,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i18: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i16, %_ZNSt12__shared_ptrISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i9
   %106 = phi ptr [ %.pr.i.i17, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i16 ], [ %94, %_ZNSt12__shared_ptrISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i9 ]
   %.not.i.i.i1.i19 = icmp eq ptr %106, null
+  %.sink30.sroa.gep32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %.not.i.i.i1.i19, label %_ZN4absl13hash_internal16SpyHashStateImplINS_4CordEED2Ev.exit, label %_ZN4absl13hash_internal16SpyHashStateImplINS_4CordEED2Ev.exit.sink.split
 
 107:                                              ; preds = %67

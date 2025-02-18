@@ -33,12 +33,11 @@ define hidden i32 @lj_carith_op(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !35
   %.not.i = icmp ult ptr %18, %20
-  %indvars.iv.i.sroa.gep36 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %indvars.iv.i30.sroa.gep49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not.i, label %.preheader116.i, label %22
 
 .preheader116.i:                                  ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %indvars.iv.i.sroa.gep36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %23
 
 22:                                               ; preds = %2
@@ -833,7 +832,11 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
 .thread90.i:                                      ; preds = %429, %414, %.thread.i28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   %433 = icmp eq i32 %1, 4
-  br i1 %433, label %434, label %.preheader.i29
+  br i1 %433, label %434, label %.preheader.i29.preheader
+
+.preheader.i29.preheader:                         ; preds = %.thread90.i
+  %indvars.iv.i30.sroa.gep49 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %.preheader.i29
 
 434:                                              ; preds = %.thread90.i
   %435 = load ptr, ptr %8, align 8, !tbaa !50
@@ -850,12 +853,12 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   br label %lj_carith_meta.exit
 
-.preheader.i29:                                   ; preds = %.thread90.i, %467
-  %444 = phi i1 [ false, %467 ], [ true, %.thread90.i ]
-  %indvars.iv.i30.sroa.phi = phi ptr [ %indvars.iv.i30.sroa.gep49, %467 ], [ %3, %.thread90.i ]
-  %indvars.iv.i30 = phi i64 [ 1, %467 ], [ 0, %.thread90.i ]
-  %.062101.i = phi i32 [ %.2.i32, %467 ], [ -1, %.thread90.i ]
-  %.063100.i = phi i32 [ %.265.i, %467 ], [ -1, %.thread90.i ]
+.preheader.i29:                                   ; preds = %.preheader.i29.preheader, %467
+  %444 = phi i1 [ false, %467 ], [ true, %.preheader.i29.preheader ]
+  %indvars.iv.i30.sroa.phi = phi ptr [ %indvars.iv.i30.sroa.gep49, %467 ], [ %3, %.preheader.i29.preheader ]
+  %indvars.iv.i30 = phi i64 [ 1, %467 ], [ 0, %.preheader.i29.preheader ]
+  %.062101.i = phi i32 [ %.2.i32, %467 ], [ -1, %.preheader.i29.preheader ]
+  %.063100.i = phi i32 [ %.265.i, %467 ], [ -1, %.preheader.i29.preheader ]
   %445 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %indvars.iv.i30
   %446 = load ptr, ptr %445, align 8, !tbaa !49
   %.not79.i = icmp ne ptr %446, null

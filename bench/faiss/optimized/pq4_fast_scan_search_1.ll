@@ -7019,10 +7019,11 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %58, i8 0, i64 128, i1 false)
   %59 = add nsw i32 %0, -2
   %60 = icmp sgt i32 %0, 2
-  %indvars.iv266.sroa.gep274 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %indvars.iv263.sroa.gep275 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  br i1 %60, label %.lr.ph.preheader, label %.preheader240
+
+.lr.ph.preheader:                                 ; preds = %.preheader243.preheader
   %indvars.iv260.sroa.gep276 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  br i1 %60, label %.lr.ph, label %.preheader240
+  br label %.lr.ph
 
 .preheader240:                                    ; preds = %.critedge, %.preheader243.preheader
   %.097.lcssa = phi ptr [ %2, %.preheader243.preheader ], [ %62, %.critedge ]
@@ -7030,12 +7031,13 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0269)
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0269, ptr noundef nonnull align 1 dereferenceable(32) %.097.lcssa, i64 32, i1 false)
+  %indvars.iv263.sroa.gep275 = getelementptr inbounds nuw i8, ptr %25, i64 128
   br label %.critedge105
 
-.lr.ph:                                           ; preds = %.preheader243.preheader, %.critedge
-  %.093250 = phi i32 [ %63, %.critedge ], [ 0, %.preheader243.preheader ]
-  %.096249 = phi ptr [ %148, %.critedge ], [ %1, %.preheader243.preheader ]
-  %.097248 = phi ptr [ %62, %.critedge ], [ %2, %.preheader243.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
+  %.093250 = phi i32 [ %63, %.critedge ], [ 0, %.lr.ph.preheader ]
+  %.096249 = phi ptr [ %148, %.critedge ], [ %1, %.lr.ph.preheader ]
+  %.097248 = phi ptr [ %62, %.critedge ], [ %2, %.lr.ph.preheader ]
   br label %.critedge103
 
 .critedge:                                        ; preds = %_ZN5faiss12simd16uint16pLERKS0_.exit142
@@ -7328,6 +7330,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit142:          ; preds = %141
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0269)
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %150 = getelementptr inbounds nuw i8, ptr %3, i64 140
+  %indvars.iv266.sroa.gep274 = getelementptr inbounds nuw i8, ptr %25, i64 128
   br label %263
 
 .critedge105:                                     ; preds = %.preheader240, %_ZN5faiss12simd16uint16pLERKS0_.exit199
@@ -10749,25 +10752,25 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %60, i8 0, i64 128, i1 false)
   %61 = add nsw i32 %0, -2
   %62 = icmp sgt i32 %0, 2
-  %indvars.iv274.sroa.gep286 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %indvars.iv277.sroa.gep287 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  br i1 %62, label %.lr.ph.preheader, label %.preheader245
+
+.lr.ph.preheader:                                 ; preds = %.critedge.preheader
   %indvars.iv268.sroa.gep288 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %indvars.iv271.sroa.gep289 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %indvars.iv271.sroa.gep292 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %indvars.iv277.sroa.gep295 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %indvars.iv280.sroa.gep296 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  br i1 %62, label %.lr.ph, label %.preheader245
+  br label %.lr.ph
 
 .preheader245:                                    ; preds = %84, %.critedge.preheader
   %.097.lcssa = phi ptr [ %2, %.critedge.preheader ], [ %64, %84 ]
   %.096.lcssa = phi ptr [ %1, %.critedge.preheader ], [ %85, %84 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42) #19
+  %indvars.iv274.sroa.gep286 = getelementptr inbounds nuw i8, ptr %42, i64 32
   br label %.preheader244
 
-.lr.ph:                                           ; preds = %.critedge.preheader, %84
-  %.093257 = phi i32 [ %86, %84 ], [ 0, %.critedge.preheader ]
-  %.096256 = phi ptr [ %85, %84 ], [ %1, %.critedge.preheader ]
-  %.097255 = phi ptr [ %64, %84 ], [ %2, %.critedge.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %84
+  %.093257 = phi i32 [ %86, %84 ], [ 0, %.lr.ph.preheader ]
+  %.096256 = phi ptr [ %85, %84 ], [ %1, %.lr.ph.preheader ]
+  %.097255 = phi ptr [ %64, %84 ], [ %2, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #19
   br label %.preheader247
 
@@ -11148,6 +11151,8 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit154: ; preds = %160
 _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158: ; preds = %167
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #19, !noalias !1572
+  %indvars.iv277.sroa.gep287 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %indvars.iv277.sroa.gep295 = getelementptr inbounds nuw i8, ptr %25, i64 128
   br label %177
 
 .preheader:                                       ; preds = %_ZN5faiss12simd16uint16pLERKS0_.exit203
@@ -11157,6 +11162,7 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158: ; preds = %167
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42) #19
   %175 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 140
+  %indvars.iv280.sroa.gep296 = getelementptr inbounds nuw i8, ptr %25, i64 128
   br label %.critedge111
 
 177:                                              ; preds = %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit158, %_ZN5faiss12simd16uint16pLERKS0_.exit203
@@ -11706,22 +11712,24 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %62, i8 0, i64 128, i1 false)
   %63 = add nsw i32 %0, -2
   %64 = icmp sgt i32 %0, 2
-  %indvars.iv283.sroa.gep301 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %indvars.iv286.sroa.gep302 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  br i1 %64, label %.lr.ph.preheader, label %.preheader243
+
+.lr.ph.preheader:                                 ; preds = %.preheader247.preheader
   %indvars.iv274.sroa.gep303 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %indvars.iv277.sroa.gep304 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  br i1 %64, label %.lr.ph, label %.preheader243
+  br label %.lr.ph
 
 .preheader243:                                    ; preds = %67, %.preheader247.preheader
   %.097.lcssa = phi ptr [ %2, %.preheader247.preheader ], [ %66, %67 ]
   %.096.lcssa = phi ptr [ %1, %.preheader247.preheader ], [ %91, %67 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42) #19
+  %indvars.iv283.sroa.gep301 = getelementptr inbounds nuw i8, ptr %42, i64 32
   br label %.preheader242
 
-.lr.ph:                                           ; preds = %.preheader247.preheader, %67
-  %.093258 = phi i32 [ %68, %67 ], [ 0, %.preheader247.preheader ]
-  %.096257 = phi ptr [ %91, %67 ], [ %1, %.preheader247.preheader ]
-  %.097256 = phi ptr [ %66, %67 ], [ %2, %.preheader247.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %67
+  %.093258 = phi i32 [ %68, %67 ], [ 0, %.lr.ph.preheader ]
+  %.096257 = phi ptr [ %91, %67 ], [ %1, %.lr.ph.preheader ]
+  %.097256 = phi ptr [ %66, %67 ], [ %2, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #19
   br label %.preheader245
 
@@ -12039,6 +12047,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit144:          ; preds = %151
 
 .preheader241.preheader:                          ; preds = %.preheader242
   %160 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %indvars.iv286.sroa.gep302 = getelementptr inbounds nuw i8, ptr %42, i64 32
   br label %.preheader241
 
 .preheader240:                                    ; preds = %183
@@ -15049,19 +15058,22 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %32, i8 0, i64 128, i1 false)
   %33 = icmp sgt i32 %0, 0
-  %indvars.iv27.sroa.gep31 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  br i1 %33, label %.lr.ph.preheader, label %.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader14.preheader
   %indvars.iv24.sroa.gep32 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  br i1 %33, label %.lr.ph, label %.preheader
+  br label %.lr.ph
 
 .preheader:                                       ; preds = %.critedge, %.preheader14.preheader
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 140
+  %indvars.iv27.sroa.gep31 = getelementptr inbounds nuw i8, ptr %12, i64 128
   br label %123
 
-.lr.ph:                                           ; preds = %.preheader14.preheader, %.critedge
-  %.09321 = phi i32 [ %37, %.critedge ], [ 0, %.preheader14.preheader ]
-  %.09620 = phi ptr [ %122, %.critedge ], [ %1, %.preheader14.preheader ]
-  %.09719 = phi ptr [ %36, %.critedge ], [ %2, %.preheader14.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
+  %.09321 = phi i32 [ %37, %.critedge ], [ 0, %.lr.ph.preheader ]
+  %.09620 = phi ptr [ %122, %.critedge ], [ %1, %.lr.ph.preheader ]
+  %.09719 = phi ptr [ %36, %.critedge ], [ %2, %.lr.ph.preheader ]
   br label %.critedge103
 
 .critedge:                                        ; preds = %_ZN5faiss12simd16uint16pLERKS0_.exit140
@@ -17032,21 +17044,24 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %33, i8 0, i64 128, i1 false)
   %34 = icmp sgt i32 %0, 0
+  br i1 %34, label %.lr.ph.preheader, label %.preheader
+
+.lr.ph.preheader:                                 ; preds = %.critedge.preheader
   %indvars.iv27.sroa.gep36 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv30.sroa.gep37 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv30.sroa.gep40 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  %indvars.iv33.sroa.gep41 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  br i1 %34, label %.lr.ph, label %.preheader
+  br label %.lr.ph
 
 .preheader:                                       ; preds = %58, %.critedge.preheader
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 140
+  %indvars.iv33.sroa.gep41 = getelementptr inbounds nuw i8, ptr %12, i64 128
   br label %.critedge107
 
-.lr.ph:                                           ; preds = %.critedge.preheader, %58
-  %.09324 = phi i32 [ %60, %58 ], [ 0, %.critedge.preheader ]
-  %.09623 = phi ptr [ %59, %58 ], [ %1, %.critedge.preheader ]
-  %.09722 = phi ptr [ %38, %58 ], [ %2, %.critedge.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %58
+  %.09324 = phi i32 [ %60, %58 ], [ 0, %.lr.ph.preheader ]
+  %.09623 = phi ptr [ %59, %58 ], [ %1, %.lr.ph.preheader ]
+  %.09722 = phi ptr [ %38, %58 ], [ %2, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #19
   br label %.preheader14
 
@@ -17542,19 +17557,22 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %35, i8 0, i64 128, i1 false)
   %36 = icmp sgt i32 %0, 0
+  br i1 %36, label %.lr.ph.preheader, label %.preheader12
+
+.lr.ph.preheader:                                 ; preds = %.preheader16.preheader
   %indvars.iv35.sroa.gep53 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %indvars.iv38.sroa.gep54 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  br i1 %36, label %.lr.ph, label %.preheader12
+  br label %.lr.ph
 
 .preheader12:                                     ; preds = %41, %.preheader16.preheader
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 268
   br label %.preheader
 
-.lr.ph:                                           ; preds = %.preheader16.preheader, %41
-  %.09327 = phi i32 [ %42, %41 ], [ 0, %.preheader16.preheader ]
-  %.09626 = phi ptr [ %65, %41 ], [ %1, %.preheader16.preheader ]
-  %.09725 = phi ptr [ %40, %41 ], [ %2, %.preheader16.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
+  %.09327 = phi i32 [ %42, %41 ], [ 0, %.lr.ph.preheader ]
+  %.09626 = phi ptr [ %65, %41 ], [ %1, %.lr.ph.preheader ]
+  %.09725 = phi ptr [ %40, %41 ], [ %2, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #19
   br label %.preheader14
 

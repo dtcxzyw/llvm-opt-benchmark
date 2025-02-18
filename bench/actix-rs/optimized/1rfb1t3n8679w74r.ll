@@ -5273,7 +5273,6 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hc8e3981a7ebb6
   %4 = alloca { [40 x i8] }, align 1
   %5 = tail call noundef i8 @"_ZN57_$LT$u8$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17hdf121606d42837d0E"(i8 noundef %2)
   %6 = tail call i8 @llvm.usub.sat.i8(i8 2, i8 %5)
-  %.01823.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %.not = icmp ugt i8 %5, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5303,6 +5302,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hc8e3981a7ebb6
 
 17:                                               ; preds = %._crit_edge
   %18 = icmp samesign ult i8 %2, 10
+  %.01823.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %4, i64 2
   br i1 %18, label %25, label %19
 
 19:                                               ; preds = %17

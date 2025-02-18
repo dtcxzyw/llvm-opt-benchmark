@@ -1629,8 +1629,6 @@ define hidden noundef zeroext i1 @_ZN7nanogui13TabWidgetBase18mouse_button_event
   %23 = add nsw i32 %22, %18
   %24 = icmp sgt i32 %20, %23
   %or.cond.i = select i1 %.not.i, i1 true, i1 %24
-  %.04.i67.sroa.gep69 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %.04.i.sroa.gep70 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br i1 %or.cond.i, label %_ZNK7nanogui13TabWidgetBase15tab_at_positionERKNS_5ArrayIiLm2EEEb.exit, label %25
 
 25:                                               ; preds = %5
@@ -1957,8 +1955,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %181
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 120
   %194 = load ptr, ptr %193, align 8
   call void %194(ptr noundef nonnull align 8 dereferenceable(416) %0, i32 noundef %191)
-  store i32 0, ptr %10, align 4
-  store i32 0, ptr %.04.i.sroa.gep70, align 4
+  %.sink160.sroa.gep163 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br label %.thread142.sink.split
 
 195:                                              ; preds = %175
@@ -2033,19 +2030,21 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %226, %220
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge:     ; preds = %235
   store i32 -1, ptr %95, align 8
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %.04.i67.sroa.gep69, align 4
+  %.sink160.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 4
   br label %.thread142.sink.split
 
 236:                                              ; preds = %173
   br i1 %3, label %.thread137, label %.thread142
 
 .thread142.sink.split:                            ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge
-  %.sink = phi ptr [ %11, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %10, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
+  %.sink160.sroa.phi = phi ptr [ %.sink160.sroa.gep, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %.sink160.sroa.gep163, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
+  %.sink160 = phi ptr [ %11, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %10, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
+  store i32 0, ptr %.sink160, align 4
+  store i32 0, ptr %.sink160.sroa.phi, align 4
   %237 = load ptr, ptr %0, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 40
   %239 = load ptr, ptr %238, align 8
-  %240 = call noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink, i32 noundef 0, i32 noundef 0)
+  %240 = call noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink160, i32 noundef 0, i32 noundef 0)
   br label %.thread142
 
 .thread142:                                       ; preds = %.thread142.sink.split, %235, %181, %236

@@ -51247,8 +51247,6 @@ define hidden void @_ZN4cvc58internal6theory3sep9TheorySep13eqNotifyMergeENS0_12
   %10 = trunc nuw nsw i64 %9 to i32
   %11 = and i32 %10, 1048575
   %12 = icmp samesign ult i32 %11, 1048574
-  %.03482.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.03388.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %12, label %13, label %18, !prof !172
 
 13:                                               ; preds = %3
@@ -51423,6 +51421,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit48: ; preds = %81, %85, %91
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %.03482.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %.preheader79
 
 96:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit46
@@ -51449,7 +51448,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit48: ; preds = %81, %85, %91
   br label %106
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %.preheader79
-  br i1 %98, label %.preheader79, label %.preheader78, !llvm.loop !1118
+  br i1 %98, label %.preheader79, label %.preheader78.preheader, !llvm.loop !1118
+
+.preheader78.preheader:                           ; preds = %._crit_edge
+  %.03388.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %.preheader78
 
 106:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit
   %.sroa.073.081 = phi ptr [ %101, %.lr.ph ], [ %163, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit ]
@@ -51574,9 +51577,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   %.not77 = icmp eq ptr %163, %103
   br i1 %.not77, label %._crit_edge, label %106
 
-.preheader78:                                     ; preds = %._crit_edge, %._crit_edge87
-  %164 = phi i1 [ false, %._crit_edge87 ], [ true, %._crit_edge ]
-  %.03388.sroa.phi = phi ptr [ %.03388.sroa.gep, %._crit_edge87 ], [ %5, %._crit_edge ]
+.preheader78:                                     ; preds = %.preheader78.preheader, %._crit_edge87
+  %164 = phi i1 [ false, %._crit_edge87 ], [ true, %.preheader78.preheader ]
+  %.03388.sroa.phi = phi ptr [ %.03388.sroa.gep, %._crit_edge87 ], [ %5, %.preheader78.preheader ]
   %.idx40 = select i1 %164, i64 0, i64 80
   %165 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx40
   %166 = load ptr, ptr %.03388.sroa.phi, align 8, !tbaa !185

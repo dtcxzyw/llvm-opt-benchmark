@@ -29268,12 +29268,6 @@ entry:
   %call2.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1)
   %call3.i = call noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3ltERKNS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEESF_(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %call2.i) #23
   %m_it3.i6 = getelementptr inbounds nuw i8, ptr %__c, i64 8
-  %agg.tmp24.sink89.sroa.gep = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 8
-  %agg.tmp24.sink89.sroa.gep90 = getelementptr inbounds nuw i8, ptr %agg.tmp34, i64 8
-  %agg.tmp24.sink89.sroa.gep91 = getelementptr inbounds nuw i8, ptr %agg.tmp31, i64 8
-  %agg.tmp24.sink89.sroa.gep92 = getelementptr inbounds nuw i8, ptr %agg.tmp7, i64 8
-  %agg.tmp24.sink89.sroa.gep93 = getelementptr inbounds nuw i8, ptr %agg.tmp16, i64 8
-  %agg.tmp24.sink89.sroa.gep94 = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 8
   br i1 %call3.i, label %if.then, label %if.else18
 
 if.then:                                          ; preds = %entry
@@ -29296,6 +29290,7 @@ if.then5:                                         ; preds = %if.then
   %m_it.i10 = getelementptr inbounds nuw i8, ptr %agg.tmp6, i64 8
   %m_it3.i11 = getelementptr inbounds nuw i8, ptr %__result, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i10, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i11, i64 24, i1 false)
+  %agg.tmp24.sink89.sroa.gep92 = getelementptr inbounds nuw i8, ptr %agg.tmp7, i64 8
   br label %if.end37
 
 if.else:                                          ; preds = %if.then
@@ -29318,12 +29313,14 @@ if.then11:                                        ; preds = %if.else
   store ptr %7, ptr %agg.tmp12, align 8
   %m_it.i22 = getelementptr inbounds nuw i8, ptr %agg.tmp12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i22, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i23, i64 24, i1 false)
+  %agg.tmp24.sink89.sroa.gep94 = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 8
   br label %if.end37
 
 if.else14:                                        ; preds = %if.else
   store ptr %7, ptr %agg.tmp15, align 8
   %m_it.i31 = getelementptr inbounds nuw i8, ptr %agg.tmp15, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i31, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i23, i64 24, i1 false)
+  %agg.tmp24.sink89.sroa.gep93 = getelementptr inbounds nuw i8, ptr %agg.tmp16, i64 8
   br label %if.end37
 
 if.else18:                                        ; preds = %entry
@@ -29346,6 +29343,7 @@ if.then22:                                        ; preds = %if.else18
   %m_it.i47 = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 8
   %m_it3.i48 = getelementptr inbounds nuw i8, ptr %__result, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i47, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i48, i64 24, i1 false)
+  %agg.tmp24.sink89.sroa.gep = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 8
   br label %if.end37
 
 if.else25:                                        ; preds = %if.else18
@@ -29368,12 +29366,14 @@ if.then29:                                        ; preds = %if.else25
   store ptr %13, ptr %agg.tmp30, align 8
   %m_it.i63 = getelementptr inbounds nuw i8, ptr %agg.tmp30, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i63, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i64, i64 24, i1 false)
+  %agg.tmp24.sink89.sroa.gep91 = getelementptr inbounds nuw i8, ptr %agg.tmp31, i64 8
   br label %if.end37
 
 if.else32:                                        ; preds = %if.else25
   store ptr %13, ptr %agg.tmp33, align 8
   %m_it.i72 = getelementptr inbounds nuw i8, ptr %agg.tmp33, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i72, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i64, i64 24, i1 false)
+  %agg.tmp24.sink89.sroa.gep90 = getelementptr inbounds nuw i8, ptr %agg.tmp34, i64 8
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then22, %if.else32, %if.then29, %if.then5, %if.else14, %if.then11
@@ -30572,8 +30572,6 @@ entry:
   %call2.val.i.i = load i8, ptr %call2.i.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 8
   %call2.val2.i.i = load ptr, ptr %6, align 8
-  %agg.tmp24.sink193.i.sroa.gep = getelementptr inbounds nuw i8, ptr %agg.tmp24.i, i64 8
-  %agg.tmp24.sink193.i.sroa.gep64 = getelementptr inbounds nuw i8, ptr %agg.tmp7.i, i64 8
   switch i8 %call.val.i.i, label %sw.default.i.i.i.i [
     i8 0, label %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit.i.i.i
     i8 2, label %sw.bb2.i.i.i.i
@@ -30771,10 +30769,8 @@ sw.default.i12.i.i65.i:                           ; preds = %_ZNK8nlohmann16json
   %retval.0.i4.i.i57.i = phi i64 [ 1, %sw.default.i12.i.i65.i ], [ %31, %sw.bb4.i1.i.i55.i ], [ %sub.ptr.div.i.i11.i.i64.i, %sw.bb2.i5.i.i59.i ], [ 0, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit.i.i53.i ]
   %cmp.i.i58.i = icmp ult i64 %retval.0.i.i.i54.i, %retval.0.i4.i.i57.i
   %agg.tmp12.i.agg.tmp15.i = select i1 %cmp.i.i58.i, ptr %agg.tmp12.i, ptr %agg.tmp15.i
-  %agg.tmp3.agg.tmp1 = select i1 %cmp.i.i58.i, ptr %agg.tmp3, ptr %agg.tmp1
-  %agg.tmp24.sink193.i.sroa.gep66.agg.tmp24.sink193.i.sroa.gep65.v.sroa.sel.v = select i1 %cmp.i.i58.i, ptr %agg.tmp13.i, ptr %agg.tmp16.i
-  %agg.tmp24.sink193.i.sroa.gep66.agg.tmp24.sink193.i.sroa.gep65.v.sroa.sel = getelementptr inbounds nuw i8, ptr %agg.tmp24.sink193.i.sroa.gep66.agg.tmp24.sink193.i.sroa.gep65.v.sroa.sel.v, i64 8
   %agg.tmp13.i.agg.tmp16.i = select i1 %cmp.i.i58.i, ptr %agg.tmp13.i, ptr %agg.tmp16.i
+  %agg.tmp3.agg.tmp1 = select i1 %cmp.i.i58.i, ptr %agg.tmp3, ptr %agg.tmp1
   %m_it.i.i7.m_it.i.i2 = select i1 %cmp.i.i58.i, ptr %m_it.i.i7, ptr %m_it.i.i2
   br label %"_ZSt22__move_median_to_firstIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_SN_T0_.exit"
 
@@ -30920,27 +30916,25 @@ sw.default.i12.i.i158.i:                          ; preds = %_ZNK8nlohmann16json
   %retval.0.i4.i.i150.i = phi i64 [ 1, %sw.default.i12.i.i158.i ], [ %50, %sw.bb4.i1.i.i148.i ], [ %sub.ptr.div.i.i11.i.i157.i, %sw.bb2.i5.i.i152.i ], [ 0, %_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE4sizeEv.exit.i.i146.i ]
   %cmp.i.i151.i = icmp ult i64 %retval.0.i.i.i147.i, %retval.0.i4.i.i150.i
   %agg.tmp30.i.agg.tmp33.i = select i1 %cmp.i.i151.i, ptr %agg.tmp30.i, ptr %agg.tmp33.i
-  %agg.tmp3.agg.tmp2 = select i1 %cmp.i.i151.i, ptr %agg.tmp3, ptr %agg.tmp2
-  %agg.tmp24.sink193.i.sroa.gep63.agg.tmp24.sink193.i.sroa.gep62.v.sroa.sel.v = select i1 %cmp.i.i151.i, ptr %agg.tmp31.i, ptr %agg.tmp34.i
-  %agg.tmp24.sink193.i.sroa.gep63.agg.tmp24.sink193.i.sroa.gep62.v.sroa.sel = getelementptr inbounds nuw i8, ptr %agg.tmp24.sink193.i.sroa.gep63.agg.tmp24.sink193.i.sroa.gep62.v.sroa.sel.v, i64 8
   %agg.tmp31.i.agg.tmp34.i = select i1 %cmp.i.i151.i, ptr %agg.tmp31.i, ptr %agg.tmp34.i
+  %agg.tmp3.agg.tmp2 = select i1 %cmp.i.i151.i, ptr %agg.tmp3, ptr %agg.tmp2
   %m_it.i.i7.m_it.i5 = select i1 %cmp.i.i151.i, ptr %m_it.i.i7, ptr %m_it.i5
   br label %"_ZSt22__move_median_to_firstIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_SN_T0_.exit"
 
 "_ZSt22__move_median_to_firstIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EEEvT_SN_SN_SN_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit166.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit73.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit35.i"
   %agg.tmp6.i.sink67 = phi ptr [ %agg.tmp6.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit35.i" ], [ %agg.tmp12.i.agg.tmp15.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit73.i" ], [ %agg.tmp23.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i" ], [ %agg.tmp30.i.agg.tmp33.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit166.i" ]
+  %agg.tmp7.i.sink = phi ptr [ %agg.tmp7.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit35.i" ], [ %agg.tmp13.i.agg.tmp16.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit73.i" ], [ %agg.tmp24.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i" ], [ %agg.tmp31.i.agg.tmp34.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit166.i" ]
   %__a.sink.i = phi ptr [ %agg.tmp2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit35.i" ], [ %agg.tmp3.agg.tmp1, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit73.i" ], [ %agg.tmp1, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i" ], [ %agg.tmp3.agg.tmp2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit166.i" ]
-  %agg.tmp24.sink193.i.sroa.phi = phi ptr [ %agg.tmp24.sink193.i.sroa.gep64, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit35.i" ], [ %agg.tmp24.sink193.i.sroa.gep66.agg.tmp24.sink193.i.sroa.gep65.v.sroa.sel, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit73.i" ], [ %agg.tmp24.sink193.i.sroa.gep, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i" ], [ %agg.tmp24.sink193.i.sroa.gep63.agg.tmp24.sink193.i.sroa.gep62.v.sroa.sel, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit166.i" ]
-  %agg.tmp24.sink193.i = phi ptr [ %agg.tmp7.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit35.i" ], [ %agg.tmp13.i.agg.tmp16.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit73.i" ], [ %agg.tmp24.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i" ], [ %agg.tmp31.i.agg.tmp34.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit166.i" ]
   %m_it3.i.sink.i = phi ptr [ %m_it.i5, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit35.i" ], [ %m_it.i.i7.m_it.i.i2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit73.i" ], [ %m_it.i.i2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit124.i" ], [ %m_it.i.i7.m_it.i5, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19DOCTEST_ANON_FUNC_2vE4$_15EclIN8nlohmann16json_abi_v3_11_36detail9iter_implINS6_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS6_14adl_serializerESB_IhSaIhEEvEEEESM_EEbT_T0_.exit166.i" ]
   store ptr %1, ptr %agg.tmp6.i.sink67, align 8
   %m_it.i36.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.sink67, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_it.i36.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.sroa.5, i64 24, i1 false)
+  %agg.tmp24.sink193.i.sroa.gep64 = getelementptr inbounds nuw i8, ptr %agg.tmp7.i.sink, i64 8
   %51 = load ptr, ptr %__a.sink.i, align 8
-  store ptr %51, ptr %agg.tmp24.sink193.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp24.sink193.i.sroa.phi, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i.sink.i, i64 24, i1 false)
+  store ptr %51, ptr %agg.tmp7.i.sink, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp24.sink193.i.sroa.gep64, ptr noundef nonnull align 8 dereferenceable(24) %m_it3.i.sink.i, i64 24, i1 false)
   %call.i129.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.sink67)
-  %call1.i130.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp24.sink193.i)
+  %call1.i130.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_36detail9iter_implINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEdeEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i.sink)
   %52 = load i8, ptr %call.i129.i, align 8
   %53 = load i8, ptr %call1.i130.i, align 8
   store i8 %53, ptr %call.i129.i, align 8

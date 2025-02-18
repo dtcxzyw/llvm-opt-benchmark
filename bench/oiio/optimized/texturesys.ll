@@ -8298,14 +8298,6 @@ entry:
   %drdt = alloca %"class.OpenImageIO_v2_6_0::simd::vfloat4", align 16
   store <4 x float> zeroinitializer, ptr %result, align 16
   %tobool.not = icmp eq ptr %dresultds, null
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %levelweight, i64 4
-  %indvars.iv135.sroa.gep = getelementptr inbounds nuw i8, ptr %levelweight, i64 4
-  %indvars.iv133.sroa.gep = getelementptr inbounds nuw i8, ptr %levelweight, i64 4
-  %indvars.iv137.sroa.gep = getelementptr inbounds nuw i8, ptr %levelweight, i64 4
-  %indvars.iv.sroa.gep154 = getelementptr inbounds nuw i8, ptr %miplevel, i64 4
-  %indvars.iv135.sroa.gep157 = getelementptr inbounds nuw i8, ptr %miplevel, i64 4
-  %indvars.iv133.sroa.gep160 = getelementptr inbounds nuw i8, ptr %miplevel, i64 4
-  %indvars.iv137.sroa.gep163 = getelementptr inbounds nuw i8, ptr %miplevel, i64 4
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -8421,15 +8413,25 @@ _ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit: ; preds = %if.then
   br i1 %tobool.not, label %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us, label %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split
 
 _ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us: ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit
-  br i1 %memptr.isvirtual.not, label %for.body.us.us, label %for.body.us
+  br i1 %memptr.isvirtual.not, label %for.body.us.us.preheader, label %for.body.us.preheader
 
-for.body.us.us:                                   ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us, %for.inc.us.us
-  %cmp22.us.us = phi i1 [ false, %for.inc.us.us ], [ true, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %indvars.iv137.sroa.phi = phi ptr [ %indvars.iv137.sroa.gep, %for.inc.us.us ], [ %levelweight, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %indvars.iv137.sroa.phi162 = phi ptr [ %indvars.iv137.sroa.gep163, %for.inc.us.us ], [ %miplevel, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %ok.078.us.us = phi i8 [ %ok.1.us.us, %for.inc.us.us ], [ 1, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %npointson.076.us.us = phi i32 [ %npointson.1.us.us, %for.inc.us.us ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %r_sum.sroa.0.075.us.us = phi <4 x float> [ %r_sum.sroa.0.1.us.us, %for.inc.us.us ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
+for.body.us.preheader:                            ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us
+  %indvars.iv135.sroa.gep = getelementptr inbounds nuw i8, ptr %levelweight, i64 4
+  %indvars.iv135.sroa.gep157 = getelementptr inbounds nuw i8, ptr %miplevel, i64 4
+  br label %for.body.us
+
+for.body.us.us.preheader:                         ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us
+  %indvars.iv137.sroa.gep = getelementptr inbounds nuw i8, ptr %levelweight, i64 4
+  %indvars.iv137.sroa.gep163 = getelementptr inbounds nuw i8, ptr %miplevel, i64 4
+  br label %for.body.us.us
+
+for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.inc.us.us
+  %cmp22.us.us = phi i1 [ false, %for.inc.us.us ], [ true, %for.body.us.us.preheader ]
+  %indvars.iv137.sroa.phi = phi ptr [ %indvars.iv137.sroa.gep, %for.inc.us.us ], [ %levelweight, %for.body.us.us.preheader ]
+  %indvars.iv137.sroa.phi162 = phi ptr [ %indvars.iv137.sroa.gep163, %for.inc.us.us ], [ %miplevel, %for.body.us.us.preheader ]
+  %ok.078.us.us = phi i8 [ %ok.1.us.us, %for.inc.us.us ], [ 1, %for.body.us.us.preheader ]
+  %npointson.076.us.us = phi i32 [ %npointson.1.us.us, %for.inc.us.us ], [ 0, %for.body.us.us.preheader ]
+  %r_sum.sroa.0.075.us.us = phi <4 x float> [ %r_sum.sroa.0.1.us.us, %for.inc.us.us ], [ zeroinitializer, %for.body.us.us.preheader ]
   %20 = load float, ptr %indvars.iv137.sroa.phi, align 4
   %tobool25.us.us = fcmp une float %20, 0.000000e+00
   br i1 %tobool25.us.us, label %if.end27.us.us, label %for.inc.us.us
@@ -8455,13 +8457,13 @@ for.inc.us.us:                                    ; preds = %if.end27.us.us, %fo
   %ok.1.us.us = phi i8 [ %frombool48.us.us, %if.end27.us.us ], [ %ok.078.us.us, %for.body.us.us ]
   br i1 %cmp22.us.us, label %for.body.us.us, label %for.end, !llvm.loop !101
 
-for.body.us:                                      ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us, %for.inc.us
-  %cmp22.us = phi i1 [ false, %for.inc.us ], [ true, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %indvars.iv135.sroa.phi = phi ptr [ %indvars.iv135.sroa.gep, %for.inc.us ], [ %levelweight, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %indvars.iv135.sroa.phi156 = phi ptr [ %indvars.iv135.sroa.gep157, %for.inc.us ], [ %miplevel, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %ok.078.us = phi i8 [ %ok.1.us, %for.inc.us ], [ 1, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %npointson.076.us = phi i32 [ %npointson.1.us, %for.inc.us ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
-  %r_sum.sroa.0.075.us = phi <4 x float> [ %r_sum.sroa.0.1.us, %for.inc.us ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split.us ]
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
+  %cmp22.us = phi i1 [ false, %for.inc.us ], [ true, %for.body.us.preheader ]
+  %indvars.iv135.sroa.phi = phi ptr [ %indvars.iv135.sroa.gep, %for.inc.us ], [ %levelweight, %for.body.us.preheader ]
+  %indvars.iv135.sroa.phi156 = phi ptr [ %indvars.iv135.sroa.gep157, %for.inc.us ], [ %miplevel, %for.body.us.preheader ]
+  %ok.078.us = phi i8 [ %ok.1.us, %for.inc.us ], [ 1, %for.body.us.preheader ]
+  %npointson.076.us = phi i32 [ %npointson.1.us, %for.inc.us ], [ 0, %for.body.us.preheader ]
+  %r_sum.sroa.0.075.us = phi <4 x float> [ %r_sum.sroa.0.1.us, %for.inc.us ], [ zeroinitializer, %for.body.us.preheader ]
   %24 = load float, ptr %indvars.iv135.sroa.phi, align 4
   %tobool25.us = fcmp une float %24, 0.000000e+00
   br i1 %tobool25.us, label %if.end27.us, label %for.inc.us
@@ -8492,17 +8494,27 @@ for.inc.us:                                       ; preds = %if.end27.us, %for.b
   br i1 %cmp22.us, label %for.body.us, label %for.end, !llvm.loop !101
 
 _ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split: ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit
-  br i1 %memptr.isvirtual.not, label %for.body.us83, label %for.body
+  br i1 %memptr.isvirtual.not, label %for.body.us83.preheader, label %for.body.preheader
 
-for.body.us83:                                    ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split, %for.inc.us106
-  %cmp22.us113 = phi i1 [ false, %for.inc.us106 ], [ true, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %indvars.iv133.sroa.phi = phi ptr [ %indvars.iv133.sroa.gep, %for.inc.us106 ], [ %levelweight, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %indvars.iv133.sroa.phi159 = phi ptr [ %indvars.iv133.sroa.gep160, %for.inc.us106 ], [ %miplevel, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %ok.078.us84 = phi i8 [ %ok.1.us111, %for.inc.us106 ], [ 1, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %npointson.076.us86 = phi i32 [ %npointson.1.us110, %for.inc.us106 ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %r_sum.sroa.0.075.us87 = phi <4 x float> [ %r_sum.sroa.0.1.us109, %for.inc.us106 ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %drds_sum.sroa.0.174.us88 = phi <4 x float> [ %drds_sum.sroa.0.2.us108, %for.inc.us106 ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %drdt_sum.sroa.0.173.us89 = phi <4 x float> [ %drdt_sum.sroa.0.2.us107, %for.inc.us106 ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
+for.body.preheader:                               ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %levelweight, i64 4
+  %indvars.iv.sroa.gep154 = getelementptr inbounds nuw i8, ptr %miplevel, i64 4
+  br label %for.body
+
+for.body.us83.preheader:                          ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split
+  %indvars.iv133.sroa.gep = getelementptr inbounds nuw i8, ptr %levelweight, i64 4
+  %indvars.iv133.sroa.gep160 = getelementptr inbounds nuw i8, ptr %miplevel, i64 4
+  br label %for.body.us83
+
+for.body.us83:                                    ; preds = %for.body.us83.preheader, %for.inc.us106
+  %cmp22.us113 = phi i1 [ false, %for.inc.us106 ], [ true, %for.body.us83.preheader ]
+  %indvars.iv133.sroa.phi = phi ptr [ %indvars.iv133.sroa.gep, %for.inc.us106 ], [ %levelweight, %for.body.us83.preheader ]
+  %indvars.iv133.sroa.phi159 = phi ptr [ %indvars.iv133.sroa.gep160, %for.inc.us106 ], [ %miplevel, %for.body.us83.preheader ]
+  %ok.078.us84 = phi i8 [ %ok.1.us111, %for.inc.us106 ], [ 1, %for.body.us83.preheader ]
+  %npointson.076.us86 = phi i32 [ %npointson.1.us110, %for.inc.us106 ], [ 0, %for.body.us83.preheader ]
+  %r_sum.sroa.0.075.us87 = phi <4 x float> [ %r_sum.sroa.0.1.us109, %for.inc.us106 ], [ zeroinitializer, %for.body.us83.preheader ]
+  %drds_sum.sroa.0.174.us88 = phi <4 x float> [ %drds_sum.sroa.0.2.us108, %for.inc.us106 ], [ zeroinitializer, %for.body.us83.preheader ]
+  %drdt_sum.sroa.0.173.us89 = phi <4 x float> [ %drdt_sum.sroa.0.2.us107, %for.inc.us106 ], [ zeroinitializer, %for.body.us83.preheader ]
   %30 = load float, ptr %indvars.iv133.sroa.phi, align 4
   %tobool25.us92 = fcmp une float %30, 0.000000e+00
   br i1 %tobool25.us92, label %if.end27.us93, label %for.inc.us106
@@ -8536,15 +8548,15 @@ for.inc.us106:                                    ; preds = %if.end27.us93, %for
   %ok.1.us111 = phi i8 [ %frombool48.us100, %if.end27.us93 ], [ %ok.078.us84, %for.body.us83 ]
   br i1 %cmp22.us113, label %for.body.us83, label %for.end, !llvm.loop !101
 
-for.body:                                         ; preds = %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split, %for.inc
-  %cmp22 = phi i1 [ false, %for.inc ], [ true, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %levelweight, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %indvars.iv.sroa.phi153 = phi ptr [ %indvars.iv.sroa.gep154, %for.inc ], [ %miplevel, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %ok.078 = phi i8 [ %ok.1, %for.inc ], [ 1, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %npointson.076 = phi i32 [ %npointson.1, %for.inc ], [ 0, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %r_sum.sroa.0.075 = phi <4 x float> [ %r_sum.sroa.0.1, %for.inc ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %drds_sum.sroa.0.174 = phi <4 x float> [ %drds_sum.sroa.0.2, %for.inc ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
-  %drdt_sum.sroa.0.173 = phi <4 x float> [ %drdt_sum.sroa.0.2, %for.inc ], [ zeroinitializer, %_ZN18OpenImageIO_v2_6_03pvt12adjust_widthERfS1_S1_S1_ff.exit.split ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %cmp22 = phi i1 [ false, %for.inc ], [ true, %for.body.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %for.inc ], [ %levelweight, %for.body.preheader ]
+  %indvars.iv.sroa.phi153 = phi ptr [ %indvars.iv.sroa.gep154, %for.inc ], [ %miplevel, %for.body.preheader ]
+  %ok.078 = phi i8 [ %ok.1, %for.inc ], [ 1, %for.body.preheader ]
+  %npointson.076 = phi i32 [ %npointson.1, %for.inc ], [ 0, %for.body.preheader ]
+  %r_sum.sroa.0.075 = phi <4 x float> [ %r_sum.sroa.0.1, %for.inc ], [ zeroinitializer, %for.body.preheader ]
+  %drds_sum.sroa.0.174 = phi <4 x float> [ %drds_sum.sroa.0.2, %for.inc ], [ zeroinitializer, %for.body.preheader ]
+  %drdt_sum.sroa.0.173 = phi <4 x float> [ %drdt_sum.sroa.0.2, %for.inc ], [ zeroinitializer, %for.body.preheader ]
   %36 = load float, ptr %indvars.iv.sroa.phi, align 4
   %tobool25 = fcmp une float %36, 0.000000e+00
   br i1 %tobool25, label %if.end27, label %for.inc
@@ -9505,10 +9517,6 @@ entry:
   %arrayidx7 = getelementptr inbounds [7 x ptr], ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl14wrap_functionsE, i64 0, i64 %idxprom6
   %7 = load ptr, ptr %arrayidx7, align 8
   %cmp = icmp eq ptr %5, %7
-  %indvars.iv505.sroa.gep528 = getelementptr inbounds nuw i8, ptr %tile_edge, i64 4
-  %indvars.iv505.sroa.gep531 = getelementptr inbounds nuw i8, ptr %tile_st357, i64 4
-  %indvars.iv508.sroa.gep532 = getelementptr inbounds nuw i8, ptr %texel_simd, i64 32
-  %indvars.iv505.sroa.gep535 = getelementptr inbounds nuw i8, ptr %stvalid, i64 4
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -9639,6 +9647,10 @@ for.body.lr.ph:                                   ; preds = %_ZN18OpenImageIO_v2
   %cmp827.i = icmp sgt i32 %actualchannels, 0
   %wide.trip.count.i = zext nneg i32 %actualchannels to i64
   %wide.trip.count = zext nneg i32 %nsamples to i64
+  %indvars.iv505.sroa.gep528 = getelementptr inbounds nuw i8, ptr %tile_edge, i64 4
+  %indvars.iv505.sroa.gep531 = getelementptr inbounds nuw i8, ptr %tile_st357, i64 4
+  %indvars.iv505.sroa.gep535 = getelementptr inbounds nuw i8, ptr %stvalid, i64 4
+  %indvars.iv508.sroa.gep532 = getelementptr inbounds nuw i8, ptr %texel_simd, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc628

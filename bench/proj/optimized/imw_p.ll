@@ -402,8 +402,6 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   %11 = tail call double @cos(double noundef %10) #7
   %12 = fdiv double %0, %11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %.sink47.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink47.sroa.gep48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.backedge, %3
@@ -426,7 +424,7 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
 
 24:                                               ; preds = %20, %.critedge2
   %25 = fcmp oeq double %18, 0.000000e+00
-  br i1 %25, label %.critedge.thread.sink.split, label %26
+  br i1 %25, label %.critedge.thread.sink.split.split.loop.exit49, label %26
 
 26:                                               ; preds = %24
   %27 = load double, ptr %13, align 8
@@ -457,7 +455,7 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   %.sroa.018.1 = phi double [ %41, %39 ], [ %.sroa.018.0, %35 ], [ %.sroa.018.0, %33 ]
   %43 = add nuw nsw i32 %.0, 1
   %exitcond.not = icmp eq i32 %.0, 999
-  br i1 %exitcond.not, label %.critedge.thread.sink.split, label %44
+  br i1 %exitcond.not, label %.critedge.thread.sink.split.split.loop.exit, label %44
 
 44:                                               ; preds = %42
   %45 = fsub double %15, %0
@@ -474,9 +472,17 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
 .critedge2.backedge:                              ; preds = %48, %44
   br label %.critedge2, !llvm.loop !4
 
-.critedge.thread.sink.split:                      ; preds = %42, %24
-  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep, %24 ], [ %.sink47.sroa.gep48, %42 ]
-  %.sink47 = phi ptr [ %5, %24 ], [ %6, %42 ]
+.critedge.thread.sink.split.split.loop.exit:      ; preds = %42
+  %.sink47.sroa.gep48.le = getelementptr inbounds nuw i8, ptr %6, i64 8
+  br label %.critedge.thread.sink.split
+
+.critedge.thread.sink.split.split.loop.exit49:    ; preds = %24
+  %.sink47.sroa.gep.le = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %.critedge.thread.sink.split
+
+.critedge.thread.sink.split:                      ; preds = %.critedge.thread.sink.split.split.loop.exit49, %.critedge.thread.sink.split.split.loop.exit
+  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep48.le, %.critedge.thread.sink.split.split.loop.exit ], [ %.sink47.sroa.gep.le, %.critedge.thread.sink.split.split.loop.exit49 ]
+  %.sink47 = phi ptr [ %6, %.critedge.thread.sink.split.split.loop.exit ], [ %5, %.critedge.thread.sink.split.split.loop.exit49 ]
   %52 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %.sink47)
   %.sroa.031.0.copyload32 = load double, ptr %.sink47, align 8

@@ -48291,9 +48291,6 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_11JoinOp
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !299
-  %.sink19.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %.sink19.i.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %6, i64 23
-  %.sink19.i.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
           to label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_S4_E.exit unwind label %124
 
@@ -48336,26 +48333,30 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
 
 ._crit_edge.i.i.i.i:                              ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 1 dereferenceable(9) @.str.228, i64 9, i1 false)
+  %.sink.sroa.gep24 = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %27
 
 ._crit_edge.i.i4.i.i:                             ; preds = %20
   store i32 1346980691, ptr %26, align 8, !alias.scope !848
+  %.sink.sroa.gep23 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i8.i.i:                             ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %26, ptr noundef nonnull align 1 dereferenceable(7) @.str.230, i64 7, i1 false)
+  %.sink.sroa.gep22 = getelementptr inbounds nuw i8, ptr %6, i64 23
   br label %27
 
 ._crit_edge.i.i12.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 1 dereferenceable(9) @.str.220, i64 9, i1 false)
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %27
 
 27:                                               ; preds = %._crit_edge.i.i12.i.i, %._crit_edge.i.i8.i.i, %._crit_edge.i.i4.i.i, %._crit_edge.i.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i12.i.i ], [ %.sink.sroa.gep22, %._crit_edge.i.i8.i.i ], [ %.sink.sroa.gep23, %._crit_edge.i.i4.i.i ], [ %.sink.sroa.gep24, %._crit_edge.i.i.i.i ]
   %.sink.i.i = phi i64 [ 9, %._crit_edge.i.i12.i.i ], [ 7, %._crit_edge.i.i8.i.i ], [ 4, %._crit_edge.i.i4.i.i ], [ 9, %._crit_edge.i.i.i.i ]
-  %.sink19.i.i.sroa.phi = phi ptr [ %.sink19.i.i.sroa.gep, %._crit_edge.i.i12.i.i ], [ %.sink19.i.i.sroa.gep19, %._crit_edge.i.i8.i.i ], [ %.sink19.i.i.sroa.gep20, %._crit_edge.i.i4.i.i ], [ %.sink19.i.i.sroa.gep, %._crit_edge.i.i.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink.i.i, ptr %28, align 8, !tbaa !51, !alias.scope !848
-  store i8 0, ptr %.sink19.i.i.sroa.phi, align 1, !tbaa !52, !alias.scope !848
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !52, !alias.scope !848
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %26, i64 noundef %.sink.i.i)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %126
 
@@ -66960,10 +66961,6 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_16MapLoo
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !299
-  %.sink19.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %.sink19.i.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %6, i64 19
-  %.sink19.i.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.sink19.i.i.sroa.gep21 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
           to label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_S4_E.exit unwind label %124
 
@@ -67006,26 +67003,30 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
 
 ._crit_edge.i.i.i.i:                              ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %26, ptr noundef nonnull align 1 dereferenceable(5) @.str.240, i64 5, i1 false)
+  %.sink.sroa.gep24 = getelementptr inbounds nuw i8, ptr %6, i64 21
   br label %27
 
 ._crit_edge.i.i4.i.i:                             ; preds = %20
   store i32 1414742348, ptr %26, align 8, !alias.scope !1476
+  %.sink.sroa.gep23 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i8.i.i:                             ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %26, ptr noundef nonnull align 1 dereferenceable(3) @.str.242, i64 3, i1 false)
+  %.sink.sroa.gep22 = getelementptr inbounds nuw i8, ptr %6, i64 19
   br label %27
 
 ._crit_edge.i.i12.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 1 dereferenceable(9) @.str.220, i64 9, i1 false)
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %27
 
 27:                                               ; preds = %._crit_edge.i.i12.i.i, %._crit_edge.i.i8.i.i, %._crit_edge.i.i4.i.i, %._crit_edge.i.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i12.i.i ], [ %.sink.sroa.gep22, %._crit_edge.i.i8.i.i ], [ %.sink.sroa.gep23, %._crit_edge.i.i4.i.i ], [ %.sink.sroa.gep24, %._crit_edge.i.i.i.i ]
   %.sink.i.i = phi i64 [ 9, %._crit_edge.i.i12.i.i ], [ 3, %._crit_edge.i.i8.i.i ], [ 4, %._crit_edge.i.i4.i.i ], [ 5, %._crit_edge.i.i.i.i ]
-  %.sink19.i.i.sroa.phi = phi ptr [ %.sink19.i.i.sroa.gep, %._crit_edge.i.i12.i.i ], [ %.sink19.i.i.sroa.gep19, %._crit_edge.i.i8.i.i ], [ %.sink19.i.i.sroa.gep20, %._crit_edge.i.i4.i.i ], [ %.sink19.i.i.sroa.gep21, %._crit_edge.i.i.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink.i.i, ptr %28, align 8, !tbaa !51, !alias.scope !1476
-  store i8 0, ptr %.sink19.i.i.sroa.phi, align 1, !tbaa !52, !alias.scope !1476
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !52, !alias.scope !1476
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %26, i64 noundef %.sink.i.i)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %126
 
@@ -94080,14 +94081,6 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_20RoundT
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !299
-  %.sink59.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %.sink59.i.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.sink59.i.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %6, i64 23
-  %.sink59.i.i.sroa.gep21 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  %.sink59.i.i.sroa.gep23 = getelementptr inbounds nuw i8, ptr %6, i64 19
-  %.sink59.i.i.sroa.gep25 = getelementptr inbounds nuw i8, ptr %6, i64 22
-  %.sink59.i.i.sroa.gep27 = getelementptr inbounds nuw i8, ptr %6, i64 27
-  %.sink59.i.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %6, i64 26
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
           to label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_S4_E.exit unwind label %124
 
@@ -94138,58 +94131,70 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
 
 ._crit_edge.i.i.i.i:                              ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %26, ptr noundef nonnull align 1 dereferenceable(10) @.str.257, i64 10, i1 false)
+  %.sink.sroa.gep40 = getelementptr inbounds nuw i8, ptr %6, i64 26
   br label %27
 
 ._crit_edge.i.i4.i.i:                             ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %26, ptr noundef nonnull align 1 dereferenceable(11) @.str.258, i64 11, i1 false)
+  %.sink.sroa.gep39 = getelementptr inbounds nuw i8, ptr %6, i64 27
   br label %27
 
 ._crit_edge.i.i8.i.i:                             ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %26, ptr noundef nonnull align 1 dereferenceable(11) @.str.259, i64 11, i1 false)
+  %.sink.sroa.gep38 = getelementptr inbounds nuw i8, ptr %6, i64 27
   br label %27
 
 ._crit_edge.i.i12.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) @.str.260, i64 6, i1 false)
+  %.sink.sroa.gep37 = getelementptr inbounds nuw i8, ptr %6, i64 22
   br label %27
 
 ._crit_edge.i.i16.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) @.str.261, i64 6, i1 false)
+  %.sink.sroa.gep36 = getelementptr inbounds nuw i8, ptr %6, i64 22
   br label %27
 
 ._crit_edge.i.i20.i.i:                            ; preds = %20
   store i32 1381322568, ptr %26, align 8, !alias.scope !2146
+  %.sink.sroa.gep35 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i24.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %26, ptr noundef nonnull align 1 dereferenceable(3) @.str.263, i64 3, i1 false)
+  %.sink.sroa.gep34 = getelementptr inbounds nuw i8, ptr %6, i64 19
   br label %27
 
 ._crit_edge.i.i28.i.i:                            ; preds = %20
   store i32 1262830935, ptr %26, align 8, !alias.scope !2146
+  %.sink.sroa.gep33 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i32.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %26, ptr noundef nonnull align 1 dereferenceable(5) @.str.265, i64 5, i1 false)
+  %.sink.sroa.gep32 = getelementptr inbounds nuw i8, ptr %6, i64 21
   br label %27
 
 ._crit_edge.i.i36.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %26, ptr noundef nonnull align 1 dereferenceable(7) @.str.266, i64 7, i1 false)
+  %.sink.sroa.gep31 = getelementptr inbounds nuw i8, ptr %6, i64 23
   br label %27
 
 ._crit_edge.i.i40.i.i:                            ; preds = %20
   store i32 1380009305, ptr %26, align 8, !alias.scope !2146
+  %.sink.sroa.gep30 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i44.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 1 dereferenceable(9) @.str.220, i64 9, i1 false)
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %27
 
 27:                                               ; preds = %._crit_edge.i.i44.i.i, %._crit_edge.i.i40.i.i, %._crit_edge.i.i36.i.i, %._crit_edge.i.i32.i.i, %._crit_edge.i.i28.i.i, %._crit_edge.i.i24.i.i, %._crit_edge.i.i20.i.i, %._crit_edge.i.i16.i.i, %._crit_edge.i.i12.i.i, %._crit_edge.i.i8.i.i, %._crit_edge.i.i4.i.i, %._crit_edge.i.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i44.i.i ], [ %.sink.sroa.gep30, %._crit_edge.i.i40.i.i ], [ %.sink.sroa.gep31, %._crit_edge.i.i36.i.i ], [ %.sink.sroa.gep32, %._crit_edge.i.i32.i.i ], [ %.sink.sroa.gep33, %._crit_edge.i.i28.i.i ], [ %.sink.sroa.gep34, %._crit_edge.i.i24.i.i ], [ %.sink.sroa.gep35, %._crit_edge.i.i20.i.i ], [ %.sink.sroa.gep36, %._crit_edge.i.i16.i.i ], [ %.sink.sroa.gep37, %._crit_edge.i.i12.i.i ], [ %.sink.sroa.gep38, %._crit_edge.i.i8.i.i ], [ %.sink.sroa.gep39, %._crit_edge.i.i4.i.i ], [ %.sink.sroa.gep40, %._crit_edge.i.i.i.i ]
   %.sink.i.i = phi i64 [ 9, %._crit_edge.i.i44.i.i ], [ 4, %._crit_edge.i.i40.i.i ], [ 7, %._crit_edge.i.i36.i.i ], [ 5, %._crit_edge.i.i32.i.i ], [ 4, %._crit_edge.i.i28.i.i ], [ 3, %._crit_edge.i.i24.i.i ], [ 4, %._crit_edge.i.i20.i.i ], [ 6, %._crit_edge.i.i16.i.i ], [ 6, %._crit_edge.i.i12.i.i ], [ 11, %._crit_edge.i.i8.i.i ], [ 11, %._crit_edge.i.i4.i.i ], [ 10, %._crit_edge.i.i.i.i ]
-  %.sink59.i.i.sroa.phi = phi ptr [ %.sink59.i.i.sroa.gep, %._crit_edge.i.i44.i.i ], [ %.sink59.i.i.sroa.gep19, %._crit_edge.i.i40.i.i ], [ %.sink59.i.i.sroa.gep20, %._crit_edge.i.i36.i.i ], [ %.sink59.i.i.sroa.gep21, %._crit_edge.i.i32.i.i ], [ %.sink59.i.i.sroa.gep19, %._crit_edge.i.i28.i.i ], [ %.sink59.i.i.sroa.gep23, %._crit_edge.i.i24.i.i ], [ %.sink59.i.i.sroa.gep19, %._crit_edge.i.i20.i.i ], [ %.sink59.i.i.sroa.gep25, %._crit_edge.i.i16.i.i ], [ %.sink59.i.i.sroa.gep25, %._crit_edge.i.i12.i.i ], [ %.sink59.i.i.sroa.gep27, %._crit_edge.i.i8.i.i ], [ %.sink59.i.i.sroa.gep27, %._crit_edge.i.i4.i.i ], [ %.sink59.i.i.sroa.gep29, %._crit_edge.i.i.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink.i.i, ptr %28, align 8, !tbaa !51, !alias.scope !2146
-  store i8 0, ptr %.sink59.i.i.sroa.phi, align 1, !tbaa !52, !alias.scope !2146
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !52, !alias.scope !2146
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %26, i64 noundef %.sink.i.i)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %126
 
@@ -103158,10 +103163,6 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_16SetLoo
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !299
-  %.sink24.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %.sink24.i.i.sroa.gep21 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %.sink24.i.i.sroa.gep23 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.sink24.i.i.sroa.gep24 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
           to label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_S4_E.exit unwind label %133
 
@@ -103227,30 +103228,35 @@ _ZNK5arrow8internal25CoercedDataMemberPropertyINS_7compute16SetLookupOptionsENS3
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZNK5arrow8internal25CoercedDataMemberPropertyINS_7compute16SetLookupOptionsENS3_20NullMatchingBehaviorEE3getERKS3_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %35, ptr noundef nonnull align 1 dereferenceable(5) @.str.272, i64 5, i1 false)
+  %.sink.sroa.gep28 = getelementptr inbounds nuw i8, ptr %6, i64 21
   br label %36
 
 ._crit_edge.i.i4.i.i:                             ; preds = %_ZNK5arrow8internal25CoercedDataMemberPropertyINS_7compute16SetLookupOptionsENS3_20NullMatchingBehaviorEE3getERKS3_.exit
   store i32 1346980691, ptr %35, align 8, !alias.scope !2378
+  %.sink.sroa.gep27 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %36
 
 ._crit_edge.i.i8.i.i:                             ; preds = %_ZNK5arrow8internal25CoercedDataMemberPropertyINS_7compute16SetLookupOptionsENS3_20NullMatchingBehaviorEE3getERKS3_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %35, ptr noundef nonnull align 1 dereferenceable(9) @.str.228, i64 9, i1 false)
+  %.sink.sroa.gep26 = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %36
 
 ._crit_edge.i.i12.i.i:                            ; preds = %_ZNK5arrow8internal25CoercedDataMemberPropertyINS_7compute16SetLookupOptionsENS3_20NullMatchingBehaviorEE3getERKS3_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 1 dereferenceable(12) @.str.273, i64 12, i1 false)
+  %.sink.sroa.gep25 = getelementptr inbounds nuw i8, ptr %6, i64 28
   br label %36
 
 ._crit_edge.i.i16.i.i:                            ; preds = %_ZNK5arrow8internal25CoercedDataMemberPropertyINS_7compute16SetLookupOptionsENS3_20NullMatchingBehaviorEE3getERKS3_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %35, ptr noundef nonnull align 1 dereferenceable(9) @.str.220, i64 9, i1 false)
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %36
 
 36:                                               ; preds = %._crit_edge.i.i16.i.i, %._crit_edge.i.i12.i.i, %._crit_edge.i.i8.i.i, %._crit_edge.i.i4.i.i, %._crit_edge.i.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i16.i.i ], [ %.sink.sroa.gep25, %._crit_edge.i.i12.i.i ], [ %.sink.sroa.gep26, %._crit_edge.i.i8.i.i ], [ %.sink.sroa.gep27, %._crit_edge.i.i4.i.i ], [ %.sink.sroa.gep28, %._crit_edge.i.i.i.i ]
   %.sink.i.i = phi i64 [ 9, %._crit_edge.i.i16.i.i ], [ 12, %._crit_edge.i.i12.i.i ], [ 9, %._crit_edge.i.i8.i.i ], [ 4, %._crit_edge.i.i4.i.i ], [ 5, %._crit_edge.i.i.i.i ]
-  %.sink24.i.i.sroa.phi = phi ptr [ %.sink24.i.i.sroa.gep, %._crit_edge.i.i16.i.i ], [ %.sink24.i.i.sroa.gep21, %._crit_edge.i.i12.i.i ], [ %.sink24.i.i.sroa.gep, %._crit_edge.i.i8.i.i ], [ %.sink24.i.i.sroa.gep23, %._crit_edge.i.i4.i.i ], [ %.sink24.i.i.sroa.gep24, %._crit_edge.i.i.i.i ]
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink.i.i, ptr %37, align 8, !tbaa !51, !alias.scope !2378
-  store i8 0, ptr %.sink24.i.i.sroa.phi, align 1, !tbaa !52, !alias.scope !2378
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !52, !alias.scope !2378
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %35, i64 noundef %.sink.i.i)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %137
 
@@ -122873,10 +122879,6 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_15Strpti
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !299
-  %.sink24.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %.sink24.i.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.sink24.i.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  %.sink24.i.i.sroa.gep22 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
           to label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_S4_E.exit unwind label %124
 
@@ -122920,30 +122922,35 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
 
 ._crit_edge.i.i.i.i:                              ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) @.str.260, i64 6, i1 false)
+  %.sink.sroa.gep26 = getelementptr inbounds nuw i8, ptr %6, i64 22
   br label %27
 
 ._crit_edge.i.i4.i.i:                             ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %26, ptr noundef nonnull align 1 dereferenceable(5) @.str.278, i64 5, i1 false)
+  %.sink.sroa.gep25 = getelementptr inbounds nuw i8, ptr %6, i64 21
   br label %27
 
 ._crit_edge.i.i8.i.i:                             ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %26, ptr noundef nonnull align 1 dereferenceable(5) @.str.279, i64 5, i1 false)
+  %.sink.sroa.gep24 = getelementptr inbounds nuw i8, ptr %6, i64 21
   br label %27
 
 ._crit_edge.i.i12.i.i:                            ; preds = %20
   store i32 1330528590, ptr %26, align 8, !alias.scope !2898
+  %.sink.sroa.gep23 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i16.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 1 dereferenceable(9) @.str.220, i64 9, i1 false)
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %27
 
 27:                                               ; preds = %._crit_edge.i.i16.i.i, %._crit_edge.i.i12.i.i, %._crit_edge.i.i8.i.i, %._crit_edge.i.i4.i.i, %._crit_edge.i.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i16.i.i ], [ %.sink.sroa.gep23, %._crit_edge.i.i12.i.i ], [ %.sink.sroa.gep24, %._crit_edge.i.i8.i.i ], [ %.sink.sroa.gep25, %._crit_edge.i.i4.i.i ], [ %.sink.sroa.gep26, %._crit_edge.i.i.i.i ]
   %.sink.i.i = phi i64 [ 9, %._crit_edge.i.i16.i.i ], [ 4, %._crit_edge.i.i12.i.i ], [ 5, %._crit_edge.i.i8.i.i ], [ 5, %._crit_edge.i.i4.i.i ], [ 6, %._crit_edge.i.i.i.i ]
-  %.sink24.i.i.sroa.phi = phi ptr [ %.sink24.i.i.sroa.gep, %._crit_edge.i.i16.i.i ], [ %.sink24.i.i.sroa.gep19, %._crit_edge.i.i12.i.i ], [ %.sink24.i.i.sroa.gep20, %._crit_edge.i.i8.i.i ], [ %.sink24.i.i.sroa.gep20, %._crit_edge.i.i4.i.i ], [ %.sink24.i.i.sroa.gep22, %._crit_edge.i.i.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink.i.i, ptr %28, align 8, !tbaa !51, !alias.scope !2898
-  store i8 0, ptr %.sink24.i.i.sroa.phi, align 1, !tbaa !52, !alias.scope !2898
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !52, !alias.scope !2898
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %26, i64 noundef %.sink.i.i)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %126
 
@@ -132257,9 +132264,6 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_20Utf8No
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !299
-  %.sink24.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %.sink24.i.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.sink24.i.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %6, i64 19
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
           to label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_S4_E.exit unwind label %124
 
@@ -132303,30 +132307,35 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
 
 ._crit_edge.i.i.i.i:                              ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %26, ptr noundef nonnull align 1 dereferenceable(3) @.str.282, i64 3, i1 false)
+  %.sink.sroa.gep26 = getelementptr inbounds nuw i8, ptr %6, i64 19
   br label %27
 
 ._crit_edge.i.i4.i.i:                             ; preds = %20
   store i32 1129006670, ptr %26, align 8, !alias.scope !3151
+  %.sink.sroa.gep25 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i8.i.i:                             ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %26, ptr noundef nonnull align 1 dereferenceable(3) @.str.284, i64 3, i1 false)
+  %.sink.sroa.gep24 = getelementptr inbounds nuw i8, ptr %6, i64 19
   br label %27
 
 ._crit_edge.i.i12.i.i:                            ; preds = %20
   store i32 1145783886, ptr %26, align 8, !alias.scope !3151
+  %.sink.sroa.gep23 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i16.i.i:                            ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 1 dereferenceable(9) @.str.220, i64 9, i1 false)
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %27
 
 27:                                               ; preds = %._crit_edge.i.i16.i.i, %._crit_edge.i.i12.i.i, %._crit_edge.i.i8.i.i, %._crit_edge.i.i4.i.i, %._crit_edge.i.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i16.i.i ], [ %.sink.sroa.gep23, %._crit_edge.i.i12.i.i ], [ %.sink.sroa.gep24, %._crit_edge.i.i8.i.i ], [ %.sink.sroa.gep25, %._crit_edge.i.i4.i.i ], [ %.sink.sroa.gep26, %._crit_edge.i.i.i.i ]
   %.sink.i.i = phi i64 [ 9, %._crit_edge.i.i16.i.i ], [ 4, %._crit_edge.i.i12.i.i ], [ 3, %._crit_edge.i.i8.i.i ], [ 4, %._crit_edge.i.i4.i.i ], [ 3, %._crit_edge.i.i.i.i ]
-  %.sink24.i.i.sroa.phi = phi ptr [ %.sink24.i.i.sroa.gep, %._crit_edge.i.i16.i.i ], [ %.sink24.i.i.sroa.gep19, %._crit_edge.i.i12.i.i ], [ %.sink24.i.i.sroa.gep20, %._crit_edge.i.i8.i.i ], [ %.sink24.i.i.sroa.gep19, %._crit_edge.i.i4.i.i ], [ %.sink24.i.i.sroa.gep20, %._crit_edge.i.i.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink.i.i, ptr %28, align 8, !tbaa !51, !alias.scope !3151
-  store i8 0, ptr %.sink24.i.i.sroa.phi, align 1, !tbaa !52, !alias.scope !3151
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !52, !alias.scope !3151
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %26, i64 noundef %.sink.i.i)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %126
 
@@ -135921,9 +135930,6 @@ define linkonce_odr void @_ZN5arrow7compute8internal13StringifyImplINS0_13Random
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8, !tbaa !58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !299
-  %.sink14.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %.sink14.i.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %.sink14.i.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
           to label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_S4_E.exit unwind label %124
 
@@ -135965,22 +135971,25 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St17basic_string_viewIS3_
 
 ._crit_edge.i.i.i.i:                              ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 1 dereferenceable(12) @.str.287, i64 12, i1 false)
+  %.sink.sroa.gep22 = getelementptr inbounds nuw i8, ptr %6, i64 28
   br label %27
 
 ._crit_edge.i.i4.i.i:                             ; preds = %20
   store i32 1684366675, ptr %26, align 8, !alias.scope !3277
+  %.sink.sroa.gep21 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %27
 
 ._crit_edge.i.i8.i.i:                             ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, ptr noundef nonnull align 1 dereferenceable(9) @.str.220, i64 9, i1 false)
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 25
   br label %27
 
 27:                                               ; preds = %._crit_edge.i.i8.i.i, %._crit_edge.i.i4.i.i, %._crit_edge.i.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i8.i.i ], [ %.sink.sroa.gep21, %._crit_edge.i.i4.i.i ], [ %.sink.sroa.gep22, %._crit_edge.i.i.i.i ]
   %.sink.i.i = phi i64 [ 9, %._crit_edge.i.i8.i.i ], [ 4, %._crit_edge.i.i4.i.i ], [ 12, %._crit_edge.i.i.i.i ]
-  %.sink14.i.i.sroa.phi = phi ptr [ %.sink14.i.i.sroa.gep, %._crit_edge.i.i8.i.i ], [ %.sink14.i.i.sroa.gep19, %._crit_edge.i.i4.i.i ], [ %.sink14.i.i.sroa.gep20, %._crit_edge.i.i.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink.i.i, ptr %28, align 8, !tbaa !51, !alias.scope !3277
-  store i8 0, ptr %.sink14.i.i.sroa.phi, align 1, !tbaa !52, !alias.scope !3277
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !52, !alias.scope !3277
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %26, i64 noundef %.sink.i.i)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %126
 

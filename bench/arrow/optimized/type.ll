@@ -39130,8 +39130,6 @@ define void @_ZNK5arrow6Schema8ToStringB5cxx11Eb(ptr dead_on_unwind noalias writ
   %10 = load ptr, ptr %9, align 8, !tbaa !825
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !825
-  %.sink14.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 19
-  %.sink14.i.sroa.gep48 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %.not5253 = icmp eq ptr %10, %12
   br i1 %.not5253, label %._crit_edge, label %.lr.ph
 
@@ -39300,22 +39298,25 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %61
 
 ._crit_edge.i.i.i:                                ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %67, ptr noundef nonnull align 1 dereferenceable(6) @.str.156, i64 6, i1 false)
+  %.sink.sroa.gep57 = getelementptr inbounds nuw i8, ptr %6, i64 22
   br label %68
 
 ._crit_edge.i.i4.i:                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %67, ptr noundef nonnull align 1 dereferenceable(3) @.str.157, i64 3, i1 false)
+  %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %6, i64 19
   br label %68
 
 ._crit_edge.i.i8.i:                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %67, ptr noundef nonnull align 1 dereferenceable(3) @.str.159, i64 3, i1 false)
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 19
   br label %68
 
 68:                                               ; preds = %._crit_edge.i.i8.i, %._crit_edge.i.i4.i, %._crit_edge.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i8.i ], [ %.sink.sroa.gep56, %._crit_edge.i.i4.i ], [ %.sink.sroa.gep57, %._crit_edge.i.i.i ]
   %.sink.i = phi i64 [ 3, %._crit_edge.i.i8.i ], [ 3, %._crit_edge.i.i4.i ], [ 6, %._crit_edge.i.i.i ]
-  %.sink14.i.sroa.phi = phi ptr [ %.sink14.i.sroa.gep, %._crit_edge.i.i8.i ], [ %.sink14.i.sroa.gep, %._crit_edge.i.i4.i ], [ %.sink14.i.sroa.gep48, %._crit_edge.i.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink.i, ptr %69, align 8, !tbaa !40, !alias.scope !1631
-  store i8 0, ptr %.sink14.i.sroa.phi, align 1, !tbaa !42, !alias.scope !1631
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !42, !alias.scope !1631
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %67, i64 noundef %.sink.i)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit26 unwind label %80
 

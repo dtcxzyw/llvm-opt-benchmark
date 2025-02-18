@@ -568,8 +568,6 @@ define void @_RNvXs_CslOtZNRIhnDi_7pidlockNtB4_7PidlockNtNtNtCs1LoaDTb72WA_4core
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4, !range !167, !alias.scope !168, !noundef !15
   %5 = icmp eq i8 %4, 1
-  %.sink.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.sink.i.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
@@ -583,7 +581,7 @@ define void @_RNvXs_CslOtZNRIhnDi_7pidlockNtB4_7PidlockNtNtNtCs1LoaDTb72WA_4core
 10:                                               ; preds = %1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit
   ret void
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i, %45, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i, %11, %11, %6
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit: ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i, %47, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i, %11, %11, %6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
   br label %10
 
@@ -593,7 +591,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIh
   %12 = add i64 %8, 9223372036854775805
   %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 3)
   switch i64 %13, label %default.unreachable [
-    i64 0, label %45
+    i64 0, label %47
     i64 1, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit
     i64 2, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit
     i64 3, label %14
@@ -615,12 +613,12 @@ default.unreachable:                              ; preds = %11
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsapf13pIxsjn_3std2io5error14repr_bitpacked4ReprECslOtZNRIhnDi_7pidlock.llvm.10760115039776594612(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19)
-          to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i unwind label %39
+          to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i unwind label %41
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtCsapf13pIxsjn_3std2io5error14repr_bitpacked4ReprECslOtZNRIhnDi_7pidlock.llvm.10760115039776594612(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
-          to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i unwind label %26
+          to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i unwind label %27
 
 22:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
@@ -632,75 +630,81 @@ default.unreachable:                              ; preds = %11
   br i1 %24, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit.i.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i.i.i.i": ; preds = %22
-  %25 = load ptr, ptr %.sink.i.i.sroa.gep1, align 8, !alias.scope !193, !noalias !196, !nonnull !15, !noundef !15
-  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %23, i64 noundef 1) #12, !noalias !198
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8, !alias.scope !193, !noalias !196, !nonnull !15, !noundef !15
+  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %23, i64 noundef 1) #12, !noalias !198
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit.i.i.i
 
-26:                                               ; preds = %20
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %20
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = load i64, ptr %2, align 8, !alias.scope !199, !noalias !210, !noundef !15
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.i.i.i, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i
+  %29 = load i64, ptr %2, align 8, !alias.scope !199, !noalias !210, !noundef !15
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.i.i.i, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i: ; preds = %20
-  %30 = load i64, ptr %2, align 8, !alias.scope !212, !noalias !223, !noundef !15
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i
+  %31 = load i64, ptr %2, align 8, !alias.scope !212, !noalias !223, !noundef !15
+  %32 = icmp eq i64 %31, 0
+  %.sink.i.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br i1 %32, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i: ; preds = %39, %26
-  %.sink24.i.i.i = phi i64 [ %41, %39 ], [ %28, %26 ]
-  %.pn2.ph.i.i.i = phi { ptr, i32 } [ %40, %39 ], [ %27, %26 ]
-  %32 = load ptr, ptr %.sink.i.i.sroa.gep1, align 8, !alias.scope !225, !noalias !15, !nonnull !15, !noundef !15
-  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %.sink24.i.i.i, i64 noundef 1) #12, !noalias !225
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i: ; preds = %41, %27
+  %.sink24.i.i.i = phi i64 [ %43, %41 ], [ %29, %27 ]
+  %.pn2.ph.i.i.i = phi { ptr, i32 } [ %42, %41 ], [ %28, %27 ]
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %34 = load ptr, ptr %33, align 8, !alias.scope !225, !noalias !15, !nonnull !15, !noundef !15
+  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %.sink24.i.i.i, i64 noundef 1) #12, !noalias !225
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.i.i.i
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.i.i.i: ; preds = %39, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i, %26
-  %.pn2.i.i.i = phi { ptr, i32 } [ %27, %26 ], [ %40, %39 ], [ %.pn2.ph.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i ]
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.i.i.i: ; preds = %41, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i, %27
+  %.pn2.i.i.i = phi { ptr, i32 } [ %28, %27 ], [ %42, %41 ], [ %.pn2.ph.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i ]
   resume { ptr, i32 } %.pn2.i.i.i
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit.i.i.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i.i.i.i", %22
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
-  %34 = load i64, ptr %33, align 8, !alias.scope !238, !noalias !241, !noundef !15
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i11.i.i.i"
+  %36 = load i64, ptr %35, align 8, !alias.scope !238, !noalias !241, !noundef !15
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i11.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i11.i.i.i": ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %37 = load ptr, ptr %36, align 8, !alias.scope !238, !noalias !241, !nonnull !15, !noundef !15
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %34, i64 noundef 1) #12, !noalias !243
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %39 = load ptr, ptr %38, align 8, !alias.scope !238, !noalias !241, !nonnull !15, !noundef !15
+  tail call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef %36, i64 noundef 1) #12, !noalias !243
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i11.i.i.i", %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit.i.i.i
-  %38 = icmp eq i64 %8, 0
-  br i1 %38, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i
+  %40 = icmp eq i64 %8, 0
+  %.sink.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 56
+  br i1 %40, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i
 
-39:                                               ; preds = %18
-  %40 = landingpad { ptr, i32 }
+41:                                               ; preds = %18
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %41 = load i64, ptr %2, align 8, !alias.scope !244, !noalias !255, !noundef !15
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.i.i.i, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i
+  %43 = load i64, ptr %2, align 8, !alias.scope !244, !noalias !255, !noundef !15
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.i.i.i, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit6.sink.split.i.i.i
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i: ; preds = %18
-  %43 = load i64, ptr %2, align 8, !alias.scope !257, !noalias !268, !noundef !15
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i
+  %45 = load i64, ptr %2, align 8, !alias.scope !257, !noalias !268, !noundef !15
+  %46 = icmp eq i64 %45, 0
+  %.sink.i.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br i1 %46, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i
 
-45:                                               ; preds = %11
-  %46 = load i64, ptr %2, align 8, !alias.scope !270, !noalias !285, !noundef !15
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i
+47:                                               ; preds = %11
+  %48 = load i64, ptr %2, align 8, !alias.scope !270, !noalias !285, !noundef !15
+  %49 = icmp eq i64 %48, 0
+  %.sink.i.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br i1 %49, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i: ; preds = %45, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i
-  %.sink.i.i.sroa.phi = phi ptr [ %.sink.i.i.sroa.gep, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i ], [ %.sink.i.i.sroa.gep1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i ], [ %.sink.i.i.sroa.gep1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i ], [ %.sink.i.i.sroa.gep1, %45 ]
-  %.sink1.i.i = phi i64 [ %8, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i ], [ %43, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i ], [ %30, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i ], [ %46, %45 ]
-  %48 = load ptr, ptr %.sink.i.i.sroa.phi, align 8, !alias.scope !287, !noalias !15, !nonnull !15, !noundef !15
-  tail call void @__rust_dealloc(ptr noundef nonnull %48, i64 noundef %.sink1.i.i, i64 noundef 1) #12, !noalias !287
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCslOtZNRIhnDi_7pidlock12PidFileErrorEBI_.exit.sink.split.i.i: ; preds = %47, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i
+  %.sink.i.i.sroa.phi = phi ptr [ %.sink.i.i.sroa.gep, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i ], [ %.sink.i.i.sroa.gep1, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i ], [ %.sink.i.i.sroa.gep2, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i ], [ %.sink.i.i.sroa.gep3, %47 ]
+  %.sink1.i.i = phi i64 [ %8, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECslOtZNRIhnDi_7pidlock.exit12.i.i.i ], [ %45, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit.i.i.i ], [ %31, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit4.i.i.i ], [ %48, %47 ]
+  %50 = load ptr, ptr %.sink.i.i.sroa.phi, align 8, !alias.scope !287, !noalias !15, !nonnull !15, !noundef !15
+  tail call void @__rust_dealloc(ptr noundef nonnull %50, i64 noundef %.sink1.i.i, i64 noundef 1) #12, !noalias !287
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultuNtCslOtZNRIhnDi_7pidlock12PidlockErrorEEB15_.exit
 }
 

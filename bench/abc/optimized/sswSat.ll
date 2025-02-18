@@ -44,8 +44,6 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr noundef captures(none) %0, pt
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !30
   %.not.i.not.i.i = icmp slt i32 %.val90, %32
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %.0.sroa.gep161 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %.not.i.not.i.i, label %Ssw_ObjSatNum.exit, label %33
 
 33:                                               ; preds = %3
@@ -257,10 +255,12 @@ Ssw_ObjSatNum.exit112:                            ; preds = %Ssw_ObjSatNum.exit,
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %130 = load i32, ptr %129, align 8, !tbaa !35
   %131 = icmp slt i32 %130, 0
+  %.0.sroa.gep161 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %131, label %133, label %132
 
 132:                                              ; preds = %Ssw_ObjSatNum.exit112
   store i32 %130, ptr %.0.sroa.gep161, align 4, !tbaa !34
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 12
   br label %133
 
 133:                                              ; preds = %132, %Ssw_ObjSatNum.exit112
@@ -692,10 +692,11 @@ Ssw_ObjSatNum.exit150:                            ; preds = %Ssw_ObjSatNum.exit1
 
 351:                                              ; preds = %Ssw_ObjSatNum.exit150
   store i32 %349, ptr %.0.sroa.gep161, align 4, !tbaa !34
+  %.1.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 12
   br label %352
 
 352:                                              ; preds = %351, %Ssw_ObjSatNum.exit150
-  %.1.sroa.phi = phi ptr [ %.0.sroa.gep, %351 ], [ %.0.sroa.gep161, %Ssw_ObjSatNum.exit150 ]
+  %.1.sroa.phi = phi ptr [ %.1.sroa.gep, %351 ], [ %.0.sroa.gep161, %Ssw_ObjSatNum.exit150 ]
   %353 = load ptr, ptr %0, align 8, !tbaa !3
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 68
   %355 = load i32, ptr %354, align 4, !tbaa !36

@@ -1171,10 +1171,6 @@ entry:
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp48 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #37
-  %ref.tmp2.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
-  %ref.tmp2.sink.sroa.gep16 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
-  %ref.tmp2.sink.sroa.gep17 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
-  %ref.tmp2.sink.sroa.gep18 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 8
   %call.i3 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
 
@@ -1214,6 +1210,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   store i64 5, ptr %ref.tmp2, align 8
+  %ref.tmp2.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   br label %invoke.cont15.invoke
 
 lpad3:                                            ; preds = %invoke.cont15.invoke, %invoke.cont40, %invoke.cont26, %invoke.cont18
@@ -1223,14 +1220,17 @@ lpad3:                                            ; preds = %invoke.cont15.invok
 
 invoke.cont8:                                     ; preds = %invoke.cont
   store i64 11, ptr %ref.tmp7, align 8
+  %ref.tmp2.sink.sroa.gep16 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
   br label %invoke.cont15.invoke
 
 invoke.cont12:                                    ; preds = %invoke.cont
   store i64 3, ptr %ref.tmp11, align 8
+  %ref.tmp2.sink.sroa.gep17 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   br label %invoke.cont15.invoke
 
 invoke.cont15:                                    ; preds = %invoke.cont
   store i64 7, ptr %ref.tmp14, align 8
+  %ref.tmp2.sink.sroa.gep18 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 8
   br label %invoke.cont15.invoke
 
 invoke.cont15.invoke:                             ; preds = %invoke.cont4, %invoke.cont8, %invoke.cont12, %invoke.cont15
@@ -16486,7 +16486,6 @@ entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp18 = alloca %"class.grpc_core::DebugLocation", align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %refs, i8 0, i64 24, i1 false)
-  %nrefs.0.sroa.gep125 = getelementptr inbounds nuw i8, ptr %refs, i64 8
   %arrayctor.end = getelementptr inbounds nuw i8, ptr %refs, i64 24
   %read_closed_error = getelementptr inbounds nuw i8, ptr %s, i64 376
   %0 = load i64, ptr %read_closed_error, align 8
@@ -16502,6 +16501,7 @@ invoke.cont3:                                     ; preds = %entry
 for.end.i:                                        ; preds = %invoke.cont3
   %1 = load i64, ptr %refs, align 16
   %cmp.not.i.i = icmp eq i64 %0, %1
+  %nrefs.0.sroa.gep127 = getelementptr inbounds nuw i8, ptr %refs, i64 8
   br i1 %cmp.not.i.i, label %invoke.cont5, label %_ZN4absl12lts_202308026Status3RefEm.exit.i.i
 
 for.end.i.thread:                                 ; preds = %entry
@@ -16510,6 +16510,7 @@ for.end.i.thread:                                 ; preds = %entry
   %3 = atomicrmw add ptr %2, i32 1 monotonic, align 4
   %4 = load i64, ptr %refs, align 16
   %cmp.not.i.i132 = icmp eq i64 %0, %4
+  %nrefs.0.sroa.gep127133 = getelementptr inbounds nuw i8, ptr %refs, i64 8
   br i1 %cmp.not.i.i132, label %if.then.i.i9, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end.i.thread
@@ -16520,6 +16521,7 @@ if.then.i.i.i:                                    ; preds = %for.end.i.thread
 
 _ZN4absl12lts_202308026Status3RefEm.exit.i.i:     ; preds = %for.end.i, %if.then.i.i.i
   %7 = phi i64 [ %4, %if.then.i.i.i ], [ %1, %for.end.i ]
+  %nrefs.0.sroa.gep127135139 = phi ptr [ %nrefs.0.sroa.gep127133, %if.then.i.i.i ], [ %nrefs.0.sroa.gep127, %for.end.i ]
   store i64 %0, ptr %refs, align 16
   %and.i.i5.i.i = and i64 %7, 1
   %cmp.i.i6.i.i = icmp eq i64 %and.i.i5.i.i, 0
@@ -16530,9 +16532,11 @@ if.then.i7.i.i:                                   ; preds = %_ZN4absl12lts_20230
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %if.then.i7.i.i, %_ZN4absl12lts_202308026Status3RefEm.exit.i.i, %for.end.i
+  %nrefs.0.sroa.phi = phi ptr [ %nrefs.0.sroa.gep127135139, %if.then.i7.i.i ], [ %nrefs.0.sroa.gep127135139, %_ZN4absl12lts_202308026Status3RefEm.exit.i.i ], [ %nrefs.0.sroa.gep127, %for.end.i ]
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %for.end.i.thread, %invoke.cont5
+  %nrefs.0.sroa.phi153 = phi ptr [ %nrefs.0.sroa.phi, %invoke.cont5 ], [ %nrefs.0.sroa.gep127133, %for.end.i.thread ]
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %0)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %terminate.lpad.i
 
@@ -16544,9 +16548,9 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i9
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont3, %invoke.cont5, %if.then.i.i9
-  %nrefs.0142 = phi i64 [ 1, %invoke.cont5 ], [ 1, %if.then.i.i9 ], [ 0, %invoke.cont3 ]
-  %nrefs.0.sroa.phi141 = phi ptr [ %nrefs.0.sroa.gep125, %invoke.cont5 ], [ %nrefs.0.sroa.gep125, %if.then.i.i9 ], [ %refs, %invoke.cont3 ]
-  %cmp.i.i130140 = phi i1 [ false, %invoke.cont5 ], [ false, %if.then.i.i9 ], [ true, %invoke.cont3 ]
+  %nrefs.0147 = phi i64 [ 1, %invoke.cont5 ], [ 1, %if.then.i.i9 ], [ 0, %invoke.cont3 ]
+  %nrefs.0.sroa.phi146 = phi ptr [ %nrefs.0.sroa.phi, %invoke.cont5 ], [ %nrefs.0.sroa.phi153, %if.then.i.i9 ], [ %refs, %invoke.cont3 ]
+  %cmp.i.i130145 = phi i1 [ false, %invoke.cont5 ], [ false, %if.then.i.i9 ], [ true, %invoke.cont3 ]
   %write_closed_error = getelementptr inbounds nuw i8, ptr %s, i64 384
   %10 = load i64, ptr %write_closed_error, align 8
   store i64 %10, ptr %agg.tmp6, align 8
@@ -16567,7 +16571,7 @@ invoke.cont7:                                     ; preds = %if.then.i.i12, %_ZN
   br i1 %cmp.i.i15, label %invoke.cont10, label %for.cond.preheader.i16
 
 for.cond.preheader.i16:                           ; preds = %invoke.cont7
-  br i1 %cmp.i.i130140, label %for.end.i28, label %for.body.i18.preheader
+  br i1 %cmp.i.i130145, label %for.end.i28, label %for.body.i18.preheader
 
 for.body.i18.preheader:                           ; preds = %for.cond.preheader.i16
   %14 = load i64, ptr %refs, align 16
@@ -16587,7 +16591,7 @@ call.i.i.noexc44:                                 ; preds = %_ZN4absl12lts_20230
 
 for.end.i28:                                      ; preds = %for.cond.i23, %for.cond.preheader.i16
   %15 = phi i64 [ %13, %for.cond.preheader.i16 ], [ %.pre.i27, %for.cond.i23 ]
-  %16 = load i64, ptr %nrefs.0.sroa.phi141, align 8
+  %16 = load i64, ptr %nrefs.0.sroa.phi146, align 8
   %cmp.not.i.i31 = icmp eq i64 %15, %16
   br i1 %cmp.not.i.i31, label %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42, label %if.then.i.i32
 
@@ -16605,7 +16609,7 @@ if.then.i.i.i35:                                  ; preds = %if.then.i.i32
 
 _ZN4absl12lts_202308026Status3RefEm.exit.i.i38:   ; preds = %if.then.i.i.i35, %if.then.i.i32
   %19 = phi i64 [ %15, %if.then.i.i32 ], [ %.pre.i.i37, %if.then.i.i.i35 ]
-  store i64 %19, ptr %nrefs.0.sroa.phi141, align 8
+  store i64 %19, ptr %nrefs.0.sroa.phi146, align 8
   %and.i.i5.i.i39 = and i64 %16, 1
   %cmp.i.i6.i.i40 = icmp eq i64 %and.i.i5.i.i39, 0
   br i1 %cmp.i.i6.i.i40, label %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42, label %if.then.i7.i.i41
@@ -16615,11 +16619,11 @@ if.then.i7.i.i41:                                 ; preds = %_ZN4absl12lts_20230
           to label %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42 unwind label %lpad9.loopexit.split-lp
 
 _ZN4absl12lts_202308026StatusaSERKS1_.exit.i42:   ; preds = %if.then.i7.i.i41, %_ZN4absl12lts_202308026Status3RefEm.exit.i.i38, %for.end.i28
-  %inc6.i43 = add nuw nsw i64 %nrefs.0142, 1
+  %inc6.i43 = add nuw nsw i64 %nrefs.0147, 1
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %call.i.i.noexc44, %for.body.i18.preheader, %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42, %invoke.cont7
-  %nrefs.1 = phi i64 [ %nrefs.0142, %invoke.cont7 ], [ %inc6.i43, %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42 ], [ %nrefs.0142, %for.body.i18.preheader ], [ %nrefs.0142, %call.i.i.noexc44 ]
+  %nrefs.1 = phi i64 [ %nrefs.0147, %invoke.cont7 ], [ %inc6.i43, %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42 ], [ %nrefs.0147, %for.body.i18.preheader ], [ %nrefs.0147, %call.i.i.noexc44 ]
   %20 = load i64, ptr %agg.tmp6, align 8
   %and.i.i.i48 = and i64 %20, 1
   %cmp.i.i.i49 = icmp eq i64 %and.i.i.i48, 0
@@ -24382,8 +24386,6 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i8, ptr %0, align 8
   %tobool = trunc i8 %1 to i1
-  %.sink364.sroa.gep = getelementptr inbounds nuw i8, ptr %status_hdr, i64 24
-  %.sink364.sroa.gep367 = getelementptr inbounds nuw i8, ptr %status_hdr, i64 25
   br i1 %tobool, label %if.end137, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -24690,6 +24692,7 @@ if.end137:                                        ; preds = %do.end123, %entry
 if.then168:                                       ; preds = %if.end137
   store i8 1, ptr %cond153.sroa.sel323, align 1
   %16 = load i32, ptr %11, align 8
+  %.sink364.sroa.gep = getelementptr inbounds nuw i8, ptr %status_hdr, i64 24
   br label %do.body181
 
 if.else:                                          ; preds = %if.end137
@@ -24704,6 +24707,7 @@ if.else:                                          ; preds = %if.end137
   store i8 %conv175, ptr %cond153.sroa.sel335, align 1
   %19 = load i32, ptr %11, align 8
   %rem = srem i32 %19, 10
+  %.sink364.sroa.gep367 = getelementptr inbounds nuw i8, ptr %status_hdr, i64 25
   br label %do.body181
 
 do.body181:                                       ; preds = %if.then168, %if.else

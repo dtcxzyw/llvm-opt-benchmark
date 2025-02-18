@@ -24003,8 +24003,6 @@ define internal fastcc void @CreateBackwardReferencesNH3(i64 noundef %0, i64 nou
   %30 = load i64, ptr %29, align 8, !tbaa !30
   %31 = add i64 %1, 8
   %32 = icmp ult i64 %31, %22
-  %.1103.i376.sroa.gep61 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.1103.i206424.sroa.gep62 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %32, label %.thread.lr.ph, label %._crit_edge
 
 .thread.lr.ph:                                    ; preds = %11
@@ -24019,7 +24017,9 @@ define internal fastcc void @CreateBackwardReferencesNH3(i64 noundef %0, i64 nou
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.1103.i376.sroa.gep61 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.1103.i206424.sroa.gep62 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.lr.ph, %StoreRangeH3.exit
@@ -39981,8 +39981,6 @@ define internal fastcc void @CreateBackwardReferencesNH35(i64 noundef %0, i64 no
   %30 = load i64, ptr %29, align 8, !tbaa !30
   %31 = add i64 %1, 8
   %32 = icmp ult i64 %31, %22
-  %.1103.i.i427.sroa.gep91 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.1103.i.i204501.sroa.gep92 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %32, label %.thread.lr.ph, label %._crit_edge541
 
 .thread.lr.ph:                                    ; preds = %11
@@ -40002,7 +40000,9 @@ define internal fastcc void @CreateBackwardReferencesNH35(i64 noundef %0, i64 no
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.1103.i.i427.sroa.gep91 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.1103.i.i204501.sroa.gep92 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.lr.ph, %StoreRangeH35.exit

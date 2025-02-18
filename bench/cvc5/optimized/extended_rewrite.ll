@@ -24846,11 +24846,6 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter22ex
   call void @_ZN4cvc58internal6theory7strings11ArithEntailC1EPNS1_8RewriterEb(ptr noundef nonnull align 8 dereferenceable(128) %42, ptr noundef %226, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43) #24
   %227 = load ptr, ptr %225, align 8, !tbaa !142
-  %.05382315.sroa.gep2419 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %.05392316.sroa.gep2421 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %indvars.iv2351.sroa.gep2422 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %indvars.iv.sroa.gep2423 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %.05382315.sroa.gep2426 = getelementptr inbounds nuw i8, ptr %58, i64 24
   invoke void @_ZN4cvc58internal6theory7strings13StringsEntailC1EPNS1_8RewriterERNS2_11ArithEntailE(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef %227, ptr noundef nonnull align 8 dereferenceable(128) %42)
           to label %228 unwind label %336
 
@@ -25771,6 +25766,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit914: ; preds = %628, %632, %638
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %58, i8 0, i64 48, i1 false)
   %642 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %indvars.iv.sroa.gep2423 = getelementptr inbounds nuw i8, ptr %58, i64 24
   br label %.preheader2158
 
 .preheader:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit921
@@ -25779,6 +25775,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit914: ; preds = %628, %632, %638
   %645 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %646 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %647 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %.05382315.sroa.gep2419 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %.05382315.sroa.gep2426 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %.05392316.sroa.gep2421 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %indvars.iv2351.sroa.gep2422 = getelementptr inbounds nuw i8, ptr %63, i64 24
   br label %700
 
 648:                                              ; preds = %626, %600
@@ -46397,9 +46397,6 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers16Extend
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
   %34 = and i32 %33, 1023
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %indvars.iv.sroa.gep584 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %indvars.iv438.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
   switch i32 %34, label %1153 [
     i32 22, label %35
     i32 5, label %108
@@ -46781,7 +46778,12 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %186, %181, %163, 
   store ptr %207, ptr %.ptr, align 8, !tbaa !17
   %.add = add nuw nsw i64 %.idx, 8
   %208 = icmp eq i64 %.add, 16
-  br i1 %208, label %.preheader328, label %195
+  br i1 %208, label %.preheader328.preheader, label %195
+
+.preheader328.preheader:                          ; preds = %206
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %indvars.iv.sroa.gep584 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  br label %.preheader328
 
 .preheader329:                                    ; preds = %.body151, %.preheader329
   %209 = phi ptr [ %210, %.preheader329 ], [ %.ptr, %.body151 ]
@@ -46790,11 +46792,11 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %186, %181, %163, 
   %211 = icmp eq ptr %210, %9
   br i1 %211, label %.loopexit326, label %.preheader329
 
-.preheader328:                                    ; preds = %206, %733
-  %.not383 = phi i1 [ false, %733 ], [ true, %206 ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %733 ], [ %9, %206 ]
-  %indvars.iv.sroa.phi583 = phi ptr [ %indvars.iv.sroa.gep584, %733 ], [ %9, %206 ]
-  %indvars.iv = phi i64 [ 1, %733 ], [ 0, %206 ]
+.preheader328:                                    ; preds = %.preheader328.preheader, %733
+  %.not383 = phi i1 [ false, %733 ], [ true, %.preheader328.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %733 ], [ %9, %.preheader328.preheader ]
+  %indvars.iv.sroa.phi583 = phi ptr [ %indvars.iv.sroa.gep584, %733 ], [ %9, %.preheader328.preheader ]
+  %indvars.iv = phi i64 [ 1, %733 ], [ 0, %.preheader328.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #24
   call void @llvm.experimental.noalias.scope.decl(metadata !863)
   %212 = load ptr, ptr %1, align 8, !tbaa !17, !noalias !863
@@ -47835,12 +47837,16 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit236: ; preds = %_ZN4cvc58internal1
   br label %1148
 
 733:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit193, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit236, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit216
-  br i1 %.not383, label %.preheader328, label %.preheader, !llvm.loop !893
+  br i1 %.not383, label %.preheader328, label %.preheader.preheader, !llvm.loop !893
 
-.preheader:                                       ; preds = %733, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit297
-  %.not384 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit297 ], [ true, %733 ]
-  %indvars.iv438.sroa.phi = phi ptr [ %indvars.iv438.sroa.gep, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit297 ], [ %9, %733 ]
-  %indvars.iv438 = phi i64 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit297 ], [ 0, %733 ]
+.preheader.preheader:                             ; preds = %733
+  %indvars.iv438.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit297
+  %.not384 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit297 ], [ true, %.preheader.preheader ]
+  %indvars.iv438.sroa.phi = phi ptr [ %indvars.iv438.sroa.gep, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit297 ], [ %9, %.preheader.preheader ]
+  %indvars.iv438 = phi i64 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit297 ], [ 0, %.preheader.preheader ]
   %734 = load ptr, ptr %indvars.iv438.sroa.phi, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #24
   %735 = trunc nuw nsw i64 %indvars.iv438 to i32

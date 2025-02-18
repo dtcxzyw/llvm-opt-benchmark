@@ -8222,11 +8222,6 @@ define void @_ZN5folly21parseLogConfigDynamicERKNS_7dynamicE(ptr dead_on_unwind 
   %49 = alloca %"class.std::unordered_map.2", align 8
   %50 = load i32, ptr %1, align 8, !tbaa !214
   %.not.i.i.i = icmp eq i32 %50, 5
-  %.sink8.i.sroa.gep = getelementptr inbounds nuw i8, ptr %16, i64 28
-  %.sink8.i.sroa.gep259 = getelementptr inbounds nuw i8, ptr %16, i64 22
-  %.sink8.i.sroa.gep261 = getelementptr inbounds nuw i8, ptr %16, i64 23
-  %.sink8.i.sroa.gep264 = getelementptr inbounds nuw i8, ptr %16, i64 21
-  %.sink8.i.sroa.gep265 = getelementptr inbounds nuw i8, ptr %16, i64 20
   br i1 %.not.i.i.i, label %56, label %51
 
 51:                                               ; preds = %2
@@ -10270,42 +10265,50 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i145: ; preds 
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i147._crit_edge
   store i32 1819047278, ptr %781, align 8, !alias.scope !232, !noalias !229
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %16, i64 20
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 ._crit_edge.i.i4.i:                               ; preds = %.lr.ph.i147._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %781, ptr noundef nonnull align 1 dereferenceable(5) @.str.36, i64 5, i1 false), !noalias !229
+  %.sink.sroa.gep1310 = getelementptr inbounds nuw i8, ptr %16, i64 21
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 ._crit_edge.i.i8.i:                               ; preds = %.lr.ph.i147._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %781, ptr noundef nonnull align 1 dereferenceable(7) @.str.37, i64 7, i1 false), !noalias !229
+  %.sink.sroa.gep1311 = getelementptr inbounds nuw i8, ptr %16, i64 23
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 ._crit_edge.i.i12.i:                              ; preds = %.lr.ph.i147._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %781, ptr noundef nonnull align 1 dereferenceable(6) @.str.38, i64 6, i1 false), !noalias !229
+  %.sink.sroa.gep1312 = getelementptr inbounds nuw i8, ptr %16, i64 22
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 ._crit_edge.i.i16.i:                              ; preds = %.lr.ph.i147._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %781, ptr noundef nonnull align 1 dereferenceable(7) @.str.39, i64 7, i1 false), !noalias !229
+  %.sink.sroa.gep1313 = getelementptr inbounds nuw i8, ptr %16, i64 23
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 ._crit_edge.i.i20.i:                              ; preds = %.lr.ph.i147._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %781, ptr noundef nonnull align 1 dereferenceable(6) @.str.40, i64 6, i1 false), !noalias !229
+  %.sink.sroa.gep1314 = getelementptr inbounds nuw i8, ptr %16, i64 22
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 ._crit_edge.i.i24.i:                              ; preds = %.lr.ph.i147._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %781, ptr noundef nonnull align 1 dereferenceable(6) @.str.41, i64 6, i1 false), !noalias !229
+  %.sink.sroa.gep1315 = getelementptr inbounds nuw i8, ptr %16, i64 22
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 ._crit_edge.i.i28.i:                              ; preds = %.lr.ph.i147._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %781, ptr noundef nonnull align 1 dereferenceable(12) @.str.42, i64 12, i1 false), !noalias !229
+  %.sink.sroa.gep1316 = getelementptr inbounds nuw i8, ptr %16, i64 28
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 _ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit: ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i4.i, %._crit_edge.i.i8.i, %._crit_edge.i.i12.i, %._crit_edge.i.i16.i, %._crit_edge.i.i20.i, %._crit_edge.i.i24.i, %._crit_edge.i.i28.i
-  %.sink.i = phi i64 [ 12, %._crit_edge.i.i28.i ], [ 6, %._crit_edge.i.i24.i ], [ 6, %._crit_edge.i.i20.i ], [ 7, %._crit_edge.i.i16.i ], [ 6, %._crit_edge.i.i12.i ], [ 7, %._crit_edge.i.i8.i ], [ 5, %._crit_edge.i.i4.i ], [ 4, %._crit_edge.i.i.i ]
-  %.sink8.i.sroa.phi = phi ptr [ %.sink8.i.sroa.gep, %._crit_edge.i.i28.i ], [ %.sink8.i.sroa.gep259, %._crit_edge.i.i24.i ], [ %.sink8.i.sroa.gep259, %._crit_edge.i.i20.i ], [ %.sink8.i.sroa.gep261, %._crit_edge.i.i16.i ], [ %.sink8.i.sroa.gep259, %._crit_edge.i.i12.i ], [ %.sink8.i.sroa.gep261, %._crit_edge.i.i8.i ], [ %.sink8.i.sroa.gep264, %._crit_edge.i.i4.i ], [ %.sink8.i.sroa.gep265, %._crit_edge.i.i.i ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i.i ], [ %.sink.sroa.gep1310, %._crit_edge.i.i4.i ], [ %.sink.sroa.gep1311, %._crit_edge.i.i8.i ], [ %.sink.sroa.gep1312, %._crit_edge.i.i12.i ], [ %.sink.sroa.gep1313, %._crit_edge.i.i16.i ], [ %.sink.sroa.gep1314, %._crit_edge.i.i20.i ], [ %.sink.sroa.gep1315, %._crit_edge.i.i24.i ], [ %.sink.sroa.gep1316, %._crit_edge.i.i28.i ]
+  %.sink.i = phi i64 [ 4, %._crit_edge.i.i.i ], [ 5, %._crit_edge.i.i4.i ], [ 7, %._crit_edge.i.i8.i ], [ 6, %._crit_edge.i.i12.i ], [ 7, %._crit_edge.i.i16.i ], [ 6, %._crit_edge.i.i20.i ], [ 6, %._crit_edge.i.i24.i ], [ 12, %._crit_edge.i.i28.i ]
   %782 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %.sink.i, ptr %782, align 8, !tbaa !39, !alias.scope !232, !noalias !229
-  store i8 0, ptr %.sink8.i.sroa.phi, align 1, !tbaa !7, !alias.scope !232, !noalias !229
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !7, !alias.scope !232, !noalias !229
   call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %783 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %783, ptr %15, align 8, !tbaa !70, !alias.scope !235

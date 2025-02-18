@@ -1955,33 +1955,43 @@ entry:
   %punycode = alloca %"class.icu_75::UnicodeString", align 8
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
-  %labelString.0.sroa.gep = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 8
-  %labelString.0.sroa.gep223 = getelementptr inbounds nuw i8, ptr %dest, i64 8
-  %labelString.0.sroa.gep229 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 12
-  %labelString.0.sroa.gep230 = getelementptr inbounds nuw i8, ptr %dest, i64 12
-  %labelString.0.sroa.gep243 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 10
-  %labelString.0.sroa.gep244 = getelementptr inbounds nuw i8, ptr %dest, i64 10
-  %labelString.0.sroa.gep250 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 24
-  %labelString.0.sroa.gep251 = getelementptr inbounds nuw i8, ptr %dest, i64 24
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fromPunycode, align 8
-  store i16 2, ptr %labelString.0.sroa.gep, align 8
-  %1 = load i16, ptr %labelString.0.sroa.gep223, align 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 8
+  store i16 2, ptr %fUnion2.i, align 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
+  %1 = load i16, ptr %fUnion.i, align 8
   %2 = and i16 %1, 17
   %tobool.not.i = icmp eq i16 %2, 0
+  br i1 %tobool.not.i, label %if.else.i, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
+
+if.else.i:                                        ; preds = %if.end
   %3 = and i16 %1, 2
   %tobool6.not.i = icmp eq i16 %3, 0
-  %4 = load ptr, ptr %labelString.0.sroa.gep251, align 8
-  %spec.select324 = select i1 %tobool6.not.i, ptr %4, ptr %labelString.0.sroa.gep244
-  %retval.0.i = select i1 %tobool.not.i, ptr %spec.select324, ptr null
+  br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
+
+if.then7.i:                                       ; preds = %if.else.i
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %dest, i64 10
+  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
+
+if.else9.i:                                       ; preds = %if.else.i
+  %fArray.i = getelementptr inbounds nuw i8, ptr %dest, i64 24
+  %4 = load ptr, ptr %fArray.i, align 8
+  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
+
+_ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i, %if.else9.i
+  %retval.0.i = phi ptr [ %fBuffer.i, %if.then7.i ], [ %4, %if.else9.i ], [ null, %if.end ]
   %idx.ext = sext i32 %labelStart to i64
   %add.ptr = getelementptr inbounds i16, ptr %retval.0.i, i64 %idx.ext
   %cmp = icmp slt i32 %labelLength, 4
+  %labelString.0.sroa.gep234 = getelementptr inbounds nuw i8, ptr %dest, i64 12
+  %labelString.0.sroa.gep248 = getelementptr inbounds nuw i8, ptr %dest, i64 10
+  %labelString.0.sroa.gep255 = getelementptr inbounds nuw i8, ptr %dest, i64 24
   br i1 %cmp, label %if.end81, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end
+land.lhs.true:                                    ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %5 = load i16, ptr %add.ptr, align 2
   %cmp3 = icmp eq i16 %5, 120
   br i1 %cmp3, label %land.lhs.true4, label %land.lhs.true90
@@ -2048,7 +2058,7 @@ if.end31:                                         ; preds = %invoke.cont27
   store i32 0, ptr %punycodeErrorCode, align 4
   %add.ptr32 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %sub33 = add nsw i32 %labelLength, -4
-  %14 = load i16, ptr %labelString.0.sroa.gep, align 8
+  %14 = load i16, ptr %fUnion2.i, align 8
   %15 = and i16 %14, 2
   %tobool.not.i160 = icmp eq i16 %15, 0
   %fCapacity.i = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 16
@@ -2080,7 +2090,7 @@ if.then44:                                        ; preds = %invoke.cont41
 
 if.end45:                                         ; preds = %invoke.cont41
   store i32 0, ptr %punycodeErrorCode, align 4
-  %18 = load i16, ptr %labelString.0.sroa.gep, align 8
+  %18 = load i16, ptr %fUnion2.i, align 8
   %19 = and i16 %18, 2
   %tobool.not.i162 = icmp eq i16 %19, 0
   %20 = load i32, ptr %fCapacity.i, align 8
@@ -2131,30 +2141,46 @@ if.then71:                                        ; preds = %if.end69
   br label %if.then301.invoke
 
 if.end76:                                         ; preds = %if.end69
-  %27 = load i16, ptr %labelString.0.sroa.gep, align 8
+  %27 = load i16, ptr %fUnion2.i, align 8
   %28 = and i16 %27, 17
   %tobool.not.i170 = icmp eq i16 %28, 0
+  br i1 %tobool.not.i170, label %if.else.i172, label %_ZNK6icu_7513UnicodeString9getBufferEv.exit178
+
+if.else.i172:                                     ; preds = %if.end76
   %29 = and i16 %27, 2
   %tobool6.not.i173 = icmp eq i16 %29, 0
-  %30 = load ptr, ptr %labelString.0.sroa.gep250, align 8
-  %spec.select325 = select i1 %tobool6.not.i173, ptr %30, ptr %labelString.0.sroa.gep243
-  %retval.0.i171 = select i1 %tobool.not.i170, ptr %spec.select325, ptr null
+  br i1 %tobool6.not.i173, label %if.else9.i176, label %if.then7.i174
+
+if.then7.i174:                                    ; preds = %if.else.i172
+  %fBuffer.i175 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 10
+  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit178
+
+if.else9.i176:                                    ; preds = %if.else.i172
+  %fArray.i177 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 24
+  %30 = load ptr, ptr %fArray.i177, align 8
+  br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit178
+
+_ZNK6icu_7513UnicodeString9getBufferEv.exit178:   ; preds = %if.end76, %if.then7.i174, %if.else9.i176
+  %retval.0.i171 = phi ptr [ %fBuffer.i175, %if.then7.i174 ], [ %30, %if.else9.i176 ], [ null, %if.end76 ]
   %cmp.i.i = icmp slt i16 %27, 0
   %31 = ashr i16 %27, 5
   %shr.i.i = sext i16 %31 to i32
-  %32 = load i32, ptr %labelString.0.sroa.gep229, align 4
+  %fLength.i = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 12
+  %32 = load i32, ptr %fLength.i, align 4
   %cond.i179 = select i1 %cmp.i.i, i32 %32, i32 %shr.i.i
+  %labelString.0.sroa.gep243 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 10
+  %labelString.0.sroa.gep250 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 24
   br label %if.end81
 
-if.end81:                                         ; preds = %if.end76, %if.end
-  %label.0 = phi ptr [ %retval.0.i171, %if.end76 ], [ %add.ptr, %if.end ]
-  %labelString.0.sroa.phi = phi ptr [ %labelString.0.sroa.gep, %if.end76 ], [ %labelString.0.sroa.gep223, %if.end ]
-  %labelString.0.sroa.phi228 = phi ptr [ %labelString.0.sroa.gep229, %if.end76 ], [ %labelString.0.sroa.gep230, %if.end ]
-  %labelString.0.sroa.phi242 = phi ptr [ %labelString.0.sroa.gep243, %if.end76 ], [ %labelString.0.sroa.gep244, %if.end ]
-  %labelString.0.sroa.phi249 = phi ptr [ %labelString.0.sroa.gep250, %if.end76 ], [ %labelString.0.sroa.gep251, %if.end ]
-  %labelString.0 = phi ptr [ %fromPunycode, %if.end76 ], [ %dest, %if.end ]
-  %labelLength.addr.0 = phi i32 [ %cond.i179, %if.end76 ], [ %labelLength, %if.end ]
-  %labelStart.addr.0 = phi i32 [ 0, %if.end76 ], [ %labelStart, %if.end ]
+if.end81:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit178, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
+  %label.0 = phi ptr [ %retval.0.i171, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %add.ptr, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %labelString.0.sroa.phi = phi ptr [ %fUnion2.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %fUnion.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %labelString.0.sroa.phi228 = phi ptr [ %fLength.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelString.0.sroa.gep234, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %labelString.0.sroa.phi242 = phi ptr [ %labelString.0.sroa.gep243, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelString.0.sroa.gep248, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %labelString.0.sroa.phi249 = phi ptr [ %labelString.0.sroa.gep250, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelString.0.sroa.gep255, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %labelString.0 = phi ptr [ %fromPunycode, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %dest, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %labelLength.addr.0 = phi i32 [ %cond.i179, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelLength, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %labelStart.addr.0 = phi i32 [ 0, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelStart, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
   %cmp82 = icmp eq i32 %labelLength.addr.0, 0
   br i1 %cmp82, label %if.then83, label %if.end88
 
@@ -2166,8 +2192,8 @@ if.then83:                                        ; preds = %if.end81
   %34 = load i32, ptr %errorCode, align 4
   %cmp.i.i180 = icmp sgt i32 %34, 0
   %cmp.not.i = icmp eq ptr %labelString.0, %dest
-  %or.cond326 = or i1 %cmp.not.i, %cmp.i.i180
-  br i1 %or.cond326, label %cleanup310, label %if.then1.i
+  %or.cond324 = or i1 %cmp.not.i, %cmp.i.i180
+  br i1 %or.cond324, label %cleanup310, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then83
   %35 = load i16, ptr %labelString.0.sroa.phi, align 8
@@ -2180,7 +2206,7 @@ if.then1.i:                                       ; preds = %if.then83
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %if.then1.i
-  %38 = load i16, ptr %labelString.0.sroa.gep223, align 8
+  %38 = load i16, ptr %fUnion.i, align 8
   %conv2.i5.i = and i16 %38, 1
   %tobool4.not.i = icmp eq i16 %conv2.i5.i, 0
   br i1 %tobool4.not.i, label %cleanup310, label %if.then5.i
@@ -2196,10 +2222,10 @@ if.end88:                                         ; preds = %if.end81
 land.lhs.true90:                                  ; preds = %land.lhs.true12, %land.lhs.true8, %land.lhs.true4, %land.lhs.true, %if.end88
   %label.0283323 = phi ptr [ %label.0, %if.end88 ], [ %add.ptr, %land.lhs.true ], [ %add.ptr, %land.lhs.true4 ], [ %add.ptr, %land.lhs.true8 ], [ %add.ptr, %land.lhs.true12 ]
   %tobool300.not284321 = phi i1 [ %cmp, %if.end88 ], [ true, %land.lhs.true ], [ true, %land.lhs.true4 ], [ true, %land.lhs.true8 ], [ true, %land.lhs.true12 ]
-  %labelString.0.sroa.phi235285319 = phi ptr [ %labelString.0.sroa.phi, %if.end88 ], [ %labelString.0.sroa.gep223, %land.lhs.true ], [ %labelString.0.sroa.gep223, %land.lhs.true4 ], [ %labelString.0.sroa.gep223, %land.lhs.true8 ], [ %labelString.0.sroa.gep223, %land.lhs.true12 ]
-  %labelString.0.sroa.phi242286317 = phi ptr [ %labelString.0.sroa.phi242, %if.end88 ], [ %labelString.0.sroa.gep244, %land.lhs.true ], [ %labelString.0.sroa.gep244, %land.lhs.true4 ], [ %labelString.0.sroa.gep244, %land.lhs.true8 ], [ %labelString.0.sroa.gep244, %land.lhs.true12 ]
-  %labelString.0.sroa.phi249287315 = phi ptr [ %labelString.0.sroa.phi249, %if.end88 ], [ %labelString.0.sroa.gep251, %land.lhs.true ], [ %labelString.0.sroa.gep251, %land.lhs.true4 ], [ %labelString.0.sroa.gep251, %land.lhs.true8 ], [ %labelString.0.sroa.gep251, %land.lhs.true12 ]
-  %labelString.0.sroa.phi263289311 = phi ptr [ %labelString.0.sroa.phi228, %if.end88 ], [ %labelString.0.sroa.gep230, %land.lhs.true ], [ %labelString.0.sroa.gep230, %land.lhs.true4 ], [ %labelString.0.sroa.gep230, %land.lhs.true8 ], [ %labelString.0.sroa.gep230, %land.lhs.true12 ]
+  %labelString.0.sroa.phi235285319 = phi ptr [ %labelString.0.sroa.phi, %if.end88 ], [ %fUnion.i, %land.lhs.true ], [ %fUnion.i, %land.lhs.true4 ], [ %fUnion.i, %land.lhs.true8 ], [ %fUnion.i, %land.lhs.true12 ]
+  %labelString.0.sroa.phi242286317 = phi ptr [ %labelString.0.sroa.phi242, %if.end88 ], [ %labelString.0.sroa.gep248, %land.lhs.true ], [ %labelString.0.sroa.gep248, %land.lhs.true4 ], [ %labelString.0.sroa.gep248, %land.lhs.true8 ], [ %labelString.0.sroa.gep248, %land.lhs.true12 ]
+  %labelString.0.sroa.phi249287315 = phi ptr [ %labelString.0.sroa.phi249, %if.end88 ], [ %labelString.0.sroa.gep255, %land.lhs.true ], [ %labelString.0.sroa.gep255, %land.lhs.true4 ], [ %labelString.0.sroa.gep255, %land.lhs.true8 ], [ %labelString.0.sroa.gep255, %land.lhs.true12 ]
+  %labelString.0.sroa.phi263289311 = phi ptr [ %labelString.0.sroa.phi228, %if.end88 ], [ %labelString.0.sroa.gep234, %land.lhs.true ], [ %labelString.0.sroa.gep234, %land.lhs.true4 ], [ %labelString.0.sroa.gep234, %land.lhs.true8 ], [ %labelString.0.sroa.gep234, %land.lhs.true12 ]
   %labelString.0290309 = phi ptr [ %labelString.0, %if.end88 ], [ %dest, %land.lhs.true ], [ %dest, %land.lhs.true4 ], [ %dest, %land.lhs.true8 ], [ %dest, %land.lhs.true12 ]
   %labelLength.addr.0291307 = phi i32 [ %labelLength.addr.0, %if.end88 ], [ %labelLength, %land.lhs.true ], [ %labelLength, %land.lhs.true4 ], [ %labelLength, %land.lhs.true8 ], [ %labelLength, %land.lhs.true12 ]
   %labelStart.addr.0292305 = phi i32 [ %labelStart.addr.0, %if.end88 ], [ %labelStart, %land.lhs.true ], [ %labelStart, %land.lhs.true4 ], [ %labelStart, %land.lhs.true8 ], [ %labelStart, %land.lhs.true12 ]
@@ -2647,7 +2673,7 @@ if.then1.i210:                                    ; preds = %if.end.i208
           to label %call2.i.i.noexc220 unwind label %lpad
 
 call2.i.i.noexc220:                               ; preds = %if.then1.i210
-  %92 = load i16, ptr %labelString.0.sroa.gep223, align 8
+  %92 = load i16, ptr %fUnion.i, align 8
   %conv2.i5.i217 = and i16 %92, 1
   %tobool4.not.i218 = icmp eq i16 %conv2.i5.i217, 0
   br i1 %tobool4.not.i218, label %cleanup310, label %if.then5.i219

@@ -310,14 +310,6 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 personality ptr @__gx
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %56)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  %.sink118.sroa.gep = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %.sink118.sroa.gep130 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.sink118.sroa.gep132 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %.sink118.sroa.gep133 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %.sink118.sroa.gep135 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %.sink118.sroa.gep136 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %.sink118.sroa.gep138 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %.sink118.sroa.gep139 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %59 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc.i unwind label %266
 
@@ -874,7 +866,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %244, %242
   %264 = sdiv exact i64 %263, 40
   %265 = trunc i64 %264 to i32
   %.not171.i = icmp slt i32 %258, %265
-  br i1 %.not171.i, label %389, label %.invoke111
+  br i1 %.not171.i, label %389, label %.invoke111.split.loop.exit152
 
 266:                                              ; preds = %.noexc.i, %0
   %267 = landingpad { ptr, i32 }
@@ -1301,17 +1293,31 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %244, %242
   %395 = ashr exact i64 %394, 3
   %396 = trunc i64 %395 to i32
   %.not172.i = icmp slt i32 %258, %396
-  br i1 %.not172.i, label %400, label %.invoke111
+  br i1 %.not172.i, label %400, label %.invoke111.split.loop.exit
 
-.invoke111:                                       ; preds = %389, %257
-  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep, %257 ], [ %.sink118.sroa.gep130, %389 ]
-  %.sink118.sroa.phi131 = phi ptr [ %.sink118.sroa.gep132, %257 ], [ %.sink118.sroa.gep133, %389 ]
-  %.sink118.sroa.phi134 = phi ptr [ %.sink118.sroa.gep135, %257 ], [ %.sink118.sroa.gep136, %389 ]
-  %.sink118.sroa.phi137 = phi ptr [ %.sink118.sroa.gep138, %257 ], [ %.sink118.sroa.gep139, %389 ]
-  %.sink118 = phi ptr [ %52, %257 ], [ %53, %389 ]
-  %.sink = phi i64 [ 107, %257 ], [ 113, %389 ]
-  %397 = phi ptr [ @.str.16, %257 ], [ @.str.17, %389 ]
-  %398 = phi i64 [ %264, %257 ], [ %395, %389 ]
+.invoke111.split.loop.exit:                       ; preds = %389
+  %.sink118.sroa.gep130.le = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.sink118.sroa.gep133.le = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %.sink118.sroa.gep136.le = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.sink118.sroa.gep139.le = getelementptr inbounds nuw i8, ptr %53, i64 32
+  br label %.invoke111
+
+.invoke111.split.loop.exit152:                    ; preds = %257
+  %.sink118.sroa.gep.le = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.sink118.sroa.gep132.le = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %.sink118.sroa.gep135.le = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %.sink118.sroa.gep138.le = getelementptr inbounds nuw i8, ptr %52, i64 32
+  br label %.invoke111
+
+.invoke111:                                       ; preds = %.invoke111.split.loop.exit152, %.invoke111.split.loop.exit
+  %.sink118.sroa.phi = phi ptr [ %.sink118.sroa.gep130.le, %.invoke111.split.loop.exit ], [ %.sink118.sroa.gep.le, %.invoke111.split.loop.exit152 ]
+  %.sink118.sroa.phi131 = phi ptr [ %.sink118.sroa.gep133.le, %.invoke111.split.loop.exit ], [ %.sink118.sroa.gep132.le, %.invoke111.split.loop.exit152 ]
+  %.sink118.sroa.phi134 = phi ptr [ %.sink118.sroa.gep136.le, %.invoke111.split.loop.exit ], [ %.sink118.sroa.gep135.le, %.invoke111.split.loop.exit152 ]
+  %.sink118.sroa.phi137 = phi ptr [ %.sink118.sroa.gep139.le, %.invoke111.split.loop.exit ], [ %.sink118.sroa.gep138.le, %.invoke111.split.loop.exit152 ]
+  %.sink118 = phi ptr [ %53, %.invoke111.split.loop.exit ], [ %52, %.invoke111.split.loop.exit152 ]
+  %.sink = phi i64 [ 113, %.invoke111.split.loop.exit ], [ 107, %.invoke111.split.loop.exit152 ]
+  %397 = phi ptr [ @.str.17, %.invoke111.split.loop.exit ], [ @.str.16, %.invoke111.split.loop.exit152 ]
+  %398 = phi i64 [ %395, %.invoke111.split.loop.exit ], [ %264, %.invoke111.split.loop.exit152 ]
   store ptr @.str, ptr %.sink118, align 8
   store ptr @__func__._ZL30TestNestedInstancingCategoriesv, ptr %.sink118.sroa.phi, align 8
   store i64 %.sink, ptr %.sink118.sroa.phi131, align 8

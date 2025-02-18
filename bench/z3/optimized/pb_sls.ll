@@ -3374,12 +3374,6 @@ entry:
   %m_manager.i = getelementptr inbounds nuw i8, ptr %tmp, i64 8
   store ptr %0, ptr %m_manager.i, align 8
   %m_rewrite = getelementptr inbounds nuw i8, ptr %this, i64 672
-  %ref.tmp200.sink432.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 4
-  %ref.tmp200.sink432.sroa.gep439 = getelementptr inbounds nuw i8, ptr %ref.tmp227, i64 4
-  %ref.tmp200.sink432.sroa.gep440 = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 4
-  %ref.tmp200.sink432.sroa.gep442 = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 8
-  %ref.tmp200.sink432.sroa.gep443 = getelementptr inbounds nuw i8, ptr %ref.tmp227, i64 8
-  %ref.tmp200.sink432.sroa.gep444 = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 8
   invoke void @_ZN11th_rewriterclEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %m_rewrite, ptr noundef %_f, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
           to label %invoke.cont3 unwind label %lpad
 
@@ -4352,6 +4346,8 @@ invoke.cont153:                                   ; preds = %land.rhs.i.i
 
 for.cond157.preheader:                            ; preds = %invoke.cont153
   %cmp158410.not = icmp eq i32 %3, 0
+  %ref.tmp200.sink432.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 4
+  %ref.tmp200.sink432.sroa.gep442 = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 8
   br i1 %cmp158410.not, label %invoke.cont225.invoke, label %for.body159.lr.ph
 
 for.body159.lr.ph:                                ; preds = %for.cond157.preheader
@@ -4527,7 +4523,7 @@ if.then189:                                       ; preds = %invoke.cont187
 for.inc196:                                       ; preds = %if.then189, %invoke.cont187, %if.end169
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond420.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count419
-  br i1 %exitcond420.not, label %invoke.cont225.invoke, label %for.body159, !llvm.loop !36
+  br i1 %exitcond420.not, label %invoke.cont225.invoke.loopexit, label %for.body159, !llvm.loop !36
 
 if.else205:                                       ; preds = %land.rhs.i.i, %if.else151, %invoke.cont153
   %193 = load ptr, ptr %this, align 8
@@ -4558,14 +4554,21 @@ invoke.cont220:                                   ; preds = %if.end218
   store i8 0, ptr %m_kind.i366, align 4
   %m_ptr.i369 = getelementptr inbounds nuw i8, ptr %ref.tmp223, i64 8
   store ptr null, ptr %m_ptr.i369, align 8
+  %ref.tmp200.sink432.sroa.gep439 = getelementptr inbounds nuw i8, ptr %ref.tmp227, i64 4
+  %ref.tmp200.sink432.sroa.gep443 = getelementptr inbounds nuw i8, ptr %ref.tmp227, i64 8
   invoke void @_ZN22_scoped_numeral_vectorI11mpz_managerILb0EEE9push_backERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %m_weights222, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp223)
           to label %invoke.cont225.invoke unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont225.invoke:                            ; preds = %for.inc196, %invoke.cont220, %for.cond157.preheader
-  %.sink = phi i8 [ 0, %for.cond157.preheader ], [ 1, %invoke.cont220 ], [ 0, %for.inc196 ]
-  %ref.tmp200.sink432.sroa.phi = phi ptr [ %ref.tmp200.sink432.sroa.gep, %for.cond157.preheader ], [ %ref.tmp200.sink432.sroa.gep439, %invoke.cont220 ], [ %ref.tmp200.sink432.sroa.gep440, %for.inc196 ]
-  %ref.tmp200.sink432.sroa.phi441 = phi ptr [ %ref.tmp200.sink432.sroa.gep442, %for.cond157.preheader ], [ %ref.tmp200.sink432.sroa.gep443, %invoke.cont220 ], [ %ref.tmp200.sink432.sroa.gep444, %for.inc196 ]
-  %ref.tmp200.sink432 = phi ptr [ %ref.tmp200, %for.cond157.preheader ], [ %ref.tmp227, %invoke.cont220 ], [ %ref.tmp200, %for.inc196 ]
+invoke.cont225.invoke.loopexit:                   ; preds = %for.inc196
+  %ref.tmp200.sink432.sroa.gep440 = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 4
+  %ref.tmp200.sink432.sroa.gep444 = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 8
+  br label %invoke.cont225.invoke
+
+invoke.cont225.invoke:                            ; preds = %invoke.cont225.invoke.loopexit, %invoke.cont220, %for.cond157.preheader
+  %.sink = phi i8 [ 0, %for.cond157.preheader ], [ 1, %invoke.cont220 ], [ 0, %invoke.cont225.invoke.loopexit ]
+  %ref.tmp200.sink432.sroa.phi = phi ptr [ %ref.tmp200.sink432.sroa.gep, %for.cond157.preheader ], [ %ref.tmp200.sink432.sroa.gep439, %invoke.cont220 ], [ %ref.tmp200.sink432.sroa.gep440, %invoke.cont225.invoke.loopexit ]
+  %ref.tmp200.sink432.sroa.phi441 = phi ptr [ %ref.tmp200.sink432.sroa.gep442, %for.cond157.preheader ], [ %ref.tmp200.sink432.sroa.gep443, %invoke.cont220 ], [ %ref.tmp200.sink432.sroa.gep444, %invoke.cont225.invoke.loopexit ]
+  %ref.tmp200.sink432 = phi ptr [ %ref.tmp200, %for.cond157.preheader ], [ %ref.tmp227, %invoke.cont220 ], [ %ref.tmp200, %invoke.cont225.invoke.loopexit ]
   %m_eq199 = getelementptr inbounds nuw i8, ptr %cls, i64 72
   store i8 %.sink, ptr %m_eq199, align 8
   store i32 1, ptr %ref.tmp200.sink432, align 8

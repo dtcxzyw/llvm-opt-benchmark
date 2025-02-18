@@ -163,8 +163,6 @@ entry:
   %tmp = alloca [9 x i8], align 1
   %c = alloca i32, align 4
   %bytes = alloca [4 x i8], align 1
-  %i27.1.sroa.gep = getelementptr inbounds nuw i8, ptr %bytes, i64 1
-  %i27.1.sroa.gep38 = getelementptr inbounds nuw i8, ptr %bytes, i64 2
   %cmp52.not = icmp eq i64 %chars, 0
   br i1 %cmp52.not, label %for.end, label %for.body
 
@@ -229,6 +227,7 @@ if.then40:                                        ; preds = %if.else, %if.else38
   %6 = trunc i32 %shr41 to i8
   %conv43 = or i8 %6, -32
   store i8 %conv43, ptr %bytes, align 1
+  %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %bytes, i64 1
   br label %if.end58
 
 if.else46:                                        ; preds = %if.else38
@@ -240,17 +239,19 @@ if.else46:                                        ; preds = %if.else38
   %8 = trunc i32 %shr52 to i8
   %9 = and i8 %8, 63
   %conv55 = or disjoint i8 %9, -128
-  store i8 %conv55, ptr %i27.1.sroa.gep, align 1
+  %arrayidx57 = getelementptr inbounds nuw i8, ptr %bytes, i64 1
+  store i8 %conv55, ptr %arrayidx57, align 1
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %bytes, i64 2
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else46, %if.then40
-  %i27.1.sroa.phi = phi ptr [ %i27.1.sroa.gep, %if.then40 ], [ %i27.1.sroa.gep38, %if.else46 ]
-  %i27.1 = phi i64 [ 2, %if.then40 ], [ 3, %if.else46 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.else46 ], [ %.sink.sroa.gep56, %if.then40 ]
+  %i27.1 = phi i64 [ 3, %if.else46 ], [ 2, %if.then40 ]
   %shr59 = lshr i32 %2, 6
   %10 = trunc i32 %shr59 to i8
   %11 = and i8 %10, 63
   %conv62 = or disjoint i8 %11, -128
-  store i8 %conv62, ptr %i27.1.sroa.phi, align 1
+  store i8 %conv62, ptr %.sink.sroa.phi, align 1
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end58, %if.then34

@@ -8766,7 +8766,6 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !244
   %.not = icmp eq ptr %26, null
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 40
   br i1 %.not, label %281, label %27
 
 27:                                               ; preds = %1
@@ -8822,6 +8821,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.98, ptr noundef %43, i64 noundef 0) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !96
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #10
+  %.sroa.gep7 = getelementptr inbounds nuw i8, ptr %9, i64 40
   br label %.critedge.thread.i
 
 44:                                               ; preds = %37
@@ -8842,6 +8842,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.99, ptr noundef %50, i64 noundef 0) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !96
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #10
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 40
   br label %.critedge.thread.i
 
 51:                                               ; preds = %44
@@ -8859,7 +8860,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
   br label %.critedge.i
 
 .critedge.thread.i:                               ; preds = %49, %42, %35
-  %.sroa.phi = phi ptr [ %.sroa.gep, %49 ], [ %.sroa.gep, %42 ], [ %9, %35 ]
+  %.sroa.phi = phi ptr [ %.sroa.gep, %49 ], [ %.sroa.gep7, %42 ], [ %9, %35 ]
   %57 = phi i64 [ 1, %49 ], [ 1, %42 ], [ 0, %35 ]
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %59 = load ptr, ptr %58, align 8, !tbaa !251

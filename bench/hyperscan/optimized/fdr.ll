@@ -268,14 +268,13 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %7
   %sub.i = sub i64 %4, %7
   %cmp.i = icmp ult i64 %sub.i, 17
-  %numZone.i.0.sroa.gep = getelementptr inbounds nuw i8, ptr %zones, i64 256
+  %add.ptr.i1745 = getelementptr inbounds nuw i8, ptr %zones, i64 64
+  %floodPtr.i = getelementptr inbounds nuw i8, ptr %zones, i64 96
+  store ptr %add.ptr.i1745, ptr %floodPtr.i, align 32
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %3, i64 %4
-  %add.ptr.i1745 = getelementptr inbounds nuw i8, ptr %zones, i64 64
-  %floodPtr.i = getelementptr inbounds nuw i8, ptr %zones, i64 96
-  store ptr %add.ptr.i1745, ptr %floodPtr.i, align 32
   %sub.ptr.lhs.cast.i1746 = ptrtoint ptr %add.ptr1.i to i64
   %gepdiff.neg = sub i64 %7, %4
   %9 = trunc i64 %gepdiff.neg to i8
@@ -392,12 +391,8 @@ createShortZone.exit:                             ; preds = %sw.default.i1771, %
   br label %prepareZones.exit
 
 if.end.i:                                         ; preds = %entry
-  %numZone.i.0.sroa.gep1778 = getelementptr inbounds nuw i8, ptr %zones, i64 128
   %add.ptr.i1784 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  %add.ptr2.i1785 = getelementptr inbounds nuw i8, ptr %zones, i64 64
-  %floodPtr.i1786 = getelementptr inbounds nuw i8, ptr %zones, i64 96
-  store ptr %add.ptr2.i1785, ptr %floodPtr.i1786, align 32
-  store i8 0, ptr %add.ptr2.i1785, align 64
+  store i8 0, ptr %add.ptr.i1745, align 64
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr3, i64 -8
   %24 = load i64, ptr %add.ptr5.i, align 1
   store i64 %24, ptr %zones, align 64
@@ -429,6 +424,7 @@ if.end.i:                                         ; preds = %entry
   %sub6.i = add i64 %sub.i, -3
   %and.i = and i64 %sub6.i, -16
   %cmp8.i = icmp sgt i64 %and.i, 16
+  %numZone.i.0.sroa.gep1778 = getelementptr inbounds nuw i8, ptr %zones, i64 128
   br i1 %cmp8.i, label %if.then9.i, label %if.end12.i
 
 if.then9.i:                                       ; preds = %if.end.i
@@ -443,6 +439,7 @@ if.then9.i:                                       ; preds = %if.end.i
   store ptr %8, ptr %floodPtr.i1814, align 32
   %shift.i1815 = getelementptr inbounds nuw i8, ptr %zones, i64 192
   store i8 0, ptr %shift.i1815, align 64
+  %numZone.i.0.sroa.gep = getelementptr inbounds nuw i8, ptr %zones, i64 256
   %.pre2104 = ptrtoint ptr %add.ptr7.i to i64
   br label %if.end12.i
 

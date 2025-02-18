@@ -6375,9 +6375,6 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   store ptr inttoptr (i64 8 to ptr), ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %29, align 8
-  %.sink140.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink140.sroa.gep141 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink140.sroa.gep142 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %30 = invoke { ptr, i64 } @"_ZN82_$LT$std..path..PathBuf$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h61482c5eeae77637E"(ptr nonnull align 8 %1)
           to label %34 unwind label %32
 
@@ -6701,7 +6698,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 150:                                              ; preds = %149
   %151 = load i64, ptr %11, align 8
   %152 = icmp eq i64 %151, -9223372036854775808
-  br i1 %152, label %153, label %154
+  br i1 %152, label %153, label %.split.loop.exit
 
 153:                                              ; preds = %191, %187, %150
   %.sink = phi ptr [ %46, %150 ], [ %49, %187 ], [ %50, %191 ]
@@ -6709,10 +6706,22 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18)
           to label %194 unwind label %.loopexit127
 
-154:                                              ; preds = %150, %191, %187
-  %.sink140.sroa.phi = phi ptr [ %.sink140.sroa.gep, %187 ], [ %.sink140.sroa.gep141, %191 ], [ %.sink140.sroa.gep142, %150 ]
-  %.lcssa137.sink = phi i64 [ %188, %187 ], [ %192, %191 ], [ %151, %150 ]
-  %.sink139 = phi ptr [ %49, %187 ], [ %50, %191 ], [ %46, %150 ]
+.split.loop.exit:                                 ; preds = %150
+  %.sink140.sroa.gep142.le = getelementptr inbounds nuw i8, ptr %11, i64 32
+  br label %154
+
+.split.loop.exit143:                              ; preds = %191
+  %.sink140.sroa.gep141.le = getelementptr inbounds nuw i8, ptr %17, i64 32
+  br label %154
+
+.split.loop.exit147:                              ; preds = %187
+  %.sink140.sroa.gep.le = getelementptr inbounds nuw i8, ptr %13, i64 32
+  br label %154
+
+154:                                              ; preds = %.split.loop.exit147, %.split.loop.exit143, %.split.loop.exit
+  %.sink140.sroa.phi = phi ptr [ %.sink140.sroa.gep142.le, %.split.loop.exit ], [ %.sink140.sroa.gep141.le, %.split.loop.exit143 ], [ %.sink140.sroa.gep.le, %.split.loop.exit147 ]
+  %.lcssa137.sink = phi i64 [ %151, %.split.loop.exit ], [ %192, %.split.loop.exit143 ], [ %188, %.split.loop.exit147 ]
+  %.sink139 = phi ptr [ %46, %.split.loop.exit ], [ %50, %.split.loop.exit143 ], [ %49, %.split.loop.exit147 ]
   %.sroa.384.0.copyload = load i64, ptr %.sink140.sroa.phi, align 8
   store i64 %.lcssa137.sink, ptr %0, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6804,7 +6813,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 187:                                              ; preds = %186
   %188 = load i64, ptr %13, align 8
   %189 = icmp eq i64 %188, -9223372036854775808
-  br i1 %189, label %153, label %154
+  br i1 %189, label %153, label %.split.loop.exit147
 
 190:                                              ; preds = %111
   invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias align 8 %17, ptr align 8 %16, ptr align 8 %2)
@@ -6813,7 +6822,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 191:                                              ; preds = %190
   %192 = load i64, ptr %17, align 8
   %193 = icmp eq i64 %192, -9223372036854775808
-  br i1 %193, label %153, label %154
+  br i1 %193, label %153, label %.split.loop.exit143
 
 194:                                              ; preds = %153
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h213b2d4b9e57589cE"(ptr nonnull align 8 %19)
@@ -6922,9 +6931,6 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
   store ptr inttoptr (i64 8 to ptr), ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %30, align 8
-  %.sink140.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink140.sroa.gep141 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink140.sroa.gep142 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %31 = invoke { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17had12cacb55ee95fbE"(ptr nonnull align 8 %28)
           to label %35 unwind label %33
 
@@ -7247,7 +7253,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
 151:                                              ; preds = %150
   %152 = load i64, ptr %11, align 8
   %153 = icmp eq i64 %152, -9223372036854775808
-  br i1 %153, label %154, label %155
+  br i1 %153, label %154, label %.split.loop.exit
 
 154:                                              ; preds = %192, %188, %151
   %.sink = phi ptr [ %47, %151 ], [ %50, %188 ], [ %51, %192 ]
@@ -7255,10 +7261,22 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18)
           to label %195 unwind label %.loopexit127
 
-155:                                              ; preds = %151, %192, %188
-  %.sink140.sroa.phi = phi ptr [ %.sink140.sroa.gep, %188 ], [ %.sink140.sroa.gep141, %192 ], [ %.sink140.sroa.gep142, %151 ]
-  %.lcssa137.sink = phi i64 [ %189, %188 ], [ %193, %192 ], [ %152, %151 ]
-  %.sink139 = phi ptr [ %50, %188 ], [ %51, %192 ], [ %47, %151 ]
+.split.loop.exit:                                 ; preds = %151
+  %.sink140.sroa.gep142.le = getelementptr inbounds nuw i8, ptr %11, i64 32
+  br label %155
+
+.split.loop.exit143:                              ; preds = %192
+  %.sink140.sroa.gep141.le = getelementptr inbounds nuw i8, ptr %17, i64 32
+  br label %155
+
+.split.loop.exit147:                              ; preds = %188
+  %.sink140.sroa.gep.le = getelementptr inbounds nuw i8, ptr %13, i64 32
+  br label %155
+
+155:                                              ; preds = %.split.loop.exit147, %.split.loop.exit143, %.split.loop.exit
+  %.sink140.sroa.phi = phi ptr [ %.sink140.sroa.gep142.le, %.split.loop.exit ], [ %.sink140.sroa.gep141.le, %.split.loop.exit143 ], [ %.sink140.sroa.gep.le, %.split.loop.exit147 ]
+  %.lcssa137.sink = phi i64 [ %152, %.split.loop.exit ], [ %193, %.split.loop.exit143 ], [ %189, %.split.loop.exit147 ]
+  %.sink139 = phi ptr [ %47, %.split.loop.exit ], [ %51, %.split.loop.exit143 ], [ %50, %.split.loop.exit147 ]
   %.sroa.384.0.copyload = load i64, ptr %.sink140.sroa.phi, align 8
   store i64 %.lcssa137.sink, ptr %0, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7350,7 +7368,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
 188:                                              ; preds = %187
   %189 = load i64, ptr %13, align 8
   %190 = icmp eq i64 %189, -9223372036854775808
-  br i1 %190, label %154, label %155
+  br i1 %190, label %154, label %.split.loop.exit147
 
 191:                                              ; preds = %112
   invoke fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias align 8 %17, ptr align 8 %16, ptr align 8 %2)
@@ -7359,7 +7377,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
 192:                                              ; preds = %191
   %193 = load i64, ptr %17, align 8
   %194 = icmp eq i64 %193, -9223372036854775808
-  br i1 %194, label %154, label %155
+  br i1 %194, label %154, label %.split.loop.exit143
 
 195:                                              ; preds = %154
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h213b2d4b9e57589cE"(ptr nonnull align 8 %19)

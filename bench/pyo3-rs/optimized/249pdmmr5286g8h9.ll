@@ -1296,27 +1296,27 @@ define zeroext i1 @"_ZN85_$LT$pyo3_build_config..impl_..PythonImplementation$u20
   unreachable
 
 8:                                                ; preds = %2
-  %.sink8.sroa.gep22 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink8.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink8.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink8.sroa.gep10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.68, ptr %5, align 8
+  %.sink8.sroa.gep10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink8.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink8.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink8.sroa.gep22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %11
 
 9:                                                ; preds = %2
-  %.sink8.sroa.gep21 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink8.sroa.gep17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink8.sroa.gep13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink8.sroa.gep9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.70, ptr %4, align 8
+  %.sink8.sroa.gep9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink8.sroa.gep13 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink8.sroa.gep17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink8.sroa.gep21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %11
 
 10:                                               ; preds = %2
-  %.sink8.sroa.gep20 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink8.sroa.gep16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink8.sroa.gep12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink8.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.72, ptr %3, align 8
+  %.sink8.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink8.sroa.gep12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink8.sroa.gep16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink8.sroa.gep20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %11
 
 11:                                               ; preds = %10, %9, %8
@@ -2136,22 +2136,22 @@ define zeroext i1 @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$cor
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %.sink18.sroa.gep29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink17.sroa.gep28 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink17.sroa.gep25 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink17.sroa.gep22 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink17.sroa.gep19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
   store ptr %7, ptr %5, align 8
+  %.sink17.sroa.gep19 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink17.sroa.gep22 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink17.sroa.gep25 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink17.sroa.gep28 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink18.sroa.gep29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %13
 
 12:                                               ; preds = %2
-  %.sink18.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink17.sroa.gep27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink17.sroa.gep24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink17.sroa.gep21 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink17.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %3, align 8
+  %.sink17.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink17.sroa.gep21 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink17.sroa.gep24 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink17.sroa.gep27 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink18.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %13
 
 13:                                               ; preds = %12, %11
@@ -5026,14 +5026,6 @@ define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(pt
   %10 = alloca [48 x i8], align 8
   %11 = and i64 %2, 1
   %12 = icmp eq i64 %11, 0
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink.sroa.gep15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink.sroa.gep17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink.sroa.gep20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink.sroa.gep21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink.sroa.gep23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink.sroa.gep24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %3
@@ -5121,18 +5113,32 @@ define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(pt
 44:                                               ; preds = %41
   %45 = add i8 %42, -48
   %or.cond1.i = icmp ult i8 %45, 10
-  br i1 %or.cond1.i, label %50, label %.invoke9
+  br i1 %or.cond1.i, label %50, label %.invoke9.split.loop.exit
 
 46:                                               ; preds = %41
   %47 = add nsw i8 %42, -87
   br label %50
 
-.invoke9:                                         ; preds = %44, %56
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %56 ], [ %.sink.sroa.gep15, %44 ]
-  %.sink.sroa.phi16 = phi ptr [ %.sink.sroa.gep17, %56 ], [ %.sink.sroa.gep18, %44 ]
-  %.sink.sroa.phi19 = phi ptr [ %.sink.sroa.gep20, %56 ], [ %.sink.sroa.gep21, %44 ]
-  %.sink.sroa.phi22 = phi ptr [ %.sink.sroa.gep23, %56 ], [ %.sink.sroa.gep24, %44 ]
-  %.sink = phi ptr [ %4, %56 ], [ %5, %44 ]
+.invoke9.split.loop.exit:                         ; preds = %44
+  %.sink.sroa.gep15.le = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink.sroa.gep18.le = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink.sroa.gep21.le = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink.sroa.gep24.le = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %.invoke9
+
+.invoke9.split.loop.exit25:                       ; preds = %56
+  %.sink.sroa.gep.le = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink.sroa.gep17.le = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink.sroa.gep20.le = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink.sroa.gep23.le = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %.invoke9
+
+.invoke9:                                         ; preds = %.invoke9.split.loop.exit25, %.invoke9.split.loop.exit
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep15.le, %.invoke9.split.loop.exit ], [ %.sink.sroa.gep.le, %.invoke9.split.loop.exit25 ]
+  %.sink.sroa.phi16 = phi ptr [ %.sink.sroa.gep18.le, %.invoke9.split.loop.exit ], [ %.sink.sroa.gep17.le, %.invoke9.split.loop.exit25 ]
+  %.sink.sroa.phi19 = phi ptr [ %.sink.sroa.gep21.le, %.invoke9.split.loop.exit ], [ %.sink.sroa.gep20.le, %.invoke9.split.loop.exit25 ]
+  %.sink.sroa.phi22 = phi ptr [ %.sink.sroa.gep24.le, %.invoke9.split.loop.exit ], [ %.sink.sroa.gep23.le, %.invoke9.split.loop.exit25 ]
+  %.sink = phi ptr [ %5, %.invoke9.split.loop.exit ], [ %4, %.invoke9.split.loop.exit25 ]
   store ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.160, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
   store ptr null, ptr %.sink.sroa.phi16, align 8
@@ -5171,7 +5177,7 @@ define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(pt
 56:                                               ; preds = %52
   %57 = add i8 %54, -48
   %or.cond1.i5 = icmp ult i8 %57, 10
-  br i1 %or.cond1.i5, label %60, label %.invoke9
+  br i1 %or.cond1.i5, label %60, label %.invoke9.split.loop.exit25
 
 58:                                               ; preds = %52
   %59 = add nsw i8 %54, -87

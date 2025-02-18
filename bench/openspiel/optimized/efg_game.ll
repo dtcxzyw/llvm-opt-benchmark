@@ -1790,12 +1790,6 @@ define internal fastcc void @_ZN10open_spiel8efg_game12_GLOBAL__N_112NodeToStrin
   %24 = alloca %"class.absl::debian2::AlphaNum", align 8
   %25 = alloca %"class.absl::debian2::AlphaNum", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #29
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink.sroa.gep99 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.sink.sroa.gep100 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink.sroa.gep101 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink.sroa.gep102 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.sink.sroa.gep103 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %26 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %62
 
@@ -1867,6 +1861,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %50 = load ptr, ptr %49, align 8
   %.not83 = icmp eq ptr %48, %50
+  %.sink.sroa.gep100 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %.not83, label %._crit_edge87.invoke, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %46
@@ -1900,7 +1895,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.071.084, i64 8
   %.not = icmp eq ptr %61, %50
-  br i1 %.not, label %._crit_edge87.invoke, label %54
+  br i1 %.not, label %._crit_edge87.invoke.loopexit, label %54
 
 62:                                               ; preds = %.noexc, %2
   %63 = landingpad { ptr, i32 }
@@ -1937,9 +1932,21 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
   br label %176
 
-._crit_edge87.invoke:                             ; preds = %167, %122, %60, %46, %.preheader, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit ], [ %.sink.sroa.gep99, %.preheader ], [ %.sink.sroa.gep100, %46 ], [ %.sink.sroa.gep101, %60 ], [ %.sink.sroa.gep102, %122 ], [ %.sink.sroa.gep103, %167 ]
-  %.sink = phi ptr [ %17, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit ], [ %25, %.preheader ], [ %11, %46 ], [ %11, %60 ], [ %17, %122 ], [ %25, %167 ]
+._crit_edge87.invoke.loopexit:                    ; preds = %60
+  %.sink.sroa.gep101 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  br label %._crit_edge87.invoke
+
+._crit_edge87.invoke.loopexit97:                  ; preds = %122
+  %.sink.sroa.gep102 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  br label %._crit_edge87.invoke
+
+._crit_edge87.invoke.loopexit98:                  ; preds = %167
+  %.sink.sroa.gep103 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  br label %._crit_edge87.invoke
+
+._crit_edge87.invoke:                             ; preds = %._crit_edge87.invoke.loopexit98, %._crit_edge87.invoke.loopexit97, %._crit_edge87.invoke.loopexit, %46, %.preheader, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit ], [ %.sink.sroa.gep99, %.preheader ], [ %.sink.sroa.gep100, %46 ], [ %.sink.sroa.gep101, %._crit_edge87.invoke.loopexit ], [ %.sink.sroa.gep102, %._crit_edge87.invoke.loopexit97 ], [ %.sink.sroa.gep103, %._crit_edge87.invoke.loopexit98 ]
+  %.sink = phi ptr [ %17, %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit ], [ %25, %.preheader ], [ %11, %46 ], [ %11, %._crit_edge87.invoke.loopexit ], [ %17, %._crit_edge87.invoke.loopexit97 ], [ %25, %._crit_edge87.invoke.loopexit98 ]
   store ptr @.str.55, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink)
@@ -2023,6 +2030,7 @@ _ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %96, align 8
   %.not89 = icmp eq ptr %98, %99
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
   br i1 %.not89, label %._crit_edge87.invoke, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %_ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPS7_RKNS0_8AlphaNumESB_SB_SB_SB_DpRKT_.exit
@@ -2084,7 +2092,7 @@ _ZN4absl7debian29StrAppendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %127 = sub i64 %125, %126
   %128 = ashr exact i64 %127, 3
   %129 = icmp ugt i64 %128, %indvars.iv.next92
-  br i1 %129, label %107, label %._crit_edge87.invoke, !llvm.loop !6
+  br i1 %129, label %107, label %._crit_edge87.invoke.loopexit97, !llvm.loop !6
 
 130:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   store ptr @.str.119, ptr %18, align 8
@@ -2142,6 +2150,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %153, align 8
   %.not88 = icmp eq ptr %155, %156
+  %.sink.sroa.gep99 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br i1 %.not88, label %._crit_edge87.invoke, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -2180,7 +2189,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %172 = sub i64 %170, %171
   %173 = ashr exact i64 %172, 3
   %174 = icmp ugt i64 %173, %indvars.iv.next
-  br i1 %174, label %160, label %._crit_edge87.invoke, !llvm.loop !7
+  br i1 %174, label %160, label %._crit_edge87.invoke.loopexit98, !llvm.loop !7
 
 175:                                              ; preds = %._crit_edge87.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   ret void

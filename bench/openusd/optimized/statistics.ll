@@ -767,14 +767,6 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %28 = load i64, ptr %27, align 8
   %.not.i.i.i.i.i.i = icmp eq i64 %28, 0
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep301 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink.sroa.gep303 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep304 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink.sroa.gep306 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink.sroa.gep307 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink.sroa.gep309 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep310 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge, label %29
 
 29:                                               ; preds = %2
@@ -906,7 +898,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %72 = load ptr, ptr %65, align 8
   %.not.i = icmp eq ptr %72, null
-  br i1 %.not.i, label %.invoke, label %73
+  br i1 %.not.i, label %.invoke.loopexit, label %73
 
 73:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -1582,16 +1574,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashSetINS_14PcpMapFunct
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %366 = load ptr, ptr %365, align 8
   %.not.i93 = icmp eq ptr %366, null
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep303 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep306 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink.sroa.gep309 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %.not.i93, label %.invoke, label %368
 
-.invoke:                                          ; preds = %71, %._crit_edge239
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge239 ], [ %.sink.sroa.gep301, %71 ]
-  %.sink.sroa.phi302 = phi ptr [ %.sink.sroa.gep303, %._crit_edge239 ], [ %.sink.sroa.gep304, %71 ]
-  %.sink.sroa.phi305 = phi ptr [ %.sink.sroa.gep306, %._crit_edge239 ], [ %.sink.sroa.gep307, %71 ]
-  %.sink.sroa.phi308 = phi ptr [ %.sink.sroa.gep309, %._crit_edge239 ], [ %.sink.sroa.gep310, %71 ]
-  %.sink = phi ptr [ %6, %._crit_edge239 ], [ %7, %71 ]
-  %__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.sink = phi ptr [ @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22Pcp_LayerStackRegistryEEptEv, %._crit_edge239 ], [ @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv, %71 ]
-  %367 = phi ptr [ @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22Pcp_LayerStackRegistryEEE, %._crit_edge239 ], [ @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEE, %71 ]
+.invoke.loopexit:                                 ; preds = %71
+  %.sink.sroa.gep301 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep304 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.gep307 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink.sroa.gep310 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  br label %.invoke
+
+.invoke:                                          ; preds = %.invoke.loopexit, %._crit_edge239
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge239 ], [ %.sink.sroa.gep301, %.invoke.loopexit ]
+  %.sink.sroa.phi302 = phi ptr [ %.sink.sroa.gep303, %._crit_edge239 ], [ %.sink.sroa.gep304, %.invoke.loopexit ]
+  %.sink.sroa.phi305 = phi ptr [ %.sink.sroa.gep306, %._crit_edge239 ], [ %.sink.sroa.gep307, %.invoke.loopexit ]
+  %.sink.sroa.phi308 = phi ptr [ %.sink.sroa.gep309, %._crit_edge239 ], [ %.sink.sroa.gep310, %.invoke.loopexit ]
+  %.sink = phi ptr [ %6, %._crit_edge239 ], [ %7, %.invoke.loopexit ]
+  %__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv.sink = phi ptr [ @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22Pcp_LayerStackRegistryEEptEv, %._crit_edge239 ], [ @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEptEv, %.invoke.loopexit ]
+  %367 = phi ptr [ @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22Pcp_LayerStackRegistryEEE, %._crit_edge239 ], [ @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18PcpPrimIndex_GraphEEE, %.invoke.loopexit ]
   store ptr @.str.21, ptr %.sink, align 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_12SdfPathTableINS_12PcpPrimIndexEEELb0EEptEv, ptr %.sink.sroa.phi, align 8
   store i64 936, ptr %.sink.sroa.phi302, align 8

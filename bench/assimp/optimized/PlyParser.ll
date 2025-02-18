@@ -4397,12 +4397,6 @@ define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM11ParseHeaderERNS_14IOStream
   store float 1.000000e+00, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  %.sink29.i.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 23
-  %.sink29.i.sroa.gep70 = getelementptr inbounds nuw i8, ptr %10, i64 27
-  %.sink29.i.sroa.gep71 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink29.i.sroa.gep72 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %.sink29.i.sroa.gep73 = getelementptr inbounds nuw i8, ptr %10, i64 25
-  %.sink29.i.sroa.gep74 = getelementptr inbounds nuw i8, ptr %10, i64 22
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -4413,6 +4407,12 @@ define hidden noundef zeroext i1 @_ZN6Assimp3PLY3DOM11ParseHeaderERNS_14IOStream
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink29.i.sroa.gep70 = getelementptr inbounds nuw i8, ptr %10, i64 27
+  %.sink29.i.sroa.gep71 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink29.i.sroa.gep72 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %.sink29.i.sroa.gep73 = getelementptr inbounds nuw i8, ptr %10, i64 25
+  %.sink29.i.sroa.gep74 = getelementptr inbounds nuw i8, ptr %10, i64 22
+  %.sink29.i.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 8

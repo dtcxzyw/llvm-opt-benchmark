@@ -877,8 +877,6 @@ define hidden void @"_ZN3rpc5proto22MessageStream$LT$S$GT$4read28_$u7b$$u7b$clos
   %.sroa.10 = alloca [32 x i8], align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i8, ptr %14, align 8, !range !72, !noundef !5
-  %.sink7.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink7.i.sroa.gep68 = getelementptr inbounds nuw i8, ptr %11, i64 16
   switch i8 %15, label %default.unreachable152 [
     i8 0, label %16
     i8 1, label %20
@@ -976,10 +974,12 @@ common.ret:                                       ; preds = %138, %35
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %39
+  %.sroa.5.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.10.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink7.i.sroa.gep68, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.16..sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx91, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.16..sroa_idx, i64 24, i1 false)
   store i64 %.sroa.088.0.copyload, ptr %11, align 8
-  store ptr %.sroa.6.0.copyload, ptr %.sink7.i.sroa.gep, align 8
+  %.sroa.4.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %.sroa.6.0.copyload, ptr %.sroa.4.0..sroa_idx90, align 8
   %44 = xor i64 %.sroa.088.0.copyload, -9223372036854775808
   %45 = tail call i64 @llvm.umin.i64(i64 %44, i64 5)
   %46 = ptrtoint ptr %.sroa.6.0.copyload to i64
@@ -1007,7 +1007,7 @@ common.ret:                                       ; preds = %138, %35
   br i1 %51, label %"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17hdbbc54893bb3dd51E.exit", label %"._ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i_crit_edge"
 
 "._ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i_crit_edge": ; preds = %50
-  %.val1.i.pre = load ptr, ptr %.sink7.i.sroa.gep68, align 8, !alias.scope !229
+  %.val1.i.pre = load ptr, ptr %.sroa.5.0..sroa_idx91, align 8, !alias.scope !229
   br label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i"
 
 "_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i": ; preds = %"._ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i_crit_edge", %49
@@ -1020,7 +1020,7 @@ common.ret:                                       ; preds = %138, %35
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1d3bc22ceaf4490aE.exit"
 
 53:                                               ; preds = %43
-  %.sroa.694.0.copyload = load ptr, ptr %.sink7.i.sroa.gep68, align 8, !nonnull !5, !noundef !5
+  %.sroa.694.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx91, align 8, !nonnull !5, !noundef !5
   %.sroa.996.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.996.0.copyload = load i64, ptr %.sroa.996.0..sroa_idx, align 8
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1296,7 +1296,7 @@ common.ret:                                       ; preds = %138, %35
   br i1 %131, label %"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17hdbbc54893bb3dd51E.exit55", label %"_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i51"
 
 "_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i51": ; preds = %130
-  %.val1.i54 = load ptr, ptr %.sink7.i.sroa.gep68, align 8, !alias.scope !274, !nonnull !5, !noundef !5
+  %.val1.i54 = load ptr, ptr %.sroa.5.0..sroa_idx91, align 8, !alias.scope !274, !nonnull !5, !noundef !5
   call void @__rust_dealloc(ptr noundef nonnull %.val1.i54, i64 noundef %46, i64 noundef 1) #31, !noalias !274
   br label %"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17hdbbc54893bb3dd51E.exit55"
 
@@ -1314,7 +1314,7 @@ common.ret:                                       ; preds = %138, %35
   ]
 
 "_ZN4core3ptr63drop_in_place$LT$tungstenite..protocol..frame..frame..Frame$GT$17he3520a956e357550E.exit.sink.split.i57": ; preds = %132
-  %.val1.i60 = load ptr, ptr %.sink7.i.sroa.gep68, align 8, !alias.scope !277, !nonnull !5, !noundef !5
+  %.val1.i60 = load ptr, ptr %.sroa.5.0..sroa_idx91, align 8, !alias.scope !277, !nonnull !5, !noundef !5
   tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i60, i64 noundef %46, i64 noundef 1) #31, !noalias !277
   br label %.thread
 
@@ -4481,14 +4481,12 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$gpui..executor..Task$LT$cor
   tail call void @llvm.experimental.noalias.scope.decl(metadata !802)
   %18 = load i64, ptr %2, align 8, !range !143, !alias.scope !802, !noalias !797, !noundef !5
   %19 = icmp eq i64 %18, -9223372036854775805
-  %.sink.i.i.i.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sink.i.i.i.i.sroa.gep1.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %19, label %"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit", label %20
 
 20:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !805)
   %.not.i.i.i.i = icmp eq i64 %18, -9223372036854775806
-  br i1 %.not.i.i.i.i, label %28, label %21
+  br i1 %.not.i.i.i.i, label %29, label %21
 
 21:                                               ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !808)
@@ -4497,6 +4495,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$gpui..executor..Task$LT$cor
 
 22:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !811)
+  %.sink.i.i.i.i.sroa.gep1.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   switch i64 %18, label %"_ZN4core3ptr43drop_in_place$LT$client..DevServerToken$GT$17hfea20e5524067f3aE.exit.sink.split.i.i.i.i.i.i" [
     i64 -9223372036854775808, label %23
     i64 0, label %"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit"
@@ -4505,6 +4504,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$gpui..executor..Task$LT$cor
 23:                                               ; preds = %22
   %24 = load i64, ptr %.sink.i.i.i.i.sroa.gep1.i.i, align 8, !alias.scope !814, !noalias !827, !noundef !5
   %25 = icmp eq i64 %24, 0
+  %.sink.i.i.i.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %25, label %"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit", label %"_ZN4core3ptr43drop_in_place$LT$client..DevServerToken$GT$17hfea20e5524067f3aE.exit.sink.split.i.i.i.i.i.i"
 
 "_ZN4core3ptr43drop_in_place$LT$client..DevServerToken$GT$17hfea20e5524067f3aE.exit.sink.split.i.i.i.i.i.i": ; preds = %23, %22
@@ -4515,14 +4515,16 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$gpui..executor..Task$LT$cor
   br label %"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit"
 
 27:                                               ; preds = %21
-  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i.i.i.i.sroa.gep1.i.i)
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
   br label %"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit"
 
-28:                                               ; preds = %20
-  call void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h326580d051edbc1bE.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sink.i.i.i.i.sroa.gep1.i.i)
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h326580d051edbc1bE.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
   br label %"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit"
 
-"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit": ; preds = %16, %22, %23, %"_ZN4core3ptr43drop_in_place$LT$client..DevServerToken$GT$17hfea20e5524067f3aE.exit.sink.split.i.i.i.i.i.i", %27, %28
+"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit": ; preds = %16, %22, %23, %"_ZN4core3ptr43drop_in_place$LT$client..DevServerToken$GT$17hfea20e5524067f3aE.exit.sink.split.i.i.i.i.i.i", %27, %29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !797
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17h2bf1d5e919b322a8E.llvm.5075531295563288024.exit"
 

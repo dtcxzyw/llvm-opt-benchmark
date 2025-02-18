@@ -12699,8 +12699,6 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   %7 = tail call ptr @xdr_reserve_space(ptr noundef %0, i64 noundef 4) #12
   %8 = icmp eq ptr %7, null
-  %.ph14.sroa.gep = getelementptr i8, ptr %1, i64 -4
-  %.ph14.sroa.gep31 = getelementptr i8, ptr %6, i64 -4
   br i1 %8, label %10, label %9, !prof !6
 
 9:                                                ; preds = %5
@@ -12724,9 +12722,10 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   %17 = add i32 %16, 114
   store i32 %17, ptr %15, align 8
   %18 = icmp eq ptr %2, null
-  br i1 %18, label %.loopexit23, label %.preheader24
+  %.ph15.sroa.gep = getelementptr i8, ptr %1, i64 -4
+  br i1 %18, label %.loopexit24, label %.preheader25
 
-.preheader24:                                     ; preds = %11, %28
+.preheader25:                                     ; preds = %11, %28
   %19 = phi i64 [ %20, %28 ], [ %3, %11 ]
   %20 = add nsw i64 %19, -1
   %21 = getelementptr i32, ptr %1, i64 %20
@@ -12734,18 +12733,18 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %28, label %24
 
-24:                                               ; preds = %.preheader24
+24:                                               ; preds = %.preheader25
   %25 = getelementptr i32, ptr %2, i64 %20
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %.preheader22
+  br i1 %27, label %28, label %.preheader23
 
-28:                                               ; preds = %24, %.preheader24
+28:                                               ; preds = %24, %.preheader25
   %29 = icmp eq i64 %20, 0
-  br i1 %29, label %.loopexit19, label %.preheader24, !llvm.loop !76
+  br i1 %29, label %.loopexit20, label %.preheader25, !llvm.loop !76
 
-.preheader22:                                     ; preds = %24, %.preheader22
-  %30 = phi i64 [ %31, %.preheader22 ], [ %19, %24 ]
+.preheader23:                                     ; preds = %24, %.preheader23
+  %30 = phi i64 [ %31, %.preheader23 ], [ %19, %24 ]
   %31 = add i64 %30, -1
   %32 = getelementptr i32, ptr %1, i64 %31
   %33 = load i32, ptr %32, align 4
@@ -12755,40 +12754,44 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   %37 = getelementptr i32, ptr %6, i64 %31
   store i32 %36, ptr %37, align 4
   %38 = icmp eq i64 %31, 0
-  br i1 %38, label %.loopexit23, label %.preheader22, !llvm.loop !77
+  br i1 %38, label %.loopexit24.loopexit, label %.preheader23, !llvm.loop !77
 
-.loopexit23:                                      ; preds = %.preheader22, %11
-  %.ph = phi i64 [ %3, %11 ], [ %19, %.preheader22 ]
-  %.ph14.sroa.phi = phi ptr [ %.ph14.sroa.gep, %11 ], [ %.ph14.sroa.gep31, %.preheader22 ]
-  %.ph14 = phi ptr [ %1, %11 ], [ %6, %.preheader22 ]
-  %39 = getelementptr i32, ptr %.ph14.sroa.phi, i64 %.ph
+.loopexit24.loopexit:                             ; preds = %.preheader23
+  %.ph15.sroa.gep32 = getelementptr i8, ptr %6, i64 -4
+  br label %.loopexit24
+
+.loopexit24:                                      ; preds = %.loopexit24.loopexit, %11
+  %.ph = phi i64 [ %3, %11 ], [ %19, %.loopexit24.loopexit ]
+  %.ph15.sroa.phi = phi ptr [ %.ph15.sroa.gep, %11 ], [ %.ph15.sroa.gep32, %.loopexit24.loopexit ]
+  %.ph15 = phi ptr [ %1, %11 ], [ %6, %.loopexit24.loopexit ]
+  %39 = getelementptr i32, ptr %.ph15.sroa.phi, i64 %.ph
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.preheader18, label %.loopexit19
+  br i1 %41, label %.preheader19, label %.loopexit20
 
-42:                                               ; preds = %.preheader18
-  %43 = getelementptr i32, ptr %.ph14.sroa.phi, i64 %47
+42:                                               ; preds = %.preheader19
+  %43 = getelementptr i32, ptr %.ph15.sroa.phi, i64 %47
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.preheader18, label %.loopexit19, !llvm.loop !78
+  br i1 %45, label %.preheader19, label %.loopexit20, !llvm.loop !78
 
-.preheader18:                                     ; preds = %.loopexit23, %42
-  %46 = phi i64 [ %47, %42 ], [ %.ph, %.loopexit23 ]
+.preheader19:                                     ; preds = %.loopexit24, %42
+  %46 = phi i64 [ %47, %42 ], [ %.ph, %.loopexit24 ]
   %47 = add nsw i64 %46, -1
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %.loopexit19, label %42, !llvm.loop !78
+  br i1 %48, label %.loopexit20, label %42, !llvm.loop !78
 
-.loopexit19:                                      ; preds = %28, %.preheader18, %42, %.loopexit23
-  %49 = phi ptr [ %.ph14, %.loopexit23 ], [ %.ph14, %42 ], [ %.ph14, %.preheader18 ], [ %6, %28 ]
-  %50 = phi i64 [ %.ph, %.loopexit23 ], [ 0, %.preheader18 ], [ %47, %42 ], [ 0, %28 ]
-  %51 = phi i1 [ false, %.loopexit23 ], [ %48, %42 ], [ %48, %.preheader18 ], [ true, %28 ]
+.loopexit20:                                      ; preds = %28, %.preheader19, %42, %.loopexit24
+  %49 = phi ptr [ %.ph15, %.loopexit24 ], [ %.ph15, %42 ], [ %.ph15, %.preheader19 ], [ %6, %28 ]
+  %50 = phi i64 [ %.ph, %.loopexit24 ], [ 0, %.preheader19 ], [ %47, %42 ], [ 0, %28 ]
+  %51 = phi i1 [ false, %.loopexit24 ], [ %48, %42 ], [ %48, %.preheader19 ], [ true, %28 ]
   %52 = shl i64 %50, 2
   %53 = add i64 %52, 4
   %54 = tail call ptr @xdr_reserve_space(ptr noundef %0, i64 noundef %53) #12
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread, label %56, !prof !6
 
-56:                                               ; preds = %.loopexit19
+56:                                               ; preds = %.loopexit20
   %57 = trunc i64 %50 to i32
   %58 = tail call i32 @llvm.bswap.i32(i32 %57)
   store i32 %58, ptr %54, align 4
@@ -12811,7 +12814,7 @@ define internal fastcc void @encode_getattr(ptr noundef %0, ptr noundef readonly
   %68 = icmp slt i64 %53, 0
   br i1 %68, label %.thread, label %69, !prof !79
 
-.thread:                                          ; preds = %.loopexit19, %.loopexit
+.thread:                                          ; preds = %.loopexit20, %.loopexit
   tail call void asm sideeffect "1524: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1524) #12, !srcloc !61
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.71, i32 1000, i32 2307, i64 12) #12, !srcloc !62
   tail call void asm sideeffect "1525: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1525b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1525) #12, !srcloc !63

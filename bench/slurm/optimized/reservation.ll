@@ -14899,12 +14899,12 @@ define internal fastcc noundef zeroext i1 @_resv_time_overlap(ptr noundef readon
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %27, align 8
   %indvars.iv.sroa.phi.sroa.speculated.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %indvars.iv.sroa.phi.sroa.speculated.sroa.gep73 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep74 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %indvars.iv.sroa.phi.sroa.speculated.sroa.gep76 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %indvars.iv.sroa.phi.sroa.speculated.sroa.gep79 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep71 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep74 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %indvars.iv.sroa.phi.sroa.speculated.sroa.gep80 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %31
 

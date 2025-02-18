@@ -60379,20 +60379,6 @@ define internal fastcc void @_ZL26RenderFloatingPointOptionsRKN5clang6driver9Too
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %146 = load i32, ptr %145, align 8, !tbaa !177
   %147 = icmp eq i32 %146, 2
-  %.sink1.i.sroa.gep = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %.sink1.i.sroa.gep1676 = getelementptr inbounds nuw i8, ptr %54, i64 20
-  %.sink1.i278.sroa.gep = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %.sink1.i278.sroa.gep1678 = getelementptr inbounds nuw i8, ptr %50, i64 21
-  %.sink1.i278.sroa.gep1679 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  %.sink1.i307.sroa.gep = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %.sink1.i307.sroa.gep1681 = getelementptr inbounds nuw i8, ptr %46, i64 21
-  %.sink1.i307.sroa.gep1682 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  %.sink1.i336.sroa.gep = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.sink1.i336.sroa.gep1684 = getelementptr inbounds nuw i8, ptr %42, i64 21
-  %.sink1.i336.sroa.gep1685 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  %.sink1.i888.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink1.i888.sroa.gep1743 = getelementptr inbounds nuw i8, ptr %7, i64 21
-  %.sink1.i888.sroa.gep1744 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br i1 %147, label %._crit_edge.i.i, label %148
 
 148:                                              ; preds = %6
@@ -60678,6 +60664,9 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
   %361 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %362 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %363 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %.sink1.i336.sroa.gep = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %.sink1.i336.sroa.gep1684 = getelementptr inbounds nuw i8, ptr %42, i64 21
+  %.sink1.i336.sroa.gep1685 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %364 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %365 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %366 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -60688,6 +60677,9 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
   %371 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %372 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %373 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %.sink1.i307.sroa.gep = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %.sink1.i307.sroa.gep1681 = getelementptr inbounds nuw i8, ptr %46, i64 21
+  %.sink1.i307.sroa.gep1682 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %374 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %375 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %376 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -60698,6 +60690,9 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
   %381 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %382 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %383 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %.sink1.i278.sroa.gep = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %.sink1.i278.sroa.gep1678 = getelementptr inbounds nuw i8, ptr %50, i64 21
+  %.sink1.i278.sroa.gep1679 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %384 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %385 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %386 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -60708,6 +60703,8 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
   %391 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %392 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %393 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %.sink1.i.sroa.gep1674 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %.sink1.i.sroa.gep1676 = getelementptr inbounds nuw i8, ptr %54, i64 20
   %394 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %395 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %396 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -60862,7 +60859,7 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
 
 429:                                              ; preds = %._crit_edge.i.i5.i.i, %._crit_edge.i.i3.i.i, %._crit_edge.i.i.i.i
   %.sink.i = phi i64 [ 8, %._crit_edge.i.i5.i.i ], [ 8, %._crit_edge.i.i3.i.i ], [ 4, %._crit_edge.i.i.i.i ]
-  %.sink1.i.sroa.phi = phi ptr [ %.sink1.i.sroa.gep, %._crit_edge.i.i5.i.i ], [ %.sink1.i.sroa.gep, %._crit_edge.i.i3.i.i ], [ %.sink1.i.sroa.gep1676, %._crit_edge.i.i.i.i ]
+  %.sink1.i.sroa.phi = phi ptr [ %.sink1.i.sroa.gep1674, %._crit_edge.i.i5.i.i ], [ %.sink1.i.sroa.gep1674, %._crit_edge.i.i3.i.i ], [ %.sink1.i.sroa.gep1676, %._crit_edge.i.i.i.i ]
   store i64 %.sink.i, ptr %394, align 8, !tbaa !98, !alias.scope !1428, !noalias !1425
   store i8 0, ptr %.sink1.i.sroa.phi, align 1, !tbaa !119, !alias.scope !1428, !noalias !1425
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %60, ptr noundef nonnull @.str.732, ptr noundef nonnull align 8 dereferenceable(32) %54)
@@ -68328,18 +68325,22 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit885: ; preds = %327
 
 ._crit_edge.i.i.i.i895:                           ; preds = %3296
   store i32 1819047270, ptr %3297, align 8, !alias.scope !1629, !noalias !1626
+  %.sink.sroa.gep3530 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br label %3300
 
 ._crit_edge.i.i1.i.i894:                          ; preds = %3296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %3297, ptr noundef nonnull align 1 dereferenceable(5) @.str.688, i64 5, i1 false), !noalias !1626
+  %.sink.sroa.gep3529 = getelementptr inbounds nuw i8, ptr %7, i64 21
   br label %3300
 
 ._crit_edge.i.i3.i.i893:                          ; preds = %3296
   store i64 7234318597473987945, ptr %3297, align 8, !alias.scope !1629, !noalias !1626
+  %.sink.sroa.gep3528 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %3300
 
 ._crit_edge.i.i5.i.i886:                          ; preds = %3296
   store i64 7234316398366782064, ptr %3297, align 8, !alias.scope !1629, !noalias !1626
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %3300
 
 .thread.i896:                                     ; preds = %3296
@@ -68351,11 +68352,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit885: ; preds = %327
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i892
 
 3300:                                             ; preds = %._crit_edge.i.i5.i.i886, %._crit_edge.i.i3.i.i893, %._crit_edge.i.i1.i.i894, %._crit_edge.i.i.i.i895
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i5.i.i886 ], [ %.sink.sroa.gep3528, %._crit_edge.i.i3.i.i893 ], [ %.sink.sroa.gep3529, %._crit_edge.i.i1.i.i894 ], [ %.sink.sroa.gep3530, %._crit_edge.i.i.i.i895 ]
   %.sink.i887 = phi i64 [ 8, %._crit_edge.i.i5.i.i886 ], [ 8, %._crit_edge.i.i3.i.i893 ], [ 5, %._crit_edge.i.i1.i.i894 ], [ 4, %._crit_edge.i.i.i.i895 ]
-  %.sink1.i888.sroa.phi = phi ptr [ %.sink1.i888.sroa.gep, %._crit_edge.i.i5.i.i886 ], [ %.sink1.i888.sroa.gep, %._crit_edge.i.i3.i.i893 ], [ %.sink1.i888.sroa.gep1743, %._crit_edge.i.i1.i.i894 ], [ %.sink1.i888.sroa.gep1744, %._crit_edge.i.i.i.i895 ]
   %3301 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sink.i887, ptr %3301, align 8, !tbaa !98, !alias.scope !1629, !noalias !1626
-  store i8 0, ptr %.sink1.i888.sroa.phi, align 1, !tbaa !119, !alias.scope !1629, !noalias !1626
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !119, !alias.scope !1629, !noalias !1626
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %126, ptr noundef nonnull @.str.732, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %.pre.i889 = load ptr, ptr %7, align 8, !tbaa !97, !noalias !1626
   %3302 = icmp eq ptr %.pre.i889, %3297

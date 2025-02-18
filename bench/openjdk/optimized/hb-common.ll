@@ -1419,7 +1419,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden void @hb_feature_to_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca [128 x i8], align 16
   %.not = icmp eq i32 %2, 0
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 1
   br i1 %.not, label %84, label %5
 
 5:                                                ; preds = %3
@@ -1430,6 +1429,7 @@ define hidden void @hb_feature_to_string(ptr noundef readonly captures(none) %0,
 
 9:                                                ; preds = %5
   store i8 45, ptr %4, align 16
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -5563,10 +5563,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4gvar13accelerator_t22appl
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %.not = icmp ult i32 %1, %13
-  %..sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %..sroa.gep437 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %..sroa.gep439 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %..sroa.gep440 = getelementptr inbounds nuw i8, ptr %9, i64 4
   br i1 %.not, label %14, label %_ZN11hb_vector_tIjLb0EED2Ev.exit380
 
 14:                                               ; preds = %7
@@ -5768,6 +5764,10 @@ _ZN2OT18TupleVariationData18get_tuple_iteratorE10hb_array_tIKcEjPKvR11hb_vector_
   %157 = and i64 %156, 4294967295
   %158 = select i1 %6, i64 %157, i64 0
   %159 = zext i32 %155 to i64
+  %..sroa.gep437 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %..sroa.gep440 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %..sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %..sroa.gep439 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.not.i.i328 = icmp eq i32 %.sroa.5.8.extract.trunc, 0
   %160 = and i64 %5, 4294967295
   %161 = mul nuw nsw i64 %160, 12
@@ -7076,24 +7076,28 @@ _ZN22contour_point_vector_tD2Ev.exit372:          ; preds = %78, %70, %_ZN2OT18T
   br i1 %.not.i.i379, label %_ZN11hb_vector_tIjLb0EED2Ev.exit380, label %658
 
 658:                                              ; preds = %_ZN22contour_point_vector_tD2Ev.exit372
-  store i32 0, ptr %..sroa.gep440, align 4
-  %659 = load ptr, ptr %..sroa.gep437, align 8
-  call void @free(ptr noundef %659) #26
+  %659 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 0, ptr %659, align 4
+  %660 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %661 = load ptr, ptr %660, align 8
+  call void @free(ptr noundef %661) #26
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit380
 
 _ZN22contour_point_vector_tD2Ev.exit378:          ; preds = %656, %_ZN22contour_point_vector_tD2Ev.exit376, %105
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %171, %_ZN22contour_point_vector_tD2Ev.exit376 ], [ %171, %656 ]
-  %660 = load i32, ptr %9, align 8
-  %.not.i.i381 = icmp eq i32 %660, 0
-  br i1 %.not.i.i381, label %_ZN11hb_vector_tIjLb0EED2Ev.exit382, label %661
+  %662 = load i32, ptr %9, align 8
+  %.not.i.i381 = icmp eq i32 %662, 0
+  br i1 %.not.i.i381, label %_ZN11hb_vector_tIjLb0EED2Ev.exit382, label %663
 
-661:                                              ; preds = %_ZN22contour_point_vector_tD2Ev.exit378
-  store i32 0, ptr %..sroa.gep440, align 4
-  %662 = load ptr, ptr %..sroa.gep437, align 8
-  call void @free(ptr noundef %662) #26
+663:                                              ; preds = %_ZN22contour_point_vector_tD2Ev.exit378
+  %664 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 0, ptr %664, align 4
+  %665 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %666 = load ptr, ptr %665, align 8
+  call void @free(ptr noundef %666) #26
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit382
 
-_ZN11hb_vector_tIjLb0EED2Ev.exit382:              ; preds = %_ZN22contour_point_vector_tD2Ev.exit378, %661
+_ZN11hb_vector_tIjLb0EED2Ev.exit382:              ; preds = %_ZN22contour_point_vector_tD2Ev.exit378, %663
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit380:              ; preds = %658, %_ZN22contour_point_vector_tD2Ev.exit372, %14, %7

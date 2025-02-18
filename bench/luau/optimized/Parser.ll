@@ -8089,8 +8089,6 @@ define dso_local noundef ptr @_ZN4Luau6Parser16parseDeclarationERKNS_8LocationER
   %or.cond.not391 = select i1 %63, i1 %.not31, i1 false
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = load i32, ptr %66, align 8
-  %.sink477.sroa.gep = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.sink477.sroa.gep499 = getelementptr inbounds nuw i8, ptr %40, i64 8
   br i1 %or.cond.not391, label %68, label %77
 
 68:                                               ; preds = %3
@@ -8355,13 +8353,17 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit: ; preds = %.
   %162 = getelementptr %"struct.Luau::Parser::Binding", ptr %161, i64 %.030423, i32 1
   %163 = load ptr, ptr %162, align 8
   %.not = icmp eq ptr %163, null
-  br i1 %.not, label %.invoke, label %174
+  br i1 %.not, label %.invoke.loopexit, label %174
 
-.invoke:                                          ; preds = %158, %._crit_edge.thread, %._crit_edge
-  %.sink477.sroa.phi = phi ptr [ %.sink477.sroa.gep, %._crit_edge ], [ %.sink477.sroa.gep, %._crit_edge.thread ], [ %.sink477.sroa.gep499, %158 ]
-  %.sink477 = phi ptr [ %43, %._crit_edge ], [ %43, %._crit_edge.thread ], [ %40, %158 ]
-  %.sink473 = phi ptr [ %44, %._crit_edge ], [ %44, %._crit_edge.thread ], [ %41, %158 ]
-  %.sink471 = phi ptr [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %42, %158 ]
+.invoke.loopexit:                                 ; preds = %158
+  %.sink477.sroa.gep499.le = getelementptr inbounds nuw i8, ptr %40, i64 8
+  br label %.invoke
+
+.invoke:                                          ; preds = %.invoke.loopexit, %._crit_edge.thread, %._crit_edge
+  %.sink477.sroa.phi = phi ptr [ %.sink477.sroa.gep, %._crit_edge ], [ %.sink477.sroa.gep501, %._crit_edge.thread ], [ %.sink477.sroa.gep499.le, %.invoke.loopexit ]
+  %.sink477 = phi ptr [ %43, %._crit_edge ], [ %43, %._crit_edge.thread ], [ %40, %.invoke.loopexit ]
+  %.sink473 = phi ptr [ %44, %._crit_edge ], [ %44, %._crit_edge.thread ], [ %41, %.invoke.loopexit ]
+  %.sink471 = phi ptr [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %42, %.invoke.loopexit ]
   %164 = load i64, ptr %1, align 4
   store i64 %164, ptr %.sink477, align 4
   store i64 %.sroa.1350.0.copyload, ptr %.sink477.sroa.phi, align 4
@@ -8558,11 +8560,13 @@ _ZNSt6vectorISt4pairIN4Luau7AstNameENS1_8LocationEESaIS4_EE17_M_realloc_insertIJ
 ._crit_edge:                                      ; preds = %231
   %233 = icmp eq ptr %.0387451, null
   %or.cond.not = select i1 %.0386453, i1 %233, i1 false
+  %.sink477.sroa.gep = getelementptr inbounds nuw i8, ptr %43, i64 8
   br i1 %or.cond.not, label %.invoke, label %.lr.ph.preheader.i.i
 
 ._crit_edge.thread:                               ; preds = %138
   %234 = icmp eq ptr %.0387451, null
   %or.cond.not500 = select i1 %.0386453, i1 %234, i1 false
+  %.sink477.sroa.gep501 = getelementptr inbounds nuw i8, ptr %43, i64 8
   br i1 %or.cond.not500, label %.invoke, label %.loopexit392.thread
 
 .loopexit392.thread:                              ; preds = %._crit_edge.thread
@@ -8809,15 +8813,15 @@ _ZNK4Luau7AstNameeqEPKc.exit84.thread:            ; preds = %_ZN4Luau6Parser15re
 
 .outer:                                           ; preds = %528, %_ZNK4Luau7AstNameeqEPKc.exit84.thread
   %.0383.ph = phi ptr [ %527, %528 ], [ null, %_ZNK4Luau7AstNameeqEPKc.exit84.thread ]
-  %.sroa.11.0.ph = phi i64 [ %.sroa.11.0.ph541, %528 ], [ 0, %_ZNK4Luau7AstNameeqEPKc.exit84.thread ]
+  %.sroa.11.0.ph = phi i64 [ %.sroa.11.0.ph545, %528 ], [ 0, %_ZNK4Luau7AstNameeqEPKc.exit84.thread ]
   %.not34 = icmp eq ptr %.0383.ph, null
-  br label %.outer540
+  br label %.outer544
 
-.outer540:                                        ; preds = %.outer540.backedge, %.outer
-  %.sroa.11.0.ph541 = phi i64 [ %.sroa.11.0.ph, %.outer ], [ %.sroa.11.0.ph541.be, %.outer540.backedge ]
+.outer544:                                        ; preds = %.outer544.backedge, %.outer
+  %.sroa.11.0.ph545 = phi i64 [ %.sroa.11.0.ph, %.outer ], [ %.sroa.11.0.ph545.be, %.outer544.backedge ]
   br label %333
 
-333:                                              ; preds = %.outer540, %.thread.invoke
+333:                                              ; preds = %.outer544, %.thread.invoke
   %334 = load i32, ptr %66, align 8
   switch i32 %334, label %.critedge.thread [
     i32 295, label %583
@@ -8840,7 +8844,7 @@ _ZNK4Luau7AstNameeqEPKc.exit84.thread:            ; preds = %_ZN4Luau6Parser15re
   %340 = load ptr, ptr %317, align 8
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 24
   store ptr %341, ptr %317, align 8
-  br label %.outer540.backedge
+  br label %.outer544.backedge
 
 342:                                              ; preds = %336
   %343 = load ptr, ptr %316, align 8
@@ -8900,24 +8904,24 @@ _ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEv
   store ptr %358, ptr %317, align 8
   %360 = getelementptr inbounds nuw %"struct.Luau::AstDeclaredClassProp", ptr %354, i64 %352
   store ptr %360, ptr %327, align 8
-  br label %.outer540.backedge
+  br label %.outer544.backedge
 
-.outer540.backedge:                               ; preds = %_ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i174, %561, %_ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130, %413, %_ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %339
-  %.sroa.11.0.ph541.be = add i64 %.sroa.11.0.ph541, 1
-  br label %.outer540, !llvm.loop !99
+.outer544.backedge:                               ; preds = %_ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i174, %561, %_ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130, %413, %_ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %339
+  %.sroa.11.0.ph545.be = add i64 %.sroa.11.0.ph545, 1
+  br label %.outer544, !llvm.loop !99
 
 .loopexit395.loopexit.loopexit:                   ; preds = %.noexc487, %398, %396, %393, %.noexc219.invoke, %.noexc114.invoke, %.thread.invoke, %364, %368, %.critedge3, %372, %377, %381, %383, %.noexc112, %386, %439, %.noexc107, %380, %.noexc207, %.noexc138, %470, %473, %475, %.noexc214, %461, %.noexc217, %464, %455, %459, %445, %448, %450, %.noexc233, %.noexc225, %458, %.noexc272
-  %lpad.loopexit542 = landingpad { ptr, i32 }
+  %lpad.loopexit546 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit395.loopexit.loopexit.split-lp:          ; preds = %.noexc493, %554, %552, %549, %.noexc158.invoke, %335, %_ZNKSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %_ZNKSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i119, %530, %539, %.noexc156, %542, %_ZNKSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i163, %533
-  %lpad.loopexit.split-lp543 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp547 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit395.loopexit.split-lp:                   ; preds = %.noexc277, %503, %.noexc254, %.noexc262, %495, %493, %490, %504, %500, %509, %.noexc246, %506, %.noexc242, %520, %518, %515, %.noexc144, %484, %.noexc248.invoke
-  %lpad.loopexit.split-lp538 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp542 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -8927,7 +8931,7 @@ _ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEv
   br label %.body
 
 .body:                                            ; preds = %.loopexit395.loopexit.split-lp, %.loopexit395.loopexit.loopexit.split-lp, %.loopexit395.loopexit.loopexit, %.loopexit.split-lp396, %535
-  %eh.lpad-body = phi { ptr, i32 } [ %536, %535 ], [ %lpad.loopexit.split-lp398, %.loopexit.split-lp396 ], [ %lpad.loopexit.split-lp538, %.loopexit395.loopexit.split-lp ], [ %lpad.loopexit542, %.loopexit395.loopexit.loopexit ], [ %lpad.loopexit.split-lp543, %.loopexit395.loopexit.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %536, %535 ], [ %lpad.loopexit.split-lp398, %.loopexit.split-lp396 ], [ %lpad.loopexit.split-lp542, %.loopexit395.loopexit.split-lp ], [ %lpad.loopexit546, %.loopexit395.loopexit.loopexit ], [ %lpad.loopexit.split-lp547, %.loopexit395.loopexit.loopexit.split-lp ]
   %361 = load ptr, ptr %316, align 8
   %362 = getelementptr inbounds i8, ptr %361, i64 %322
   %363 = load ptr, ptr %317, align 8
@@ -9106,7 +9110,7 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit110: ; preds =
   %414 = load ptr, ptr %317, align 8
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 24
   store ptr %415, ptr %317, align 8
-  br label %.outer540.backedge
+  br label %.outer544.backedge
 
 416:                                              ; preds = %410
   %417 = load ptr, ptr %316, align 8
@@ -9165,7 +9169,7 @@ _ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEv
   store ptr %432, ptr %317, align 8
   %434 = getelementptr inbounds nuw %"struct.Luau::AstDeclaredClassProp", ptr %428, i64 %426
   store ptr %434, ptr %327, align 8
-  br label %.outer540.backedge
+  br label %.outer544.backedge
 
 .thread.invoke:                                   ; preds = %405, %402, %483
   %435 = phi ptr [ %.sroa.5361.0..sroa_idx, %483 ], [ %324, %402 ], [ %324, %405 ]
@@ -9671,7 +9675,7 @@ _ZN4Luau6Parser9parseNameEPKc.exit154:            ; preds = %.noexc153, %530
   %562 = load ptr, ptr %317, align 8
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 24
   store ptr %563, ptr %317, align 8
-  br label %.outer540.backedge
+  br label %.outer544.backedge
 
 564:                                              ; preds = %558
   %565 = load ptr, ptr %316, align 8
@@ -9730,7 +9734,7 @@ _ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEv
   store ptr %580, ptr %317, align 8
   %582 = getelementptr inbounds nuw %"struct.Luau::AstDeclaredClassProp", ptr %576, i64 %574
   store ptr %582, ptr %327, align 8
-  br label %.outer540.backedge
+  br label %.outer544.backedge
 
 583:                                              ; preds = %333
   %.sroa.1.0.copyload = load i64, ptr %.sroa.2326.0..sroa_idx, align 4
@@ -9742,13 +9746,13 @@ _ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEv
   store i64 %.sroa.0325.0.copyload, ptr %56, align 8
   %586 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 %.sroa.1.0.copyload, ptr %586, align 8
-  %587 = icmp eq i64 %.sroa.11.0.ph541, 0
+  %587 = icmp eq i64 %.sroa.11.0.ph545, 0
   br i1 %587, label %.loopexit394, label %.lr.ph.preheader.i.i178
 
 .lr.ph.preheader.i.i178:                          ; preds = %584
   %588 = load ptr, ptr %316, align 8
   %589 = getelementptr i8, ptr %588, i64 %322
-  %590 = mul i64 %.sroa.11.0.ph541, 24
+  %590 = mul i64 %.sroa.11.0.ph545, 24
   %591 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %585, i64 noundef %590)
           to label %.lr.ph.i.i179 unwind label %.loopexit.split-lp396
 
@@ -9758,14 +9762,14 @@ _ZNSt6vectorIN4Luau20AstDeclaredClassPropESaIS1_EE17_M_realloc_insertIJRKS1_EEEv
   %593 = getelementptr inbounds %"struct.Luau::AstDeclaredClassProp", ptr %589, i64 %.010.i.i180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %592, ptr noundef nonnull align 8 dereferenceable(24) %593, i64 24, i1 false)
   %594 = add nuw i64 %.010.i.i180, 1
-  %exitcond.not.i.i181 = icmp eq i64 %594, %.sroa.11.0.ph541
+  %exitcond.not.i.i181 = icmp eq i64 %594, %.sroa.11.0.ph545
   br i1 %exitcond.not.i.i181, label %.loopexit394, label %.lr.ph.i.i179, !llvm.loop !114
 
 .loopexit394:                                     ; preds = %.lr.ph.i.i179, %584
   %595 = phi ptr [ null, %584 ], [ %591, %.lr.ph.i.i179 ]
   store ptr %595, ptr %57, align 8
   %596 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i64 %.sroa.11.0.ph541, ptr %596, align 8
+  store i64 %.sroa.11.0.ph545, ptr %596, align 8
   %597 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %585, i64 noundef 80)
           to label %.noexc187 unwind label %.loopexit.split-lp396
 

@@ -230,7 +230,6 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   %10 = fadd reassoc nsz arcp contract afn double %9, 5.000000e-01
   %11 = fptosi double %10 to i32
   %12 = icmp slt i32 %11, 10
-  %indvars.iv119.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %1
@@ -270,10 +269,14 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %38 = load i32, ptr %37, align 8
   %39 = shl nuw nsw i32 %.178, 2
-  br i1 %29, label %.preheader95.us, label %._crit_edge106
+  br i1 %29, label %.preheader95.us.preheader, label %._crit_edge106
 
-.preheader95.us:                                  ; preds = %.preheader95.lr.ph, %._crit_edge.us
-  %.076105.us = phi i32 [ %160, %._crit_edge.us ], [ 14, %.preheader95.lr.ph ]
+.preheader95.us.preheader:                        ; preds = %.preheader95.lr.ph
+  %indvars.iv119.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %.preheader95.us
+
+.preheader95.us:                                  ; preds = %.preheader95.us.preheader, %._crit_edge.us
+  %.076105.us = phi i32 [ %160, %._crit_edge.us ], [ 14, %.preheader95.us.preheader ]
   br label %.preheader94.us
 
 40:                                               ; preds = %.preheader92.us

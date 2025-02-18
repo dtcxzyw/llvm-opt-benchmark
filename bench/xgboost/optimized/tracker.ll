@@ -1571,14 +1571,14 @@ _ZNK7xgboost4JsonixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19), !noalias !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21), !noalias !26
-  %.pr69 = load ptr, ptr %27, align 8, !noalias !33
+  %.pr73 = load ptr, ptr %27, align 8, !noalias !33
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %.not.i.i19 = icmp eq ptr %.pr69, null
+  %.not.i.i19 = icmp eq ptr %.pr73, null
   br i1 %.not.i.i19, label %96, label %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread"
 
 "_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread": ; preds = %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit", %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread"
-  %.sroa.0.681 = phi ptr [ %43, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread" ], [ %.sroa.0.4, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
-  %95 = phi ptr [ %51, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread" ], [ %.pr69, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
+  %.sroa.0.685 = phi ptr [ %43, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread" ], [ %.sroa.0.4, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
+  %95 = phi ptr [ %51, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread" ], [ %.pr73, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_2EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
   store ptr null, ptr %27, align 8, !noalias !33
   br label %149
 
@@ -1698,10 +1698,6 @@ _ZN7xgboost4JsonC2ERKS0_.exit15.i.i:              ; preds = %96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !33
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !33
-  %.sink16.i.sroa.gep.i95 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink16.i.sroa.gep3.i96 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink16.i.sroa.gep5.i97 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %.sink16.i.sroa.gep6.i98 = getelementptr inbounds nuw i8, ptr %6, i64 36
   br label %151
 
 _ZN7xgboost4JsonD2Ev.exit7.sink.split.i.i:        ; preds = %139, %124, %109
@@ -1715,40 +1711,32 @@ _ZN7xgboost4JsonD2Ev.exit7.sink.split.i.i:        ; preds = %139, %124, %109
   br label %.body22
 
 "_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.sink.split": ; preds = %132, %117, %102
-  %.sink107 = phi ptr [ %101, %102 ], [ %116, %117 ], [ %131, %132 ]
+  %.sink99 = phi ptr [ %101, %102 ], [ %116, %117 ], [ %131, %132 ]
   fence acquire
-  %146 = load ptr, ptr %.sink107, align 8
+  %146 = load ptr, ptr %.sink99, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
-  call void %148(ptr noundef nonnull align 8 dereferenceable(16) %.sink107) #10
+  call void %148(ptr noundef nonnull align 8 dereferenceable(16) %.sink99) #10
   br label %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit"
 
 "_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit": ; preds = %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.sink.split", %100, %102, %115, %117, %130, %132
-  %.pr70.pr = load ptr, ptr %26, align 8, !noalias !43
+  %.pr74.pr = load ptr, ptr %26, align 8, !noalias !43
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11), !noalias !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !33
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13), !noalias !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !33
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !33
-  %.not.i.i24 = icmp eq ptr %.pr70.pr, null
-  %.sink16.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink16.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink16.i.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %.sink16.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %.not.i.i24 = icmp eq ptr %.pr74.pr, null
   br i1 %.not.i.i24, label %151, label %149
 
 149:                                              ; preds = %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread", %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit"
-  %150 = phi ptr [ %95, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread" ], [ %.pr70.pr, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
-  %.sroa.0.68091 = phi ptr [ %.sroa.0.681, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread" ], [ %.sroa.0.4, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
+  %150 = phi ptr [ %95, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread" ], [ %.pr74.pr, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
+  %.sroa.0.68491 = phi ptr [ %.sroa.0.685, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread" ], [ %.sroa.0.4, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
   store ptr null, ptr %26, align 8, !noalias !43
   br label %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_4EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit"
 
 151:                                              ; preds = %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread92", %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit"
-  %.sink16.i.sroa.gep6.i103 = phi ptr [ %.sink16.i.sroa.gep6.i98, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread92" ], [ %.sink16.i.sroa.gep6.i, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
-  %.sink16.i.sroa.gep5.i102 = phi ptr [ %.sink16.i.sroa.gep5.i97, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread92" ], [ %.sink16.i.sroa.gep5.i, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
-  %.sink16.i.sroa.gep3.i101 = phi ptr [ %.sink16.i.sroa.gep3.i96, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread92" ], [ %.sink16.i.sroa.gep3.i, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
-  %.sink16.i.sroa.gep.i100 = phi ptr [ %.sink16.i.sroa.gep.i95, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit.thread92" ], [ %.sink16.i.sroa.gep.i, %"_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !43
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !43
@@ -1773,6 +1761,8 @@ _ZN7xgboost4JsonD2Ev.exit7.sink.split.i.i:        ; preds = %139, %124, %109
   %158 = load i32, ptr %25, align 4, !noalias !46
   %159 = load i32, ptr %24, align 4, !noalias !46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #10, !noalias !46
+  %.sink101.sroa.gep102 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink101.sroa.gep105 = getelementptr inbounds nuw i8, ptr %6, i64 36
   br label %"_ZZN7xgboost10collective12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEENK3$_4clEv.exit.i"
 
 160:                                              ; preds = %.noexc26
@@ -1792,6 +1782,8 @@ _ZN7xgboost4JsonD2Ev.exit7.sink.split.i.i:        ; preds = %139, %124, %109
   %164 = load i32, ptr %25, align 4, !noalias !46
   %165 = load i32, ptr %24, align 4, !noalias !46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #10, !noalias !46
+  %.sink101.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink101.sroa.gep104 = getelementptr inbounds nuw i8, ptr %9, i64 36
   br label %"_ZZN7xgboost10collective12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEENK3$_4clEv.exit.i"
 
 166:                                              ; preds = %.noexc27
@@ -1806,19 +1798,19 @@ _ZN7xgboost4JsonD2Ev.exit7.sink.split.i.i:        ; preds = %139, %124, %109
   br label %.body28
 
 "_ZZN7xgboost10collective12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEENK3$_4clEv.exit.i": ; preds = %163, %157
-  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i100, %163 ], [ %.sink16.i.sroa.gep3.i101, %157 ]
-  %.sink16.i.sroa.phi4.i = phi ptr [ %.sink16.i.sroa.gep5.i102, %163 ], [ %.sink16.i.sroa.gep6.i103, %157 ]
-  %.sink16.i.i = phi ptr [ %9, %163 ], [ %6, %157 ]
+  %.sink101.sroa.phi = phi ptr [ %.sink101.sroa.gep, %163 ], [ %.sink101.sroa.gep102, %157 ]
+  %.sink101.sroa.phi103 = phi ptr [ %.sink101.sroa.gep104, %163 ], [ %.sink101.sroa.gep105, %157 ]
+  %.sink101 = phi ptr [ %9, %163 ], [ %6, %157 ]
   %.sink14.i.i = phi i32 [ %164, %163 ], [ %158, %157 ]
   %.sink11.i.i = phi i32 [ %165, %163 ], [ %159, %157 ]
   %.sink4.i.i = phi ptr [ %10, %163 ], [ %7, %157 ]
   %.sink.i.i = phi ptr [ %8, %163 ], [ %5, %157 ]
-  store i32 %.sink14.i.i, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !46
-  store i32 %.sink11.i.i, ptr %.sink16.i.sroa.phi4.i, align 4, !noalias !46
-  %169 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.sink16.i.i) #10, !noalias !46
-  %170 = load i64, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !46
+  store i32 %.sink14.i.i, ptr %.sink101.sroa.phi, align 8, !noalias !46
+  store i32 %.sink11.i.i, ptr %.sink101.sroa.phi103, align 4, !noalias !46
+  %169 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.sink101) #10, !noalias !46
+  %170 = load i64, ptr %.sink101.sroa.phi, align 8, !noalias !46
   store i64 %170, ptr %34, align 8, !noalias !46
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink16.i.i) #10, !noalias !46
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink101) #10, !noalias !46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink4.i.i) #10, !noalias !46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #10, !noalias !46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !43
@@ -1831,7 +1823,7 @@ _ZN7xgboost4JsonD2Ev.exit7.sink.split.i.i:        ; preds = %139, %124, %109
 
 "_ZN7xgboost10collectivelsIZNS0_12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEE3$_4EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOS9_OS8_.exit": ; preds = %"_ZZN7xgboost10collective12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEENK3$_4clEv.exit.i", %149
   %171 = phi ptr [ null, %"_ZZN7xgboost10collective12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEENK3$_4clEv.exit.i" ], [ %150, %149 ]
-  %.sroa.0.68090 = phi ptr [ %.sroa.0.4, %"_ZZN7xgboost10collective12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEENK3$_4clEv.exit.i" ], [ %.sroa.0.68091, %149 ]
+  %.sroa.0.68490 = phi ptr [ %.sroa.0.4, %"_ZZN7xgboost10collective12RabitTracker11WorkerProxyC1EiNS0_9TCPSocketENS0_11SockAddressEENK3$_4clEv.exit.i" ], [ %.sroa.0.68491, %149 ]
   %172 = load ptr, ptr %42, align 8
   store ptr %171, ptr %42, align 8
   %.not.i.i.i.i.i30 = icmp eq ptr %172, null
@@ -1898,17 +1890,17 @@ _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.
 
 178:                                              ; preds = %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i45, %_ZN7xgboost10collective6ResultD2Ev.exit43
   store ptr null, ptr %30, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.68090, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.68490, i64 8
   %180 = atomicrmw sub ptr %179, i32 1 release, align 4
   %181 = icmp eq i32 %180, 1
   br i1 %181, label %182, label %_ZN7xgboost4JsonD2Ev.exit
 
 182:                                              ; preds = %178
   fence acquire
-  %183 = load ptr, ptr %.sroa.0.68090, align 8
+  %183 = load ptr, ptr %.sroa.0.68490, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.68090) #10
+  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.68490) #10
   br label %_ZN7xgboost4JsonD2Ev.exit
 
 _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %178, %182
@@ -1960,23 +1952,23 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %178, %182
   br i1 %.not.i.i.i48, label %_ZN7xgboost4JsonD2Ev.exit49, label %194
 
 194:                                              ; preds = %.thread, %193
-  %.pn.pn.pn.pn75 = phi { ptr, i32 } [ %188, %.thread ], [ %.pn.pn.pn, %193 ]
-  %.sroa.0.074 = phi ptr [ %43, %.thread ], [ %.sroa.0.1, %193 ]
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.0.074, i64 8
+  %.pn.pn.pn.pn79 = phi { ptr, i32 } [ %188, %.thread ], [ %.pn.pn.pn, %193 ]
+  %.sroa.0.078 = phi ptr [ %43, %.thread ], [ %.sroa.0.1, %193 ]
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.0.078, i64 8
   %196 = atomicrmw sub ptr %195, i32 1 release, align 4
   %197 = icmp eq i32 %196, 1
   br i1 %197, label %198, label %_ZN7xgboost4JsonD2Ev.exit49
 
 198:                                              ; preds = %194
   fence acquire
-  %199 = load ptr, ptr %.sroa.0.074, align 8
+  %199 = load ptr, ptr %.sroa.0.078, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load ptr, ptr %200, align 8
-  call void %201(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.074) #10
+  call void %201(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.078) #10
   br label %_ZN7xgboost4JsonD2Ev.exit49
 
 _ZN7xgboost4JsonD2Ev.exit49:                      ; preds = %198, %194, %193, %186
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %187, %186 ], [ %.pn.pn.pn, %193 ], [ %.pn.pn.pn.pn75, %194 ], [ %.pn.pn.pn.pn75, %198 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %187, %186 ], [ %.pn.pn.pn, %193 ], [ %.pn.pn.pn.pn79, %194 ], [ %.pn.pn.pn.pn79, %198 ]
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #10
@@ -16174,8 +16166,6 @@ define linkonce_odr void @_ZN7xgboost10collective9TCPSocket6AcceptEPS1_PNS0_11So
   %20 = load i32, ptr %1, align 4
   %21 = call i32 @getsockopt(i32 noundef %20, i32 noundef 1, i32 noundef 39, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %.not.i = icmp eq i32 %21, 0
-  %.sink45.sroa.gep = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %.sink45.sroa.gep48 = getelementptr inbounds nuw i8, ptr %14, i64 4
   br i1 %.not.i, label %_ZNK7xgboost10collective9TCPSocket6DomainEv.exit, label %22
 
 22:                                               ; preds = %4
@@ -16261,6 +16251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i64 %.sroa.0.0.copyload, ptr %.sroa.239.0..sroa_idx, align 4
   %.sroa.340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i64 %.sroa.2.0.copyload, ptr %.sroa.340.0..sroa_idx, align 4
+  %.sink45.sroa.gep48 = getelementptr inbounds nuw i8, ptr %14, i64 4
   br label %64
 
 46:                                               ; preds = %_ZNK7xgboost10collective9TCPSocket6DomainEv.exit
@@ -16327,6 +16318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29: ; 
   %.sroa.033.28..sroa_idx49 = getelementptr inbounds nuw i8, ptr %.sroa.033, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.033.28..sroa_idx49, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %3, ptr noundef nonnull align 8 dereferenceable(44) %.sroa.033, i64 44, i1 false)
+  %.sink45.sroa.gep = getelementptr inbounds nuw i8, ptr %19, i64 4
   br label %64
 
 64:                                               ; preds = %63, %45

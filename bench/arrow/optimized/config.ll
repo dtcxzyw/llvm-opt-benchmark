@@ -321,12 +321,6 @@ define void @_ZN5arrow14GetRuntimeInfoEv(ptr dead_on_unwind noalias writable sre
   store i8 0, ptr %8, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %10, align 8, !tbaa !13
-  %.sink5.i13.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %.sink5.i13.sroa.gep34 = getelementptr inbounds nuw i8, ptr %3, i64 22
-  %.sink5.i13.sroa.gep35 = getelementptr inbounds nuw i8, ptr %3, i64 19
-  %.sink5.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %.sink5.i.sroa.gep39 = getelementptr inbounds nuw i8, ptr %2, i64 22
-  %.sink5.i.sroa.gep40 = getelementptr inbounds nuw i8, ptr %2, i64 19
   %11 = invoke noundef ptr @_ZN5arrow8internal7CpuInfo11GetInstanceEv()
           to label %12 unwind label %89
 
@@ -344,6 +338,7 @@ define void @_ZN5arrow14GetRuntimeInfoEv(ptr dead_on_unwind noalias writable sre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.ptr43, ptr noundef nonnull align 1 dereferenceable(6) @.str.13, i64 6, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 6, ptr %14, align 8, !tbaa !11, !alias.scope !19
+  %.sink.sroa.gep59 = getelementptr inbounds nuw i8, ptr %2, i64 22
   br label %24
 
 15:                                               ; preds = %.noexc
@@ -359,6 +354,7 @@ define void @_ZN5arrow14GetRuntimeInfoEv(ptr dead_on_unwind noalias writable sre
   store i32 846755425, ptr %.ptr44, align 8, !alias.scope !19
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 4, ptr %17, align 8, !tbaa !11, !alias.scope !19
+  %.sink.sroa.gep58 = getelementptr inbounds nuw i8, ptr %2, i64 20
   br label %24
 
 18:                                               ; preds = %.noexc5
@@ -374,6 +370,7 @@ define void @_ZN5arrow14GetRuntimeInfoEv(ptr dead_on_unwind noalias writable sre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.ptr45, ptr noundef nonnull align 1 dereferenceable(3) @.str.15, i64 3, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 3, ptr %20, align 8, !tbaa !11, !alias.scope !19
+  %.sink.sroa.gep57 = getelementptr inbounds nuw i8, ptr %2, i64 19
   br label %24
 
 21:                                               ; preds = %.noexc6
@@ -389,17 +386,19 @@ define void @_ZN5arrow14GetRuntimeInfoEv(ptr dead_on_unwind noalias writable sre
 ._crit_edge.i.i18.i:                              ; preds = %.noexc7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.ptr46, ptr noundef nonnull align 1 dereferenceable(6) @.str.16, i64 6, i1 false)
   store i64 6, ptr %23, align 8, !tbaa !11, !alias.scope !19
+  %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %2, i64 22
   br label %24
 
 ._crit_edge.i.i22.i:                              ; preds = %.noexc7
   store i32 1701736302, ptr %.ptr46, align 8, !alias.scope !19
   store i64 4, ptr %23, align 8, !tbaa !11, !alias.scope !19
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 20
   br label %24
 
 24:                                               ; preds = %._crit_edge.i.i22.i, %._crit_edge.i.i18.i, %._crit_edge.i.i14.i, %._crit_edge.i.i10.i, %._crit_edge.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i22.i ], [ %.sink.sroa.gep56, %._crit_edge.i.i18.i ], [ %.sink.sroa.gep57, %._crit_edge.i.i14.i ], [ %.sink.sroa.gep58, %._crit_edge.i.i10.i ], [ %.sink.sroa.gep59, %._crit_edge.i.i.i ]
   %25 = phi i64 [ 4, %._crit_edge.i.i22.i ], [ 6, %._crit_edge.i.i18.i ], [ 3, %._crit_edge.i.i14.i ], [ 4, %._crit_edge.i.i10.i ], [ 6, %._crit_edge.i.i.i ]
-  %.sink5.i.sroa.phi = phi ptr [ %.sink5.i.sroa.gep, %._crit_edge.i.i22.i ], [ %.sink5.i.sroa.gep39, %._crit_edge.i.i18.i ], [ %.sink5.i.sroa.gep40, %._crit_edge.i.i14.i ], [ %.sink5.i.sroa.gep, %._crit_edge.i.i10.i ], [ %.sink5.i.sroa.gep39, %._crit_edge.i.i.i ]
-  store i8 0, ptr %.sink5.i.sroa.phi, align 1, !tbaa !12, !alias.scope !19
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !12, !alias.scope !19
   %26 = load ptr, ptr %0, align 8, !tbaa !3
   %27 = icmp eq ptr %26, %5
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
@@ -463,6 +462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.ptr47, ptr noundef nonnull align 1 dereferenceable(6) @.str.13, i64 6, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 6, ptr %45, align 8, !tbaa !11, !alias.scope !23
+  %.sink51.sroa.gep55 = getelementptr inbounds nuw i8, ptr %3, i64 22
   br label %55
 
 46:                                               ; preds = %.noexc18
@@ -478,6 +478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 846755425, ptr %.ptr48, align 8, !alias.scope !23
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 4, ptr %48, align 8, !tbaa !11, !alias.scope !23
+  %.sink51.sroa.gep54 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br label %55
 
 49:                                               ; preds = %.noexc19
@@ -493,6 +494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.ptr49, ptr noundef nonnull align 1 dereferenceable(3) @.str.15, i64 3, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 3, ptr %51, align 8, !tbaa !11, !alias.scope !23
+  %.sink51.sroa.gep53 = getelementptr inbounds nuw i8, ptr %3, i64 19
   br label %55
 
 52:                                               ; preds = %.noexc20
@@ -508,17 +510,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ._crit_edge.i.i18.i14:                            ; preds = %.noexc21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.ptr50, ptr noundef nonnull align 1 dereferenceable(6) @.str.16, i64 6, i1 false)
   store i64 6, ptr %54, align 8, !tbaa !11, !alias.scope !23
+  %.sink51.sroa.gep52 = getelementptr inbounds nuw i8, ptr %3, i64 22
   br label %55
 
 ._crit_edge.i.i22.i12:                            ; preds = %.noexc21
   store i32 1701736302, ptr %.ptr50, align 8, !alias.scope !23
   store i64 4, ptr %54, align 8, !tbaa !11, !alias.scope !23
+  %.sink51.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 20
   br label %55
 
 55:                                               ; preds = %._crit_edge.i.i22.i12, %._crit_edge.i.i18.i14, %._crit_edge.i.i14.i15, %._crit_edge.i.i10.i16, %._crit_edge.i.i.i17
+  %.sink51.sroa.phi = phi ptr [ %.sink51.sroa.gep, %._crit_edge.i.i22.i12 ], [ %.sink51.sroa.gep52, %._crit_edge.i.i18.i14 ], [ %.sink51.sroa.gep53, %._crit_edge.i.i14.i15 ], [ %.sink51.sroa.gep54, %._crit_edge.i.i10.i16 ], [ %.sink51.sroa.gep55, %._crit_edge.i.i.i17 ]
   %56 = phi i64 [ 4, %._crit_edge.i.i22.i12 ], [ 6, %._crit_edge.i.i18.i14 ], [ 3, %._crit_edge.i.i14.i15 ], [ 4, %._crit_edge.i.i10.i16 ], [ 6, %._crit_edge.i.i.i17 ]
-  %.sink5.i13.sroa.phi = phi ptr [ %.sink5.i13.sroa.gep, %._crit_edge.i.i22.i12 ], [ %.sink5.i13.sroa.gep34, %._crit_edge.i.i18.i14 ], [ %.sink5.i13.sroa.gep35, %._crit_edge.i.i14.i15 ], [ %.sink5.i13.sroa.gep, %._crit_edge.i.i10.i16 ], [ %.sink5.i13.sroa.gep34, %._crit_edge.i.i.i17 ]
-  store i8 0, ptr %.sink5.i13.sroa.phi, align 1, !tbaa !12, !alias.scope !23
+  store i8 0, ptr %.sink51.sroa.phi, align 1, !tbaa !12, !alias.scope !23
   %57 = load ptr, ptr %7, align 8, !tbaa !3
   %58 = icmp eq ptr %57, %8
   br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i22

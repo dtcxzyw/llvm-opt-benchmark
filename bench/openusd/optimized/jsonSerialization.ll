@@ -2857,14 +2857,6 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSeri
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not26 = icmp eq ptr %8, %10
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink.sroa.gep32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink.sroa.gep34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink.sroa.gep35 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink.sroa.gep37 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink.sroa.gep38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink.sroa.gep40 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink.sroa.gep41 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventTreeEED2Ev.exit
@@ -2877,14 +2869,21 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSeri
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %13 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %.invoke, label %14
+  br i1 %.not.i, label %.invoke.loopexit, label %14
 
-.invoke:                                          ; preds = %12, %._crit_edge
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge ], [ %.sink.sroa.gep32, %12 ]
-  %.sink.sroa.phi33 = phi ptr [ %.sink.sroa.gep34, %._crit_edge ], [ %.sink.sroa.gep35, %12 ]
-  %.sink.sroa.phi36 = phi ptr [ %.sink.sroa.gep37, %._crit_edge ], [ %.sink.sroa.gep38, %12 ]
-  %.sink.sroa.phi39 = phi ptr [ %.sink.sroa.gep40, %._crit_edge ], [ %.sink.sroa.gep41, %12 ]
-  %.sink = phi ptr [ %3, %._crit_edge ], [ %4, %12 ]
+.invoke.loopexit:                                 ; preds = %12
+  %.sink.sroa.gep32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink.sroa.gep35 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink.sroa.gep38 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink.sroa.gep41 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  br label %.invoke
+
+.invoke:                                          ; preds = %.invoke.loopexit, %._crit_edge
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge ], [ %.sink.sroa.gep32, %.invoke.loopexit ]
+  %.sink.sroa.phi33 = phi ptr [ %.sink.sroa.gep34, %._crit_edge ], [ %.sink.sroa.gep35, %.invoke.loopexit ]
+  %.sink.sroa.phi36 = phi ptr [ %.sink.sroa.gep37, %._crit_edge ], [ %.sink.sroa.gep38, %.invoke.loopexit ]
+  %.sink.sroa.phi39 = phi ptr [ %.sink.sroa.gep40, %._crit_edge ], [ %.sink.sroa.gep41, %.invoke.loopexit ]
+  %.sink = phi ptr [ %3, %._crit_edge ], [ %4, %.invoke.loopexit ]
   store ptr @.str.42, ptr %.sink, align 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventTreeEEptEv, ptr %.sink.sroa.phi, align 8
   store i64 936, ptr %.sink.sroa.phi33, align 8
@@ -2973,6 +2972,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventTreeEED2Ev.exit: ;
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   %41 = load ptr, ptr %5, align 8
   %.not.i10 = icmp eq ptr %41, null
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink.sroa.gep34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink.sroa.gep37 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink.sroa.gep40 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br i1 %.not.i10, label %.invoke, label %42
 
 42:                                               ; preds = %._crit_edge

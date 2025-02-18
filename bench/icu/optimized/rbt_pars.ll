@@ -4794,20 +4794,6 @@ _ZN6icu_7513UnicodeString8truncateEi.exit:        ; preds = %if.then.i, %if.else
   %segmentObjects = getelementptr inbounds nuw i8, ptr %this, i64 384
   tail call void @_ZN6icu_757UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %segmentObjects)
   call void @_ZN6icu_758RuleHalfC1ERNS_20TransliteratorParserE(ptr noundef nonnull align 8 dereferenceable(112) %_left, ptr noundef nonnull align 8 dereferenceable(498) %this)
-  %right.0.sroa.gep = getelementptr inbounds nuw i8, ptr %_left, i64 76
-  %right.0.sroa.gep118 = getelementptr inbounds nuw i8, ptr %_right, i64 76
-  %right.0.sroa.gep120 = getelementptr inbounds nuw i8, ptr %_left, i64 80
-  %right.0.sroa.gep121 = getelementptr inbounds nuw i8, ptr %_right, i64 80
-  %right.0.sroa.gep123 = getelementptr inbounds nuw i8, ptr %_left, i64 84
-  %right.0.sroa.gep124 = getelementptr inbounds nuw i8, ptr %_right, i64 84
-  %right.0.sroa.gep126 = getelementptr inbounds nuw i8, ptr %_left, i64 72
-  %right.0.sroa.gep127 = getelementptr inbounds nuw i8, ptr %_right, i64 72
-  %right.0.sroa.gep129 = getelementptr inbounds nuw i8, ptr %_left, i64 92
-  %right.0.sroa.gep130 = getelementptr inbounds nuw i8, ptr %_right, i64 92
-  %right.0.sroa.gep132 = getelementptr inbounds nuw i8, ptr %_left, i64 93
-  %right.0.sroa.gep133 = getelementptr inbounds nuw i8, ptr %_right, i64 93
-  %right.0.sroa.gep135 = getelementptr inbounds nuw i8, ptr %_left, i64 8
-  %right.0.sroa.gep136 = getelementptr inbounds nuw i8, ptr %_right, i64 8
   invoke void @_ZN6icu_758RuleHalfC1ERNS_20TransliteratorParserE(ptr noundef nonnull align 8 dereferenceable(112) %_right, ptr noundef nonnull align 8 dereferenceable(498) %this)
           to label %invoke.cont3 unwind label %lpad
 
@@ -5014,15 +5000,19 @@ invoke.cont67:                                    ; preds = %invoke.cont62
   br i1 %cmp71.not, label %if.end75, label %invoke.cont265.invoke
 
 if.end75:                                         ; preds = %invoke.cont67
-  %37 = load i8, ptr %right.0.sroa.gep129, align 4
+  %anchorStart = getelementptr inbounds nuw i8, ptr %_left, i64 92
+  %37 = load i8, ptr %anchorStart, align 4
   %tobool76.not = icmp eq i8 %37, 0
-  %38 = load i8, ptr %right.0.sroa.gep132, align 1
+  %anchorEnd = getelementptr inbounds nuw i8, ptr %_left, i64 93
+  %38 = load i8, ptr %anchorEnd, align 1
   %tobool78.not = icmp eq i8 %38, 0
   %or.cond190 = select i1 %tobool76.not, i1 %tobool78.not, i1 false
-  %39 = load i8, ptr %right.0.sroa.gep130, align 4
+  %anchorStart80 = getelementptr inbounds nuw i8, ptr %_right, i64 92
+  %39 = load i8, ptr %anchorStart80, align 4
   %tobool81.not = icmp eq i8 %39, 0
   %or.cond191 = select i1 %or.cond190, i1 %tobool81.not, i1 false
-  %40 = load i8, ptr %right.0.sroa.gep133, align 1
+  %anchorEnd83 = getelementptr inbounds nuw i8, ptr %_right, i64 93
+  %40 = load i8, ptr %anchorEnd83, align 1
   %tobool84.not = icmp eq i8 %40, 0
   %or.cond192 = select i1 %or.cond191, i1 %tobool84.not, i1 false
   br i1 %or.cond192, label %if.end88, label %invoke.cont265.invoke
@@ -5033,7 +5023,8 @@ if.end88:                                         ; preds = %if.end75
   br i1 %new.isnull, label %invoke.cont265.invoke, label %new.notnull
 
 new.notnull:                                      ; preds = %if.end88
-  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %call89, ptr noundef nonnull align 8 dereferenceable(64) %right.0.sroa.gep136)
+  %text90 = getelementptr inbounds nuw i8, ptr %_right, i64 8
+  invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %call89, ptr noundef nonnull align 8 dereferenceable(64) %text90)
           to label %if.end97 unwind label %lpad91
 
 lpad91:                                           ; preds = %new.notnull
@@ -5166,27 +5157,41 @@ land.lhs.true156:                                 ; preds = %for.end153
 
 if.end164:                                        ; preds = %for.end153, %land.lhs.true156
   %cmp166 = icmp eq i32 %.pre314, 1
+  %right.0.sroa.gep118 = getelementptr inbounds nuw i8, ptr %_right, i64 76
+  %right.0.sroa.gep121 = getelementptr inbounds nuw i8, ptr %_right, i64 80
+  %right.0.sroa.gep124 = getelementptr inbounds nuw i8, ptr %_right, i64 84
+  %right.0.sroa.gep127 = getelementptr inbounds nuw i8, ptr %_right, i64 72
+  %right.0.sroa.gep130 = getelementptr inbounds nuw i8, ptr %_right, i64 92
+  %right.0.sroa.gep133 = getelementptr inbounds nuw i8, ptr %_right, i64 93
+  %right.0.sroa.gep136 = getelementptr inbounds nuw i8, ptr %_right, i64 8
+  %left.0.sroa.gep143 = getelementptr inbounds nuw i8, ptr %_left, i64 72
+  %left.0.sroa.gep146 = getelementptr inbounds nuw i8, ptr %_left, i64 84
+  %left.0.sroa.gep149 = getelementptr inbounds nuw i8, ptr %_left, i64 76
+  %left.0.sroa.gep155 = getelementptr inbounds nuw i8, ptr %_left, i64 80
+  %left.0.sroa.gep158 = getelementptr inbounds nuw i8, ptr %_left, i64 8
+  %left.0.sroa.gep182 = getelementptr inbounds nuw i8, ptr %_left, i64 92
+  %left.0.sroa.gep185 = getelementptr inbounds nuw i8, ptr %_left, i64 93
   br i1 %cmp166, label %if.then167, label %if.end168
 
 if.then167:                                       ; preds = %if.end164
   br label %if.end168
 
 if.end168:                                        ; preds = %if.then167, %if.end164
-  %left.0.sroa.phi144 = phi ptr [ %right.0.sroa.gep124, %if.then167 ], [ %right.0.sroa.gep123, %if.end164 ]
-  %left.0.sroa.phi162 = phi ptr [ %right.0.sroa.gep127, %if.then167 ], [ %right.0.sroa.gep126, %if.end164 ]
-  %left.0.sroa.phi171 = phi ptr [ %right.0.sroa.gep136, %if.then167 ], [ %right.0.sroa.gep135, %if.end164 ]
-  %left.0.sroa.phi174 = phi ptr [ %right.0.sroa.gep118, %if.then167 ], [ %right.0.sroa.gep, %if.end164 ]
-  %left.0.sroa.phi177 = phi ptr [ %right.0.sroa.gep121, %if.then167 ], [ %right.0.sroa.gep120, %if.end164 ]
-  %left.0.sroa.phi180 = phi ptr [ %right.0.sroa.gep130, %if.then167 ], [ %right.0.sroa.gep129, %if.end164 ]
-  %left.0.sroa.phi183 = phi ptr [ %right.0.sroa.gep133, %if.then167 ], [ %right.0.sroa.gep132, %if.end164 ]
+  %left.0.sroa.phi144 = phi ptr [ %right.0.sroa.gep124, %if.then167 ], [ %left.0.sroa.gep146, %if.end164 ]
+  %left.0.sroa.phi162 = phi ptr [ %right.0.sroa.gep127, %if.then167 ], [ %left.0.sroa.gep143, %if.end164 ]
+  %left.0.sroa.phi171 = phi ptr [ %right.0.sroa.gep136, %if.then167 ], [ %left.0.sroa.gep158, %if.end164 ]
+  %left.0.sroa.phi174 = phi ptr [ %right.0.sroa.gep118, %if.then167 ], [ %left.0.sroa.gep149, %if.end164 ]
+  %left.0.sroa.phi177 = phi ptr [ %right.0.sroa.gep121, %if.then167 ], [ %left.0.sroa.gep155, %if.end164 ]
+  %left.0.sroa.phi180 = phi ptr [ %right.0.sroa.gep130, %if.then167 ], [ %left.0.sroa.gep182, %if.end164 ]
+  %left.0.sroa.phi183 = phi ptr [ %right.0.sroa.gep133, %if.then167 ], [ %left.0.sroa.gep185, %if.end164 ]
   %left.0 = phi ptr [ %_right, %if.then167 ], [ %_left, %if.end164 ]
-  %right.0.sroa.phi = phi ptr [ %right.0.sroa.gep, %if.then167 ], [ %right.0.sroa.gep118, %if.end164 ]
-  %right.0.sroa.phi119 = phi ptr [ %right.0.sroa.gep120, %if.then167 ], [ %right.0.sroa.gep121, %if.end164 ]
-  %right.0.sroa.phi128 = phi ptr [ %right.0.sroa.gep129, %if.then167 ], [ %right.0.sroa.gep130, %if.end164 ]
-  %right.0.sroa.phi131 = phi ptr [ %right.0.sroa.gep132, %if.then167 ], [ %right.0.sroa.gep133, %if.end164 ]
-  %right.0.sroa.phi134 = phi ptr [ %right.0.sroa.gep135, %if.then167 ], [ %right.0.sroa.gep136, %if.end164 ]
-  %right.0.sroa.phi137 = phi ptr [ %right.0.sroa.gep126, %if.then167 ], [ %right.0.sroa.gep127, %if.end164 ]
-  %right.0.sroa.phi140 = phi ptr [ %right.0.sroa.gep123, %if.then167 ], [ %right.0.sroa.gep124, %if.end164 ]
+  %right.0.sroa.phi = phi ptr [ %left.0.sroa.gep149, %if.then167 ], [ %right.0.sroa.gep118, %if.end164 ]
+  %right.0.sroa.phi119 = phi ptr [ %left.0.sroa.gep155, %if.then167 ], [ %right.0.sroa.gep121, %if.end164 ]
+  %right.0.sroa.phi128 = phi ptr [ %left.0.sroa.gep182, %if.then167 ], [ %right.0.sroa.gep130, %if.end164 ]
+  %right.0.sroa.phi131 = phi ptr [ %left.0.sroa.gep185, %if.then167 ], [ %right.0.sroa.gep133, %if.end164 ]
+  %right.0.sroa.phi134 = phi ptr [ %left.0.sroa.gep158, %if.then167 ], [ %right.0.sroa.gep136, %if.end164 ]
+  %right.0.sroa.phi137 = phi ptr [ %left.0.sroa.gep143, %if.then167 ], [ %right.0.sroa.gep127, %if.end164 ]
+  %right.0.sroa.phi140 = phi ptr [ %left.0.sroa.gep146, %if.then167 ], [ %right.0.sroa.gep124, %if.end164 ]
   %right.0 = phi ptr [ %_left, %if.then167 ], [ %_right, %if.end164 ]
   br i1 %cmp155.not, label %if.then171, label %if.end173
 

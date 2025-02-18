@@ -2984,17 +2984,14 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(ad
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = icmp eq ptr %0, %1
-  %.039.sroa.phi58.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.039.sroa.phi58.sroa.gep84 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.039.sroa.phi58.sroa.gep85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.040.sroa.phi48.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.040.sroa.phi48.sroa.gep88 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.040.sroa.phi48.sroa.gep89 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
   %10 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %4, ptr noundef %1)
   %.not = icmp eq i32 %10, 0
+  %.040.sroa.phi48.sroa.gep89 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %.not, label %11, label %mbedtls_mpi_grow.exit
 
 11:                                               ; preds = %9, %3
@@ -3002,11 +2999,14 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_mul_mpi(ptr noundef captures(ad
   %.040.sroa.phi48.sroa.phi87 = phi ptr [ %.040.sroa.phi48.sroa.gep88, %3 ], [ %.040.sroa.phi48.sroa.gep89, %9 ]
   %.040.sroa.phi48 = phi ptr [ %1, %3 ], [ %4, %9 ]
   %12 = icmp eq ptr %0, %2
+  %.039.sroa.phi58.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.039.sroa.phi58.sroa.gep84 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
   %14 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %5, ptr noundef %2)
   %.not69 = icmp eq i32 %14, 0
+  %.039.sroa.phi58.sroa.gep85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %.not69, label %15, label %mbedtls_mpi_grow.exit
 
 15:                                               ; preds = %13, %11
@@ -3176,34 +3176,36 @@ mbedtls_mpi_grow.exit.sink.split:                 ; preds = %._crit_edge115, %70
 
 mbedtls_mpi_grow.exit:                            ; preds = %mbedtls_mpi_grow.exit.sink.split, %48, %35, %._crit_edge104, %13, %9
   %.038 = phi i32 [ %10, %9 ], [ %14, %13 ], [ -16, %._crit_edge104 ], [ -16, %35 ], [ -16, %48 ], [ 0, %mbedtls_mpi_grow.exit.sink.split ]
-  %74 = load ptr, ptr %.039.sroa.phi58.sroa.gep85, align 8, !tbaa !11
-  %.not.i79 = icmp eq ptr %74, null
-  br i1 %.not.i79, label %mbedtls_mpi_free.exit, label %75
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %75 = load ptr, ptr %74, align 8, !tbaa !11
+  %.not.i79 = icmp eq ptr %75, null
+  br i1 %.not.i79, label %mbedtls_mpi_free.exit, label %76
 
-75:                                               ; preds = %mbedtls_mpi_grow.exit
-  %76 = load i64, ptr %7, align 8, !tbaa !12
-  %77 = shl i64 %76, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %74, i64 noundef %77)
-  %78 = load ptr, ptr %.039.sroa.phi58.sroa.gep85, align 8, !tbaa !11
-  call void @free(ptr noundef %78) #15
+76:                                               ; preds = %mbedtls_mpi_grow.exit
+  %77 = load i64, ptr %7, align 8, !tbaa !12
+  %78 = shl i64 %77, 3
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %75, i64 noundef %78)
+  %79 = load ptr, ptr %74, align 8, !tbaa !11
+  call void @free(ptr noundef %79) #15
   br label %mbedtls_mpi_free.exit
 
-mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_grow.exit, %75
+mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_grow.exit, %76
   store i32 1, ptr %5, align 8, !tbaa !3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %79 = load ptr, ptr %.040.sroa.phi48.sroa.gep89, align 8, !tbaa !11
-  %.not.i80 = icmp eq ptr %79, null
-  br i1 %.not.i80, label %mbedtls_mpi_free.exit81, label %80
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %81 = load ptr, ptr %80, align 8, !tbaa !11
+  %.not.i80 = icmp eq ptr %81, null
+  br i1 %.not.i80, label %mbedtls_mpi_free.exit81, label %82
 
-80:                                               ; preds = %mbedtls_mpi_free.exit
-  %81 = load i64, ptr %6, align 8, !tbaa !12
-  %82 = shl i64 %81, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %79, i64 noundef %82)
-  %83 = load ptr, ptr %.040.sroa.phi48.sroa.gep89, align 8, !tbaa !11
-  call void @free(ptr noundef %83) #15
+82:                                               ; preds = %mbedtls_mpi_free.exit
+  %83 = load i64, ptr %6, align 8, !tbaa !12
+  %84 = shl i64 %83, 3
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %81, i64 noundef %84)
+  %85 = load ptr, ptr %80, align 8, !tbaa !11
+  call void @free(ptr noundef %85) #15
   br label %mbedtls_mpi_free.exit81
 
-mbedtls_mpi_free.exit81:                          ; preds = %mbedtls_mpi_free.exit, %80
+mbedtls_mpi_free.exit81:                          ; preds = %mbedtls_mpi_free.exit, %82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
   ret i32 %.038

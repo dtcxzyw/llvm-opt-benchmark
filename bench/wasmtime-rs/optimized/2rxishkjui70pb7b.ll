@@ -144,22 +144,6 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   %12 = alloca { ptr, i64, {} }, align 8
   %13 = freeze i64 %1
   %14 = icmp ult i64 %13, 21
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink.sroa.gep80 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink.sroa.gep81 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink.sroa.gep82 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep84 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink.sroa.gep85 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink.sroa.gep86 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink.sroa.gep87 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep89 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink.sroa.gep90 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink.sroa.gep91 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink.sroa.gep92 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep94 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink.sroa.gep95 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink.sroa.gep96 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink.sroa.gep97 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %14, label %28, label %15
 
 15:                                               ; preds = %3
@@ -412,7 +396,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   %89 = load i64, ptr %25, align 8, !noundef !3
   %90 = icmp ult i64 %86, %89
-  br i1 %90, label %91, label %.invoke
+  br i1 %90, label %91, label %.invoke.split.loop.exit112
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
@@ -424,7 +408,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   %97 = add nuw i64 %86, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   %98 = icmp ult i64 %97, %89
-  br i1 %98, label %99, label %.invoke
+  br i1 %98, label %99, label %.invoke.split.loop.exit105
 
 99:                                               ; preds = %91
   %100 = getelementptr inbounds { i64, i64 }, ptr %92, i64 %97
@@ -553,7 +537,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %154 = load i64, ptr %25, align 8, !noundef !3
   %155 = icmp ult i64 %97, %154
-  br i1 %155, label %156, label %.invoke
+  br i1 %155, label %156, label %.invoke.split.loop.exit98
 
 156:                                              ; preds = %153
   %157 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
@@ -566,15 +550,43 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   %161 = load i64, ptr %25, align 8, !noundef !3
   %.not.i47 = icmp ult i64 %86, %161
-  br i1 %.not.i47, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h9a0d72cb9830bfeeE.exit", label %.invoke
+  br i1 %.not.i47, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h9a0d72cb9830bfeeE.exit", label %.invoke.split.loop.exit
 
-.invoke:                                          ; preds = %156, %153, %91, %88
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %88 ], [ %.sink.sroa.gep80, %91 ], [ %.sink.sroa.gep81, %153 ], [ %.sink.sroa.gep82, %156 ]
-  %.sink.sroa.phi83 = phi ptr [ %.sink.sroa.gep84, %88 ], [ %.sink.sroa.gep85, %91 ], [ %.sink.sroa.gep86, %153 ], [ %.sink.sroa.gep87, %156 ]
-  %.sink.sroa.phi88 = phi ptr [ %.sink.sroa.gep89, %88 ], [ %.sink.sroa.gep90, %91 ], [ %.sink.sroa.gep91, %153 ], [ %.sink.sroa.gep92, %156 ]
-  %.sink.sroa.phi93 = phi ptr [ %.sink.sroa.gep94, %88 ], [ %.sink.sroa.gep95, %91 ], [ %.sink.sroa.gep96, %153 ], [ %.sink.sroa.gep97, %156 ]
-  %.sink = phi ptr [ %10, %88 ], [ %9, %91 ], [ %7, %153 ], [ %6, %156 ]
-  %162 = phi ptr [ @anon.c1c48a1fef5800bfd07888450020b215.10, %88 ], [ @anon.c1c48a1fef5800bfd07888450020b215.11, %91 ], [ @anon.c1c48a1fef5800bfd07888450020b215.13, %153 ], [ @anon.c1c48a1fef5800bfd07888450020b215.18, %156 ]
+.invoke.split.loop.exit:                          ; preds = %156
+  %.sink.sroa.gep82.le = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep87.le = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep92.le = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep97.le = getelementptr inbounds nuw i8, ptr %6, i64 24
+  br label %.invoke
+
+.invoke.split.loop.exit98:                        ; preds = %153
+  %.sink.sroa.gep81.le = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep86.le = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink.sroa.gep91.le = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.gep96.le = getelementptr inbounds nuw i8, ptr %7, i64 24
+  br label %.invoke
+
+.invoke.split.loop.exit105:                       ; preds = %91
+  %.sink.sroa.gep80.le = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink.sroa.gep85.le = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.sroa.gep90.le = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.sroa.gep95.le = getelementptr inbounds nuw i8, ptr %9, i64 24
+  br label %.invoke
+
+.invoke.split.loop.exit112:                       ; preds = %88
+  %.sink.sroa.gep.le = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.sroa.gep84.le = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink.sroa.gep89.le = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink.sroa.gep94.le = getelementptr inbounds nuw i8, ptr %10, i64 24
+  br label %.invoke
+
+.invoke:                                          ; preds = %.invoke.split.loop.exit112, %.invoke.split.loop.exit105, %.invoke.split.loop.exit98, %.invoke.split.loop.exit
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep82.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep81.le, %.invoke.split.loop.exit98 ], [ %.sink.sroa.gep80.le, %.invoke.split.loop.exit105 ], [ %.sink.sroa.gep.le, %.invoke.split.loop.exit112 ]
+  %.sink.sroa.phi83 = phi ptr [ %.sink.sroa.gep87.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep86.le, %.invoke.split.loop.exit98 ], [ %.sink.sroa.gep85.le, %.invoke.split.loop.exit105 ], [ %.sink.sroa.gep84.le, %.invoke.split.loop.exit112 ]
+  %.sink.sroa.phi88 = phi ptr [ %.sink.sroa.gep92.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep91.le, %.invoke.split.loop.exit98 ], [ %.sink.sroa.gep90.le, %.invoke.split.loop.exit105 ], [ %.sink.sroa.gep89.le, %.invoke.split.loop.exit112 ]
+  %.sink.sroa.phi93 = phi ptr [ %.sink.sroa.gep97.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep96.le, %.invoke.split.loop.exit98 ], [ %.sink.sroa.gep95.le, %.invoke.split.loop.exit105 ], [ %.sink.sroa.gep94.le, %.invoke.split.loop.exit112 ]
+  %.sink = phi ptr [ %6, %.invoke.split.loop.exit ], [ %7, %.invoke.split.loop.exit98 ], [ %9, %.invoke.split.loop.exit105 ], [ %10, %.invoke.split.loop.exit112 ]
+  %162 = phi ptr [ @anon.c1c48a1fef5800bfd07888450020b215.18, %.invoke.split.loop.exit ], [ @anon.c1c48a1fef5800bfd07888450020b215.13, %.invoke.split.loop.exit98 ], [ @anon.c1c48a1fef5800bfd07888450020b215.11, %.invoke.split.loop.exit105 ], [ @anon.c1c48a1fef5800bfd07888450020b215.10, %.invoke.split.loop.exit112 ]
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.1, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
   store ptr null, ptr %.sink.sroa.phi83, align 8
@@ -646,22 +658,6 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   %12 = alloca { ptr, i64, {} }, align 8
   %13 = freeze i64 %1
   %14 = icmp ult i64 %13, 21
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink.sroa.gep80 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink.sroa.gep81 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink.sroa.gep82 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep84 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink.sroa.gep85 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink.sroa.gep86 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink.sroa.gep87 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep89 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink.sroa.gep90 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink.sroa.gep91 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink.sroa.gep92 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep94 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink.sroa.gep95 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink.sroa.gep96 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink.sroa.gep97 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %14, label %28, label %15
 
 15:                                               ; preds = %3
@@ -914,7 +910,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   %89 = load i64, ptr %25, align 8, !noundef !3
   %90 = icmp ult i64 %86, %89
-  br i1 %90, label %91, label %.invoke
+  br i1 %90, label %91, label %.invoke.split.loop.exit112
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
@@ -926,7 +922,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   %97 = add nuw i64 %86, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   %98 = icmp ult i64 %97, %89
-  br i1 %98, label %99, label %.invoke
+  br i1 %98, label %99, label %.invoke.split.loop.exit105
 
 99:                                               ; preds = %91
   %100 = getelementptr inbounds { i64, i64 }, ptr %92, i64 %97
@@ -1055,7 +1051,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %154 = load i64, ptr %25, align 8, !noundef !3
   %155 = icmp ult i64 %97, %154
-  br i1 %155, label %156, label %.invoke
+  br i1 %155, label %156, label %.invoke.split.loop.exit98
 
 156:                                              ; preds = %153
   %157 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
@@ -1068,15 +1064,43 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   %161 = load i64, ptr %25, align 8, !noundef !3
   %.not.i47 = icmp ult i64 %86, %161
-  br i1 %.not.i47, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hcd090d4ee9ba524aE.exit", label %.invoke
+  br i1 %.not.i47, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hcd090d4ee9ba524aE.exit", label %.invoke.split.loop.exit
 
-.invoke:                                          ; preds = %156, %153, %91, %88
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %88 ], [ %.sink.sroa.gep80, %91 ], [ %.sink.sroa.gep81, %153 ], [ %.sink.sroa.gep82, %156 ]
-  %.sink.sroa.phi83 = phi ptr [ %.sink.sroa.gep84, %88 ], [ %.sink.sroa.gep85, %91 ], [ %.sink.sroa.gep86, %153 ], [ %.sink.sroa.gep87, %156 ]
-  %.sink.sroa.phi88 = phi ptr [ %.sink.sroa.gep89, %88 ], [ %.sink.sroa.gep90, %91 ], [ %.sink.sroa.gep91, %153 ], [ %.sink.sroa.gep92, %156 ]
-  %.sink.sroa.phi93 = phi ptr [ %.sink.sroa.gep94, %88 ], [ %.sink.sroa.gep95, %91 ], [ %.sink.sroa.gep96, %153 ], [ %.sink.sroa.gep97, %156 ]
-  %.sink = phi ptr [ %10, %88 ], [ %9, %91 ], [ %7, %153 ], [ %6, %156 ]
-  %162 = phi ptr [ @anon.c1c48a1fef5800bfd07888450020b215.10, %88 ], [ @anon.c1c48a1fef5800bfd07888450020b215.11, %91 ], [ @anon.c1c48a1fef5800bfd07888450020b215.13, %153 ], [ @anon.c1c48a1fef5800bfd07888450020b215.18, %156 ]
+.invoke.split.loop.exit:                          ; preds = %156
+  %.sink.sroa.gep82.le = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep87.le = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep92.le = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep97.le = getelementptr inbounds nuw i8, ptr %6, i64 24
+  br label %.invoke
+
+.invoke.split.loop.exit98:                        ; preds = %153
+  %.sink.sroa.gep81.le = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep86.le = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink.sroa.gep91.le = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.gep96.le = getelementptr inbounds nuw i8, ptr %7, i64 24
+  br label %.invoke
+
+.invoke.split.loop.exit105:                       ; preds = %91
+  %.sink.sroa.gep80.le = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink.sroa.gep85.le = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.sroa.gep90.le = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.sroa.gep95.le = getelementptr inbounds nuw i8, ptr %9, i64 24
+  br label %.invoke
+
+.invoke.split.loop.exit112:                       ; preds = %88
+  %.sink.sroa.gep.le = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.sroa.gep84.le = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink.sroa.gep89.le = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink.sroa.gep94.le = getelementptr inbounds nuw i8, ptr %10, i64 24
+  br label %.invoke
+
+.invoke:                                          ; preds = %.invoke.split.loop.exit112, %.invoke.split.loop.exit105, %.invoke.split.loop.exit98, %.invoke.split.loop.exit
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep82.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep81.le, %.invoke.split.loop.exit98 ], [ %.sink.sroa.gep80.le, %.invoke.split.loop.exit105 ], [ %.sink.sroa.gep.le, %.invoke.split.loop.exit112 ]
+  %.sink.sroa.phi83 = phi ptr [ %.sink.sroa.gep87.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep86.le, %.invoke.split.loop.exit98 ], [ %.sink.sroa.gep85.le, %.invoke.split.loop.exit105 ], [ %.sink.sroa.gep84.le, %.invoke.split.loop.exit112 ]
+  %.sink.sroa.phi88 = phi ptr [ %.sink.sroa.gep92.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep91.le, %.invoke.split.loop.exit98 ], [ %.sink.sroa.gep90.le, %.invoke.split.loop.exit105 ], [ %.sink.sroa.gep89.le, %.invoke.split.loop.exit112 ]
+  %.sink.sroa.phi93 = phi ptr [ %.sink.sroa.gep97.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep96.le, %.invoke.split.loop.exit98 ], [ %.sink.sroa.gep95.le, %.invoke.split.loop.exit105 ], [ %.sink.sroa.gep94.le, %.invoke.split.loop.exit112 ]
+  %.sink = phi ptr [ %6, %.invoke.split.loop.exit ], [ %7, %.invoke.split.loop.exit98 ], [ %9, %.invoke.split.loop.exit105 ], [ %10, %.invoke.split.loop.exit112 ]
+  %162 = phi ptr [ @anon.c1c48a1fef5800bfd07888450020b215.18, %.invoke.split.loop.exit ], [ @anon.c1c48a1fef5800bfd07888450020b215.13, %.invoke.split.loop.exit98 ], [ @anon.c1c48a1fef5800bfd07888450020b215.11, %.invoke.split.loop.exit105 ], [ @anon.c1c48a1fef5800bfd07888450020b215.10, %.invoke.split.loop.exit112 ]
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.1, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
   store ptr null, ptr %.sink.sroa.phi83, align 8

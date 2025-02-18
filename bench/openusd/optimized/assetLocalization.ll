@@ -4774,14 +4774,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtils_LocalizationContext
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink.sroa.gep241 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink.sroa.gep243 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink.sroa.gep244 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink.sroa.gep246 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink.sroa.gep247 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink.sroa.gep249 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink.sroa.gep250 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit148, label %30
 
 30:                                               ; preds = %3
@@ -5033,14 +5025,28 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %100, %102, %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   %119 = load ptr, ptr %1, align 8
   %.not.i57 = icmp eq ptr %119, null
-  br i1 %.not.i57, label %.invoke, label %120
+  br i1 %.not.i57, label %.invoke.split.loop.exit, label %120
 
-.invoke:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit ], [ %.sink.sroa.gep241, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ]
-  %.sink.sroa.phi242 = phi ptr [ %.sink.sroa.gep243, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit ], [ %.sink.sroa.gep244, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ]
-  %.sink.sroa.phi245 = phi ptr [ %.sink.sroa.gep246, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit ], [ %.sink.sroa.gep247, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ]
-  %.sink.sroa.phi248 = phi ptr [ %.sink.sroa.gep249, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit ], [ %.sink.sroa.gep250, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ]
-  %.sink = phi ptr [ %11, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit ]
+.invoke.split.loop.exit:                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
+  %.sink.sroa.gep241.le = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink.sroa.gep244.le = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink.sroa.gep247.le = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink.sroa.gep250.le = getelementptr inbounds nuw i8, ptr %12, i64 32
+  br label %.invoke
+
+.invoke.split.loop.exit255:                       ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit
+  %.sink.sroa.gep.le = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink.sroa.gep243.le = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink.sroa.gep246.le = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink.sroa.gep249.le = getelementptr inbounds nuw i8, ptr %11, i64 32
+  br label %.invoke
+
+.invoke:                                          ; preds = %.invoke.split.loop.exit255, %.invoke.split.loop.exit
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep241.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep.le, %.invoke.split.loop.exit255 ]
+  %.sink.sroa.phi242 = phi ptr [ %.sink.sroa.gep244.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep243.le, %.invoke.split.loop.exit255 ]
+  %.sink.sroa.phi245 = phi ptr [ %.sink.sroa.gep247.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep246.le, %.invoke.split.loop.exit255 ]
+  %.sink.sroa.phi248 = phi ptr [ %.sink.sroa.gep250.le, %.invoke.split.loop.exit ], [ %.sink.sroa.gep249.le, %.invoke.split.loop.exit255 ]
+  %.sink = phi ptr [ %12, %.invoke.split.loop.exit ], [ %11, %.invoke.split.loop.exit255 ]
   store ptr @.str.12, ptr %.sink, align 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %.sink.sroa.phi, align 8
   store i64 936, ptr %.sink.sroa.phi242, align 8
@@ -5109,7 +5115,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %138 = load ptr, ptr %1, align 8
   %.not.i60 = icmp eq ptr %138, null
-  br i1 %.not.i60, label %.invoke, label %259
+  br i1 %.not.i60, label %.invoke.split.loop.exit255, label %259
 
 139:                                              ; preds = %99
   %140 = landingpad { ptr, i32 }

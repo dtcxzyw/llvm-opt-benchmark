@@ -6703,14 +6703,20 @@ define void @_ZN10open_spiel6spades11SpadesState7ScoreUpEv(ptr noundef nonnull a
   %13 = load i32, ptr %12, align 8
   %.fr = freeze i32 %13
   %.not20 = icmp eq i32 %.fr, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %indvars.iv27.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br i1 %.not20, label %.split.us, label %.split
+  br i1 %.not20, label %.split.us.preheader, label %.split.preheader
 
-.split.us:                                        ; preds = %1, %26
-  %14 = phi i1 [ false, %26 ], [ true, %1 ]
-  %indvars.iv27.sroa.phi = phi ptr [ %indvars.iv27.sroa.gep, %26 ], [ %2, %1 ]
-  %indvars.iv27 = phi i64 [ 1, %26 ], [ 0, %1 ]
+.split.preheader:                                 ; preds = %1
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
+  br label %.split
+
+.split.us.preheader:                              ; preds = %1
+  %indvars.iv27.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
+  br label %.split.us
+
+.split.us:                                        ; preds = %.split.us.preheader, %26
+  %14 = phi i1 [ false, %26 ], [ true, %.split.us.preheader ]
+  %indvars.iv27.sroa.phi = phi ptr [ %indvars.iv27.sroa.gep, %26 ], [ %2, %.split.us.preheader ]
+  %indvars.iv27 = phi i64 [ 1, %26 ], [ 0, %.split.us.preheader ]
   %15 = load i32, ptr %indvars.iv27.sroa.phi, align 4
   %16 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %indvars.iv27
   %17 = load i32, ptr %16, align 4
@@ -6739,10 +6745,10 @@ define void @_ZN10open_spiel6spades11SpadesState7ScoreUpEv(ptr noundef nonnull a
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %49
 
-.split:                                           ; preds = %1, %48
-  %28 = phi i1 [ false, %48 ], [ true, %1 ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %48 ], [ %2, %1 ]
-  %indvars.iv = phi i64 [ 1, %48 ], [ 0, %1 ]
+.split:                                           ; preds = %.split.preheader, %48
+  %28 = phi i1 [ false, %48 ], [ true, %.split.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %48 ], [ %2, %.split.preheader ]
+  %indvars.iv = phi i64 [ 1, %48 ], [ 0, %.split.preheader ]
   %29 = load i32, ptr %indvars.iv.sroa.phi, align 4
   %30 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4

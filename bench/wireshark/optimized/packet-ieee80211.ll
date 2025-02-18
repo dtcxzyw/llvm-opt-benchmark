@@ -43783,8 +43783,6 @@ weak_iv.exit:                                     ; preds = %1102, %1136
 1217:                                             ; preds = %1216
   %1218 = load i8, ptr @treat_as_s1g, align 1, !range !6, !noundef !7
   %1219 = trunc nuw i8 %1218 to i1
-  %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink.i.sroa.gep403.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   br i1 %1219, label %sta_is_s1g.exit.i, label %1220
 
 1220:                                             ; preds = %1217
@@ -43869,12 +43867,14 @@ sta_is_s1g.exit.i:                                ; preds = %1220, %1217
   %1260 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %1261 = load i8, ptr %1260, align 2, !range !6, !noundef !7
   %1262 = trunc nuw i8 %1261 to i1
+  %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %1262, label %.sink.split.i.i, label %ieee_80211_do_association_sanity_check.exit.i
 
 1263:                                             ; preds = %1245
   %1264 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %1265 = load i8, ptr %1264, align 1, !range !6, !noundef !7
   %1266 = trunc nuw i8 %1265 to i1
+  %.sink.i.sroa.gep403.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   br i1 %1266, label %.sink.split.i.i, label %ieee_80211_do_association_sanity_check.exit.i
 
 .sink.split.i.i:                                  ; preds = %1263, %1259
@@ -43997,16 +43997,18 @@ get_or_create_conversation_data.exit.i:           ; preds = %1293, %1282
   %1338 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %1339 = load i8, ptr %1338, align 2, !range !6, !noundef !7
   %1340 = trunc nuw i8 %1339 to i1
+  %.sink.i348.sroa.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %1340, label %.sink.split.i347.i, label %ieee_80211_do_association_sanity_check.exit350.i
 
 1341:                                             ; preds = %1321
   %1342 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %1343 = load i8, ptr %1342, align 1, !range !6, !noundef !7
   %1344 = trunc nuw i8 %1343 to i1
+  %.sink.i348.sroa.gep404.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   br i1 %1344, label %.sink.split.i347.i, label %ieee_80211_do_association_sanity_check.exit350.i
 
 .sink.split.i347.i:                               ; preds = %1341, %1337
-  %.sink.i348.sroa.phi.i = phi ptr [ %.sink.i.sroa.gep.i, %1337 ], [ %.sink.i.sroa.gep403.i, %1341 ]
+  %.sink.i348.sroa.phi.i = phi ptr [ %.sink.i348.sroa.gep.i, %1337 ], [ %.sink.i348.sroa.gep404.i, %1341 ]
   %.str.9869.sink.i349.i = phi ptr [ @.str.9868, %1337 ], [ @.str.9869, %1341 ]
   %1345 = load ptr, ptr %.sink.i348.sroa.phi.i, align 8
   %1346 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %1345, ptr noundef nonnull @ei_ieee80211_mismatched_akm_suite, ptr noundef nonnull %.str.9869.sink.i349.i)

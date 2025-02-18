@@ -10257,7 +10257,6 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets17from_key_exchange17h466
   store ptr %7, ptr %13, align 8
   %16 = load i64, ptr %5, align 8, !range !258, !noundef !7
   %trunc = trunc nuw i64 %16 to i1
-  %.sink.i.sroa.gep24 = getelementptr inbounds nuw i8, ptr %12, i64 1
   br i1 %trunc, label %20, label %.thread
 
 17:                                               ; preds = %26, %46
@@ -10273,22 +10272,24 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets17from_key_exchange17h466
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.312, ptr noundef nonnull align 1 dereferenceable(64) %10, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
   store i8 1, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(79) %.sink.i.sroa.gep24, ptr noundef nonnull align 1 dereferenceable(79) %.sroa.312, i64 79, i1 false)
+  %.sroa.312.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(79) %.sroa.312.0..sroa_idx29, ptr noundef nonnull align 1 dereferenceable(79) %.sroa.312, i64 79, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   br label %28
 
 20:                                               ; preds = %8
-  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.312.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.312, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %.sroa.312.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %21, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
   store i8 0, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(79) %.sink.i.sroa.gep24, ptr noundef nonnull align 1 dereferenceable(79) %.sroa.312, i64 79, i1 false)
+  %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(79) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(79) %.sroa.312, i64 79, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %23 = load i64, ptr %22, align 8, !alias.scope !1283, !noundef !7
   %24 = icmp ugt i64 %23, 64
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
@@ -10304,16 +10305,16 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets17from_key_exchange17h466
   br label %17
 
 28:                                               ; preds = %20, %.thread
-  %.sroa.3.031 = phi i64 [ 22, %20 ], [ 13, %.thread ]
-  %.sroa.010.030 = phi ptr [ @anon.ad5063a02d8bdc6ace820a31447ddce3.49, %20 ], [ @anon.ad5063a02d8bdc6ace820a31447ddce3.48, %.thread ]
-  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep24, %.thread ]
+  %.sroa.3.032 = phi i64 [ 22, %20 ], [ 13, %.thread ]
+  %.sroa.010.031 = phi ptr [ @anon.ad5063a02d8bdc6ace820a31447ddce3.49, %20 ], [ @anon.ad5063a02d8bdc6ace820a31447ddce3.48, %.thread ]
+  %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sroa.312.0..sroa_idx29, %.thread ]
   %.pn1.i = phi i64 [ %23, %20 ], [ 64, %.thread ]
   %29 = load ptr, ptr %7, align 8, !nonnull !7, !align !72, !noundef !7
   %.in = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %.in, align 8, !nonnull !7, !align !81, !noundef !7
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8, !invariant.load !7, !nonnull !7
-  invoke void %32(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull align 1 dereferenceable(48) %14, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %.sroa.010.030, i64 noundef %.sroa.3.031, ptr noalias noundef nonnull readonly align 1 %.sink.i.sroa.phi, i64 noundef %.pn1.i)
+  invoke void %32(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull align 1 dereferenceable(48) %14, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %.sroa.010.031, i64 noundef %.sroa.3.032, ptr noalias noundef nonnull readonly align 1 %.sink.i.sroa.phi, i64 noundef %.pn1.i)
           to label %33 unwind label %26
 
 33:                                               ; preds = %28

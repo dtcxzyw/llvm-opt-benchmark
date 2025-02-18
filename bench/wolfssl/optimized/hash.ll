@@ -348,13 +348,16 @@ define dso_local i32 @sha224_test() local_unnamed_addr #0 {
   store i64 56, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !9
   %5 = call i32 @wc_InitSha224(ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %5, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br i1 %.not, label %.preheader, label %.loopexit
+  br i1 %.not, label %.preheader.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %0, %17
-  %6 = phi i1 [ false, %17 ], [ true, %0 ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %0 ]
-  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %0 ]
+.preheader.preheader:                             ; preds = %0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %17
+  %6 = phi i1 [ false, %17 ], [ true, %.preheader.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %.preheader.preheader ]
+  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %.preheader.preheader ]
   %7 = load ptr, ptr %indvars.iv.sroa.phi, align 16, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
   %9 = load i64, ptr %8, align 16, !tbaa !13
@@ -411,13 +414,16 @@ define dso_local i32 @sha256_test() local_unnamed_addr #0 {
   store i64 56, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
   %5 = call i32 @wc_InitSha256(ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %5, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br i1 %.not, label %.preheader, label %.loopexit
+  br i1 %.not, label %.preheader.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %0, %17
-  %6 = phi i1 [ false, %17 ], [ true, %0 ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %0 ]
-  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %0 ]
+.preheader.preheader:                             ; preds = %0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %17
+  %6 = phi i1 [ false, %17 ], [ true, %.preheader.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %.preheader.preheader ]
+  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %.preheader.preheader ]
   %7 = load ptr, ptr %indvars.iv.sroa.phi, align 16, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
   %9 = load i64, ptr %8, align 16, !tbaa !13
@@ -474,13 +480,16 @@ define dso_local i32 @sha512_test() local_unnamed_addr #0 {
   store i64 112, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
   %5 = call i32 @wc_InitSha512(ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %5, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br i1 %.not, label %.preheader, label %.loopexit
+  br i1 %.not, label %.preheader.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %0, %17
-  %6 = phi i1 [ false, %17 ], [ true, %0 ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %0 ]
-  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %0 ]
+.preheader.preheader:                             ; preds = %0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %17
+  %6 = phi i1 [ false, %17 ], [ true, %.preheader.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %.preheader.preheader ]
+  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %.preheader.preheader ]
   %7 = load ptr, ptr %indvars.iv.sroa.phi, align 16, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
   %9 = load i64, ptr %8, align 16, !tbaa !13
@@ -537,13 +546,16 @@ define dso_local i32 @sha384_test() local_unnamed_addr #0 {
   store i64 112, ptr %.sroa.7.0..sroa_idx, align 16, !tbaa !9
   %5 = call i32 @wc_InitSha384(ptr noundef nonnull %1) #6
   %.not = icmp eq i32 %5, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br i1 %.not, label %.preheader, label %.loopexit
+  br i1 %.not, label %.preheader.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %0, %17
-  %6 = phi i1 [ false, %17 ], [ true, %0 ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %0 ]
-  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %0 ]
+.preheader.preheader:                             ; preds = %0
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %17
+  %6 = phi i1 [ false, %17 ], [ true, %.preheader.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %17 ], [ %3, %.preheader.preheader ]
+  %indvars.iv = phi i32 [ -11, %17 ], [ -10, %.preheader.preheader ]
   %7 = load ptr, ptr %indvars.iv.sroa.phi, align 16, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 16
   %9 = load i64, ptr %8, align 16, !tbaa !13

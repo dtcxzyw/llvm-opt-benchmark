@@ -547,14 +547,6 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h79343fe3696549afE(ptr noal
   %8 = alloca { ptr, i64, i64, {}, {} }, align 8
   %9 = alloca { ptr, i64 }, align 8
   %10 = icmp ult i64 %1, 21
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep347 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink.sroa.gep349 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep350 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink.sroa.gep352 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep353 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink.sroa.gep355 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink.sroa.gep356 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %3
@@ -1015,6 +1007,10 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
 
 160:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !148
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep349 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep352 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep355 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %.invoke257
 
 161:                                              ; preds = %158
@@ -1028,6 +1024,10 @@ _ZN4core5slice4sort20provide_sorted_batch17hfc511b2652135f95E.exit: ; preds = %_
 
 168:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !151
+  %.sink.sroa.gep347 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink.sroa.gep350 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink.sroa.gep353 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink.sroa.gep356 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %.invoke257
 
 .invoke257:                                       ; preds = %160, %168

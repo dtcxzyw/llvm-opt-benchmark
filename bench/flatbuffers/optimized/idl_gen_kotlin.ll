@@ -28505,11 +28505,6 @@ define linkonce_odr dso_local void @_ZZNK11flatbuffers6kotlin15KotlinGenerator21
   %13 = tail call noundef i64 @_ZN11flatbuffers10InlineSizeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %12)
   call void @_ZN11flatbuffers11NumToStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i64 noundef %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
-  %.sink34.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %.sink34.i.sroa.gep84 = getelementptr inbounds nuw i8, ptr %5, i64 19
-  %.sink34.i.sroa.gep85 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  %.sink34.i.sroa.gep86 = getelementptr inbounds nuw i8, ptr %5, i64 17
-  %.sink34.i.sroa.gep87 = getelementptr inbounds nuw i8, ptr %5, i64 21
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.141, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %14 unwind label %51
 
@@ -28564,50 +28559,57 @@ define linkonce_odr dso_local void @_ZZNK11flatbuffers6kotlin15KotlinGenerator21
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %28, ptr %5, align 8, !tbaa !16, !alias.scope !733
   store i32 1714433584, ptr %28, align 8, !alias.scope !733
+  %.sink.sroa.gep95 = getelementptr inbounds nuw i8, ptr %5, i64 20
   br label %35
 
 ._crit_edge.i.i4.i:                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %29, ptr %5, align 8, !tbaa !16, !alias.scope !733
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %29, ptr noundef nonnull align 1 dereferenceable(3) @.str.184, i64 3, i1 false)
+  %.sink.sroa.gep94 = getelementptr inbounds nuw i8, ptr %5, i64 19
   br label %35
 
 ._crit_edge.i.i8.i:                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %30, ptr %5, align 8, !tbaa !16, !alias.scope !733
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %30, ptr noundef nonnull align 1 dereferenceable(5) @.str.26, i64 5, i1 false)
+  %.sink.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 21
   br label %35
 
 ._crit_edge.i.i12.i:                              ; preds = %25, %25, %25, %25
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %31, ptr %5, align 8, !tbaa !16, !alias.scope !733
   store i8 48, ptr %31, align 8, !tbaa !15, !alias.scope !733
+  %.sink.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 17
   br label %35
 
 ._crit_edge.i.i16.i:                              ; preds = %25, %25, %25, %25
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %32, ptr %5, align 8, !tbaa !16, !alias.scope !733
   store i16 30000, ptr %32, align 8, !alias.scope !733
+  %.sink.sroa.gep91 = getelementptr inbounds nuw i8, ptr %5, i64 18
   br label %35
 
 ._crit_edge.i.i20.i:                              ; preds = %25
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %33, ptr %5, align 8, !tbaa !16, !alias.scope !733
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %33, ptr noundef nonnull align 1 dereferenceable(3) @.str.186, i64 3, i1 false)
+  %.sink.sroa.gep90 = getelementptr inbounds nuw i8, ptr %5, i64 19
   br label %35
 
 ._crit_edge.i.i24.i:                              ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %34, ptr %5, align 8, !tbaa !16, !alias.scope !733
   store i32 1819047278, ptr %34, align 8, !alias.scope !733
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 20
   br label %35
 
 35:                                               ; preds = %._crit_edge.i.i24.i, %._crit_edge.i.i20.i, %._crit_edge.i.i16.i, %._crit_edge.i.i12.i, %._crit_edge.i.i8.i, %._crit_edge.i.i4.i, %._crit_edge.i.i.i
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i24.i ], [ %.sink.sroa.gep90, %._crit_edge.i.i20.i ], [ %.sink.sroa.gep91, %._crit_edge.i.i16.i ], [ %.sink.sroa.gep92, %._crit_edge.i.i12.i ], [ %.sink.sroa.gep93, %._crit_edge.i.i8.i ], [ %.sink.sroa.gep94, %._crit_edge.i.i4.i ], [ %.sink.sroa.gep95, %._crit_edge.i.i.i ]
   %.sink.i = phi i64 [ 4, %._crit_edge.i.i24.i ], [ 3, %._crit_edge.i.i20.i ], [ 2, %._crit_edge.i.i16.i ], [ 1, %._crit_edge.i.i12.i ], [ 5, %._crit_edge.i.i8.i ], [ 3, %._crit_edge.i.i4.i ], [ 4, %._crit_edge.i.i.i ]
-  %.sink34.i.sroa.phi = phi ptr [ %.sink34.i.sroa.gep, %._crit_edge.i.i24.i ], [ %.sink34.i.sroa.gep84, %._crit_edge.i.i20.i ], [ %.sink34.i.sroa.gep85, %._crit_edge.i.i16.i ], [ %.sink34.i.sroa.gep86, %._crit_edge.i.i12.i ], [ %.sink34.i.sroa.gep87, %._crit_edge.i.i8.i ], [ %.sink34.i.sroa.gep84, %._crit_edge.i.i4.i ], [ %.sink34.i.sroa.gep, %._crit_edge.i.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sink.i, ptr %36, align 8, !tbaa !14, !alias.scope !733
-  store i8 0, ptr %.sink34.i.sroa.phi, align 1, !tbaa !15, !alias.scope !733
+  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !15, !alias.scope !733
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %.noexc

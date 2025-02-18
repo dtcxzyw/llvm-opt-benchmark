@@ -4608,10 +4608,6 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
-  %ref.tmp10.sink42.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
-  %ref.tmp10.sink42.sroa.gep43 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 8
-  %ref.tmp8.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
-  %ref.tmp8.sink.sroa.gep44 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 8
   invoke void %1(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %encoded_trace)
           to label %invoke.cont3 unwind label %lpad
 
@@ -4747,6 +4743,8 @@ _ZN7rocksdb6StatusD2Ev.exit9:                     ; preds = %invoke.cont5, %_ZN7
 
 if.then7:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit9
   store ptr @.str.123, ptr %ref.tmp8, align 8
+  %ref.tmp10.sink42.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
+  %ref.tmp8.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   br label %if.then18.invoke
 
 if.end13:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit9
@@ -4784,6 +4782,8 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 if.then18:                                        ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   store ptr @.str.124, ptr %ref.tmp19, align 8
+  %ref.tmp10.sink42.sroa.gep43 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 8
+  %ref.tmp8.sink.sroa.gep44 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 8
   br label %if.then18.invoke
 
 if.then18.invoke:                                 ; preds = %if.then7, %if.then18
@@ -5769,12 +5769,6 @@ entry:
   %data_loss_.i254 = getelementptr inbounds nuw i8, ptr %ref.tmp295, i64 4
   %scope_.i257 = getelementptr inbounds nuw i8, ptr %ref.tmp295, i64 5
   %state_.i259 = getelementptr inbounds nuw i8, ptr %ref.tmp295, i64 8
-  %ref.tmp141.sink356.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp141, i64 8
-  %ref.tmp141.sink356.sroa.gep359 = getelementptr inbounds nuw i8, ptr %ref.tmp207, i64 8
-  %ref.tmp141.sink356.sroa.gep360 = getelementptr inbounds nuw i8, ptr %ref.tmp285, i64 8
-  %ref.tmp139.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp139, i64 8
-  %ref.tmp139.sink.sroa.gep361 = getelementptr inbounds nuw i8, ptr %ref.tmp205, i64 8
-  %ref.tmp139.sink.sroa.gep362 = getelementptr inbounds nuw i8, ptr %ref.tmp283, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc322
@@ -6159,6 +6153,8 @@ for.body131:                                      ; preds = %if.then122, %for.in
 
 if.then138:                                       ; preds = %for.body131
   store ptr @.str.129, ptr %ref.tmp139, align 8
+  %ref.tmp141.sink356.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp141, i64 8
+  %ref.tmp139.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp139, i64 8
   br label %if.then282.invoke
 
 if.end144:                                        ; preds = %for.body131
@@ -6320,6 +6316,8 @@ if.then197:                                       ; preds = %land.lhs.true194
 
 if.then204:                                       ; preds = %if.then197
   store ptr @.str.132, ptr %ref.tmp205, align 8
+  %ref.tmp141.sink356.sroa.gep359 = getelementptr inbounds nuw i8, ptr %ref.tmp207, i64 8
+  %ref.tmp139.sink.sroa.gep361 = getelementptr inbounds nuw i8, ptr %ref.tmp205, i64 8
   br label %if.then282.invoke
 
 if.end210:                                        ; preds = %if.then197
@@ -6494,6 +6492,8 @@ if.then276:                                       ; preds = %land.lhs.true269
 
 if.then282:                                       ; preds = %if.then276
   store ptr @.str.132, ptr %ref.tmp283, align 8
+  %ref.tmp141.sink356.sroa.gep360 = getelementptr inbounds nuw i8, ptr %ref.tmp285, i64 8
+  %ref.tmp139.sink.sroa.gep362 = getelementptr inbounds nuw i8, ptr %ref.tmp283, i64 8
   br label %if.then282.invoke
 
 if.then282.invoke:                                ; preds = %if.then138, %if.then204, %if.then282
@@ -7028,10 +7028,6 @@ entry:
   %ref.tmp158 = alloca %"struct.std::pair.183", align 8
   %ref.tmp164 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
-  %ref.tmp10.sink507.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
-  %ref.tmp10.sink507.sroa.gep606 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 8
-  %ref.tmp7.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
-  %ref.tmp7.sink.sroa.gep607 = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
   %call.i45 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix)
           to label %call.i.noexc unwind label %lpad
 
@@ -7108,6 +7104,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   store ptr @.str.136, ptr %ref.tmp7, align 8
+  %ref.tmp10.sink507.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
+  %ref.tmp7.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
   br label %if.then29.invoke
 
 lpad:                                             ; preds = %call.i.noexc, %entry
@@ -7151,6 +7149,8 @@ if.end:                                           ; preds = %for.body
 
 if.then29:                                        ; preds = %if.end
   store ptr @.str.132, ptr %ref.tmp30, align 8
+  %ref.tmp10.sink507.sroa.gep606 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 8
+  %ref.tmp7.sink.sroa.gep607 = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
   br label %if.then29.invoke
 
 if.then29.invoke:                                 ; preds = %if.then, %if.then29
@@ -7843,18 +7843,6 @@ entry:
   %begin_time_ = getelementptr inbounds nuw i8, ptr %this, i64 1304
   %0 = load i64, ptr %begin_time_, align 8
   %cmp = icmp eq i64 %0, 0
-  %ref.tmp80.sink806.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp569, i64 8
-  %ref.tmp80.sink806.sroa.gep822 = getelementptr inbounds nuw i8, ptr %ref.tmp457, i64 8
-  %ref.tmp80.sink806.sroa.gep823 = getelementptr inbounds nuw i8, ptr %ref.tmp80, i64 8
-  %ref.tmp80.sink806.sroa.gep824 = getelementptr inbounds nuw i8, ptr %ref.tmp304, i64 8
-  %ref.tmp80.sink806.sroa.gep825 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 8
-  %ref.tmp80.sink806.sroa.gep826 = getelementptr inbounds nuw i8, ptr %ref.tmp114, i64 8
-  %ref.tmp78.sink807.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp567, i64 8
-  %ref.tmp78.sink807.sroa.gep827 = getelementptr inbounds nuw i8, ptr %ref.tmp455, i64 8
-  %ref.tmp78.sink807.sroa.gep828 = getelementptr inbounds nuw i8, ptr %ref.tmp78, i64 8
-  %ref.tmp78.sink807.sroa.gep829 = getelementptr inbounds nuw i8, ptr %ref.tmp302, i64 8
-  %ref.tmp78.sink807.sroa.gep830 = getelementptr inbounds nuw i8, ptr %ref.tmp238, i64 8
-  %ref.tmp78.sink807.sroa.gep831 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -8136,7 +8124,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %time_line.3743 = phi i32 [ %inc, %cleanup ], [ %time_line.0747, %while.cond.preheader ]
   %call75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull @.str.142, i32 noundef 0) #26
   %cmp76 = icmp slt i32 %call75, 0
-  br i1 %cmp76, label %if.then566.invoke, label %if.end83
+  br i1 %cmp76, label %if.then566.invoke.loopexit818, label %if.end83
 
 if.end83:                                         ; preds = %while.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp86) #26
@@ -8288,7 +8276,7 @@ while.end:                                        ; preds = %cleanup, %while.con
   %54 = load i32, ptr %second47, align 4
   %call109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull @.str.142, i32 noundef %54) #26
   %cmp110 = icmp slt i32 %call109, 0
-  br i1 %cmp110, label %if.then566.invoke, label %if.end117
+  br i1 %cmp110, label %if.then566.invoke.loopexit821, label %if.end117
 
 if.end117:                                        ; preds = %while.end
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp121) #26
@@ -8577,7 +8565,7 @@ if.end232:                                        ; preds = %for.body213, %_ZNSt
   %cur_num.1 = phi i64 [ %96, %if.then224 ], [ %cur_num.0752, %invoke.cont215 ], [ %cur_num.0752, %_ZNSt8_Rb_treeIjSt4pairIKjmESt10_Select1stIS2_ESt4lessIjESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %cur_num.0752, %for.body213 ]
   %call235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull @.str.144, i64 noundef %cur_num.1, double noundef %cur_ratio.1) #26
   %cmp236 = icmp slt i32 %call235, 0
-  br i1 %cmp236, label %if.then566.invoke, label %if.end243
+  br i1 %cmp236, label %if.then566.invoke.loopexit820, label %if.end243
 
 if.end243:                                        ; preds = %if.end232
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp247) #26
@@ -8718,7 +8706,7 @@ while.body286:                                    ; preds = %while.body286.lr.ph
   %119 = load i32, ptr %117, align 4
   %call299 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull @.str.146, i32 noundef %118, i32 noundef %119) #26
   %cmp300 = icmp slt i32 %call299, 0
-  br i1 %cmp300, label %if.then566.invoke, label %if.end307
+  br i1 %cmp300, label %if.then566.invoke.loopexit819, label %if.end307
 
 if.end307:                                        ; preds = %while.body286
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp311) #26
@@ -9140,7 +9128,7 @@ if.else444:                                       ; preds = %for.body434
 if.end452:                                        ; preds = %if.else444, %if.then436
   %ret.0 = phi i32 [ %call443, %if.then436 ], [ %call451, %if.else444 ]
   %cmp453 = icmp slt i32 %ret.0, 0
-  br i1 %cmp453, label %if.then566.invoke, label %if.end460
+  br i1 %cmp453, label %if.then566.invoke.loopexit816, label %if.end460
 
 if.end460:                                        ; preds = %if.end452
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp464) #26
@@ -9516,7 +9504,7 @@ if.end553.us:                                     ; preds = %invoke.cont550.us, 
   %.str.149..str.142 = select i1 %cmp555.us, ptr @.str.149, ptr @.str.142
   %call559.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull %.str.149..str.142, i32 noundef %v.0.us) #26
   %cmp565.us = icmp slt i32 %call559.us, 0
-  br i1 %cmp565.us, label %if.then566.invoke, label %if.end572.us
+  br i1 %cmp565.us, label %if.then566.invoke.loopexit, label %if.end572.us
 
 if.end572.us:                                     ; preds = %if.end553.us
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp576) #26
@@ -9633,11 +9621,41 @@ for.cond524.preheader.lr.ph.split:                ; preds = %for.cond524.prehead
   store i32 %conv, ptr %i520, align 4
   br label %if.end604
 
-if.then566.invoke:                                ; preds = %while.end, %if.end232, %while.body286, %while.body, %if.end452, %if.end553.us
-  %ref.tmp78.sink807.sroa.phi = phi ptr [ %ref.tmp78.sink807.sroa.gep, %if.end553.us ], [ %ref.tmp78.sink807.sroa.gep827, %if.end452 ], [ %ref.tmp78.sink807.sroa.gep828, %while.body ], [ %ref.tmp78.sink807.sroa.gep829, %while.body286 ], [ %ref.tmp78.sink807.sroa.gep830, %if.end232 ], [ %ref.tmp78.sink807.sroa.gep831, %while.end ]
-  %ref.tmp78.sink807 = phi ptr [ %ref.tmp567, %if.end553.us ], [ %ref.tmp455, %if.end452 ], [ %ref.tmp78, %while.body ], [ %ref.tmp302, %while.body286 ], [ %ref.tmp238, %if.end232 ], [ %ref.tmp112, %while.end ]
-  %ref.tmp80.sink806.sroa.phi = phi ptr [ %ref.tmp80.sink806.sroa.gep, %if.end553.us ], [ %ref.tmp80.sink806.sroa.gep822, %if.end452 ], [ %ref.tmp80.sink806.sroa.gep823, %while.body ], [ %ref.tmp80.sink806.sroa.gep824, %while.body286 ], [ %ref.tmp80.sink806.sroa.gep825, %if.end232 ], [ %ref.tmp80.sink806.sroa.gep826, %while.end ]
-  %ref.tmp80.sink806 = phi ptr [ %ref.tmp569, %if.end553.us ], [ %ref.tmp457, %if.end452 ], [ %ref.tmp80, %while.body ], [ %ref.tmp304, %while.body286 ], [ %ref.tmp240, %if.end232 ], [ %ref.tmp114, %while.end ]
+if.then566.invoke.loopexit:                       ; preds = %if.end553.us
+  %ref.tmp80.sink806.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp569, i64 8
+  %ref.tmp78.sink807.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp567, i64 8
+  br label %if.then566.invoke
+
+if.then566.invoke.loopexit816:                    ; preds = %if.end452
+  %ref.tmp80.sink806.sroa.gep822 = getelementptr inbounds nuw i8, ptr %ref.tmp457, i64 8
+  %ref.tmp78.sink807.sroa.gep827 = getelementptr inbounds nuw i8, ptr %ref.tmp455, i64 8
+  br label %if.then566.invoke
+
+if.then566.invoke.loopexit818:                    ; preds = %while.body
+  %ref.tmp80.sink806.sroa.gep823 = getelementptr inbounds nuw i8, ptr %ref.tmp80, i64 8
+  %ref.tmp78.sink807.sroa.gep828 = getelementptr inbounds nuw i8, ptr %ref.tmp78, i64 8
+  br label %if.then566.invoke
+
+if.then566.invoke.loopexit819:                    ; preds = %while.body286
+  %ref.tmp80.sink806.sroa.gep824 = getelementptr inbounds nuw i8, ptr %ref.tmp304, i64 8
+  %ref.tmp78.sink807.sroa.gep829 = getelementptr inbounds nuw i8, ptr %ref.tmp302, i64 8
+  br label %if.then566.invoke
+
+if.then566.invoke.loopexit820:                    ; preds = %if.end232
+  %ref.tmp80.sink806.sroa.gep825 = getelementptr inbounds nuw i8, ptr %ref.tmp240, i64 8
+  %ref.tmp78.sink807.sroa.gep830 = getelementptr inbounds nuw i8, ptr %ref.tmp238, i64 8
+  br label %if.then566.invoke
+
+if.then566.invoke.loopexit821:                    ; preds = %while.end
+  %ref.tmp80.sink806.sroa.gep826 = getelementptr inbounds nuw i8, ptr %ref.tmp114, i64 8
+  %ref.tmp78.sink807.sroa.gep831 = getelementptr inbounds nuw i8, ptr %ref.tmp112, i64 8
+  br label %if.then566.invoke
+
+if.then566.invoke:                                ; preds = %if.then566.invoke.loopexit821, %if.then566.invoke.loopexit820, %if.then566.invoke.loopexit819, %if.then566.invoke.loopexit818, %if.then566.invoke.loopexit816, %if.then566.invoke.loopexit
+  %ref.tmp78.sink807.sroa.phi = phi ptr [ %ref.tmp78.sink807.sroa.gep, %if.then566.invoke.loopexit ], [ %ref.tmp78.sink807.sroa.gep827, %if.then566.invoke.loopexit816 ], [ %ref.tmp78.sink807.sroa.gep828, %if.then566.invoke.loopexit818 ], [ %ref.tmp78.sink807.sroa.gep829, %if.then566.invoke.loopexit819 ], [ %ref.tmp78.sink807.sroa.gep830, %if.then566.invoke.loopexit820 ], [ %ref.tmp78.sink807.sroa.gep831, %if.then566.invoke.loopexit821 ]
+  %ref.tmp78.sink807 = phi ptr [ %ref.tmp567, %if.then566.invoke.loopexit ], [ %ref.tmp455, %if.then566.invoke.loopexit816 ], [ %ref.tmp78, %if.then566.invoke.loopexit818 ], [ %ref.tmp302, %if.then566.invoke.loopexit819 ], [ %ref.tmp238, %if.then566.invoke.loopexit820 ], [ %ref.tmp112, %if.then566.invoke.loopexit821 ]
+  %ref.tmp80.sink806.sroa.phi = phi ptr [ %ref.tmp80.sink806.sroa.gep, %if.then566.invoke.loopexit ], [ %ref.tmp80.sink806.sroa.gep822, %if.then566.invoke.loopexit816 ], [ %ref.tmp80.sink806.sroa.gep823, %if.then566.invoke.loopexit818 ], [ %ref.tmp80.sink806.sroa.gep824, %if.then566.invoke.loopexit819 ], [ %ref.tmp80.sink806.sroa.gep825, %if.then566.invoke.loopexit820 ], [ %ref.tmp80.sink806.sroa.gep826, %if.then566.invoke.loopexit821 ]
+  %ref.tmp80.sink806 = phi ptr [ %ref.tmp569, %if.then566.invoke.loopexit ], [ %ref.tmp457, %if.then566.invoke.loopexit816 ], [ %ref.tmp80, %if.then566.invoke.loopexit818 ], [ %ref.tmp304, %if.then566.invoke.loopexit819 ], [ %ref.tmp240, %if.then566.invoke.loopexit820 ], [ %ref.tmp114, %if.then566.invoke.loopexit821 ]
   store ptr @.str.129, ptr %ref.tmp78.sink807, align 8
   store i64 24, ptr %ref.tmp78.sink807.sroa.phi, align 8
   store ptr @.str, ptr %ref.tmp80.sink806, align 8

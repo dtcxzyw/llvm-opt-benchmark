@@ -4707,20 +4707,6 @@ entry:
   store i8 0, ptr %m_printdtr.i.i, align 1
   %m_starttime.i.i = getelementptr inbounds nuw i8, ptr %logtimer, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_starttime.i.i, i8 0, i64 24, i1 false)
-  %cond-lvalue.i.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4
-  %cond-lvalue.i.sroa.gep213 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 4
-  %cond-lvalue.i.sroa.gep215 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
-  %cond-lvalue.i.sroa.gep216 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
-  %cond-lvalue.i.sroa.gep218 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12
-  %cond-lvalue.i.sroa.gep219 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 12
-  %cond-lvalue.i.sroa.gep221 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 16
-  %cond-lvalue.i.sroa.gep222 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
-  %cond-lvalue.i.sroa.gep224 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 20
-  %cond-lvalue.i.sroa.gep225 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 20
-  %cond-lvalue.i.sroa.gep227 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 24
-  %cond-lvalue.i.sroa.gep228 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 24
-  %cond-lvalue.i.sroa.gep230 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 28
-  %cond-lvalue.i.sroa.gep231 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 28
   br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, label %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
@@ -4786,11 +4772,25 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 invoke.cont7:                                     ; preds = %invoke.cont5
   %6 = load i32, ptr %ref.tmp1, align 4, !noalias !19
   %cmp.i.not.i = icmp eq i32 %6, -2147483648
+  %cond-lvalue.i.sroa.gep213 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 4
+  %cond-lvalue.i.sroa.gep216 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
+  %cond-lvalue.i.sroa.gep219 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 12
+  %cond-lvalue.i.sroa.gep222 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
+  %cond-lvalue.i.sroa.gep225 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 20
+  %cond-lvalue.i.sroa.gep228 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 24
+  %cond-lvalue.i.sroa.gep231 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 28
   br i1 %cmp.i.not.i, label %cond.false.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont7
   %7 = load i32, ptr %ref.tmp4, align 4, !noalias !19
   %cmp.i20.not.i = icmp eq i32 %7, -2147483648
+  %cond-lvalue.i.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4
+  %cond-lvalue.i.sroa.gep215 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
+  %cond-lvalue.i.sroa.gep218 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12
+  %cond-lvalue.i.sroa.gep221 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 16
+  %cond-lvalue.i.sroa.gep224 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 20
+  %cond-lvalue.i.sroa.gep227 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 24
+  %cond-lvalue.i.sroa.gep230 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 28
   br i1 %cmp.i20.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
@@ -28762,20 +28762,6 @@ entry:
   store i8 0, ptr %m_printdtr.i.i, align 1
   %m_starttime.i.i = getelementptr inbounds nuw i8, ptr %logtimer, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_starttime.i.i, i8 0, i64 24, i1 false)
-  %cond-lvalue.i.sroa.gep = getelementptr inbounds nuw i8, ptr %roi, i64 4
-  %cond-lvalue.i.sroa.gep407 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4
-  %cond-lvalue.i.sroa.gep409 = getelementptr inbounds nuw i8, ptr %roi, i64 8
-  %cond-lvalue.i.sroa.gep410 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
-  %cond-lvalue.i.sroa.gep412 = getelementptr inbounds nuw i8, ptr %roi, i64 12
-  %cond-lvalue.i.sroa.gep413 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12
-  %cond-lvalue.i.sroa.gep415 = getelementptr inbounds nuw i8, ptr %roi, i64 16
-  %cond-lvalue.i.sroa.gep416 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 16
-  %cond-lvalue.i.sroa.gep418 = getelementptr inbounds nuw i8, ptr %roi, i64 20
-  %cond-lvalue.i.sroa.gep419 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 20
-  %cond-lvalue.i.sroa.gep421 = getelementptr inbounds nuw i8, ptr %roi, i64 24
-  %cond-lvalue.i.sroa.gep422 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 24
-  %cond-lvalue.i.sroa.gep424 = getelementptr inbounds nuw i8, ptr %roi, i64 28
-  %cond-lvalue.i.sroa.gep425 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 28
   br i1 %tobool.not.i, label %_ZN18OpenImageIO_v2_6_05TimerC2Eb.exit.i, label %_ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i
 
 _ZN18OpenImageIO_v2_6_05Timer5startEv.exit.i.i:   ; preds = %entry
@@ -28822,11 +28808,25 @@ _ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_trai
 invoke.cont:                                      ; preds = %_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit
   %5 = load i32, ptr %roi, align 8, !noalias !155
   %cmp.i.not.i = icmp eq i32 %5, -2147483648
+  %cond-lvalue.i.sroa.gep407 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 4
+  %cond-lvalue.i.sroa.gep410 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
+  %cond-lvalue.i.sroa.gep413 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 12
+  %cond-lvalue.i.sroa.gep416 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 16
+  %cond-lvalue.i.sroa.gep419 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 20
+  %cond-lvalue.i.sroa.gep422 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 24
+  %cond-lvalue.i.sroa.gep425 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 28
   br i1 %cmp.i.not.i, label %cond.false.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont
   %6 = load i32, ptr %ref.tmp1, align 4, !noalias !155
   %cmp.i20.not.i = icmp eq i32 %6, -2147483648
+  %cond-lvalue.i.sroa.gep = getelementptr inbounds nuw i8, ptr %roi, i64 4
+  %cond-lvalue.i.sroa.gep409 = getelementptr inbounds nuw i8, ptr %roi, i64 8
+  %cond-lvalue.i.sroa.gep412 = getelementptr inbounds nuw i8, ptr %roi, i64 12
+  %cond-lvalue.i.sroa.gep415 = getelementptr inbounds nuw i8, ptr %roi, i64 16
+  %cond-lvalue.i.sroa.gep418 = getelementptr inbounds nuw i8, ptr %roi, i64 20
+  %cond-lvalue.i.sroa.gep421 = getelementptr inbounds nuw i8, ptr %roi, i64 24
+  %cond-lvalue.i.sroa.gep424 = getelementptr inbounds nuw i8, ptr %roi, i64 28
   br i1 %cmp.i20.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
@@ -28883,13 +28883,20 @@ _ZN18OpenImageIO_v2_6_016roi_intersectionERKNS_3ROIES2_.exit: ; preds = %cond.tr
   %ref.tmp.sroa.8.0 = phi i32 [ %ref.tmp.sroa.8.0.copyload305, %cond.false.i ], [ %25, %cond.true.i ]
   %ref.tmp.sroa.9.0 = phi i32 [ %ref.tmp.sroa.9.0.copyload306, %cond.false.i ], [ %28, %cond.true.i ]
   store i32 %agg.tmp3.sroa.0.0.copyload, ptr %roi, align 8
-  store i32 %agg.tmp3.sroa.2.0.copyload, ptr %cond-lvalue.i.sroa.gep, align 4
-  store i32 %agg.tmp3.sroa.3.0.copyload, ptr %cond-lvalue.i.sroa.gep409, align 8
-  store i32 %agg.tmp3.sroa.4.0.copyload, ptr %cond-lvalue.i.sroa.gep412, align 4
-  store i32 %agg.tmp3.sroa.5.0.copyload, ptr %cond-lvalue.i.sroa.gep415, align 8
-  store i32 %agg.tmp3.sroa.6.0.copyload, ptr %cond-lvalue.i.sroa.gep418, align 4
-  store i32 %ref.tmp.sroa.8.0, ptr %cond-lvalue.i.sroa.gep421, align 8
-  store i32 %ref.tmp.sroa.9.0, ptr %cond-lvalue.i.sroa.gep424, align 4
+  %ref.tmp.sroa.3.0.roi.sroa_idx = getelementptr inbounds nuw i8, ptr %roi, i64 4
+  store i32 %agg.tmp3.sroa.2.0.copyload, ptr %ref.tmp.sroa.3.0.roi.sroa_idx, align 4
+  %ref.tmp.sroa.4.0.roi.sroa_idx = getelementptr inbounds nuw i8, ptr %roi, i64 8
+  store i32 %agg.tmp3.sroa.3.0.copyload, ptr %ref.tmp.sroa.4.0.roi.sroa_idx, align 8
+  %ref.tmp.sroa.5.0.roi.sroa_idx = getelementptr inbounds nuw i8, ptr %roi, i64 12
+  store i32 %agg.tmp3.sroa.4.0.copyload, ptr %ref.tmp.sroa.5.0.roi.sroa_idx, align 4
+  %ref.tmp.sroa.6.0.roi.sroa_idx = getelementptr inbounds nuw i8, ptr %roi, i64 16
+  store i32 %agg.tmp3.sroa.5.0.copyload, ptr %ref.tmp.sroa.6.0.roi.sroa_idx, align 8
+  %ref.tmp.sroa.7.0.roi.sroa_idx = getelementptr inbounds nuw i8, ptr %roi, i64 20
+  store i32 %agg.tmp3.sroa.6.0.copyload, ptr %ref.tmp.sroa.7.0.roi.sroa_idx, align 4
+  %ref.tmp.sroa.8.0.roi.sroa_idx = getelementptr inbounds nuw i8, ptr %roi, i64 24
+  store i32 %ref.tmp.sroa.8.0, ptr %ref.tmp.sroa.8.0.roi.sroa_idx, align 8
+  %ref.tmp.sroa.9.0.roi.sroa_idx = getelementptr inbounds nuw i8, ptr %roi, i64 28
+  store i32 %ref.tmp.sroa.9.0, ptr %ref.tmp.sroa.9.0.roi.sroa_idx, align 4
   %call = invoke noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_08ImageBuf4deepEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp
 
@@ -29119,7 +29126,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2256)
   store i64 %54, ptr %agg.tmp2256, align 8
   store i32 %sub.us, ptr %agg.tmp22.sroa.2.0.agg.tmp2256.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp22.sroa.3.0.agg.tmp2256.sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %cond-lvalue.i.sroa.gep412, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp22.sroa.3.0.agg.tmp2256.sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp.sroa.5.0.roi.sroa_idx, i64 20, i1 false)
   br i1 %cmp.i.not.i57.us, label %cond.false.i61.us, label %cond.true.i58.us
 
 cond.true.i58.us:                                 ; preds = %for.body.us
@@ -29164,7 +29171,7 @@ for.inc.i.i.i.i.i.i.us:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.us, label %for.inc.us, label %for.body.i.i.i.i.i.i.us, !llvm.loop !164
 
 for.inc.us:                                       ; preds = %for.inc.i.i.i.i.i.i.us, %lor.lhs.false.us
-  store i32 %sub.us, ptr %cond-lvalue.i.sroa.gep412, align 4
+  store i32 %sub.us, ptr %ref.tmp.sroa.5.0.roi.sroa_idx, align 4
   %cmp.us = icmp slt i32 %agg.tmp3.sroa.3.0.copyload, %sub.us
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !165
 
@@ -29178,7 +29185,7 @@ for.body:                                         ; preds = %for.body.lr.ph
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2256)
   store i64 %54, ptr %agg.tmp2256, align 8
   store i32 %sub, ptr %agg.tmp22.sroa.2.0.agg.tmp2256.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp22.sroa.3.0.agg.tmp2256.sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %cond-lvalue.i.sroa.gep412, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp22.sroa.3.0.agg.tmp2256.sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp.sroa.5.0.roi.sroa_idx, i64 20, i1 false)
   %cmp.i.not.i57 = icmp eq i32 %57, -2147483648
   br i1 %cmp.i.not.i57, label %cond.false.i61, label %cond.true.i58
 
@@ -29234,6 +29241,12 @@ lpad23.loopexit.split-lp.loopexit.split:          ; preds = %cond.end.i185, %con
 lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split: ; preds = %cond.true.i143, %cond.false.i150, %cond.end.i146
   %lpad.loopexit324 = landingpad { ptr, i32 }
           cleanup
+  br label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit
+
+lpad23.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split
+  %.us-phi368 = phi i32 [ %.pr, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %add78361365.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ]
+  %.us-phi369 = phi { ptr, i32 } [ %lpad.loopexit324, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit324.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ]
+  store i32 %.us-phi368, ptr %roi, align 8
   br label %lpad23
 
 lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split: ; preds = %cond.end.i109, %cond.false.i113, %cond.true.i106
@@ -29251,8 +29264,8 @@ lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
           cleanup
   br label %lpad23
 
-lpad23:                                           ; preds = %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split, %lpad23.loopexit.split.us
-  %lpad.phi318 = phi { ptr, i32 } [ %lpad.loopexit316, %lpad23.loopexit.split ], [ %lpad.loopexit316.us, %lpad23.loopexit.split.us ], [ %lpad.loopexit320, %lpad23.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit320.us, %lpad23.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit328, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit328.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit332, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit332.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp333, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split ], [ %lpad.loopexit.split-lp333.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us ], [ %lpad.loopexit324, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit324.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ]
+lpad23:                                           ; preds = %lpad23.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad23.loopexit.split, %lpad23.loopexit.split.us
+  %lpad.phi318 = phi { ptr, i32 } [ %lpad.loopexit316, %lpad23.loopexit.split ], [ %lpad.loopexit316.us, %lpad23.loopexit.split.us ], [ %lpad.loopexit320, %lpad23.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit320.us, %lpad23.loopexit.split-lp.loopexit.split.us ], [ %.us-phi369, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit328, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit328.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit332, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit332.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit.split-lp333, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split ], [ %lpad.loopexit.split-lp333.us, %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.split.us ]
   %tobool.not.i.i.i = icmp eq ptr %color.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
 
@@ -29288,7 +29301,7 @@ for.body35.us:                                    ; preds = %for.body35.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4067)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp4067, ptr noundef nonnull align 8 dereferenceable(12) %roi, i64 12, i1 false)
   store i32 %add.us, ptr %agg.tmp40.sroa.2.0.agg.tmp4067.sroa_idx, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.sroa.3.0.agg.tmp4067.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.sroa.gep415, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.sroa.3.0.agg.tmp4067.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.6.0.roi.sroa_idx, i64 16, i1 false)
   %69 = load i32, ptr %agg.tmp4067, align 8
   %cmp.i.not.i68.us = icmp eq i32 %69, -2147483648
   br i1 %cmp.i.not.i68.us, label %cond.false.i76.us, label %cond.true.i69.us
@@ -29335,7 +29348,7 @@ for.inc.i.i.i.i.i.i99.us:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i102.us, label %for.inc48.us, label %for.body.i.i.i.i.i.i95.us, !llvm.loop !164
 
 for.inc48.us:                                     ; preds = %for.inc.i.i.i.i.i.i99.us, %lor.lhs.false43.us
-  store i32 %add.us, ptr %cond-lvalue.i.sroa.gep409, align 8
+  store i32 %add.us, ptr %ref.tmp.sroa.4.0.roi.sroa_idx, align 8
   %exitcond.not = icmp eq i32 %add.us, %68
   br i1 %exitcond.not, label %for.end50, label %for.body35.us, !llvm.loop !166
 
@@ -29349,7 +29362,7 @@ for.body35:                                       ; preds = %for.body35.lr.ph
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp4067)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp4067, ptr noundef nonnull align 8 dereferenceable(12) %roi, i64 12, i1 false)
   store i32 %add, ptr %agg.tmp40.sroa.2.0.agg.tmp4067.sroa_idx, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.sroa.3.0.agg.tmp4067.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.sroa.gep415, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp40.sroa.3.0.agg.tmp4067.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.6.0.roi.sroa_idx, i64 16, i1 false)
   %74 = load i32, ptr %agg.tmp4067, align 8
   %cmp.i.not.i68 = icmp eq i32 %74, -2147483648
   br i1 %cmp.i.not.i68, label %cond.false.i76, label %cond.true.i69
@@ -29401,7 +29414,7 @@ for.body53.us:                                    ; preds = %for.body53.lr.ph, %
   %sub56.us = add nsw i32 %sub56352354.us, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp59104)
   store i32 %sub56.us, ptr %agg.tmp59104, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp59.sroa.2.0.agg.tmp59104.sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %cond-lvalue.i.sroa.gep, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp59.sroa.2.0.agg.tmp59104.sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp.sroa.3.0.roi.sroa_idx, i64 28, i1 false)
   %cmp.i.not.i105.us = icmp eq i32 %sub56.us, -2147483648
   br i1 %cmp.i.not.i105.us, label %cond.false.i113.us, label %cond.true.i106.us
 
@@ -29447,7 +29460,7 @@ for.inc.i.i.i.i.i.i136.us:                        ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i139.us, label %for.inc67.us, label %for.body.i.i.i.i.i.i132.us, !llvm.loop !164
 
 for.inc67.us:                                     ; preds = %for.inc.i.i.i.i.i.i136.us, %lor.lhs.false62.us
-  store i32 %sub56.us, ptr %cond-lvalue.i.sroa.gep, align 4
+  store i32 %sub56.us, ptr %ref.tmp.sroa.3.0.roi.sroa_idx, align 4
   %cmp52.us = icmp slt i32 %agg.tmp3.sroa.0.0.copyload, %sub56.us
   br i1 %cmp52.us, label %for.body53.us, label %for.end70, !llvm.loop !167
 
@@ -29460,7 +29473,7 @@ for.body53:                                       ; preds = %for.body53.lr.ph
   %sub56 = add nsw i32 %ref.tmp.sroa.3.0.roi.sroa_idx.promoted, -1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp59104)
   store i32 %sub56, ptr %agg.tmp59104, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp59.sroa.2.0.agg.tmp59104.sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %cond-lvalue.i.sroa.gep, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.tmp59.sroa.2.0.agg.tmp59104.sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp.sroa.3.0.roi.sroa_idx, i64 28, i1 false)
   %cmp.i.not.i105 = icmp eq i32 %sub56, -2147483648
   br i1 %cmp.i.not.i105, label %cond.false.i113, label %cond.true.i106
 
@@ -29514,7 +29527,7 @@ for.body75.us:                                    ; preds = %for.body75.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp81141)
   store i32 %add78361365.us, ptr %agg.tmp81141, align 8
   store i32 %add78.us, ptr %agg.tmp81.sroa.2.0.agg.tmp81141.sroa_idx, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp81.sroa.3.0.agg.tmp81141.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i.sroa.gep409, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp81.sroa.3.0.agg.tmp81141.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.0.roi.sroa_idx, i64 24, i1 false)
   %cmp.i.not.i142.us = icmp eq i32 %add78361365.us, -2147483648
   br i1 %cmp.i.not.i142.us, label %cond.false.i150.us, label %cond.true.i143.us
 
@@ -29566,14 +29579,14 @@ for.inc89.us:                                     ; preds = %for.inc.i.i.i.i.i.i
 lpad23.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %cond.end.i146.us, %cond.false.i150.us, %cond.true.i143.us
   %lpad.loopexit324.us = landingpad { ptr, i32 }
           cleanup
-  br label %lpad23
+  br label %lpad23.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.body75:                                       ; preds = %for.body75.lr.ph
   %add78 = add nsw i32 %.pr, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp81141)
   store i32 %.pr, ptr %agg.tmp81141, align 8
   store i32 %add78, ptr %agg.tmp81.sroa.2.0.agg.tmp81141.sroa_idx, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp81.sroa.3.0.agg.tmp81141.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i.sroa.gep409, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp81.sroa.3.0.agg.tmp81141.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.4.0.roi.sroa_idx, i64 24, i1 false)
   %cmp.i.not.i142 = icmp eq i32 %.pr, -2147483648
   br i1 %cmp.i.not.i142, label %cond.false.i150, label %cond.true.i143
 
@@ -29633,7 +29646,7 @@ for.body98.us:                                    ; preds = %for.body98.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp104180)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp104180, ptr noundef nonnull align 8 dereferenceable(16) %roi, i64 16, i1 false)
   store i32 %sub101.us, ptr %agg.tmp104.sroa.2.0.agg.tmp104180.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.tmp104.sroa.3.0.agg.tmp104180.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %cond-lvalue.i.sroa.gep418, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.tmp104.sroa.3.0.agg.tmp104180.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.sroa.7.0.roi.sroa_idx, i64 12, i1 false)
   %90 = load i32, ptr %agg.tmp104180, align 8
   %cmp.i.not.i181.us = icmp eq i32 %90, -2147483648
   br i1 %cmp.i.not.i181.us, label %cond.false.i189.us, label %cond.true.i182.us
@@ -29680,7 +29693,7 @@ for.inc.i.i.i.i.i.i212.us:                        ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i215.us, label %for.inc112.us, label %for.body.i.i.i.i.i.i208.us, !llvm.loop !164
 
 for.inc112.us:                                    ; preds = %for.inc.i.i.i.i.i.i212.us, %lor.lhs.false107.us
-  store i32 %sub101.us, ptr %cond-lvalue.i.sroa.gep418, align 4
+  store i32 %sub101.us, ptr %ref.tmp.sroa.7.0.roi.sroa_idx, align 4
   %cmp97.us = icmp slt i32 %agg.tmp3.sroa.5.0.copyload, %sub101.us
   br i1 %cmp97.us, label %for.body98.us, label %for.end115, !llvm.loop !169
 
@@ -29694,7 +29707,7 @@ for.body98:                                       ; preds = %for.body98.lr.ph
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp104180)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp104180, ptr noundef nonnull align 8 dereferenceable(16) %roi, i64 16, i1 false)
   store i32 %sub101, ptr %agg.tmp104.sroa.2.0.agg.tmp104180.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.tmp104.sroa.3.0.agg.tmp104180.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %cond-lvalue.i.sroa.gep418, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.tmp104.sroa.3.0.agg.tmp104180.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.sroa.7.0.roi.sroa_idx, i64 12, i1 false)
   %95 = load i32, ptr %agg.tmp104180, align 8
   %cmp.i.not.i181 = icmp eq i32 %95, -2147483648
   br i1 %cmp.i.not.i181, label %cond.false.i189, label %cond.true.i182
@@ -29729,7 +29742,7 @@ for.end115:                                       ; preds = %for.inc112.us, %inv
   br i1 %cmp119385, label %for.body120.lr.ph, label %if.end138
 
 for.body120.lr.ph:                                ; preds = %for.end115
-  %99 = load i64, ptr %cond-lvalue.i.sroa.gep421, align 8
+  %99 = load i64, ptr %ref.tmp.sroa.8.0.roi.sroa_idx, align 8
   %agg.tmp126.sroa.2.0.agg.tmp126217.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp126217, i64 20
   %agg.tmp126.sroa.3.0.agg.tmp126217.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp126217, i64 24
   %tobool.not.i224 = icmp eq ptr %color.sroa.0.0, null
@@ -29800,7 +29813,7 @@ for.inc.i.i.i.i.i.i249.us:                        ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i252.us, label %for.inc134.us, label %for.body.i.i.i.i.i.i245.us, !llvm.loop !164
 
 for.inc134.us:                                    ; preds = %for.inc.i.i.i.i.i.i249.us, %lor.lhs.false129.us
-  store i32 %add123.us, ptr %cond-lvalue.i.sroa.gep415, align 8
+  store i32 %add123.us, ptr %ref.tmp.sroa.6.0.roi.sroa_idx, align 8
   %exitcond406.not = icmp eq i32 %add123.us, %98
   br i1 %exitcond406.not, label %if.end138, label %for.body120.us, !llvm.loop !170
 

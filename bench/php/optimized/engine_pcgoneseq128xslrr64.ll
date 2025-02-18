@@ -130,16 +130,19 @@ define internal noundef zeroext i1 @unserialize(ptr noundef writeonly captures(n
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !12
   %.not = icmp eq i32 %5, 2
+  br i1 %.not, label %.preheader.preheader, label %.loopexit
+
+.preheader.preheader:                             ; preds = %2
   %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %.not, label %.preheader, label %.loopexit
+  br label %.preheader
 
 6:                                                ; preds = %15
   br i1 %.not20, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %2, %6
-  %.not20 = phi i1 [ false, %6 ], [ true, %2 ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %6 ], [ %3, %2 ]
-  %indvars.iv = phi i64 [ 1, %6 ], [ 0, %2 ]
+.preheader:                                       ; preds = %.preheader.preheader, %6
+  %.not20 = phi i1 [ false, %6 ], [ true, %.preheader.preheader ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %6 ], [ %3, %.preheader.preheader ]
+  %indvars.iv = phi i64 [ 1, %6 ], [ 0, %.preheader.preheader ]
   %7 = call ptr @zend_hash_index_find(ptr noundef %1, i64 noundef %indvars.iv) #8
   %.not16 = icmp eq ptr %7, null
   br i1 %.not16, label %.loopexit, label %8

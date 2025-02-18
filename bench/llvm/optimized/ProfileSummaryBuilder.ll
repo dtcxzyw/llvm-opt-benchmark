@@ -1973,96 +1973,97 @@ define dso_local void @_ZN4llvm27SampleProfileSummaryBuilder25computeSummaryForP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21UseContextLessSummaryE, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
   %12 = trunc nuw i8 %11 to i1
-  %.0.sroa.gep11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %3
   %14 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples11ProfileIsCSE, align 1, !tbaa !181, !range !48, !noundef !49
   %15 = trunc nuw i8 %14 to i1
+  %.0.sroa.gep12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21UseContextLessSummaryE, i64 8), align 8
   %.not = icmp eq i16 %16, 0
   %or.cond = select i1 %15, i1 %.not, i1 false
   br i1 %or.cond, label %17, label %_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit
 
 17:                                               ; preds = %13, %3
-  %.sroa.016.024.i = load ptr, ptr %.0.sroa.gep11, align 8, !tbaa !182
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.016.024.i = load ptr, ptr %18, align 8, !tbaa !182
   %.not1925.i = icmp eq ptr %.sroa.016.024.i, null
   br i1 %.not1925.i, label %_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit, label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %17
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %19
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %20
 
-19:                                               ; preds = %19, %.lr.ph27.i
-  %.sroa.016.026.i = phi ptr [ %.sroa.016.024.i, %.lr.ph27.i ], [ %.sroa.016.0.i, %19 ]
+20:                                               ; preds = %20, %.lr.ph27.i
+  %.sroa.016.026.i = phi ptr [ %.sroa.016.024.i, %.lr.ph27.i ], [ %.sroa.016.0.i, %20 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #19
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.016.026.i, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.016.026.i, i64 32
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %21, align 8, !tbaa !46
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.016.026.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.016.026.i, i64 32
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %22, align 8, !tbaa !46
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.016.026.i, i64 40
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !47
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %4, align 8, !tbaa !46
   store i64 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !47
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  %22 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm10sampleprof16SampleProfileMap6createERKNS0_13SampleContextE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  %23 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm10sampleprof16SampleProfileMap6createERKNS0_13SampleContextE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #19
-  %23 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples5mergeERKS1_m(ptr noundef nonnull align 8 dereferenceable(176) %22, ptr noundef nonnull align 8 dereferenceable(176) %20, i64 noundef 1)
+  %24 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples5mergeERKS1_m(ptr noundef nonnull align 8 dereferenceable(176) %23, ptr noundef nonnull align 8 dereferenceable(176) %21, i64 noundef 1)
   %.sroa.016.0.i = load ptr, ptr %.sroa.016.026.i, align 8, !tbaa !182
   %.not19.i = icmp eq ptr %.sroa.016.0.i, null
-  br i1 %.not19.i, label %_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit, label %19
+  br i1 %.not19.i, label %_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit, label %20
 
-_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit: ; preds = %19, %17, %13
-  %.0.sroa.phi = phi ptr [ %.0.sroa.gep11, %13 ], [ %8, %17 ], [ %8, %19 ]
+_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit: ; preds = %20, %17, %13
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep12, %13 ], [ %8, %17 ], [ %8, %20 ]
   %.sroa.08.015 = load ptr, ptr %.0.sroa.phi, align 8, !tbaa !182
   %.not1416 = icmp eq ptr %.sroa.08.015, null
   br i1 %.not1416, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit
   call void @_ZN4llvm27SampleProfileSummaryBuilder10getSummaryEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.91") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1)
-  %24 = load ptr, ptr %8, align 8, !tbaa !183
-  %.not5.i.i.i.i = icmp eq ptr %24, null
+  %25 = load ptr, ptr %8, align 8, !tbaa !183
+  %.not5.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i ], [ %24, %._crit_edge ]
-  %25 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !182
-  %26 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 136
-  %27 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 152
-  %28 = load ptr, ptr %27, align 8, !tbaa !184
-  call void @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_St3mapINS1_10FunctionIdENS1_15FunctionSamplesESt4lessIS6_ESaIS3_IKS6_S7_EEEESt10_Select1stISE_ES8_IS2_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef %28)
-  %29 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 88
-  %30 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 104
-  %31 = load ptr, ptr %30, align 8, !tbaa !184
-  call void @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef %31)
+  %.06.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i ], [ %25, %._crit_edge ]
+  %26 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !182
+  %27 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 152
+  %29 = load ptr, ptr %28, align 8, !tbaa !184
+  call void @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_St3mapINS1_10FunctionIdENS1_15FunctionSamplesESt4lessIS6_ESaIS3_IKS6_S7_EEEESt10_Select1stISE_ES8_IS2_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %29)
+  %30 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 104
+  %32 = load ptr, ptr %31, align 8, !tbaa !184
+  call void @_ZNSt8_Rb_treeIN4llvm10sampleprof12LineLocationESt4pairIKS2_NS1_12SampleRecordEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef %32)
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 200) #22
-  %.not.i.i.i.i = icmp eq ptr %25, null
+  %.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !185
 
 _ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge
-  %32 = load ptr, ptr %5, align 8, !tbaa !177
-  %33 = load i64, ptr %7, align 8, !tbaa !179
-  %34 = shl i64 %33, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %34, i1 false)
+  %33 = load ptr, ptr %5, align 8, !tbaa !177
+  %34 = load i64, ptr %7, align 8, !tbaa !179
+  %35 = shl i64 %34, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %33, i8 0, i64 %35, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %35 = load ptr, ptr %5, align 8, !tbaa !177
-  %36 = icmp eq ptr %35, %6
-  br i1 %36, label %_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit, label %37
+  %36 = load ptr, ptr %5, align 8, !tbaa !177
+  %37 = icmp eq ptr %36, %6
+  br i1 %37, label %_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit, label %38
 
-37:                                               ; preds = %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  %38 = load i64, ptr %7, align 8, !tbaa !179
-  %39 = shl i64 %38, 3
-  call void @_ZdlPvm(ptr noundef %35, i64 noundef %39) #22
+38:                                               ; preds = %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
+  %39 = load i64, ptr %7, align 8, !tbaa !179
+  %40 = shl i64 %39, 3
+  call void @_ZdlPvm(ptr noundef %36, i64 noundef %40) #22
   br label %_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit
 
-_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %37
+_ZNSt13unordered_mapIN4llvm9hash_codeENS0_10sampleprof15FunctionSamplesESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN4llvm9hash_codeESt4pairIKS1_NS0_10sampleprof15FunctionSamplesEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %38
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #19
   ret void
 
 .lr.ph:                                           ; preds = %_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit, %.lr.ph
   %.sroa.08.017 = phi ptr [ %.sroa.08.0, %.lr.ph ], [ %.sroa.08.015, %_ZN4llvm10sampleprof16ProfileConverter14flattenProfileERKNS0_16SampleProfileMapERS2_b.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.08.017, i64 16
-  call void @_ZN4llvm27SampleProfileSummaryBuilder9addRecordERKNS_10sampleprof15FunctionSamplesEb(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(176) %40, i1 noundef zeroext false)
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.08.017, i64 16
+  call void @_ZN4llvm27SampleProfileSummaryBuilder9addRecordERKNS_10sampleprof15FunctionSamplesEb(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(176) %41, i1 noundef zeroext false)
   %.sroa.08.0 = load ptr, ptr %.sroa.08.017, align 8, !tbaa !182
   %.not14 = icmp eq ptr %.sroa.08.0, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph

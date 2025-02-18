@@ -2743,7 +2743,6 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt
   store i64 %add, ptr %m_gsz.i, align 8
   %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 0, ptr %arrayidx7.i, align 8
-  %.sink85.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit
@@ -2759,9 +2758,6 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN19O
   br i1 %exitcond.not.i2, label %for.end.i, label %for.body.i, !llvm.loop !71
 
 for.end.i:                                        ; preds = %for.body.i
-  %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 24
-  %.sink85.i.sroa.gep224.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 48
-  %.sink.i.sroa.gep225.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 56
   %sub.i3 = fadd float %.sroa.speculated.i, -2.000000e+00
   %49 = call { float, i32 } @llvm.frexp.f32.i32(float %sub.i3)
   %50 = extractvalue { float, i32 } %49, 1
@@ -3576,9 +3572,11 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit60.i.i:         ; preds = %invoke.cont.i.i57.i
 if.then.i84.i:                                    ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit60.i.i
   %arrayidx15.i.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 8
   store i64 1, ptr %arrayidx15.i.i, align 8
-  store i64 %130, ptr %.sink85.i.sroa.gep.i, align 16
+  %arrayidx18.i85.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 16
+  store i64 %130, ptr %arrayidx18.i85.i, align 16
   %add.i.i = add i64 %130, 1
-  store i64 %add.i.i, ptr %.sink.i.sroa.gep.i, align 8
+  %arrayidx21.i.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 24
+  store i64 %add.i.i, ptr %arrayidx21.i.i, align 8
   %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 32
   store i64 %mul10.i.i, ptr %arrayidx27.i.i, align 16
   %add33.i.i = add i64 %mul10.i.i, 1
@@ -3586,11 +3584,15 @@ if.then.i84.i:                                    ; preds = %_ZNSt6vectorIfSaIfE
   store i64 %add33.i.i, ptr %arrayidx34.i.i, align 8
   %133 = add i64 %131, 1
   %add42.i.i = mul i64 %133, %130
+  %.sink.sroa.gep70 = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 56
+  %.sink45.sroa.gep71 = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 48
   br label %if.end67.i.i
 
 if.then56.i.i:                                    ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit60.i.i
   %arrayidx58.i.i = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 8
   store i64 1, ptr %arrayidx58.i.i, align 8
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 24
+  %.sink45.sroa.gep = getelementptr inbounds nuw i8, ptr %cornerOffsets.i.i, i64 16
   br label %if.end67.i.i
 
 if.else66.i.i:                                    ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit60.i.i
@@ -3612,13 +3614,13 @@ lpad.i.i:                                         ; preds = %if.else66.i.i
   br label %lpad86.body.i
 
 if.end67.i.i:                                     ; preds = %if.then56.i.i, %if.then.i84.i
-  %.sink85.i.sroa.phi.i = phi ptr [ %.sink85.i.sroa.gep.i, %if.then56.i.i ], [ %.sink85.i.sroa.gep224.i, %if.then.i84.i ]
+  %.sink45.sroa.phi = phi ptr [ %.sink45.sroa.gep, %if.then56.i.i ], [ %.sink45.sroa.gep71, %if.then.i84.i ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then56.i.i ], [ %.sink.sroa.gep70, %if.then.i84.i ]
   %.sink84.i.i = phi i64 [ %131, %if.then56.i.i ], [ %add42.i.i, %if.then.i84.i ]
-  %.sink.i.sroa.phi.i = phi ptr [ %.sink.i.sroa.gep.i, %if.then56.i.i ], [ %.sink.i.sroa.gep225.i, %if.then.i84.i ]
   %corners.0.i.i = phi i64 [ 4, %if.then56.i.i ], [ 8, %if.then.i84.i ]
-  store i64 %.sink84.i.i, ptr %.sink85.i.sroa.phi.i, align 16
+  store i64 %.sink84.i.i, ptr %.sink45.sroa.phi, align 16
   %add64.i.i = add i64 %.sink84.i.i, 1
-  store i64 %add64.i.i, ptr %.sink.i.sroa.phi.i, align 8
+  store i64 %add64.i.i, ptr %.sink.sroa.phi, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %minVal.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %maxVal.i.i, i8 0, i64 16, i1 false)
   %cmp6878.not.i.i = icmp eq i64 %123, 0

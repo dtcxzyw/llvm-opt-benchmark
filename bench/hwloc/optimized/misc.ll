@@ -41,46 +41,38 @@ define hidden void @hwloc_add_uname_info(ptr noundef %0, ptr noundef %1) local_u
   %.not.not.i = icmp eq i32 %12, 0
   br i1 %.not.not.i, label %hwloc_get_info_by_name.exit, label %8
 
-hwloc_get_info_by_name.exit.thread:               ; preds = %8, %2
-  %.0.sroa.gep2556 = getelementptr inbounds nuw i8, ptr %3, i64 130
-  %.0.sroa.gep3158 = getelementptr inbounds nuw i8, ptr %3, i64 195
-  %.0.sroa.gep3760 = getelementptr inbounds nuw i8, ptr %3, i64 65
-  %.0.sroa.gep4362 = getelementptr inbounds nuw i8, ptr %3, i64 260
-  br label %15
-
 hwloc_get_info_by_name.exit:                      ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %.not = icmp eq ptr %14, null
+  br i1 %.not, label %hwloc_get_info_by_name.exit.thread, label %39
+
+hwloc_get_info_by_name.exit.thread:               ; preds = %8, %2, %hwloc_get_info_by_name.exit
+  %.not47 = icmp eq ptr %1, null
+  br i1 %.not47, label %16, label %15
+
+15:                                               ; preds = %hwloc_get_info_by_name.exit.thread
+  %.0.sroa.gep24 = getelementptr inbounds nuw i8, ptr %1, i64 130
+  %.0.sroa.gep30 = getelementptr inbounds nuw i8, ptr %1, i64 195
+  %.0.sroa.gep36 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %.0.sroa.gep42 = getelementptr inbounds nuw i8, ptr %1, i64 260
+  br label %19
+
+16:                                               ; preds = %hwloc_get_info_by_name.exit.thread
+  %17 = call i32 @uname(ptr noundef nonnull %3) #7
+  %18 = icmp slt i32 %17, 0
   %.0.sroa.gep25 = getelementptr inbounds nuw i8, ptr %3, i64 130
   %.0.sroa.gep31 = getelementptr inbounds nuw i8, ptr %3, i64 195
   %.0.sroa.gep37 = getelementptr inbounds nuw i8, ptr %3, i64 65
   %.0.sroa.gep43 = getelementptr inbounds nuw i8, ptr %3, i64 260
-  br i1 %.not, label %15, label %39
-
-15:                                               ; preds = %hwloc_get_info_by_name.exit.thread, %hwloc_get_info_by_name.exit
-  %.0.sroa.gep4370 = phi ptr [ %.0.sroa.gep4362, %hwloc_get_info_by_name.exit.thread ], [ %.0.sroa.gep43, %hwloc_get_info_by_name.exit ]
-  %.0.sroa.gep3768 = phi ptr [ %.0.sroa.gep3760, %hwloc_get_info_by_name.exit.thread ], [ %.0.sroa.gep37, %hwloc_get_info_by_name.exit ]
-  %.0.sroa.gep3166 = phi ptr [ %.0.sroa.gep3158, %hwloc_get_info_by_name.exit.thread ], [ %.0.sroa.gep31, %hwloc_get_info_by_name.exit ]
-  %.0.sroa.gep2564 = phi ptr [ %.0.sroa.gep2556, %hwloc_get_info_by_name.exit.thread ], [ %.0.sroa.gep25, %hwloc_get_info_by_name.exit ]
-  %.0.sroa.gep2463 = getelementptr inbounds nuw i8, ptr %1, i64 130
-  %.0.sroa.gep3065 = getelementptr inbounds nuw i8, ptr %1, i64 195
-  %.0.sroa.gep3667 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %.0.sroa.gep4269 = getelementptr inbounds nuw i8, ptr %1, i64 260
-  %.not47 = icmp eq ptr %1, null
-  br i1 %.not47, label %16, label %19
-
-16:                                               ; preds = %15
-  %17 = call i32 @uname(ptr noundef nonnull %3) #7
-  %18 = icmp slt i32 %17, 0
   br i1 %18, label %39, label %19
 
-19:                                               ; preds = %15, %16
-  %.0.sroa.phi20 = phi ptr [ %3, %16 ], [ %1, %15 ]
-  %.0.sroa.phi26 = phi ptr [ %.0.sroa.gep2564, %16 ], [ %.0.sroa.gep2463, %15 ]
-  %.0.sroa.phi32 = phi ptr [ %.0.sroa.gep3166, %16 ], [ %.0.sroa.gep3065, %15 ]
-  %.0.sroa.phi38 = phi ptr [ %.0.sroa.gep3768, %16 ], [ %.0.sroa.gep3667, %15 ]
-  %.0.sroa.phi44 = phi ptr [ %.0.sroa.gep4370, %16 ], [ %.0.sroa.gep4269, %15 ]
+19:                                               ; preds = %16, %15
+  %.0.sroa.phi20 = phi ptr [ %1, %15 ], [ %3, %16 ]
+  %.0.sroa.phi26 = phi ptr [ %.0.sroa.gep24, %15 ], [ %.0.sroa.gep25, %16 ]
+  %.0.sroa.phi32 = phi ptr [ %.0.sroa.gep30, %15 ], [ %.0.sroa.gep31, %16 ]
+  %.0.sroa.phi38 = phi ptr [ %.0.sroa.gep36, %15 ], [ %.0.sroa.gep37, %16 ]
+  %.0.sroa.phi44 = phi ptr [ %.0.sroa.gep42, %15 ], [ %.0.sroa.gep43, %16 ]
   %20 = load i8, ptr %.0.sroa.phi20, align 1, !tbaa !17
   %.not48 = icmp eq i8 %20, 0
   br i1 %.not48, label %23, label %21

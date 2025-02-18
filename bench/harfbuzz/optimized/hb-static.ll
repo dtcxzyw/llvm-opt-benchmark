@@ -3613,10 +3613,6 @@ entry:
   %glyphCount = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %glyphCount, align 8
   %cmp.not = icmp ult i32 %glyph, %0
-  %private_indices.shared_indices.sroa.gep = getelementptr inbounds nuw i8, ptr %private_indices, i64 8
-  %private_indices.shared_indices.sroa.gep575 = getelementptr inbounds nuw i8, ptr %shared_indices, i64 8
-  %private_indices.shared_indices.sroa.gep577 = getelementptr inbounds nuw i8, ptr %private_indices, i64 4
-  %private_indices.shared_indices.sroa.gep578 = getelementptr inbounds nuw i8, ptr %shared_indices, i64 4
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3810,6 +3806,10 @@ if.end15:                                         ; preds = %_ZN2OT18TupleVariat
   %40 = and i64 %sub, 4294967295
   %idx.ext = select i1 %phantom_only, i64 %40, i64 0
   %conv.i200 = zext i32 %conv57 to i64
+  %private_indices.shared_indices.sroa.gep575 = getelementptr inbounds nuw i8, ptr %shared_indices, i64 8
+  %private_indices.shared_indices.sroa.gep578 = getelementptr inbounds nuw i8, ptr %shared_indices, i64 4
+  %private_indices.shared_indices.sroa.gep = getelementptr inbounds nuw i8, ptr %private_indices, i64 8
+  %private_indices.shared_indices.sroa.gep577 = getelementptr inbounds nuw i8, ptr %private_indices, i64 4
   %tobool.not.i.i = icmp eq i32 %points.sroa.5.8.extract.trunc, 0
   %conv.i352 = and i64 %points.coerce1, 4294967295
   %mul.i353 = mul nuw nsw i64 %conv.i352, 12
@@ -5056,8 +5056,10 @@ cleanup419:                                       ; preds = %land.lhs.true.i.i.i
   br i1 %tobool.not.i.i532, label %return, label %if.then.i.i533
 
 if.then.i.i533:                                   ; preds = %cleanup419
-  store i32 0, ptr %private_indices.shared_indices.sroa.gep578, align 4
-  %161 = load ptr, ptr %private_indices.shared_indices.sroa.gep575, align 8
+  %length.i.i.i534 = getelementptr inbounds nuw i8, ptr %shared_indices, i64 4
+  store i32 0, ptr %length.i.i.i534, align 4
+  %arrayZ.i.i535 = getelementptr inbounds nuw i8, ptr %shared_indices, i64 8
+  %161 = load ptr, ptr %arrayZ.i.i535, align 8
   call void @free(ptr noundef %161) #13
   br label %return
 
