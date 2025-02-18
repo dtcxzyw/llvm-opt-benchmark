@@ -41,489 +41,528 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) #0 {
   %18 = alloca double, align 8
   %19 = alloca double, align 8
   %20 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store double %2, ptr %7, align 8
-  store i32 0, ptr %14, align 4
-  %21 = load ptr, ptr %5, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 117, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %316
+  %21 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !7
+  store double %2, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  store i32 0, ptr %14, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %25
 
 24:                                               ; preds = %3
-  %25 = load ptr, ptr %5, align 8
-  store ptr %25, ptr %20, align 8
-  %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds %struct.IDAMemRec, ptr %26, i32 0, i32 104
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %32
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 115, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %21, align 4
+  br label %317
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %31, i32 noundef -23, i32 noundef 128, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.2)
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %26, ptr %20, align 8, !tbaa !11
+  %27 = load ptr, ptr %20, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %27, i32 0, i32 104
+  %29 = load i32, ptr %28, align 8, !tbaa !13
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %32, i32 noundef -23, i32 noundef 126, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -23, ptr %4, align 4
-  br label %316
+  store i32 1, ptr %21, align 4
+  br label %317
 
-32:                                               ; preds = %24
-  %33 = load ptr, ptr %20, align 8
-  %34 = call i32 @IDAInitialSetup(ptr noundef %33)
-  store i32 %34, ptr %9, align 4
-  %35 = load i32, ptr %9, align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %38
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %20, align 8, !tbaa !11
+  %35 = call i32 @IDAInitialSetup(ptr noundef %34)
+  store i32 %35, ptr %9, align 4, !tbaa !7
+  %36 = load i32, ptr %9, align 4, !tbaa !7
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %32
+38:                                               ; preds = %33
   store i32 -22, ptr %4, align 4
-  br label %316
+  store i32 1, ptr %21, align 4
+  br label %317
 
-38:                                               ; preds = %32
-  %39 = load ptr, ptr %20, align 8
-  %40 = getelementptr inbounds %struct.IDAMemRec, ptr %39, i32 0, i32 100
-  store i32 1, ptr %40, align 8
-  %41 = load i32, ptr %6, align 4
-  %42 = icmp ne i32 %41, 1
-  br i1 %42, label %43, label %48
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %20, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %40, i32 0, i32 100
+  store i32 1, ptr %41, align 8, !tbaa !21
+  %42 = load i32, ptr %6, align 4, !tbaa !7
+  %43 = icmp ne i32 %42, 1
+  br i1 %43, label %44, label %49
 
-43:                                               ; preds = %38
-  %44 = load i32, ptr %6, align 4
-  %45 = icmp ne i32 %44, 2
-  br i1 %45, label %46, label %48
+44:                                               ; preds = %39
+  %45 = load i32, ptr %6, align 4, !tbaa !7
+  %46 = icmp ne i32 %45, 2
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %47, i32 noundef -22, i32 noundef 148, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.3)
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %48, i32 noundef -22, i32 noundef 146, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %316
+  store i32 1, ptr %21, align 4
+  br label %317
 
-48:                                               ; preds = %43, %38
-  %49 = load i32, ptr %6, align 4
-  %50 = load ptr, ptr %20, align 8
-  %51 = getelementptr inbounds %struct.IDAMemRec, ptr %50, i32 0, i32 40
-  store i32 %49, ptr %51, align 8
-  %52 = load i32, ptr %6, align 4
-  %53 = icmp eq i32 %52, 1
-  br i1 %53, label %54, label %61
+49:                                               ; preds = %44, %39
+  %50 = load i32, ptr %6, align 4, !tbaa !7
+  %51 = load ptr, ptr %20, align 8, !tbaa !11
+  %52 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %51, i32 0, i32 40
+  store i32 %50, ptr %52, align 8, !tbaa !22
+  %53 = load i32, ptr %6, align 4, !tbaa !7
+  %54 = icmp eq i32 %53, 1
+  br i1 %54, label %55, label %62
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %20, align 8
-  %56 = getelementptr inbounds %struct.IDAMemRec, ptr %55, i32 0, i32 26
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %61
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %20, align 8, !tbaa !11
+  %57 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %56, i32 0, i32 26
+  %58 = load ptr, ptr %57, align 8, !tbaa !23
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %62
 
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %60, i32 noundef -22, i32 noundef 157, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.4)
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %61, i32 noundef -22, i32 noundef 155, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -22, ptr %4, align 4
-  br label %316
+  store i32 1, ptr %21, align 4
+  br label %317
 
-61:                                               ; preds = %54, %48
-  %62 = load double, ptr %7, align 8
-  %63 = load ptr, ptr %20, align 8
-  %64 = getelementptr inbounds %struct.IDAMemRec, ptr %63, i32 0, i32 63
-  %65 = load double, ptr %64, align 8
-  %66 = fsub double %62, %65
-  %67 = call double @llvm.fabs.f64(double %66)
-  store double %67, ptr %15, align 8
-  %68 = load ptr, ptr %20, align 8
-  %69 = getelementptr inbounds %struct.IDAMemRec, ptr %68, i32 0, i32 1
-  %70 = load double, ptr %69, align 8
-  %71 = fmul double 2.000000e+00, %70
-  %72 = load ptr, ptr %20, align 8
-  %73 = getelementptr inbounds %struct.IDAMemRec, ptr %72, i32 0, i32 63
-  %74 = load double, ptr %73, align 8
-  %75 = call double @llvm.fabs.f64(double %74)
-  %76 = load double, ptr %7, align 8
-  %77 = call double @llvm.fabs.f64(double %76)
-  %78 = fadd double %75, %77
-  %79 = fmul double %71, %78
-  store double %79, ptr %16, align 8
-  %80 = load double, ptr %15, align 8
-  %81 = load double, ptr %16, align 8
-  %82 = fcmp olt double %80, %81
-  br i1 %82, label %83, label %85
+62:                                               ; preds = %55, %49
+  %63 = load double, ptr %7, align 8, !tbaa !9
+  %64 = load ptr, ptr %20, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %64, i32 0, i32 63
+  %66 = load double, ptr %65, align 8, !tbaa !24
+  %67 = fsub double %63, %66
+  %68 = call double @llvm.fabs.f64(double %67)
+  store double %68, ptr %15, align 8, !tbaa !9
+  %69 = load ptr, ptr %20, align 8, !tbaa !11
+  %70 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %69, i32 0, i32 1
+  %71 = load double, ptr %70, align 8, !tbaa !25
+  %72 = fmul double 2.000000e+00, %71
+  %73 = load ptr, ptr %20, align 8, !tbaa !11
+  %74 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %73, i32 0, i32 63
+  %75 = load double, ptr %74, align 8, !tbaa !24
+  %76 = call double @llvm.fabs.f64(double %75)
+  %77 = load double, ptr %7, align 8, !tbaa !9
+  %78 = call double @llvm.fabs.f64(double %77)
+  %79 = fadd double %76, %78
+  %80 = fmul double %72, %79
+  store double %80, ptr %16, align 8, !tbaa !9
+  %81 = load double, ptr %15, align 8, !tbaa !9
+  %82 = load double, ptr %16, align 8, !tbaa !9
+  %83 = fcmp olt double %81, %82
+  br i1 %83, label %84, label %86
 
-83:                                               ; preds = %61
-  %84 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %84, i32 noundef -22, i32 noundef 168, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.5)
+84:                                               ; preds = %62
+  %85 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %85, i32 noundef -22, i32 noundef 166, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -22, ptr %4, align 4
-  br label %316
+  store i32 1, ptr %21, align 4
+  br label %317
 
-85:                                               ; preds = %61
-  %86 = load ptr, ptr %20, align 8
-  %87 = getelementptr inbounds %struct.IDAMemRec, ptr %86, i32 0, i32 29
-  %88 = load ptr, ptr %87, align 8
-  %89 = call ptr @N_VClone(ptr noundef %88)
-  %90 = load ptr, ptr %20, align 8
-  %91 = getelementptr inbounds %struct.IDAMemRec, ptr %90, i32 0, i32 38
-  store ptr %89, ptr %91, align 8
-  %92 = load ptr, ptr %20, align 8
-  %93 = getelementptr inbounds %struct.IDAMemRec, ptr %92, i32 0, i32 29
-  %94 = load ptr, ptr %93, align 8
-  %95 = call ptr @N_VClone(ptr noundef %94)
-  %96 = load ptr, ptr %20, align 8
-  %97 = getelementptr inbounds %struct.IDAMemRec, ptr %96, i32 0, i32 39
-  store ptr %95, ptr %97, align 8
-  %98 = load ptr, ptr %20, align 8
-  %99 = getelementptr inbounds %struct.IDAMemRec, ptr %98, i32 0, i32 63
-  %100 = load double, ptr %99, align 8
-  %101 = load ptr, ptr %20, align 8
-  %102 = getelementptr inbounds %struct.IDAMemRec, ptr %101, i32 0, i32 37
-  store double %100, ptr %102, align 8
-  %103 = load ptr, ptr %20, align 8
-  %104 = getelementptr inbounds %struct.IDAMemRec, ptr %103, i32 0, i32 14
-  %105 = getelementptr inbounds [6 x ptr], ptr %104, i64 0, i64 0
-  %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %20, align 8
-  %108 = getelementptr inbounds %struct.IDAMemRec, ptr %107, i32 0, i32 38
-  %109 = load ptr, ptr %108, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %106, ptr noundef %109)
-  %110 = load ptr, ptr %20, align 8
-  %111 = getelementptr inbounds %struct.IDAMemRec, ptr %110, i32 0, i32 14
-  %112 = getelementptr inbounds [6 x ptr], ptr %111, i64 0, i64 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %20, align 8
-  %115 = getelementptr inbounds %struct.IDAMemRec, ptr %114, i32 0, i32 39
-  %116 = load ptr, ptr %115, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %113, ptr noundef %116)
-  %117 = load ptr, ptr %20, align 8
-  %118 = getelementptr inbounds %struct.IDAMemRec, ptr %117, i32 0, i32 46
-  store i32 1, ptr %118, align 8
-  %119 = load double, ptr %15, align 8
-  %120 = load ptr, ptr %20, align 8
-  %121 = getelementptr inbounds %struct.IDAMemRec, ptr %120, i32 0, i32 50
-  store double %119, ptr %121, align 8
-  %122 = load i32, ptr %6, align 4
-  %123 = icmp eq i32 %122, 1
-  br i1 %123, label %124, label %140
+86:                                               ; preds = %62
+  %87 = load ptr, ptr %20, align 8, !tbaa !11
+  %88 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %87, i32 0, i32 29
+  %89 = load ptr, ptr %88, align 8, !tbaa !26
+  %90 = call ptr @N_VClone(ptr noundef %89)
+  %91 = load ptr, ptr %20, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %91, i32 0, i32 38
+  store ptr %90, ptr %92, align 8, !tbaa !27
+  %93 = load ptr, ptr %20, align 8, !tbaa !11
+  %94 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %93, i32 0, i32 29
+  %95 = load ptr, ptr %94, align 8, !tbaa !26
+  %96 = call ptr @N_VClone(ptr noundef %95)
+  %97 = load ptr, ptr %20, align 8, !tbaa !11
+  %98 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %97, i32 0, i32 39
+  store ptr %96, ptr %98, align 8, !tbaa !28
+  %99 = load ptr, ptr %20, align 8, !tbaa !11
+  %100 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %99, i32 0, i32 63
+  %101 = load double, ptr %100, align 8, !tbaa !24
+  %102 = load ptr, ptr %20, align 8, !tbaa !11
+  %103 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %102, i32 0, i32 37
+  store double %101, ptr %103, align 8, !tbaa !29
+  %104 = load ptr, ptr %20, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %104, i32 0, i32 14
+  %106 = getelementptr inbounds [6 x ptr], ptr %105, i64 0, i64 0
+  %107 = load ptr, ptr %106, align 8, !tbaa !30
+  %108 = load ptr, ptr %20, align 8, !tbaa !11
+  %109 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %108, i32 0, i32 38
+  %110 = load ptr, ptr %109, align 8, !tbaa !27
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %107, ptr noundef %110)
+  %111 = load ptr, ptr %20, align 8, !tbaa !11
+  %112 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %111, i32 0, i32 14
+  %113 = getelementptr inbounds [6 x ptr], ptr %112, i64 0, i64 1
+  %114 = load ptr, ptr %113, align 8, !tbaa !30
+  %115 = load ptr, ptr %20, align 8, !tbaa !11
+  %116 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %115, i32 0, i32 39
+  %117 = load ptr, ptr %116, align 8, !tbaa !28
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %114, ptr noundef %117)
+  %118 = load ptr, ptr %20, align 8, !tbaa !11
+  %119 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %118, i32 0, i32 46
+  store i32 1, ptr %119, align 8, !tbaa !31
+  %120 = load double, ptr %15, align 8, !tbaa !9
+  %121 = load ptr, ptr %20, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %121, i32 0, i32 50
+  store double %120, ptr %122, align 8, !tbaa !32
+  %123 = load i32, ptr %6, align 4, !tbaa !7
+  %124 = icmp eq i32 %123, 1
+  br i1 %124, label %125, label %141
 
-124:                                              ; preds = %85
-  %125 = load ptr, ptr %20, align 8
-  %126 = getelementptr inbounds %struct.IDAMemRec, ptr %125, i32 0, i32 26
-  %127 = load ptr, ptr %126, align 8
-  %128 = call double @N_VMin(ptr noundef %127)
-  store double %128, ptr %17, align 8
-  %129 = load double, ptr %17, align 8
-  %130 = fcmp olt double %129, 0.000000e+00
-  br i1 %130, label %131, label %133
+125:                                              ; preds = %86
+  %126 = load ptr, ptr %20, align 8, !tbaa !11
+  %127 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %126, i32 0, i32 26
+  %128 = load ptr, ptr %127, align 8, !tbaa !23
+  %129 = call double @N_VMin(ptr noundef %128)
+  store double %129, ptr %17, align 8, !tbaa !9
+  %130 = load double, ptr %17, align 8, !tbaa !9
+  %131 = fcmp olt double %130, 0.000000e+00
+  br i1 %131, label %132, label %134
 
-131:                                              ; preds = %124
-  %132 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %132, i32 noundef -22, i32 noundef 191, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.6)
+132:                                              ; preds = %125
+  %133 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %133, i32 noundef -22, i32 noundef 189, ptr noundef @__func__.IDACalcIC, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -22, ptr %4, align 4
-  br label %316
+  store i32 1, ptr %21, align 4
+  br label %317
 
-133:                                              ; preds = %124
-  %134 = load double, ptr %17, align 8
-  %135 = fcmp ogt double %134, 5.000000e-01
-  br i1 %135, label %136, label %139
+134:                                              ; preds = %125
+  %135 = load double, ptr %17, align 8, !tbaa !9
+  %136 = fcmp ogt double %135, 5.000000e-01
+  br i1 %136, label %137, label %140
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %20, align 8
-  %138 = getelementptr inbounds %struct.IDAMemRec, ptr %137, i32 0, i32 46
-  store i32 0, ptr %138, align 8
-  br label %139
-
-139:                                              ; preds = %136, %133
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %20, align 8, !tbaa !11
+  %139 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %138, i32 0, i32 46
+  store i32 0, ptr %139, align 8, !tbaa !31
   br label %140
 
-140:                                              ; preds = %139, %85
-  %141 = load ptr, ptr %20, align 8
-  %142 = getelementptr inbounds %struct.IDAMemRec, ptr %141, i32 0, i32 48
-  %143 = load double, ptr %142, align 8
-  %144 = load ptr, ptr %20, align 8
-  %145 = getelementptr inbounds %struct.IDAMemRec, ptr %144, i32 0, i32 71
-  store double %143, ptr %145, align 8
-  %146 = load ptr, ptr %20, align 8
-  %147 = getelementptr inbounds %struct.IDAMemRec, ptr %146, i32 0, i32 68
-  store double 1.000000e+00, ptr %147, align 8
-  %148 = load ptr, ptr %20, align 8
-  %149 = getelementptr inbounds %struct.IDAMemRec, ptr %148, i32 0, i32 45
-  store i32 0, ptr %149, align 4
-  %150 = load double, ptr %15, align 8
-  %151 = fmul double 1.000000e-03, %150
-  store double %151, ptr %18, align 8
-  %152 = load ptr, ptr %20, align 8
-  %153 = load ptr, ptr %20, align 8
-  %154 = getelementptr inbounds %struct.IDAMemRec, ptr %153, i32 0, i32 39
-  %155 = load ptr, ptr %154, align 8
-  %156 = load ptr, ptr %20, align 8
-  %157 = getelementptr inbounds %struct.IDAMemRec, ptr %156, i32 0, i32 20
-  %158 = load ptr, ptr %157, align 8
-  %159 = load ptr, ptr %20, align 8
-  %160 = getelementptr inbounds %struct.IDAMemRec, ptr %159, i32 0, i32 13
-  %161 = load i32, ptr %160, align 4
-  %162 = call double @IDAWrmsNorm(ptr noundef %152, ptr noundef %155, ptr noundef %158, i32 noundef %161)
-  store double %162, ptr %19, align 8
-  %163 = load double, ptr %19, align 8
-  %164 = load double, ptr %18, align 8
-  %165 = fdiv double 5.000000e-01, %164
-  %166 = fcmp ogt double %163, %165
-  br i1 %166, label %167, label %170
+140:                                              ; preds = %137, %134
+  br label %141
 
-167:                                              ; preds = %140
-  %168 = load double, ptr %19, align 8
-  %169 = fdiv double 5.000000e-01, %168
-  store double %169, ptr %18, align 8
-  br label %170
+141:                                              ; preds = %140, %86
+  %142 = load ptr, ptr %20, align 8, !tbaa !11
+  %143 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %142, i32 0, i32 48
+  %144 = load double, ptr %143, align 8, !tbaa !33
+  %145 = load ptr, ptr %20, align 8, !tbaa !11
+  %146 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %145, i32 0, i32 71
+  store double %144, ptr %146, align 8, !tbaa !34
+  %147 = load ptr, ptr %20, align 8, !tbaa !11
+  %148 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %147, i32 0, i32 68
+  store double 1.000000e+00, ptr %148, align 8, !tbaa !35
+  %149 = load ptr, ptr %20, align 8, !tbaa !11
+  %150 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %149, i32 0, i32 45
+  store i32 0, ptr %150, align 4, !tbaa !36
+  %151 = load double, ptr %15, align 8, !tbaa !9
+  %152 = fmul double 1.000000e-03, %151
+  store double %152, ptr %18, align 8, !tbaa !9
+  %153 = load ptr, ptr %20, align 8, !tbaa !11
+  %154 = load ptr, ptr %20, align 8, !tbaa !11
+  %155 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %154, i32 0, i32 39
+  %156 = load ptr, ptr %155, align 8, !tbaa !28
+  %157 = load ptr, ptr %20, align 8, !tbaa !11
+  %158 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %157, i32 0, i32 20
+  %159 = load ptr, ptr %158, align 8, !tbaa !37
+  %160 = load ptr, ptr %20, align 8, !tbaa !11
+  %161 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %160, i32 0, i32 13
+  %162 = load i32, ptr %161, align 4, !tbaa !38
+  %163 = call double @IDAWrmsNorm(ptr noundef %153, ptr noundef %156, ptr noundef %159, i32 noundef %162)
+  store double %163, ptr %19, align 8, !tbaa !9
+  %164 = load double, ptr %19, align 8, !tbaa !9
+  %165 = load double, ptr %18, align 8, !tbaa !9
+  %166 = fdiv double 5.000000e-01, %165
+  %167 = fcmp ogt double %164, %166
+  br i1 %167, label %168, label %171
 
-170:                                              ; preds = %167, %140
-  %171 = load double, ptr %7, align 8
-  %172 = load ptr, ptr %20, align 8
-  %173 = getelementptr inbounds %struct.IDAMemRec, ptr %172, i32 0, i32 63
-  %174 = load double, ptr %173, align 8
-  %175 = fcmp olt double %171, %174
-  br i1 %175, label %176, label %179
+168:                                              ; preds = %141
+  %169 = load double, ptr %19, align 8, !tbaa !9
+  %170 = fdiv double 5.000000e-01, %169
+  store double %170, ptr %18, align 8, !tbaa !9
+  br label %171
 
-176:                                              ; preds = %170
-  %177 = load double, ptr %18, align 8
-  %178 = fneg double %177
-  store double %178, ptr %18, align 8
-  br label %179
+171:                                              ; preds = %168, %141
+  %172 = load double, ptr %7, align 8, !tbaa !9
+  %173 = load ptr, ptr %20, align 8, !tbaa !11
+  %174 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %173, i32 0, i32 63
+  %175 = load double, ptr %174, align 8, !tbaa !24
+  %176 = fcmp olt double %172, %175
+  br i1 %176, label %177, label %180
 
-179:                                              ; preds = %176, %170
-  %180 = load double, ptr %18, align 8
-  %181 = load ptr, ptr %20, align 8
-  %182 = getelementptr inbounds %struct.IDAMemRec, ptr %181, i32 0, i32 60
-  store double %180, ptr %182, align 8
-  %183 = load i32, ptr %6, align 4
-  %184 = icmp eq i32 %183, 1
-  br i1 %184, label %185, label %193
+177:                                              ; preds = %171
+  %178 = load double, ptr %18, align 8, !tbaa !9
+  %179 = fneg double %178
+  store double %179, ptr %18, align 8, !tbaa !9
+  br label %180
 
-185:                                              ; preds = %179
-  %186 = load double, ptr %18, align 8
-  %187 = fdiv double 1.000000e+00, %186
-  %188 = load ptr, ptr %20, align 8
-  %189 = getelementptr inbounds %struct.IDAMemRec, ptr %188, i32 0, i32 65
-  store double %187, ptr %189, align 8
-  %190 = load ptr, ptr %20, align 8
-  %191 = getelementptr inbounds %struct.IDAMemRec, ptr %190, i32 0, i32 42
-  %192 = load i32, ptr %191, align 8
-  store i32 %192, ptr %12, align 4
-  br label %196
+180:                                              ; preds = %177, %171
+  %181 = load double, ptr %18, align 8, !tbaa !9
+  %182 = load ptr, ptr %20, align 8, !tbaa !11
+  %183 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %182, i32 0, i32 60
+  store double %181, ptr %183, align 8, !tbaa !39
+  %184 = load i32, ptr %6, align 4, !tbaa !7
+  %185 = icmp eq i32 %184, 1
+  br i1 %185, label %186, label %194
 
-193:                                              ; preds = %179
-  %194 = load ptr, ptr %20, align 8
-  %195 = getelementptr inbounds %struct.IDAMemRec, ptr %194, i32 0, i32 65
-  store double 0.000000e+00, ptr %195, align 8
-  store i32 1, ptr %12, align 4
-  br label %196
-
-196:                                              ; preds = %193, %185
-  store i32 1, ptr %10, align 4
+186:                                              ; preds = %180
+  %187 = load double, ptr %18, align 8, !tbaa !9
+  %188 = fdiv double 1.000000e+00, %187
+  %189 = load ptr, ptr %20, align 8, !tbaa !11
+  %190 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %189, i32 0, i32 65
+  store double %188, ptr %190, align 8, !tbaa !40
+  %191 = load ptr, ptr %20, align 8, !tbaa !11
+  %192 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %191, i32 0, i32 42
+  %193 = load i32, ptr %192, align 8, !tbaa !41
+  store i32 %193, ptr %12, align 4, !tbaa !7
   br label %197
 
-197:                                              ; preds = %291, %196
-  %198 = load i32, ptr %10, align 4
-  %199 = icmp sle i32 %198, 2
-  br i1 %199, label %200, label %294
-
-200:                                              ; preds = %197
-  store i32 1, ptr %11, align 4
-  br label %201
-
-201:                                              ; preds = %252, %200
-  %202 = load i32, ptr %11, align 4
-  %203 = load i32, ptr %12, align 4
-  %204 = icmp sle i32 %202, %203
-  br i1 %204, label %205, label %255
-
-205:                                              ; preds = %201
-  %206 = load ptr, ptr %20, align 8
-  %207 = call i32 @IDAnlsIC(ptr noundef %206)
-  store i32 %207, ptr %14, align 4
-  %208 = load i32, ptr %14, align 4
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %210, label %211
-
-210:                                              ; preds = %205
-  br label %255
-
-211:                                              ; preds = %205
-  %212 = load ptr, ptr %20, align 8
-  %213 = getelementptr inbounds %struct.IDAMemRec, ptr %212, i32 0, i32 90
-  %214 = load i64, ptr %213, align 8
-  %215 = add nsw i64 %214, 1
-  store i64 %215, ptr %213, align 8
-  %216 = load i32, ptr %14, align 4
-  %217 = icmp slt i32 %216, 0
-  br i1 %217, label %218, label %219
-
-218:                                              ; preds = %211
-  br label %255
-
-219:                                              ; preds = %211
-  %220 = load i32, ptr %11, align 4
-  %221 = load i32, ptr %12, align 4
-  %222 = icmp eq i32 %220, %221
-  br i1 %222, label %223, label %224
-
-223:                                              ; preds = %219
-  br label %255
-
-224:                                              ; preds = %219
-  %225 = load i32, ptr %14, align 4
-  %226 = icmp ne i32 %225, 5
-  br i1 %226, label %227, label %242
-
-227:                                              ; preds = %224
-  %228 = load ptr, ptr %20, align 8
-  %229 = getelementptr inbounds %struct.IDAMemRec, ptr %228, i32 0, i32 14
-  %230 = getelementptr inbounds [6 x ptr], ptr %229, i64 0, i64 0
-  %231 = load ptr, ptr %230, align 8
-  %232 = load ptr, ptr %20, align 8
-  %233 = getelementptr inbounds %struct.IDAMemRec, ptr %232, i32 0, i32 38
-  %234 = load ptr, ptr %233, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %231, ptr noundef %234)
-  %235 = load ptr, ptr %20, align 8
-  %236 = getelementptr inbounds %struct.IDAMemRec, ptr %235, i32 0, i32 14
-  %237 = getelementptr inbounds [6 x ptr], ptr %236, i64 0, i64 1
-  %238 = load ptr, ptr %237, align 8
-  %239 = load ptr, ptr %20, align 8
-  %240 = getelementptr inbounds %struct.IDAMemRec, ptr %239, i32 0, i32 39
-  %241 = load ptr, ptr %240, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %238, ptr noundef %241)
-  br label %242
-
-242:                                              ; preds = %227, %224
-  %243 = load double, ptr %18, align 8
-  %244 = fmul double %243, 1.000000e-01
-  store double %244, ptr %18, align 8
-  %245 = load double, ptr %18, align 8
-  %246 = fdiv double 1.000000e+00, %245
-  %247 = load ptr, ptr %20, align 8
-  %248 = getelementptr inbounds %struct.IDAMemRec, ptr %247, i32 0, i32 65
-  store double %246, ptr %248, align 8
-  %249 = load double, ptr %18, align 8
-  %250 = load ptr, ptr %20, align 8
-  %251 = getelementptr inbounds %struct.IDAMemRec, ptr %250, i32 0, i32 60
-  store double %249, ptr %251, align 8
-  br label %252
-
-252:                                              ; preds = %242
-  %253 = load i32, ptr %11, align 4
-  %254 = add nsw i32 %253, 1
-  store i32 %254, ptr %11, align 4
-  br label %201
-
-255:                                              ; preds = %223, %218, %210, %201
-  %256 = load i32, ptr %14, align 4
-  %257 = icmp ne i32 %256, 0
-  br i1 %257, label %258, label %259
-
-258:                                              ; preds = %255
-  br label %294
-
-259:                                              ; preds = %255
-  %260 = load ptr, ptr %20, align 8
-  %261 = getelementptr inbounds %struct.IDAMemRec, ptr %260, i32 0, i32 10
-  %262 = load ptr, ptr %261, align 8
-  %263 = load ptr, ptr %20, align 8
-  %264 = getelementptr inbounds %struct.IDAMemRec, ptr %263, i32 0, i32 38
-  %265 = load ptr, ptr %264, align 8
-  %266 = load ptr, ptr %20, align 8
-  %267 = getelementptr inbounds %struct.IDAMemRec, ptr %266, i32 0, i32 20
-  %268 = load ptr, ptr %267, align 8
-  %269 = load ptr, ptr %20, align 8
-  %270 = getelementptr inbounds %struct.IDAMemRec, ptr %269, i32 0, i32 11
-  %271 = load ptr, ptr %270, align 8
-  %272 = call i32 %262(ptr noundef %265, ptr noundef %268, ptr noundef %271)
-  store i32 %272, ptr %8, align 4
-  %273 = load i32, ptr %8, align 4
-  %274 = icmp ne i32 %273, 0
-  br i1 %274, label %275, label %276
-
-275:                                              ; preds = %259
-  store i32 -24, ptr %14, align 4
-  br label %294
-
-276:                                              ; preds = %259
-  %277 = load ptr, ptr %20, align 8
-  %278 = getelementptr inbounds %struct.IDAMemRec, ptr %277, i32 0, i32 38
-  %279 = load ptr, ptr %278, align 8
-  %280 = load ptr, ptr %20, align 8
-  %281 = getelementptr inbounds %struct.IDAMemRec, ptr %280, i32 0, i32 14
-  %282 = getelementptr inbounds [6 x ptr], ptr %281, i64 0, i64 0
-  %283 = load ptr, ptr %282, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %279, ptr noundef %283)
-  %284 = load ptr, ptr %20, align 8
-  %285 = getelementptr inbounds %struct.IDAMemRec, ptr %284, i32 0, i32 39
-  %286 = load ptr, ptr %285, align 8
-  %287 = load ptr, ptr %20, align 8
-  %288 = getelementptr inbounds %struct.IDAMemRec, ptr %287, i32 0, i32 14
-  %289 = getelementptr inbounds [6 x ptr], ptr %288, i64 0, i64 1
-  %290 = load ptr, ptr %289, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %286, ptr noundef %290)
-  br label %291
-
-291:                                              ; preds = %276
-  %292 = load i32, ptr %10, align 4
-  %293 = add nsw i32 %292, 1
-  store i32 %293, ptr %10, align 4
+194:                                              ; preds = %180
+  %195 = load ptr, ptr %20, align 8, !tbaa !11
+  %196 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %195, i32 0, i32 65
+  store double 0.000000e+00, ptr %196, align 8, !tbaa !40
+  store i32 1, ptr %12, align 4, !tbaa !7
   br label %197
 
-294:                                              ; preds = %275, %258, %197
-  %295 = load ptr, ptr %20, align 8
-  %296 = getelementptr inbounds %struct.IDAMemRec, ptr %295, i32 0, i32 38
-  %297 = load ptr, ptr %296, align 8
-  call void @N_VDestroy(ptr noundef %297)
-  %298 = load ptr, ptr %20, align 8
-  %299 = getelementptr inbounds %struct.IDAMemRec, ptr %298, i32 0, i32 39
-  %300 = load ptr, ptr %299, align 8
-  call void @N_VDestroy(ptr noundef %300)
-  %301 = load i32, ptr %6, align 4
-  %302 = icmp eq i32 %301, 1
-  br i1 %302, label %303, label %307
+197:                                              ; preds = %194, %186
+  store i32 1, ptr %10, align 4, !tbaa !7
+  br label %198
 
-303:                                              ; preds = %294
-  %304 = load double, ptr %18, align 8
-  %305 = load ptr, ptr %20, align 8
-  %306 = getelementptr inbounds %struct.IDAMemRec, ptr %305, i32 0, i32 61
-  store double %304, ptr %306, align 8
-  br label %307
+198:                                              ; preds = %292, %197
+  %199 = load i32, ptr %10, align 4, !tbaa !7
+  %200 = icmp sle i32 %199, 2
+  br i1 %200, label %201, label %295
 
-307:                                              ; preds = %303, %294
-  %308 = load i32, ptr %14, align 4
-  %309 = icmp ne i32 %308, 0
-  br i1 %309, label %310, label %315
+201:                                              ; preds = %198
+  store i32 1, ptr %11, align 4, !tbaa !7
+  br label %202
 
-310:                                              ; preds = %307
-  %311 = load ptr, ptr %20, align 8
-  %312 = load i32, ptr %14, align 4
-  %313 = call i32 @IDAICFailFlag(ptr noundef %311, i32 noundef %312)
-  store i32 %313, ptr %13, align 4
-  %314 = load i32, ptr %13, align 4
-  store i32 %314, ptr %4, align 4
-  br label %316
+202:                                              ; preds = %253, %201
+  %203 = load i32, ptr %11, align 4, !tbaa !7
+  %204 = load i32, ptr %12, align 4, !tbaa !7
+  %205 = icmp sle i32 %203, %204
+  br i1 %205, label %206, label %256
 
-315:                                              ; preds = %307
+206:                                              ; preds = %202
+  %207 = load ptr, ptr %20, align 8, !tbaa !11
+  %208 = call i32 @IDAnlsIC(ptr noundef %207)
+  store i32 %208, ptr %14, align 4, !tbaa !7
+  %209 = load i32, ptr %14, align 4, !tbaa !7
+  %210 = icmp eq i32 %209, 0
+  br i1 %210, label %211, label %212
+
+211:                                              ; preds = %206
+  br label %256
+
+212:                                              ; preds = %206
+  %213 = load ptr, ptr %20, align 8, !tbaa !11
+  %214 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %213, i32 0, i32 90
+  %215 = load i64, ptr %214, align 8, !tbaa !42
+  %216 = add nsw i64 %215, 1
+  store i64 %216, ptr %214, align 8, !tbaa !42
+  %217 = load i32, ptr %14, align 4, !tbaa !7
+  %218 = icmp slt i32 %217, 0
+  br i1 %218, label %219, label %220
+
+219:                                              ; preds = %212
+  br label %256
+
+220:                                              ; preds = %212
+  %221 = load i32, ptr %11, align 4, !tbaa !7
+  %222 = load i32, ptr %12, align 4, !tbaa !7
+  %223 = icmp eq i32 %221, %222
+  br i1 %223, label %224, label %225
+
+224:                                              ; preds = %220
+  br label %256
+
+225:                                              ; preds = %220
+  %226 = load i32, ptr %14, align 4, !tbaa !7
+  %227 = icmp ne i32 %226, 5
+  br i1 %227, label %228, label %243
+
+228:                                              ; preds = %225
+  %229 = load ptr, ptr %20, align 8, !tbaa !11
+  %230 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %229, i32 0, i32 14
+  %231 = getelementptr inbounds [6 x ptr], ptr %230, i64 0, i64 0
+  %232 = load ptr, ptr %231, align 8, !tbaa !30
+  %233 = load ptr, ptr %20, align 8, !tbaa !11
+  %234 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %233, i32 0, i32 38
+  %235 = load ptr, ptr %234, align 8, !tbaa !27
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %232, ptr noundef %235)
+  %236 = load ptr, ptr %20, align 8, !tbaa !11
+  %237 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %236, i32 0, i32 14
+  %238 = getelementptr inbounds [6 x ptr], ptr %237, i64 0, i64 1
+  %239 = load ptr, ptr %238, align 8, !tbaa !30
+  %240 = load ptr, ptr %20, align 8, !tbaa !11
+  %241 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %240, i32 0, i32 39
+  %242 = load ptr, ptr %241, align 8, !tbaa !28
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %239, ptr noundef %242)
+  br label %243
+
+243:                                              ; preds = %228, %225
+  %244 = load double, ptr %18, align 8, !tbaa !9
+  %245 = fmul double %244, 1.000000e-01
+  store double %245, ptr %18, align 8, !tbaa !9
+  %246 = load double, ptr %18, align 8, !tbaa !9
+  %247 = fdiv double 1.000000e+00, %246
+  %248 = load ptr, ptr %20, align 8, !tbaa !11
+  %249 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %248, i32 0, i32 65
+  store double %247, ptr %249, align 8, !tbaa !40
+  %250 = load double, ptr %18, align 8, !tbaa !9
+  %251 = load ptr, ptr %20, align 8, !tbaa !11
+  %252 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %251, i32 0, i32 60
+  store double %250, ptr %252, align 8, !tbaa !39
+  br label %253
+
+253:                                              ; preds = %243
+  %254 = load i32, ptr %11, align 4, !tbaa !7
+  %255 = add nsw i32 %254, 1
+  store i32 %255, ptr %11, align 4, !tbaa !7
+  br label %202
+
+256:                                              ; preds = %224, %219, %211, %202
+  %257 = load i32, ptr %14, align 4, !tbaa !7
+  %258 = icmp ne i32 %257, 0
+  br i1 %258, label %259, label %260
+
+259:                                              ; preds = %256
+  br label %295
+
+260:                                              ; preds = %256
+  %261 = load ptr, ptr %20, align 8, !tbaa !11
+  %262 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %261, i32 0, i32 10
+  %263 = load ptr, ptr %262, align 8, !tbaa !43
+  %264 = load ptr, ptr %20, align 8, !tbaa !11
+  %265 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %264, i32 0, i32 38
+  %266 = load ptr, ptr %265, align 8, !tbaa !27
+  %267 = load ptr, ptr %20, align 8, !tbaa !11
+  %268 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %267, i32 0, i32 20
+  %269 = load ptr, ptr %268, align 8, !tbaa !37
+  %270 = load ptr, ptr %20, align 8, !tbaa !11
+  %271 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %270, i32 0, i32 11
+  %272 = load ptr, ptr %271, align 8, !tbaa !44
+  %273 = call i32 %263(ptr noundef %266, ptr noundef %269, ptr noundef %272)
+  store i32 %273, ptr %8, align 4, !tbaa !7
+  %274 = load i32, ptr %8, align 4, !tbaa !7
+  %275 = icmp ne i32 %274, 0
+  br i1 %275, label %276, label %277
+
+276:                                              ; preds = %260
+  store i32 -24, ptr %14, align 4, !tbaa !7
+  br label %295
+
+277:                                              ; preds = %260
+  %278 = load ptr, ptr %20, align 8, !tbaa !11
+  %279 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %278, i32 0, i32 38
+  %280 = load ptr, ptr %279, align 8, !tbaa !27
+  %281 = load ptr, ptr %20, align 8, !tbaa !11
+  %282 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %281, i32 0, i32 14
+  %283 = getelementptr inbounds [6 x ptr], ptr %282, i64 0, i64 0
+  %284 = load ptr, ptr %283, align 8, !tbaa !30
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %280, ptr noundef %284)
+  %285 = load ptr, ptr %20, align 8, !tbaa !11
+  %286 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %285, i32 0, i32 39
+  %287 = load ptr, ptr %286, align 8, !tbaa !28
+  %288 = load ptr, ptr %20, align 8, !tbaa !11
+  %289 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %288, i32 0, i32 14
+  %290 = getelementptr inbounds [6 x ptr], ptr %289, i64 0, i64 1
+  %291 = load ptr, ptr %290, align 8, !tbaa !30
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %287, ptr noundef %291)
+  br label %292
+
+292:                                              ; preds = %277
+  %293 = load i32, ptr %10, align 4, !tbaa !7
+  %294 = add nsw i32 %293, 1
+  store i32 %294, ptr %10, align 4, !tbaa !7
+  br label %198
+
+295:                                              ; preds = %276, %259, %198
+  %296 = load ptr, ptr %20, align 8, !tbaa !11
+  %297 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %296, i32 0, i32 38
+  %298 = load ptr, ptr %297, align 8, !tbaa !27
+  call void @N_VDestroy(ptr noundef %298)
+  %299 = load ptr, ptr %20, align 8, !tbaa !11
+  %300 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %299, i32 0, i32 39
+  %301 = load ptr, ptr %300, align 8, !tbaa !28
+  call void @N_VDestroy(ptr noundef %301)
+  %302 = load i32, ptr %6, align 4, !tbaa !7
+  %303 = icmp eq i32 %302, 1
+  br i1 %303, label %304, label %308
+
+304:                                              ; preds = %295
+  %305 = load double, ptr %18, align 8, !tbaa !9
+  %306 = load ptr, ptr %20, align 8, !tbaa !11
+  %307 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %306, i32 0, i32 61
+  store double %305, ptr %307, align 8, !tbaa !45
+  br label %308
+
+308:                                              ; preds = %304, %295
+  %309 = load i32, ptr %14, align 4, !tbaa !7
+  %310 = icmp ne i32 %309, 0
+  br i1 %310, label %311, label %316
+
+311:                                              ; preds = %308
+  %312 = load ptr, ptr %20, align 8, !tbaa !11
+  %313 = load i32, ptr %14, align 4, !tbaa !7
+  %314 = call i32 @IDAICFailFlag(ptr noundef %312, i32 noundef %313)
+  store i32 %314, ptr %13, align 4, !tbaa !7
+  %315 = load i32, ptr %13, align 4, !tbaa !7
+  store i32 %315, ptr %4, align 4
+  store i32 1, ptr %21, align 4
+  br label %317
+
+316:                                              ; preds = %308
   store i32 0, ptr %4, align 4
-  br label %316
+  store i32 1, ptr %21, align 4
+  br label %317
 
-316:                                              ; preds = %315, %310, %131, %83, %59, %46, %37, %30, %23
-  %317 = load i32, ptr %4, align 4
-  ret i32 %317
+317:                                              ; preds = %316, %311, %132, %84, %60, %47, %38, %31, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %318 = load i32, ptr %4, align 4
+  ret i32 %318
 }
 
-declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @IDAInitialSetup(ptr noundef) #1
+declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+declare i32 @IDAInitialSetup(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @llvm.fabs.f64(double) #3
 
-declare ptr @N_VClone(ptr noundef) #1
+declare ptr @N_VClone(ptr noundef) #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
-declare double @N_VMin(ptr noundef) #1
+declare double @N_VMin(ptr noundef) #2
 
-declare double @IDAWrmsNorm(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+declare double @IDAWrmsNorm(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAnlsIC(ptr noundef %0) #0 {
@@ -534,197 +573,215 @@ define internal i32 @IDAnlsIC(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.IDAMemRec, ptr %9, i32 0, i32 29
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.IDAMemRec, ptr %12, i32 0, i32 31
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %7, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.IDAMemRec, ptr %15, i32 0, i32 14
-  %17 = getelementptr inbounds [6 x ptr], ptr %16, i64 0, i64 2
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %8, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.IDAMemRec, ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.IDAMemRec, ptr %22, i32 0, i32 37
-  %24 = load double, ptr %23, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.IDAMemRec, ptr %25, i32 0, i32 38
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.IDAMemRec, ptr %28, i32 0, i32 39
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.IDAMemRec, ptr %31, i32 0, i32 25
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.IDAMemRec, ptr %34, i32 0, i32 3
-  %36 = load ptr, ptr %35, align 8
-  %37 = call i32 %21(double noundef %24, ptr noundef %27, ptr noundef %30, ptr noundef %33, ptr noundef %36)
-  store i32 %37, ptr %4, align 4
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.IDAMemRec, ptr %38, i32 0, i32 89
-  %40 = load i64, ptr %39, align 8
-  %41 = add nsw i64 %40, 1
-  store i64 %41, ptr %39, align 8
-  %42 = load i32, ptr %4, align 4
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %45
-
-44:                                               ; preds = %1
-  store i32 -8, ptr %2, align 4
-  br label %125
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %10, i32 0, i32 29
+  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  store ptr %12, ptr %6, align 8, !tbaa !30
+  %13 = load ptr, ptr %3, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %13, i32 0, i32 31
+  %15 = load ptr, ptr %14, align 8, !tbaa !46
+  store ptr %15, ptr %7, align 8, !tbaa !30
+  %16 = load ptr, ptr %3, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %16, i32 0, i32 14
+  %18 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  store ptr %19, ptr %8, align 8, !tbaa !30
+  %20 = load ptr, ptr %3, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %20, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8, !tbaa !47
+  %23 = load ptr, ptr %3, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %23, i32 0, i32 37
+  %25 = load double, ptr %24, align 8, !tbaa !29
+  %26 = load ptr, ptr %3, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %26, i32 0, i32 38
+  %28 = load ptr, ptr %27, align 8, !tbaa !27
+  %29 = load ptr, ptr %3, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %29, i32 0, i32 39
+  %31 = load ptr, ptr %30, align 8, !tbaa !28
+  %32 = load ptr, ptr %3, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %32, i32 0, i32 25
+  %34 = load ptr, ptr %33, align 8, !tbaa !48
+  %35 = load ptr, ptr %3, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8, !tbaa !49
+  %38 = call i32 %22(double noundef %25, ptr noundef %28, ptr noundef %31, ptr noundef %34, ptr noundef %37)
+  store i32 %38, ptr %4, align 4, !tbaa !7
+  %39 = load ptr, ptr %3, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %39, i32 0, i32 89
+  %41 = load i64, ptr %40, align 8, !tbaa !50
+  %42 = add nsw i64 %41, 1
+  store i64 %42, ptr %40, align 8, !tbaa !50
+  %43 = load i32, ptr %4, align 4, !tbaa !7
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %45, label %46
 
 45:                                               ; preds = %1
-  %46 = load i32, ptr %4, align 4
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %48, label %49
+  store i32 -8, ptr %2, align 4
+  store i32 1, ptr %9, align 4
+  br label %126
 
-48:                                               ; preds = %45
+46:                                               ; preds = %1
+  %47 = load i32, ptr %4, align 4, !tbaa !7
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %50
+
+49:                                               ; preds = %46
   store i32 -12, ptr %2, align 4
-  br label %125
+  store i32 1, ptr %9, align 4
+  br label %126
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.IDAMemRec, ptr %50, i32 0, i32 25
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.IDAMemRec, ptr %53, i32 0, i32 28
-  %55 = load ptr, ptr %54, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %52, ptr noundef %55)
-  store i32 1, ptr %5, align 4
-  br label %56
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %3, align 8, !tbaa !11
+  %52 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %51, i32 0, i32 25
+  %53 = load ptr, ptr %52, align 8, !tbaa !48
+  %54 = load ptr, ptr %3, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %54, i32 0, i32 28
+  %56 = load ptr, ptr %55, align 8, !tbaa !51
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %53, ptr noundef %56)
+  store i32 1, ptr %5, align 4, !tbaa !7
+  br label %57
 
-56:                                               ; preds = %120, %49
-  %57 = load i32, ptr %5, align 4
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.IDAMemRec, ptr %58, i32 0, i32 43
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp sle i32 %57, %60
-  br i1 %61, label %62, label %123
+57:                                               ; preds = %121, %50
+  %58 = load i32, ptr %5, align 4, !tbaa !7
+  %59 = load ptr, ptr %3, align 8, !tbaa !11
+  %60 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %59, i32 0, i32 43
+  %61 = load i32, ptr %60, align 4, !tbaa !52
+  %62 = icmp sle i32 %58, %61
+  br i1 %62, label %63, label %124
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.IDAMemRec, ptr %63, i32 0, i32 109
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp ne ptr %65, null
-  br i1 %66, label %67, label %97
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %3, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %64, i32 0, i32 109
+  %66 = load ptr, ptr %65, align 8, !tbaa !53
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %98
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds %struct.IDAMemRec, ptr %68, i32 0, i32 94
-  %70 = load i64, ptr %69, align 8
-  %71 = add nsw i64 %70, 1
-  store i64 %71, ptr %69, align 8
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.IDAMemRec, ptr %72, i32 0, i32 109
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %3, align 8
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.IDAMemRec, ptr %76, i32 0, i32 38
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.IDAMemRec, ptr %79, i32 0, i32 39
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.IDAMemRec, ptr %82, i32 0, i32 25
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = call i32 %74(ptr noundef %75, ptr noundef %78, ptr noundef %81, ptr noundef %84, ptr noundef %85, ptr noundef %86, ptr noundef %87)
-  store i32 %88, ptr %4, align 4
-  %89 = load i32, ptr %4, align 4
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %91, label %92
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %3, align 8, !tbaa !11
+  %70 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %69, i32 0, i32 94
+  %71 = load i64, ptr %70, align 8, !tbaa !54
+  %72 = add nsw i64 %71, 1
+  store i64 %72, ptr %70, align 8, !tbaa !54
+  %73 = load ptr, ptr %3, align 8, !tbaa !11
+  %74 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %73, i32 0, i32 109
+  %75 = load ptr, ptr %74, align 8, !tbaa !53
+  %76 = load ptr, ptr %3, align 8, !tbaa !11
+  %77 = load ptr, ptr %3, align 8, !tbaa !11
+  %78 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %77, i32 0, i32 38
+  %79 = load ptr, ptr %78, align 8, !tbaa !27
+  %80 = load ptr, ptr %3, align 8, !tbaa !11
+  %81 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %80, i32 0, i32 39
+  %82 = load ptr, ptr %81, align 8, !tbaa !28
+  %83 = load ptr, ptr %3, align 8, !tbaa !11
+  %84 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %83, i32 0, i32 25
+  %85 = load ptr, ptr %84, align 8, !tbaa !48
+  %86 = load ptr, ptr %6, align 8, !tbaa !30
+  %87 = load ptr, ptr %7, align 8, !tbaa !30
+  %88 = load ptr, ptr %8, align 8, !tbaa !30
+  %89 = call i32 %75(ptr noundef %76, ptr noundef %79, ptr noundef %82, ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88)
+  store i32 %89, ptr %4, align 4, !tbaa !7
+  %90 = load i32, ptr %4, align 4, !tbaa !7
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %93
 
-91:                                               ; preds = %67
+92:                                               ; preds = %68
   store i32 -6, ptr %2, align 4
-  br label %125
+  store i32 1, ptr %9, align 4
+  br label %126
 
-92:                                               ; preds = %67
-  %93 = load i32, ptr %4, align 4
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %95, label %96
+93:                                               ; preds = %68
+  %94 = load i32, ptr %4, align 4, !tbaa !7
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %96, label %97
 
-95:                                               ; preds = %92
+96:                                               ; preds = %93
   store i32 1, ptr %2, align 4
-  br label %125
+  store i32 1, ptr %9, align 4
+  br label %126
 
-96:                                               ; preds = %92
-  br label %97
+97:                                               ; preds = %93
+  br label %98
 
-97:                                               ; preds = %96, %62
-  %98 = load ptr, ptr %3, align 8
-  %99 = call i32 @IDANewtonIC(ptr noundef %98)
-  store i32 %99, ptr %4, align 4
-  %100 = load i32, ptr %4, align 4
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %103
+98:                                               ; preds = %97, %63
+  %99 = load ptr, ptr %3, align 8, !tbaa !11
+  %100 = call i32 @IDANewtonIC(ptr noundef %99)
+  store i32 %100, ptr %4, align 4, !tbaa !7
+  %101 = load i32, ptr %4, align 4, !tbaa !7
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %104
 
-102:                                              ; preds = %97
+103:                                              ; preds = %98
   store i32 0, ptr %2, align 4
-  br label %125
+  store i32 1, ptr %9, align 4
+  br label %126
 
-103:                                              ; preds = %97
-  %104 = load i32, ptr %4, align 4
-  %105 = icmp eq i32 %104, 5
-  br i1 %105, label %106, label %118
+104:                                              ; preds = %98
+  %105 = load i32, ptr %4, align 4, !tbaa !7
+  %106 = icmp eq i32 %105, 5
+  br i1 %106, label %107, label %119
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.IDAMemRec, ptr %107, i32 0, i32 109
-  %109 = load ptr, ptr %108, align 8
-  %110 = icmp ne ptr %109, null
-  br i1 %110, label %111, label %118
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %3, align 8, !tbaa !11
+  %109 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %108, i32 0, i32 109
+  %110 = load ptr, ptr %109, align 8, !tbaa !53
+  %111 = icmp ne ptr %110, null
+  br i1 %111, label %112, label %119
 
-111:                                              ; preds = %106
-  %112 = load ptr, ptr %3, align 8
-  %113 = getelementptr inbounds %struct.IDAMemRec, ptr %112, i32 0, i32 28
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %3, align 8
-  %116 = getelementptr inbounds %struct.IDAMemRec, ptr %115, i32 0, i32 25
-  %117 = load ptr, ptr %116, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %114, ptr noundef %117)
-  br label %120
+112:                                              ; preds = %107
+  %113 = load ptr, ptr %3, align 8, !tbaa !11
+  %114 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %113, i32 0, i32 28
+  %115 = load ptr, ptr %114, align 8, !tbaa !51
+  %116 = load ptr, ptr %3, align 8, !tbaa !11
+  %117 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %116, i32 0, i32 25
+  %118 = load ptr, ptr %117, align 8, !tbaa !48
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %115, ptr noundef %118)
+  br label %121
 
-118:                                              ; preds = %106, %103
-  %119 = load i32, ptr %4, align 4
-  store i32 %119, ptr %2, align 4
-  br label %125
+119:                                              ; preds = %107, %104
+  %120 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %120, ptr %2, align 4
+  store i32 1, ptr %9, align 4
+  br label %126
 
-120:                                              ; preds = %111
-  %121 = load i32, ptr %5, align 4
-  %122 = add nsw i32 %121, 1
-  store i32 %122, ptr %5, align 4
-  br label %56
+121:                                              ; preds = %112
+  %122 = load i32, ptr %5, align 4, !tbaa !7
+  %123 = add nsw i32 %122, 1
+  store i32 %123, ptr %5, align 4, !tbaa !7
+  br label %57
 
-123:                                              ; preds = %56
-  %124 = load i32, ptr %4, align 4
-  store i32 %124, ptr %2, align 4
-  br label %125
+124:                                              ; preds = %57
+  %125 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %125, ptr %2, align 4
+  store i32 1, ptr %9, align 4
+  br label %126
 
-125:                                              ; preds = %123, %118, %102, %95, %91, %48, %44
-  %126 = load i32, ptr %2, align 4
-  ret i32 %126
+126:                                              ; preds = %124, %119, %103, %96, %92, %49, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %127 = load i32, ptr %2, align 4
+  ret i32 %127
 }
 
-declare void @N_VDestroy(ptr noundef) #1
+declare void @N_VDestroy(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %6 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  %6 = load i32, ptr %5, align 4, !tbaa !7
   switch i32 %6, label %27 [
     i32 -8, label %7
     i32 -12, label %9
@@ -739,62 +796,62 @@ define internal i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %1) #0 {
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %8, i32 noundef -8, i32 noundef 687, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.7)
+  %8 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %8, i32 noundef -8, i32 noundef 685, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.7)
   store i32 -8, ptr %3, align 4
   br label %28
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %10, i32 noundef -12, i32 noundef 692, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.8)
+  %10 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %10, i32 noundef -12, i32 noundef 690, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.8)
   store i32 -12, ptr %3, align 4
   br label %28
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %12, i32 noundef -6, i32 noundef 697, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.9)
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %12, i32 noundef -6, i32 noundef 695, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.9)
   store i32 -6, ptr %3, align 4
   br label %28
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %14, i32 noundef -7, i32 noundef 702, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.10)
+  %14 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %14, i32 noundef -7, i32 noundef 700, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.10)
   store i32 -7, ptr %3, align 4
   br label %28
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %16, i32 noundef -14, i32 noundef 707, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.11)
+  %16 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %16, i32 noundef -14, i32 noundef 705, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.11)
   store i32 -14, ptr %3, align 4
   br label %28
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %18, i32 noundef -11, i32 noundef 712, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.12)
+  %18 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %18, i32 noundef -11, i32 noundef 710, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.12)
   store i32 -11, ptr %3, align 4
   br label %28
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %20, i32 noundef -13, i32 noundef 717, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.13)
+  %20 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %20, i32 noundef -13, i32 noundef 715, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.13)
   store i32 -13, ptr %3, align 4
   br label %28
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -4, i32 noundef 722, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.14)
+  %22 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -4, i32 noundef 720, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.14)
   store i32 -4, ptr %3, align 4
   br label %28
 
 23:                                               ; preds = %2
-  %24 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %24, i32 noundef -4, i32 noundef 727, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.14)
+  %24 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %24, i32 noundef -4, i32 noundef 725, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.14)
   store i32 -4, ptr %3, align 4
   br label %28
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %26, i32 noundef -24, i32 noundef 732, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.15)
+  %26 = load ptr, ptr %4, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %26, i32 noundef -24, i32 noundef 730, ptr noundef @__func__.IDAICFailFlag, ptr noundef @.str, ptr noundef @.str.15)
   store i32 -24, ptr %3, align 4
   br label %28
 
@@ -807,6 +864,9 @@ define internal i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %29
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDANewtonIC(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
@@ -818,186 +878,208 @@ define internal i32 @IDANewtonIC(ptr noundef %0) #0 {
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = alloca double, align 8
-  store ptr %0, ptr %3, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.IDAMemRec, ptr %11, i32 0, i32 14
-  %13 = getelementptr inbounds [6 x ptr], ptr %12, i64 0, i64 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.IDAMemRec, ptr %15, i32 0, i32 35
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 110
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.IDAMemRec, ptr %21, i32 0, i32 25
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 20
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.IDAMemRec, ptr %27, i32 0, i32 38
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.IDAMemRec, ptr %30, i32 0, i32 39
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.IDAMemRec, ptr %33, i32 0, i32 28
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i32 %19(ptr noundef %20, ptr noundef %23, ptr noundef %26, ptr noundef %29, ptr noundef %32, ptr noundef %35)
-  store i32 %36, ptr %4, align 4
-  %37 = load i32, ptr %4, align 4
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %1
-  store i32 -7, ptr %2, align 4
-  br label %126
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %12, i32 0, i32 14
+  %14 = getelementptr inbounds [6 x ptr], ptr %13, i64 0, i64 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  %16 = load ptr, ptr %3, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %16, i32 0, i32 35
+  store ptr %15, ptr %17, align 8, !tbaa !55
+  %18 = load ptr, ptr %3, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 110
+  %20 = load ptr, ptr %19, align 8, !tbaa !56
+  %21 = load ptr, ptr %3, align 8, !tbaa !11
+  %22 = load ptr, ptr %3, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %22, i32 0, i32 25
+  %24 = load ptr, ptr %23, align 8, !tbaa !48
+  %25 = load ptr, ptr %3, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 20
+  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %28 = load ptr, ptr %3, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %28, i32 0, i32 38
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
+  %31 = load ptr, ptr %3, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %31, i32 0, i32 39
+  %33 = load ptr, ptr %32, align 8, !tbaa !28
+  %34 = load ptr, ptr %3, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %34, i32 0, i32 28
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
+  %37 = call i32 %20(ptr noundef %21, ptr noundef %24, ptr noundef %27, ptr noundef %30, ptr noundef %33, ptr noundef %36)
+  store i32 %37, ptr %4, align 4, !tbaa !7
+  %38 = load i32, ptr %4, align 4, !tbaa !7
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %41
 
 40:                                               ; preds = %1
-  %41 = load i32, ptr %4, align 4
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %43, label %44
+  store i32 -7, ptr %2, align 4
+  store i32 1, ptr %11, align 4
+  br label %127
 
-43:                                               ; preds = %40
+41:                                               ; preds = %1
+  %42 = load i32, ptr %4, align 4, !tbaa !7
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %44, label %45
+
+44:                                               ; preds = %41
   store i32 1, ptr %2, align 4
-  br label %126
+  store i32 1, ptr %11, align 4
+  br label %127
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %3, align 8
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.IDAMemRec, ptr %46, i32 0, i32 25
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.IDAMemRec, ptr %49, i32 0, i32 20
-  %51 = load ptr, ptr %50, align 8
-  %52 = call double @IDAWrmsNorm(ptr noundef %45, ptr noundef %48, ptr noundef %51, i32 noundef 0)
-  store double %52, ptr %7, align 8
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.IDAMemRec, ptr %53, i32 0, i32 46
-  %55 = load i32, ptr %54, align 8
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %68
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %3, align 8, !tbaa !11
+  %47 = load ptr, ptr %3, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %47, i32 0, i32 25
+  %49 = load ptr, ptr %48, align 8, !tbaa !48
+  %50 = load ptr, ptr %3, align 8, !tbaa !11
+  %51 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %50, i32 0, i32 20
+  %52 = load ptr, ptr %51, align 8, !tbaa !37
+  %53 = call double @IDAWrmsNorm(ptr noundef %46, ptr noundef %49, ptr noundef %52, i32 noundef 0)
+  store double %53, ptr %7, align 8, !tbaa !9
+  %54 = load ptr, ptr %3, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %54, i32 0, i32 46
+  %56 = load i32, ptr %55, align 8, !tbaa !31
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %69
 
-57:                                               ; preds = %44
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.IDAMemRec, ptr %58, i32 0, i32 50
-  %60 = load double, ptr %59, align 8
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.IDAMemRec, ptr %61, i32 0, i32 65
-  %63 = load double, ptr %62, align 8
-  %64 = call double @llvm.fabs.f64(double %63)
-  %65 = fmul double %60, %64
-  %66 = load double, ptr %7, align 8
-  %67 = fmul double %66, %65
-  store double %67, ptr %7, align 8
-  br label %68
+58:                                               ; preds = %45
+  %59 = load ptr, ptr %3, align 8, !tbaa !11
+  %60 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %59, i32 0, i32 50
+  %61 = load double, ptr %60, align 8, !tbaa !32
+  %62 = load ptr, ptr %3, align 8, !tbaa !11
+  %63 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %62, i32 0, i32 65
+  %64 = load double, ptr %63, align 8, !tbaa !40
+  %65 = call double @llvm.fabs.f64(double %64)
+  %66 = fmul double %61, %65
+  %67 = load double, ptr %7, align 8, !tbaa !9
+  %68 = fmul double %67, %66
+  store double %68, ptr %7, align 8, !tbaa !9
+  br label %69
 
-68:                                               ; preds = %57, %44
-  %69 = load double, ptr %7, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.IDAMemRec, ptr %70, i32 0, i32 71
-  %72 = load double, ptr %71, align 8
-  %73 = fcmp ole double %69, %72
-  br i1 %73, label %74, label %75
+69:                                               ; preds = %58, %45
+  %70 = load double, ptr %7, align 8, !tbaa !9
+  %71 = load ptr, ptr %3, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %71, i32 0, i32 71
+  %73 = load double, ptr %72, align 8, !tbaa !34
+  %74 = fcmp ole double %70, %73
+  br i1 %74, label %75, label %76
 
-74:                                               ; preds = %68
+75:                                               ; preds = %69
   store i32 0, ptr %2, align 4
-  br label %126
+  store i32 1, ptr %11, align 4
+  br label %127
 
-75:                                               ; preds = %68
-  %76 = load double, ptr %7, align 8
-  store double %76, ptr %8, align 8
-  store double 0.000000e+00, ptr %10, align 8
-  store i32 0, ptr %5, align 4
-  br label %77
+76:                                               ; preds = %69
+  %77 = load double, ptr %7, align 8, !tbaa !9
+  store double %77, ptr %8, align 8, !tbaa !9
+  store double 0.000000e+00, ptr %10, align 8, !tbaa !9
+  store i32 0, ptr %5, align 4, !tbaa !7
+  br label %78
 
-77:                                               ; preds = %113, %75
-  %78 = load i32, ptr %5, align 4
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.IDAMemRec, ptr %79, i32 0, i32 44
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp slt i32 %78, %81
-  br i1 %82, label %83, label %116
+78:                                               ; preds = %114, %76
+  %79 = load i32, ptr %5, align 4, !tbaa !7
+  %80 = load ptr, ptr %3, align 8, !tbaa !11
+  %81 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %80, i32 0, i32 44
+  %82 = load i32, ptr %81, align 8, !tbaa !57
+  %83 = icmp slt i32 %79, %82
+  br i1 %83, label %84, label %117
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.IDAMemRec, ptr %84, i32 0, i32 92
-  %86 = load i64, ptr %85, align 8
-  %87 = add nsw i64 %86, 1
-  store i64 %87, ptr %85, align 8
-  %88 = load double, ptr %7, align 8
-  store double %88, ptr %6, align 8
-  %89 = load double, ptr %7, align 8
-  store double %89, ptr %9, align 8
-  %90 = load ptr, ptr %3, align 8
-  %91 = call i32 @IDALineSrch(ptr noundef %90, ptr noundef %6, ptr noundef %7)
-  store i32 %91, ptr %4, align 4
-  %92 = load i32, ptr %4, align 4
-  %93 = icmp ne i32 %92, 0
-  br i1 %93, label %94, label %96
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %3, align 8, !tbaa !11
+  %86 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %85, i32 0, i32 92
+  %87 = load i64, ptr %86, align 8, !tbaa !58
+  %88 = add nsw i64 %87, 1
+  store i64 %88, ptr %86, align 8, !tbaa !58
+  %89 = load double, ptr %7, align 8, !tbaa !9
+  store double %89, ptr %6, align 8, !tbaa !9
+  %90 = load double, ptr %7, align 8, !tbaa !9
+  store double %90, ptr %9, align 8, !tbaa !9
+  %91 = load ptr, ptr %3, align 8, !tbaa !11
+  %92 = call i32 @IDALineSrch(ptr noundef %91, ptr noundef %6, ptr noundef %7)
+  store i32 %92, ptr %4, align 4, !tbaa !7
+  %93 = load i32, ptr %4, align 4, !tbaa !7
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %95, label %97
 
-94:                                               ; preds = %83
-  %95 = load i32, ptr %4, align 4
-  store i32 %95, ptr %2, align 4
-  br label %126
+95:                                               ; preds = %84
+  %96 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %96, ptr %2, align 4
+  store i32 1, ptr %11, align 4
+  br label %127
 
-96:                                               ; preds = %83
-  %97 = load double, ptr %7, align 8
-  %98 = load double, ptr %9, align 8
-  %99 = fdiv double %97, %98
-  store double %99, ptr %10, align 8
-  %100 = load double, ptr %7, align 8
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.IDAMemRec, ptr %101, i32 0, i32 71
-  %103 = load double, ptr %102, align 8
-  %104 = fcmp ole double %100, %103
-  br i1 %104, label %105, label %106
+97:                                               ; preds = %84
+  %98 = load double, ptr %7, align 8, !tbaa !9
+  %99 = load double, ptr %9, align 8, !tbaa !9
+  %100 = fdiv double %98, %99
+  store double %100, ptr %10, align 8, !tbaa !9
+  %101 = load double, ptr %7, align 8, !tbaa !9
+  %102 = load ptr, ptr %3, align 8, !tbaa !11
+  %103 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %102, i32 0, i32 71
+  %104 = load double, ptr %103, align 8, !tbaa !34
+  %105 = fcmp ole double %101, %104
+  br i1 %105, label %106, label %107
 
-105:                                              ; preds = %96
+106:                                              ; preds = %97
   store i32 0, ptr %2, align 4
-  br label %126
+  store i32 1, ptr %11, align 4
+  br label %127
 
-106:                                              ; preds = %96
-  %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.IDAMemRec, ptr %107, i32 0, i32 35
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.IDAMemRec, ptr %110, i32 0, i32 25
-  %112 = load ptr, ptr %111, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %109, ptr noundef %112)
-  br label %113
+107:                                              ; preds = %97
+  %108 = load ptr, ptr %3, align 8, !tbaa !11
+  %109 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %108, i32 0, i32 35
+  %110 = load ptr, ptr %109, align 8, !tbaa !55
+  %111 = load ptr, ptr %3, align 8, !tbaa !11
+  %112 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %111, i32 0, i32 25
+  %113 = load ptr, ptr %112, align 8, !tbaa !48
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %110, ptr noundef %113)
+  br label %114
 
-113:                                              ; preds = %106
-  %114 = load i32, ptr %5, align 4
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %5, align 4
-  br label %77
+114:                                              ; preds = %107
+  %115 = load i32, ptr %5, align 4, !tbaa !7
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %5, align 4, !tbaa !7
+  br label %78
 
-116:                                              ; preds = %77
-  %117 = load double, ptr %10, align 8
-  %118 = fcmp ole double %117, 9.000000e-01
-  br i1 %118, label %124, label %119
+117:                                              ; preds = %78
+  %118 = load double, ptr %10, align 8, !tbaa !9
+  %119 = fcmp ole double %118, 9.000000e-01
+  br i1 %119, label %125, label %120
 
-119:                                              ; preds = %116
-  %120 = load double, ptr %7, align 8
-  %121 = load double, ptr %8, align 8
-  %122 = fmul double 1.000000e-01, %121
-  %123 = fcmp olt double %120, %122
-  br i1 %123, label %124, label %125
+120:                                              ; preds = %117
+  %121 = load double, ptr %7, align 8, !tbaa !9
+  %122 = load double, ptr %8, align 8, !tbaa !9
+  %123 = fmul double 1.000000e-01, %122
+  %124 = fcmp olt double %121, %123
+  br i1 %124, label %125, label %126
 
-124:                                              ; preds = %119, %116
+125:                                              ; preds = %120, %117
   store i32 5, ptr %2, align 4
-  br label %126
+  store i32 1, ptr %11, align 4
+  br label %127
 
-125:                                              ; preds = %119
+126:                                              ; preds = %120
   store i32 4, ptr %2, align 4
-  br label %126
+  store i32 1, ptr %11, align 4
+  br label %127
 
-126:                                              ; preds = %125, %124, %105, %94, %74, %43, %39
-  %127 = load i32, ptr %2, align 4
-  ret i32 %127
+127:                                              ; preds = %126, %125, %106, %95, %75, %44, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %128 = load i32, ptr %2, align 4
+  ret i32 %128
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1017,316 +1099,344 @@ define internal i32 @IDALineSrch(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %16 = alloca double, align 8
   %17 = alloca double, align 8
   %18 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.IDAMemRec, ptr %19, i32 0, i32 29
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %18, align 8
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.IDAMemRec, ptr %22, i32 0, i32 14
-  %24 = getelementptr inbounds [6 x ptr], ptr %23, i64 0, i64 3
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.IDAMemRec, ptr %26, i32 0, i32 36
-  store ptr %25, ptr %27, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.IDAMemRec, ptr %28, i32 0, i32 31
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.IDAMemRec, ptr %31, i32 0, i32 33
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.IDAMemRec, ptr %33, i32 0, i32 29
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.IDAMemRec, ptr %36, i32 0, i32 34
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = load double, ptr %38, align 8
-  %40 = load ptr, ptr %7, align 8
-  %41 = load double, ptr %40, align 8
-  %42 = fmul double %39, %41
-  %43 = fmul double %42, 5.000000e-01
-  store double %43, ptr %11, align 8
-  store double 1.000000e+00, ptr %14, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.IDAMemRec, ptr %44, i32 0, i32 12
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %97
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !59
+  store ptr %2, ptr %7, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  %20 = load ptr, ptr %5, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %20, i32 0, i32 29
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
+  store ptr %22, ptr %18, align 8, !tbaa !30
+  %23 = load ptr, ptr %5, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %23, i32 0, i32 14
+  %25 = getelementptr inbounds [6 x ptr], ptr %24, i64 0, i64 3
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %27 = load ptr, ptr %5, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %27, i32 0, i32 36
+  store ptr %26, ptr %28, align 8, !tbaa !60
+  %29 = load ptr, ptr %5, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %29, i32 0, i32 31
+  %31 = load ptr, ptr %30, align 8, !tbaa !46
+  %32 = load ptr, ptr %5, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %32, i32 0, i32 33
+  store ptr %31, ptr %33, align 8, !tbaa !61
+  %34 = load ptr, ptr %5, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %34, i32 0, i32 29
+  %36 = load ptr, ptr %35, align 8, !tbaa !26
+  %37 = load ptr, ptr %5, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %37, i32 0, i32 34
+  store ptr %36, ptr %38, align 8, !tbaa !62
+  %39 = load ptr, ptr %7, align 8, !tbaa !59
+  %40 = load double, ptr %39, align 8, !tbaa !9
+  %41 = load ptr, ptr %7, align 8, !tbaa !59
+  %42 = load double, ptr %41, align 8, !tbaa !9
+  %43 = fmul double %40, %42
+  %44 = fmul double %43, 5.000000e-01
+  store double %44, ptr %11, align 8, !tbaa !9
+  store double 1.000000e+00, ptr %14, align 8, !tbaa !9
+  %45 = load ptr, ptr %5, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %45, i32 0, i32 12
+  %47 = load i32, ptr %46, align 8, !tbaa !63
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %98
 
-48:                                               ; preds = %3
-  %49 = load ptr, ptr %5, align 8
-  %50 = call i32 @IDANewy(ptr noundef %49)
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.IDAMemRec, ptr %51, i32 0, i32 27
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.IDAMemRec, ptr %54, i32 0, i32 33
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %18, align 8
-  %58 = call i32 @N_VConstrMask(ptr noundef %53, ptr noundef %56, ptr noundef %57)
-  store i32 %58, ptr %8, align 4
-  %59 = load i32, ptr %8, align 4
-  %60 = icmp ne i32 %59, 0
-  br i1 %60, label %96, label %61
+49:                                               ; preds = %3
+  %50 = load ptr, ptr %5, align 8, !tbaa !11
+  %51 = call i32 @IDANewy(ptr noundef %50)
+  %52 = load ptr, ptr %5, align 8, !tbaa !11
+  %53 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %52, i32 0, i32 27
+  %54 = load ptr, ptr %53, align 8, !tbaa !64
+  %55 = load ptr, ptr %5, align 8, !tbaa !11
+  %56 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %55, i32 0, i32 33
+  %57 = load ptr, ptr %56, align 8, !tbaa !61
+  %58 = load ptr, ptr %18, align 8, !tbaa !30
+  %59 = call i32 @N_VConstrMask(ptr noundef %54, ptr noundef %57, ptr noundef %58)
+  store i32 %59, ptr %8, align 4, !tbaa !7
+  %60 = load i32, ptr %8, align 4, !tbaa !7
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %97, label %62
 
-61:                                               ; preds = %48
-  %62 = load ptr, ptr %18, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %struct.IDAMemRec, ptr %63, i32 0, i32 25
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.IDAMemRec, ptr %66, i32 0, i32 36
-  %68 = load ptr, ptr %67, align 8
-  call void @N_VProd(ptr noundef %62, ptr noundef %65, ptr noundef %68)
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.IDAMemRec, ptr %69, i32 0, i32 38
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.IDAMemRec, ptr %72, i32 0, i32 36
-  %74 = load ptr, ptr %73, align 8
-  %75 = call double @N_VMinQuotient(ptr noundef %71, ptr noundef %74)
-  %76 = fmul double 0x3FEFAE147AE147AE, %75
-  store double %76, ptr %14, align 8
-  %77 = load double, ptr %14, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = load double, ptr %78, align 8
-  %80 = fmul double %79, %77
-  store double %80, ptr %78, align 8
-  %81 = load ptr, ptr %6, align 8
-  %82 = load double, ptr %81, align 8
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.IDAMemRec, ptr %83, i32 0, i32 49
-  %85 = load double, ptr %84, align 8
-  %86 = fcmp ole double %82, %85
-  br i1 %86, label %87, label %88
+62:                                               ; preds = %49
+  %63 = load ptr, ptr %18, align 8, !tbaa !30
+  %64 = load ptr, ptr %5, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %64, i32 0, i32 25
+  %66 = load ptr, ptr %65, align 8, !tbaa !48
+  %67 = load ptr, ptr %5, align 8, !tbaa !11
+  %68 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %67, i32 0, i32 36
+  %69 = load ptr, ptr %68, align 8, !tbaa !60
+  call void @N_VProd(ptr noundef %63, ptr noundef %66, ptr noundef %69)
+  %70 = load ptr, ptr %5, align 8, !tbaa !11
+  %71 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %70, i32 0, i32 38
+  %72 = load ptr, ptr %71, align 8, !tbaa !27
+  %73 = load ptr, ptr %5, align 8, !tbaa !11
+  %74 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %73, i32 0, i32 36
+  %75 = load ptr, ptr %74, align 8, !tbaa !60
+  %76 = call double @N_VMinQuotient(ptr noundef %72, ptr noundef %75)
+  %77 = fmul double 0x3FEFAE147AE147AE, %76
+  store double %77, ptr %14, align 8, !tbaa !9
+  %78 = load double, ptr %14, align 8, !tbaa !9
+  %79 = load ptr, ptr %6, align 8, !tbaa !59
+  %80 = load double, ptr %79, align 8, !tbaa !9
+  %81 = fmul double %80, %78
+  store double %81, ptr %79, align 8, !tbaa !9
+  %82 = load ptr, ptr %6, align 8, !tbaa !59
+  %83 = load double, ptr %82, align 8, !tbaa !9
+  %84 = load ptr, ptr %5, align 8, !tbaa !11
+  %85 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %84, i32 0, i32 49
+  %86 = load double, ptr %85, align 8, !tbaa !65
+  %87 = fcmp ole double %83, %86
+  br i1 %87, label %88, label %89
 
-87:                                               ; preds = %61
+88:                                               ; preds = %62
   store i32 2, ptr %4, align 4
-  br label %191
+  store i32 1, ptr %19, align 4
+  br label %192
 
-88:                                               ; preds = %61
-  %89 = load double, ptr %14, align 8
-  %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct.IDAMemRec, ptr %90, i32 0, i32 25
-  %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.IDAMemRec, ptr %93, i32 0, i32 25
-  %95 = load ptr, ptr %94, align 8
-  call void @N_VScale(double noundef %89, ptr noundef %92, ptr noundef %95)
-  br label %96
-
-96:                                               ; preds = %88, %48
+89:                                               ; preds = %62
+  %90 = load double, ptr %14, align 8, !tbaa !9
+  %91 = load ptr, ptr %5, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %91, i32 0, i32 25
+  %93 = load ptr, ptr %92, align 8, !tbaa !48
+  %94 = load ptr, ptr %5, align 8, !tbaa !11
+  %95 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %94, i32 0, i32 25
+  %96 = load ptr, ptr %95, align 8, !tbaa !48
+  call void @N_VScale(double noundef %90, ptr noundef %93, ptr noundef %96)
   br label %97
 
-97:                                               ; preds = %96, %3
-  %98 = load double, ptr %11, align 8
-  %99 = fmul double -2.000000e+00, %98
-  %100 = load double, ptr %14, align 8
-  %101 = fmul double %99, %100
-  store double %101, ptr %17, align 8
-  %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds %struct.IDAMemRec, ptr %102, i32 0, i32 49
-  %104 = load double, ptr %103, align 8
-  %105 = load ptr, ptr %6, align 8
-  %106 = load double, ptr %105, align 8
-  %107 = fdiv double %104, %106
-  store double %107, ptr %16, align 8
-  store double 1.000000e+00, ptr %15, align 8
-  store i32 0, ptr %10, align 4
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct.IDAMemRec, ptr %108, i32 0, i32 40
-  %110 = load i32, ptr %109, align 8
-  %111 = icmp eq i32 %110, 2
-  br i1 %111, label %112, label %119
+97:                                               ; preds = %89, %49
+  br label %98
 
-112:                                              ; preds = %97
-  %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds %struct.IDAMemRec, ptr %113, i32 0, i32 39
-  %115 = load ptr, ptr %114, align 8
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds %struct.IDAMemRec, ptr %116, i32 0, i32 34
-  %118 = load ptr, ptr %117, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %115, ptr noundef %118)
-  br label %119
+98:                                               ; preds = %97, %3
+  %99 = load double, ptr %11, align 8, !tbaa !9
+  %100 = fmul double -2.000000e+00, %99
+  %101 = load double, ptr %14, align 8, !tbaa !9
+  %102 = fmul double %100, %101
+  store double %102, ptr %17, align 8, !tbaa !9
+  %103 = load ptr, ptr %5, align 8, !tbaa !11
+  %104 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %103, i32 0, i32 49
+  %105 = load double, ptr %104, align 8, !tbaa !65
+  %106 = load ptr, ptr %6, align 8, !tbaa !59
+  %107 = load double, ptr %106, align 8, !tbaa !9
+  %108 = fdiv double %105, %107
+  store double %108, ptr %16, align 8, !tbaa !9
+  store double 1.000000e+00, ptr %15, align 8, !tbaa !9
+  store i32 0, ptr %10, align 4, !tbaa !7
+  %109 = load ptr, ptr %5, align 8, !tbaa !11
+  %110 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %109, i32 0, i32 40
+  %111 = load i32, ptr %110, align 8, !tbaa !22
+  %112 = icmp eq i32 %111, 2
+  br i1 %112, label %113, label %120
 
-119:                                              ; preds = %112, %97
+113:                                              ; preds = %98
+  %114 = load ptr, ptr %5, align 8, !tbaa !11
+  %115 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %114, i32 0, i32 39
+  %116 = load ptr, ptr %115, align 8, !tbaa !28
+  %117 = load ptr, ptr %5, align 8, !tbaa !11
+  %118 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %117, i32 0, i32 34
+  %119 = load ptr, ptr %118, align 8, !tbaa !62
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %116, ptr noundef %119)
   br label %120
 
-120:                                              ; preds = %161, %119
-  %121 = load i32, ptr %10, align 4
-  %122 = load ptr, ptr %5, align 8
-  %123 = getelementptr inbounds %struct.IDAMemRec, ptr %122, i32 0, i32 47
-  %124 = load i32, ptr %123, align 4
-  %125 = icmp eq i32 %121, %124
-  br i1 %125, label %126, label %127
+120:                                              ; preds = %113, %98
+  br label %121
 
-126:                                              ; preds = %120
+121:                                              ; preds = %162, %120
+  %122 = load i32, ptr %10, align 4, !tbaa !7
+  %123 = load ptr, ptr %5, align 8, !tbaa !11
+  %124 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %123, i32 0, i32 47
+  %125 = load i32, ptr %124, align 4, !tbaa !66
+  %126 = icmp eq i32 %122, %125
+  br i1 %126, label %127, label %128
+
+127:                                              ; preds = %121
   store i32 3, ptr %4, align 4
-  br label %191
+  store i32 1, ptr %19, align 4
+  br label %192
 
-127:                                              ; preds = %120
-  %128 = load ptr, ptr %5, align 8
-  %129 = load double, ptr %15, align 8
-  %130 = call i32 @IDANewyyp(ptr noundef %128, double noundef %129)
-  %131 = load ptr, ptr %5, align 8
-  %132 = call i32 @IDAfnorm(ptr noundef %131, ptr noundef %12)
-  store i32 %132, ptr %9, align 4
-  %133 = load i32, ptr %9, align 4
-  %134 = icmp ne i32 %133, 0
-  br i1 %134, label %135, label %137
+128:                                              ; preds = %121
+  %129 = load ptr, ptr %5, align 8, !tbaa !11
+  %130 = load double, ptr %15, align 8, !tbaa !9
+  %131 = call i32 @IDANewyyp(ptr noundef %129, double noundef %130)
+  %132 = load ptr, ptr %5, align 8, !tbaa !11
+  %133 = call i32 @IDAfnorm(ptr noundef %132, ptr noundef %12)
+  store i32 %133, ptr %9, align 4, !tbaa !7
+  %134 = load i32, ptr %9, align 4, !tbaa !7
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %136, label %138
 
-135:                                              ; preds = %127
-  %136 = load i32, ptr %9, align 4
-  store i32 %136, ptr %4, align 4
-  br label %191
+136:                                              ; preds = %128
+  %137 = load i32, ptr %9, align 4, !tbaa !7
+  store i32 %137, ptr %4, align 4
+  store i32 1, ptr %19, align 4
+  br label %192
 
-137:                                              ; preds = %127
-  %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr inbounds %struct.IDAMemRec, ptr %138, i32 0, i32 41
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %142, label %143
+138:                                              ; preds = %128
+  %139 = load ptr, ptr %5, align 8, !tbaa !11
+  %140 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %139, i32 0, i32 41
+  %141 = load i32, ptr %140, align 4, !tbaa !67
+  %142 = icmp ne i32 %141, 0
+  br i1 %142, label %143, label %144
 
-142:                                              ; preds = %137
-  br label %170
+143:                                              ; preds = %138
+  br label %171
 
-143:                                              ; preds = %137
-  %144 = load double, ptr %12, align 8
-  %145 = load double, ptr %12, align 8
-  %146 = fmul double %144, %145
-  %147 = fmul double %146, 5.000000e-01
-  store double %147, ptr %13, align 8
-  %148 = load double, ptr %13, align 8
-  %149 = load double, ptr %11, align 8
-  %150 = load double, ptr %17, align 8
-  %151 = fmul double 1.000000e-04, %150
-  %152 = load double, ptr %15, align 8
-  %153 = call double @llvm.fmuladd.f64(double %151, double %152, double %149)
-  %154 = fcmp ole double %148, %153
-  br i1 %154, label %155, label %156
+144:                                              ; preds = %138
+  %145 = load double, ptr %12, align 8, !tbaa !9
+  %146 = load double, ptr %12, align 8, !tbaa !9
+  %147 = fmul double %145, %146
+  %148 = fmul double %147, 5.000000e-01
+  store double %148, ptr %13, align 8, !tbaa !9
+  %149 = load double, ptr %13, align 8, !tbaa !9
+  %150 = load double, ptr %11, align 8, !tbaa !9
+  %151 = load double, ptr %17, align 8, !tbaa !9
+  %152 = fmul double 1.000000e-04, %151
+  %153 = load double, ptr %15, align 8, !tbaa !9
+  %154 = call double @llvm.fmuladd.f64(double %152, double %153, double %150)
+  %155 = fcmp ole double %149, %154
+  br i1 %155, label %156, label %157
 
-155:                                              ; preds = %143
-  br label %170
+156:                                              ; preds = %144
+  br label %171
 
-156:                                              ; preds = %143
-  %157 = load double, ptr %15, align 8
-  %158 = load double, ptr %16, align 8
-  %159 = fcmp olt double %157, %158
-  br i1 %159, label %160, label %161
+157:                                              ; preds = %144
+  %158 = load double, ptr %15, align 8, !tbaa !9
+  %159 = load double, ptr %16, align 8, !tbaa !9
+  %160 = fcmp olt double %158, %159
+  br i1 %160, label %161, label %162
 
-160:                                              ; preds = %156
+161:                                              ; preds = %157
   store i32 3, ptr %4, align 4
-  br label %191
+  store i32 1, ptr %19, align 4
+  br label %192
 
-161:                                              ; preds = %156
-  %162 = load double, ptr %15, align 8
-  %163 = fdiv double %162, 2.000000e+00
-  store double %163, ptr %15, align 8
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds %struct.IDAMemRec, ptr %164, i32 0, i32 45
-  %166 = load i32, ptr %165, align 4
-  %167 = add nsw i32 %166, 1
-  store i32 %167, ptr %165, align 4
-  %168 = load i32, ptr %10, align 4
-  %169 = add nsw i32 %168, 1
-  store i32 %169, ptr %10, align 4
-  br label %120
+162:                                              ; preds = %157
+  %163 = load double, ptr %15, align 8, !tbaa !9
+  %164 = fdiv double %163, 2.000000e+00
+  store double %164, ptr %15, align 8, !tbaa !9
+  %165 = load ptr, ptr %5, align 8, !tbaa !11
+  %166 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %165, i32 0, i32 45
+  %167 = load i32, ptr %166, align 4, !tbaa !36
+  %168 = add nsw i32 %167, 1
+  store i32 %168, ptr %166, align 4, !tbaa !36
+  %169 = load i32, ptr %10, align 4, !tbaa !7
+  %170 = add nsw i32 %169, 1
+  store i32 %170, ptr %10, align 4, !tbaa !7
+  br label %121
 
-170:                                              ; preds = %155, %142
-  %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds %struct.IDAMemRec, ptr %171, i32 0, i32 33
-  %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr %5, align 8
-  %175 = getelementptr inbounds %struct.IDAMemRec, ptr %174, i32 0, i32 38
-  %176 = load ptr, ptr %175, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %173, ptr noundef %176)
-  %177 = load ptr, ptr %5, align 8
-  %178 = getelementptr inbounds %struct.IDAMemRec, ptr %177, i32 0, i32 40
-  %179 = load i32, ptr %178, align 8
-  %180 = icmp eq i32 %179, 1
-  br i1 %180, label %181, label %188
+171:                                              ; preds = %156, %143
+  %172 = load ptr, ptr %5, align 8, !tbaa !11
+  %173 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %172, i32 0, i32 33
+  %174 = load ptr, ptr %173, align 8, !tbaa !61
+  %175 = load ptr, ptr %5, align 8, !tbaa !11
+  %176 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %175, i32 0, i32 38
+  %177 = load ptr, ptr %176, align 8, !tbaa !27
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %174, ptr noundef %177)
+  %178 = load ptr, ptr %5, align 8, !tbaa !11
+  %179 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %178, i32 0, i32 40
+  %180 = load i32, ptr %179, align 8, !tbaa !22
+  %181 = icmp eq i32 %180, 1
+  br i1 %181, label %182, label %189
 
-181:                                              ; preds = %170
-  %182 = load ptr, ptr %5, align 8
-  %183 = getelementptr inbounds %struct.IDAMemRec, ptr %182, i32 0, i32 34
-  %184 = load ptr, ptr %183, align 8
-  %185 = load ptr, ptr %5, align 8
-  %186 = getelementptr inbounds %struct.IDAMemRec, ptr %185, i32 0, i32 39
-  %187 = load ptr, ptr %186, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %184, ptr noundef %187)
-  br label %188
+182:                                              ; preds = %171
+  %183 = load ptr, ptr %5, align 8, !tbaa !11
+  %184 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %183, i32 0, i32 34
+  %185 = load ptr, ptr %184, align 8, !tbaa !62
+  %186 = load ptr, ptr %5, align 8, !tbaa !11
+  %187 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %186, i32 0, i32 39
+  %188 = load ptr, ptr %187, align 8, !tbaa !28
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %185, ptr noundef %188)
+  br label %189
 
-188:                                              ; preds = %181, %170
-  %189 = load double, ptr %12, align 8
-  %190 = load ptr, ptr %7, align 8
-  store double %189, ptr %190, align 8
+189:                                              ; preds = %182, %171
+  %190 = load double, ptr %12, align 8, !tbaa !9
+  %191 = load ptr, ptr %7, align 8, !tbaa !59
+  store double %190, ptr %191, align 8, !tbaa !9
   store i32 0, ptr %4, align 4
-  br label %191
+  store i32 1, ptr %19, align 4
+  br label %192
 
-191:                                              ; preds = %188, %160, %135, %126, %87
-  %192 = load i32, ptr %4, align 4
-  ret i32 %192
+192:                                              ; preds = %189, %161, %136, %127, %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %193 = load i32, ptr %4, align 4
+  ret i32 %193
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDANewy(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.IDAMemRec, ptr %4, i32 0, i32 40
-  %6 = load i32, ptr %5, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  %4 = load ptr, ptr %3, align 8, !tbaa !11
+  %5 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %4, i32 0, i32 40
+  %6 = load i32, ptr %5, align 8, !tbaa !22
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %36
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.IDAMemRec, ptr %9, i32 0, i32 26
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.IDAMemRec, ptr %12, i32 0, i32 25
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.IDAMemRec, ptr %15, i32 0, i32 36
-  %17 = load ptr, ptr %16, align 8
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %9, i32 0, i32 26
+  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %12, i32 0, i32 25
+  %14 = load ptr, ptr %13, align 8, !tbaa !48
+  %15 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %15, i32 0, i32 36
+  %17 = load ptr, ptr %16, align 8, !tbaa !60
   call void @N_VProd(ptr noundef %11, ptr noundef %14, ptr noundef %17)
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.IDAMemRec, ptr %18, i32 0, i32 25
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.IDAMemRec, ptr %21, i32 0, i32 36
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 36
-  %26 = load ptr, ptr %25, align 8
+  %18 = load ptr, ptr %3, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 25
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  %21 = load ptr, ptr %3, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %21, i32 0, i32 36
+  %23 = load ptr, ptr %22, align 8, !tbaa !60
+  %24 = load ptr, ptr %3, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %24, i32 0, i32 36
+  %26 = load ptr, ptr %25, align 8, !tbaa !60
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %20, double noundef -1.000000e+00, ptr noundef %23, ptr noundef %26)
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.IDAMemRec, ptr %27, i32 0, i32 38
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.IDAMemRec, ptr %30, i32 0, i32 36
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.IDAMemRec, ptr %33, i32 0, i32 33
-  %35 = load ptr, ptr %34, align 8
+  %27 = load ptr, ptr %3, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %27, i32 0, i32 38
+  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %30 = load ptr, ptr %3, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %30, i32 0, i32 36
+  %32 = load ptr, ptr %31, align 8, !tbaa !60
+  %33 = load ptr, ptr %3, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %33, i32 0, i32 33
+  %35 = load ptr, ptr %34, align 8, !tbaa !61
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %29, double noundef -1.000000e+00, ptr noundef %32, ptr noundef %35)
   store i32 0, ptr %2, align 4
   br label %46
 
 36:                                               ; preds = %1
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.IDAMemRec, ptr %37, i32 0, i32 38
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.IDAMemRec, ptr %40, i32 0, i32 25
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.IDAMemRec, ptr %43, i32 0, i32 33
-  %45 = load ptr, ptr %44, align 8
+  %37 = load ptr, ptr %3, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %37, i32 0, i32 38
+  %39 = load ptr, ptr %38, align 8, !tbaa !27
+  %40 = load ptr, ptr %3, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %40, i32 0, i32 25
+  %42 = load ptr, ptr %41, align 8, !tbaa !48
+  %43 = load ptr, ptr %3, align 8, !tbaa !11
+  %44 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %43, i32 0, i32 33
+  %45 = load ptr, ptr %44, align 8, !tbaa !61
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %39, double noundef -1.000000e+00, ptr noundef %42, ptr noundef %45)
   store i32 0, ptr %2, align 4
   br label %46
@@ -1336,89 +1446,89 @@ define internal i32 @IDANewy(ptr noundef %0) #0 {
   ret i32 %47
 }
 
-declare i32 @N_VConstrMask(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @N_VConstrMask(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare double @N_VMinQuotient(ptr noundef, ptr noundef) #1
+declare double @N_VMinQuotient(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDANewyyp(ptr noundef %0, double noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.IDAMemRec, ptr %6, i32 0, i32 40
-  %8 = load i32, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store double %1, ptr %5, align 8, !tbaa !9
+  %6 = load ptr, ptr %4, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %6, i32 0, i32 40
+  %8 = load i32, ptr %7, align 8, !tbaa !22
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %55
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.IDAMemRec, ptr %11, i32 0, i32 26
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.IDAMemRec, ptr %14, i32 0, i32 25
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 36
-  %19 = load ptr, ptr %18, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %11, i32 0, i32 26
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %14 = load ptr, ptr %4, align 8, !tbaa !11
+  %15 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %14, i32 0, i32 25
+  %16 = load ptr, ptr %15, align 8, !tbaa !48
+  %17 = load ptr, ptr %4, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %17, i32 0, i32 36
+  %19 = load ptr, ptr %18, align 8, !tbaa !60
   call void @N_VProd(ptr noundef %13, ptr noundef %16, ptr noundef %19)
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.IDAMemRec, ptr %20, i32 0, i32 39
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.IDAMemRec, ptr %23, i32 0, i32 65
-  %25 = load double, ptr %24, align 8
+  %20 = load ptr, ptr %4, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %20, i32 0, i32 39
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %23 = load ptr, ptr %4, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %23, i32 0, i32 65
+  %25 = load double, ptr %24, align 8, !tbaa !40
   %26 = fneg double %25
-  %27 = load double, ptr %5, align 8
+  %27 = load double, ptr %5, align 8, !tbaa !9
   %28 = fmul double %26, %27
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.IDAMemRec, ptr %29, i32 0, i32 36
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds %struct.IDAMemRec, ptr %32, i32 0, i32 34
-  %34 = load ptr, ptr %33, align 8
+  %29 = load ptr, ptr %4, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %29, i32 0, i32 36
+  %31 = load ptr, ptr %30, align 8, !tbaa !60
+  %32 = load ptr, ptr %4, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %32, i32 0, i32 34
+  %34 = load ptr, ptr %33, align 8, !tbaa !62
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %22, double noundef %28, ptr noundef %31, ptr noundef %34)
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.IDAMemRec, ptr %35, i32 0, i32 25
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.IDAMemRec, ptr %38, i32 0, i32 36
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.IDAMemRec, ptr %41, i32 0, i32 36
-  %43 = load ptr, ptr %42, align 8
+  %35 = load ptr, ptr %4, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %35, i32 0, i32 25
+  %37 = load ptr, ptr %36, align 8, !tbaa !48
+  %38 = load ptr, ptr %4, align 8, !tbaa !11
+  %39 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %38, i32 0, i32 36
+  %40 = load ptr, ptr %39, align 8, !tbaa !60
+  %41 = load ptr, ptr %4, align 8, !tbaa !11
+  %42 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %41, i32 0, i32 36
+  %43 = load ptr, ptr %42, align 8, !tbaa !60
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %37, double noundef -1.000000e+00, ptr noundef %40, ptr noundef %43)
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.IDAMemRec, ptr %44, i32 0, i32 38
-  %46 = load ptr, ptr %45, align 8
-  %47 = load double, ptr %5, align 8
+  %44 = load ptr, ptr %4, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %44, i32 0, i32 38
+  %46 = load ptr, ptr %45, align 8, !tbaa !27
+  %47 = load double, ptr %5, align 8, !tbaa !9
   %48 = fneg double %47
-  %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.IDAMemRec, ptr %49, i32 0, i32 36
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.IDAMemRec, ptr %52, i32 0, i32 33
-  %54 = load ptr, ptr %53, align 8
+  %49 = load ptr, ptr %4, align 8, !tbaa !11
+  %50 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %49, i32 0, i32 36
+  %51 = load ptr, ptr %50, align 8, !tbaa !60
+  %52 = load ptr, ptr %4, align 8, !tbaa !11
+  %53 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %52, i32 0, i32 33
+  %54 = load ptr, ptr %53, align 8, !tbaa !61
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %46, double noundef %48, ptr noundef %51, ptr noundef %54)
   store i32 0, ptr %3, align 4
   br label %67
 
 55:                                               ; preds = %2
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.IDAMemRec, ptr %56, i32 0, i32 38
-  %58 = load ptr, ptr %57, align 8
-  %59 = load double, ptr %5, align 8
+  %56 = load ptr, ptr %4, align 8, !tbaa !11
+  %57 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %56, i32 0, i32 38
+  %58 = load ptr, ptr %57, align 8, !tbaa !27
+  %59 = load double, ptr %5, align 8, !tbaa !9
   %60 = fneg double %59
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.IDAMemRec, ptr %61, i32 0, i32 25
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.IDAMemRec, ptr %64, i32 0, i32 33
-  %66 = load ptr, ptr %65, align 8
+  %61 = load ptr, ptr %4, align 8, !tbaa !11
+  %62 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %61, i32 0, i32 25
+  %63 = load ptr, ptr %62, align 8, !tbaa !48
+  %64 = load ptr, ptr %4, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %64, i32 0, i32 33
+  %66 = load ptr, ptr %65, align 8, !tbaa !61
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %58, double noundef %60, ptr noundef %63, ptr noundef %66)
   store i32 0, ptr %3, align 4
   br label %67
@@ -1434,149 +1544,223 @@ define internal i32 @IDAfnorm(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.IDAMemRec, ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.IDAMemRec, ptr %10, i32 0, i32 37
-  %12 = load double, ptr %11, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.IDAMemRec, ptr %13, i32 0, i32 33
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.IDAMemRec, ptr %16, i32 0, i32 34
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.IDAMemRec, ptr %19, i32 0, i32 35
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.IDAMemRec, ptr %22, i32 0, i32 3
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 %9(double noundef %12, ptr noundef %15, ptr noundef %18, ptr noundef %21, ptr noundef %24)
-  store i32 %25, ptr %6, align 4
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.IDAMemRec, ptr %26, i32 0, i32 89
-  %28 = load i64, ptr %27, align 8
-  %29 = add nsw i64 %28, 1
-  store i64 %29, ptr %27, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %2
-  store i32 -8, ptr %3, align 4
-  br label %98
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = load ptr, ptr %4, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !47
+  %11 = load ptr, ptr %4, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %11, i32 0, i32 37
+  %13 = load double, ptr %12, align 8, !tbaa !29
+  %14 = load ptr, ptr %4, align 8, !tbaa !11
+  %15 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %14, i32 0, i32 33
+  %16 = load ptr, ptr %15, align 8, !tbaa !61
+  %17 = load ptr, ptr %4, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %17, i32 0, i32 34
+  %19 = load ptr, ptr %18, align 8, !tbaa !62
+  %20 = load ptr, ptr %4, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %20, i32 0, i32 35
+  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %23 = load ptr, ptr %4, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8, !tbaa !49
+  %26 = call i32 %10(double noundef %13, ptr noundef %16, ptr noundef %19, ptr noundef %22, ptr noundef %25)
+  store i32 %26, ptr %6, align 4, !tbaa !7
+  %27 = load ptr, ptr %4, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %27, i32 0, i32 89
+  %29 = load i64, ptr %28, align 8, !tbaa !50
+  %30 = add nsw i64 %29, 1
+  store i64 %30, ptr %28, align 8, !tbaa !50
+  %31 = load i32, ptr %6, align 4, !tbaa !7
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %34
 
 33:                                               ; preds = %2
-  %34 = load i32, ptr %6, align 4
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %37
+  store i32 -8, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %99
 
-36:                                               ; preds = %33
+34:                                               ; preds = %2
+  %35 = load i32, ptr %6, align 4, !tbaa !7
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %34
   store i32 1, ptr %3, align 4
-  br label %98
+  store i32 1, ptr %7, align 4
+  br label %99
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.IDAMemRec, ptr %38, i32 0, i32 35
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.IDAMemRec, ptr %41, i32 0, i32 28
-  %43 = load ptr, ptr %42, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %40, ptr noundef %43)
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.IDAMemRec, ptr %44, i32 0, i32 110
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %4, align 8
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.IDAMemRec, ptr %48, i32 0, i32 35
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.IDAMemRec, ptr %51, i32 0, i32 20
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.IDAMemRec, ptr %54, i32 0, i32 33
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.IDAMemRec, ptr %57, i32 0, i32 34
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %struct.IDAMemRec, ptr %60, i32 0, i32 28
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i32 %46(ptr noundef %47, ptr noundef %50, ptr noundef %53, ptr noundef %56, ptr noundef %59, ptr noundef %62)
-  store i32 %63, ptr %6, align 4
-  %64 = load i32, ptr %6, align 4
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %67
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %4, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %39, i32 0, i32 35
+  %41 = load ptr, ptr %40, align 8, !tbaa !55
+  %42 = load ptr, ptr %4, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %42, i32 0, i32 28
+  %44 = load ptr, ptr %43, align 8, !tbaa !51
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %41, ptr noundef %44)
+  %45 = load ptr, ptr %4, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %45, i32 0, i32 110
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = load ptr, ptr %4, align 8, !tbaa !11
+  %49 = load ptr, ptr %4, align 8, !tbaa !11
+  %50 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %49, i32 0, i32 35
+  %51 = load ptr, ptr %50, align 8, !tbaa !55
+  %52 = load ptr, ptr %4, align 8, !tbaa !11
+  %53 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %52, i32 0, i32 20
+  %54 = load ptr, ptr %53, align 8, !tbaa !37
+  %55 = load ptr, ptr %4, align 8, !tbaa !11
+  %56 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %55, i32 0, i32 33
+  %57 = load ptr, ptr %56, align 8, !tbaa !61
+  %58 = load ptr, ptr %4, align 8, !tbaa !11
+  %59 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %58, i32 0, i32 34
+  %60 = load ptr, ptr %59, align 8, !tbaa !62
+  %61 = load ptr, ptr %4, align 8, !tbaa !11
+  %62 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %61, i32 0, i32 28
+  %63 = load ptr, ptr %62, align 8, !tbaa !51
+  %64 = call i32 %47(ptr noundef %48, ptr noundef %51, ptr noundef %54, ptr noundef %57, ptr noundef %60, ptr noundef %63)
+  store i32 %64, ptr %6, align 4, !tbaa !7
+  %65 = load i32, ptr %6, align 4, !tbaa !7
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %68
 
-66:                                               ; preds = %37
+67:                                               ; preds = %38
   store i32 -7, ptr %3, align 4
-  br label %98
+  store i32 1, ptr %7, align 4
+  br label %99
 
-67:                                               ; preds = %37
-  %68 = load i32, ptr %6, align 4
-  %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %70, label %71
+68:                                               ; preds = %38
+  %69 = load i32, ptr %6, align 4, !tbaa !7
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %99
+
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %4, align 8, !tbaa !11
+  %74 = load ptr, ptr %4, align 8, !tbaa !11
+  %75 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %74, i32 0, i32 35
+  %76 = load ptr, ptr %75, align 8, !tbaa !55
+  %77 = load ptr, ptr %4, align 8, !tbaa !11
+  %78 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %77, i32 0, i32 20
+  %79 = load ptr, ptr %78, align 8, !tbaa !37
+  %80 = call double @IDAWrmsNorm(ptr noundef %73, ptr noundef %76, ptr noundef %79, i32 noundef 0)
+  %81 = load ptr, ptr %5, align 8, !tbaa !59
+  store double %80, ptr %81, align 8, !tbaa !9
+  %82 = load ptr, ptr %4, align 8, !tbaa !11
+  %83 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %82, i32 0, i32 46
+  %84 = load i32, ptr %83, align 8, !tbaa !31
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %98
+
+86:                                               ; preds = %72
+  %87 = load ptr, ptr %4, align 8, !tbaa !11
+  %88 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %87, i32 0, i32 50
+  %89 = load double, ptr %88, align 8, !tbaa !32
+  %90 = load ptr, ptr %4, align 8, !tbaa !11
+  %91 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %90, i32 0, i32 65
+  %92 = load double, ptr %91, align 8, !tbaa !40
+  %93 = call double @llvm.fabs.f64(double %92)
+  %94 = fmul double %89, %93
+  %95 = load ptr, ptr %5, align 8, !tbaa !59
+  %96 = load double, ptr %95, align 8, !tbaa !9
+  %97 = fmul double %96, %94
+  store double %97, ptr %95, align 8, !tbaa !9
   br label %98
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %4, align 8
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.IDAMemRec, ptr %73, i32 0, i32 35
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.IDAMemRec, ptr %76, i32 0, i32 20
-  %78 = load ptr, ptr %77, align 8
-  %79 = call double @IDAWrmsNorm(ptr noundef %72, ptr noundef %75, ptr noundef %78, i32 noundef 0)
-  %80 = load ptr, ptr %5, align 8
-  store double %79, ptr %80, align 8
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.IDAMemRec, ptr %81, i32 0, i32 46
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %97
-
-85:                                               ; preds = %71
-  %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds %struct.IDAMemRec, ptr %86, i32 0, i32 50
-  %88 = load double, ptr %87, align 8
-  %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds %struct.IDAMemRec, ptr %89, i32 0, i32 65
-  %91 = load double, ptr %90, align 8
-  %92 = call double @llvm.fabs.f64(double %91)
-  %93 = fmul double %88, %92
-  %94 = load ptr, ptr %5, align 8
-  %95 = load double, ptr %94, align 8
-  %96 = fmul double %95, %93
-  store double %96, ptr %94, align 8
-  br label %97
-
-97:                                               ; preds = %85, %71
+98:                                               ; preds = %86, %72
   store i32 0, ptr %3, align 4
-  br label %98
+  store i32 1, ptr %7, align 4
+  br label %99
 
-98:                                               ; preds = %97, %70, %66, %36, %32
-  %99 = load i32, ptr %3, align 4
-  ret i32 %99
+99:                                               ; preds = %98, %71, %67, %37, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %100 = load i32, ptr %3, align 4
+  ret i32 %100
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"double", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS9IDAMemRec", !4, i64 0}
+!13 = !{!14, !8, i64 976}
+!14 = !{!"IDAMemRec", !15, i64 0, !10, i64 8, !4, i64 16, !4, i64 24, !8, i64 32, !10, i64 40, !10, i64 48, !16, i64 56, !8, i64 64, !8, i64 68, !4, i64 72, !4, i64 80, !8, i64 88, !8, i64 92, !5, i64 96, !5, i64 144, !5, i64 192, !5, i64 240, !5, i64 288, !5, i64 336, !16, i64 384, !16, i64 392, !16, i64 400, !16, i64 408, !16, i64 416, !16, i64 424, !16, i64 432, !16, i64 440, !16, i64 448, !16, i64 456, !16, i64 464, !16, i64 472, !16, i64 480, !16, i64 488, !16, i64 496, !16, i64 504, !16, i64 512, !10, i64 520, !16, i64 528, !16, i64 536, !8, i64 544, !8, i64 548, !8, i64 552, !8, i64 556, !8, i64 560, !8, i64 564, !8, i64 568, !8, i64 572, !10, i64 576, !10, i64 584, !10, i64 592, !8, i64 600, !10, i64 608, !8, i64 616, !8, i64 620, !8, i64 624, !8, i64 628, !8, i64 632, !10, i64 640, !10, i64 648, !10, i64 656, !10, i64 664, !10, i64 672, !10, i64 680, !10, i64 688, !10, i64 696, !10, i64 704, !10, i64 712, !10, i64 720, !10, i64 728, !10, i64 736, !10, i64 744, !10, i64 752, !10, i64 760, !8, i64 768, !8, i64 772, !8, i64 776, !8, i64 780, !17, i64 784, !10, i64 792, !10, i64 800, !10, i64 808, !10, i64 816, !10, i64 824, !10, i64 832, !10, i64 840, !10, i64 848, !10, i64 856, !17, i64 864, !17, i64 872, !17, i64 880, !17, i64 888, !17, i64 896, !17, i64 904, !17, i64 912, !17, i64 920, !17, i64 928, !17, i64 936, !17, i64 944, !10, i64 952, !8, i64 960, !8, i64 964, !8, i64 968, !8, i64 972, !8, i64 976, !18, i64 984, !8, i64 992, !4, i64 1000, !4, i64 1008, !4, i64 1016, !4, i64 1024, !4, i64 1032, !4, i64 1040, !4, i64 1048, !10, i64 1056, !8, i64 1064, !4, i64 1072, !8, i64 1080, !19, i64 1088, !19, i64 1096, !10, i64 1104, !10, i64 1112, !10, i64 1120, !20, i64 1128, !20, i64 1136, !20, i64 1144, !10, i64 1152, !10, i64 1160, !8, i64 1168, !8, i64 1172, !17, i64 1176, !19, i64 1184, !8, i64 1192, !5, i64 1200, !5, i64 1248, !5, i64 1288, !5, i64 1336}
+!15 = !{!"p1 _ZTS11SUNContext_", !4, i64 0}
+!16 = !{!"p1 _ZTS17_generic_N_Vector", !4, i64 0}
+!17 = !{!"long", !5, i64 0}
+!18 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !4, i64 0}
+!19 = !{!"p1 int", !4, i64 0}
+!20 = !{!"p1 double", !4, i64 0}
+!21 = !{!14, !8, i64 960}
+!22 = !{!14, !8, i64 544}
+!23 = !{!14, !16, i64 432}
+!24 = !{!14, !10, i64 680}
+!25 = !{!14, !10, i64 8}
+!26 = !{!14, !16, i64 456}
+!27 = !{!14, !16, i64 528}
+!28 = !{!14, !16, i64 536}
+!29 = !{!14, !10, i64 520}
+!30 = !{!16, !16, i64 0}
+!31 = !{!14, !8, i64 568}
+!32 = !{!14, !10, i64 592}
+!33 = !{!14, !10, i64 576}
+!34 = !{!14, !10, i64 744}
+!35 = !{!14, !10, i64 720}
+!36 = !{!14, !8, i64 564}
+!37 = !{!14, !16, i64 384}
+!38 = !{!14, !8, i64 92}
+!39 = !{!14, !10, i64 656}
+!40 = !{!14, !10, i64 696}
+!41 = !{!14, !8, i64 552}
+!42 = !{!14, !17, i64 880}
+!43 = !{!14, !4, i64 72}
+!44 = !{!14, !4, i64 80}
+!45 = !{!14, !10, i64 664}
+!46 = !{!14, !16, i64 472}
+!47 = !{!14, !4, i64 16}
+!48 = !{!14, !16, i64 424}
+!49 = !{!14, !4, i64 24}
+!50 = !{!14, !17, i64 872}
+!51 = !{!14, !16, i64 448}
+!52 = !{!14, !8, i64 556}
+!53 = !{!14, !4, i64 1016}
+!54 = !{!14, !17, i64 912}
+!55 = !{!14, !16, i64 504}
+!56 = !{!14, !4, i64 1024}
+!57 = !{!14, !8, i64 560}
+!58 = !{!14, !17, i64 896}
+!59 = !{!20, !20, i64 0}
+!60 = !{!14, !16, i64 512}
+!61 = !{!14, !16, i64 488}
+!62 = !{!14, !16, i64 496}
+!63 = !{!14, !8, i64 88}
+!64 = !{!14, !16, i64 440}
+!65 = !{!14, !10, i64 584}
+!66 = !{!14, !8, i64 572}
+!67 = !{!14, !8, i64 548}

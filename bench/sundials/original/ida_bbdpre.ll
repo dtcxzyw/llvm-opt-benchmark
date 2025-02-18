@@ -48,911 +48,951 @@ define i32 @IDABBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   %28 = alloca i64, align 8
   %29 = alloca i64, align 8
   %30 = alloca i32, align 4
-  store ptr %0, ptr %11, align 8
-  store i64 %1, ptr %12, align 8
-  store i64 %2, ptr %13, align 8
-  store i64 %3, ptr %14, align 8
-  store i64 %4, ptr %15, align 8
-  store i64 %5, ptr %16, align 8
-  store double %6, ptr %17, align 8
-  store ptr %7, ptr %18, align 8
-  store ptr %8, ptr %19, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %34
-
-33:                                               ; preds = %9
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 71, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %10, align 4
-  br label %595
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !3
+  store i64 %1, ptr %12, align 8, !tbaa !7
+  store i64 %2, ptr %13, align 8, !tbaa !7
+  store i64 %3, ptr %14, align 8, !tbaa !7
+  store i64 %4, ptr %15, align 8, !tbaa !7
+  store i64 %5, ptr %16, align 8, !tbaa !7
+  store double %6, ptr %17, align 8, !tbaa !9
+  store ptr %7, ptr %18, align 8, !tbaa !3
+  store ptr %8, ptr %19, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #6
+  %32 = load ptr, ptr %11, align 8, !tbaa !3
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %9
-  %35 = load ptr, ptr %11, align 8
-  store ptr %35, ptr %20, align 8
-  %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds %struct.IDAMemRec, ptr %36, i32 0, i32 113
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %42
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 71, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %10, align 4
+  store i32 1, ptr %31, align 4
+  br label %596
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %41, i32 noundef -2, i32 noundef 80, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.2)
+35:                                               ; preds = %9
+  %36 = load ptr, ptr %11, align 8, !tbaa !3
+  store ptr %36, ptr %20, align 8, !tbaa !11
+  %37 = load ptr, ptr %20, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %37, i32 0, i32 113
+  %39 = load ptr, ptr %38, align 8, !tbaa !13
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %42, i32 noundef -2, i32 noundef 80, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-42:                                               ; preds = %34
-  %43 = load ptr, ptr %20, align 8
-  %44 = getelementptr inbounds %struct.IDAMemRec, ptr %43, i32 0, i32 113
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %21, align 8
-  %46 = load ptr, ptr %20, align 8
-  %47 = getelementptr inbounds %struct.IDAMemRec, ptr %46, i32 0, i32 30
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._generic_N_Vector, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %50, i32 0, i32 5
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %56
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %20, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %44, i32 0, i32 113
+  %46 = load ptr, ptr %45, align 8, !tbaa !13
+  store ptr %46, ptr %21, align 8, !tbaa !21
+  %47 = load ptr, ptr %20, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %47, i32 0, i32 30
+  %49 = load ptr, ptr %48, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !24
+  %52 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %51, i32 0, i32 5
+  %53 = load ptr, ptr %52, align 8, !tbaa !27
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %42
-  %55 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %55, i32 noundef -3, i32 noundef 89, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.3)
+55:                                               ; preds = %43
+  %56 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %56, i32 noundef -3, i32 noundef 89, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -3, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-56:                                               ; preds = %42
-  store ptr null, ptr %22, align 8
-  %57 = call noalias ptr @malloc(i64 noundef 160) #5
-  store ptr %57, ptr %22, align 8
-  %58 = load ptr, ptr %22, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %62
+57:                                               ; preds = %43
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %58 = call noalias ptr @malloc(i64 noundef 160) #7
+  store ptr %58, ptr %22, align 8, !tbaa !29
+  %59 = load ptr, ptr %22, align 8, !tbaa !29
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %61, i32 noundef -4, i32 noundef 99, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %62, i32 noundef -4, i32 noundef 99, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %20, align 8
-  %64 = load ptr, ptr %22, align 8
-  %65 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %64, i32 0, i32 19
-  store ptr %63, ptr %65, align 8
-  %66 = load ptr, ptr %18, align 8
-  %67 = load ptr, ptr %22, align 8
-  %68 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %67, i32 0, i32 5
-  store ptr %66, ptr %68, align 8
-  %69 = load ptr, ptr %19, align 8
-  %70 = load ptr, ptr %22, align 8
-  %71 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %70, i32 0, i32 6
-  store ptr %69, ptr %71, align 8
-  %72 = load i64, ptr %12, align 8
-  %73 = sub nsw i64 %72, 1
-  %74 = load i64, ptr %13, align 8
-  %75 = icmp sgt i64 0, %74
-  br i1 %75, label %76, label %77
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %20, align 8, !tbaa !11
+  %65 = load ptr, ptr %22, align 8, !tbaa !29
+  %66 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %65, i32 0, i32 19
+  store ptr %64, ptr %66, align 8, !tbaa !31
+  %67 = load ptr, ptr %18, align 8, !tbaa !3
+  %68 = load ptr, ptr %22, align 8, !tbaa !29
+  %69 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %68, i32 0, i32 5
+  store ptr %67, ptr %69, align 8, !tbaa !35
+  %70 = load ptr, ptr %19, align 8, !tbaa !3
+  %71 = load ptr, ptr %22, align 8, !tbaa !29
+  %72 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %71, i32 0, i32 6
+  store ptr %70, ptr %72, align 8, !tbaa !36
+  %73 = load i64, ptr %12, align 8, !tbaa !7
+  %74 = sub nsw i64 %73, 1
+  %75 = load i64, ptr %13, align 8, !tbaa !7
+  %76 = icmp sgt i64 0, %75
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %62
-  br label %79
+77:                                               ; preds = %63
+  br label %80
 
-77:                                               ; preds = %62
-  %78 = load i64, ptr %13, align 8
-  br label %79
+78:                                               ; preds = %63
+  %79 = load i64, ptr %13, align 8, !tbaa !7
+  br label %80
 
-79:                                               ; preds = %77, %76
-  %80 = phi i64 [ 0, %76 ], [ %78, %77 ]
-  %81 = icmp slt i64 %73, %80
-  br i1 %81, label %82, label %85
+80:                                               ; preds = %78, %77
+  %81 = phi i64 [ 0, %77 ], [ %79, %78 ]
+  %82 = icmp slt i64 %74, %81
+  br i1 %82, label %83, label %86
 
-82:                                               ; preds = %79
-  %83 = load i64, ptr %12, align 8
-  %84 = sub nsw i64 %83, 1
-  br label %93
+83:                                               ; preds = %80
+  %84 = load i64, ptr %12, align 8, !tbaa !7
+  %85 = sub nsw i64 %84, 1
+  br label %94
 
-85:                                               ; preds = %79
-  %86 = load i64, ptr %13, align 8
-  %87 = icmp sgt i64 0, %86
-  br i1 %87, label %88, label %89
+86:                                               ; preds = %80
+  %87 = load i64, ptr %13, align 8, !tbaa !7
+  %88 = icmp sgt i64 0, %87
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %85
-  br label %91
+89:                                               ; preds = %86
+  br label %92
 
-89:                                               ; preds = %85
-  %90 = load i64, ptr %13, align 8
-  br label %91
+90:                                               ; preds = %86
+  %91 = load i64, ptr %13, align 8, !tbaa !7
+  br label %92
 
-91:                                               ; preds = %89, %88
-  %92 = phi i64 [ 0, %88 ], [ %90, %89 ]
-  br label %93
+92:                                               ; preds = %90, %89
+  %93 = phi i64 [ 0, %89 ], [ %91, %90 ]
+  br label %94
 
-93:                                               ; preds = %91, %82
-  %94 = phi i64 [ %84, %82 ], [ %92, %91 ]
-  %95 = load ptr, ptr %22, align 8
-  %96 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %95, i32 0, i32 0
-  store i64 %94, ptr %96, align 8
-  %97 = load i64, ptr %12, align 8
-  %98 = sub nsw i64 %97, 1
-  %99 = load i64, ptr %14, align 8
-  %100 = icmp sgt i64 0, %99
-  br i1 %100, label %101, label %102
+94:                                               ; preds = %92, %83
+  %95 = phi i64 [ %85, %83 ], [ %93, %92 ]
+  %96 = load ptr, ptr %22, align 8, !tbaa !29
+  %97 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %96, i32 0, i32 0
+  store i64 %95, ptr %97, align 8, !tbaa !37
+  %98 = load i64, ptr %12, align 8, !tbaa !7
+  %99 = sub nsw i64 %98, 1
+  %100 = load i64, ptr %14, align 8, !tbaa !7
+  %101 = icmp sgt i64 0, %100
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %93
-  br label %104
+102:                                              ; preds = %94
+  br label %105
 
-102:                                              ; preds = %93
-  %103 = load i64, ptr %14, align 8
-  br label %104
+103:                                              ; preds = %94
+  %104 = load i64, ptr %14, align 8, !tbaa !7
+  br label %105
 
-104:                                              ; preds = %102, %101
-  %105 = phi i64 [ 0, %101 ], [ %103, %102 ]
-  %106 = icmp slt i64 %98, %105
-  br i1 %106, label %107, label %110
+105:                                              ; preds = %103, %102
+  %106 = phi i64 [ 0, %102 ], [ %104, %103 ]
+  %107 = icmp slt i64 %99, %106
+  br i1 %107, label %108, label %111
 
-107:                                              ; preds = %104
-  %108 = load i64, ptr %12, align 8
-  %109 = sub nsw i64 %108, 1
-  br label %118
+108:                                              ; preds = %105
+  %109 = load i64, ptr %12, align 8, !tbaa !7
+  %110 = sub nsw i64 %109, 1
+  br label %119
 
-110:                                              ; preds = %104
-  %111 = load i64, ptr %14, align 8
-  %112 = icmp sgt i64 0, %111
-  br i1 %112, label %113, label %114
+111:                                              ; preds = %105
+  %112 = load i64, ptr %14, align 8, !tbaa !7
+  %113 = icmp sgt i64 0, %112
+  br i1 %113, label %114, label %115
 
-113:                                              ; preds = %110
-  br label %116
+114:                                              ; preds = %111
+  br label %117
 
-114:                                              ; preds = %110
-  %115 = load i64, ptr %14, align 8
-  br label %116
+115:                                              ; preds = %111
+  %116 = load i64, ptr %14, align 8, !tbaa !7
+  br label %117
 
-116:                                              ; preds = %114, %113
-  %117 = phi i64 [ 0, %113 ], [ %115, %114 ]
-  br label %118
+117:                                              ; preds = %115, %114
+  %118 = phi i64 [ 0, %114 ], [ %116, %115 ]
+  br label %119
 
-118:                                              ; preds = %116, %107
-  %119 = phi i64 [ %109, %107 ], [ %117, %116 ]
-  %120 = load ptr, ptr %22, align 8
-  %121 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %120, i32 0, i32 1
-  store i64 %119, ptr %121, align 8
-  %122 = load i64, ptr %12, align 8
-  %123 = sub nsw i64 %122, 1
-  %124 = load i64, ptr %15, align 8
-  %125 = icmp sgt i64 0, %124
-  br i1 %125, label %126, label %127
+119:                                              ; preds = %117, %108
+  %120 = phi i64 [ %110, %108 ], [ %118, %117 ]
+  %121 = load ptr, ptr %22, align 8, !tbaa !29
+  %122 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %121, i32 0, i32 1
+  store i64 %120, ptr %122, align 8, !tbaa !38
+  %123 = load i64, ptr %12, align 8, !tbaa !7
+  %124 = sub nsw i64 %123, 1
+  %125 = load i64, ptr %15, align 8, !tbaa !7
+  %126 = icmp sgt i64 0, %125
+  br i1 %126, label %127, label %128
 
-126:                                              ; preds = %118
-  br label %129
+127:                                              ; preds = %119
+  br label %130
 
-127:                                              ; preds = %118
-  %128 = load i64, ptr %15, align 8
-  br label %129
+128:                                              ; preds = %119
+  %129 = load i64, ptr %15, align 8, !tbaa !7
+  br label %130
 
-129:                                              ; preds = %127, %126
-  %130 = phi i64 [ 0, %126 ], [ %128, %127 ]
-  %131 = icmp slt i64 %123, %130
-  br i1 %131, label %132, label %135
+130:                                              ; preds = %128, %127
+  %131 = phi i64 [ 0, %127 ], [ %129, %128 ]
+  %132 = icmp slt i64 %124, %131
+  br i1 %132, label %133, label %136
 
-132:                                              ; preds = %129
-  %133 = load i64, ptr %12, align 8
-  %134 = sub nsw i64 %133, 1
-  br label %143
+133:                                              ; preds = %130
+  %134 = load i64, ptr %12, align 8, !tbaa !7
+  %135 = sub nsw i64 %134, 1
+  br label %144
 
-135:                                              ; preds = %129
-  %136 = load i64, ptr %15, align 8
-  %137 = icmp sgt i64 0, %136
-  br i1 %137, label %138, label %139
+136:                                              ; preds = %130
+  %137 = load i64, ptr %15, align 8, !tbaa !7
+  %138 = icmp sgt i64 0, %137
+  br i1 %138, label %139, label %140
 
-138:                                              ; preds = %135
-  br label %141
+139:                                              ; preds = %136
+  br label %142
 
-139:                                              ; preds = %135
-  %140 = load i64, ptr %15, align 8
-  br label %141
+140:                                              ; preds = %136
+  %141 = load i64, ptr %15, align 8, !tbaa !7
+  br label %142
 
-141:                                              ; preds = %139, %138
-  %142 = phi i64 [ 0, %138 ], [ %140, %139 ]
-  br label %143
+142:                                              ; preds = %140, %139
+  %143 = phi i64 [ 0, %139 ], [ %141, %140 ]
+  br label %144
 
-143:                                              ; preds = %141, %132
-  %144 = phi i64 [ %134, %132 ], [ %142, %141 ]
-  store i64 %144, ptr %23, align 8
-  %145 = load i64, ptr %12, align 8
-  %146 = sub nsw i64 %145, 1
-  %147 = load i64, ptr %16, align 8
-  %148 = icmp sgt i64 0, %147
-  br i1 %148, label %149, label %150
+144:                                              ; preds = %142, %133
+  %145 = phi i64 [ %135, %133 ], [ %143, %142 ]
+  store i64 %145, ptr %23, align 8, !tbaa !7
+  %146 = load i64, ptr %12, align 8, !tbaa !7
+  %147 = sub nsw i64 %146, 1
+  %148 = load i64, ptr %16, align 8, !tbaa !7
+  %149 = icmp sgt i64 0, %148
+  br i1 %149, label %150, label %151
 
-149:                                              ; preds = %143
-  br label %152
+150:                                              ; preds = %144
+  br label %153
 
-150:                                              ; preds = %143
-  %151 = load i64, ptr %16, align 8
-  br label %152
+151:                                              ; preds = %144
+  %152 = load i64, ptr %16, align 8, !tbaa !7
+  br label %153
 
-152:                                              ; preds = %150, %149
-  %153 = phi i64 [ 0, %149 ], [ %151, %150 ]
-  %154 = icmp slt i64 %146, %153
-  br i1 %154, label %155, label %158
+153:                                              ; preds = %151, %150
+  %154 = phi i64 [ 0, %150 ], [ %152, %151 ]
+  %155 = icmp slt i64 %147, %154
+  br i1 %155, label %156, label %159
 
-155:                                              ; preds = %152
-  %156 = load i64, ptr %12, align 8
-  %157 = sub nsw i64 %156, 1
-  br label %166
+156:                                              ; preds = %153
+  %157 = load i64, ptr %12, align 8, !tbaa !7
+  %158 = sub nsw i64 %157, 1
+  br label %167
 
-158:                                              ; preds = %152
-  %159 = load i64, ptr %16, align 8
-  %160 = icmp sgt i64 0, %159
-  br i1 %160, label %161, label %162
+159:                                              ; preds = %153
+  %160 = load i64, ptr %16, align 8, !tbaa !7
+  %161 = icmp sgt i64 0, %160
+  br i1 %161, label %162, label %163
 
-161:                                              ; preds = %158
-  br label %164
+162:                                              ; preds = %159
+  br label %165
 
-162:                                              ; preds = %158
-  %163 = load i64, ptr %16, align 8
-  br label %164
+163:                                              ; preds = %159
+  %164 = load i64, ptr %16, align 8, !tbaa !7
+  br label %165
 
-164:                                              ; preds = %162, %161
-  %165 = phi i64 [ 0, %161 ], [ %163, %162 ]
-  br label %166
+165:                                              ; preds = %163, %162
+  %166 = phi i64 [ 0, %162 ], [ %164, %163 ]
+  br label %167
 
-166:                                              ; preds = %164, %155
-  %167 = phi i64 [ %157, %155 ], [ %165, %164 ]
-  store i64 %167, ptr %24, align 8
-  %168 = load i64, ptr %23, align 8
-  %169 = load ptr, ptr %22, align 8
-  %170 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %169, i32 0, i32 2
-  store i64 %168, ptr %170, align 8
-  %171 = load i64, ptr %24, align 8
-  %172 = load ptr, ptr %22, align 8
-  %173 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %172, i32 0, i32 3
-  store i64 %171, ptr %173, align 8
-  %174 = load i64, ptr %12, align 8
-  %175 = sub nsw i64 %174, 1
-  %176 = load i64, ptr %23, align 8
-  %177 = load i64, ptr %24, align 8
-  %178 = add nsw i64 %176, %177
-  %179 = icmp slt i64 %175, %178
-  br i1 %179, label %180, label %183
+167:                                              ; preds = %165, %156
+  %168 = phi i64 [ %158, %156 ], [ %166, %165 ]
+  store i64 %168, ptr %24, align 8, !tbaa !7
+  %169 = load i64, ptr %23, align 8, !tbaa !7
+  %170 = load ptr, ptr %22, align 8, !tbaa !29
+  %171 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %170, i32 0, i32 2
+  store i64 %169, ptr %171, align 8, !tbaa !39
+  %172 = load i64, ptr %24, align 8, !tbaa !7
+  %173 = load ptr, ptr %22, align 8, !tbaa !29
+  %174 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %173, i32 0, i32 3
+  store i64 %172, ptr %174, align 8, !tbaa !40
+  %175 = load i64, ptr %12, align 8, !tbaa !7
+  %176 = sub nsw i64 %175, 1
+  %177 = load i64, ptr %23, align 8, !tbaa !7
+  %178 = load i64, ptr %24, align 8, !tbaa !7
+  %179 = add nsw i64 %177, %178
+  %180 = icmp slt i64 %176, %179
+  br i1 %180, label %181, label %184
 
-180:                                              ; preds = %166
-  %181 = load i64, ptr %12, align 8
-  %182 = sub nsw i64 %181, 1
-  br label %187
+181:                                              ; preds = %167
+  %182 = load i64, ptr %12, align 8, !tbaa !7
+  %183 = sub nsw i64 %182, 1
+  br label %188
 
-183:                                              ; preds = %166
-  %184 = load i64, ptr %23, align 8
-  %185 = load i64, ptr %24, align 8
-  %186 = add nsw i64 %184, %185
-  br label %187
+184:                                              ; preds = %167
+  %185 = load i64, ptr %23, align 8, !tbaa !7
+  %186 = load i64, ptr %24, align 8, !tbaa !7
+  %187 = add nsw i64 %185, %186
+  br label %188
 
-187:                                              ; preds = %183, %180
-  %188 = phi i64 [ %182, %180 ], [ %186, %183 ]
-  store i64 %188, ptr %25, align 8
-  %189 = load ptr, ptr %22, align 8
-  %190 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %189, i32 0, i32 8
-  store ptr null, ptr %190, align 8
-  %191 = load i64, ptr %12, align 8
-  %192 = load i64, ptr %23, align 8
-  %193 = load i64, ptr %24, align 8
-  %194 = load i64, ptr %25, align 8
-  %195 = load ptr, ptr %20, align 8
-  %196 = getelementptr inbounds %struct.IDAMemRec, ptr %195, i32 0, i32 0
-  %197 = load ptr, ptr %196, align 8
-  %198 = call ptr @SUNBandMatrixStorage(i64 noundef %191, i64 noundef %192, i64 noundef %193, i64 noundef %194, ptr noundef %197)
-  %199 = load ptr, ptr %22, align 8
-  %200 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %199, i32 0, i32 8
-  store ptr %198, ptr %200, align 8
-  %201 = load ptr, ptr %22, align 8
-  %202 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %201, i32 0, i32 8
-  %203 = load ptr, ptr %202, align 8
-  %204 = icmp eq ptr %203, null
-  br i1 %204, label %205, label %208
+188:                                              ; preds = %184, %181
+  %189 = phi i64 [ %183, %181 ], [ %187, %184 ]
+  store i64 %189, ptr %25, align 8, !tbaa !7
+  %190 = load ptr, ptr %22, align 8, !tbaa !29
+  %191 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %190, i32 0, i32 8
+  store ptr null, ptr %191, align 8, !tbaa !41
+  %192 = load i64, ptr %12, align 8, !tbaa !7
+  %193 = load i64, ptr %23, align 8, !tbaa !7
+  %194 = load i64, ptr %24, align 8, !tbaa !7
+  %195 = load i64, ptr %25, align 8, !tbaa !7
+  %196 = load ptr, ptr %20, align 8, !tbaa !11
+  %197 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %196, i32 0, i32 0
+  %198 = load ptr, ptr %197, align 8, !tbaa !42
+  %199 = call ptr @SUNBandMatrixStorage(i64 noundef %192, i64 noundef %193, i64 noundef %194, i64 noundef %195, ptr noundef %198)
+  %200 = load ptr, ptr %22, align 8, !tbaa !29
+  %201 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %200, i32 0, i32 8
+  store ptr %199, ptr %201, align 8, !tbaa !41
+  %202 = load ptr, ptr %22, align 8, !tbaa !29
+  %203 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %202, i32 0, i32 8
+  %204 = load ptr, ptr %203, align 8, !tbaa !41
+  %205 = icmp eq ptr %204, null
+  br i1 %205, label %206, label %209
 
-205:                                              ; preds = %187
-  %206 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %206) #6
-  store ptr null, ptr %22, align 8
-  %207 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %207, i32 noundef -4, i32 noundef 126, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+206:                                              ; preds = %188
+  %207 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %207) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %208 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %208, i32 noundef -4, i32 noundef 126, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-208:                                              ; preds = %187
-  %209 = load ptr, ptr %22, align 8
-  %210 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %209, i32 0, i32 10
-  store ptr null, ptr %210, align 8
-  %211 = load i64, ptr %12, align 8
-  %212 = load ptr, ptr %20, align 8
-  %213 = getelementptr inbounds %struct.IDAMemRec, ptr %212, i32 0, i32 0
-  %214 = load ptr, ptr %213, align 8
-  %215 = call ptr @N_VNewEmpty_Serial(i64 noundef %211, ptr noundef %214)
-  %216 = load ptr, ptr %22, align 8
-  %217 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %216, i32 0, i32 10
-  store ptr %215, ptr %217, align 8
-  %218 = load ptr, ptr %22, align 8
-  %219 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %218, i32 0, i32 10
-  %220 = load ptr, ptr %219, align 8
-  %221 = icmp eq ptr %220, null
-  br i1 %221, label %222, label %228
+209:                                              ; preds = %188
+  %210 = load ptr, ptr %22, align 8, !tbaa !29
+  %211 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %210, i32 0, i32 10
+  store ptr null, ptr %211, align 8, !tbaa !43
+  %212 = load i64, ptr %12, align 8, !tbaa !7
+  %213 = load ptr, ptr %20, align 8, !tbaa !11
+  %214 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %213, i32 0, i32 0
+  %215 = load ptr, ptr %214, align 8, !tbaa !42
+  %216 = call ptr @N_VNewEmpty_Serial(i64 noundef %212, ptr noundef %215)
+  %217 = load ptr, ptr %22, align 8, !tbaa !29
+  %218 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %217, i32 0, i32 10
+  store ptr %216, ptr %218, align 8, !tbaa !43
+  %219 = load ptr, ptr %22, align 8, !tbaa !29
+  %220 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %219, i32 0, i32 10
+  %221 = load ptr, ptr %220, align 8, !tbaa !43
+  %222 = icmp eq ptr %221, null
+  br i1 %222, label %223, label %229
 
-222:                                              ; preds = %208
-  %223 = load ptr, ptr %22, align 8
-  %224 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %223, i32 0, i32 8
-  %225 = load ptr, ptr %224, align 8
-  call void @SUNMatDestroy(ptr noundef %225)
-  %226 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %226) #6
-  store ptr null, ptr %22, align 8
-  %227 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %227, i32 noundef -4, i32 noundef 139, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+223:                                              ; preds = %209
+  %224 = load ptr, ptr %22, align 8, !tbaa !29
+  %225 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %224, i32 0, i32 8
+  %226 = load ptr, ptr %225, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %226)
+  %227 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %227) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %228 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %228, i32 noundef -4, i32 noundef 139, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-228:                                              ; preds = %208
-  %229 = load ptr, ptr %22, align 8
-  %230 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %229, i32 0, i32 11
-  store ptr null, ptr %230, align 8
-  %231 = load i64, ptr %12, align 8
-  %232 = load ptr, ptr %20, align 8
-  %233 = getelementptr inbounds %struct.IDAMemRec, ptr %232, i32 0, i32 0
-  %234 = load ptr, ptr %233, align 8
-  %235 = call ptr @N_VNewEmpty_Serial(i64 noundef %231, ptr noundef %234)
-  %236 = load ptr, ptr %22, align 8
-  %237 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %236, i32 0, i32 11
-  store ptr %235, ptr %237, align 8
-  %238 = load ptr, ptr %22, align 8
-  %239 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %238, i32 0, i32 11
-  %240 = load ptr, ptr %239, align 8
-  %241 = icmp eq ptr %240, null
-  br i1 %241, label %242, label %251
+229:                                              ; preds = %209
+  %230 = load ptr, ptr %22, align 8, !tbaa !29
+  %231 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %230, i32 0, i32 11
+  store ptr null, ptr %231, align 8, !tbaa !44
+  %232 = load i64, ptr %12, align 8, !tbaa !7
+  %233 = load ptr, ptr %20, align 8, !tbaa !11
+  %234 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %233, i32 0, i32 0
+  %235 = load ptr, ptr %234, align 8, !tbaa !42
+  %236 = call ptr @N_VNewEmpty_Serial(i64 noundef %232, ptr noundef %235)
+  %237 = load ptr, ptr %22, align 8, !tbaa !29
+  %238 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %237, i32 0, i32 11
+  store ptr %236, ptr %238, align 8, !tbaa !44
+  %239 = load ptr, ptr %22, align 8, !tbaa !29
+  %240 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %239, i32 0, i32 11
+  %241 = load ptr, ptr %240, align 8, !tbaa !44
+  %242 = icmp eq ptr %241, null
+  br i1 %242, label %243, label %252
 
-242:                                              ; preds = %228
-  %243 = load ptr, ptr %22, align 8
-  %244 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %243, i32 0, i32 10
-  %245 = load ptr, ptr %244, align 8
-  call void @N_VDestroy(ptr noundef %245)
-  %246 = load ptr, ptr %22, align 8
-  %247 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %246, i32 0, i32 8
-  %248 = load ptr, ptr %247, align 8
-  call void @SUNMatDestroy(ptr noundef %248)
-  %249 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %249) #6
-  store ptr null, ptr %22, align 8
-  %250 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %250, i32 noundef -4, i32 noundef 151, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+243:                                              ; preds = %229
+  %244 = load ptr, ptr %22, align 8, !tbaa !29
+  %245 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %244, i32 0, i32 10
+  %246 = load ptr, ptr %245, align 8, !tbaa !43
+  call void @N_VDestroy(ptr noundef %246)
+  %247 = load ptr, ptr %22, align 8, !tbaa !29
+  %248 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %247, i32 0, i32 8
+  %249 = load ptr, ptr %248, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %249)
+  %250 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %250) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %251 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %251, i32 noundef -4, i32 noundef 151, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-251:                                              ; preds = %228
-  %252 = load ptr, ptr %22, align 8
-  %253 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %252, i32 0, i32 12
-  store ptr null, ptr %253, align 8
-  %254 = load ptr, ptr %20, align 8
-  %255 = getelementptr inbounds %struct.IDAMemRec, ptr %254, i32 0, i32 30
-  %256 = load ptr, ptr %255, align 8
-  %257 = call ptr @N_VClone(ptr noundef %256)
-  %258 = load ptr, ptr %22, align 8
-  %259 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %258, i32 0, i32 12
-  store ptr %257, ptr %259, align 8
-  %260 = load ptr, ptr %22, align 8
-  %261 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %260, i32 0, i32 12
-  %262 = load ptr, ptr %261, align 8
-  %263 = icmp eq ptr %262, null
-  br i1 %263, label %264, label %276
+252:                                              ; preds = %229
+  %253 = load ptr, ptr %22, align 8, !tbaa !29
+  %254 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %253, i32 0, i32 12
+  store ptr null, ptr %254, align 8, !tbaa !45
+  %255 = load ptr, ptr %20, align 8, !tbaa !11
+  %256 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %255, i32 0, i32 30
+  %257 = load ptr, ptr %256, align 8, !tbaa !23
+  %258 = call ptr @N_VClone(ptr noundef %257)
+  %259 = load ptr, ptr %22, align 8, !tbaa !29
+  %260 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %259, i32 0, i32 12
+  store ptr %258, ptr %260, align 8, !tbaa !45
+  %261 = load ptr, ptr %22, align 8, !tbaa !29
+  %262 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %261, i32 0, i32 12
+  %263 = load ptr, ptr %262, align 8, !tbaa !45
+  %264 = icmp eq ptr %263, null
+  br i1 %264, label %265, label %277
 
-264:                                              ; preds = %251
-  %265 = load ptr, ptr %22, align 8
-  %266 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %265, i32 0, i32 11
-  %267 = load ptr, ptr %266, align 8
-  call void @N_VDestroy(ptr noundef %267)
-  %268 = load ptr, ptr %22, align 8
-  %269 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %268, i32 0, i32 10
-  %270 = load ptr, ptr %269, align 8
-  call void @N_VDestroy(ptr noundef %270)
-  %271 = load ptr, ptr %22, align 8
-  %272 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %271, i32 0, i32 8
-  %273 = load ptr, ptr %272, align 8
-  call void @SUNMatDestroy(ptr noundef %273)
-  %274 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %274) #6
-  store ptr null, ptr %22, align 8
-  %275 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %275, i32 noundef -4, i32 noundef 164, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+265:                                              ; preds = %252
+  %266 = load ptr, ptr %22, align 8, !tbaa !29
+  %267 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %266, i32 0, i32 11
+  %268 = load ptr, ptr %267, align 8, !tbaa !44
+  call void @N_VDestroy(ptr noundef %268)
+  %269 = load ptr, ptr %22, align 8, !tbaa !29
+  %270 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %269, i32 0, i32 10
+  %271 = load ptr, ptr %270, align 8, !tbaa !43
+  call void @N_VDestroy(ptr noundef %271)
+  %272 = load ptr, ptr %22, align 8, !tbaa !29
+  %273 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %272, i32 0, i32 8
+  %274 = load ptr, ptr %273, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %274)
+  %275 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %275) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %276 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %276, i32 noundef -4, i32 noundef 164, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-276:                                              ; preds = %251
-  %277 = load ptr, ptr %22, align 8
-  %278 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %277, i32 0, i32 13
-  store ptr null, ptr %278, align 8
-  %279 = load ptr, ptr %20, align 8
-  %280 = getelementptr inbounds %struct.IDAMemRec, ptr %279, i32 0, i32 30
-  %281 = load ptr, ptr %280, align 8
-  %282 = call ptr @N_VClone(ptr noundef %281)
-  %283 = load ptr, ptr %22, align 8
-  %284 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %283, i32 0, i32 13
-  store ptr %282, ptr %284, align 8
-  %285 = load ptr, ptr %22, align 8
-  %286 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %285, i32 0, i32 13
-  %287 = load ptr, ptr %286, align 8
-  %288 = icmp eq ptr %287, null
-  br i1 %288, label %289, label %304
+277:                                              ; preds = %252
+  %278 = load ptr, ptr %22, align 8, !tbaa !29
+  %279 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %278, i32 0, i32 13
+  store ptr null, ptr %279, align 8, !tbaa !46
+  %280 = load ptr, ptr %20, align 8, !tbaa !11
+  %281 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %280, i32 0, i32 30
+  %282 = load ptr, ptr %281, align 8, !tbaa !23
+  %283 = call ptr @N_VClone(ptr noundef %282)
+  %284 = load ptr, ptr %22, align 8, !tbaa !29
+  %285 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %284, i32 0, i32 13
+  store ptr %283, ptr %285, align 8, !tbaa !46
+  %286 = load ptr, ptr %22, align 8, !tbaa !29
+  %287 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %286, i32 0, i32 13
+  %288 = load ptr, ptr %287, align 8, !tbaa !46
+  %289 = icmp eq ptr %288, null
+  br i1 %289, label %290, label %305
 
-289:                                              ; preds = %276
-  %290 = load ptr, ptr %22, align 8
-  %291 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %290, i32 0, i32 11
-  %292 = load ptr, ptr %291, align 8
-  call void @N_VDestroy(ptr noundef %292)
-  %293 = load ptr, ptr %22, align 8
-  %294 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %293, i32 0, i32 10
-  %295 = load ptr, ptr %294, align 8
-  call void @N_VDestroy(ptr noundef %295)
-  %296 = load ptr, ptr %22, align 8
-  %297 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %296, i32 0, i32 12
-  %298 = load ptr, ptr %297, align 8
-  call void @N_VDestroy(ptr noundef %298)
-  %299 = load ptr, ptr %22, align 8
-  %300 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %299, i32 0, i32 8
-  %301 = load ptr, ptr %300, align 8
-  call void @SUNMatDestroy(ptr noundef %301)
-  %302 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %302) #6
-  store ptr null, ptr %22, align 8
-  %303 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %303, i32 noundef -4, i32 noundef 178, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+290:                                              ; preds = %277
+  %291 = load ptr, ptr %22, align 8, !tbaa !29
+  %292 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %291, i32 0, i32 11
+  %293 = load ptr, ptr %292, align 8, !tbaa !44
+  call void @N_VDestroy(ptr noundef %293)
+  %294 = load ptr, ptr %22, align 8, !tbaa !29
+  %295 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %294, i32 0, i32 10
+  %296 = load ptr, ptr %295, align 8, !tbaa !43
+  call void @N_VDestroy(ptr noundef %296)
+  %297 = load ptr, ptr %22, align 8, !tbaa !29
+  %298 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %297, i32 0, i32 12
+  %299 = load ptr, ptr %298, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %299)
+  %300 = load ptr, ptr %22, align 8, !tbaa !29
+  %301 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %300, i32 0, i32 8
+  %302 = load ptr, ptr %301, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %302)
+  %303 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %303) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %304 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %304, i32 noundef -4, i32 noundef 178, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-304:                                              ; preds = %276
-  %305 = load ptr, ptr %22, align 8
-  %306 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %305, i32 0, i32 14
-  store ptr null, ptr %306, align 8
-  %307 = load ptr, ptr %20, align 8
-  %308 = getelementptr inbounds %struct.IDAMemRec, ptr %307, i32 0, i32 30
-  %309 = load ptr, ptr %308, align 8
-  %310 = call ptr @N_VClone(ptr noundef %309)
-  %311 = load ptr, ptr %22, align 8
-  %312 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %311, i32 0, i32 14
-  store ptr %310, ptr %312, align 8
-  %313 = load ptr, ptr %22, align 8
-  %314 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %313, i32 0, i32 14
-  %315 = load ptr, ptr %314, align 8
-  %316 = icmp eq ptr %315, null
-  br i1 %316, label %317, label %335
+305:                                              ; preds = %277
+  %306 = load ptr, ptr %22, align 8, !tbaa !29
+  %307 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %306, i32 0, i32 14
+  store ptr null, ptr %307, align 8, !tbaa !47
+  %308 = load ptr, ptr %20, align 8, !tbaa !11
+  %309 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %308, i32 0, i32 30
+  %310 = load ptr, ptr %309, align 8, !tbaa !23
+  %311 = call ptr @N_VClone(ptr noundef %310)
+  %312 = load ptr, ptr %22, align 8, !tbaa !29
+  %313 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %312, i32 0, i32 14
+  store ptr %311, ptr %313, align 8, !tbaa !47
+  %314 = load ptr, ptr %22, align 8, !tbaa !29
+  %315 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %314, i32 0, i32 14
+  %316 = load ptr, ptr %315, align 8, !tbaa !47
+  %317 = icmp eq ptr %316, null
+  br i1 %317, label %318, label %336
 
-317:                                              ; preds = %304
-  %318 = load ptr, ptr %22, align 8
-  %319 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %318, i32 0, i32 11
-  %320 = load ptr, ptr %319, align 8
-  call void @N_VDestroy(ptr noundef %320)
-  %321 = load ptr, ptr %22, align 8
-  %322 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %321, i32 0, i32 10
-  %323 = load ptr, ptr %322, align 8
-  call void @N_VDestroy(ptr noundef %323)
-  %324 = load ptr, ptr %22, align 8
-  %325 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %324, i32 0, i32 12
-  %326 = load ptr, ptr %325, align 8
-  call void @N_VDestroy(ptr noundef %326)
-  %327 = load ptr, ptr %22, align 8
-  %328 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %327, i32 0, i32 13
-  %329 = load ptr, ptr %328, align 8
-  call void @N_VDestroy(ptr noundef %329)
-  %330 = load ptr, ptr %22, align 8
-  %331 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %330, i32 0, i32 8
-  %332 = load ptr, ptr %331, align 8
-  call void @SUNMatDestroy(ptr noundef %332)
-  %333 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %333) #6
-  store ptr null, ptr %22, align 8
-  %334 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %334, i32 noundef -4, i32 noundef 193, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+318:                                              ; preds = %305
+  %319 = load ptr, ptr %22, align 8, !tbaa !29
+  %320 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %319, i32 0, i32 11
+  %321 = load ptr, ptr %320, align 8, !tbaa !44
+  call void @N_VDestroy(ptr noundef %321)
+  %322 = load ptr, ptr %22, align 8, !tbaa !29
+  %323 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %322, i32 0, i32 10
+  %324 = load ptr, ptr %323, align 8, !tbaa !43
+  call void @N_VDestroy(ptr noundef %324)
+  %325 = load ptr, ptr %22, align 8, !tbaa !29
+  %326 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %325, i32 0, i32 12
+  %327 = load ptr, ptr %326, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %327)
+  %328 = load ptr, ptr %22, align 8, !tbaa !29
+  %329 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %328, i32 0, i32 13
+  %330 = load ptr, ptr %329, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %330)
+  %331 = load ptr, ptr %22, align 8, !tbaa !29
+  %332 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %331, i32 0, i32 8
+  %333 = load ptr, ptr %332, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %333)
+  %334 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %334) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %335 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %335, i32 noundef -4, i32 noundef 193, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-335:                                              ; preds = %304
-  %336 = load ptr, ptr %22, align 8
-  %337 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %336, i32 0, i32 15
-  store ptr null, ptr %337, align 8
-  %338 = load ptr, ptr %20, align 8
-  %339 = getelementptr inbounds %struct.IDAMemRec, ptr %338, i32 0, i32 30
-  %340 = load ptr, ptr %339, align 8
-  %341 = call ptr @N_VClone(ptr noundef %340)
-  %342 = load ptr, ptr %22, align 8
-  %343 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %342, i32 0, i32 15
-  store ptr %341, ptr %343, align 8
-  %344 = load ptr, ptr %22, align 8
-  %345 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %344, i32 0, i32 15
-  %346 = load ptr, ptr %345, align 8
-  %347 = icmp eq ptr %346, null
-  br i1 %347, label %348, label %369
+336:                                              ; preds = %305
+  %337 = load ptr, ptr %22, align 8, !tbaa !29
+  %338 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %337, i32 0, i32 15
+  store ptr null, ptr %338, align 8, !tbaa !48
+  %339 = load ptr, ptr %20, align 8, !tbaa !11
+  %340 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %339, i32 0, i32 30
+  %341 = load ptr, ptr %340, align 8, !tbaa !23
+  %342 = call ptr @N_VClone(ptr noundef %341)
+  %343 = load ptr, ptr %22, align 8, !tbaa !29
+  %344 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %343, i32 0, i32 15
+  store ptr %342, ptr %344, align 8, !tbaa !48
+  %345 = load ptr, ptr %22, align 8, !tbaa !29
+  %346 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %345, i32 0, i32 15
+  %347 = load ptr, ptr %346, align 8, !tbaa !48
+  %348 = icmp eq ptr %347, null
+  br i1 %348, label %349, label %370
 
-348:                                              ; preds = %335
-  %349 = load ptr, ptr %22, align 8
-  %350 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %349, i32 0, i32 11
-  %351 = load ptr, ptr %350, align 8
-  call void @N_VDestroy(ptr noundef %351)
-  %352 = load ptr, ptr %22, align 8
-  %353 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %352, i32 0, i32 10
-  %354 = load ptr, ptr %353, align 8
-  call void @N_VDestroy(ptr noundef %354)
-  %355 = load ptr, ptr %22, align 8
-  %356 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %355, i32 0, i32 12
-  %357 = load ptr, ptr %356, align 8
-  call void @N_VDestroy(ptr noundef %357)
-  %358 = load ptr, ptr %22, align 8
-  %359 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %358, i32 0, i32 13
-  %360 = load ptr, ptr %359, align 8
-  call void @N_VDestroy(ptr noundef %360)
-  %361 = load ptr, ptr %22, align 8
-  %362 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %361, i32 0, i32 14
-  %363 = load ptr, ptr %362, align 8
-  call void @N_VDestroy(ptr noundef %363)
-  %364 = load ptr, ptr %22, align 8
-  %365 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %364, i32 0, i32 8
-  %366 = load ptr, ptr %365, align 8
-  call void @SUNMatDestroy(ptr noundef %366)
-  %367 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %367) #6
-  store ptr null, ptr %22, align 8
-  %368 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %368, i32 noundef -4, i32 noundef 209, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+349:                                              ; preds = %336
+  %350 = load ptr, ptr %22, align 8, !tbaa !29
+  %351 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %350, i32 0, i32 11
+  %352 = load ptr, ptr %351, align 8, !tbaa !44
+  call void @N_VDestroy(ptr noundef %352)
+  %353 = load ptr, ptr %22, align 8, !tbaa !29
+  %354 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %353, i32 0, i32 10
+  %355 = load ptr, ptr %354, align 8, !tbaa !43
+  call void @N_VDestroy(ptr noundef %355)
+  %356 = load ptr, ptr %22, align 8, !tbaa !29
+  %357 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %356, i32 0, i32 12
+  %358 = load ptr, ptr %357, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %358)
+  %359 = load ptr, ptr %22, align 8, !tbaa !29
+  %360 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %359, i32 0, i32 13
+  %361 = load ptr, ptr %360, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %361)
+  %362 = load ptr, ptr %22, align 8, !tbaa !29
+  %363 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %362, i32 0, i32 14
+  %364 = load ptr, ptr %363, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %364)
+  %365 = load ptr, ptr %22, align 8, !tbaa !29
+  %366 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %365, i32 0, i32 8
+  %367 = load ptr, ptr %366, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %367)
+  %368 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %368) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %369 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %369, i32 noundef -4, i32 noundef 209, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-369:                                              ; preds = %335
-  %370 = load ptr, ptr %22, align 8
-  %371 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %370, i32 0, i32 9
-  store ptr null, ptr %371, align 8
-  %372 = load ptr, ptr %22, align 8
-  %373 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %372, i32 0, i32 11
-  %374 = load ptr, ptr %373, align 8
-  %375 = load ptr, ptr %22, align 8
-  %376 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %375, i32 0, i32 8
-  %377 = load ptr, ptr %376, align 8
-  %378 = load ptr, ptr %20, align 8
-  %379 = getelementptr inbounds %struct.IDAMemRec, ptr %378, i32 0, i32 0
-  %380 = load ptr, ptr %379, align 8
-  %381 = call ptr @SUNLinSol_Band(ptr noundef %374, ptr noundef %377, ptr noundef %380)
-  %382 = load ptr, ptr %22, align 8
-  %383 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %382, i32 0, i32 9
-  store ptr %381, ptr %383, align 8
-  %384 = load ptr, ptr %22, align 8
-  %385 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %384, i32 0, i32 9
-  %386 = load ptr, ptr %385, align 8
-  %387 = icmp eq ptr %386, null
-  br i1 %387, label %388, label %412
+370:                                              ; preds = %336
+  %371 = load ptr, ptr %22, align 8, !tbaa !29
+  %372 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %371, i32 0, i32 9
+  store ptr null, ptr %372, align 8, !tbaa !49
+  %373 = load ptr, ptr %22, align 8, !tbaa !29
+  %374 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %373, i32 0, i32 11
+  %375 = load ptr, ptr %374, align 8, !tbaa !44
+  %376 = load ptr, ptr %22, align 8, !tbaa !29
+  %377 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %376, i32 0, i32 8
+  %378 = load ptr, ptr %377, align 8, !tbaa !41
+  %379 = load ptr, ptr %20, align 8, !tbaa !11
+  %380 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %379, i32 0, i32 0
+  %381 = load ptr, ptr %380, align 8, !tbaa !42
+  %382 = call ptr @SUNLinSol_Band(ptr noundef %375, ptr noundef %378, ptr noundef %381)
+  %383 = load ptr, ptr %22, align 8, !tbaa !29
+  %384 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %383, i32 0, i32 9
+  store ptr %382, ptr %384, align 8, !tbaa !49
+  %385 = load ptr, ptr %22, align 8, !tbaa !29
+  %386 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %385, i32 0, i32 9
+  %387 = load ptr, ptr %386, align 8, !tbaa !49
+  %388 = icmp eq ptr %387, null
+  br i1 %388, label %389, label %413
 
-388:                                              ; preds = %369
-  %389 = load ptr, ptr %22, align 8
-  %390 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %389, i32 0, i32 10
-  %391 = load ptr, ptr %390, align 8
-  call void @N_VDestroy(ptr noundef %391)
-  %392 = load ptr, ptr %22, align 8
-  %393 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %392, i32 0, i32 11
-  %394 = load ptr, ptr %393, align 8
-  call void @N_VDestroy(ptr noundef %394)
-  %395 = load ptr, ptr %22, align 8
-  %396 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %395, i32 0, i32 12
-  %397 = load ptr, ptr %396, align 8
-  call void @N_VDestroy(ptr noundef %397)
-  %398 = load ptr, ptr %22, align 8
-  %399 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %398, i32 0, i32 13
-  %400 = load ptr, ptr %399, align 8
-  call void @N_VDestroy(ptr noundef %400)
-  %401 = load ptr, ptr %22, align 8
-  %402 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %401, i32 0, i32 14
-  %403 = load ptr, ptr %402, align 8
-  call void @N_VDestroy(ptr noundef %403)
-  %404 = load ptr, ptr %22, align 8
-  %405 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %404, i32 0, i32 15
-  %406 = load ptr, ptr %405, align 8
-  call void @N_VDestroy(ptr noundef %406)
-  %407 = load ptr, ptr %22, align 8
-  %408 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %407, i32 0, i32 8
-  %409 = load ptr, ptr %408, align 8
-  call void @SUNMatDestroy(ptr noundef %409)
-  %410 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %410) #6
-  store ptr null, ptr %22, align 8
-  %411 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %411, i32 noundef -4, i32 noundef 228, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+389:                                              ; preds = %370
+  %390 = load ptr, ptr %22, align 8, !tbaa !29
+  %391 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %390, i32 0, i32 10
+  %392 = load ptr, ptr %391, align 8, !tbaa !43
+  call void @N_VDestroy(ptr noundef %392)
+  %393 = load ptr, ptr %22, align 8, !tbaa !29
+  %394 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %393, i32 0, i32 11
+  %395 = load ptr, ptr %394, align 8, !tbaa !44
+  call void @N_VDestroy(ptr noundef %395)
+  %396 = load ptr, ptr %22, align 8, !tbaa !29
+  %397 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %396, i32 0, i32 12
+  %398 = load ptr, ptr %397, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %398)
+  %399 = load ptr, ptr %22, align 8, !tbaa !29
+  %400 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %399, i32 0, i32 13
+  %401 = load ptr, ptr %400, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %401)
+  %402 = load ptr, ptr %22, align 8, !tbaa !29
+  %403 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %402, i32 0, i32 14
+  %404 = load ptr, ptr %403, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %404)
+  %405 = load ptr, ptr %22, align 8, !tbaa !29
+  %406 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %405, i32 0, i32 15
+  %407 = load ptr, ptr %406, align 8, !tbaa !48
+  call void @N_VDestroy(ptr noundef %407)
+  %408 = load ptr, ptr %22, align 8, !tbaa !29
+  %409 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %408, i32 0, i32 8
+  %410 = load ptr, ptr %409, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %410)
+  %411 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %411) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %412 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %412, i32 noundef -4, i32 noundef 228, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-412:                                              ; preds = %369
-  %413 = load ptr, ptr %22, align 8
-  %414 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %413, i32 0, i32 9
-  %415 = load ptr, ptr %414, align 8
-  %416 = call i32 @SUNLinSolInitialize(ptr noundef %415)
-  store i32 %416, ptr %30, align 4
-  %417 = load i32, ptr %30, align 4
-  %418 = icmp ne i32 %417, 0
-  br i1 %418, label %419, label %447
+413:                                              ; preds = %370
+  %414 = load ptr, ptr %22, align 8, !tbaa !29
+  %415 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %414, i32 0, i32 9
+  %416 = load ptr, ptr %415, align 8, !tbaa !49
+  %417 = call i32 @SUNLinSolInitialize(ptr noundef %416)
+  store i32 %417, ptr %30, align 4, !tbaa !50
+  %418 = load i32, ptr %30, align 4, !tbaa !50
+  %419 = icmp ne i32 %418, 0
+  br i1 %419, label %420, label %448
 
-419:                                              ; preds = %412
-  %420 = load ptr, ptr %22, align 8
-  %421 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %420, i32 0, i32 10
-  %422 = load ptr, ptr %421, align 8
-  call void @N_VDestroy(ptr noundef %422)
-  %423 = load ptr, ptr %22, align 8
-  %424 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %423, i32 0, i32 11
-  %425 = load ptr, ptr %424, align 8
-  call void @N_VDestroy(ptr noundef %425)
-  %426 = load ptr, ptr %22, align 8
-  %427 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %426, i32 0, i32 12
-  %428 = load ptr, ptr %427, align 8
-  call void @N_VDestroy(ptr noundef %428)
-  %429 = load ptr, ptr %22, align 8
-  %430 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %429, i32 0, i32 13
-  %431 = load ptr, ptr %430, align 8
-  call void @N_VDestroy(ptr noundef %431)
-  %432 = load ptr, ptr %22, align 8
-  %433 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %432, i32 0, i32 14
-  %434 = load ptr, ptr %433, align 8
-  call void @N_VDestroy(ptr noundef %434)
-  %435 = load ptr, ptr %22, align 8
-  %436 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %435, i32 0, i32 15
-  %437 = load ptr, ptr %436, align 8
-  call void @N_VDestroy(ptr noundef %437)
-  %438 = load ptr, ptr %22, align 8
-  %439 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %438, i32 0, i32 8
-  %440 = load ptr, ptr %439, align 8
-  call void @SUNMatDestroy(ptr noundef %440)
-  %441 = load ptr, ptr %22, align 8
-  %442 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %441, i32 0, i32 9
-  %443 = load ptr, ptr %442, align 8
-  %444 = call i32 @SUNLinSolFree(ptr noundef %443)
-  %445 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %445) #6
-  store ptr null, ptr %22, align 8
-  %446 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %446, i32 noundef -9, i32 noundef 247, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.5)
+420:                                              ; preds = %413
+  %421 = load ptr, ptr %22, align 8, !tbaa !29
+  %422 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %421, i32 0, i32 10
+  %423 = load ptr, ptr %422, align 8, !tbaa !43
+  call void @N_VDestroy(ptr noundef %423)
+  %424 = load ptr, ptr %22, align 8, !tbaa !29
+  %425 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %424, i32 0, i32 11
+  %426 = load ptr, ptr %425, align 8, !tbaa !44
+  call void @N_VDestroy(ptr noundef %426)
+  %427 = load ptr, ptr %22, align 8, !tbaa !29
+  %428 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %427, i32 0, i32 12
+  %429 = load ptr, ptr %428, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %429)
+  %430 = load ptr, ptr %22, align 8, !tbaa !29
+  %431 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %430, i32 0, i32 13
+  %432 = load ptr, ptr %431, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %432)
+  %433 = load ptr, ptr %22, align 8, !tbaa !29
+  %434 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %433, i32 0, i32 14
+  %435 = load ptr, ptr %434, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %435)
+  %436 = load ptr, ptr %22, align 8, !tbaa !29
+  %437 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %436, i32 0, i32 15
+  %438 = load ptr, ptr %437, align 8, !tbaa !48
+  call void @N_VDestroy(ptr noundef %438)
+  %439 = load ptr, ptr %22, align 8, !tbaa !29
+  %440 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %439, i32 0, i32 8
+  %441 = load ptr, ptr %440, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %441)
+  %442 = load ptr, ptr %22, align 8, !tbaa !29
+  %443 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %442, i32 0, i32 9
+  %444 = load ptr, ptr %443, align 8, !tbaa !49
+  %445 = call i32 @SUNLinSolFree(ptr noundef %444)
+  %446 = load ptr, ptr %22, align 8, !tbaa !29
+  call void @free(ptr noundef %446) #6
+  store ptr null, ptr %22, align 8, !tbaa !29
+  %447 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %447, i32 noundef -9, i32 noundef 247, ptr noundef @__func__.IDABBDPrecInit, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -9, ptr %10, align 4
-  br label %595
+  store i32 1, ptr %31, align 4
+  br label %596
 
-447:                                              ; preds = %412
-  %448 = load double, ptr %17, align 8
-  %449 = fcmp ogt double %448, 0.000000e+00
-  br i1 %449, label %450, label %452
+448:                                              ; preds = %413
+  %449 = load double, ptr %17, align 8, !tbaa !9
+  %450 = fcmp ogt double %449, 0.000000e+00
+  br i1 %450, label %451, label %453
 
-450:                                              ; preds = %447
-  %451 = load double, ptr %17, align 8
-  br label %465
+451:                                              ; preds = %448
+  %452 = load double, ptr %17, align 8, !tbaa !9
+  br label %466
 
-452:                                              ; preds = %447
-  %453 = load ptr, ptr %20, align 8
-  %454 = getelementptr inbounds %struct.IDAMemRec, ptr %453, i32 0, i32 1
-  %455 = load double, ptr %454, align 8
-  %456 = fcmp ole double %455, 0.000000e+00
-  br i1 %456, label %457, label %458
+453:                                              ; preds = %448
+  %454 = load ptr, ptr %20, align 8, !tbaa !11
+  %455 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %454, i32 0, i32 1
+  %456 = load double, ptr %455, align 8, !tbaa !51
+  %457 = fcmp ole double %456, 0.000000e+00
+  br i1 %457, label %458, label %459
 
-457:                                              ; preds = %452
-  br label %463
+458:                                              ; preds = %453
+  br label %464
 
-458:                                              ; preds = %452
-  %459 = load ptr, ptr %20, align 8
-  %460 = getelementptr inbounds %struct.IDAMemRec, ptr %459, i32 0, i32 1
-  %461 = load double, ptr %460, align 8
-  %462 = call double @sqrt(double noundef %461) #6
-  br label %463
+459:                                              ; preds = %453
+  %460 = load ptr, ptr %20, align 8, !tbaa !11
+  %461 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %460, i32 0, i32 1
+  %462 = load double, ptr %461, align 8, !tbaa !51
+  %463 = call double @sqrt(double noundef %462) #6, !tbaa !50
+  br label %464
 
-463:                                              ; preds = %458, %457
-  %464 = phi double [ 0.000000e+00, %457 ], [ %462, %458 ]
-  br label %465
+464:                                              ; preds = %459, %458
+  %465 = phi double [ 0.000000e+00, %458 ], [ %463, %459 ]
+  br label %466
 
-465:                                              ; preds = %463, %450
-  %466 = phi double [ %451, %450 ], [ %464, %463 ]
-  %467 = load ptr, ptr %22, align 8
-  %468 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %467, i32 0, i32 4
-  store double %466, ptr %468, align 8
-  %469 = load i64, ptr %12, align 8
-  %470 = load ptr, ptr %22, align 8
-  %471 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %470, i32 0, i32 7
-  store i64 %469, ptr %471, align 8
-  %472 = load ptr, ptr %22, align 8
-  %473 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %472, i32 0, i32 16
-  store i64 0, ptr %473, align 8
-  %474 = load ptr, ptr %22, align 8
-  %475 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %474, i32 0, i32 17
-  store i64 0, ptr %475, align 8
-  %476 = load ptr, ptr %20, align 8
-  %477 = getelementptr inbounds %struct.IDAMemRec, ptr %476, i32 0, i32 30
-  %478 = load ptr, ptr %477, align 8
-  %479 = getelementptr inbounds %struct._generic_N_Vector, ptr %478, i32 0, i32 1
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %480, i32 0, i32 4
-  %482 = load ptr, ptr %481, align 8
-  %483 = icmp ne ptr %482, null
-  br i1 %483, label %484, label %500
+466:                                              ; preds = %464, %451
+  %467 = phi double [ %452, %451 ], [ %465, %464 ]
+  %468 = load ptr, ptr %22, align 8, !tbaa !29
+  %469 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %468, i32 0, i32 4
+  store double %467, ptr %469, align 8, !tbaa !52
+  %470 = load i64, ptr %12, align 8, !tbaa !7
+  %471 = load ptr, ptr %22, align 8, !tbaa !29
+  %472 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %471, i32 0, i32 7
+  store i64 %470, ptr %472, align 8, !tbaa !53
+  %473 = load ptr, ptr %22, align 8, !tbaa !29
+  %474 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %473, i32 0, i32 16
+  store i64 0, ptr %474, align 8, !tbaa !54
+  %475 = load ptr, ptr %22, align 8, !tbaa !29
+  %476 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %475, i32 0, i32 17
+  store i64 0, ptr %476, align 8, !tbaa !55
+  %477 = load ptr, ptr %20, align 8, !tbaa !11
+  %478 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %477, i32 0, i32 30
+  %479 = load ptr, ptr %478, align 8, !tbaa !23
+  %480 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %479, i32 0, i32 1
+  %481 = load ptr, ptr %480, align 8, !tbaa !24
+  %482 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %481, i32 0, i32 4
+  %483 = load ptr, ptr %482, align 8, !tbaa !56
+  %484 = icmp ne ptr %483, null
+  br i1 %484, label %485, label %501
 
-484:                                              ; preds = %465
-  %485 = load ptr, ptr %20, align 8
-  %486 = getelementptr inbounds %struct.IDAMemRec, ptr %485, i32 0, i32 30
-  %487 = load ptr, ptr %486, align 8
-  call void @N_VSpace(ptr noundef %487, ptr noundef %26, ptr noundef %27)
-  %488 = load i64, ptr %26, align 8
-  %489 = mul nsw i64 4, %488
-  %490 = load ptr, ptr %22, align 8
-  %491 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %490, i32 0, i32 16
-  %492 = load i64, ptr %491, align 8
-  %493 = add nsw i64 %492, %489
-  store i64 %493, ptr %491, align 8
-  %494 = load i64, ptr %27, align 8
-  %495 = mul nsw i64 4, %494
-  %496 = load ptr, ptr %22, align 8
-  %497 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %496, i32 0, i32 17
-  %498 = load i64, ptr %497, align 8
-  %499 = add nsw i64 %498, %495
-  store i64 %499, ptr %497, align 8
-  br label %500
+485:                                              ; preds = %466
+  %486 = load ptr, ptr %20, align 8, !tbaa !11
+  %487 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %486, i32 0, i32 30
+  %488 = load ptr, ptr %487, align 8, !tbaa !23
+  call void @N_VSpace(ptr noundef %488, ptr noundef %26, ptr noundef %27)
+  %489 = load i64, ptr %26, align 8, !tbaa !7
+  %490 = mul nsw i64 4, %489
+  %491 = load ptr, ptr %22, align 8, !tbaa !29
+  %492 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %491, i32 0, i32 16
+  %493 = load i64, ptr %492, align 8, !tbaa !54
+  %494 = add nsw i64 %493, %490
+  store i64 %494, ptr %492, align 8, !tbaa !54
+  %495 = load i64, ptr %27, align 8, !tbaa !7
+  %496 = mul nsw i64 4, %495
+  %497 = load ptr, ptr %22, align 8, !tbaa !29
+  %498 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %497, i32 0, i32 17
+  %499 = load i64, ptr %498, align 8, !tbaa !55
+  %500 = add nsw i64 %499, %496
+  store i64 %500, ptr %498, align 8, !tbaa !55
+  br label %501
 
-500:                                              ; preds = %484, %465
-  %501 = load ptr, ptr %22, align 8
-  %502 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %501, i32 0, i32 11
-  %503 = load ptr, ptr %502, align 8
-  %504 = getelementptr inbounds %struct._generic_N_Vector, ptr %503, i32 0, i32 1
-  %505 = load ptr, ptr %504, align 8
-  %506 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %505, i32 0, i32 4
-  %507 = load ptr, ptr %506, align 8
-  %508 = icmp ne ptr %507, null
-  br i1 %508, label %509, label %525
+501:                                              ; preds = %485, %466
+  %502 = load ptr, ptr %22, align 8, !tbaa !29
+  %503 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %502, i32 0, i32 11
+  %504 = load ptr, ptr %503, align 8, !tbaa !44
+  %505 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %504, i32 0, i32 1
+  %506 = load ptr, ptr %505, align 8, !tbaa !24
+  %507 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %506, i32 0, i32 4
+  %508 = load ptr, ptr %507, align 8, !tbaa !56
+  %509 = icmp ne ptr %508, null
+  br i1 %509, label %510, label %526
 
-509:                                              ; preds = %500
-  %510 = load ptr, ptr %22, align 8
-  %511 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %510, i32 0, i32 11
-  %512 = load ptr, ptr %511, align 8
-  call void @N_VSpace(ptr noundef %512, ptr noundef %26, ptr noundef %27)
-  %513 = load i64, ptr %26, align 8
-  %514 = mul nsw i64 2, %513
-  %515 = load ptr, ptr %22, align 8
-  %516 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %515, i32 0, i32 16
-  %517 = load i64, ptr %516, align 8
-  %518 = add nsw i64 %517, %514
-  store i64 %518, ptr %516, align 8
-  %519 = load i64, ptr %27, align 8
-  %520 = mul nsw i64 2, %519
-  %521 = load ptr, ptr %22, align 8
-  %522 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %521, i32 0, i32 17
-  %523 = load i64, ptr %522, align 8
-  %524 = add nsw i64 %523, %520
-  store i64 %524, ptr %522, align 8
-  br label %525
+510:                                              ; preds = %501
+  %511 = load ptr, ptr %22, align 8, !tbaa !29
+  %512 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %511, i32 0, i32 11
+  %513 = load ptr, ptr %512, align 8, !tbaa !44
+  call void @N_VSpace(ptr noundef %513, ptr noundef %26, ptr noundef %27)
+  %514 = load i64, ptr %26, align 8, !tbaa !7
+  %515 = mul nsw i64 2, %514
+  %516 = load ptr, ptr %22, align 8, !tbaa !29
+  %517 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %516, i32 0, i32 16
+  %518 = load i64, ptr %517, align 8, !tbaa !54
+  %519 = add nsw i64 %518, %515
+  store i64 %519, ptr %517, align 8, !tbaa !54
+  %520 = load i64, ptr %27, align 8, !tbaa !7
+  %521 = mul nsw i64 2, %520
+  %522 = load ptr, ptr %22, align 8, !tbaa !29
+  %523 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %522, i32 0, i32 17
+  %524 = load i64, ptr %523, align 8, !tbaa !55
+  %525 = add nsw i64 %524, %521
+  store i64 %525, ptr %523, align 8, !tbaa !55
+  br label %526
 
-525:                                              ; preds = %509, %500
-  %526 = load ptr, ptr %22, align 8
-  %527 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %526, i32 0, i32 8
-  %528 = load ptr, ptr %527, align 8
-  %529 = getelementptr inbounds %struct._generic_SUNMatrix, ptr %528, i32 0, i32 1
-  %530 = load ptr, ptr %529, align 8
-  %531 = getelementptr inbounds %struct._generic_SUNMatrix_Ops, ptr %530, i32 0, i32 9
-  %532 = load ptr, ptr %531, align 8
-  %533 = icmp ne ptr %532, null
-  br i1 %533, label %534, label %549
+526:                                              ; preds = %510, %501
+  %527 = load ptr, ptr %22, align 8, !tbaa !29
+  %528 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %527, i32 0, i32 8
+  %529 = load ptr, ptr %528, align 8, !tbaa !41
+  %530 = getelementptr inbounds nuw %struct._generic_SUNMatrix, ptr %529, i32 0, i32 1
+  %531 = load ptr, ptr %530, align 8, !tbaa !57
+  %532 = getelementptr inbounds nuw %struct._generic_SUNMatrix_Ops, ptr %531, i32 0, i32 9
+  %533 = load ptr, ptr %532, align 8, !tbaa !60
+  %534 = icmp ne ptr %533, null
+  br i1 %534, label %535, label %550
 
-534:                                              ; preds = %525
-  %535 = load ptr, ptr %22, align 8
-  %536 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %535, i32 0, i32 8
-  %537 = load ptr, ptr %536, align 8
-  %538 = call i32 @SUNMatSpace(ptr noundef %537, ptr noundef %28, ptr noundef %29)
-  store i32 %538, ptr %30, align 4
-  %539 = load i64, ptr %28, align 8
-  %540 = load ptr, ptr %22, align 8
-  %541 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %540, i32 0, i32 16
-  %542 = load i64, ptr %541, align 8
-  %543 = add nsw i64 %542, %539
-  store i64 %543, ptr %541, align 8
-  %544 = load i64, ptr %29, align 8
-  %545 = load ptr, ptr %22, align 8
-  %546 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %545, i32 0, i32 17
-  %547 = load i64, ptr %546, align 8
-  %548 = add nsw i64 %547, %544
-  store i64 %548, ptr %546, align 8
-  br label %549
+535:                                              ; preds = %526
+  %536 = load ptr, ptr %22, align 8, !tbaa !29
+  %537 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %536, i32 0, i32 8
+  %538 = load ptr, ptr %537, align 8, !tbaa !41
+  %539 = call i32 @SUNMatSpace(ptr noundef %538, ptr noundef %28, ptr noundef %29)
+  store i32 %539, ptr %30, align 4, !tbaa !50
+  %540 = load i64, ptr %28, align 8, !tbaa !7
+  %541 = load ptr, ptr %22, align 8, !tbaa !29
+  %542 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %541, i32 0, i32 16
+  %543 = load i64, ptr %542, align 8, !tbaa !54
+  %544 = add nsw i64 %543, %540
+  store i64 %544, ptr %542, align 8, !tbaa !54
+  %545 = load i64, ptr %29, align 8, !tbaa !7
+  %546 = load ptr, ptr %22, align 8, !tbaa !29
+  %547 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %546, i32 0, i32 17
+  %548 = load i64, ptr %547, align 8, !tbaa !55
+  %549 = add nsw i64 %548, %545
+  store i64 %549, ptr %547, align 8, !tbaa !55
+  br label %550
 
-549:                                              ; preds = %534, %525
-  %550 = load ptr, ptr %22, align 8
-  %551 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %550, i32 0, i32 9
-  %552 = load ptr, ptr %551, align 8
-  %553 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %552, i32 0, i32 1
-  %554 = load ptr, ptr %553, align 8
-  %555 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %554, i32 0, i32 12
-  %556 = load ptr, ptr %555, align 8
-  %557 = icmp ne ptr %556, null
-  br i1 %557, label %558, label %573
+550:                                              ; preds = %535, %526
+  %551 = load ptr, ptr %22, align 8, !tbaa !29
+  %552 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %551, i32 0, i32 9
+  %553 = load ptr, ptr %552, align 8, !tbaa !49
+  %554 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %553, i32 0, i32 1
+  %555 = load ptr, ptr %554, align 8, !tbaa !62
+  %556 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %555, i32 0, i32 12
+  %557 = load ptr, ptr %556, align 8, !tbaa !65
+  %558 = icmp ne ptr %557, null
+  br i1 %558, label %559, label %574
 
-558:                                              ; preds = %549
-  %559 = load ptr, ptr %22, align 8
-  %560 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %559, i32 0, i32 9
-  %561 = load ptr, ptr %560, align 8
-  %562 = call i32 @SUNLinSolSpace(ptr noundef %561, ptr noundef %28, ptr noundef %29)
-  store i32 %562, ptr %30, align 4
-  %563 = load i64, ptr %28, align 8
-  %564 = load ptr, ptr %22, align 8
-  %565 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %564, i32 0, i32 16
-  %566 = load i64, ptr %565, align 8
-  %567 = add nsw i64 %566, %563
-  store i64 %567, ptr %565, align 8
-  %568 = load i64, ptr %29, align 8
-  %569 = load ptr, ptr %22, align 8
-  %570 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %569, i32 0, i32 17
-  %571 = load i64, ptr %570, align 8
-  %572 = add nsw i64 %571, %568
-  store i64 %572, ptr %570, align 8
-  br label %573
+559:                                              ; preds = %550
+  %560 = load ptr, ptr %22, align 8, !tbaa !29
+  %561 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %560, i32 0, i32 9
+  %562 = load ptr, ptr %561, align 8, !tbaa !49
+  %563 = call i32 @SUNLinSolSpace(ptr noundef %562, ptr noundef %28, ptr noundef %29)
+  store i32 %563, ptr %30, align 4, !tbaa !50
+  %564 = load i64, ptr %28, align 8, !tbaa !7
+  %565 = load ptr, ptr %22, align 8, !tbaa !29
+  %566 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %565, i32 0, i32 16
+  %567 = load i64, ptr %566, align 8, !tbaa !54
+  %568 = add nsw i64 %567, %564
+  store i64 %568, ptr %566, align 8, !tbaa !54
+  %569 = load i64, ptr %29, align 8, !tbaa !7
+  %570 = load ptr, ptr %22, align 8, !tbaa !29
+  %571 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %570, i32 0, i32 17
+  %572 = load i64, ptr %571, align 8, !tbaa !55
+  %573 = add nsw i64 %572, %569
+  store i64 %573, ptr %571, align 8, !tbaa !55
+  br label %574
 
-573:                                              ; preds = %558, %549
-  %574 = load ptr, ptr %22, align 8
-  %575 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %574, i32 0, i32 18
-  store i64 0, ptr %575, align 8
-  %576 = load ptr, ptr %21, align 8
-  %577 = getelementptr inbounds %struct.IDALsMemRec, ptr %576, i32 0, i32 35
-  %578 = load ptr, ptr %577, align 8
-  %579 = icmp ne ptr %578, null
-  br i1 %579, label %580, label %586
+574:                                              ; preds = %559, %550
+  %575 = load ptr, ptr %22, align 8, !tbaa !29
+  %576 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %575, i32 0, i32 18
+  store i64 0, ptr %576, align 8, !tbaa !67
+  %577 = load ptr, ptr %21, align 8, !tbaa !21
+  %578 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %577, i32 0, i32 35
+  %579 = load ptr, ptr %578, align 8, !tbaa !68
+  %580 = icmp ne ptr %579, null
+  br i1 %580, label %581, label %587
 
-580:                                              ; preds = %573
-  %581 = load ptr, ptr %21, align 8
-  %582 = getelementptr inbounds %struct.IDALsMemRec, ptr %581, i32 0, i32 35
-  %583 = load ptr, ptr %582, align 8
-  %584 = load ptr, ptr %20, align 8
-  %585 = call i32 %583(ptr noundef %584)
-  br label %586
+581:                                              ; preds = %574
+  %582 = load ptr, ptr %21, align 8, !tbaa !21
+  %583 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %582, i32 0, i32 35
+  %584 = load ptr, ptr %583, align 8, !tbaa !68
+  %585 = load ptr, ptr %20, align 8, !tbaa !11
+  %586 = call i32 %584(ptr noundef %585)
+  br label %587
 
-586:                                              ; preds = %580, %573
-  %587 = load ptr, ptr %22, align 8
-  %588 = load ptr, ptr %21, align 8
-  %589 = getelementptr inbounds %struct.IDALsMemRec, ptr %588, i32 0, i32 36
-  store ptr %587, ptr %589, align 8
-  %590 = load ptr, ptr %21, align 8
-  %591 = getelementptr inbounds %struct.IDALsMemRec, ptr %590, i32 0, i32 35
-  store ptr @IDABBDPrecFree, ptr %591, align 8
-  %592 = load ptr, ptr %11, align 8
-  %593 = call i32 @IDASetPreconditioner(ptr noundef %592, ptr noundef @IDABBDPrecSetup, ptr noundef @IDABBDPrecSolve)
-  store i32 %593, ptr %30, align 4
-  %594 = load i32, ptr %30, align 4
-  store i32 %594, ptr %10, align 4
-  br label %595
+587:                                              ; preds = %581, %574
+  %588 = load ptr, ptr %22, align 8, !tbaa !29
+  %589 = load ptr, ptr %21, align 8, !tbaa !21
+  %590 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %589, i32 0, i32 36
+  store ptr %588, ptr %590, align 8, !tbaa !70
+  %591 = load ptr, ptr %21, align 8, !tbaa !21
+  %592 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %591, i32 0, i32 35
+  store ptr @IDABBDPrecFree, ptr %592, align 8, !tbaa !68
+  %593 = load ptr, ptr %11, align 8, !tbaa !3
+  %594 = call i32 @IDASetPreconditioner(ptr noundef %593, ptr noundef @IDABBDPrecSetup, ptr noundef @IDABBDPrecSolve)
+  store i32 %594, ptr %30, align 4, !tbaa !50
+  %595 = load i32, ptr %30, align 4, !tbaa !50
+  store i32 %595, ptr %10, align 4
+  store i32 1, ptr %31, align 4
+  br label %596
 
-595:                                              ; preds = %586, %419, %388, %348, %317, %289, %264, %242, %222, %205, %60, %54, %40, %33
-  %596 = load i32, ptr %10, align 4
-  ret i32 %596
+596:                                              ; preds = %587, %420, %389, %349, %318, %290, %265, %243, %223, %206, %61, %55, %41, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  %597 = load i32, ptr %10, align 4
+  ret i32 %597
 }
 
-declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
-declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
-
-declare ptr @N_VNewEmpty_Serial(i64 noundef, ptr noundef) #1
-
-declare void @SUNMatDestroy(ptr noundef) #1
-
-declare void @N_VDestroy(ptr noundef) #1
-
-declare ptr @N_VClone(ptr noundef) #1
-
-declare ptr @SUNLinSol_Band(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare i32 @SUNLinSolInitialize(ptr noundef) #1
-
-declare i32 @SUNLinSolFree(ptr noundef) #1
+declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #3
+declare void @free(ptr noundef) #4
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @N_VNewEmpty_Serial(i64 noundef, ptr noundef) #2
 
-declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @SUNMatDestroy(ptr noundef) #2
 
-declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @N_VDestroy(ptr noundef) #2
+
+declare ptr @N_VClone(ptr noundef) #2
+
+declare ptr @SUNLinSol_Band(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare i32 @SUNLinSolInitialize(ptr noundef) #2
+
+declare i32 @SUNLinSolFree(ptr noundef) #2
+
+; Function Attrs: nounwind
+declare double @sqrt(double noundef) #4
+
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDABBDPrecFree(ptr noundef %0) #0 {
@@ -960,81 +1000,89 @@ define internal i32 @IDABBDPrecFree(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.IDAMemRec, ptr %6, i32 0, i32 113
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %50
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %3, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %7, i32 0, i32 113
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.IDAMemRec, ptr %12, i32 0, i32 113
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %4, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.IDALsMemRec, ptr %15, i32 0, i32 36
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %11
   store i32 0, ptr %2, align 4
-  br label %50
+  store i32 1, ptr %6, align 4
+  br label %51
 
-20:                                               ; preds = %11
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.IDALsMemRec, ptr %21, i32 0, i32 36
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %5, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %24, i32 0, i32 9
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @SUNLinSolFree(ptr noundef %26)
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %28, i32 0, i32 11
-  %30 = load ptr, ptr %29, align 8
-  call void @N_VDestroy(ptr noundef %30)
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %31, i32 0, i32 10
-  %33 = load ptr, ptr %32, align 8
-  call void @N_VDestroy(ptr noundef %33)
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %34, i32 0, i32 12
-  %36 = load ptr, ptr %35, align 8
-  call void @N_VDestroy(ptr noundef %36)
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %37, i32 0, i32 13
-  %39 = load ptr, ptr %38, align 8
-  call void @N_VDestroy(ptr noundef %39)
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %40, i32 0, i32 14
-  %42 = load ptr, ptr %41, align 8
-  call void @N_VDestroy(ptr noundef %42)
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %43, i32 0, i32 15
-  %45 = load ptr, ptr %44, align 8
-  call void @N_VDestroy(ptr noundef %45)
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %46, i32 0, i32 8
-  %48 = load ptr, ptr %47, align 8
-  call void @SUNMatDestroy(ptr noundef %48)
-  %49 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %49) #6
-  store ptr null, ptr %5, align 8
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %13, i32 0, i32 113
+  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  store ptr %15, ptr %4, align 8, !tbaa !21
+  %16 = load ptr, ptr %4, align 8, !tbaa !21
+  %17 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %16, i32 0, i32 36
+  %18 = load ptr, ptr %17, align 8, !tbaa !70
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %12
   store i32 0, ptr %2, align 4
-  br label %50
+  store i32 1, ptr %6, align 4
+  br label %51
 
-50:                                               ; preds = %20, %19, %10
-  %51 = load i32, ptr %2, align 4
-  ret i32 %51
+21:                                               ; preds = %12
+  %22 = load ptr, ptr %4, align 8, !tbaa !21
+  %23 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %22, i32 0, i32 36
+  %24 = load ptr, ptr %23, align 8, !tbaa !70
+  store ptr %24, ptr %5, align 8, !tbaa !29
+  %25 = load ptr, ptr %5, align 8, !tbaa !29
+  %26 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %25, i32 0, i32 9
+  %27 = load ptr, ptr %26, align 8, !tbaa !49
+  %28 = call i32 @SUNLinSolFree(ptr noundef %27)
+  %29 = load ptr, ptr %5, align 8, !tbaa !29
+  %30 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %29, i32 0, i32 11
+  %31 = load ptr, ptr %30, align 8, !tbaa !44
+  call void @N_VDestroy(ptr noundef %31)
+  %32 = load ptr, ptr %5, align 8, !tbaa !29
+  %33 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %32, i32 0, i32 10
+  %34 = load ptr, ptr %33, align 8, !tbaa !43
+  call void @N_VDestroy(ptr noundef %34)
+  %35 = load ptr, ptr %5, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %35, i32 0, i32 12
+  %37 = load ptr, ptr %36, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %37)
+  %38 = load ptr, ptr %5, align 8, !tbaa !29
+  %39 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %38, i32 0, i32 13
+  %40 = load ptr, ptr %39, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %40)
+  %41 = load ptr, ptr %5, align 8, !tbaa !29
+  %42 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %41, i32 0, i32 14
+  %43 = load ptr, ptr %42, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %43)
+  %44 = load ptr, ptr %5, align 8, !tbaa !29
+  %45 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %44, i32 0, i32 15
+  %46 = load ptr, ptr %45, align 8, !tbaa !48
+  call void @N_VDestroy(ptr noundef %46)
+  %47 = load ptr, ptr %5, align 8, !tbaa !29
+  %48 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %47, i32 0, i32 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !41
+  call void @SUNMatDestroy(ptr noundef %49)
+  %50 = load ptr, ptr %5, align 8, !tbaa !29
+  call void @free(ptr noundef %50) #6
+  store ptr null, ptr %5, align 8, !tbaa !29
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %51
+
+51:                                               ; preds = %21, %20, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %52 = load i32, ptr %2, align 4
+  ret i32 %52
 }
 
-declare i32 @IDASetPreconditioner(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @IDASetPreconditioner(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, double noundef %4, ptr noundef %5) #0 {
@@ -1048,77 +1096,87 @@ define internal i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
-  store double %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store double %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %17 = load ptr, ptr %13, align 8
-  store ptr %17, ptr %14, align 8
-  %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %18, i32 0, i32 19
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %15, align 8
-  %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %21, i32 0, i32 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = call i32 @SUNMatZero(ptr noundef %23)
-  store i32 %24, ptr %16, align 4
-  %25 = load ptr, ptr %14, align 8
-  %26 = load double, ptr %8, align 8
-  %27 = load double, ptr %12, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %30, i32 0, i32 12
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %33, i32 0, i32 13
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %14, align 8
-  %37 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %14, align 8
-  %40 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %39, i32 0, i32 15
-  %41 = load ptr, ptr %40, align 8
-  %42 = call i32 @IBBDDQJac(ptr noundef %25, double noundef %26, double noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %32, ptr noundef %35, ptr noundef %38, ptr noundef %41)
-  store i32 %42, ptr %16, align 4
-  %43 = load i32, ptr %16, align 4
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %45, label %47
+  %17 = alloca i32, align 4
+  store double %0, ptr %8, align 8, !tbaa !9
+  store ptr %1, ptr %9, align 8, !tbaa !71
+  store ptr %2, ptr %10, align 8, !tbaa !71
+  store ptr %3, ptr %11, align 8, !tbaa !71
+  store double %4, ptr %12, align 8, !tbaa !9
+  store ptr %5, ptr %13, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %18 = load ptr, ptr %13, align 8, !tbaa !3
+  store ptr %18, ptr %14, align 8, !tbaa !29
+  %19 = load ptr, ptr %14, align 8, !tbaa !29
+  %20 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %19, i32 0, i32 19
+  %21 = load ptr, ptr %20, align 8, !tbaa !31
+  store ptr %21, ptr %15, align 8, !tbaa !11
+  %22 = load ptr, ptr %14, align 8, !tbaa !29
+  %23 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %22, i32 0, i32 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
+  %25 = call i32 @SUNMatZero(ptr noundef %24)
+  store i32 %25, ptr %16, align 4, !tbaa !50
+  %26 = load ptr, ptr %14, align 8, !tbaa !29
+  %27 = load double, ptr %8, align 8, !tbaa !9
+  %28 = load double, ptr %12, align 8, !tbaa !9
+  %29 = load ptr, ptr %9, align 8, !tbaa !71
+  %30 = load ptr, ptr %10, align 8, !tbaa !71
+  %31 = load ptr, ptr %14, align 8, !tbaa !29
+  %32 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %31, i32 0, i32 12
+  %33 = load ptr, ptr %32, align 8, !tbaa !45
+  %34 = load ptr, ptr %14, align 8, !tbaa !29
+  %35 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %34, i32 0, i32 13
+  %36 = load ptr, ptr %35, align 8, !tbaa !46
+  %37 = load ptr, ptr %14, align 8, !tbaa !29
+  %38 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %37, i32 0, i32 14
+  %39 = load ptr, ptr %38, align 8, !tbaa !47
+  %40 = load ptr, ptr %14, align 8, !tbaa !29
+  %41 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %40, i32 0, i32 15
+  %42 = load ptr, ptr %41, align 8, !tbaa !48
+  %43 = call i32 @IBBDDQJac(ptr noundef %26, double noundef %27, double noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %33, ptr noundef %36, ptr noundef %39, ptr noundef %42)
+  store i32 %43, ptr %16, align 4, !tbaa !50
+  %44 = load i32, ptr %16, align 4, !tbaa !50
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %6
-  %46 = load ptr, ptr %15, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %46, i32 noundef -1, i32 noundef 474, ptr noundef @__func__.IDABBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
+46:                                               ; preds = %6
+  %47 = load ptr, ptr %15, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %47, i32 noundef -1, i32 noundef 475, ptr noundef @__func__.IDABBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
   store i32 -1, ptr %7, align 4
-  br label %60
+  store i32 1, ptr %17, align 4
+  br label %61
 
-47:                                               ; preds = %6
-  %48 = load i32, ptr %16, align 4
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %51
+48:                                               ; preds = %6
+  %49 = load i32, ptr %16, align 4, !tbaa !50
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %52
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   store i32 1, ptr %7, align 4
-  br label %60
+  store i32 1, ptr %17, align 4
+  br label %61
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %14, align 8
-  %53 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %52, i32 0, i32 9
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %55, i32 0, i32 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = call i32 @SUNLinSolSetup_Band(ptr noundef %54, ptr noundef %57)
-  store i32 %58, ptr %16, align 4
-  %59 = load i32, ptr %16, align 4
-  store i32 %59, ptr %7, align 4
-  br label %60
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %14, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %53, i32 0, i32 9
+  %55 = load ptr, ptr %54, align 8, !tbaa !49
+  %56 = load ptr, ptr %14, align 8, !tbaa !29
+  %57 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %56, i32 0, i32 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !41
+  %59 = call i32 @SUNLinSolSetup_Band(ptr noundef %55, ptr noundef %58)
+  store i32 %59, ptr %16, align 4, !tbaa !50
+  %60 = load i32, ptr %16, align 4, !tbaa !50
+  store i32 %60, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %61
 
-60:                                               ; preds = %51, %50, %45
-  %61 = load i32, ptr %7, align 4
-  ret i32 %61
+61:                                               ; preds = %52, %51, %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  %62 = load i32, ptr %7, align 4
+  ret i32 %62
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1134,54 +1192,61 @@ define internal i32 @IDABBDPrecSolve(double noundef %0, ptr noundef %1, ptr noun
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
-  store double %0, ptr %10, align 8
-  store ptr %1, ptr %11, align 8
-  store ptr %2, ptr %12, align 8
-  store ptr %3, ptr %13, align 8
-  store ptr %4, ptr %14, align 8
-  store ptr %5, ptr %15, align 8
-  store double %6, ptr %16, align 8
-  store double %7, ptr %17, align 8
-  store ptr %8, ptr %18, align 8
-  %21 = load ptr, ptr %18, align 8
-  store ptr %21, ptr %19, align 8
-  %22 = load ptr, ptr %14, align 8
+  store double %0, ptr %10, align 8, !tbaa !9
+  store ptr %1, ptr %11, align 8, !tbaa !71
+  store ptr %2, ptr %12, align 8, !tbaa !71
+  store ptr %3, ptr %13, align 8, !tbaa !71
+  store ptr %4, ptr %14, align 8, !tbaa !71
+  store ptr %5, ptr %15, align 8, !tbaa !71
+  store double %6, ptr %16, align 8, !tbaa !9
+  store double %7, ptr %17, align 8, !tbaa !9
+  store ptr %8, ptr %18, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  %21 = load ptr, ptr %18, align 8, !tbaa !3
+  store ptr %21, ptr %19, align 8, !tbaa !29
+  %22 = load ptr, ptr %14, align 8, !tbaa !71
   %23 = call ptr @N_VGetArrayPointer(ptr noundef %22)
-  %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %24, i32 0, i32 11
-  %26 = load ptr, ptr %25, align 8
+  %24 = load ptr, ptr %19, align 8, !tbaa !29
+  %25 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %24, i32 0, i32 11
+  %26 = load ptr, ptr %25, align 8, !tbaa !44
   call void @N_VSetArrayPointer(ptr noundef %23, ptr noundef %26)
-  %27 = load ptr, ptr %15, align 8
+  %27 = load ptr, ptr %15, align 8, !tbaa !71
   %28 = call ptr @N_VGetArrayPointer(ptr noundef %27)
-  %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %29, i32 0, i32 10
-  %31 = load ptr, ptr %30, align 8
+  %29 = load ptr, ptr %19, align 8, !tbaa !29
+  %30 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %29, i32 0, i32 10
+  %31 = load ptr, ptr %30, align 8, !tbaa !43
   call void @N_VSetArrayPointer(ptr noundef %28, ptr noundef %31)
-  %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %32, i32 0, i32 9
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %35, i32 0, i32 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %19, align 8
-  %39 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %38, i32 0, i32 10
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %19, align 8
-  %42 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %41, i32 0, i32 11
-  %43 = load ptr, ptr %42, align 8
+  %32 = load ptr, ptr %19, align 8, !tbaa !29
+  %33 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %32, i32 0, i32 9
+  %34 = load ptr, ptr %33, align 8, !tbaa !49
+  %35 = load ptr, ptr %19, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %35, i32 0, i32 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !41
+  %38 = load ptr, ptr %19, align 8, !tbaa !29
+  %39 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %38, i32 0, i32 10
+  %40 = load ptr, ptr %39, align 8, !tbaa !43
+  %41 = load ptr, ptr %19, align 8, !tbaa !29
+  %42 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %41, i32 0, i32 11
+  %43 = load ptr, ptr %42, align 8, !tbaa !44
   %44 = call i32 @SUNLinSolSolve(ptr noundef %34, ptr noundef %37, ptr noundef %40, ptr noundef %43, double noundef 0.000000e+00)
-  store i32 %44, ptr %20, align 4
-  %45 = load ptr, ptr %19, align 8
-  %46 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %45, i32 0, i32 11
-  %47 = load ptr, ptr %46, align 8
+  store i32 %44, ptr %20, align 4, !tbaa !50
+  %45 = load ptr, ptr %19, align 8, !tbaa !29
+  %46 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %45, i32 0, i32 11
+  %47 = load ptr, ptr %46, align 8, !tbaa !44
   call void @N_VSetArrayPointer(ptr noundef null, ptr noundef %47)
-  %48 = load ptr, ptr %19, align 8
-  %49 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %48, i32 0, i32 10
-  %50 = load ptr, ptr %49, align 8
+  %48 = load ptr, ptr %19, align 8, !tbaa !29
+  %49 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %48, i32 0, i32 10
+  %50 = load ptr, ptr %49, align 8, !tbaa !43
   call void @N_VSetArrayPointer(ptr noundef null, ptr noundef %50)
-  %51 = load i32, ptr %20, align 4
+  %51 = load i32, ptr %20, align 4, !tbaa !50
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
   ret i32 %51
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDABBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) #0 {
@@ -1194,191 +1259,204 @@ define i32 @IDABBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, dou
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store double %3, ptr %9, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %4
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 313, ptr noundef @__func__.IDABBDPrecReInit, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %5, align 4
-  br label %115
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i64 %1, ptr %7, align 8, !tbaa !7
+  store i64 %2, ptr %8, align 8, !tbaa !7
+  store double %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %15 = load ptr, ptr %6, align 8, !tbaa !3
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
-  %18 = load ptr, ptr %6, align 8
-  store ptr %18, ptr %10, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds %struct.IDAMemRec, ptr %19, i32 0, i32 113
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %25
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 313, ptr noundef @__func__.IDABBDPrecReInit, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %116
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %24, i32 noundef -2, i32 noundef 322, ptr noundef @__func__.IDABBDPrecReInit, ptr noundef @.str, ptr noundef @.str.2)
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %19, ptr %10, align 8, !tbaa !11
+  %20 = load ptr, ptr %10, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %20, i32 0, i32 113
+  %22 = load ptr, ptr %21, align 8, !tbaa !13
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %25, i32 noundef -2, i32 noundef 322, ptr noundef @__func__.IDABBDPrecReInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %5, align 4
-  br label %115
+  store i32 1, ptr %14, align 4
+  br label %116
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %struct.IDAMemRec, ptr %26, i32 0, i32 113
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %11, align 8
-  %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds %struct.IDALsMemRec, ptr %29, i32 0, i32 36
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %35
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %10, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %27, i32 0, i32 113
+  %29 = load ptr, ptr %28, align 8, !tbaa !13
+  store ptr %29, ptr %11, align 8, !tbaa !21
+  %30 = load ptr, ptr %11, align 8, !tbaa !21
+  %31 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %30, i32 0, i32 36
+  %32 = load ptr, ptr %31, align 8, !tbaa !70
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -5, i32 noundef 331, ptr noundef @__func__.IDABBDPrecReInit, ptr noundef @.str, ptr noundef @.str.6)
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %35, i32 noundef -5, i32 noundef 331, ptr noundef @__func__.IDABBDPrecReInit, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -5, ptr %5, align 4
-  br label %115
+  store i32 1, ptr %14, align 4
+  br label %116
 
-35:                                               ; preds = %25
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct.IDALsMemRec, ptr %36, i32 0, i32 36
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %12, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %39, i32 0, i32 7
-  %41 = load i64, ptr %40, align 8
-  store i64 %41, ptr %13, align 8
-  %42 = load i64, ptr %13, align 8
-  %43 = sub nsw i64 %42, 1
-  %44 = load i64, ptr %7, align 8
-  %45 = icmp sgt i64 0, %44
-  br i1 %45, label %46, label %47
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %11, align 8, !tbaa !21
+  %38 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %37, i32 0, i32 36
+  %39 = load ptr, ptr %38, align 8, !tbaa !70
+  store ptr %39, ptr %12, align 8, !tbaa !29
+  %40 = load ptr, ptr %12, align 8, !tbaa !29
+  %41 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %40, i32 0, i32 7
+  %42 = load i64, ptr %41, align 8, !tbaa !53
+  store i64 %42, ptr %13, align 8, !tbaa !7
+  %43 = load i64, ptr %13, align 8, !tbaa !7
+  %44 = sub nsw i64 %43, 1
+  %45 = load i64, ptr %7, align 8, !tbaa !7
+  %46 = icmp sgt i64 0, %45
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %35
-  br label %49
+47:                                               ; preds = %36
+  br label %50
 
-47:                                               ; preds = %35
-  %48 = load i64, ptr %7, align 8
-  br label %49
+48:                                               ; preds = %36
+  %49 = load i64, ptr %7, align 8, !tbaa !7
+  br label %50
 
-49:                                               ; preds = %47, %46
-  %50 = phi i64 [ 0, %46 ], [ %48, %47 ]
-  %51 = icmp slt i64 %43, %50
-  br i1 %51, label %52, label %55
+50:                                               ; preds = %48, %47
+  %51 = phi i64 [ 0, %47 ], [ %49, %48 ]
+  %52 = icmp slt i64 %44, %51
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %49
-  %53 = load i64, ptr %13, align 8
-  %54 = sub nsw i64 %53, 1
-  br label %63
+53:                                               ; preds = %50
+  %54 = load i64, ptr %13, align 8, !tbaa !7
+  %55 = sub nsw i64 %54, 1
+  br label %64
 
-55:                                               ; preds = %49
-  %56 = load i64, ptr %7, align 8
-  %57 = icmp sgt i64 0, %56
-  br i1 %57, label %58, label %59
+56:                                               ; preds = %50
+  %57 = load i64, ptr %7, align 8, !tbaa !7
+  %58 = icmp sgt i64 0, %57
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %55
-  br label %61
+59:                                               ; preds = %56
+  br label %62
 
-59:                                               ; preds = %55
-  %60 = load i64, ptr %7, align 8
-  br label %61
+60:                                               ; preds = %56
+  %61 = load i64, ptr %7, align 8, !tbaa !7
+  br label %62
 
-61:                                               ; preds = %59, %58
-  %62 = phi i64 [ 0, %58 ], [ %60, %59 ]
-  br label %63
+62:                                               ; preds = %60, %59
+  %63 = phi i64 [ 0, %59 ], [ %61, %60 ]
+  br label %64
 
-63:                                               ; preds = %61, %52
-  %64 = phi i64 [ %54, %52 ], [ %62, %61 ]
-  %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %65, i32 0, i32 0
-  store i64 %64, ptr %66, align 8
-  %67 = load i64, ptr %13, align 8
-  %68 = sub nsw i64 %67, 1
-  %69 = load i64, ptr %8, align 8
-  %70 = icmp sgt i64 0, %69
-  br i1 %70, label %71, label %72
+64:                                               ; preds = %62, %53
+  %65 = phi i64 [ %55, %53 ], [ %63, %62 ]
+  %66 = load ptr, ptr %12, align 8, !tbaa !29
+  %67 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %66, i32 0, i32 0
+  store i64 %65, ptr %67, align 8, !tbaa !37
+  %68 = load i64, ptr %13, align 8, !tbaa !7
+  %69 = sub nsw i64 %68, 1
+  %70 = load i64, ptr %8, align 8, !tbaa !7
+  %71 = icmp sgt i64 0, %70
+  br i1 %71, label %72, label %73
 
-71:                                               ; preds = %63
-  br label %74
+72:                                               ; preds = %64
+  br label %75
 
-72:                                               ; preds = %63
-  %73 = load i64, ptr %8, align 8
-  br label %74
+73:                                               ; preds = %64
+  %74 = load i64, ptr %8, align 8, !tbaa !7
+  br label %75
 
-74:                                               ; preds = %72, %71
-  %75 = phi i64 [ 0, %71 ], [ %73, %72 ]
-  %76 = icmp slt i64 %68, %75
-  br i1 %76, label %77, label %80
+75:                                               ; preds = %73, %72
+  %76 = phi i64 [ 0, %72 ], [ %74, %73 ]
+  %77 = icmp slt i64 %69, %76
+  br i1 %77, label %78, label %81
 
-77:                                               ; preds = %74
-  %78 = load i64, ptr %13, align 8
-  %79 = sub nsw i64 %78, 1
-  br label %88
+78:                                               ; preds = %75
+  %79 = load i64, ptr %13, align 8, !tbaa !7
+  %80 = sub nsw i64 %79, 1
+  br label %89
 
-80:                                               ; preds = %74
-  %81 = load i64, ptr %8, align 8
-  %82 = icmp sgt i64 0, %81
-  br i1 %82, label %83, label %84
+81:                                               ; preds = %75
+  %82 = load i64, ptr %8, align 8, !tbaa !7
+  %83 = icmp sgt i64 0, %82
+  br i1 %83, label %84, label %85
 
-83:                                               ; preds = %80
-  br label %86
+84:                                               ; preds = %81
+  br label %87
 
-84:                                               ; preds = %80
-  %85 = load i64, ptr %8, align 8
-  br label %86
+85:                                               ; preds = %81
+  %86 = load i64, ptr %8, align 8, !tbaa !7
+  br label %87
 
-86:                                               ; preds = %84, %83
-  %87 = phi i64 [ 0, %83 ], [ %85, %84 ]
-  br label %88
+87:                                               ; preds = %85, %84
+  %88 = phi i64 [ 0, %84 ], [ %86, %85 ]
+  br label %89
 
-88:                                               ; preds = %86, %77
-  %89 = phi i64 [ %79, %77 ], [ %87, %86 ]
-  %90 = load ptr, ptr %12, align 8
-  %91 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %90, i32 0, i32 1
-  store i64 %89, ptr %91, align 8
-  %92 = load double, ptr %9, align 8
-  %93 = fcmp ogt double %92, 0.000000e+00
-  br i1 %93, label %94, label %96
+89:                                               ; preds = %87, %78
+  %90 = phi i64 [ %80, %78 ], [ %88, %87 ]
+  %91 = load ptr, ptr %12, align 8, !tbaa !29
+  %92 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %91, i32 0, i32 1
+  store i64 %90, ptr %92, align 8, !tbaa !38
+  %93 = load double, ptr %9, align 8, !tbaa !9
+  %94 = fcmp ogt double %93, 0.000000e+00
+  br i1 %94, label %95, label %97
 
-94:                                               ; preds = %88
-  %95 = load double, ptr %9, align 8
-  br label %109
+95:                                               ; preds = %89
+  %96 = load double, ptr %9, align 8, !tbaa !9
+  br label %110
 
-96:                                               ; preds = %88
-  %97 = load ptr, ptr %10, align 8
-  %98 = getelementptr inbounds %struct.IDAMemRec, ptr %97, i32 0, i32 1
-  %99 = load double, ptr %98, align 8
-  %100 = fcmp ole double %99, 0.000000e+00
-  br i1 %100, label %101, label %102
+97:                                               ; preds = %89
+  %98 = load ptr, ptr %10, align 8, !tbaa !11
+  %99 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %98, i32 0, i32 1
+  %100 = load double, ptr %99, align 8, !tbaa !51
+  %101 = fcmp ole double %100, 0.000000e+00
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %96
-  br label %107
+102:                                              ; preds = %97
+  br label %108
 
-102:                                              ; preds = %96
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct.IDAMemRec, ptr %103, i32 0, i32 1
-  %105 = load double, ptr %104, align 8
-  %106 = call double @sqrt(double noundef %105) #6
-  br label %107
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %10, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %104, i32 0, i32 1
+  %106 = load double, ptr %105, align 8, !tbaa !51
+  %107 = call double @sqrt(double noundef %106) #6, !tbaa !50
+  br label %108
 
-107:                                              ; preds = %102, %101
-  %108 = phi double [ 0.000000e+00, %101 ], [ %106, %102 ]
-  br label %109
+108:                                              ; preds = %103, %102
+  %109 = phi double [ 0.000000e+00, %102 ], [ %107, %103 ]
+  br label %110
 
-109:                                              ; preds = %107, %94
-  %110 = phi double [ %95, %94 ], [ %108, %107 ]
-  %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %111, i32 0, i32 4
-  store double %110, ptr %112, align 8
-  %113 = load ptr, ptr %12, align 8
-  %114 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %113, i32 0, i32 18
-  store i64 0, ptr %114, align 8
+110:                                              ; preds = %108, %95
+  %111 = phi double [ %96, %95 ], [ %109, %108 ]
+  %112 = load ptr, ptr %12, align 8, !tbaa !29
+  %113 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %112, i32 0, i32 4
+  store double %111, ptr %113, align 8, !tbaa !52
+  %114 = load ptr, ptr %12, align 8, !tbaa !29
+  %115 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %114, i32 0, i32 18
+  store i64 0, ptr %115, align 8, !tbaa !67
   store i32 0, ptr %5, align 4
-  br label %115
+  store i32 1, ptr %14, align 4
+  br label %116
 
-115:                                              ; preds = %109, %33, %23, %16
-  %116 = load i32, ptr %5, align 4
-  ret i32 %116
+116:                                              ; preds = %110, %34, %24, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %117 = load i32, ptr %5, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1390,71 +1468,82 @@ define i32 @IDABBDPrecGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 360, ptr noundef @__func__.IDABBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %4, align 4
-  br label %44
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !72
+  store ptr %2, ptr %7, align 8, !tbaa !72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %8, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.IDAMemRec, ptr %16, i32 0, i32 113
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %22
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 360, ptr noundef @__func__.IDABBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %45
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %21, i32 noundef -2, i32 noundef 368, ptr noundef @__func__.IDABBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.2)
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %16, ptr %8, align 8, !tbaa !11
+  %17 = load ptr, ptr %8, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %17, i32 0, i32 113
+  %19 = load ptr, ptr %18, align 8, !tbaa !13
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %8, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -2, i32 noundef 368, ptr noundef @__func__.IDABBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %4, align 4
-  br label %44
+  store i32 1, ptr %11, align 4
+  br label %45
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.IDAMemRec, ptr %23, i32 0, i32 113
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %9, align 8
-  %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds %struct.IDALsMemRec, ptr %26, i32 0, i32 36
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %32
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %8, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %24, i32 0, i32 113
+  %26 = load ptr, ptr %25, align 8, !tbaa !13
+  store ptr %26, ptr %9, align 8, !tbaa !21
+  %27 = load ptr, ptr %9, align 8, !tbaa !21
+  %28 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %27, i32 0, i32 36
+  %29 = load ptr, ptr %28, align 8, !tbaa !70
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %22
-  %31 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %31, i32 noundef -5, i32 noundef 376, ptr noundef @__func__.IDABBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.6)
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %8, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %32, i32 noundef -5, i32 noundef 376, ptr noundef @__func__.IDABBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -5, ptr %4, align 4
-  br label %44
+  store i32 1, ptr %11, align 4
+  br label %45
 
-32:                                               ; preds = %22
-  %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds %struct.IDALsMemRec, ptr %33, i32 0, i32 36
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %10, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %36, i32 0, i32 16
-  %38 = load i64, ptr %37, align 8
-  %39 = load ptr, ptr %6, align 8
-  store i64 %38, ptr %39, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %40, i32 0, i32 17
-  %42 = load i64, ptr %41, align 8
-  %43 = load ptr, ptr %7, align 8
-  store i64 %42, ptr %43, align 8
+33:                                               ; preds = %23
+  %34 = load ptr, ptr %9, align 8, !tbaa !21
+  %35 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %34, i32 0, i32 36
+  %36 = load ptr, ptr %35, align 8, !tbaa !70
+  store ptr %36, ptr %10, align 8, !tbaa !29
+  %37 = load ptr, ptr %10, align 8, !tbaa !29
+  %38 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %37, i32 0, i32 16
+  %39 = load i64, ptr %38, align 8, !tbaa !54
+  %40 = load ptr, ptr %6, align 8, !tbaa !72
+  store i64 %39, ptr %40, align 8, !tbaa !7
+  %41 = load ptr, ptr %10, align 8, !tbaa !29
+  %42 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %41, i32 0, i32 17
+  %43 = load i64, ptr %42, align 8, !tbaa !55
+  %44 = load ptr, ptr %7, align 8, !tbaa !72
+  store i64 %43, ptr %44, align 8, !tbaa !7
   store i32 0, ptr %4, align 4
-  br label %44
+  store i32 1, ptr %11, align 4
+  br label %45
 
-44:                                               ; preds = %32, %30, %20, %13
-  %45 = load i32, ptr %4, align 4
-  ret i32 %45
+45:                                               ; preds = %33, %31, %21, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %46 = load i32, ptr %4, align 4
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1465,68 +1554,79 @@ define i32 @IDABBDPrecGetNumGfnEvals(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 397, ptr noundef @__func__.IDABBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %38
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %6, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.IDAMemRec, ptr %14, i32 0, i32 113
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %20
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -1, i32 noundef 397, ptr noundef @__func__.IDABBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %39
 
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %19, i32 noundef -2, i32 noundef 405, ptr noundef @__func__.IDABBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.2)
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %14, ptr %6, align 8, !tbaa !11
+  %15 = load ptr, ptr %6, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %15, i32 0, i32 113
+  %17 = load ptr, ptr %16, align 8, !tbaa !13
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %20, i32 noundef -2, i32 noundef 405, ptr noundef @__func__.IDABBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %9, align 4
+  br label %39
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.IDAMemRec, ptr %21, i32 0, i32 113
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %7, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.IDALsMemRec, ptr %24, i32 0, i32 36
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %30
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %6, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %22, i32 0, i32 113
+  %24 = load ptr, ptr %23, align 8, !tbaa !13
+  store ptr %24, ptr %7, align 8, !tbaa !21
+  %25 = load ptr, ptr %7, align 8, !tbaa !21
+  %26 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %25, i32 0, i32 36
+  %27 = load ptr, ptr %26, align 8, !tbaa !70
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %29, i32 noundef -5, i32 noundef 413, ptr noundef @__func__.IDABBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.6)
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %6, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %30, i32 noundef -5, i32 noundef 413, ptr noundef @__func__.IDABBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -5, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %9, align 4
+  br label %39
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct.IDALsMemRec, ptr %31, i32 0, i32 36
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %8, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %34, i32 0, i32 18
-  %36 = load i64, ptr %35, align 8
-  %37 = load ptr, ptr %5, align 8
-  store i64 %36, ptr %37, align 8
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %7, align 8, !tbaa !21
+  %33 = getelementptr inbounds nuw %struct.IDALsMemRec, ptr %32, i32 0, i32 36
+  %34 = load ptr, ptr %33, align 8, !tbaa !70
+  store ptr %34, ptr %8, align 8, !tbaa !29
+  %35 = load ptr, ptr %8, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %35, i32 0, i32 18
+  %37 = load i64, ptr %36, align 8, !tbaa !67
+  %38 = load ptr, ptr %5, align 8, !tbaa !72
+  store i64 %37, ptr %38, align 8, !tbaa !7
   store i32 0, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %9, align 4
+  br label %39
 
-38:                                               ; preds = %30, %28, %18, %11
-  %39 = load i32, ptr %3, align 4
-  ret i32 %39
+39:                                               ; preds = %31, %29, %19, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %40 = load i32, ptr %3, align 4
+  ret i32 %40
 }
 
-declare i32 @SUNMatZero(ptr noundef) #1
+declare i32 @SUNMatZero(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IBBDDQJac(ptr noundef %0, double noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
@@ -1564,764 +1664,894 @@ define internal i32 @IBBDDQJac(ptr noundef %0, double noundef %1, double noundef
   %41 = alloca double, align 8
   %42 = alloca double, align 8
   %43 = alloca double, align 8
-  store ptr %0, ptr %11, align 8
-  store double %1, ptr %12, align 8
-  store double %2, ptr %13, align 8
-  store ptr %3, ptr %14, align 8
-  store ptr %4, ptr %15, align 8
-  store ptr %5, ptr %16, align 8
-  store ptr %6, ptr %17, align 8
-  store ptr %7, ptr %18, align 8
-  store ptr %8, ptr %19, align 8
-  store ptr null, ptr %37, align 8
-  %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %44, i32 0, i32 19
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %20, align 8
-  %47 = load ptr, ptr %14, align 8
-  %48 = load ptr, ptr %17, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %47, ptr noundef %48)
-  %49 = load ptr, ptr %15, align 8
-  %50 = load ptr, ptr %18, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %49, ptr noundef %50)
-  %51 = load ptr, ptr %14, align 8
-  %52 = call ptr @N_VGetArrayPointer(ptr noundef %51)
-  store ptr %52, ptr %31, align 8
-  %53 = load ptr, ptr %15, align 8
-  %54 = call ptr @N_VGetArrayPointer(ptr noundef %53)
-  store ptr %54, ptr %32, align 8
-  %55 = load ptr, ptr %19, align 8
-  %56 = call ptr @N_VGetArrayPointer(ptr noundef %55)
-  store ptr %56, ptr %36, align 8
-  %57 = load ptr, ptr %20, align 8
-  %58 = getelementptr inbounds %struct.IDAMemRec, ptr %57, i32 0, i32 20
-  %59 = load ptr, ptr %58, align 8
-  %60 = call ptr @N_VGetArrayPointer(ptr noundef %59)
-  store ptr %60, ptr %38, align 8
-  %61 = load ptr, ptr %20, align 8
-  %62 = getelementptr inbounds %struct.IDAMemRec, ptr %61, i32 0, i32 12
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %70
+  %44 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !29
+  store double %1, ptr %12, align 8, !tbaa !9
+  store double %2, ptr %13, align 8, !tbaa !9
+  store ptr %3, ptr %14, align 8, !tbaa !71
+  store ptr %4, ptr %15, align 8, !tbaa !71
+  store ptr %5, ptr %16, align 8, !tbaa !71
+  store ptr %6, ptr %17, align 8, !tbaa !71
+  store ptr %7, ptr %18, align 8, !tbaa !71
+  store ptr %8, ptr %19, align 8, !tbaa !71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #6
+  store ptr null, ptr %37, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #6
+  %45 = load ptr, ptr %11, align 8, !tbaa !29
+  %46 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %45, i32 0, i32 19
+  %47 = load ptr, ptr %46, align 8, !tbaa !31
+  store ptr %47, ptr %20, align 8, !tbaa !11
+  %48 = load ptr, ptr %14, align 8, !tbaa !71
+  %49 = load ptr, ptr %17, align 8, !tbaa !71
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %48, ptr noundef %49)
+  %50 = load ptr, ptr %15, align 8, !tbaa !71
+  %51 = load ptr, ptr %18, align 8, !tbaa !71
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %50, ptr noundef %51)
+  %52 = load ptr, ptr %14, align 8, !tbaa !71
+  %53 = call ptr @N_VGetArrayPointer(ptr noundef %52)
+  store ptr %53, ptr %31, align 8, !tbaa !74
+  %54 = load ptr, ptr %15, align 8, !tbaa !71
+  %55 = call ptr @N_VGetArrayPointer(ptr noundef %54)
+  store ptr %55, ptr %32, align 8, !tbaa !74
+  %56 = load ptr, ptr %19, align 8, !tbaa !71
+  %57 = call ptr @N_VGetArrayPointer(ptr noundef %56)
+  store ptr %57, ptr %36, align 8, !tbaa !74
+  %58 = load ptr, ptr %20, align 8, !tbaa !11
+  %59 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %58, i32 0, i32 20
+  %60 = load ptr, ptr %59, align 8, !tbaa !75
+  %61 = call ptr @N_VGetArrayPointer(ptr noundef %60)
+  store ptr %61, ptr %38, align 8, !tbaa !74
+  %62 = load ptr, ptr %20, align 8, !tbaa !11
+  %63 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %62, i32 0, i32 12
+  %64 = load i32, ptr %63, align 8, !tbaa !76
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %71
 
-65:                                               ; preds = %9
-  %66 = load ptr, ptr %20, align 8
-  %67 = getelementptr inbounds %struct.IDAMemRec, ptr %66, i32 0, i32 27
-  %68 = load ptr, ptr %67, align 8
-  %69 = call ptr @N_VGetArrayPointer(ptr noundef %68)
-  store ptr %69, ptr %37, align 8
-  br label %70
+66:                                               ; preds = %9
+  %67 = load ptr, ptr %20, align 8, !tbaa !11
+  %68 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %67, i32 0, i32 27
+  %69 = load ptr, ptr %68, align 8, !tbaa !77
+  %70 = call ptr @N_VGetArrayPointer(ptr noundef %69)
+  store ptr %70, ptr %37, align 8, !tbaa !74
+  br label %71
 
-70:                                               ; preds = %65, %9
-  %71 = load ptr, ptr %17, align 8
-  %72 = call ptr @N_VGetArrayPointer(ptr noundef %71)
-  store ptr %72, ptr %33, align 8
-  %73 = load ptr, ptr %18, align 8
-  %74 = call ptr @N_VGetArrayPointer(ptr noundef %73)
-  store ptr %74, ptr %34, align 8
-  %75 = load ptr, ptr %16, align 8
-  %76 = call ptr @N_VGetArrayPointer(ptr noundef %75)
-  store ptr %76, ptr %35, align 8
-  %77 = load ptr, ptr %11, align 8
-  %78 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %77, i32 0, i32 6
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %100
+71:                                               ; preds = %66, %9
+  %72 = load ptr, ptr %17, align 8, !tbaa !71
+  %73 = call ptr @N_VGetArrayPointer(ptr noundef %72)
+  store ptr %73, ptr %33, align 8, !tbaa !74
+  %74 = load ptr, ptr %18, align 8, !tbaa !71
+  %75 = call ptr @N_VGetArrayPointer(ptr noundef %74)
+  store ptr %75, ptr %34, align 8, !tbaa !74
+  %76 = load ptr, ptr %16, align 8, !tbaa !71
+  %77 = call ptr @N_VGetArrayPointer(ptr noundef %76)
+  store ptr %77, ptr %35, align 8, !tbaa !74
+  %78 = load ptr, ptr %11, align 8, !tbaa !29
+  %79 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %78, i32 0, i32 6
+  %80 = load ptr, ptr %79, align 8, !tbaa !36
+  %81 = icmp ne ptr %80, null
+  br i1 %81, label %82, label %101
 
-81:                                               ; preds = %70
-  %82 = load ptr, ptr %11, align 8
-  %83 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %82, i32 0, i32 6
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %11, align 8
-  %86 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %85, i32 0, i32 7
-  %87 = load i64, ptr %86, align 8
-  %88 = load double, ptr %12, align 8
-  %89 = load ptr, ptr %14, align 8
-  %90 = load ptr, ptr %15, align 8
-  %91 = load ptr, ptr %20, align 8
-  %92 = getelementptr inbounds %struct.IDAMemRec, ptr %91, i32 0, i32 3
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 %84(i64 noundef %87, double noundef %88, ptr noundef %89, ptr noundef %90, ptr noundef %93)
-  store i32 %94, ptr %23, align 4
-  %95 = load i32, ptr %23, align 4
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %99
+82:                                               ; preds = %71
+  %83 = load ptr, ptr %11, align 8, !tbaa !29
+  %84 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %83, i32 0, i32 6
+  %85 = load ptr, ptr %84, align 8, !tbaa !36
+  %86 = load ptr, ptr %11, align 8, !tbaa !29
+  %87 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %86, i32 0, i32 7
+  %88 = load i64, ptr %87, align 8, !tbaa !53
+  %89 = load double, ptr %12, align 8, !tbaa !9
+  %90 = load ptr, ptr %14, align 8, !tbaa !71
+  %91 = load ptr, ptr %15, align 8, !tbaa !71
+  %92 = load ptr, ptr %20, align 8, !tbaa !11
+  %93 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %92, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8, !tbaa !78
+  %95 = call i32 %85(i64 noundef %88, double noundef %89, ptr noundef %90, ptr noundef %91, ptr noundef %94)
+  store i32 %95, ptr %23, align 4, !tbaa !50
+  %96 = load i32, ptr %23, align 4, !tbaa !50
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %98, label %100
 
-97:                                               ; preds = %81
-  %98 = load i32, ptr %23, align 4
-  store i32 %98, ptr %10, align 4
-  br label %541
+98:                                               ; preds = %82
+  %99 = load i32, ptr %23, align 4, !tbaa !50
+  store i32 %99, ptr %10, align 4
+  store i32 1, ptr %44, align 4
+  br label %542
 
-99:                                               ; preds = %81
-  br label %100
+100:                                              ; preds = %82
+  br label %101
 
-100:                                              ; preds = %99, %70
-  %101 = load ptr, ptr %11, align 8
-  %102 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %101, i32 0, i32 5
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %11, align 8
-  %105 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %104, i32 0, i32 7
-  %106 = load i64, ptr %105, align 8
-  %107 = load double, ptr %12, align 8
-  %108 = load ptr, ptr %14, align 8
-  %109 = load ptr, ptr %15, align 8
-  %110 = load ptr, ptr %16, align 8
-  %111 = load ptr, ptr %20, align 8
-  %112 = getelementptr inbounds %struct.IDAMemRec, ptr %111, i32 0, i32 3
-  %113 = load ptr, ptr %112, align 8
-  %114 = call i32 %103(i64 noundef %106, double noundef %107, ptr noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %113)
-  store i32 %114, ptr %23, align 4
-  %115 = load ptr, ptr %11, align 8
-  %116 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %115, i32 0, i32 18
-  %117 = load i64, ptr %116, align 8
-  %118 = add nsw i64 %117, 1
-  store i64 %118, ptr %116, align 8
-  %119 = load i32, ptr %23, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %123
+101:                                              ; preds = %100, %71
+  %102 = load ptr, ptr %11, align 8, !tbaa !29
+  %103 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %102, i32 0, i32 5
+  %104 = load ptr, ptr %103, align 8, !tbaa !35
+  %105 = load ptr, ptr %11, align 8, !tbaa !29
+  %106 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %105, i32 0, i32 7
+  %107 = load i64, ptr %106, align 8, !tbaa !53
+  %108 = load double, ptr %12, align 8, !tbaa !9
+  %109 = load ptr, ptr %14, align 8, !tbaa !71
+  %110 = load ptr, ptr %15, align 8, !tbaa !71
+  %111 = load ptr, ptr %16, align 8, !tbaa !71
+  %112 = load ptr, ptr %20, align 8, !tbaa !11
+  %113 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %112, i32 0, i32 3
+  %114 = load ptr, ptr %113, align 8, !tbaa !78
+  %115 = call i32 %104(i64 noundef %107, double noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %114)
+  store i32 %115, ptr %23, align 4, !tbaa !50
+  %116 = load ptr, ptr %11, align 8, !tbaa !29
+  %117 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %116, i32 0, i32 18
+  %118 = load i64, ptr %117, align 8, !tbaa !67
+  %119 = add nsw i64 %118, 1
+  store i64 %119, ptr %117, align 8, !tbaa !67
+  %120 = load i32, ptr %23, align 4, !tbaa !50
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %124
 
-121:                                              ; preds = %100
-  %122 = load i32, ptr %23, align 4
-  store i32 %122, ptr %10, align 4
-  br label %541
+122:                                              ; preds = %101
+  %123 = load i32, ptr %23, align 4, !tbaa !50
+  store i32 %123, ptr %10, align 4
+  store i32 1, ptr %44, align 4
+  br label %542
 
-123:                                              ; preds = %100
-  %124 = load ptr, ptr %11, align 8
-  %125 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %124, i32 0, i32 1
-  %126 = load i64, ptr %125, align 8
-  %127 = load ptr, ptr %11, align 8
-  %128 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %127, i32 0, i32 0
-  %129 = load i64, ptr %128, align 8
-  %130 = add nsw i64 %126, %129
-  %131 = add nsw i64 %130, 1
-  store i64 %131, ptr %27, align 8
-  %132 = load i64, ptr %27, align 8
-  %133 = load ptr, ptr %11, align 8
-  %134 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %133, i32 0, i32 7
-  %135 = load i64, ptr %134, align 8
-  %136 = icmp slt i64 %132, %135
-  br i1 %136, label %137, label %139
+124:                                              ; preds = %101
+  %125 = load ptr, ptr %11, align 8, !tbaa !29
+  %126 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %125, i32 0, i32 1
+  %127 = load i64, ptr %126, align 8, !tbaa !38
+  %128 = load ptr, ptr %11, align 8, !tbaa !29
+  %129 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %128, i32 0, i32 0
+  %130 = load i64, ptr %129, align 8, !tbaa !37
+  %131 = add nsw i64 %127, %130
+  %132 = add nsw i64 %131, 1
+  store i64 %132, ptr %27, align 8, !tbaa !7
+  %133 = load i64, ptr %27, align 8, !tbaa !7
+  %134 = load ptr, ptr %11, align 8, !tbaa !29
+  %135 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %134, i32 0, i32 7
+  %136 = load i64, ptr %135, align 8, !tbaa !53
+  %137 = icmp slt i64 %133, %136
+  br i1 %137, label %138, label %140
 
-137:                                              ; preds = %123
-  %138 = load i64, ptr %27, align 8
-  br label %143
+138:                                              ; preds = %124
+  %139 = load i64, ptr %27, align 8, !tbaa !7
+  br label %144
 
-139:                                              ; preds = %123
-  %140 = load ptr, ptr %11, align 8
-  %141 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %140, i32 0, i32 7
-  %142 = load i64, ptr %141, align 8
-  br label %143
+140:                                              ; preds = %124
+  %141 = load ptr, ptr %11, align 8, !tbaa !29
+  %142 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %141, i32 0, i32 7
+  %143 = load i64, ptr %142, align 8, !tbaa !53
+  br label %144
 
-143:                                              ; preds = %139, %137
-  %144 = phi i64 [ %138, %137 ], [ %142, %139 ]
-  store i64 %144, ptr %28, align 8
-  store i64 1, ptr %24, align 8
-  br label %145
+144:                                              ; preds = %140, %138
+  %145 = phi i64 [ %139, %138 ], [ %143, %140 ]
+  store i64 %145, ptr %28, align 8, !tbaa !7
+  store i64 1, ptr %24, align 8, !tbaa !7
+  br label %146
 
-145:                                              ; preds = %537, %143
-  %146 = load i64, ptr %24, align 8
-  %147 = load i64, ptr %28, align 8
-  %148 = icmp sle i64 %146, %147
-  br i1 %148, label %149, label %540
+146:                                              ; preds = %538, %144
+  %147 = load i64, ptr %24, align 8, !tbaa !7
+  %148 = load i64, ptr %28, align 8, !tbaa !7
+  %149 = icmp sle i64 %147, %148
+  br i1 %149, label %150, label %541
 
-149:                                              ; preds = %145
-  %150 = load i64, ptr %24, align 8
-  %151 = sub nsw i64 %150, 1
-  store i64 %151, ptr %26, align 8
-  br label %152
+150:                                              ; preds = %146
+  %151 = load i64, ptr %24, align 8, !tbaa !7
+  %152 = sub nsw i64 %151, 1
+  store i64 %152, ptr %26, align 8, !tbaa !7
+  br label %153
 
-152:                                              ; preds = %295, %149
-  %153 = load i64, ptr %26, align 8
-  %154 = load ptr, ptr %11, align 8
-  %155 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %154, i32 0, i32 7
-  %156 = load i64, ptr %155, align 8
-  %157 = icmp slt i64 %153, %156
-  br i1 %157, label %158, label %299
+153:                                              ; preds = %296, %150
+  %154 = load i64, ptr %26, align 8, !tbaa !7
+  %155 = load ptr, ptr %11, align 8, !tbaa !29
+  %156 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %155, i32 0, i32 7
+  %157 = load i64, ptr %156, align 8, !tbaa !53
+  %158 = icmp slt i64 %154, %157
+  br i1 %158, label %159, label %300
 
-158:                                              ; preds = %152
-  %159 = load ptr, ptr %31, align 8
-  %160 = load i64, ptr %26, align 8
-  %161 = getelementptr inbounds double, ptr %159, i64 %160
-  %162 = load double, ptr %161, align 8
-  store double %162, ptr %41, align 8
-  %163 = load ptr, ptr %32, align 8
-  %164 = load i64, ptr %26, align 8
-  %165 = getelementptr inbounds double, ptr %163, i64 %164
-  %166 = load double, ptr %165, align 8
-  store double %166, ptr %42, align 8
-  %167 = load ptr, ptr %38, align 8
-  %168 = load i64, ptr %26, align 8
-  %169 = getelementptr inbounds double, ptr %167, i64 %168
-  %170 = load double, ptr %169, align 8
-  store double %170, ptr %43, align 8
-  %171 = load ptr, ptr %11, align 8
-  %172 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %171, i32 0, i32 4
-  %173 = load double, ptr %172, align 8
-  %174 = load double, ptr %41, align 8
-  %175 = call double @llvm.fabs.f64(double %174)
-  %176 = load ptr, ptr %20, align 8
-  %177 = getelementptr inbounds %struct.IDAMemRec, ptr %176, i32 0, i32 60
-  %178 = load double, ptr %177, align 8
-  %179 = load double, ptr %42, align 8
-  %180 = fmul double %178, %179
-  %181 = call double @llvm.fabs.f64(double %180)
-  %182 = load double, ptr %43, align 8
-  %183 = fdiv double 1.000000e+00, %182
-  %184 = fcmp ogt double %181, %183
-  br i1 %184, label %185, label %192
+159:                                              ; preds = %153
+  %160 = load ptr, ptr %31, align 8, !tbaa !74
+  %161 = load i64, ptr %26, align 8, !tbaa !7
+  %162 = getelementptr inbounds double, ptr %160, i64 %161
+  %163 = load double, ptr %162, align 8, !tbaa !9
+  store double %163, ptr %41, align 8, !tbaa !9
+  %164 = load ptr, ptr %32, align 8, !tbaa !74
+  %165 = load i64, ptr %26, align 8, !tbaa !7
+  %166 = getelementptr inbounds double, ptr %164, i64 %165
+  %167 = load double, ptr %166, align 8, !tbaa !9
+  store double %167, ptr %42, align 8, !tbaa !9
+  %168 = load ptr, ptr %38, align 8, !tbaa !74
+  %169 = load i64, ptr %26, align 8, !tbaa !7
+  %170 = getelementptr inbounds double, ptr %168, i64 %169
+  %171 = load double, ptr %170, align 8, !tbaa !9
+  store double %171, ptr %43, align 8, !tbaa !9
+  %172 = load ptr, ptr %11, align 8, !tbaa !29
+  %173 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %172, i32 0, i32 4
+  %174 = load double, ptr %173, align 8, !tbaa !52
+  %175 = load double, ptr %41, align 8, !tbaa !9
+  %176 = call double @llvm.fabs.f64(double %175)
+  %177 = load ptr, ptr %20, align 8, !tbaa !11
+  %178 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %177, i32 0, i32 60
+  %179 = load double, ptr %178, align 8, !tbaa !79
+  %180 = load double, ptr %42, align 8, !tbaa !9
+  %181 = fmul double %179, %180
+  %182 = call double @llvm.fabs.f64(double %181)
+  %183 = load double, ptr %43, align 8, !tbaa !9
+  %184 = fdiv double 1.000000e+00, %183
+  %185 = fcmp ogt double %182, %184
+  br i1 %185, label %186, label %193
 
-185:                                              ; preds = %158
-  %186 = load ptr, ptr %20, align 8
-  %187 = getelementptr inbounds %struct.IDAMemRec, ptr %186, i32 0, i32 60
-  %188 = load double, ptr %187, align 8
-  %189 = load double, ptr %42, align 8
-  %190 = fmul double %188, %189
-  %191 = call double @llvm.fabs.f64(double %190)
-  br label %195
+186:                                              ; preds = %159
+  %187 = load ptr, ptr %20, align 8, !tbaa !11
+  %188 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %187, i32 0, i32 60
+  %189 = load double, ptr %188, align 8, !tbaa !79
+  %190 = load double, ptr %42, align 8, !tbaa !9
+  %191 = fmul double %189, %190
+  %192 = call double @llvm.fabs.f64(double %191)
+  br label %196
 
-192:                                              ; preds = %158
-  %193 = load double, ptr %43, align 8
-  %194 = fdiv double 1.000000e+00, %193
-  br label %195
+193:                                              ; preds = %159
+  %194 = load double, ptr %43, align 8, !tbaa !9
+  %195 = fdiv double 1.000000e+00, %194
+  br label %196
 
-195:                                              ; preds = %192, %185
-  %196 = phi double [ %191, %185 ], [ %194, %192 ]
-  %197 = fcmp ogt double %175, %196
-  br i1 %197, label %198, label %201
+196:                                              ; preds = %193, %186
+  %197 = phi double [ %192, %186 ], [ %195, %193 ]
+  %198 = fcmp ogt double %176, %197
+  br i1 %198, label %199, label %202
 
-198:                                              ; preds = %195
-  %199 = load double, ptr %41, align 8
-  %200 = call double @llvm.fabs.f64(double %199)
-  br label %223
+199:                                              ; preds = %196
+  %200 = load double, ptr %41, align 8, !tbaa !9
+  %201 = call double @llvm.fabs.f64(double %200)
+  br label %224
 
-201:                                              ; preds = %195
-  %202 = load ptr, ptr %20, align 8
-  %203 = getelementptr inbounds %struct.IDAMemRec, ptr %202, i32 0, i32 60
-  %204 = load double, ptr %203, align 8
-  %205 = load double, ptr %42, align 8
-  %206 = fmul double %204, %205
-  %207 = call double @llvm.fabs.f64(double %206)
-  %208 = load double, ptr %43, align 8
-  %209 = fdiv double 1.000000e+00, %208
-  %210 = fcmp ogt double %207, %209
-  br i1 %210, label %211, label %218
+202:                                              ; preds = %196
+  %203 = load ptr, ptr %20, align 8, !tbaa !11
+  %204 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %203, i32 0, i32 60
+  %205 = load double, ptr %204, align 8, !tbaa !79
+  %206 = load double, ptr %42, align 8, !tbaa !9
+  %207 = fmul double %205, %206
+  %208 = call double @llvm.fabs.f64(double %207)
+  %209 = load double, ptr %43, align 8, !tbaa !9
+  %210 = fdiv double 1.000000e+00, %209
+  %211 = fcmp ogt double %208, %210
+  br i1 %211, label %212, label %219
 
-211:                                              ; preds = %201
-  %212 = load ptr, ptr %20, align 8
-  %213 = getelementptr inbounds %struct.IDAMemRec, ptr %212, i32 0, i32 60
-  %214 = load double, ptr %213, align 8
-  %215 = load double, ptr %42, align 8
-  %216 = fmul double %214, %215
-  %217 = call double @llvm.fabs.f64(double %216)
-  br label %221
+212:                                              ; preds = %202
+  %213 = load ptr, ptr %20, align 8, !tbaa !11
+  %214 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %213, i32 0, i32 60
+  %215 = load double, ptr %214, align 8, !tbaa !79
+  %216 = load double, ptr %42, align 8, !tbaa !9
+  %217 = fmul double %215, %216
+  %218 = call double @llvm.fabs.f64(double %217)
+  br label %222
 
-218:                                              ; preds = %201
-  %219 = load double, ptr %43, align 8
-  %220 = fdiv double 1.000000e+00, %219
-  br label %221
+219:                                              ; preds = %202
+  %220 = load double, ptr %43, align 8, !tbaa !9
+  %221 = fdiv double 1.000000e+00, %220
+  br label %222
 
-221:                                              ; preds = %218, %211
-  %222 = phi double [ %217, %211 ], [ %220, %218 ]
-  br label %223
+222:                                              ; preds = %219, %212
+  %223 = phi double [ %218, %212 ], [ %221, %219 ]
+  br label %224
 
-223:                                              ; preds = %221, %198
-  %224 = phi double [ %200, %198 ], [ %222, %221 ]
-  %225 = fmul double %173, %224
-  store double %225, ptr %21, align 8
-  %226 = load ptr, ptr %20, align 8
-  %227 = getelementptr inbounds %struct.IDAMemRec, ptr %226, i32 0, i32 60
-  %228 = load double, ptr %227, align 8
-  %229 = load double, ptr %42, align 8
-  %230 = fmul double %228, %229
-  %231 = fcmp olt double %230, 0.000000e+00
-  br i1 %231, label %232, label %235
+224:                                              ; preds = %222, %199
+  %225 = phi double [ %201, %199 ], [ %223, %222 ]
+  %226 = fmul double %174, %225
+  store double %226, ptr %21, align 8, !tbaa !9
+  %227 = load ptr, ptr %20, align 8, !tbaa !11
+  %228 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %227, i32 0, i32 60
+  %229 = load double, ptr %228, align 8, !tbaa !79
+  %230 = load double, ptr %42, align 8, !tbaa !9
+  %231 = fmul double %229, %230
+  %232 = fcmp olt double %231, 0.000000e+00
+  br i1 %232, label %233, label %236
 
-232:                                              ; preds = %223
-  %233 = load double, ptr %21, align 8
-  %234 = fneg double %233
-  store double %234, ptr %21, align 8
-  br label %235
+233:                                              ; preds = %224
+  %234 = load double, ptr %21, align 8, !tbaa !9
+  %235 = fneg double %234
+  store double %235, ptr %21, align 8, !tbaa !9
+  br label %236
 
-235:                                              ; preds = %232, %223
-  %236 = load double, ptr %41, align 8
-  %237 = load double, ptr %21, align 8
-  %238 = fadd double %236, %237
-  %239 = load double, ptr %41, align 8
-  %240 = fsub double %238, %239
-  store double %240, ptr %21, align 8
-  %241 = load ptr, ptr %20, align 8
-  %242 = getelementptr inbounds %struct.IDAMemRec, ptr %241, i32 0, i32 12
-  %243 = load i32, ptr %242, align 8
-  %244 = icmp ne i32 %243, 0
-  br i1 %244, label %245, label %281
+236:                                              ; preds = %233, %224
+  %237 = load double, ptr %41, align 8, !tbaa !9
+  %238 = load double, ptr %21, align 8, !tbaa !9
+  %239 = fadd double %237, %238
+  %240 = load double, ptr %41, align 8, !tbaa !9
+  %241 = fsub double %239, %240
+  store double %241, ptr %21, align 8, !tbaa !9
+  %242 = load ptr, ptr %20, align 8, !tbaa !11
+  %243 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %242, i32 0, i32 12
+  %244 = load i32, ptr %243, align 8, !tbaa !76
+  %245 = icmp ne i32 %244, 0
+  br i1 %245, label %246, label %282
 
-245:                                              ; preds = %235
-  %246 = load ptr, ptr %37, align 8
-  %247 = load i64, ptr %26, align 8
-  %248 = getelementptr inbounds double, ptr %246, i64 %247
-  %249 = load double, ptr %248, align 8
-  store double %249, ptr %40, align 8
-  %250 = load double, ptr %40, align 8
-  %251 = call double @llvm.fabs.f64(double %250)
-  %252 = fcmp oeq double %251, 1.000000e+00
-  br i1 %252, label %253, label %264
+246:                                              ; preds = %236
+  %247 = load ptr, ptr %37, align 8, !tbaa !74
+  %248 = load i64, ptr %26, align 8, !tbaa !7
+  %249 = getelementptr inbounds double, ptr %247, i64 %248
+  %250 = load double, ptr %249, align 8, !tbaa !9
+  store double %250, ptr %40, align 8, !tbaa !9
+  %251 = load double, ptr %40, align 8, !tbaa !9
+  %252 = call double @llvm.fabs.f64(double %251)
+  %253 = fcmp oeq double %252, 1.000000e+00
+  br i1 %253, label %254, label %265
 
-253:                                              ; preds = %245
-  %254 = load double, ptr %41, align 8
-  %255 = load double, ptr %21, align 8
-  %256 = fadd double %254, %255
-  %257 = load double, ptr %40, align 8
-  %258 = fmul double %256, %257
-  %259 = fcmp olt double %258, 0.000000e+00
-  br i1 %259, label %260, label %263
+254:                                              ; preds = %246
+  %255 = load double, ptr %41, align 8, !tbaa !9
+  %256 = load double, ptr %21, align 8, !tbaa !9
+  %257 = fadd double %255, %256
+  %258 = load double, ptr %40, align 8, !tbaa !9
+  %259 = fmul double %257, %258
+  %260 = fcmp olt double %259, 0.000000e+00
+  br i1 %260, label %261, label %264
 
-260:                                              ; preds = %253
-  %261 = load double, ptr %21, align 8
-  %262 = fneg double %261
-  store double %262, ptr %21, align 8
-  br label %263
+261:                                              ; preds = %254
+  %262 = load double, ptr %21, align 8, !tbaa !9
+  %263 = fneg double %262
+  store double %263, ptr %21, align 8, !tbaa !9
+  br label %264
 
-263:                                              ; preds = %260, %253
-  br label %280
-
-264:                                              ; preds = %245
-  %265 = load double, ptr %40, align 8
-  %266 = call double @llvm.fabs.f64(double %265)
-  %267 = fcmp oeq double %266, 2.000000e+00
-  br i1 %267, label %268, label %279
-
-268:                                              ; preds = %264
-  %269 = load double, ptr %41, align 8
-  %270 = load double, ptr %21, align 8
-  %271 = fadd double %269, %270
-  %272 = load double, ptr %40, align 8
-  %273 = fmul double %271, %272
-  %274 = fcmp ole double %273, 0.000000e+00
-  br i1 %274, label %275, label %278
-
-275:                                              ; preds = %268
-  %276 = load double, ptr %21, align 8
-  %277 = fneg double %276
-  store double %277, ptr %21, align 8
-  br label %278
-
-278:                                              ; preds = %275, %268
-  br label %279
-
-279:                                              ; preds = %278, %264
-  br label %280
-
-280:                                              ; preds = %279, %263
+264:                                              ; preds = %261, %254
   br label %281
 
-281:                                              ; preds = %280, %235
-  %282 = load double, ptr %21, align 8
-  %283 = load ptr, ptr %33, align 8
-  %284 = load i64, ptr %26, align 8
-  %285 = getelementptr inbounds double, ptr %283, i64 %284
-  %286 = load double, ptr %285, align 8
-  %287 = fadd double %286, %282
-  store double %287, ptr %285, align 8
-  %288 = load double, ptr %13, align 8
-  %289 = load double, ptr %21, align 8
-  %290 = load ptr, ptr %34, align 8
-  %291 = load i64, ptr %26, align 8
-  %292 = getelementptr inbounds double, ptr %290, i64 %291
-  %293 = load double, ptr %292, align 8
-  %294 = call double @llvm.fmuladd.f64(double %288, double %289, double %293)
-  store double %294, ptr %292, align 8
-  br label %295
+265:                                              ; preds = %246
+  %266 = load double, ptr %40, align 8, !tbaa !9
+  %267 = call double @llvm.fabs.f64(double %266)
+  %268 = fcmp oeq double %267, 2.000000e+00
+  br i1 %268, label %269, label %280
 
-295:                                              ; preds = %281
-  %296 = load i64, ptr %27, align 8
-  %297 = load i64, ptr %26, align 8
-  %298 = add nsw i64 %297, %296
-  store i64 %298, ptr %26, align 8
-  br label %152
+269:                                              ; preds = %265
+  %270 = load double, ptr %41, align 8, !tbaa !9
+  %271 = load double, ptr %21, align 8, !tbaa !9
+  %272 = fadd double %270, %271
+  %273 = load double, ptr %40, align 8, !tbaa !9
+  %274 = fmul double %272, %273
+  %275 = fcmp ole double %274, 0.000000e+00
+  br i1 %275, label %276, label %279
 
-299:                                              ; preds = %152
-  %300 = load ptr, ptr %11, align 8
-  %301 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %300, i32 0, i32 5
-  %302 = load ptr, ptr %301, align 8
-  %303 = load ptr, ptr %11, align 8
-  %304 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %303, i32 0, i32 7
-  %305 = load i64, ptr %304, align 8
-  %306 = load double, ptr %12, align 8
-  %307 = load ptr, ptr %17, align 8
-  %308 = load ptr, ptr %18, align 8
-  %309 = load ptr, ptr %19, align 8
-  %310 = load ptr, ptr %20, align 8
-  %311 = getelementptr inbounds %struct.IDAMemRec, ptr %310, i32 0, i32 3
-  %312 = load ptr, ptr %311, align 8
-  %313 = call i32 %302(i64 noundef %305, double noundef %306, ptr noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %312)
-  store i32 %313, ptr %23, align 4
-  %314 = load ptr, ptr %11, align 8
-  %315 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %314, i32 0, i32 18
-  %316 = load i64, ptr %315, align 8
-  %317 = add nsw i64 %316, 1
-  store i64 %317, ptr %315, align 8
-  %318 = load i32, ptr %23, align 4
-  %319 = icmp ne i32 %318, 0
-  br i1 %319, label %320, label %322
+276:                                              ; preds = %269
+  %277 = load double, ptr %21, align 8, !tbaa !9
+  %278 = fneg double %277
+  store double %278, ptr %21, align 8, !tbaa !9
+  br label %279
 
-320:                                              ; preds = %299
-  %321 = load i32, ptr %23, align 4
-  store i32 %321, ptr %10, align 4
-  br label %541
+279:                                              ; preds = %276, %269
+  br label %280
 
-322:                                              ; preds = %299
-  %323 = load i64, ptr %24, align 8
-  %324 = sub nsw i64 %323, 1
-  store i64 %324, ptr %26, align 8
-  br label %325
+280:                                              ; preds = %279, %265
+  br label %281
 
-325:                                              ; preds = %532, %322
-  %326 = load i64, ptr %26, align 8
-  %327 = load ptr, ptr %11, align 8
-  %328 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %327, i32 0, i32 7
-  %329 = load i64, ptr %328, align 8
-  %330 = icmp slt i64 %326, %329
-  br i1 %330, label %331, label %536
+281:                                              ; preds = %280, %264
+  br label %282
 
-331:                                              ; preds = %325
-  %332 = load ptr, ptr %31, align 8
-  %333 = load i64, ptr %26, align 8
-  %334 = getelementptr inbounds double, ptr %332, i64 %333
-  %335 = load double, ptr %334, align 8
-  %336 = load ptr, ptr %33, align 8
-  %337 = load i64, ptr %26, align 8
-  %338 = getelementptr inbounds double, ptr %336, i64 %337
-  store double %335, ptr %338, align 8
-  store double %335, ptr %41, align 8
-  %339 = load ptr, ptr %32, align 8
-  %340 = load i64, ptr %26, align 8
-  %341 = getelementptr inbounds double, ptr %339, i64 %340
-  %342 = load double, ptr %341, align 8
-  %343 = load ptr, ptr %34, align 8
-  %344 = load i64, ptr %26, align 8
-  %345 = getelementptr inbounds double, ptr %343, i64 %344
-  store double %342, ptr %345, align 8
-  store double %342, ptr %42, align 8
-  %346 = load ptr, ptr %38, align 8
-  %347 = load i64, ptr %26, align 8
-  %348 = getelementptr inbounds double, ptr %346, i64 %347
-  %349 = load double, ptr %348, align 8
-  store double %349, ptr %43, align 8
-  %350 = load ptr, ptr %11, align 8
-  %351 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %350, i32 0, i32 4
-  %352 = load double, ptr %351, align 8
-  %353 = load double, ptr %41, align 8
-  %354 = call double @llvm.fabs.f64(double %353)
-  %355 = load ptr, ptr %20, align 8
-  %356 = getelementptr inbounds %struct.IDAMemRec, ptr %355, i32 0, i32 60
-  %357 = load double, ptr %356, align 8
-  %358 = load double, ptr %42, align 8
-  %359 = fmul double %357, %358
-  %360 = call double @llvm.fabs.f64(double %359)
-  %361 = load double, ptr %43, align 8
-  %362 = fdiv double 1.000000e+00, %361
-  %363 = fcmp ogt double %360, %362
-  br i1 %363, label %364, label %371
+282:                                              ; preds = %281, %236
+  %283 = load double, ptr %21, align 8, !tbaa !9
+  %284 = load ptr, ptr %33, align 8, !tbaa !74
+  %285 = load i64, ptr %26, align 8, !tbaa !7
+  %286 = getelementptr inbounds double, ptr %284, i64 %285
+  %287 = load double, ptr %286, align 8, !tbaa !9
+  %288 = fadd double %287, %283
+  store double %288, ptr %286, align 8, !tbaa !9
+  %289 = load double, ptr %13, align 8, !tbaa !9
+  %290 = load double, ptr %21, align 8, !tbaa !9
+  %291 = load ptr, ptr %34, align 8, !tbaa !74
+  %292 = load i64, ptr %26, align 8, !tbaa !7
+  %293 = getelementptr inbounds double, ptr %291, i64 %292
+  %294 = load double, ptr %293, align 8, !tbaa !9
+  %295 = call double @llvm.fmuladd.f64(double %289, double %290, double %294)
+  store double %295, ptr %293, align 8, !tbaa !9
+  br label %296
 
-364:                                              ; preds = %331
-  %365 = load ptr, ptr %20, align 8
-  %366 = getelementptr inbounds %struct.IDAMemRec, ptr %365, i32 0, i32 60
-  %367 = load double, ptr %366, align 8
-  %368 = load double, ptr %42, align 8
-  %369 = fmul double %367, %368
-  %370 = call double @llvm.fabs.f64(double %369)
-  br label %374
+296:                                              ; preds = %282
+  %297 = load i64, ptr %27, align 8, !tbaa !7
+  %298 = load i64, ptr %26, align 8, !tbaa !7
+  %299 = add nsw i64 %298, %297
+  store i64 %299, ptr %26, align 8, !tbaa !7
+  br label %153
 
-371:                                              ; preds = %331
-  %372 = load double, ptr %43, align 8
-  %373 = fdiv double 1.000000e+00, %372
-  br label %374
+300:                                              ; preds = %153
+  %301 = load ptr, ptr %11, align 8, !tbaa !29
+  %302 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %301, i32 0, i32 5
+  %303 = load ptr, ptr %302, align 8, !tbaa !35
+  %304 = load ptr, ptr %11, align 8, !tbaa !29
+  %305 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %304, i32 0, i32 7
+  %306 = load i64, ptr %305, align 8, !tbaa !53
+  %307 = load double, ptr %12, align 8, !tbaa !9
+  %308 = load ptr, ptr %17, align 8, !tbaa !71
+  %309 = load ptr, ptr %18, align 8, !tbaa !71
+  %310 = load ptr, ptr %19, align 8, !tbaa !71
+  %311 = load ptr, ptr %20, align 8, !tbaa !11
+  %312 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %311, i32 0, i32 3
+  %313 = load ptr, ptr %312, align 8, !tbaa !78
+  %314 = call i32 %303(i64 noundef %306, double noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %310, ptr noundef %313)
+  store i32 %314, ptr %23, align 4, !tbaa !50
+  %315 = load ptr, ptr %11, align 8, !tbaa !29
+  %316 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %315, i32 0, i32 18
+  %317 = load i64, ptr %316, align 8, !tbaa !67
+  %318 = add nsw i64 %317, 1
+  store i64 %318, ptr %316, align 8, !tbaa !67
+  %319 = load i32, ptr %23, align 4, !tbaa !50
+  %320 = icmp ne i32 %319, 0
+  br i1 %320, label %321, label %323
 
-374:                                              ; preds = %371, %364
-  %375 = phi double [ %370, %364 ], [ %373, %371 ]
-  %376 = fcmp ogt double %354, %375
-  br i1 %376, label %377, label %380
+321:                                              ; preds = %300
+  %322 = load i32, ptr %23, align 4, !tbaa !50
+  store i32 %322, ptr %10, align 4
+  store i32 1, ptr %44, align 4
+  br label %542
 
-377:                                              ; preds = %374
-  %378 = load double, ptr %41, align 8
-  %379 = call double @llvm.fabs.f64(double %378)
-  br label %402
+323:                                              ; preds = %300
+  %324 = load i64, ptr %24, align 8, !tbaa !7
+  %325 = sub nsw i64 %324, 1
+  store i64 %325, ptr %26, align 8, !tbaa !7
+  br label %326
 
-380:                                              ; preds = %374
-  %381 = load ptr, ptr %20, align 8
-  %382 = getelementptr inbounds %struct.IDAMemRec, ptr %381, i32 0, i32 60
-  %383 = load double, ptr %382, align 8
-  %384 = load double, ptr %42, align 8
-  %385 = fmul double %383, %384
-  %386 = call double @llvm.fabs.f64(double %385)
-  %387 = load double, ptr %43, align 8
-  %388 = fdiv double 1.000000e+00, %387
-  %389 = fcmp ogt double %386, %388
-  br i1 %389, label %390, label %397
+326:                                              ; preds = %533, %323
+  %327 = load i64, ptr %26, align 8, !tbaa !7
+  %328 = load ptr, ptr %11, align 8, !tbaa !29
+  %329 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %328, i32 0, i32 7
+  %330 = load i64, ptr %329, align 8, !tbaa !53
+  %331 = icmp slt i64 %327, %330
+  br i1 %331, label %332, label %537
 
-390:                                              ; preds = %380
-  %391 = load ptr, ptr %20, align 8
-  %392 = getelementptr inbounds %struct.IDAMemRec, ptr %391, i32 0, i32 60
-  %393 = load double, ptr %392, align 8
-  %394 = load double, ptr %42, align 8
-  %395 = fmul double %393, %394
-  %396 = call double @llvm.fabs.f64(double %395)
-  br label %400
+332:                                              ; preds = %326
+  %333 = load ptr, ptr %31, align 8, !tbaa !74
+  %334 = load i64, ptr %26, align 8, !tbaa !7
+  %335 = getelementptr inbounds double, ptr %333, i64 %334
+  %336 = load double, ptr %335, align 8, !tbaa !9
+  %337 = load ptr, ptr %33, align 8, !tbaa !74
+  %338 = load i64, ptr %26, align 8, !tbaa !7
+  %339 = getelementptr inbounds double, ptr %337, i64 %338
+  store double %336, ptr %339, align 8, !tbaa !9
+  store double %336, ptr %41, align 8, !tbaa !9
+  %340 = load ptr, ptr %32, align 8, !tbaa !74
+  %341 = load i64, ptr %26, align 8, !tbaa !7
+  %342 = getelementptr inbounds double, ptr %340, i64 %341
+  %343 = load double, ptr %342, align 8, !tbaa !9
+  %344 = load ptr, ptr %34, align 8, !tbaa !74
+  %345 = load i64, ptr %26, align 8, !tbaa !7
+  %346 = getelementptr inbounds double, ptr %344, i64 %345
+  store double %343, ptr %346, align 8, !tbaa !9
+  store double %343, ptr %42, align 8, !tbaa !9
+  %347 = load ptr, ptr %38, align 8, !tbaa !74
+  %348 = load i64, ptr %26, align 8, !tbaa !7
+  %349 = getelementptr inbounds double, ptr %347, i64 %348
+  %350 = load double, ptr %349, align 8, !tbaa !9
+  store double %350, ptr %43, align 8, !tbaa !9
+  %351 = load ptr, ptr %11, align 8, !tbaa !29
+  %352 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %351, i32 0, i32 4
+  %353 = load double, ptr %352, align 8, !tbaa !52
+  %354 = load double, ptr %41, align 8, !tbaa !9
+  %355 = call double @llvm.fabs.f64(double %354)
+  %356 = load ptr, ptr %20, align 8, !tbaa !11
+  %357 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %356, i32 0, i32 60
+  %358 = load double, ptr %357, align 8, !tbaa !79
+  %359 = load double, ptr %42, align 8, !tbaa !9
+  %360 = fmul double %358, %359
+  %361 = call double @llvm.fabs.f64(double %360)
+  %362 = load double, ptr %43, align 8, !tbaa !9
+  %363 = fdiv double 1.000000e+00, %362
+  %364 = fcmp ogt double %361, %363
+  br i1 %364, label %365, label %372
 
-397:                                              ; preds = %380
-  %398 = load double, ptr %43, align 8
-  %399 = fdiv double 1.000000e+00, %398
-  br label %400
+365:                                              ; preds = %332
+  %366 = load ptr, ptr %20, align 8, !tbaa !11
+  %367 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %366, i32 0, i32 60
+  %368 = load double, ptr %367, align 8, !tbaa !79
+  %369 = load double, ptr %42, align 8, !tbaa !9
+  %370 = fmul double %368, %369
+  %371 = call double @llvm.fabs.f64(double %370)
+  br label %375
 
-400:                                              ; preds = %397, %390
-  %401 = phi double [ %396, %390 ], [ %399, %397 ]
-  br label %402
+372:                                              ; preds = %332
+  %373 = load double, ptr %43, align 8, !tbaa !9
+  %374 = fdiv double 1.000000e+00, %373
+  br label %375
 
-402:                                              ; preds = %400, %377
-  %403 = phi double [ %379, %377 ], [ %401, %400 ]
-  %404 = fmul double %352, %403
-  store double %404, ptr %21, align 8
-  %405 = load ptr, ptr %20, align 8
-  %406 = getelementptr inbounds %struct.IDAMemRec, ptr %405, i32 0, i32 60
-  %407 = load double, ptr %406, align 8
-  %408 = load double, ptr %42, align 8
-  %409 = fmul double %407, %408
-  %410 = fcmp olt double %409, 0.000000e+00
-  br i1 %410, label %411, label %414
+375:                                              ; preds = %372, %365
+  %376 = phi double [ %371, %365 ], [ %374, %372 ]
+  %377 = fcmp ogt double %355, %376
+  br i1 %377, label %378, label %381
 
-411:                                              ; preds = %402
-  %412 = load double, ptr %21, align 8
-  %413 = fneg double %412
-  store double %413, ptr %21, align 8
-  br label %414
+378:                                              ; preds = %375
+  %379 = load double, ptr %41, align 8, !tbaa !9
+  %380 = call double @llvm.fabs.f64(double %379)
+  br label %403
 
-414:                                              ; preds = %411, %402
-  %415 = load double, ptr %41, align 8
-  %416 = load double, ptr %21, align 8
-  %417 = fadd double %415, %416
-  %418 = load double, ptr %41, align 8
-  %419 = fsub double %417, %418
-  store double %419, ptr %21, align 8
-  %420 = load ptr, ptr %20, align 8
-  %421 = getelementptr inbounds %struct.IDAMemRec, ptr %420, i32 0, i32 12
-  %422 = load i32, ptr %421, align 8
-  %423 = icmp ne i32 %422, 0
-  br i1 %423, label %424, label %460
+381:                                              ; preds = %375
+  %382 = load ptr, ptr %20, align 8, !tbaa !11
+  %383 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %382, i32 0, i32 60
+  %384 = load double, ptr %383, align 8, !tbaa !79
+  %385 = load double, ptr %42, align 8, !tbaa !9
+  %386 = fmul double %384, %385
+  %387 = call double @llvm.fabs.f64(double %386)
+  %388 = load double, ptr %43, align 8, !tbaa !9
+  %389 = fdiv double 1.000000e+00, %388
+  %390 = fcmp ogt double %387, %389
+  br i1 %390, label %391, label %398
 
-424:                                              ; preds = %414
-  %425 = load ptr, ptr %37, align 8
-  %426 = load i64, ptr %26, align 8
-  %427 = getelementptr inbounds double, ptr %425, i64 %426
-  %428 = load double, ptr %427, align 8
-  store double %428, ptr %40, align 8
-  %429 = load double, ptr %40, align 8
-  %430 = call double @llvm.fabs.f64(double %429)
-  %431 = fcmp oeq double %430, 1.000000e+00
-  br i1 %431, label %432, label %443
+391:                                              ; preds = %381
+  %392 = load ptr, ptr %20, align 8, !tbaa !11
+  %393 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %392, i32 0, i32 60
+  %394 = load double, ptr %393, align 8, !tbaa !79
+  %395 = load double, ptr %42, align 8, !tbaa !9
+  %396 = fmul double %394, %395
+  %397 = call double @llvm.fabs.f64(double %396)
+  br label %401
 
-432:                                              ; preds = %424
-  %433 = load double, ptr %41, align 8
-  %434 = load double, ptr %21, align 8
-  %435 = fadd double %433, %434
-  %436 = load double, ptr %40, align 8
-  %437 = fmul double %435, %436
-  %438 = fcmp olt double %437, 0.000000e+00
-  br i1 %438, label %439, label %442
+398:                                              ; preds = %381
+  %399 = load double, ptr %43, align 8, !tbaa !9
+  %400 = fdiv double 1.000000e+00, %399
+  br label %401
 
-439:                                              ; preds = %432
-  %440 = load double, ptr %21, align 8
-  %441 = fneg double %440
-  store double %441, ptr %21, align 8
-  br label %442
+401:                                              ; preds = %398, %391
+  %402 = phi double [ %397, %391 ], [ %400, %398 ]
+  br label %403
 
-442:                                              ; preds = %439, %432
-  br label %459
+403:                                              ; preds = %401, %378
+  %404 = phi double [ %380, %378 ], [ %402, %401 ]
+  %405 = fmul double %353, %404
+  store double %405, ptr %21, align 8, !tbaa !9
+  %406 = load ptr, ptr %20, align 8, !tbaa !11
+  %407 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %406, i32 0, i32 60
+  %408 = load double, ptr %407, align 8, !tbaa !79
+  %409 = load double, ptr %42, align 8, !tbaa !9
+  %410 = fmul double %408, %409
+  %411 = fcmp olt double %410, 0.000000e+00
+  br i1 %411, label %412, label %415
 
-443:                                              ; preds = %424
-  %444 = load double, ptr %40, align 8
-  %445 = call double @llvm.fabs.f64(double %444)
-  %446 = fcmp oeq double %445, 2.000000e+00
-  br i1 %446, label %447, label %458
+412:                                              ; preds = %403
+  %413 = load double, ptr %21, align 8, !tbaa !9
+  %414 = fneg double %413
+  store double %414, ptr %21, align 8, !tbaa !9
+  br label %415
 
-447:                                              ; preds = %443
-  %448 = load double, ptr %41, align 8
-  %449 = load double, ptr %21, align 8
-  %450 = fadd double %448, %449
-  %451 = load double, ptr %40, align 8
-  %452 = fmul double %450, %451
-  %453 = fcmp ole double %452, 0.000000e+00
-  br i1 %453, label %454, label %457
+415:                                              ; preds = %412, %403
+  %416 = load double, ptr %41, align 8, !tbaa !9
+  %417 = load double, ptr %21, align 8, !tbaa !9
+  %418 = fadd double %416, %417
+  %419 = load double, ptr %41, align 8, !tbaa !9
+  %420 = fsub double %418, %419
+  store double %420, ptr %21, align 8, !tbaa !9
+  %421 = load ptr, ptr %20, align 8, !tbaa !11
+  %422 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %421, i32 0, i32 12
+  %423 = load i32, ptr %422, align 8, !tbaa !76
+  %424 = icmp ne i32 %423, 0
+  br i1 %424, label %425, label %461
 
-454:                                              ; preds = %447
-  %455 = load double, ptr %21, align 8
-  %456 = fneg double %455
-  store double %456, ptr %21, align 8
-  br label %457
+425:                                              ; preds = %415
+  %426 = load ptr, ptr %37, align 8, !tbaa !74
+  %427 = load i64, ptr %26, align 8, !tbaa !7
+  %428 = getelementptr inbounds double, ptr %426, i64 %427
+  %429 = load double, ptr %428, align 8, !tbaa !9
+  store double %429, ptr %40, align 8, !tbaa !9
+  %430 = load double, ptr %40, align 8, !tbaa !9
+  %431 = call double @llvm.fabs.f64(double %430)
+  %432 = fcmp oeq double %431, 1.000000e+00
+  br i1 %432, label %433, label %444
 
-457:                                              ; preds = %454, %447
-  br label %458
+433:                                              ; preds = %425
+  %434 = load double, ptr %41, align 8, !tbaa !9
+  %435 = load double, ptr %21, align 8, !tbaa !9
+  %436 = fadd double %434, %435
+  %437 = load double, ptr %40, align 8, !tbaa !9
+  %438 = fmul double %436, %437
+  %439 = fcmp olt double %438, 0.000000e+00
+  br i1 %439, label %440, label %443
 
-458:                                              ; preds = %457, %443
-  br label %459
+440:                                              ; preds = %433
+  %441 = load double, ptr %21, align 8, !tbaa !9
+  %442 = fneg double %441
+  store double %442, ptr %21, align 8, !tbaa !9
+  br label %443
 
-459:                                              ; preds = %458, %442
+443:                                              ; preds = %440, %433
   br label %460
 
-460:                                              ; preds = %459, %414
-  %461 = load double, ptr %21, align 8
-  %462 = fdiv double 1.000000e+00, %461
-  store double %462, ptr %22, align 8
-  %463 = load ptr, ptr %11, align 8
-  %464 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %463, i32 0, i32 8
-  %465 = load ptr, ptr %464, align 8
-  %466 = load i64, ptr %26, align 8
-  %467 = call ptr @SUNBandMatrix_Column(ptr noundef %465, i64 noundef %466)
-  store ptr %467, ptr %39, align 8
-  %468 = load i64, ptr %26, align 8
-  %469 = load ptr, ptr %11, align 8
-  %470 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %469, i32 0, i32 2
-  %471 = load i64, ptr %470, align 8
-  %472 = sub nsw i64 %468, %471
-  %473 = icmp sgt i64 0, %472
-  br i1 %473, label %474, label %475
+444:                                              ; preds = %425
+  %445 = load double, ptr %40, align 8, !tbaa !9
+  %446 = call double @llvm.fabs.f64(double %445)
+  %447 = fcmp oeq double %446, 2.000000e+00
+  br i1 %447, label %448, label %459
 
-474:                                              ; preds = %460
-  br label %481
+448:                                              ; preds = %444
+  %449 = load double, ptr %41, align 8, !tbaa !9
+  %450 = load double, ptr %21, align 8, !tbaa !9
+  %451 = fadd double %449, %450
+  %452 = load double, ptr %40, align 8, !tbaa !9
+  %453 = fmul double %451, %452
+  %454 = fcmp ole double %453, 0.000000e+00
+  br i1 %454, label %455, label %458
 
-475:                                              ; preds = %460
-  %476 = load i64, ptr %26, align 8
-  %477 = load ptr, ptr %11, align 8
-  %478 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %477, i32 0, i32 2
-  %479 = load i64, ptr %478, align 8
-  %480 = sub nsw i64 %476, %479
-  br label %481
+455:                                              ; preds = %448
+  %456 = load double, ptr %21, align 8, !tbaa !9
+  %457 = fneg double %456
+  store double %457, ptr %21, align 8, !tbaa !9
+  br label %458
 
-481:                                              ; preds = %475, %474
-  %482 = phi i64 [ 0, %474 ], [ %480, %475 ]
-  store i64 %482, ptr %29, align 8
-  %483 = load i64, ptr %26, align 8
-  %484 = load ptr, ptr %11, align 8
-  %485 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %484, i32 0, i32 3
-  %486 = load i64, ptr %485, align 8
-  %487 = add nsw i64 %483, %486
-  %488 = load ptr, ptr %11, align 8
-  %489 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %488, i32 0, i32 7
-  %490 = load i64, ptr %489, align 8
-  %491 = sub nsw i64 %490, 1
-  %492 = icmp slt i64 %487, %491
-  br i1 %492, label %493, label %499
+458:                                              ; preds = %455, %448
+  br label %459
 
-493:                                              ; preds = %481
-  %494 = load i64, ptr %26, align 8
-  %495 = load ptr, ptr %11, align 8
-  %496 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %495, i32 0, i32 3
-  %497 = load i64, ptr %496, align 8
-  %498 = add nsw i64 %494, %497
-  br label %504
+459:                                              ; preds = %458, %444
+  br label %460
 
-499:                                              ; preds = %481
-  %500 = load ptr, ptr %11, align 8
-  %501 = getelementptr inbounds %struct.IBBDPrecDataRec, ptr %500, i32 0, i32 7
-  %502 = load i64, ptr %501, align 8
-  %503 = sub nsw i64 %502, 1
-  br label %504
+460:                                              ; preds = %459, %443
+  br label %461
 
-504:                                              ; preds = %499, %493
-  %505 = phi i64 [ %498, %493 ], [ %503, %499 ]
-  store i64 %505, ptr %30, align 8
-  %506 = load i64, ptr %29, align 8
-  store i64 %506, ptr %25, align 8
-  br label %507
+461:                                              ; preds = %460, %415
+  %462 = load double, ptr %21, align 8, !tbaa !9
+  %463 = fdiv double 1.000000e+00, %462
+  store double %463, ptr %22, align 8, !tbaa !9
+  %464 = load ptr, ptr %11, align 8, !tbaa !29
+  %465 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %464, i32 0, i32 8
+  %466 = load ptr, ptr %465, align 8, !tbaa !41
+  %467 = load i64, ptr %26, align 8, !tbaa !7
+  %468 = call ptr @SUNBandMatrix_Column(ptr noundef %466, i64 noundef %467)
+  store ptr %468, ptr %39, align 8, !tbaa !74
+  %469 = load i64, ptr %26, align 8, !tbaa !7
+  %470 = load ptr, ptr %11, align 8, !tbaa !29
+  %471 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %470, i32 0, i32 2
+  %472 = load i64, ptr %471, align 8, !tbaa !39
+  %473 = sub nsw i64 %469, %472
+  %474 = icmp sgt i64 0, %473
+  br i1 %474, label %475, label %476
 
-507:                                              ; preds = %528, %504
-  %508 = load i64, ptr %25, align 8
-  %509 = load i64, ptr %30, align 8
-  %510 = icmp sle i64 %508, %509
-  br i1 %510, label %511, label %531
+475:                                              ; preds = %461
+  br label %482
 
-511:                                              ; preds = %507
-  %512 = load double, ptr %22, align 8
-  %513 = load ptr, ptr %36, align 8
-  %514 = load i64, ptr %25, align 8
-  %515 = getelementptr inbounds double, ptr %513, i64 %514
-  %516 = load double, ptr %515, align 8
-  %517 = load ptr, ptr %35, align 8
-  %518 = load i64, ptr %25, align 8
-  %519 = getelementptr inbounds double, ptr %517, i64 %518
-  %520 = load double, ptr %519, align 8
-  %521 = fsub double %516, %520
-  %522 = fmul double %512, %521
-  %523 = load ptr, ptr %39, align 8
-  %524 = load i64, ptr %25, align 8
-  %525 = load i64, ptr %26, align 8
-  %526 = sub nsw i64 %524, %525
-  %527 = getelementptr inbounds double, ptr %523, i64 %526
-  store double %522, ptr %527, align 8
-  br label %528
+476:                                              ; preds = %461
+  %477 = load i64, ptr %26, align 8, !tbaa !7
+  %478 = load ptr, ptr %11, align 8, !tbaa !29
+  %479 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %478, i32 0, i32 2
+  %480 = load i64, ptr %479, align 8, !tbaa !39
+  %481 = sub nsw i64 %477, %480
+  br label %482
 
-528:                                              ; preds = %511
-  %529 = load i64, ptr %25, align 8
-  %530 = add nsw i64 %529, 1
-  store i64 %530, ptr %25, align 8
-  br label %507
+482:                                              ; preds = %476, %475
+  %483 = phi i64 [ 0, %475 ], [ %481, %476 ]
+  store i64 %483, ptr %29, align 8, !tbaa !7
+  %484 = load i64, ptr %26, align 8, !tbaa !7
+  %485 = load ptr, ptr %11, align 8, !tbaa !29
+  %486 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %485, i32 0, i32 3
+  %487 = load i64, ptr %486, align 8, !tbaa !40
+  %488 = add nsw i64 %484, %487
+  %489 = load ptr, ptr %11, align 8, !tbaa !29
+  %490 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %489, i32 0, i32 7
+  %491 = load i64, ptr %490, align 8, !tbaa !53
+  %492 = sub nsw i64 %491, 1
+  %493 = icmp slt i64 %488, %492
+  br i1 %493, label %494, label %500
 
-531:                                              ; preds = %507
-  br label %532
+494:                                              ; preds = %482
+  %495 = load i64, ptr %26, align 8, !tbaa !7
+  %496 = load ptr, ptr %11, align 8, !tbaa !29
+  %497 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %496, i32 0, i32 3
+  %498 = load i64, ptr %497, align 8, !tbaa !40
+  %499 = add nsw i64 %495, %498
+  br label %505
 
-532:                                              ; preds = %531
-  %533 = load i64, ptr %27, align 8
-  %534 = load i64, ptr %26, align 8
-  %535 = add nsw i64 %534, %533
-  store i64 %535, ptr %26, align 8
-  br label %325
+500:                                              ; preds = %482
+  %501 = load ptr, ptr %11, align 8, !tbaa !29
+  %502 = getelementptr inbounds nuw %struct.IBBDPrecDataRec, ptr %501, i32 0, i32 7
+  %503 = load i64, ptr %502, align 8, !tbaa !53
+  %504 = sub nsw i64 %503, 1
+  br label %505
 
-536:                                              ; preds = %325
-  br label %537
+505:                                              ; preds = %500, %494
+  %506 = phi i64 [ %499, %494 ], [ %504, %500 ]
+  store i64 %506, ptr %30, align 8, !tbaa !7
+  %507 = load i64, ptr %29, align 8, !tbaa !7
+  store i64 %507, ptr %25, align 8, !tbaa !7
+  br label %508
 
-537:                                              ; preds = %536
-  %538 = load i64, ptr %24, align 8
-  %539 = add nsw i64 %538, 1
-  store i64 %539, ptr %24, align 8
-  br label %145
+508:                                              ; preds = %529, %505
+  %509 = load i64, ptr %25, align 8, !tbaa !7
+  %510 = load i64, ptr %30, align 8, !tbaa !7
+  %511 = icmp sle i64 %509, %510
+  br i1 %511, label %512, label %532
 
-540:                                              ; preds = %145
+512:                                              ; preds = %508
+  %513 = load double, ptr %22, align 8, !tbaa !9
+  %514 = load ptr, ptr %36, align 8, !tbaa !74
+  %515 = load i64, ptr %25, align 8, !tbaa !7
+  %516 = getelementptr inbounds double, ptr %514, i64 %515
+  %517 = load double, ptr %516, align 8, !tbaa !9
+  %518 = load ptr, ptr %35, align 8, !tbaa !74
+  %519 = load i64, ptr %25, align 8, !tbaa !7
+  %520 = getelementptr inbounds double, ptr %518, i64 %519
+  %521 = load double, ptr %520, align 8, !tbaa !9
+  %522 = fsub double %517, %521
+  %523 = fmul double %513, %522
+  %524 = load ptr, ptr %39, align 8, !tbaa !74
+  %525 = load i64, ptr %25, align 8, !tbaa !7
+  %526 = load i64, ptr %26, align 8, !tbaa !7
+  %527 = sub nsw i64 %525, %526
+  %528 = getelementptr inbounds double, ptr %524, i64 %527
+  store double %523, ptr %528, align 8, !tbaa !9
+  br label %529
+
+529:                                              ; preds = %512
+  %530 = load i64, ptr %25, align 8, !tbaa !7
+  %531 = add nsw i64 %530, 1
+  store i64 %531, ptr %25, align 8, !tbaa !7
+  br label %508
+
+532:                                              ; preds = %508
+  br label %533
+
+533:                                              ; preds = %532
+  %534 = load i64, ptr %27, align 8, !tbaa !7
+  %535 = load i64, ptr %26, align 8, !tbaa !7
+  %536 = add nsw i64 %535, %534
+  store i64 %536, ptr %26, align 8, !tbaa !7
+  br label %326
+
+537:                                              ; preds = %326
+  br label %538
+
+538:                                              ; preds = %537
+  %539 = load i64, ptr %24, align 8, !tbaa !7
+  %540 = add nsw i64 %539, 1
+  store i64 %540, ptr %24, align 8, !tbaa !7
+  br label %146
+
+541:                                              ; preds = %146
   store i32 0, ptr %10, align 4
-  br label %541
+  store i32 1, ptr %44, align 4
+  br label %542
 
-541:                                              ; preds = %540, %320, %121, %97
-  %542 = load i32, ptr %10, align 4
-  ret i32 %542
+542:                                              ; preds = %541, %321, %122, %98
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  %543 = load i32, ptr %10, align 4
+  ret i32 %543
 }
 
-declare i32 @SUNLinSolSetup_Band(ptr noundef, ptr noundef) #1
+declare i32 @SUNLinSolSetup_Band(ptr noundef, ptr noundef) #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @N_VGetArrayPointer(ptr noundef) #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare ptr @N_VGetArrayPointer(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fabs.f64(double) #5
 
-declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
-declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) #1
+declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) #2
 
-declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) #1
+declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind allocsize(0) }
+declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) #2
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"double", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS9IDAMemRec", !4, i64 0}
+!13 = !{!14, !4, i64 1048}
+!14 = !{!"IDAMemRec", !15, i64 0, !10, i64 8, !4, i64 16, !4, i64 24, !16, i64 32, !10, i64 40, !10, i64 48, !17, i64 56, !16, i64 64, !16, i64 68, !4, i64 72, !4, i64 80, !16, i64 88, !16, i64 92, !5, i64 96, !5, i64 144, !5, i64 192, !5, i64 240, !5, i64 288, !5, i64 336, !17, i64 384, !17, i64 392, !17, i64 400, !17, i64 408, !17, i64 416, !17, i64 424, !17, i64 432, !17, i64 440, !17, i64 448, !17, i64 456, !17, i64 464, !17, i64 472, !17, i64 480, !17, i64 488, !17, i64 496, !17, i64 504, !17, i64 512, !10, i64 520, !17, i64 528, !17, i64 536, !16, i64 544, !16, i64 548, !16, i64 552, !16, i64 556, !16, i64 560, !16, i64 564, !16, i64 568, !16, i64 572, !10, i64 576, !10, i64 584, !10, i64 592, !16, i64 600, !10, i64 608, !16, i64 616, !16, i64 620, !16, i64 624, !16, i64 628, !16, i64 632, !10, i64 640, !10, i64 648, !10, i64 656, !10, i64 664, !10, i64 672, !10, i64 680, !10, i64 688, !10, i64 696, !10, i64 704, !10, i64 712, !10, i64 720, !10, i64 728, !10, i64 736, !10, i64 744, !10, i64 752, !10, i64 760, !16, i64 768, !16, i64 772, !16, i64 776, !16, i64 780, !8, i64 784, !10, i64 792, !10, i64 800, !10, i64 808, !10, i64 816, !10, i64 824, !10, i64 832, !10, i64 840, !10, i64 848, !10, i64 856, !8, i64 864, !8, i64 872, !8, i64 880, !8, i64 888, !8, i64 896, !8, i64 904, !8, i64 912, !8, i64 920, !8, i64 928, !8, i64 936, !8, i64 944, !10, i64 952, !16, i64 960, !16, i64 964, !16, i64 968, !16, i64 972, !16, i64 976, !18, i64 984, !16, i64 992, !4, i64 1000, !4, i64 1008, !4, i64 1016, !4, i64 1024, !4, i64 1032, !4, i64 1040, !4, i64 1048, !10, i64 1056, !16, i64 1064, !4, i64 1072, !16, i64 1080, !19, i64 1088, !19, i64 1096, !10, i64 1104, !10, i64 1112, !10, i64 1120, !20, i64 1128, !20, i64 1136, !20, i64 1144, !10, i64 1152, !10, i64 1160, !16, i64 1168, !16, i64 1172, !8, i64 1176, !19, i64 1184, !16, i64 1192, !5, i64 1200, !5, i64 1248, !5, i64 1288, !5, i64 1336}
+!15 = !{!"p1 _ZTS11SUNContext_", !4, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!"p1 _ZTS17_generic_N_Vector", !4, i64 0}
+!18 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !4, i64 0}
+!19 = !{!"p1 int", !4, i64 0}
+!20 = !{!"p1 double", !4, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS11IDALsMemRec", !4, i64 0}
+!23 = !{!14, !17, i64 464}
+!24 = !{!25, !26, i64 8}
+!25 = !{!"_generic_N_Vector", !4, i64 0, !26, i64 8, !15, i64 16}
+!26 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !4, i64 0}
+!27 = !{!28, !4, i64 40}
+!28 = !{!"_generic_N_Vector_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !4, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !4, i64 280, !4, i64 288, !4, i64 296, !4, i64 304, !4, i64 312, !4, i64 320, !4, i64 328, !4, i64 336, !4, i64 344, !4, i64 352, !4, i64 360, !4, i64 368, !4, i64 376, !4, i64 384, !4, i64 392, !4, i64 400, !4, i64 408, !4, i64 416, !4, i64 424, !4, i64 432, !4, i64 440}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS15IBBDPrecDataRec", !4, i64 0}
+!31 = !{!32, !4, i64 152}
+!32 = !{!"IBBDPrecDataRec", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !10, i64 32, !4, i64 40, !4, i64 48, !8, i64 56, !33, i64 64, !34, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !17, i64 104, !17, i64 112, !17, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !4, i64 152}
+!33 = !{!"p1 _ZTS18_generic_SUNMatrix", !4, i64 0}
+!34 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !4, i64 0}
+!35 = !{!32, !4, i64 40}
+!36 = !{!32, !4, i64 48}
+!37 = !{!32, !8, i64 0}
+!38 = !{!32, !8, i64 8}
+!39 = !{!32, !8, i64 16}
+!40 = !{!32, !8, i64 24}
+!41 = !{!32, !33, i64 64}
+!42 = !{!14, !15, i64 0}
+!43 = !{!32, !17, i64 80}
+!44 = !{!32, !17, i64 88}
+!45 = !{!32, !17, i64 96}
+!46 = !{!32, !17, i64 104}
+!47 = !{!32, !17, i64 112}
+!48 = !{!32, !17, i64 120}
+!49 = !{!32, !34, i64 72}
+!50 = !{!16, !16, i64 0}
+!51 = !{!14, !10, i64 8}
+!52 = !{!32, !10, i64 32}
+!53 = !{!32, !8, i64 56}
+!54 = !{!32, !8, i64 128}
+!55 = !{!32, !8, i64 136}
+!56 = !{!28, !4, i64 32}
+!57 = !{!58, !59, i64 8}
+!58 = !{!"_generic_SUNMatrix", !4, i64 0, !59, i64 8, !15, i64 16}
+!59 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !4, i64 0}
+!60 = !{!61, !4, i64 72}
+!61 = !{!"_generic_SUNMatrix_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72}
+!62 = !{!63, !64, i64 8}
+!63 = !{!"_generic_SUNLinearSolver", !4, i64 0, !64, i64 8, !15, i64 16}
+!64 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !4, i64 0}
+!65 = !{!66, !4, i64 96}
+!66 = !{!"_generic_SUNLinearSolver_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112}
+!67 = !{!32, !8, i64 144}
+!68 = !{!69, !4, i64 272}
+!69 = !{!"IDALsMemRec", !16, i64 0, !16, i64 4, !16, i64 8, !4, i64 16, !4, i64 24, !34, i64 32, !33, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !16, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !8, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !10, i64 240, !16, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !4, i64 280, !16, i64 288, !4, i64 296, !4, i64 304, !4, i64 312, !4, i64 320}
+!70 = !{!69, !4, i64 280}
+!71 = !{!17, !17, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 long", !4, i64 0}
+!74 = !{!20, !20, i64 0}
+!75 = !{!14, !17, i64 384}
+!76 = !{!14, !16, i64 88}
+!77 = !{!14, !17, i64 440}
+!78 = !{!14, !4, i64 24}
+!79 = !{!14, !10, i64 656}

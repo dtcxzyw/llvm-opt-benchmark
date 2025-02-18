@@ -30,7 +30,7 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 46, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 46, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %60
 
 5:                                                ; preds = %2
@@ -38,119 +38,119 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -22, i32 noundef 54, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -22, i32 noundef 54, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #3
   br label %60
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %10, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17, %13, %8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 63, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 63, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #3
   br label %60
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !14
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %26
 
 25:                                               ; preds = %22
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 71, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 71, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #3
   br label %60
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 4, !tbaa !27
   %.not36 = icmp eq i32 %28, 3
   br i1 %.not36, label %30, label %29
 
 29:                                               ; preds = %26
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 79, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 79, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #3
   br label %60
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !28
   %.not37 = icmp eq ptr %32, null
   br i1 %.not37, label %38, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1888
-  %35 = load i32, ptr %34, align 8
+  %35 = load i32, ptr %34, align 8, !tbaa !29
   %.not38 = icmp eq i32 %35, 0
   br i1 %.not38, label %38, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %32) #2
+  %37 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %32) #3
   br label %38
 
 38:                                               ; preds = %36, %33, %30
-  store ptr %1, ptr %31, align 8
+  store ptr %1, ptr %31, align 8, !tbaa !28
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1888
-  store i32 0, ptr %39, align 8
-  %40 = tail call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #2
+  store i32 0, ptr %39, align 8, !tbaa !29
+  %40 = tail call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #3
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #2
+  %43 = tail call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #3
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 108, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 108, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #3
   br label %60
 
 46:                                               ; preds = %42, %38
   %cvNlsFPFunctionSensStg1.sink = phi ptr [ @cvNlsResidualSensStg1, %38 ], [ @cvNlsFPFunctionSensStg1, %42 ]
-  %47 = load ptr, ptr %31, align 8
-  %48 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef %47, ptr noundef nonnull %cvNlsFPFunctionSensStg1.sink) #2
+  %47 = load ptr, ptr %31, align 8, !tbaa !28
+  %48 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef %47, ptr noundef nonnull %cvNlsFPFunctionSensStg1.sink) #3
   %.not39 = icmp eq i32 %48, 0
   br i1 %.not39, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 115, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 115, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #3
   br label %60
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr %31, align 8
-  %52 = tail call i32 @SUNNonlinSolSetConvTestFn(ptr noundef %51, ptr noundef nonnull @cvNlsConvTestSensStg1, ptr noundef nonnull %0) #2
+  %51 = load ptr, ptr %31, align 8, !tbaa !28
+  %52 = tail call i32 @SUNNonlinSolSetConvTestFn(ptr noundef %51, ptr noundef nonnull @cvNlsConvTestSensStg1, ptr noundef nonnull %0) #3
   %.not40 = icmp eq i32 %52, 0
   br i1 %.not40, label %54, label %53
 
 53:                                               ; preds = %50
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 125, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 125, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #3
   br label %60
 
 54:                                               ; preds = %50
-  %55 = load ptr, ptr %31, align 8
-  %56 = tail call i32 @SUNNonlinSolSetMaxIters(ptr noundef %55, i32 noundef 3) #2
+  %55 = load ptr, ptr %31, align 8, !tbaa !28
+  %56 = tail call i32 @SUNNonlinSolSetMaxIters(ptr noundef %55, i32 noundef 3) #3
   %.not41 = icmp eq i32 %56, 0
   br i1 %.not41, label %58, label %57
 
 57:                                               ; preds = %54
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 134, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 134, ptr noundef nonnull @__func__.CVodeSetNonlinearSolverSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #3
   br label %60
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  store i32 0, ptr %59, align 8
+  store i32 0, ptr %59, align 8, !tbaa !30
   br label %60
 
 60:                                               ; preds = %58, %57, %53, %49, %45, %29, %25, %21, %7, %4
@@ -158,13 +158,16 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef %0, pt
   ret i32 %.032
 }
 
-declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
+declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #2
+
+declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -41, 16) i32 @cvNlsResidualSensStg1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -172,40 +175,40 @@ define internal range(i32 -41, 16) i32 @cvNlsResidualSensStg1(ptr noundef %0, pt
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 316, ptr noundef nonnull @__func__.cvNlsResidualSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 317, ptr noundef nonnull @__func__.cvNlsResidualSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %51
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1892
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 648
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 760
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = getelementptr inbounds ptr, ptr %15, i64 %11
-  %17 = load ptr, ptr %16, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %17) #2
+  %17 = load ptr, ptr %16, align 8, !tbaa !33
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %17) #3
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  %19 = load double, ptr %18, align 8
+  %19 = load double, ptr %18, align 8, !tbaa !35
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %14, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %24 = load ptr, ptr %14, align 8, !tbaa !34
   %25 = getelementptr inbounds ptr, ptr %24, i64 %11
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 784
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !38
   %29 = getelementptr inbounds ptr, ptr %28, i64 %11
-  %30 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !33
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !39
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @cvSensRhs1Wrapper(ptr noundef nonnull %2, double noundef %19, ptr noundef %21, ptr noundef %23, i32 noundef %8, ptr noundef %26, ptr noundef %30, ptr noundef %32, ptr noundef %34) #2
+  %34 = load ptr, ptr %33, align 8, !tbaa !40
+  %35 = tail call i32 @cvSensRhs1Wrapper(ptr noundef nonnull %2, double noundef %19, ptr noundef %21, ptr noundef %23, i32 noundef %8, ptr noundef %26, ptr noundef %30, ptr noundef %32, ptr noundef %34) #3
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %51, label %37
 
@@ -215,19 +218,19 @@ define internal range(i32 -41, 16) i32 @cvNlsResidualSensStg1(ptr noundef %0, pt
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 1312
-  %40 = load double, ptr %39, align 8
+  %40 = load double, ptr %39, align 8, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 656
-  %42 = load ptr, ptr %41, align 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !32
   %43 = getelementptr inbounds ptr, ptr %42, i64 %11
-  %44 = load ptr, ptr %43, align 8
-  tail call void @N_VLinearSum(double noundef %40, ptr noundef %44, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %1) #2
+  %44 = load ptr, ptr %43, align 8, !tbaa !33
+  tail call void @N_VLinearSum(double noundef %40, ptr noundef %44, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %1) #3
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 1320
-  %46 = load double, ptr %45, align 8
+  %46 = load double, ptr %45, align 8, !tbaa !42
   %47 = fneg double %46
-  %48 = load ptr, ptr %27, align 8
+  %48 = load ptr, ptr %27, align 8, !tbaa !38
   %49 = getelementptr inbounds ptr, ptr %48, i64 %11
-  %50 = load ptr, ptr %49, align 8
-  tail call void @N_VLinearSum(double noundef %47, ptr noundef %50, double noundef 1.000000e+00, ptr noundef %1, ptr noundef %1) #2
+  %50 = load ptr, ptr %49, align 8, !tbaa !33
+  tail call void @N_VLinearSum(double noundef %47, ptr noundef %50, double noundef 1.000000e+00, ptr noundef %1, ptr noundef %1) #3
   br label %51
 
 51:                                               ; preds = %37, %6, %38, %5
@@ -241,36 +244,36 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensStg1(ptr noundef %0, 
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 350, ptr noundef nonnull @__func__.cvNlsFPFunctionSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 351, ptr noundef nonnull @__func__.cvNlsFPFunctionSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %43
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1892
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 648
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 760
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = getelementptr inbounds ptr, ptr %15, i64 %11
-  %17 = load ptr, ptr %16, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %17) #2
+  %17 = load ptr, ptr %16, align 8, !tbaa !33
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %17) #3
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1032
-  %19 = load double, ptr %18, align 8
+  %19 = load double, ptr %18, align 8, !tbaa !35
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %14, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %24 = load ptr, ptr %14, align 8, !tbaa !34
   %25 = getelementptr inbounds ptr, ptr %24, i64 %11
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @cvSensRhs1Wrapper(ptr noundef nonnull %2, double noundef %19, ptr noundef %21, ptr noundef %23, i32 noundef %8, ptr noundef %26, ptr noundef %1, ptr noundef %28, ptr noundef %30) #2
+  %30 = load ptr, ptr %29, align 8, !tbaa !40
+  %31 = tail call i32 @cvSensRhs1Wrapper(ptr noundef nonnull %2, double noundef %19, ptr noundef %21, ptr noundef %23, i32 noundef %8, ptr noundef %26, ptr noundef %1, ptr noundef %28, ptr noundef %30) #3
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %43, label %33
 
@@ -280,15 +283,15 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensStg1(ptr noundef %0, 
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 992
-  %36 = load double, ptr %35, align 8
+  %36 = load double, ptr %35, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 656
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !32
   %39 = getelementptr inbounds ptr, ptr %38, i64 %11
-  %40 = load ptr, ptr %39, align 8
-  tail call void @N_VLinearSum(double noundef %36, ptr noundef %1, double noundef -1.000000e+00, ptr noundef %40, ptr noundef %1) #2
+  %40 = load ptr, ptr %39, align 8, !tbaa !33
+  tail call void @N_VLinearSum(double noundef %36, ptr noundef %1, double noundef -1.000000e+00, ptr noundef %40, ptr noundef %1) #3
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 1312
-  %42 = load double, ptr %41, align 8
-  tail call void @N_VScale(double noundef %42, ptr noundef %1, ptr noundef %1) #2
+  %42 = load double, ptr %41, align 8, !tbaa !41
+  tail call void @N_VScale(double noundef %42, ptr noundef %1, ptr noundef %1) #3
   br label %43
 
 43:                                               ; preds = %33, %6, %34, %5
@@ -296,39 +299,40 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensStg1(ptr noundef %0, 
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -21, 903) i32 @cvNlsConvTestSensStg1(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) #0 {
   %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
   %8 = icmp eq ptr %5, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 272, ptr noundef nonnull @__func__.cvNlsConvTestSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 273, ptr noundef nonnull @__func__.cvNlsConvTestSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %38
 
 10:                                               ; preds = %6
-  %11 = tail call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %4) #2
-  %12 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %0, ptr noundef nonnull %7) #2
+  %11 = tail call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %4) #3
+  %12 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %0, ptr noundef nonnull %7) #3
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %38
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr %7, align 4
+  %14 = load i32, ptr %7, align 4, !tbaa !44
   %15 = icmp sgt i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1352
-  %17 = load double, ptr %16, align 8
+  %17 = load double, ptr %16, align 8, !tbaa !45
   br i1 %15, label %18, label %.thread
 
 18:                                               ; preds = %13
   %19 = fmul double %17, 3.000000e-01
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 1360
-  %21 = load double, ptr %20, align 8
+  %21 = load double, ptr %20, align 8, !tbaa !46
   %22 = fdiv double %11, %21
   %23 = fcmp ogt double %19, %22
   %. = select i1 %23, double %19, double %22
-  store double %., ptr %16, align 8
+  store double %., ptr %16, align 8, !tbaa !45
   %24 = fcmp ogt double %., 1.000000e+00
   %25 = select i1 %24, double 1.000000e+00, double %.
   %26 = fmul double %11, %25
@@ -351,61 +355,65 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTestSensStg1(ptr noundef %0, p
 
 .thread26:                                        ; preds = %.thread, %34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 1360
-  store double %11, ptr %37, align 8
+  store double %11, ptr %37, align 8, !tbaa !46
   br label %38
 
 38:                                               ; preds = %.thread, %34, %18, %10, %.thread26, %9
   %.0 = phi i32 [ -21, %9 ], [ 901, %.thread26 ], [ -21, %10 ], [ 0, %18 ], [ 902, %34 ], [ 0, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @cvNlsInitSensStg1(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1992
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
   %.cvNlsLSetupSensStg1 = select i1 %.not, ptr null, ptr @cvNlsLSetupSensStg1
-  %6 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef %.cvNlsLSetupSensStg1) #2
+  %6 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef %.cvNlsLSetupSensStg1) #3
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %8, label %7
 
 7:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 162, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 162, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #3
   br label %22
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2000
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !48
   %.not16 = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !28
   %.cvNlsLSolveSensStg1 = select i1 %.not16, ptr null, ptr @cvNlsLSolveSensStg1
-  %13 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %12, ptr noundef %.cvNlsLSolveSensStg1) #2
+  %13 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %12, ptr noundef %.cvNlsLSolveSensStg1) #3
   %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %15, label %14
 
 14:                                               ; preds = %8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 176, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 176, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #3
   br label %22
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %17) #2
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %18 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %17) #3
   %.not18 = icmp eq i32 %18, 0
   br i1 %.not18, label %20, label %19
 
 19:                                               ; preds = %15
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 186, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 186, ptr noundef nonnull @__func__.cvNlsInitSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #3
   br label %22
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1896
-  store i64 0, ptr %21, align 8
+  store i64 0, ptr %21, align 8, !tbaa !49
   br label %22
 
 22:                                               ; preds = %20, %19, %14, %7
@@ -413,7 +421,7 @@ define range(i32 -13, 1) i32 @cvNlsInitSensStg1(ptr noundef %0) local_unnamed_ad
   ret i32 %.014
 }
 
-declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg1(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 {
@@ -421,7 +429,7 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg1(i32 noundef %0, ptr
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 205, ptr noundef nonnull @__func__.cvNlsLSetupSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 205, ptr noundef nonnull @__func__.cvNlsLSetupSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %42
 
 6:                                                ; preds = %3
@@ -430,53 +438,53 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg1(i32 noundef %0, ptr
   br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %6
-  %.pre = load i32, ptr %.phi.trans.insert, align 8
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !50
   br label %8
 
 7:                                                ; preds = %6
-  store i32 1, ptr %.phi.trans.insert, align 8
+  store i32 1, ptr %.phi.trans.insert, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %._crit_edge, %7
   %9 = phi i32 [ %.pre, %._crit_edge ], [ 1, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1992
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2080
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 488
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 496
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %11(ptr noundef nonnull %2, i32 noundef %9, ptr noundef %13, ptr noundef %15, ptr noundef nonnull %16, ptr noundef %18, ptr noundef %20, ptr noundef %22) #2
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
+  %23 = tail call i32 %11(ptr noundef nonnull %2, i32 noundef %9, ptr noundef %13, ptr noundef %15, ptr noundef nonnull %16, ptr noundef %18, ptr noundef %20, ptr noundef %22) #3
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 1736
-  %25 = load i64, ptr %24, align 8
+  %25 = load i64, ptr %24, align 8, !tbaa !52
   %26 = add nsw i64 %25, 1
-  store i64 %26, ptr %24, align 8
+  store i64 %26, ptr %24, align 8, !tbaa !52
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 1744
-  %28 = load i64, ptr %27, align 8
+  %28 = load i64, ptr %27, align 8, !tbaa !53
   %29 = add nsw i64 %28, 1
-  store i64 %29, ptr %27, align 8
-  %30 = load i32, ptr %16, align 8
-  store i32 %30, ptr %1, align 4
+  store i64 %29, ptr %27, align 8, !tbaa !53
+  %30 = load i32, ptr %16, align 8, !tbaa !54
+  store i32 %30, ptr %1, align 4, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 1336
-  store double 1.000000e+00, ptr %31, align 8
+  store double 1.000000e+00, ptr %31, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 1320
-  %33 = load double, ptr %32, align 8
+  %33 = load double, ptr %32, align 8, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 1328
-  store double %33, ptr %34, align 8
+  store double %33, ptr %34, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 1344
-  store double 1.000000e+00, ptr %35, align 8
+  store double 1.000000e+00, ptr %35, align 8, !tbaa !57
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 1352
-  store double 1.000000e+00, ptr %36, align 8
+  store double 1.000000e+00, ptr %36, align 8, !tbaa !45
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 1576
-  %38 = load i64, ptr %37, align 8
+  %38 = load i64, ptr %37, align 8, !tbaa !58
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 2048
-  store i64 %38, ptr %39, align 8
+  store i64 %38, ptr %39, align 8, !tbaa !59
   %40 = icmp slt i32 %23, 0
   br i1 %40, label %42, label %41
 
@@ -490,7 +498,7 @@ define internal range(i32 -21, 903) i32 @cvNlsLSetupSensStg1(i32 noundef %0, ptr
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -21, 903) i32 @cvNlsLSolveSensStg1(ptr noundef %0, ptr noundef %1) #0 {
@@ -498,24 +506,24 @@ define internal range(i32 -21, 903) i32 @cvNlsLSolveSensStg1(ptr noundef %0, ptr
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 243, ptr noundef nonnull @__func__.cvNlsLSolveSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 243, ptr noundef nonnull @__func__.cvNlsLSolveSensStg1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %22
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1892
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2000
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 752
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !60
   %12 = sext i32 %7 to i64
   %13 = getelementptr inbounds ptr, ptr %11, i64 %12
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %9(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %14, ptr noundef %16, ptr noundef %18) #2
+  %18 = load ptr, ptr %17, align 8, !tbaa !37
+  %19 = tail call i32 %9(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %14, ptr noundef %16, ptr noundef %18) #3
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %22, label %21
 
@@ -529,25 +537,83 @@ define internal range(i32 -21, 903) i32 @cvNlsLSolveSensStg1(ptr noundef %0, ptr
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #2
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNNonlinSolGetCurIter(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolGetCurIter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @cvSensRhs1Wrapper(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @cvSensRhs1Wrapper(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !8, i64 8}
+!4 = !{!"_generic_SUNNonlinearSolver", !5, i64 0, !8, i64 8, !9, i64 16}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 _ZTS31_generic_SUNNonlinearSolver_Ops", !5, i64 0}
+!9 = !{!"p1 _ZTS11SUNContext_", !5, i64 0}
+!10 = !{!11, !5, i64 0}
+!11 = !{!"_generic_SUNNonlinearSolver_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96}
+!12 = !{!11, !5, i64 24}
+!13 = !{!11, !5, i64 40}
+!14 = !{!15, !17, i64 140}
+!15 = !{!"CVodeMemRec", !9, i64 0, !16, i64 8, !5, i64 16, !5, i64 24, !17, i64 32, !17, i64 36, !16, i64 40, !16, i64 48, !18, i64 56, !17, i64 64, !17, i64 68, !5, i64 72, !5, i64 80, !17, i64 88, !17, i64 92, !5, i64 96, !17, i64 104, !17, i64 108, !16, i64 112, !16, i64 120, !18, i64 128, !17, i64 136, !17, i64 140, !17, i64 144, !17, i64 148, !5, i64 152, !5, i64 160, !5, i64 168, !17, i64 176, !17, i64 180, !19, i64 184, !19, i64 192, !20, i64 200, !17, i64 208, !16, i64 216, !17, i64 224, !17, i64 228, !16, i64 232, !19, i64 240, !21, i64 248, !20, i64 256, !17, i64 264, !5, i64 272, !5, i64 280, !17, i64 288, !17, i64 292, !17, i64 296, !16, i64 304, !19, i64 312, !21, i64 320, !20, i64 328, !6, i64 336, !18, i64 440, !18, i64 448, !18, i64 456, !18, i64 464, !18, i64 472, !18, i64 480, !18, i64 488, !18, i64 496, !18, i64 504, !6, i64 512, !18, i64 616, !18, i64 624, !18, i64 632, !18, i64 640, !6, i64 648, !21, i64 752, !21, i64 760, !21, i64 768, !21, i64 776, !21, i64 784, !17, i64 792, !6, i64 800, !21, i64 904, !21, i64 912, !21, i64 920, !21, i64 928, !18, i64 936, !17, i64 944, !17, i64 948, !16, i64 952, !17, i64 960, !17, i64 964, !17, i64 968, !17, i64 972, !17, i64 976, !16, i64 984, !16, i64 992, !16, i64 1000, !16, i64 1008, !16, i64 1016, !16, i64 1024, !16, i64 1032, !16, i64 1040, !6, i64 1048, !6, i64 1160, !6, i64 1208, !16, i64 1312, !16, i64 1320, !16, i64 1328, !16, i64 1336, !16, i64 1344, !16, i64 1352, !16, i64 1360, !16, i64 1368, !17, i64 1376, !16, i64 1384, !16, i64 1392, !17, i64 1400, !16, i64 1408, !16, i64 1416, !20, i64 1424, !17, i64 1432, !22, i64 1440, !17, i64 1448, !17, i64 1452, !17, i64 1456, !16, i64 1464, !16, i64 1472, !16, i64 1480, !16, i64 1488, !16, i64 1496, !16, i64 1504, !16, i64 1512, !16, i64 1520, !16, i64 1528, !16, i64 1536, !16, i64 1544, !16, i64 1552, !22, i64 1560, !17, i64 1568, !22, i64 1576, !22, i64 1584, !22, i64 1592, !22, i64 1600, !22, i64 1608, !22, i64 1616, !22, i64 1624, !22, i64 1632, !22, i64 1640, !23, i64 1648, !22, i64 1656, !22, i64 1664, !23, i64 1672, !22, i64 1680, !22, i64 1688, !23, i64 1696, !22, i64 1704, !22, i64 1712, !22, i64 1720, !22, i64 1728, !22, i64 1736, !22, i64 1744, !17, i64 1752, !16, i64 1760, !16, i64 1768, !16, i64 1776, !22, i64 1784, !22, i64 1792, !22, i64 1800, !22, i64 1808, !22, i64 1816, !22, i64 1824, !24, i64 1832, !17, i64 1840, !24, i64 1848, !17, i64 1856, !24, i64 1864, !17, i64 1872, !24, i64 1880, !17, i64 1888, !17, i64 1892, !22, i64 1896, !17, i64 1904, !5, i64 1912, !17, i64 1920, !18, i64 1928, !18, i64 1936, !18, i64 1944, !18, i64 1952, !18, i64 1960, !18, i64 1968, !17, i64 1976, !17, i64 1980, !5, i64 1984, !5, i64 1992, !5, i64 2000, !5, i64 2008, !5, i64 2016, !22, i64 2024, !16, i64 2032, !17, i64 2040, !17, i64 2044, !22, i64 2048, !16, i64 2056, !16, i64 2064, !16, i64 2072, !17, i64 2080, !17, i64 2084, !16, i64 2088, !17, i64 2096, !17, i64 2100, !17, i64 2104, !17, i64 2108, !17, i64 2112, !17, i64 2116, !17, i64 2120, !17, i64 2124, !17, i64 2128, !17, i64 2132, !17, i64 2136, !17, i64 2140, !17, i64 2144, !17, i64 2148, !17, i64 2152, !17, i64 2156, !5, i64 2160, !22, i64 2168, !17, i64 2176, !6, i64 2184, !17, i64 2376, !22, i64 2384, !5, i64 2392, !17, i64 2400, !20, i64 2408, !20, i64 2416, !16, i64 2424, !16, i64 2432, !16, i64 2440, !19, i64 2448, !19, i64 2456, !19, i64 2464, !16, i64 2472, !16, i64 2480, !17, i64 2488, !17, i64 2492, !22, i64 2496, !20, i64 2504, !17, i64 2512, !25, i64 2520, !17, i64 2528, !17, i64 2532, !6, i64 2536, !19, i64 2640, !21, i64 2648, !21, i64 2656, !17, i64 2664, !26, i64 2672, !17, i64 2680}
+!16 = !{!"double", !6, i64 0}
+!17 = !{!"int", !6, i64 0}
+!18 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
+!19 = !{!"p1 double", !5, i64 0}
+!20 = !{!"p1 int", !5, i64 0}
+!21 = !{!"p2 _ZTS17_generic_N_Vector", !5, i64 0}
+!22 = !{!"long", !6, i64 0}
+!23 = !{!"p1 long", !5, i64 0}
+!24 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !5, i64 0}
+!25 = !{!"p1 _ZTS15CVodeProjMemRec", !5, i64 0}
+!26 = !{!"p1 _ZTS11CVadjMemRec", !5, i64 0}
+!27 = !{!15, !17, i64 148}
+!28 = !{!15, !24, i64 1880}
+!29 = !{!15, !17, i64 1888}
+!30 = !{!15, !17, i64 1400}
+!31 = !{!15, !17, i64 1892}
+!32 = !{!21, !21, i64 0}
+!33 = !{!18, !18, i64 0}
+!34 = !{!15, !21, i64 760}
+!35 = !{!15, !16, i64 1032}
+!36 = !{!15, !18, i64 448}
+!37 = !{!15, !18, i64 472}
+!38 = !{!15, !21, i64 784}
+!39 = !{!15, !18, i64 480}
+!40 = !{!15, !18, i64 488}
+!41 = !{!15, !16, i64 1312}
+!42 = !{!15, !16, i64 1320}
+!43 = !{!15, !16, i64 992}
+!44 = !{!17, !17, i64 0}
+!45 = !{!15, !16, i64 1352}
+!46 = !{!15, !16, i64 1360}
+!47 = !{!15, !5, i64 1992}
+!48 = !{!15, !5, i64 2000}
+!49 = !{!15, !22, i64 1896}
+!50 = !{!15, !17, i64 1920}
+!51 = !{!15, !18, i64 496}
+!52 = !{!15, !22, i64 1736}
+!53 = !{!15, !22, i64 1744}
+!54 = !{!15, !17, i64 2080}
+!55 = !{!15, !16, i64 1336}
+!56 = !{!15, !16, i64 1328}
+!57 = !{!15, !16, i64 1344}
+!58 = !{!15, !22, i64 1576}
+!59 = !{!15, !22, i64 2048}
+!60 = !{!15, !21, i64 752}

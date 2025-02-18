@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [30 x i8] c"SUNContext is NULL or corrupt\00", align 1
 @.str.22 = private unnamed_addr constant [54 x i8] c"an MPI call returned something other than MPI_SUCCESS\00", align 1
 @.str.23 = private unnamed_addr constant [92 x i8] c"Reached code that should be unreachable: open an issue at: https://github.com/LLNL/sundials\00", align 1
-@.str.24 = private unnamed_addr constant [73 x i8] c"Unknown error occured: open an issue at https://github.com/LLNL/sundials\00", align 1
+@.str.24 = private unnamed_addr constant [74 x i8] c"Unknown error occurred: open an issue at https://github.com/LLNL/sundials\00", align 1
 @.str.25 = private unnamed_addr constant [14 x i8] c"unknown error\00", align 1
 @.str.26 = private unnamed_addr constant [100 x i8] c"SUNAbortErrHandler: Calling abort now, use a different error handler to avoid program termination.\0A\00", align 1
 @.str.27 = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/sundials/sundials/src/sundials/sundials_errors.c\00", align 1
@@ -46,57 +46,68 @@ define i32 @SUNErrHandler_Create(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  %9 = call noalias ptr @malloc(i64 noundef 24) #7
-  store ptr %9, ptr %8, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %3
-  store i32 -9988, ptr %4, align 4
-  br label %24
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  store ptr null, ptr %8, align 8, !tbaa !9
+  %10 = call noalias ptr @malloc(i64 noundef 24) #10
+  store ptr %10, ptr %8, align 8, !tbaa !9
+  %11 = load ptr, ptr %8, align 8, !tbaa !9
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.SUNErrHandler_, ptr %14, i32 0, i32 0
-  store ptr null, ptr %15, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.SUNErrHandler_, ptr %17, i32 0, i32 1
-  store ptr %16, ptr %18, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.SUNErrHandler_, ptr %20, i32 0, i32 2
-  store ptr %19, ptr %21, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = load ptr, ptr %7, align 8
-  store ptr %22, ptr %23, align 8
-  store i32 0, ptr %4, align 4
-  br label %24
+  store i32 -9988, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %25
 
-24:                                               ; preds = %13, %12
-  %25 = load i32, ptr %4, align 4
-  ret i32 %25
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %8, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.SUNErrHandler_, ptr %15, i32 0, i32 0
+  store ptr null, ptr %16, align 8, !tbaa !11
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = load ptr, ptr %8, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct.SUNErrHandler_, ptr %18, i32 0, i32 1
+  store ptr %17, ptr %19, align 8, !tbaa !13
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = load ptr, ptr %8, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw %struct.SUNErrHandler_, ptr %21, i32 0, i32 2
+  store ptr %20, ptr %22, align 8, !tbaa !14
+  %23 = load ptr, ptr %8, align 8, !tbaa !9
+  %24 = load ptr, ptr %7, align 8, !tbaa !7
+  store ptr %23, ptr %24, align 8, !tbaa !9
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %25
+
+25:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  %26 = load i32, ptr %4, align 4
+  ret i32 %26
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #1
+declare noalias ptr @malloc(i64 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @SUNErrHandler_Destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = icmp ne ptr %3, null
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr %2, align 8
-  %7 = load ptr, ptr %6, align 8
+  %6 = load ptr, ptr %2, align 8, !tbaa !7
+  %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = icmp ne ptr %7, null
   br i1 %8, label %10, label %9
 
@@ -104,11 +115,11 @@ define void @SUNErrHandler_Destroy(ptr noundef %0) #0 {
   br label %14
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %2, align 8
-  %12 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %12) #8
-  %13 = load ptr, ptr %2, align 8
-  store ptr null, ptr %13, align 8
+  %11 = load ptr, ptr %2, align 8, !tbaa !7
+  %12 = load ptr, ptr %11, align 8, !tbaa !9
+  call void @free(ptr noundef %12) #9
+  %13 = load ptr, ptr %2, align 8, !tbaa !7
+  store ptr null, ptr %13, align 8, !tbaa !9
   br label %14
 
 14:                                               ; preds = %10, %9
@@ -116,14 +127,14 @@ define void @SUNErrHandler_Destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #2
+declare void @free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @SUNGetErrMsg(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !15
+  %4 = load i32, ptr %3, align 4, !tbaa !15
   switch i32 %4, label %30 [
     i32 -9999, label %5
     i32 -9998, label %6
@@ -271,66 +282,72 @@ define void @SUNLogErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store i32 %0, ptr %8, align 4
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store i32 %4, ptr %12, align 4
-  store ptr %5, ptr %13, align 8
-  store ptr %6, ptr %14, align 8
-  %16 = load i32, ptr %8, align 4
-  %17 = load ptr, ptr %10, align 8
+  store i32 %0, ptr %8, align 4, !tbaa !15
+  store ptr %1, ptr %9, align 8, !tbaa !17
+  store ptr %2, ptr %10, align 8, !tbaa !17
+  store ptr %3, ptr %11, align 8, !tbaa !17
+  store i32 %4, ptr %12, align 4, !tbaa !15
+  store ptr %5, ptr %13, align 8, !tbaa !3
+  store ptr %6, ptr %14, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  %16 = load i32, ptr %8, align 4, !tbaa !15
+  %17 = load ptr, ptr %10, align 8, !tbaa !17
   %18 = call ptr @sunCombineFileAndLine(i32 noundef %16, ptr noundef %17)
-  store ptr %18, ptr %15, align 8
-  %19 = load ptr, ptr %11, align 8
+  store ptr %18, ptr %15, align 8, !tbaa !17
+  %19 = load ptr, ptr %11, align 8, !tbaa !17
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %7
-  %22 = load i32, ptr %12, align 4
+  %22 = load i32, ptr %12, align 4, !tbaa !15
   %23 = call ptr @SUNGetErrMsg(i32 noundef %22)
-  store ptr %23, ptr %11, align 8
+  store ptr %23, ptr %11, align 8, !tbaa !17
   br label %24
 
 24:                                               ; preds = %21, %7
-  %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr inbounds %struct.SUNContext_, ptr %25, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %15, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = load ptr, ptr %11, align 8
+  %25 = load ptr, ptr %14, align 8, !tbaa !19
+  %26 = getelementptr inbounds nuw %struct.SUNContext_, ptr %25, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  %28 = load ptr, ptr %15, align 8, !tbaa !17
+  %29 = load ptr, ptr %9, align 8, !tbaa !17
+  %30 = load ptr, ptr %11, align 8, !tbaa !17
   %31 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %27, i32 noundef 1, ptr noundef %28, ptr noundef %29, ptr noundef %30)
-  %32 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %32) #8
+  %32 = load ptr, ptr %15, align 8, !tbaa !17
+  call void @free(ptr noundef %32) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @sunCombineFileAndLine(i32 noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @sunCombineFileAndLine(i32 noundef %0, ptr noundef %1) #4 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call i64 @strlen(ptr noundef %7) #9
+  store i32 %0, ptr %3, align 4, !tbaa !15
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %7 = load ptr, ptr %4, align 8, !tbaa !17
+  %8 = call i64 @strlen(ptr noundef %7) #11
   %9 = add i64 %8, 6
-  store i64 %9, ptr %5, align 8
-  %10 = load i64, ptr %5, align 8
+  store i64 %9, ptr %5, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %10 = load i64, ptr %5, align 8, !tbaa !25
   %11 = mul i64 %10, 1
-  %12 = call noalias ptr @malloc(i64 noundef %11) #7
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load i64, ptr %5, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %3, align 4
-  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %13, i64 noundef %14, ptr noundef @.str.30, ptr noundef %15, i32 noundef %16) #8
-  %18 = load ptr, ptr %6, align 8
+  %12 = call noalias ptr @malloc(i64 noundef %11) #10
+  store ptr %12, ptr %6, align 8, !tbaa !17
+  %13 = load ptr, ptr %6, align 8, !tbaa !17
+  %14 = load i64, ptr %5, align 8, !tbaa !25
+  %15 = load ptr, ptr %4, align 8, !tbaa !17
+  %16 = load i32, ptr %3, align 4, !tbaa !15
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %13, i64 noundef %14, ptr noundef @.str.30, ptr noundef %15, i32 noundef %16) #9
+  %18 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret ptr %18
 }
 
-declare i32 @SUNLogger_QueueMsg(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #3
+declare i32 @SUNLogger_QueueMsg(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind uwtable
 define void @SUNAbortErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -342,31 +359,32 @@ define void @SUNAbortErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store i32 %0, ptr %8, align 4
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store i32 %4, ptr %12, align 4
-  store ptr %5, ptr %13, align 8
-  store ptr %6, ptr %14, align 8
-  %16 = load i32, ptr %8, align 4
-  %17 = load ptr, ptr %10, align 8
+  store i32 %0, ptr %8, align 4, !tbaa !15
+  store ptr %1, ptr %9, align 8, !tbaa !17
+  store ptr %2, ptr %10, align 8, !tbaa !17
+  store ptr %3, ptr %11, align 8, !tbaa !17
+  store i32 %4, ptr %12, align 4, !tbaa !15
+  store ptr %5, ptr %13, align 8, !tbaa !3
+  store ptr %6, ptr %14, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  %16 = load i32, ptr %8, align 4, !tbaa !15
+  %17 = load ptr, ptr %10, align 8, !tbaa !17
   %18 = call ptr @sunCombineFileAndLine(i32 noundef %16, ptr noundef %17)
-  store ptr %18, ptr %15, align 8
-  %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds %struct.SUNContext_, ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %15, align 8
-  %23 = load ptr, ptr %9, align 8
+  store ptr %18, ptr %15, align 8, !tbaa !17
+  %19 = load ptr, ptr %14, align 8, !tbaa !19
+  %20 = getelementptr inbounds nuw %struct.SUNContext_, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  %22 = load ptr, ptr %15, align 8, !tbaa !17
+  %23 = load ptr, ptr %9, align 8, !tbaa !17
   %24 = call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %21, i32 noundef 1, ptr noundef %22, ptr noundef %23, ptr noundef @.str.26)
-  %25 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %25) #8
-  call void @abort() #10
+  %25 = load ptr, ptr %15, align 8, !tbaa !17
+  call void @free(ptr noundef %25) #9
+  call void @abort() #12
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #4
+declare void @abort() #6
 
 ; Function Attrs: nounwind uwtable
 define void @SUNGlobalFallbackErrHandler(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ...) #0 {
@@ -378,91 +396,128 @@ define void @SUNGlobalFallbackErrHandler(i32 noundef %0, ptr noundef %1, ptr nou
   %11 = alloca [1 x %struct.__va_list_tag], align 16
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store i32 %4, ptr %10, align 4
-  store ptr null, ptr %12, align 8
-  store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_start(ptr %14)
-  %15 = call ptr @sunCombineFileAndLine(i32 noundef 95, ptr noundef @.str.27)
-  store ptr %15, ptr %13, align 8
-  %16 = load ptr, ptr %13, align 8
+  store i32 %0, ptr %6, align 4, !tbaa !15
+  store ptr %1, ptr %7, align 8, !tbaa !17
+  store ptr %2, ptr %8, align 8, !tbaa !17
+  store ptr %3, ptr %9, align 8, !tbaa !17
+  store i32 %4, ptr %10, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  store ptr null, ptr %12, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  store ptr null, ptr %13, align 8, !tbaa !17
+  %14 = call ptr @sunCombineFileAndLine(i32 noundef 97, ptr noundef @.str.27)
+  store ptr %14, ptr %13, align 8, !tbaa !17
+  %15 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %15)
+  %16 = load ptr, ptr %13, align 8, !tbaa !17
   %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
   call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef %16, ptr noundef @__func__.SUNGlobalFallbackErrHandler, ptr noundef @.str.28, ptr noundef %17, ptr noundef %12)
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = load ptr, ptr %12, align 8
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.29, ptr noundef %19) #8
-  %21 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %21) #8
-  %22 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %22) #8
-  %23 = load i32, ptr %6, align 4
-  %24 = load ptr, ptr %8, align 8
-  %25 = call ptr @sunCombineFileAndLine(i32 noundef %23, ptr noundef %24)
-  store ptr %25, ptr %13, align 8
-  %26 = load ptr, ptr %9, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %31
+  %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %18)
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %20 = load ptr, ptr %12, align 8, !tbaa !17
+  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.29, ptr noundef %20) #9
+  %22 = load ptr, ptr %12, align 8, !tbaa !17
+  call void @free(ptr noundef %22) #9
+  %23 = load ptr, ptr %13, align 8, !tbaa !17
+  call void @free(ptr noundef %23) #9
+  %24 = load i32, ptr %6, align 4, !tbaa !15
+  %25 = load ptr, ptr %8, align 8, !tbaa !17
+  %26 = call ptr @sunCombineFileAndLine(i32 noundef %24, ptr noundef %25)
+  store ptr %26, ptr %13, align 8, !tbaa !17
+  %27 = load ptr, ptr %9, align 8, !tbaa !17
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %5
-  %29 = load i32, ptr %10, align 4
-  %30 = call ptr @SUNGetErrMsg(i32 noundef %29)
-  store ptr %30, ptr %9, align 8
-  br label %31
+29:                                               ; preds = %5
+  %30 = load i32, ptr %10, align 4, !tbaa !15
+  %31 = call ptr @SUNGetErrMsg(i32 noundef %30)
+  store ptr %31, ptr %9, align 8, !tbaa !17
+  br label %32
 
-31:                                               ; preds = %28, %5
-  %32 = load ptr, ptr %13, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %12)
-  %36 = load ptr, ptr @stderr, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef @.str.29, ptr noundef %37) #8
-  %39 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %39) #8
-  %40 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %40) #8
-  %41 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
-  call void @llvm.va_end(ptr %41)
+32:                                               ; preds = %29, %5
+  %33 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %33)
+  %34 = load ptr, ptr %13, align 8, !tbaa !17
+  %35 = load ptr, ptr %7, align 8, !tbaa !17
+  %36 = load ptr, ptr %9, align 8, !tbaa !17
+  %37 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
+  call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %12)
+  %38 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %11, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %38)
+  %39 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %40 = load ptr, ptr %12, align 8, !tbaa !17
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.29, ptr noundef %40) #9
+  %42 = load ptr, ptr %12, align 8, !tbaa !17
+  call void @free(ptr noundef %42) #9
+  %43 = load ptr, ptr %13, align 8, !tbaa !17
+  call void @free(ptr noundef %43) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #9
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #5
+declare void @llvm.va_start.p0(ptr) #7
 
-declare void @sunCreateLogMessage(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
-
-; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+declare void @sunCreateLogMessage(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #5
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { noreturn nounwind }
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #8
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nounwind
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn }
+attributes #8 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p2 _ZTS14SUNErrHandler_", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS14SUNErrHandler_", !4, i64 0}
+!11 = !{!12, !10, i64 0}
+!12 = !{!"SUNErrHandler_", !10, i64 0, !4, i64 8, !4, i64 16}
+!13 = !{!12, !4, i64 8}
+!14 = !{!12, !4, i64 16}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 omnipotent char", !4, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS11SUNContext_", !4, i64 0}
+!21 = !{!22, !24, i64 16}
+!22 = !{!"SUNContext_", !23, i64 0, !16, i64 8, !24, i64 16, !16, i64 24, !16, i64 28, !10, i64 32, !16, i64 40}
+!23 = !{!"p1 _ZTS12SUNProfiler_", !4, i64 0}
+!24 = !{!"p1 _ZTS10SUNLogger_", !4, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !5, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS8_IO_FILE", !4, i64 0}

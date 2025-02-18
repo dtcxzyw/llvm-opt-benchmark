@@ -60,6 +60,7 @@ supported_project = [
     "slurm",
     "sqlite",
     "stb",
+    "sundials",
 ]
 
 modify_only = [

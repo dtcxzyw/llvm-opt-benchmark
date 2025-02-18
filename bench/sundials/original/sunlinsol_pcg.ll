@@ -14,218 +14,227 @@ define ptr @SUNLinSol_PCG(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %12 = load ptr, ptr %8, align 8
-  store ptr %12, ptr %9, align 8
-  %13 = load i32, ptr %6, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
+  store ptr %12, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  %13 = load i32, ptr %6, align 4, !tbaa !8
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %4
-  %16 = load i32, ptr %6, align 4
+  %16 = load i32, ptr %6, align 4, !tbaa !8
   %17 = icmp ne i32 %16, 1
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
-  %19 = load i32, ptr %6, align 4
+  %19 = load i32, ptr %6, align 4, !tbaa !8
   %20 = icmp ne i32 %19, 2
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr %6, align 4
+  %22 = load i32, ptr %6, align 4, !tbaa !8
   %23 = icmp ne i32 %22, 3
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !8
   br label %25
 
 25:                                               ; preds = %24, %21, %18, %15, %4
-  %26 = load i32, ptr %7, align 4
+  %26 = load i32, ptr %7, align 4, !tbaa !8
   %27 = icmp sle i32 %26, 0
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %25
-  store i32 5, ptr %7, align 4
+  store i32 5, ptr %7, align 4, !tbaa !8
   br label %29
 
 29:                                               ; preds = %28, %25
-  store ptr null, ptr %10, align 8
-  %30 = load ptr, ptr %8, align 8
+  store ptr null, ptr %10, align 8, !tbaa !12
+  %30 = load ptr, ptr %8, align 8, !tbaa !10
   %31 = call ptr @SUNLinSolNewEmpty(ptr noundef %30)
-  store ptr %31, ptr %10, align 8
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %34, i32 0, i32 0
-  store ptr @SUNLinSolGetType_PCG, ptr %35, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %38, i32 0, i32 1
-  store ptr @SUNLinSolGetID_PCG, ptr %39, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %42, i32 0, i32 2
-  store ptr @SUNLinSolSetATimes_PCG, ptr %43, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %46, i32 0, i32 3
-  store ptr @SUNLinSolSetPreconditioner_PCG, ptr %47, align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %50, i32 0, i32 4
-  store ptr @SUNLinSolSetScalingVectors_PCG, ptr %51, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %52, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %54, i32 0, i32 5
-  store ptr @SUNLinSolSetZeroGuess_PCG, ptr %55, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %58, i32 0, i32 6
-  store ptr @SUNLinSolInitialize_PCG, ptr %59, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %62, i32 0, i32 7
-  store ptr @SUNLinSolSetup_PCG, ptr %63, align 8
-  %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %66, i32 0, i32 8
-  store ptr @SUNLinSolSolve_PCG, ptr %67, align 8
-  %68 = load ptr, ptr %10, align 8
-  %69 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %68, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %70, i32 0, i32 9
-  store ptr @SUNLinSolNumIters_PCG, ptr %71, align 8
-  %72 = load ptr, ptr %10, align 8
-  %73 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %74, i32 0, i32 10
-  store ptr @SUNLinSolResNorm_PCG, ptr %75, align 8
-  %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %76, i32 0, i32 1
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %78, i32 0, i32 13
-  store ptr @SUNLinSolResid_PCG, ptr %79, align 8
-  %80 = load ptr, ptr %10, align 8
-  %81 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %80, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %82, i32 0, i32 11
-  store ptr @SUNLinSolLastFlag_PCG, ptr %83, align 8
-  %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %84, i32 0, i32 1
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %86, i32 0, i32 12
-  store ptr @SUNLinSolSpace_PCG, ptr %87, align 8
-  %88 = load ptr, ptr %10, align 8
-  %89 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %90, i32 0, i32 14
-  store ptr @SUNLinSolFree_PCG, ptr %91, align 8
-  store ptr null, ptr %11, align 8
-  %92 = call noalias ptr @malloc(i64 noundef 112) #4
-  store ptr %92, ptr %11, align 8
-  %93 = load ptr, ptr %11, align 8
-  %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %94, i32 0, i32 0
-  store ptr %93, ptr %95, align 8
-  %96 = load ptr, ptr %11, align 8
-  %97 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %96, i32 0, i32 5
-  store i32 0, ptr %97, align 8
-  %98 = load i32, ptr %7, align 4
-  %99 = load ptr, ptr %11, align 8
-  %100 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %99, i32 0, i32 0
-  store i32 %98, ptr %100, align 8
-  %101 = load i32, ptr %6, align 4
-  %102 = load ptr, ptr %11, align 8
-  %103 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %102, i32 0, i32 1
-  store i32 %101, ptr %103, align 4
-  %104 = load ptr, ptr %11, align 8
-  %105 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %104, i32 0, i32 2
-  store i32 0, ptr %105, align 8
-  %106 = load ptr, ptr %11, align 8
-  %107 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %106, i32 0, i32 3
-  store i32 0, ptr %107, align 4
-  %108 = load ptr, ptr %11, align 8
-  %109 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %108, i32 0, i32 4
-  store double 0.000000e+00, ptr %109, align 8
-  %110 = load ptr, ptr %11, align 8
-  %111 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %110, i32 0, i32 12
-  store ptr null, ptr %111, align 8
-  %112 = load ptr, ptr %11, align 8
-  %113 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %112, i32 0, i32 13
-  store ptr null, ptr %113, align 8
-  %114 = load ptr, ptr %11, align 8
-  %115 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %114, i32 0, i32 14
-  store ptr null, ptr %115, align 8
-  %116 = load ptr, ptr %11, align 8
-  %117 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %116, i32 0, i32 15
-  store ptr null, ptr %117, align 8
-  %118 = load ptr, ptr %11, align 8
-  %119 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %118, i32 0, i32 11
-  store ptr null, ptr %119, align 8
-  %120 = load ptr, ptr %11, align 8
-  %121 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %120, i32 0, i32 6
-  store ptr null, ptr %121, align 8
-  %122 = load ptr, ptr %11, align 8
-  %123 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %122, i32 0, i32 7
-  store ptr null, ptr %123, align 8
-  %124 = load ptr, ptr %11, align 8
-  %125 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %124, i32 0, i32 8
-  store ptr null, ptr %125, align 8
-  %126 = load ptr, ptr %11, align 8
-  %127 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %126, i32 0, i32 9
-  store ptr null, ptr %127, align 8
-  %128 = load ptr, ptr %11, align 8
-  %129 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %128, i32 0, i32 10
-  store ptr null, ptr %129, align 8
-  %130 = load ptr, ptr %5, align 8
+  store ptr %31, ptr %10, align 8, !tbaa !12
+  %32 = load ptr, ptr %10, align 8, !tbaa !12
+  %33 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !14
+  %35 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %34, i32 0, i32 0
+  store ptr @SUNLinSolGetType_PCG, ptr %35, align 8, !tbaa !17
+  %36 = load ptr, ptr %10, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !14
+  %39 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %38, i32 0, i32 1
+  store ptr @SUNLinSolGetID_PCG, ptr %39, align 8, !tbaa !19
+  %40 = load ptr, ptr %10, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !14
+  %43 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %42, i32 0, i32 2
+  store ptr @SUNLinSolSetATimes_PCG, ptr %43, align 8, !tbaa !20
+  %44 = load ptr, ptr %10, align 8, !tbaa !12
+  %45 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !14
+  %47 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %46, i32 0, i32 3
+  store ptr @SUNLinSolSetPreconditioner_PCG, ptr %47, align 8, !tbaa !21
+  %48 = load ptr, ptr %10, align 8, !tbaa !12
+  %49 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8, !tbaa !14
+  %51 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %50, i32 0, i32 4
+  store ptr @SUNLinSolSetScalingVectors_PCG, ptr %51, align 8, !tbaa !22
+  %52 = load ptr, ptr %10, align 8, !tbaa !12
+  %53 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !14
+  %55 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %54, i32 0, i32 5
+  store ptr @SUNLinSolSetZeroGuess_PCG, ptr %55, align 8, !tbaa !23
+  %56 = load ptr, ptr %10, align 8, !tbaa !12
+  %57 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %58, i32 0, i32 6
+  store ptr @SUNLinSolInitialize_PCG, ptr %59, align 8, !tbaa !24
+  %60 = load ptr, ptr %10, align 8, !tbaa !12
+  %61 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !14
+  %63 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %62, i32 0, i32 7
+  store ptr @SUNLinSolSetup_PCG, ptr %63, align 8, !tbaa !25
+  %64 = load ptr, ptr %10, align 8, !tbaa !12
+  %65 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %64, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8, !tbaa !14
+  %67 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %66, i32 0, i32 8
+  store ptr @SUNLinSolSolve_PCG, ptr %67, align 8, !tbaa !26
+  %68 = load ptr, ptr %10, align 8, !tbaa !12
+  %69 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !14
+  %71 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %70, i32 0, i32 9
+  store ptr @SUNLinSolNumIters_PCG, ptr %71, align 8, !tbaa !27
+  %72 = load ptr, ptr %10, align 8, !tbaa !12
+  %73 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8, !tbaa !14
+  %75 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %74, i32 0, i32 10
+  store ptr @SUNLinSolResNorm_PCG, ptr %75, align 8, !tbaa !28
+  %76 = load ptr, ptr %10, align 8, !tbaa !12
+  %77 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8, !tbaa !14
+  %79 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %78, i32 0, i32 13
+  store ptr @SUNLinSolResid_PCG, ptr %79, align 8, !tbaa !29
+  %80 = load ptr, ptr %10, align 8, !tbaa !12
+  %81 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8, !tbaa !14
+  %83 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %82, i32 0, i32 11
+  store ptr @SUNLinSolLastFlag_PCG, ptr %83, align 8, !tbaa !30
+  %84 = load ptr, ptr %10, align 8, !tbaa !12
+  %85 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %84, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8, !tbaa !14
+  %87 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %86, i32 0, i32 12
+  store ptr @SUNLinSolSpace_PCG, ptr %87, align 8, !tbaa !31
+  %88 = load ptr, ptr %10, align 8, !tbaa !12
+  %89 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8, !tbaa !14
+  %91 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %90, i32 0, i32 14
+  store ptr @SUNLinSolFree_PCG, ptr %91, align 8, !tbaa !32
+  store ptr null, ptr %11, align 8, !tbaa !33
+  %92 = call noalias ptr @malloc(i64 noundef 112) #6
+  store ptr %92, ptr %11, align 8, !tbaa !33
+  %93 = load ptr, ptr %11, align 8, !tbaa !33
+  %94 = load ptr, ptr %10, align 8, !tbaa !12
+  %95 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %94, i32 0, i32 0
+  store ptr %93, ptr %95, align 8, !tbaa !35
+  %96 = load ptr, ptr %11, align 8, !tbaa !33
+  %97 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %96, i32 0, i32 5
+  store i32 0, ptr %97, align 8, !tbaa !36
+  %98 = load i32, ptr %7, align 4, !tbaa !8
+  %99 = load ptr, ptr %11, align 8, !tbaa !33
+  %100 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %99, i32 0, i32 0
+  store i32 %98, ptr %100, align 8, !tbaa !39
+  %101 = load i32, ptr %6, align 4, !tbaa !8
+  %102 = load ptr, ptr %11, align 8, !tbaa !33
+  %103 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %102, i32 0, i32 1
+  store i32 %101, ptr %103, align 4, !tbaa !40
+  %104 = load ptr, ptr %11, align 8, !tbaa !33
+  %105 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %104, i32 0, i32 2
+  store i32 0, ptr %105, align 8, !tbaa !41
+  %106 = load ptr, ptr %11, align 8, !tbaa !33
+  %107 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %106, i32 0, i32 3
+  store i32 0, ptr %107, align 4, !tbaa !42
+  %108 = load ptr, ptr %11, align 8, !tbaa !33
+  %109 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %108, i32 0, i32 4
+  store double 0.000000e+00, ptr %109, align 8, !tbaa !43
+  %110 = load ptr, ptr %11, align 8, !tbaa !33
+  %111 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %110, i32 0, i32 12
+  store ptr null, ptr %111, align 8, !tbaa !44
+  %112 = load ptr, ptr %11, align 8, !tbaa !33
+  %113 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %112, i32 0, i32 13
+  store ptr null, ptr %113, align 8, !tbaa !45
+  %114 = load ptr, ptr %11, align 8, !tbaa !33
+  %115 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %114, i32 0, i32 14
+  store ptr null, ptr %115, align 8, !tbaa !46
+  %116 = load ptr, ptr %11, align 8, !tbaa !33
+  %117 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %116, i32 0, i32 15
+  store ptr null, ptr %117, align 8, !tbaa !47
+  %118 = load ptr, ptr %11, align 8, !tbaa !33
+  %119 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %118, i32 0, i32 11
+  store ptr null, ptr %119, align 8, !tbaa !48
+  %120 = load ptr, ptr %11, align 8, !tbaa !33
+  %121 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %120, i32 0, i32 6
+  store ptr null, ptr %121, align 8, !tbaa !49
+  %122 = load ptr, ptr %11, align 8, !tbaa !33
+  %123 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %122, i32 0, i32 7
+  store ptr null, ptr %123, align 8, !tbaa !50
+  %124 = load ptr, ptr %11, align 8, !tbaa !33
+  %125 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %124, i32 0, i32 8
+  store ptr null, ptr %125, align 8, !tbaa !51
+  %126 = load ptr, ptr %11, align 8, !tbaa !33
+  %127 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %126, i32 0, i32 9
+  store ptr null, ptr %127, align 8, !tbaa !52
+  %128 = load ptr, ptr %11, align 8, !tbaa !33
+  %129 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %128, i32 0, i32 10
+  store ptr null, ptr %129, align 8, !tbaa !53
+  %130 = load ptr, ptr %5, align 8, !tbaa !3
   %131 = call ptr @N_VClone(ptr noundef %130)
-  %132 = load ptr, ptr %11, align 8
-  %133 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %132, i32 0, i32 12
-  store ptr %131, ptr %133, align 8
-  %134 = load ptr, ptr %5, align 8
+  %132 = load ptr, ptr %11, align 8, !tbaa !33
+  %133 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %132, i32 0, i32 12
+  store ptr %131, ptr %133, align 8, !tbaa !44
+  %134 = load ptr, ptr %5, align 8, !tbaa !3
   %135 = call ptr @N_VClone(ptr noundef %134)
-  %136 = load ptr, ptr %11, align 8
-  %137 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %136, i32 0, i32 13
-  store ptr %135, ptr %137, align 8
-  %138 = load ptr, ptr %5, align 8
+  %136 = load ptr, ptr %11, align 8, !tbaa !33
+  %137 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %136, i32 0, i32 13
+  store ptr %135, ptr %137, align 8, !tbaa !45
+  %138 = load ptr, ptr %5, align 8, !tbaa !3
   %139 = call ptr @N_VClone(ptr noundef %138)
-  %140 = load ptr, ptr %11, align 8
-  %141 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %140, i32 0, i32 14
-  store ptr %139, ptr %141, align 8
-  %142 = load ptr, ptr %5, align 8
+  %140 = load ptr, ptr %11, align 8, !tbaa !33
+  %141 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %140, i32 0, i32 14
+  store ptr %139, ptr %141, align 8, !tbaa !46
+  %142 = load ptr, ptr %5, align 8, !tbaa !3
   %143 = call ptr @N_VClone(ptr noundef %142)
-  %144 = load ptr, ptr %11, align 8
-  %145 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %144, i32 0, i32 15
-  store ptr %143, ptr %145, align 8
-  %146 = load ptr, ptr %10, align 8
+  %144 = load ptr, ptr %11, align 8, !tbaa !33
+  %145 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %144, i32 0, i32 15
+  store ptr %143, ptr %145, align 8, !tbaa !47
+  %146 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret ptr %146
 }
 
-declare ptr @SUNLinSolNewEmpty(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @SUNLinSolNewEmpty(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @SUNLinSolGetType_PCG(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @SUNLinSolGetID_PCG(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   ret i32 5
 }
 
@@ -234,21 +243,21 @@ define i32 @SUNLinSolSetATimes_PCG(ptr noundef %0, ptr noundef %1, ptr noundef %
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %10, i32 0, i32 6
-  store ptr %7, ptr %11, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %15, i32 0, i32 7
-  store ptr %12, ptr %16, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store ptr %2, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %6, align 8, !tbaa !54
+  %8 = load ptr, ptr %4, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %10, i32 0, i32 6
+  store ptr %7, ptr %11, align 8, !tbaa !49
+  %12 = load ptr, ptr %5, align 8, !tbaa !54
+  %13 = load ptr, ptr %4, align 8, !tbaa !12
+  %14 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
+  %16 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %15, i32 0, i32 7
+  store ptr %12, ptr %16, align 8, !tbaa !50
   ret i32 0
 }
 
@@ -258,28 +267,28 @@ define i32 @SUNLinSolSetPreconditioner_PCG(ptr noundef %0, ptr noundef %1, ptr n
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %12, i32 0, i32 8
-  store ptr %9, ptr %13, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %17, i32 0, i32 9
-  store ptr %14, ptr %18, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %22, i32 0, i32 10
-  store ptr %19, ptr %23, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !54
+  store ptr %2, ptr %7, align 8, !tbaa !54
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %7, align 8, !tbaa !54
+  %10 = load ptr, ptr %5, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %13 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %12, i32 0, i32 8
+  store ptr %9, ptr %13, align 8, !tbaa !51
+  %14 = load ptr, ptr %8, align 8, !tbaa !54
+  %15 = load ptr, ptr %5, align 8, !tbaa !12
+  %16 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !35
+  %18 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %17, i32 0, i32 9
+  store ptr %14, ptr %18, align 8, !tbaa !52
+  %19 = load ptr, ptr %6, align 8, !tbaa !54
+  %20 = load ptr, ptr %5, align 8, !tbaa !12
+  %21 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %23 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %22, i32 0, i32 10
+  store ptr %19, ptr %23, align 8, !tbaa !53
   ret i32 0
 }
 
@@ -288,15 +297,15 @@ define i32 @SUNLinSolSetScalingVectors_PCG(ptr noundef %0, ptr noundef %1, ptr n
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %10, i32 0, i32 11
-  store ptr %7, ptr %11, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %10, i32 0, i32 11
+  store ptr %7, ptr %11, align 8, !tbaa !48
   ret i32 0
 }
 
@@ -304,14 +313,14 @@ define i32 @SUNLinSolSetScalingVectors_PCG(ptr noundef %0, ptr noundef %1, ptr n
 define i32 @SUNLinSolSetZeroGuess_PCG(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %8, i32 0, i32 2
-  store i32 %5, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %9 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %8, i32 0, i32 2
+  store i32 %5, ptr %9, align 8, !tbaa !41
   ret i32 0
 }
 
@@ -319,63 +328,65 @@ define i32 @SUNLinSolSetZeroGuess_PCG(ptr noundef %0, i32 noundef %1) #0 {
 define i32 @SUNLinSolInitialize_PCG(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %4, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %9, i32 0, i32 0
-  %11 = load i32, ptr %10, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = load ptr, ptr %2, align 8, !tbaa !12
+  %5 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %4, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8, !tbaa !55
+  store ptr %6, ptr %3, align 8, !tbaa !10
+  %7 = load ptr, ptr %2, align 8, !tbaa !12
+  %8 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !35
+  %10 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %9, i32 0, i32 0
+  %11 = load i32, ptr %10, align 8, !tbaa !39
   %12 = icmp sle i32 %11, 0
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %16, i32 0, i32 0
-  store i32 5, ptr %17, align 8
+  %14 = load ptr, ptr %2, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %17 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %16, i32 0, i32 0
+  store i32 5, ptr %17, align 8, !tbaa !39
   br label %18
 
 18:                                               ; preds = %13, %1
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 4
+  %19 = load ptr, ptr %2, align 8, !tbaa !12
+  %20 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !35
+  %22 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 4, !tbaa !40
   %24 = icmp ne i32 %23, 1
   br i1 %24, label %25, label %44
 
 25:                                               ; preds = %18
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %28, i32 0, i32 1
-  %30 = load i32, ptr %29, align 4
+  %26 = load ptr, ptr %2, align 8, !tbaa !12
+  %27 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !35
+  %29 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 4, !tbaa !40
   %31 = icmp ne i32 %30, 2
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %25
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
+  %33 = load ptr, ptr %2, align 8, !tbaa !12
+  %34 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !35
+  %36 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 4, !tbaa !40
   %38 = icmp ne i32 %37, 3
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %32
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %42, i32 0, i32 1
-  store i32 0, ptr %43, align 4
+  %40 = load ptr, ptr %2, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %43 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %42, i32 0, i32 1
+  store i32 0, ptr %43, align 4, !tbaa !40
   br label %44
 
 44:                                               ; preds = %39, %32, %25, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret i32 0
 }
 
@@ -388,69 +399,80 @@ define i32 @SUNLinSolSetup_PCG(ptr noundef %0, ptr noundef %1) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %15, i32 0, i32 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %8, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %20, i32 0, i32 10
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %45
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %11 = load ptr, ptr %4, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !55
+  store ptr %13, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %17 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %16, i32 0, i32 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !51
+  store ptr %18, ptr %8, align 8, !tbaa !54
+  %19 = load ptr, ptr %4, align 8, !tbaa !12
+  %20 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !35
+  %22 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %21, i32 0, i32 10
+  %23 = load ptr, ptr %22, align 8, !tbaa !53
+  store ptr %23, ptr %9, align 8, !tbaa !54
+  %24 = load ptr, ptr %8, align 8, !tbaa !54
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %46
 
-25:                                               ; preds = %2
-  %26 = load ptr, ptr %8, align 8
-  %27 = load ptr, ptr %9, align 8
-  %28 = call i32 %26(ptr noundef %27)
-  store i32 %28, ptr %7, align 4
-  %29 = load i32, ptr %7, align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %44
+26:                                               ; preds = %2
+  %27 = load ptr, ptr %8, align 8, !tbaa !54
+  %28 = load ptr, ptr %9, align 8, !tbaa !54
+  %29 = call i32 %27(ptr noundef %28)
+  store i32 %29, ptr %7, align 4, !tbaa !8
+  %30 = load i32, ptr %7, align 4, !tbaa !8
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %45
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp slt i32 %32, 0
-  %34 = select i1 %33, i32 -806, i32 804
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %37, i32 0, i32 5
-  store i32 %34, ptr %38, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %41, i32 0, i32 5
-  %43 = load i32, ptr %42, align 8
-  store i32 %43, ptr %3, align 4
-  br label %50
+32:                                               ; preds = %26
+  %33 = load i32, ptr %7, align 4, !tbaa !8
+  %34 = icmp slt i32 %33, 0
+  %35 = select i1 %34, i32 -806, i32 804
+  %36 = load ptr, ptr %4, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !35
+  %39 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %38, i32 0, i32 5
+  store i32 %35, ptr %39, align 8, !tbaa !36
+  %40 = load ptr, ptr %4, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %43 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %42, i32 0, i32 5
+  %44 = load i32, ptr %43, align 8, !tbaa !36
+  store i32 %44, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %51
 
-44:                                               ; preds = %25
-  br label %45
+45:                                               ; preds = %26
+  br label %46
 
-45:                                               ; preds = %44, %2
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %48, i32 0, i32 5
-  store i32 0, ptr %49, align 8
+46:                                               ; preds = %45, %2
+  %47 = load ptr, ptr %4, align 8, !tbaa !12
+  %48 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !35
+  %50 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %49, i32 0, i32 5
+  store i32 0, ptr %50, align 8, !tbaa !36
   store i32 0, ptr %3, align 4
-  br label %50
+  store i32 1, ptr %10, align 4
+  br label %51
 
-50:                                               ; preds = %45, %31
-  %51 = load i32, ptr %3, align 4
-  ret i32 %51
+51:                                               ; preds = %46, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %52 = load i32, ptr %3, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nounwind uwtable
@@ -487,594 +509,653 @@ define i32 @SUNLinSolSolve_PCG(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %35 = alloca ptr, align 8
   %36 = alloca ptr, align 8
   %37 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store double %4, ptr %11, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %12, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %41, i32 0, i32 0
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  store i32 %45, ptr %29, align 4
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %48, i32 0, i32 12
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %19, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %51, i32 0, i32 0
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %53, i32 0, i32 13
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %20, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  store ptr %60, ptr %21, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %63, i32 0, i32 15
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %22, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %66, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %68, i32 0, i32 11
-  %70 = load ptr, ptr %69, align 8
-  store ptr %70, ptr %23, align 8
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %73, i32 0, i32 7
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %31, align 8
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %78, i32 0, i32 10
-  %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %32, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %81, i32 0, i32 0
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %83, i32 0, i32 6
-  %85 = load ptr, ptr %84, align 8
-  store ptr %85, ptr %33, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %88, i32 0, i32 9
-  %90 = load ptr, ptr %89, align 8
-  store ptr %90, ptr %34, align 8
-  %91 = load ptr, ptr %7, align 8
-  %92 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %91, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %93, i32 0, i32 1
-  %95 = load i32, ptr %94, align 4
-  store i32 %95, ptr %30, align 4
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %96, i32 0, i32 0
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %98, i32 0, i32 2
-  store ptr %99, ptr %27, align 8
-  %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %100, i32 0, i32 0
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %102, i32 0, i32 3
-  store ptr %103, ptr %36, align 8
-  %104 = load ptr, ptr %7, align 8
-  %105 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %104, i32 0, i32 0
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %106, i32 0, i32 4
-  store ptr %107, ptr %35, align 8
-  %108 = load ptr, ptr %36, align 8
-  store i32 0, ptr %108, align 4
-  store i32 0, ptr %26, align 4
-  %109 = load i32, ptr %30, align 4
-  %110 = icmp eq i32 %109, 3
-  br i1 %110, label %117, label %111
+  %38 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !12
+  store ptr %1, ptr %8, align 8, !tbaa !56
+  store ptr %2, ptr %9, align 8, !tbaa !3
+  store ptr %3, ptr %10, align 8, !tbaa !3
+  store double %4, ptr %11, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %39 = load ptr, ptr %7, align 8, !tbaa !12
+  %40 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8, !tbaa !55
+  store ptr %41, ptr %12, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #5
+  %42 = load ptr, ptr %7, align 8, !tbaa !12
+  %43 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !35
+  %45 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !39
+  store i32 %46, ptr %29, align 4, !tbaa !8
+  %47 = load ptr, ptr %7, align 8, !tbaa !12
+  %48 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !35
+  %50 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %49, i32 0, i32 12
+  %51 = load ptr, ptr %50, align 8, !tbaa !44
+  store ptr %51, ptr %19, align 8, !tbaa !3
+  %52 = load ptr, ptr %7, align 8, !tbaa !12
+  %53 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !35
+  %55 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %54, i32 0, i32 13
+  %56 = load ptr, ptr %55, align 8, !tbaa !45
+  store ptr %56, ptr %20, align 8, !tbaa !3
+  %57 = load ptr, ptr %7, align 8, !tbaa !12
+  %58 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !35
+  %60 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %59, i32 0, i32 14
+  %61 = load ptr, ptr %60, align 8, !tbaa !46
+  store ptr %61, ptr %21, align 8, !tbaa !3
+  %62 = load ptr, ptr %7, align 8, !tbaa !12
+  %63 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !35
+  %65 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %64, i32 0, i32 15
+  %66 = load ptr, ptr %65, align 8, !tbaa !47
+  store ptr %66, ptr %22, align 8, !tbaa !3
+  %67 = load ptr, ptr %7, align 8, !tbaa !12
+  %68 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8, !tbaa !35
+  %70 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %69, i32 0, i32 11
+  %71 = load ptr, ptr %70, align 8, !tbaa !48
+  store ptr %71, ptr %23, align 8, !tbaa !3
+  %72 = load ptr, ptr %7, align 8, !tbaa !12
+  %73 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !35
+  %75 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %74, i32 0, i32 7
+  %76 = load ptr, ptr %75, align 8, !tbaa !50
+  store ptr %76, ptr %31, align 8, !tbaa !54
+  %77 = load ptr, ptr %7, align 8, !tbaa !12
+  %78 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8, !tbaa !35
+  %80 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %79, i32 0, i32 10
+  %81 = load ptr, ptr %80, align 8, !tbaa !53
+  store ptr %81, ptr %32, align 8, !tbaa !54
+  %82 = load ptr, ptr %7, align 8, !tbaa !12
+  %83 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %82, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8, !tbaa !35
+  %85 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %84, i32 0, i32 6
+  %86 = load ptr, ptr %85, align 8, !tbaa !49
+  store ptr %86, ptr %33, align 8, !tbaa !54
+  %87 = load ptr, ptr %7, align 8, !tbaa !12
+  %88 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !35
+  %90 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %89, i32 0, i32 9
+  %91 = load ptr, ptr %90, align 8, !tbaa !52
+  store ptr %91, ptr %34, align 8, !tbaa !54
+  %92 = load ptr, ptr %7, align 8, !tbaa !12
+  %93 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %92, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8, !tbaa !35
+  %95 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %94, i32 0, i32 1
+  %96 = load i32, ptr %95, align 4, !tbaa !40
+  store i32 %96, ptr %30, align 4, !tbaa !8
+  %97 = load ptr, ptr %7, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8, !tbaa !35
+  %100 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %99, i32 0, i32 2
+  store ptr %100, ptr %27, align 8, !tbaa !59
+  %101 = load ptr, ptr %7, align 8, !tbaa !12
+  %102 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %101, i32 0, i32 0
+  %103 = load ptr, ptr %102, align 8, !tbaa !35
+  %104 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %103, i32 0, i32 3
+  store ptr %104, ptr %36, align 8, !tbaa !59
+  %105 = load ptr, ptr %7, align 8, !tbaa !12
+  %106 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %105, i32 0, i32 0
+  %107 = load ptr, ptr %106, align 8, !tbaa !35
+  %108 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %107, i32 0, i32 4
+  store ptr %108, ptr %35, align 8, !tbaa !61
+  %109 = load ptr, ptr %36, align 8, !tbaa !59
+  store i32 0, ptr %109, align 4, !tbaa !8
+  store i32 0, ptr %26, align 4, !tbaa !8
+  %110 = load i32, ptr %30, align 4, !tbaa !8
+  %111 = icmp eq i32 %110, 3
+  br i1 %111, label %118, label %112
 
-111:                                              ; preds = %5
-  %112 = load i32, ptr %30, align 4
-  %113 = icmp eq i32 %112, 1
-  br i1 %113, label %117, label %114
+112:                                              ; preds = %5
+  %113 = load i32, ptr %30, align 4, !tbaa !8
+  %114 = icmp eq i32 %113, 1
+  br i1 %114, label %118, label %115
 
-114:                                              ; preds = %111
-  %115 = load i32, ptr %30, align 4
-  %116 = icmp eq i32 %115, 2
-  br label %117
+115:                                              ; preds = %112
+  %116 = load i32, ptr %30, align 4, !tbaa !8
+  %117 = icmp eq i32 %116, 2
+  br label %118
 
-117:                                              ; preds = %114, %111, %5
-  %118 = phi i1 [ true, %111 ], [ true, %5 ], [ %116, %114 ]
-  %119 = zext i1 %118 to i32
-  store i32 %119, ptr %24, align 4
-  %120 = load ptr, ptr %23, align 8
-  %121 = icmp ne ptr %120, null
-  %122 = zext i1 %121 to i32
-  store i32 %122, ptr %25, align 4
-  %123 = load ptr, ptr %27, align 8
-  %124 = load i32, ptr %123, align 4
-  %125 = icmp ne i32 %124, 0
-  br i1 %125, label %126, label %129
+118:                                              ; preds = %115, %112, %5
+  %119 = phi i1 [ true, %112 ], [ true, %5 ], [ %117, %115 ]
+  %120 = zext i1 %119 to i32
+  store i32 %120, ptr %24, align 4, !tbaa !8
+  %121 = load ptr, ptr %23, align 8, !tbaa !3
+  %122 = icmp ne ptr %121, null
+  %123 = zext i1 %122 to i32
+  store i32 %123, ptr %25, align 4, !tbaa !8
+  %124 = load ptr, ptr %27, align 8, !tbaa !59
+  %125 = load i32, ptr %124, align 4, !tbaa !8
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %130
 
-126:                                              ; preds = %117
-  %127 = load ptr, ptr %10, align 8
-  %128 = load ptr, ptr %19, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %127, ptr noundef %128)
-  br label %155
+127:                                              ; preds = %118
+  %128 = load ptr, ptr %10, align 8, !tbaa !3
+  %129 = load ptr, ptr %19, align 8, !tbaa !3
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %128, ptr noundef %129)
+  br label %156
 
-129:                                              ; preds = %117
-  %130 = load ptr, ptr %33, align 8
-  %131 = load ptr, ptr %31, align 8
-  %132 = load ptr, ptr %9, align 8
-  %133 = load ptr, ptr %19, align 8
-  %134 = call i32 %130(ptr noundef %131, ptr noundef %132, ptr noundef %133)
-  store i32 %134, ptr %37, align 4
-  %135 = load i32, ptr %37, align 4
-  %136 = icmp ne i32 %135, 0
-  br i1 %136, label %137, label %151
+130:                                              ; preds = %118
+  %131 = load ptr, ptr %33, align 8, !tbaa !54
+  %132 = load ptr, ptr %31, align 8, !tbaa !54
+  %133 = load ptr, ptr %9, align 8, !tbaa !3
+  %134 = load ptr, ptr %19, align 8, !tbaa !3
+  %135 = call i32 %131(ptr noundef %132, ptr noundef %133, ptr noundef %134)
+  store i32 %135, ptr %37, align 4, !tbaa !8
+  %136 = load i32, ptr %37, align 4, !tbaa !8
+  %137 = icmp ne i32 %136, 0
+  br i1 %137, label %138, label %152
 
-137:                                              ; preds = %129
-  %138 = load ptr, ptr %27, align 8
-  store i32 0, ptr %138, align 4
-  %139 = load i32, ptr %37, align 4
-  %140 = icmp slt i32 %139, 0
-  %141 = select i1 %140, i32 -805, i32 803
-  %142 = load ptr, ptr %7, align 8
-  %143 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %142, i32 0, i32 0
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %144, i32 0, i32 5
-  store i32 %141, ptr %145, align 8
-  %146 = load ptr, ptr %7, align 8
-  %147 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %146, i32 0, i32 0
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %148, i32 0, i32 5
-  %150 = load i32, ptr %149, align 8
-  store i32 %150, ptr %6, align 4
-  br label %392
+138:                                              ; preds = %130
+  %139 = load ptr, ptr %27, align 8, !tbaa !59
+  store i32 0, ptr %139, align 4, !tbaa !8
+  %140 = load i32, ptr %37, align 4, !tbaa !8
+  %141 = icmp slt i32 %140, 0
+  %142 = select i1 %141, i32 -805, i32 803
+  %143 = load ptr, ptr %7, align 8, !tbaa !12
+  %144 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %143, i32 0, i32 0
+  %145 = load ptr, ptr %144, align 8, !tbaa !35
+  %146 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %145, i32 0, i32 5
+  store i32 %142, ptr %146, align 8, !tbaa !36
+  %147 = load ptr, ptr %7, align 8, !tbaa !12
+  %148 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %147, i32 0, i32 0
+  %149 = load ptr, ptr %148, align 8, !tbaa !35
+  %150 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %149, i32 0, i32 5
+  %151 = load i32, ptr %150, align 8, !tbaa !36
+  store i32 %151, ptr %6, align 4
+  store i32 1, ptr %38, align 4
+  br label %393
 
-151:                                              ; preds = %129
-  %152 = load ptr, ptr %10, align 8
-  %153 = load ptr, ptr %19, align 8
-  %154 = load ptr, ptr %19, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %152, double noundef -1.000000e+00, ptr noundef %153, ptr noundef %154)
-  br label %155
+152:                                              ; preds = %130
+  %153 = load ptr, ptr %10, align 8, !tbaa !3
+  %154 = load ptr, ptr %19, align 8, !tbaa !3
+  %155 = load ptr, ptr %19, align 8, !tbaa !3
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %153, double noundef -1.000000e+00, ptr noundef %154, ptr noundef %155)
+  br label %156
 
-155:                                              ; preds = %151, %126
-  %156 = load i32, ptr %25, align 4
-  %157 = icmp ne i32 %156, 0
-  br i1 %157, label %158, label %162
+156:                                              ; preds = %152, %127
+  %157 = load i32, ptr %25, align 4, !tbaa !8
+  %158 = icmp ne i32 %157, 0
+  br i1 %158, label %159, label %163
 
-158:                                              ; preds = %155
-  %159 = load ptr, ptr %19, align 8
-  %160 = load ptr, ptr %23, align 8
-  %161 = load ptr, ptr %22, align 8
-  call void @N_VProd(ptr noundef %159, ptr noundef %160, ptr noundef %161)
-  br label %165
+159:                                              ; preds = %156
+  %160 = load ptr, ptr %19, align 8, !tbaa !3
+  %161 = load ptr, ptr %23, align 8, !tbaa !3
+  %162 = load ptr, ptr %22, align 8, !tbaa !3
+  call void @N_VProd(ptr noundef %160, ptr noundef %161, ptr noundef %162)
+  br label %166
 
-162:                                              ; preds = %155
-  %163 = load ptr, ptr %19, align 8
-  %164 = load ptr, ptr %22, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %163, ptr noundef %164)
-  br label %165
+163:                                              ; preds = %156
+  %164 = load ptr, ptr %19, align 8, !tbaa !3
+  %165 = load ptr, ptr %22, align 8, !tbaa !3
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %164, ptr noundef %165)
+  br label %166
 
-165:                                              ; preds = %162, %158
-  %166 = load ptr, ptr %22, align 8
-  %167 = load ptr, ptr %22, align 8
-  %168 = call double @N_VDotProd(ptr noundef %166, ptr noundef %167)
-  store double %168, ptr %16, align 8
-  %169 = load double, ptr %16, align 8
-  %170 = fcmp ole double %169, 0.000000e+00
-  br i1 %170, label %171, label %172
+166:                                              ; preds = %163, %159
+  %167 = load ptr, ptr %22, align 8, !tbaa !3
+  %168 = load ptr, ptr %22, align 8, !tbaa !3
+  %169 = call double @N_VDotProd(ptr noundef %167, ptr noundef %168)
+  store double %169, ptr %16, align 8, !tbaa !58
+  %170 = load double, ptr %16, align 8, !tbaa !58
+  %171 = fcmp ole double %170, 0.000000e+00
+  br i1 %171, label %172, label %173
 
-171:                                              ; preds = %165
-  br label %175
+172:                                              ; preds = %166
+  br label %176
 
-172:                                              ; preds = %165
-  %173 = load double, ptr %16, align 8
-  %174 = call double @sqrt(double noundef %173) #5
-  br label %175
+173:                                              ; preds = %166
+  %174 = load double, ptr %16, align 8, !tbaa !58
+  %175 = call double @sqrt(double noundef %174) #5, !tbaa !8
+  br label %176
 
-175:                                              ; preds = %172, %171
-  %176 = phi double [ 0.000000e+00, %171 ], [ %174, %172 ]
-  store double %176, ptr %16, align 8
-  store double %176, ptr %15, align 8
-  %177 = load ptr, ptr %35, align 8
-  store double %176, ptr %177, align 8
-  %178 = load double, ptr %16, align 8
-  %179 = load double, ptr %11, align 8
-  %180 = fcmp ole double %178, %179
-  br i1 %180, label %181, label %192
+176:                                              ; preds = %173, %172
+  %177 = phi double [ 0.000000e+00, %172 ], [ %175, %173 ]
+  store double %177, ptr %16, align 8, !tbaa !58
+  store double %177, ptr %15, align 8, !tbaa !58
+  %178 = load ptr, ptr %35, align 8, !tbaa !61
+  store double %177, ptr %178, align 8, !tbaa !58
+  %179 = load double, ptr %16, align 8, !tbaa !58
+  %180 = load double, ptr %11, align 8, !tbaa !58
+  %181 = fcmp ole double %179, %180
+  br i1 %181, label %182, label %193
 
-181:                                              ; preds = %175
-  %182 = load ptr, ptr %27, align 8
-  store i32 0, ptr %182, align 4
-  %183 = load ptr, ptr %7, align 8
-  %184 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %183, i32 0, i32 0
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %185, i32 0, i32 5
-  store i32 0, ptr %186, align 8
-  %187 = load ptr, ptr %7, align 8
-  %188 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %187, i32 0, i32 0
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %189, i32 0, i32 5
-  %191 = load i32, ptr %190, align 8
-  store i32 %191, ptr %6, align 4
-  br label %392
+182:                                              ; preds = %176
+  %183 = load ptr, ptr %27, align 8, !tbaa !59
+  store i32 0, ptr %183, align 4, !tbaa !8
+  %184 = load ptr, ptr %7, align 8, !tbaa !12
+  %185 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %184, i32 0, i32 0
+  %186 = load ptr, ptr %185, align 8, !tbaa !35
+  %187 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %186, i32 0, i32 5
+  store i32 0, ptr %187, align 8, !tbaa !36
+  %188 = load ptr, ptr %7, align 8, !tbaa !12
+  %189 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %188, i32 0, i32 0
+  %190 = load ptr, ptr %189, align 8, !tbaa !35
+  %191 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %190, i32 0, i32 5
+  %192 = load i32, ptr %191, align 8, !tbaa !36
+  store i32 %192, ptr %6, align 4
+  store i32 1, ptr %38, align 4
+  br label %393
 
-192:                                              ; preds = %175
-  %193 = load i32, ptr %24, align 4
-  %194 = icmp ne i32 %193, 0
-  br i1 %194, label %195, label %219
+193:                                              ; preds = %176
+  %194 = load i32, ptr %24, align 4, !tbaa !8
+  %195 = icmp ne i32 %194, 0
+  br i1 %195, label %196, label %220
 
-195:                                              ; preds = %192
-  %196 = load ptr, ptr %34, align 8
-  %197 = load ptr, ptr %32, align 8
-  %198 = load ptr, ptr %19, align 8
-  %199 = load ptr, ptr %21, align 8
-  %200 = load double, ptr %11, align 8
-  %201 = call i32 %196(ptr noundef %197, ptr noundef %198, ptr noundef %199, double noundef %200, i32 noundef 1)
-  store i32 %201, ptr %37, align 4
-  %202 = load i32, ptr %37, align 4
-  %203 = icmp ne i32 %202, 0
-  br i1 %203, label %204, label %218
+196:                                              ; preds = %193
+  %197 = load ptr, ptr %34, align 8, !tbaa !54
+  %198 = load ptr, ptr %32, align 8, !tbaa !54
+  %199 = load ptr, ptr %19, align 8, !tbaa !3
+  %200 = load ptr, ptr %21, align 8, !tbaa !3
+  %201 = load double, ptr %11, align 8, !tbaa !58
+  %202 = call i32 %197(ptr noundef %198, ptr noundef %199, ptr noundef %200, double noundef %201, i32 noundef 1)
+  store i32 %202, ptr %37, align 4, !tbaa !8
+  %203 = load i32, ptr %37, align 4, !tbaa !8
+  %204 = icmp ne i32 %203, 0
+  br i1 %204, label %205, label %219
 
-204:                                              ; preds = %195
-  %205 = load ptr, ptr %27, align 8
-  store i32 0, ptr %205, align 4
-  %206 = load i32, ptr %37, align 4
-  %207 = icmp slt i32 %206, 0
-  %208 = select i1 %207, i32 -808, i32 805
-  %209 = load ptr, ptr %7, align 8
-  %210 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %209, i32 0, i32 0
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %211, i32 0, i32 5
-  store i32 %208, ptr %212, align 8
-  %213 = load ptr, ptr %7, align 8
-  %214 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %213, i32 0, i32 0
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %215, i32 0, i32 5
-  %217 = load i32, ptr %216, align 8
-  store i32 %217, ptr %6, align 4
-  br label %392
+205:                                              ; preds = %196
+  %206 = load ptr, ptr %27, align 8, !tbaa !59
+  store i32 0, ptr %206, align 4, !tbaa !8
+  %207 = load i32, ptr %37, align 4, !tbaa !8
+  %208 = icmp slt i32 %207, 0
+  %209 = select i1 %208, i32 -808, i32 805
+  %210 = load ptr, ptr %7, align 8, !tbaa !12
+  %211 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %210, i32 0, i32 0
+  %212 = load ptr, ptr %211, align 8, !tbaa !35
+  %213 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %212, i32 0, i32 5
+  store i32 %209, ptr %213, align 8, !tbaa !36
+  %214 = load ptr, ptr %7, align 8, !tbaa !12
+  %215 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %214, i32 0, i32 0
+  %216 = load ptr, ptr %215, align 8, !tbaa !35
+  %217 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %216, i32 0, i32 5
+  %218 = load i32, ptr %217, align 8, !tbaa !36
+  store i32 %218, ptr %6, align 4
+  store i32 1, ptr %38, align 4
+  br label %393
 
-218:                                              ; preds = %195
-  br label %222
+219:                                              ; preds = %196
+  br label %223
 
-219:                                              ; preds = %192
-  %220 = load ptr, ptr %19, align 8
-  %221 = load ptr, ptr %21, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %220, ptr noundef %221)
-  br label %222
+220:                                              ; preds = %193
+  %221 = load ptr, ptr %19, align 8, !tbaa !3
+  %222 = load ptr, ptr %21, align 8, !tbaa !3
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %221, ptr noundef %222)
+  br label %223
 
-222:                                              ; preds = %219, %218
-  %223 = load ptr, ptr %19, align 8
-  %224 = load ptr, ptr %21, align 8
-  %225 = call double @N_VDotProd(ptr noundef %223, ptr noundef %224)
-  store double %225, ptr %17, align 8
-  %226 = load ptr, ptr %21, align 8
-  %227 = load ptr, ptr %20, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %226, ptr noundef %227)
-  store i32 0, ptr %28, align 4
-  br label %228
+223:                                              ; preds = %220, %219
+  %224 = load ptr, ptr %19, align 8, !tbaa !3
+  %225 = load ptr, ptr %21, align 8, !tbaa !3
+  %226 = call double @N_VDotProd(ptr noundef %224, ptr noundef %225)
+  store double %226, ptr %17, align 8, !tbaa !58
+  %227 = load ptr, ptr %21, align 8, !tbaa !3
+  %228 = load ptr, ptr %20, align 8, !tbaa !3
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %227, ptr noundef %228)
+  store i32 0, ptr %28, align 4, !tbaa !8
+  br label %229
 
-228:                                              ; preds = %359, %222
-  %229 = load i32, ptr %28, align 4
-  %230 = load i32, ptr %29, align 4
-  %231 = icmp slt i32 %229, %230
-  br i1 %231, label %232, label %362
+229:                                              ; preds = %360, %223
+  %230 = load i32, ptr %28, align 4, !tbaa !8
+  %231 = load i32, ptr %29, align 4, !tbaa !8
+  %232 = icmp slt i32 %230, %231
+  br i1 %232, label %233, label %363
 
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %36, align 8
-  %234 = load i32, ptr %233, align 4
-  %235 = add nsw i32 %234, 1
-  store i32 %235, ptr %233, align 4
-  %236 = load ptr, ptr %33, align 8
-  %237 = load ptr, ptr %31, align 8
-  %238 = load ptr, ptr %20, align 8
-  %239 = load ptr, ptr %22, align 8
-  %240 = call i32 %236(ptr noundef %237, ptr noundef %238, ptr noundef %239)
-  store i32 %240, ptr %37, align 4
-  %241 = load i32, ptr %37, align 4
-  %242 = icmp ne i32 %241, 0
-  br i1 %242, label %243, label %257
+233:                                              ; preds = %229
+  %234 = load ptr, ptr %36, align 8, !tbaa !59
+  %235 = load i32, ptr %234, align 4, !tbaa !8
+  %236 = add nsw i32 %235, 1
+  store i32 %236, ptr %234, align 4, !tbaa !8
+  %237 = load ptr, ptr %33, align 8, !tbaa !54
+  %238 = load ptr, ptr %31, align 8, !tbaa !54
+  %239 = load ptr, ptr %20, align 8, !tbaa !3
+  %240 = load ptr, ptr %22, align 8, !tbaa !3
+  %241 = call i32 %237(ptr noundef %238, ptr noundef %239, ptr noundef %240)
+  store i32 %241, ptr %37, align 4, !tbaa !8
+  %242 = load i32, ptr %37, align 4, !tbaa !8
+  %243 = icmp ne i32 %242, 0
+  br i1 %243, label %244, label %258
 
-243:                                              ; preds = %232
-  %244 = load ptr, ptr %27, align 8
-  store i32 0, ptr %244, align 4
-  %245 = load i32, ptr %37, align 4
-  %246 = icmp slt i32 %245, 0
-  %247 = select i1 %246, i32 -805, i32 803
-  %248 = load ptr, ptr %7, align 8
-  %249 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %248, i32 0, i32 0
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %250, i32 0, i32 5
-  store i32 %247, ptr %251, align 8
-  %252 = load ptr, ptr %7, align 8
-  %253 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %252, i32 0, i32 0
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %254, i32 0, i32 5
-  %256 = load i32, ptr %255, align 8
-  store i32 %256, ptr %6, align 4
-  br label %392
+244:                                              ; preds = %233
+  %245 = load ptr, ptr %27, align 8, !tbaa !59
+  store i32 0, ptr %245, align 4, !tbaa !8
+  %246 = load i32, ptr %37, align 4, !tbaa !8
+  %247 = icmp slt i32 %246, 0
+  %248 = select i1 %247, i32 -805, i32 803
+  %249 = load ptr, ptr %7, align 8, !tbaa !12
+  %250 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %249, i32 0, i32 0
+  %251 = load ptr, ptr %250, align 8, !tbaa !35
+  %252 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %251, i32 0, i32 5
+  store i32 %248, ptr %252, align 8, !tbaa !36
+  %253 = load ptr, ptr %7, align 8, !tbaa !12
+  %254 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %253, i32 0, i32 0
+  %255 = load ptr, ptr %254, align 8, !tbaa !35
+  %256 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %255, i32 0, i32 5
+  %257 = load i32, ptr %256, align 8, !tbaa !36
+  store i32 %257, ptr %6, align 4
+  store i32 1, ptr %38, align 4
+  br label %393
 
-257:                                              ; preds = %232
-  %258 = load ptr, ptr %22, align 8
-  %259 = load ptr, ptr %20, align 8
-  %260 = call double @N_VDotProd(ptr noundef %258, ptr noundef %259)
-  store double %260, ptr %13, align 8
-  %261 = load double, ptr %17, align 8
-  %262 = load double, ptr %13, align 8
-  %263 = fdiv double %261, %262
-  store double %263, ptr %13, align 8
-  %264 = load i32, ptr %28, align 4
-  %265 = icmp eq i32 %264, 0
-  br i1 %265, label %266, label %274
+258:                                              ; preds = %233
+  %259 = load ptr, ptr %22, align 8, !tbaa !3
+  %260 = load ptr, ptr %20, align 8, !tbaa !3
+  %261 = call double @N_VDotProd(ptr noundef %259, ptr noundef %260)
+  store double %261, ptr %13, align 8, !tbaa !58
+  %262 = load double, ptr %17, align 8, !tbaa !58
+  %263 = load double, ptr %13, align 8, !tbaa !58
+  %264 = fdiv double %262, %263
+  store double %264, ptr %13, align 8, !tbaa !58
+  %265 = load i32, ptr %28, align 4, !tbaa !8
+  %266 = icmp eq i32 %265, 0
+  br i1 %266, label %267, label %275
 
-266:                                              ; preds = %257
-  %267 = load ptr, ptr %27, align 8
-  %268 = load i32, ptr %267, align 4
-  %269 = icmp ne i32 %268, 0
-  br i1 %269, label %270, label %274
+267:                                              ; preds = %258
+  %268 = load ptr, ptr %27, align 8, !tbaa !59
+  %269 = load i32, ptr %268, align 4, !tbaa !8
+  %270 = icmp ne i32 %269, 0
+  br i1 %270, label %271, label %275
 
-270:                                              ; preds = %266
-  %271 = load double, ptr %13, align 8
-  %272 = load ptr, ptr %20, align 8
-  %273 = load ptr, ptr %9, align 8
-  call void @N_VScale(double noundef %271, ptr noundef %272, ptr noundef %273)
-  br label %279
+271:                                              ; preds = %267
+  %272 = load double, ptr %13, align 8, !tbaa !58
+  %273 = load ptr, ptr %20, align 8, !tbaa !3
+  %274 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @N_VScale(double noundef %272, ptr noundef %273, ptr noundef %274)
+  br label %280
 
-274:                                              ; preds = %266, %257
-  %275 = load ptr, ptr %9, align 8
-  %276 = load double, ptr %13, align 8
-  %277 = load ptr, ptr %20, align 8
-  %278 = load ptr, ptr %9, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %275, double noundef %276, ptr noundef %277, ptr noundef %278)
-  br label %279
+275:                                              ; preds = %267, %258
+  %276 = load ptr, ptr %9, align 8, !tbaa !3
+  %277 = load double, ptr %13, align 8, !tbaa !58
+  %278 = load ptr, ptr %20, align 8, !tbaa !3
+  %279 = load ptr, ptr %9, align 8, !tbaa !3
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %276, double noundef %277, ptr noundef %278, ptr noundef %279)
+  br label %280
 
-279:                                              ; preds = %274, %270
-  %280 = load ptr, ptr %19, align 8
-  %281 = load double, ptr %13, align 8
-  %282 = fneg double %281
-  %283 = load ptr, ptr %22, align 8
-  %284 = load ptr, ptr %19, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %280, double noundef %282, ptr noundef %283, ptr noundef %284)
-  %285 = load i32, ptr %25, align 4
-  %286 = icmp ne i32 %285, 0
-  br i1 %286, label %287, label %291
+280:                                              ; preds = %275, %271
+  %281 = load ptr, ptr %19, align 8, !tbaa !3
+  %282 = load double, ptr %13, align 8, !tbaa !58
+  %283 = fneg double %282
+  %284 = load ptr, ptr %22, align 8, !tbaa !3
+  %285 = load ptr, ptr %19, align 8, !tbaa !3
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %281, double noundef %283, ptr noundef %284, ptr noundef %285)
+  %286 = load i32, ptr %25, align 4, !tbaa !8
+  %287 = icmp ne i32 %286, 0
+  br i1 %287, label %288, label %292
 
-287:                                              ; preds = %279
-  %288 = load ptr, ptr %19, align 8
-  %289 = load ptr, ptr %23, align 8
-  %290 = load ptr, ptr %22, align 8
-  call void @N_VProd(ptr noundef %288, ptr noundef %289, ptr noundef %290)
-  br label %294
+288:                                              ; preds = %280
+  %289 = load ptr, ptr %19, align 8, !tbaa !3
+  %290 = load ptr, ptr %23, align 8, !tbaa !3
+  %291 = load ptr, ptr %22, align 8, !tbaa !3
+  call void @N_VProd(ptr noundef %289, ptr noundef %290, ptr noundef %291)
+  br label %295
 
-291:                                              ; preds = %279
-  %292 = load ptr, ptr %19, align 8
-  %293 = load ptr, ptr %22, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %292, ptr noundef %293)
-  br label %294
+292:                                              ; preds = %280
+  %293 = load ptr, ptr %19, align 8, !tbaa !3
+  %294 = load ptr, ptr %22, align 8, !tbaa !3
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %293, ptr noundef %294)
+  br label %295
 
-294:                                              ; preds = %291, %287
-  %295 = load ptr, ptr %22, align 8
-  %296 = load ptr, ptr %22, align 8
-  %297 = call double @N_VDotProd(ptr noundef %295, ptr noundef %296)
-  store double %297, ptr %16, align 8
-  %298 = load double, ptr %16, align 8
-  %299 = fcmp ole double %298, 0.000000e+00
-  br i1 %299, label %300, label %301
+295:                                              ; preds = %292, %288
+  %296 = load ptr, ptr %22, align 8, !tbaa !3
+  %297 = load ptr, ptr %22, align 8, !tbaa !3
+  %298 = call double @N_VDotProd(ptr noundef %296, ptr noundef %297)
+  store double %298, ptr %16, align 8, !tbaa !58
+  %299 = load double, ptr %16, align 8, !tbaa !58
+  %300 = fcmp ole double %299, 0.000000e+00
+  br i1 %300, label %301, label %302
 
-300:                                              ; preds = %294
-  br label %304
+301:                                              ; preds = %295
+  br label %305
 
-301:                                              ; preds = %294
-  %302 = load double, ptr %16, align 8
-  %303 = call double @sqrt(double noundef %302) #5
-  br label %304
+302:                                              ; preds = %295
+  %303 = load double, ptr %16, align 8, !tbaa !58
+  %304 = call double @sqrt(double noundef %303) #5, !tbaa !8
+  br label %305
 
-304:                                              ; preds = %301, %300
-  %305 = phi double [ 0.000000e+00, %300 ], [ %303, %301 ]
-  store double %305, ptr %16, align 8
-  %306 = load ptr, ptr %35, align 8
-  store double %305, ptr %306, align 8
-  %307 = load double, ptr %16, align 8
-  %308 = load double, ptr %11, align 8
-  %309 = fcmp ole double %307, %308
-  br i1 %309, label %310, label %311
+305:                                              ; preds = %302, %301
+  %306 = phi double [ 0.000000e+00, %301 ], [ %304, %302 ]
+  store double %306, ptr %16, align 8, !tbaa !58
+  %307 = load ptr, ptr %35, align 8, !tbaa !61
+  store double %306, ptr %307, align 8, !tbaa !58
+  %308 = load double, ptr %16, align 8, !tbaa !58
+  %309 = load double, ptr %11, align 8, !tbaa !58
+  %310 = fcmp ole double %308, %309
+  br i1 %310, label %311, label %312
 
-310:                                              ; preds = %304
-  store i32 1, ptr %26, align 4
-  br label %362
+311:                                              ; preds = %305
+  store i32 1, ptr %26, align 4, !tbaa !8
+  br label %363
 
-311:                                              ; preds = %304
-  %312 = load i32, ptr %28, align 4
-  %313 = load i32, ptr %29, align 4
-  %314 = sub nsw i32 %313, 1
-  %315 = icmp eq i32 %312, %314
-  br i1 %315, label %316, label %317
+312:                                              ; preds = %305
+  %313 = load i32, ptr %28, align 4, !tbaa !8
+  %314 = load i32, ptr %29, align 4, !tbaa !8
+  %315 = sub nsw i32 %314, 1
+  %316 = icmp eq i32 %313, %315
+  br i1 %316, label %317, label %318
 
-316:                                              ; preds = %311
-  br label %362
+317:                                              ; preds = %312
+  br label %363
 
-317:                                              ; preds = %311
-  %318 = load i32, ptr %24, align 4
-  %319 = icmp ne i32 %318, 0
-  br i1 %319, label %320, label %344
+318:                                              ; preds = %312
+  %319 = load i32, ptr %24, align 4, !tbaa !8
+  %320 = icmp ne i32 %319, 0
+  br i1 %320, label %321, label %345
 
-320:                                              ; preds = %317
-  %321 = load ptr, ptr %34, align 8
-  %322 = load ptr, ptr %32, align 8
-  %323 = load ptr, ptr %19, align 8
-  %324 = load ptr, ptr %21, align 8
-  %325 = load double, ptr %11, align 8
-  %326 = call i32 %321(ptr noundef %322, ptr noundef %323, ptr noundef %324, double noundef %325, i32 noundef 1)
-  store i32 %326, ptr %37, align 4
-  %327 = load i32, ptr %37, align 4
-  %328 = icmp ne i32 %327, 0
-  br i1 %328, label %329, label %343
+321:                                              ; preds = %318
+  %322 = load ptr, ptr %34, align 8, !tbaa !54
+  %323 = load ptr, ptr %32, align 8, !tbaa !54
+  %324 = load ptr, ptr %19, align 8, !tbaa !3
+  %325 = load ptr, ptr %21, align 8, !tbaa !3
+  %326 = load double, ptr %11, align 8, !tbaa !58
+  %327 = call i32 %322(ptr noundef %323, ptr noundef %324, ptr noundef %325, double noundef %326, i32 noundef 1)
+  store i32 %327, ptr %37, align 4, !tbaa !8
+  %328 = load i32, ptr %37, align 4, !tbaa !8
+  %329 = icmp ne i32 %328, 0
+  br i1 %329, label %330, label %344
 
-329:                                              ; preds = %320
-  %330 = load ptr, ptr %27, align 8
-  store i32 0, ptr %330, align 4
-  %331 = load i32, ptr %37, align 4
-  %332 = icmp slt i32 %331, 0
-  %333 = select i1 %332, i32 -808, i32 805
-  %334 = load ptr, ptr %7, align 8
-  %335 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %334, i32 0, i32 0
-  %336 = load ptr, ptr %335, align 8
-  %337 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %336, i32 0, i32 5
-  store i32 %333, ptr %337, align 8
-  %338 = load ptr, ptr %7, align 8
-  %339 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %338, i32 0, i32 0
-  %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %340, i32 0, i32 5
-  %342 = load i32, ptr %341, align 8
-  store i32 %342, ptr %6, align 4
-  br label %392
+330:                                              ; preds = %321
+  %331 = load ptr, ptr %27, align 8, !tbaa !59
+  store i32 0, ptr %331, align 4, !tbaa !8
+  %332 = load i32, ptr %37, align 4, !tbaa !8
+  %333 = icmp slt i32 %332, 0
+  %334 = select i1 %333, i32 -808, i32 805
+  %335 = load ptr, ptr %7, align 8, !tbaa !12
+  %336 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %335, i32 0, i32 0
+  %337 = load ptr, ptr %336, align 8, !tbaa !35
+  %338 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %337, i32 0, i32 5
+  store i32 %334, ptr %338, align 8, !tbaa !36
+  %339 = load ptr, ptr %7, align 8, !tbaa !12
+  %340 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %339, i32 0, i32 0
+  %341 = load ptr, ptr %340, align 8, !tbaa !35
+  %342 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %341, i32 0, i32 5
+  %343 = load i32, ptr %342, align 8, !tbaa !36
+  store i32 %343, ptr %6, align 4
+  store i32 1, ptr %38, align 4
+  br label %393
 
-343:                                              ; preds = %320
-  br label %347
+344:                                              ; preds = %321
+  br label %348
 
-344:                                              ; preds = %317
-  %345 = load ptr, ptr %19, align 8
-  %346 = load ptr, ptr %21, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %345, ptr noundef %346)
-  br label %347
+345:                                              ; preds = %318
+  %346 = load ptr, ptr %19, align 8, !tbaa !3
+  %347 = load ptr, ptr %21, align 8, !tbaa !3
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %346, ptr noundef %347)
+  br label %348
 
-347:                                              ; preds = %344, %343
-  %348 = load double, ptr %17, align 8
-  store double %348, ptr %18, align 8
-  %349 = load ptr, ptr %19, align 8
-  %350 = load ptr, ptr %21, align 8
-  %351 = call double @N_VDotProd(ptr noundef %349, ptr noundef %350)
-  store double %351, ptr %17, align 8
-  %352 = load double, ptr %17, align 8
-  %353 = load double, ptr %18, align 8
-  %354 = fdiv double %352, %353
-  store double %354, ptr %14, align 8
-  %355 = load ptr, ptr %21, align 8
-  %356 = load double, ptr %14, align 8
-  %357 = load ptr, ptr %20, align 8
-  %358 = load ptr, ptr %20, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %355, double noundef %356, ptr noundef %357, ptr noundef %358)
-  br label %359
+348:                                              ; preds = %345, %344
+  %349 = load double, ptr %17, align 8, !tbaa !58
+  store double %349, ptr %18, align 8, !tbaa !58
+  %350 = load ptr, ptr %19, align 8, !tbaa !3
+  %351 = load ptr, ptr %21, align 8, !tbaa !3
+  %352 = call double @N_VDotProd(ptr noundef %350, ptr noundef %351)
+  store double %352, ptr %17, align 8, !tbaa !58
+  %353 = load double, ptr %17, align 8, !tbaa !58
+  %354 = load double, ptr %18, align 8, !tbaa !58
+  %355 = fdiv double %353, %354
+  store double %355, ptr %14, align 8, !tbaa !58
+  %356 = load ptr, ptr %21, align 8, !tbaa !3
+  %357 = load double, ptr %14, align 8, !tbaa !58
+  %358 = load ptr, ptr %20, align 8, !tbaa !3
+  %359 = load ptr, ptr %20, align 8, !tbaa !3
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %356, double noundef %357, ptr noundef %358, ptr noundef %359)
+  br label %360
 
-359:                                              ; preds = %347
-  %360 = load i32, ptr %28, align 4
-  %361 = add nsw i32 %360, 1
-  store i32 %361, ptr %28, align 4
-  br label %228
+360:                                              ; preds = %348
+  %361 = load i32, ptr %28, align 4, !tbaa !8
+  %362 = add nsw i32 %361, 1
+  store i32 %362, ptr %28, align 4, !tbaa !8
+  br label %229
 
-362:                                              ; preds = %316, %310, %228
-  %363 = load ptr, ptr %27, align 8
-  store i32 0, ptr %363, align 4
-  %364 = load i32, ptr %26, align 4
-  %365 = icmp eq i32 %364, 1
-  br i1 %365, label %366, label %371
+363:                                              ; preds = %317, %311, %229
+  %364 = load ptr, ptr %27, align 8, !tbaa !59
+  store i32 0, ptr %364, align 4, !tbaa !8
+  %365 = load i32, ptr %26, align 4, !tbaa !8
+  %366 = icmp eq i32 %365, 1
+  br i1 %366, label %367, label %372
 
-366:                                              ; preds = %362
-  %367 = load ptr, ptr %7, align 8
-  %368 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %367, i32 0, i32 0
-  %369 = load ptr, ptr %368, align 8
-  %370 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %369, i32 0, i32 5
-  store i32 0, ptr %370, align 8
+367:                                              ; preds = %363
+  %368 = load ptr, ptr %7, align 8, !tbaa !12
+  %369 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %368, i32 0, i32 0
+  %370 = load ptr, ptr %369, align 8, !tbaa !35
+  %371 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %370, i32 0, i32 5
+  store i32 0, ptr %371, align 8, !tbaa !36
+  br label %387
+
+372:                                              ; preds = %363
+  %373 = load double, ptr %16, align 8, !tbaa !58
+  %374 = load double, ptr %15, align 8, !tbaa !58
+  %375 = fcmp olt double %373, %374
+  br i1 %375, label %376, label %381
+
+376:                                              ; preds = %372
+  %377 = load ptr, ptr %7, align 8, !tbaa !12
+  %378 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %377, i32 0, i32 0
+  %379 = load ptr, ptr %378, align 8, !tbaa !35
+  %380 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %379, i32 0, i32 5
+  store i32 801, ptr %380, align 8, !tbaa !36
   br label %386
 
-371:                                              ; preds = %362
-  %372 = load double, ptr %16, align 8
-  %373 = load double, ptr %15, align 8
-  %374 = fcmp olt double %372, %373
-  br i1 %374, label %375, label %380
-
-375:                                              ; preds = %371
-  %376 = load ptr, ptr %7, align 8
-  %377 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %376, i32 0, i32 0
-  %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %378, i32 0, i32 5
-  store i32 801, ptr %379, align 8
-  br label %385
-
-380:                                              ; preds = %371
-  %381 = load ptr, ptr %7, align 8
-  %382 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %381, i32 0, i32 0
-  %383 = load ptr, ptr %382, align 8
-  %384 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %383, i32 0, i32 5
-  store i32 802, ptr %384, align 8
-  br label %385
-
-385:                                              ; preds = %380, %375
+381:                                              ; preds = %372
+  %382 = load ptr, ptr %7, align 8, !tbaa !12
+  %383 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %382, i32 0, i32 0
+  %384 = load ptr, ptr %383, align 8, !tbaa !35
+  %385 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %384, i32 0, i32 5
+  store i32 802, ptr %385, align 8, !tbaa !36
   br label %386
 
-386:                                              ; preds = %385, %366
-  %387 = load ptr, ptr %7, align 8
-  %388 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %387, i32 0, i32 0
-  %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %389, i32 0, i32 5
-  %391 = load i32, ptr %390, align 8
-  store i32 %391, ptr %6, align 4
-  br label %392
+386:                                              ; preds = %381, %376
+  br label %387
 
-392:                                              ; preds = %386, %329, %243, %204, %181, %137
-  %393 = load i32, ptr %6, align 4
-  ret i32 %393
+387:                                              ; preds = %386, %367
+  %388 = load ptr, ptr %7, align 8, !tbaa !12
+  %389 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %388, i32 0, i32 0
+  %390 = load ptr, ptr %389, align 8, !tbaa !35
+  %391 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %390, i32 0, i32 5
+  %392 = load i32, ptr %391, align 8, !tbaa !36
+  store i32 %392, ptr %6, align 4
+  store i32 1, ptr %38, align 4
+  br label %393
+
+393:                                              ; preds = %387, %330, %244, %205, %182, %138
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %394 = load i32, ptr %6, align 4
+  ret i32 %394
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @SUNLinSolNumIters_PCG(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %5, i32 0, i32 3
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %6 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %5, i32 0, i32 3
+  %7 = load i32, ptr %6, align 4, !tbaa !42
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define double @SUNLinSolResNorm_PCG(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %5, i32 0, i32 4
-  %7 = load double, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %6 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %5, i32 0, i32 4
+  %7 = load double, ptr %6, align 8, !tbaa !43
   ret double %7
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @SUNLinSolResid_PCG(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %5, i32 0, i32 12
-  %7 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %6 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %5, i32 0, i32 12
+  %7 = load ptr, ptr %6, align 8, !tbaa !44
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @SUNLinSolLastFlag_PCG(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %5, i32 0, i32 5
-  %7 = load i32, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %6 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %5, i32 0, i32 5
+  %7 = load i32, ptr %6, align 8, !tbaa !36
   %8 = sext i32 %7 to i64
   ret i64 %8
 }
@@ -1087,29 +1168,35 @@ define i32 @SUNLinSolSpace_PCG(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %7, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %15, i32 0, i32 12
-  %17 = load ptr, ptr %16, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  store ptr %2, ptr %6, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  store ptr %12, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %13 = load ptr, ptr %4, align 8, !tbaa !12
+  %14 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
+  %16 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %15, i32 0, i32 12
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
   call void @N_VSpace(ptr noundef %17, ptr noundef %9, ptr noundef %8)
-  %18 = load i64, ptr %9, align 8
+  %18 = load i64, ptr %9, align 8, !tbaa !65
   %19 = mul nsw i64 %18, 4
   %20 = add nsw i64 1, %19
-  %21 = load ptr, ptr %5, align 8
-  store i64 %20, ptr %21, align 8
-  %22 = load i64, ptr %8, align 8
+  %21 = load ptr, ptr %5, align 8, !tbaa !63
+  store i64 %20, ptr %21, align 8, !tbaa !65
+  %22 = load i64, ptr %8, align 8, !tbaa !65
   %23 = mul nsw i64 %22, 4
   %24 = add nsw i64 4, %23
-  %25 = load ptr, ptr %6, align 8
-  store i64 %24, ptr %25, align 8
+  %25 = load ptr, ptr %6, align 8, !tbaa !63
+  store i64 %24, ptr %25, align 8, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret i32 0
 }
 
@@ -1117,8 +1204,8 @@ define i32 @SUNLinSolSpace_PCG(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
 define i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  %4 = load ptr, ptr %3, align 8, !tbaa !12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
@@ -1127,135 +1214,135 @@ define i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
   br label %99
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %86
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %15, i32 0, i32 12
-  %17 = load ptr, ptr %16, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !12
+  %14 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
+  %16 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %15, i32 0, i32 12
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %22, i32 0, i32 12
-  %24 = load ptr, ptr %23, align 8
+  %20 = load ptr, ptr %3, align 8, !tbaa !12
+  %21 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %23 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %22, i32 0, i32 12
+  %24 = load ptr, ptr %23, align 8, !tbaa !44
   call void @N_VDestroy(ptr noundef %24)
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %27, i32 0, i32 12
-  store ptr null, ptr %28, align 8
+  %25 = load ptr, ptr %3, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %28 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %27, i32 0, i32 12
+  store ptr null, ptr %28, align 8, !tbaa !44
   br label %29
 
 29:                                               ; preds = %19, %12
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %32, i32 0, i32 13
-  %34 = load ptr, ptr %33, align 8
+  %30 = load ptr, ptr %3, align 8, !tbaa !12
+  %31 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !35
+  %33 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %32, i32 0, i32 13
+  %34 = load ptr, ptr %33, align 8, !tbaa !45
   %35 = icmp ne ptr %34, null
   br i1 %35, label %36, label %46
 
 36:                                               ; preds = %29
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %39, i32 0, i32 13
-  %41 = load ptr, ptr %40, align 8
+  %37 = load ptr, ptr %3, align 8, !tbaa !12
+  %38 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !35
+  %40 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %39, i32 0, i32 13
+  %41 = load ptr, ptr %40, align 8, !tbaa !45
   call void @N_VDestroy(ptr noundef %41)
-  %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %44, i32 0, i32 13
-  store ptr null, ptr %45, align 8
+  %42 = load ptr, ptr %3, align 8, !tbaa !12
+  %43 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !35
+  %45 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %44, i32 0, i32 13
+  store ptr null, ptr %45, align 8, !tbaa !45
   br label %46
 
 46:                                               ; preds = %36, %29
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %49, i32 0, i32 14
-  %51 = load ptr, ptr %50, align 8
+  %47 = load ptr, ptr %3, align 8, !tbaa !12
+  %48 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !35
+  %50 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %49, i32 0, i32 14
+  %51 = load ptr, ptr %50, align 8, !tbaa !46
   %52 = icmp ne ptr %51, null
   br i1 %52, label %53, label %63
 
 53:                                               ; preds = %46
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %56, i32 0, i32 14
-  %58 = load ptr, ptr %57, align 8
+  %54 = load ptr, ptr %3, align 8, !tbaa !12
+  %55 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !35
+  %57 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %56, i32 0, i32 14
+  %58 = load ptr, ptr %57, align 8, !tbaa !46
   call void @N_VDestroy(ptr noundef %58)
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %61, i32 0, i32 14
-  store ptr null, ptr %62, align 8
+  %59 = load ptr, ptr %3, align 8, !tbaa !12
+  %60 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8, !tbaa !35
+  %62 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %61, i32 0, i32 14
+  store ptr null, ptr %62, align 8, !tbaa !46
   br label %63
 
 63:                                               ; preds = %53, %46
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %66, i32 0, i32 15
-  %68 = load ptr, ptr %67, align 8
+  %64 = load ptr, ptr %3, align 8, !tbaa !12
+  %65 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !35
+  %67 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %66, i32 0, i32 15
+  %68 = load ptr, ptr %67, align 8, !tbaa !47
   %69 = icmp ne ptr %68, null
   br i1 %69, label %70, label %80
 
 70:                                               ; preds = %63
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %73, i32 0, i32 15
-  %75 = load ptr, ptr %74, align 8
+  %71 = load ptr, ptr %3, align 8, !tbaa !12
+  %72 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !35
+  %74 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %73, i32 0, i32 15
+  %75 = load ptr, ptr %74, align 8, !tbaa !47
   call void @N_VDestroy(ptr noundef %75)
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %78, i32 0, i32 15
-  store ptr null, ptr %79, align 8
+  %76 = load ptr, ptr %3, align 8, !tbaa !12
+  %77 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !35
+  %79 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %78, i32 0, i32 15
+  store ptr null, ptr %79, align 8, !tbaa !47
   br label %80
 
 80:                                               ; preds = %70, %63
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %81, i32 0, i32 0
-  %83 = load ptr, ptr %82, align 8
+  %81 = load ptr, ptr %3, align 8, !tbaa !12
+  %82 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8, !tbaa !35
   call void @free(ptr noundef %83) #5
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %84, i32 0, i32 0
-  store ptr null, ptr %85, align 8
+  %84 = load ptr, ptr %3, align 8, !tbaa !12
+  %85 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %84, i32 0, i32 0
+  store ptr null, ptr %85, align 8, !tbaa !35
   br label %86
 
 86:                                               ; preds = %80, %7
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %87, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
+  %87 = load ptr, ptr %3, align 8, !tbaa !12
+  %88 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !14
   %90 = icmp ne ptr %89, null
   br i1 %90, label %91, label %97
 
 91:                                               ; preds = %86
-  %92 = load ptr, ptr %3, align 8
-  %93 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %92, i32 0, i32 1
-  %94 = load ptr, ptr %93, align 8
+  %92 = load ptr, ptr %3, align 8, !tbaa !12
+  %93 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8, !tbaa !14
   call void @free(ptr noundef %94) #5
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %95, i32 0, i32 1
-  store ptr null, ptr %96, align 8
+  %95 = load ptr, ptr %3, align 8, !tbaa !12
+  %96 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %95, i32 0, i32 1
+  store ptr null, ptr %96, align 8, !tbaa !14
   br label %97
 
 97:                                               ; preds = %91, %86
-  %98 = load ptr, ptr %3, align 8
+  %98 = load ptr, ptr %3, align 8, !tbaa !12
   call void @free(ptr noundef %98) #5
-  store ptr null, ptr %3, align 8
+  store ptr null, ptr %3, align 8, !tbaa !12
   store i32 0, ptr %2, align 4
   br label %99
 
@@ -1265,27 +1352,32 @@ define i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
-declare ptr @N_VClone(ptr noundef) #1
+declare ptr @N_VClone(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SUNLinSol_PCGSetPrecType(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %6, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %12, i32 0, i32 1
-  store i32 %9, ptr %13, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  store ptr %8, ptr %5, align 8, !tbaa !10
+  %9 = load i32, ptr %4, align 4, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %13 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %12, i32 0, i32 1
+  store i32 %9, ptr %13, align 4, !tbaa !40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
   ret i32 0
 }
 
@@ -1293,54 +1385,118 @@ define i32 @SUNLinSol_PCGSetPrecType(ptr noundef %0, i32 noundef %1) #0 {
 define i32 @SUNLinSol_PCGSetMaxl(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load i32, ptr %4, align 4, !tbaa !8
   %6 = icmp sle i32 %5, 0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  store i32 5, ptr %4, align 4
+  store i32 5, ptr %4, align 4, !tbaa !8
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = load i32, ptr %4, align 4
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._SUNLinearSolverContent_PCG, ptr %12, i32 0, i32 0
-  store i32 %9, ptr %13, align 8
+  %9 = load i32, ptr %4, align 4, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %13 = getelementptr inbounds nuw %struct._SUNLinearSolverContent_PCG, ptr %12, i32 0, i32 0
+  store i32 %9, ptr %13, align 8, !tbaa !39
   ret i32 0
 }
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) #2
 
-declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare double @N_VDotProd(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind
-declare double @sqrt(double noundef) #3
-
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare void @N_VDestroy(ptr noundef) #1
+declare double @N_VDotProd(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare double @sqrt(double noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) }
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare void @N_VDestroy(ptr noundef) #2
+
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #4
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS11SUNContext_", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !5, i64 0}
+!14 = !{!15, !16, i64 8}
+!15 = !{!"_generic_SUNLinearSolver", !5, i64 0, !16, i64 8, !11, i64 16}
+!16 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !5, i64 0}
+!17 = !{!18, !5, i64 0}
+!18 = !{!"_generic_SUNLinearSolver_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112}
+!19 = !{!18, !5, i64 8}
+!20 = !{!18, !5, i64 16}
+!21 = !{!18, !5, i64 24}
+!22 = !{!18, !5, i64 32}
+!23 = !{!18, !5, i64 40}
+!24 = !{!18, !5, i64 48}
+!25 = !{!18, !5, i64 56}
+!26 = !{!18, !5, i64 64}
+!27 = !{!18, !5, i64 72}
+!28 = !{!18, !5, i64 80}
+!29 = !{!18, !5, i64 104}
+!30 = !{!18, !5, i64 88}
+!31 = !{!18, !5, i64 96}
+!32 = !{!18, !5, i64 112}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS27_SUNLinearSolverContent_PCG", !5, i64 0}
+!35 = !{!15, !5, i64 0}
+!36 = !{!37, !9, i64 24}
+!37 = !{!"_SUNLinearSolverContent_PCG", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !38, i64 16, !9, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104}
+!38 = !{!"double", !6, i64 0}
+!39 = !{!37, !9, i64 0}
+!40 = !{!37, !9, i64 4}
+!41 = !{!37, !9, i64 8}
+!42 = !{!37, !9, i64 12}
+!43 = !{!37, !38, i64 16}
+!44 = !{!37, !4, i64 80}
+!45 = !{!37, !4, i64 88}
+!46 = !{!37, !4, i64 96}
+!47 = !{!37, !4, i64 104}
+!48 = !{!37, !4, i64 72}
+!49 = !{!37, !5, i64 32}
+!50 = !{!37, !5, i64 40}
+!51 = !{!37, !5, i64 48}
+!52 = !{!37, !5, i64 56}
+!53 = !{!37, !5, i64 64}
+!54 = !{!5, !5, i64 0}
+!55 = !{!15, !11, i64 16}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS18_generic_SUNMatrix", !5, i64 0}
+!58 = !{!38, !38, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 int", !5, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 double", !5, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 long", !5, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"long", !6, i64 0}

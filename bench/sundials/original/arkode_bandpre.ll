@@ -1,7 +1,7 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ARKodeMemRec = type { ptr, double, ptr, i32, i32, double, double, ptr, i32, double, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, double, double, double, double, double, double, double, double, double, double, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i64, i64, i64, i64, i64, i64, double, double, double, double, double, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
+%struct.ARKodeMemRec = type { ptr, double, ptr, i32, i32, double, double, ptr, i32, double, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, double, double, double, double, double, double, double, double, double, double, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i64, i64, i64, i64, i64, i64, double, double, double, double, double, i32, double, double, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
 %struct._generic_N_Vector = type { ptr, ptr, ptr }
 %struct._generic_N_Vector_Ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ARKBandPrecDataRec = type { i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr }
@@ -37,451 +37,479 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
   %16 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = call i32 @arkLs_AccessLMem(ptr noundef %17, ptr noundef @__func__.ARKBandPrecInit, ptr noundef %10, ptr noundef %11)
-  store i32 %18, ptr %16, align 4
-  %19 = load i32, ptr %16, align 4
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %23
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i64 %1, ptr %7, align 8, !tbaa !7
+  store i64 %2, ptr %8, align 8, !tbaa !7
+  store i64 %3, ptr %9, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = call i32 @arkLs_AccessARKODELMem(ptr noundef %18, ptr noundef @__func__.ARKBandPrecInit, ptr noundef %10, ptr noundef %11)
+  store i32 %19, ptr %16, align 4, !tbaa !9
+  %20 = load i32, ptr %16, align 4, !tbaa !9
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %4
-  %22 = load i32, ptr %16, align 4
-  store i32 %22, ptr %5, align 4
-  br label %281
+22:                                               ; preds = %4
+  %23 = load i32, ptr %16, align 4, !tbaa !9
+  store i32 %23, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %282
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds %struct.ARKodeMemRec, ptr %24, i32 0, i32 39
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct._generic_N_Vector, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %28, i32 0, i32 5
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %10, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %25, i32 0, i32 79
+  %27 = load ptr, ptr %26, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %29, i32 0, i32 5
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %33, i32 noundef -3, i32 noundef 72, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.1)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %34, i32 noundef -3, i32 noundef 72, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.1)
   store i32 -3, ptr %5, align 4
-  br label %281
+  store i32 1, ptr %17, align 4
+  br label %282
 
-34:                                               ; preds = %23
-  store ptr null, ptr %12, align 8
-  %35 = call noalias ptr @malloc(i64 noundef 80) #5
-  store ptr %35, ptr %12, align 8
-  %36 = load ptr, ptr %12, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %40
+35:                                               ; preds = %24
+  store ptr null, ptr %12, align 8, !tbaa !27
+  %36 = call noalias ptr @malloc(i64 noundef 80) #7
+  store ptr %36, ptr %12, align 8, !tbaa !27
+  %37 = load ptr, ptr %12, align 8, !tbaa !27
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %39, i32 noundef -4, i32 noundef 82, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %40, i32 noundef -4, i32 noundef 82, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -4, ptr %5, align 4
-  br label %281
+  store i32 1, ptr %17, align 4
+  br label %282
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %6, align 8
-  %42 = load ptr, ptr %12, align 8
-  %43 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %42, i32 0, i32 9
-  store ptr %41, ptr %43, align 8
-  %44 = load i64, ptr %7, align 8
-  %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %45, i32 0, i32 0
-  store i64 %44, ptr %46, align 8
-  %47 = load i64, ptr %7, align 8
-  %48 = sub nsw i64 %47, 1
-  %49 = load i64, ptr %8, align 8
-  %50 = icmp sgt i64 0, %49
-  br i1 %50, label %51, label %52
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %6, align 8, !tbaa !3
+  %43 = load ptr, ptr %12, align 8, !tbaa !27
+  %44 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %43, i32 0, i32 9
+  store ptr %42, ptr %44, align 8, !tbaa !29
+  %45 = load i64, ptr %7, align 8, !tbaa !7
+  %46 = load ptr, ptr %12, align 8, !tbaa !27
+  %47 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %46, i32 0, i32 0
+  store i64 %45, ptr %47, align 8, !tbaa !33
+  %48 = load i64, ptr %7, align 8, !tbaa !7
+  %49 = sub nsw i64 %48, 1
+  %50 = load i64, ptr %8, align 8, !tbaa !7
+  %51 = icmp sgt i64 0, %50
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %40
-  br label %54
+52:                                               ; preds = %41
+  br label %55
 
-52:                                               ; preds = %40
-  %53 = load i64, ptr %8, align 8
-  br label %54
+53:                                               ; preds = %41
+  %54 = load i64, ptr %8, align 8, !tbaa !7
+  br label %55
 
-54:                                               ; preds = %52, %51
-  %55 = phi i64 [ 0, %51 ], [ %53, %52 ]
-  %56 = icmp slt i64 %48, %55
-  br i1 %56, label %57, label %60
+55:                                               ; preds = %53, %52
+  %56 = phi i64 [ 0, %52 ], [ %54, %53 ]
+  %57 = icmp slt i64 %49, %56
+  br i1 %57, label %58, label %61
 
-57:                                               ; preds = %54
-  %58 = load i64, ptr %7, align 8
-  %59 = sub nsw i64 %58, 1
-  br label %68
+58:                                               ; preds = %55
+  %59 = load i64, ptr %7, align 8, !tbaa !7
+  %60 = sub nsw i64 %59, 1
+  br label %69
 
-60:                                               ; preds = %54
-  %61 = load i64, ptr %8, align 8
-  %62 = icmp sgt i64 0, %61
-  br i1 %62, label %63, label %64
+61:                                               ; preds = %55
+  %62 = load i64, ptr %8, align 8, !tbaa !7
+  %63 = icmp sgt i64 0, %62
+  br i1 %63, label %64, label %65
 
-63:                                               ; preds = %60
-  br label %66
+64:                                               ; preds = %61
+  br label %67
 
-64:                                               ; preds = %60
-  %65 = load i64, ptr %8, align 8
-  br label %66
+65:                                               ; preds = %61
+  %66 = load i64, ptr %8, align 8, !tbaa !7
+  br label %67
 
-66:                                               ; preds = %64, %63
-  %67 = phi i64 [ 0, %63 ], [ %65, %64 ]
-  br label %68
+67:                                               ; preds = %65, %64
+  %68 = phi i64 [ 0, %64 ], [ %66, %65 ]
+  br label %69
 
-68:                                               ; preds = %66, %57
-  %69 = phi i64 [ %59, %57 ], [ %67, %66 ]
-  store i64 %69, ptr %13, align 8
-  %70 = load ptr, ptr %12, align 8
-  %71 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %70, i32 0, i32 2
-  store i64 %69, ptr %71, align 8
-  %72 = load i64, ptr %7, align 8
-  %73 = sub nsw i64 %72, 1
-  %74 = load i64, ptr %9, align 8
-  %75 = icmp sgt i64 0, %74
-  br i1 %75, label %76, label %77
+69:                                               ; preds = %67, %58
+  %70 = phi i64 [ %60, %58 ], [ %68, %67 ]
+  store i64 %70, ptr %13, align 8, !tbaa !7
+  %71 = load ptr, ptr %12, align 8, !tbaa !27
+  %72 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %71, i32 0, i32 2
+  store i64 %70, ptr %72, align 8, !tbaa !34
+  %73 = load i64, ptr %7, align 8, !tbaa !7
+  %74 = sub nsw i64 %73, 1
+  %75 = load i64, ptr %9, align 8, !tbaa !7
+  %76 = icmp sgt i64 0, %75
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %68
-  br label %79
+77:                                               ; preds = %69
+  br label %80
 
-77:                                               ; preds = %68
-  %78 = load i64, ptr %9, align 8
-  br label %79
+78:                                               ; preds = %69
+  %79 = load i64, ptr %9, align 8, !tbaa !7
+  br label %80
 
-79:                                               ; preds = %77, %76
-  %80 = phi i64 [ 0, %76 ], [ %78, %77 ]
-  %81 = icmp slt i64 %73, %80
-  br i1 %81, label %82, label %85
+80:                                               ; preds = %78, %77
+  %81 = phi i64 [ 0, %77 ], [ %79, %78 ]
+  %82 = icmp slt i64 %74, %81
+  br i1 %82, label %83, label %86
 
-82:                                               ; preds = %79
-  %83 = load i64, ptr %7, align 8
-  %84 = sub nsw i64 %83, 1
-  br label %93
+83:                                               ; preds = %80
+  %84 = load i64, ptr %7, align 8, !tbaa !7
+  %85 = sub nsw i64 %84, 1
+  br label %94
 
-85:                                               ; preds = %79
-  %86 = load i64, ptr %9, align 8
-  %87 = icmp sgt i64 0, %86
-  br i1 %87, label %88, label %89
+86:                                               ; preds = %80
+  %87 = load i64, ptr %9, align 8, !tbaa !7
+  %88 = icmp sgt i64 0, %87
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %85
-  br label %91
+89:                                               ; preds = %86
+  br label %92
 
-89:                                               ; preds = %85
-  %90 = load i64, ptr %9, align 8
-  br label %91
+90:                                               ; preds = %86
+  %91 = load i64, ptr %9, align 8, !tbaa !7
+  br label %92
 
-91:                                               ; preds = %89, %88
-  %92 = phi i64 [ 0, %88 ], [ %90, %89 ]
-  br label %93
+92:                                               ; preds = %90, %89
+  %93 = phi i64 [ 0, %89 ], [ %91, %90 ]
+  br label %94
 
-93:                                               ; preds = %91, %82
-  %94 = phi i64 [ %84, %82 ], [ %92, %91 ]
-  store i64 %94, ptr %14, align 8
-  %95 = load ptr, ptr %12, align 8
-  %96 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %95, i32 0, i32 1
-  store i64 %94, ptr %96, align 8
-  %97 = load ptr, ptr %12, align 8
-  %98 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %97, i32 0, i32 8
-  store i64 0, ptr %98, align 8
-  %99 = load ptr, ptr %12, align 8
-  %100 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %99, i32 0, i32 3
-  store ptr null, ptr %100, align 8
-  %101 = load i64, ptr %7, align 8
-  %102 = load i64, ptr %13, align 8
-  %103 = load i64, ptr %14, align 8
-  %104 = load i64, ptr %13, align 8
-  %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds %struct.ARKodeMemRec, ptr %105, i32 0, i32 0
-  %107 = load ptr, ptr %106, align 8
-  %108 = call ptr @SUNBandMatrixStorage(i64 noundef %101, i64 noundef %102, i64 noundef %103, i64 noundef %104, ptr noundef %107)
-  %109 = load ptr, ptr %12, align 8
-  %110 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %109, i32 0, i32 3
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %111, i32 0, i32 3
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %118
+94:                                               ; preds = %92, %83
+  %95 = phi i64 [ %85, %83 ], [ %93, %92 ]
+  store i64 %95, ptr %14, align 8, !tbaa !7
+  %96 = load ptr, ptr %12, align 8, !tbaa !27
+  %97 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %96, i32 0, i32 1
+  store i64 %95, ptr %97, align 8, !tbaa !35
+  %98 = load ptr, ptr %12, align 8, !tbaa !27
+  %99 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %98, i32 0, i32 8
+  store i64 0, ptr %99, align 8, !tbaa !36
+  %100 = load ptr, ptr %12, align 8, !tbaa !27
+  %101 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %100, i32 0, i32 3
+  store ptr null, ptr %101, align 8, !tbaa !37
+  %102 = load i64, ptr %7, align 8, !tbaa !7
+  %103 = load i64, ptr %13, align 8, !tbaa !7
+  %104 = load i64, ptr %14, align 8, !tbaa !7
+  %105 = load i64, ptr %13, align 8, !tbaa !7
+  %106 = load ptr, ptr %10, align 8, !tbaa !11
+  %107 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %106, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8, !tbaa !38
+  %109 = call ptr @SUNBandMatrixStorage(i64 noundef %102, i64 noundef %103, i64 noundef %104, i64 noundef %105, ptr noundef %108)
+  %110 = load ptr, ptr %12, align 8, !tbaa !27
+  %111 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %110, i32 0, i32 3
+  store ptr %109, ptr %111, align 8, !tbaa !37
+  %112 = load ptr, ptr %12, align 8, !tbaa !27
+  %113 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %112, i32 0, i32 3
+  %114 = load ptr, ptr %113, align 8, !tbaa !37
+  %115 = icmp eq ptr %114, null
+  br i1 %115, label %116, label %119
 
-115:                                              ; preds = %93
-  %116 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %116) #6
-  store ptr null, ptr %12, align 8
-  %117 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %117, i32 noundef -4, i32 noundef 103, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
+116:                                              ; preds = %94
+  %117 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @free(ptr noundef %117) #6
+  store ptr null, ptr %12, align 8, !tbaa !27
+  %118 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %118, i32 noundef -4, i32 noundef 103, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -4, ptr %5, align 4
-  br label %281
+  store i32 1, ptr %17, align 4
+  br label %282
 
-118:                                              ; preds = %93
-  %119 = load i64, ptr %7, align 8
-  %120 = sub nsw i64 %119, 1
-  %121 = load i64, ptr %13, align 8
-  %122 = load i64, ptr %14, align 8
-  %123 = add nsw i64 %121, %122
-  %124 = icmp slt i64 %120, %123
-  br i1 %124, label %125, label %128
+119:                                              ; preds = %94
+  %120 = load i64, ptr %7, align 8, !tbaa !7
+  %121 = sub nsw i64 %120, 1
+  %122 = load i64, ptr %13, align 8, !tbaa !7
+  %123 = load i64, ptr %14, align 8, !tbaa !7
+  %124 = add nsw i64 %122, %123
+  %125 = icmp slt i64 %121, %124
+  br i1 %125, label %126, label %129
 
-125:                                              ; preds = %118
-  %126 = load i64, ptr %7, align 8
-  %127 = sub nsw i64 %126, 1
-  br label %132
+126:                                              ; preds = %119
+  %127 = load i64, ptr %7, align 8, !tbaa !7
+  %128 = sub nsw i64 %127, 1
+  br label %133
 
-128:                                              ; preds = %118
-  %129 = load i64, ptr %13, align 8
-  %130 = load i64, ptr %14, align 8
-  %131 = add nsw i64 %129, %130
-  br label %132
+129:                                              ; preds = %119
+  %130 = load i64, ptr %13, align 8, !tbaa !7
+  %131 = load i64, ptr %14, align 8, !tbaa !7
+  %132 = add nsw i64 %130, %131
+  br label %133
 
-132:                                              ; preds = %128, %125
-  %133 = phi i64 [ %127, %125 ], [ %131, %128 ]
-  store i64 %133, ptr %15, align 8
-  %134 = load ptr, ptr %12, align 8
-  %135 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %134, i32 0, i32 4
-  store ptr null, ptr %135, align 8
-  %136 = load i64, ptr %7, align 8
-  %137 = load i64, ptr %13, align 8
-  %138 = load i64, ptr %14, align 8
-  %139 = load i64, ptr %15, align 8
-  %140 = load ptr, ptr %10, align 8
-  %141 = getelementptr inbounds %struct.ARKodeMemRec, ptr %140, i32 0, i32 0
-  %142 = load ptr, ptr %141, align 8
-  %143 = call ptr @SUNBandMatrixStorage(i64 noundef %136, i64 noundef %137, i64 noundef %138, i64 noundef %139, ptr noundef %142)
-  %144 = load ptr, ptr %12, align 8
-  %145 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %144, i32 0, i32 4
-  store ptr %143, ptr %145, align 8
-  %146 = load ptr, ptr %12, align 8
-  %147 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %146, i32 0, i32 4
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %150, label %156
+133:                                              ; preds = %129, %126
+  %134 = phi i64 [ %128, %126 ], [ %132, %129 ]
+  store i64 %134, ptr %15, align 8, !tbaa !7
+  %135 = load ptr, ptr %12, align 8, !tbaa !27
+  %136 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %135, i32 0, i32 4
+  store ptr null, ptr %136, align 8, !tbaa !39
+  %137 = load i64, ptr %7, align 8, !tbaa !7
+  %138 = load i64, ptr %13, align 8, !tbaa !7
+  %139 = load i64, ptr %14, align 8, !tbaa !7
+  %140 = load i64, ptr %15, align 8, !tbaa !7
+  %141 = load ptr, ptr %10, align 8, !tbaa !11
+  %142 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %141, i32 0, i32 0
+  %143 = load ptr, ptr %142, align 8, !tbaa !38
+  %144 = call ptr @SUNBandMatrixStorage(i64 noundef %137, i64 noundef %138, i64 noundef %139, i64 noundef %140, ptr noundef %143)
+  %145 = load ptr, ptr %12, align 8, !tbaa !27
+  %146 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %145, i32 0, i32 4
+  store ptr %144, ptr %146, align 8, !tbaa !39
+  %147 = load ptr, ptr %12, align 8, !tbaa !27
+  %148 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %147, i32 0, i32 4
+  %149 = load ptr, ptr %148, align 8, !tbaa !39
+  %150 = icmp eq ptr %149, null
+  br i1 %150, label %151, label %157
 
-150:                                              ; preds = %132
-  %151 = load ptr, ptr %12, align 8
-  %152 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %151, i32 0, i32 3
-  %153 = load ptr, ptr %152, align 8
-  call void @SUNMatDestroy(ptr noundef %153)
-  %154 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %154) #6
-  store ptr null, ptr %12, align 8
-  %155 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %155, i32 noundef -4, i32 noundef 117, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
+151:                                              ; preds = %133
+  %152 = load ptr, ptr %12, align 8, !tbaa !27
+  %153 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %152, i32 0, i32 3
+  %154 = load ptr, ptr %153, align 8, !tbaa !37
+  call void @SUNMatDestroy(ptr noundef %154)
+  %155 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @free(ptr noundef %155) #6
+  store ptr null, ptr %12, align 8, !tbaa !27
+  %156 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %156, i32 noundef -4, i32 noundef 117, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -4, ptr %5, align 4
-  br label %281
+  store i32 1, ptr %17, align 4
+  br label %282
 
-156:                                              ; preds = %132
-  %157 = load ptr, ptr %12, align 8
-  %158 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %157, i32 0, i32 5
-  store ptr null, ptr %158, align 8
-  %159 = load ptr, ptr %10, align 8
-  %160 = getelementptr inbounds %struct.ARKodeMemRec, ptr %159, i32 0, i32 39
-  %161 = load ptr, ptr %160, align 8
-  %162 = load ptr, ptr %12, align 8
-  %163 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %162, i32 0, i32 4
-  %164 = load ptr, ptr %163, align 8
-  %165 = load ptr, ptr %10, align 8
-  %166 = getelementptr inbounds %struct.ARKodeMemRec, ptr %165, i32 0, i32 0
-  %167 = load ptr, ptr %166, align 8
-  %168 = call ptr @SUNLinSol_Band(ptr noundef %161, ptr noundef %164, ptr noundef %167)
-  %169 = load ptr, ptr %12, align 8
-  %170 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %169, i32 0, i32 5
-  store ptr %168, ptr %170, align 8
-  %171 = load ptr, ptr %12, align 8
-  %172 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %171, i32 0, i32 5
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %175, label %184
+157:                                              ; preds = %133
+  %158 = load ptr, ptr %12, align 8, !tbaa !27
+  %159 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %158, i32 0, i32 5
+  store ptr null, ptr %159, align 8, !tbaa !40
+  %160 = load ptr, ptr %10, align 8, !tbaa !11
+  %161 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %160, i32 0, i32 79
+  %162 = load ptr, ptr %161, align 8, !tbaa !13
+  %163 = load ptr, ptr %12, align 8, !tbaa !27
+  %164 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %163, i32 0, i32 4
+  %165 = load ptr, ptr %164, align 8, !tbaa !39
+  %166 = load ptr, ptr %10, align 8, !tbaa !11
+  %167 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %166, i32 0, i32 0
+  %168 = load ptr, ptr %167, align 8, !tbaa !38
+  %169 = call ptr @SUNLinSol_Band(ptr noundef %162, ptr noundef %165, ptr noundef %168)
+  %170 = load ptr, ptr %12, align 8, !tbaa !27
+  %171 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %170, i32 0, i32 5
+  store ptr %169, ptr %171, align 8, !tbaa !40
+  %172 = load ptr, ptr %12, align 8, !tbaa !27
+  %173 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %172, i32 0, i32 5
+  %174 = load ptr, ptr %173, align 8, !tbaa !40
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %176, label %185
 
-175:                                              ; preds = %156
-  %176 = load ptr, ptr %12, align 8
-  %177 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %176, i32 0, i32 4
-  %178 = load ptr, ptr %177, align 8
-  call void @SUNMatDestroy(ptr noundef %178)
-  %179 = load ptr, ptr %12, align 8
-  %180 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %179, i32 0, i32 3
-  %181 = load ptr, ptr %180, align 8
-  call void @SUNMatDestroy(ptr noundef %181)
-  %182 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %182) #6
-  store ptr null, ptr %12, align 8
-  %183 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %183, i32 noundef -4, i32 noundef 131, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
+176:                                              ; preds = %157
+  %177 = load ptr, ptr %12, align 8, !tbaa !27
+  %178 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %177, i32 0, i32 4
+  %179 = load ptr, ptr %178, align 8, !tbaa !39
+  call void @SUNMatDestroy(ptr noundef %179)
+  %180 = load ptr, ptr %12, align 8, !tbaa !27
+  %181 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %180, i32 0, i32 3
+  %182 = load ptr, ptr %181, align 8, !tbaa !37
+  call void @SUNMatDestroy(ptr noundef %182)
+  %183 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @free(ptr noundef %183) #6
+  store ptr null, ptr %12, align 8, !tbaa !27
+  %184 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %184, i32 noundef -4, i32 noundef 131, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -4, ptr %5, align 4
-  br label %281
+  store i32 1, ptr %17, align 4
+  br label %282
 
-184:                                              ; preds = %156
-  %185 = load ptr, ptr %12, align 8
-  %186 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %185, i32 0, i32 6
-  store ptr null, ptr %186, align 8
-  %187 = load ptr, ptr %10, align 8
-  %188 = load ptr, ptr %10, align 8
-  %189 = getelementptr inbounds %struct.ARKodeMemRec, ptr %188, i32 0, i32 39
-  %190 = load ptr, ptr %189, align 8
-  %191 = load ptr, ptr %12, align 8
-  %192 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %191, i32 0, i32 6
-  %193 = call i32 @arkAllocVec(ptr noundef %187, ptr noundef %190, ptr noundef %192)
-  %194 = icmp ne i32 %193, 0
-  br i1 %194, label %208, label %195
+185:                                              ; preds = %157
+  %186 = load ptr, ptr %12, align 8, !tbaa !27
+  %187 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %186, i32 0, i32 6
+  store ptr null, ptr %187, align 8, !tbaa !41
+  %188 = load ptr, ptr %10, align 8, !tbaa !11
+  %189 = load ptr, ptr %10, align 8, !tbaa !11
+  %190 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %189, i32 0, i32 79
+  %191 = load ptr, ptr %190, align 8, !tbaa !13
+  %192 = load ptr, ptr %12, align 8, !tbaa !27
+  %193 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %192, i32 0, i32 6
+  %194 = call i32 @arkAllocVec(ptr noundef %188, ptr noundef %191, ptr noundef %193)
+  %195 = icmp ne i32 %194, 0
+  br i1 %195, label %209, label %196
 
-195:                                              ; preds = %184
-  %196 = load ptr, ptr %12, align 8
-  %197 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %196, i32 0, i32 5
-  %198 = load ptr, ptr %197, align 8
-  %199 = call i32 @SUNLinSolFree(ptr noundef %198)
-  %200 = load ptr, ptr %12, align 8
-  %201 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %200, i32 0, i32 4
-  %202 = load ptr, ptr %201, align 8
-  call void @SUNMatDestroy(ptr noundef %202)
-  %203 = load ptr, ptr %12, align 8
-  %204 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %203, i32 0, i32 3
-  %205 = load ptr, ptr %204, align 8
-  call void @SUNMatDestroy(ptr noundef %205)
-  %206 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %206) #6
-  store ptr null, ptr %12, align 8
-  %207 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %207, i32 noundef -4, i32 noundef 145, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
+196:                                              ; preds = %185
+  %197 = load ptr, ptr %12, align 8, !tbaa !27
+  %198 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %197, i32 0, i32 5
+  %199 = load ptr, ptr %198, align 8, !tbaa !40
+  %200 = call i32 @SUNLinSolFree(ptr noundef %199)
+  %201 = load ptr, ptr %12, align 8, !tbaa !27
+  %202 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %201, i32 0, i32 4
+  %203 = load ptr, ptr %202, align 8, !tbaa !39
+  call void @SUNMatDestroy(ptr noundef %203)
+  %204 = load ptr, ptr %12, align 8, !tbaa !27
+  %205 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %204, i32 0, i32 3
+  %206 = load ptr, ptr %205, align 8, !tbaa !37
+  call void @SUNMatDestroy(ptr noundef %206)
+  %207 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @free(ptr noundef %207) #6
+  store ptr null, ptr %12, align 8, !tbaa !27
+  %208 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %208, i32 noundef -4, i32 noundef 145, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -4, ptr %5, align 4
-  br label %281
+  store i32 1, ptr %17, align 4
+  br label %282
 
-208:                                              ; preds = %184
-  %209 = load ptr, ptr %12, align 8
-  %210 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %209, i32 0, i32 7
-  store ptr null, ptr %210, align 8
-  %211 = load ptr, ptr %10, align 8
-  %212 = load ptr, ptr %10, align 8
-  %213 = getelementptr inbounds %struct.ARKodeMemRec, ptr %212, i32 0, i32 39
-  %214 = load ptr, ptr %213, align 8
-  %215 = load ptr, ptr %12, align 8
-  %216 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %215, i32 0, i32 7
-  %217 = call i32 @arkAllocVec(ptr noundef %211, ptr noundef %214, ptr noundef %216)
-  %218 = icmp ne i32 %217, 0
-  br i1 %218, label %235, label %219
+209:                                              ; preds = %185
+  %210 = load ptr, ptr %12, align 8, !tbaa !27
+  %211 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %210, i32 0, i32 7
+  store ptr null, ptr %211, align 8, !tbaa !42
+  %212 = load ptr, ptr %10, align 8, !tbaa !11
+  %213 = load ptr, ptr %10, align 8, !tbaa !11
+  %214 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %213, i32 0, i32 79
+  %215 = load ptr, ptr %214, align 8, !tbaa !13
+  %216 = load ptr, ptr %12, align 8, !tbaa !27
+  %217 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %216, i32 0, i32 7
+  %218 = call i32 @arkAllocVec(ptr noundef %212, ptr noundef %215, ptr noundef %217)
+  %219 = icmp ne i32 %218, 0
+  br i1 %219, label %236, label %220
 
-219:                                              ; preds = %208
-  %220 = load ptr, ptr %12, align 8
-  %221 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %220, i32 0, i32 5
-  %222 = load ptr, ptr %221, align 8
-  %223 = call i32 @SUNLinSolFree(ptr noundef %222)
-  %224 = load ptr, ptr %12, align 8
-  %225 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %224, i32 0, i32 4
-  %226 = load ptr, ptr %225, align 8
-  call void @SUNMatDestroy(ptr noundef %226)
-  %227 = load ptr, ptr %12, align 8
-  %228 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %227, i32 0, i32 3
-  %229 = load ptr, ptr %228, align 8
-  call void @SUNMatDestroy(ptr noundef %229)
-  %230 = load ptr, ptr %10, align 8
-  %231 = load ptr, ptr %12, align 8
-  %232 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %231, i32 0, i32 6
-  call void @arkFreeVec(ptr noundef %230, ptr noundef %232)
-  %233 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %233) #6
-  store ptr null, ptr %12, align 8
-  %234 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %234, i32 noundef -4, i32 noundef 159, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
+220:                                              ; preds = %209
+  %221 = load ptr, ptr %12, align 8, !tbaa !27
+  %222 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %221, i32 0, i32 5
+  %223 = load ptr, ptr %222, align 8, !tbaa !40
+  %224 = call i32 @SUNLinSolFree(ptr noundef %223)
+  %225 = load ptr, ptr %12, align 8, !tbaa !27
+  %226 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %225, i32 0, i32 4
+  %227 = load ptr, ptr %226, align 8, !tbaa !39
+  call void @SUNMatDestroy(ptr noundef %227)
+  %228 = load ptr, ptr %12, align 8, !tbaa !27
+  %229 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %228, i32 0, i32 3
+  %230 = load ptr, ptr %229, align 8, !tbaa !37
+  call void @SUNMatDestroy(ptr noundef %230)
+  %231 = load ptr, ptr %10, align 8, !tbaa !11
+  %232 = load ptr, ptr %12, align 8, !tbaa !27
+  %233 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %232, i32 0, i32 6
+  call void @arkFreeVec(ptr noundef %231, ptr noundef %233)
+  %234 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @free(ptr noundef %234) #6
+  store ptr null, ptr %12, align 8, !tbaa !27
+  %235 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %235, i32 noundef -4, i32 noundef 159, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -4, ptr %5, align 4
-  br label %281
+  store i32 1, ptr %17, align 4
+  br label %282
 
-235:                                              ; preds = %208
-  %236 = load ptr, ptr %12, align 8
-  %237 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %236, i32 0, i32 5
-  %238 = load ptr, ptr %237, align 8
-  %239 = call i32 @SUNLinSolInitialize(ptr noundef %238)
-  store i32 %239, ptr %16, align 4
-  %240 = load i32, ptr %16, align 4
-  %241 = icmp ne i32 %240, 0
-  br i1 %241, label %242, label %261
+236:                                              ; preds = %209
+  %237 = load ptr, ptr %12, align 8, !tbaa !27
+  %238 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %237, i32 0, i32 5
+  %239 = load ptr, ptr %238, align 8, !tbaa !40
+  %240 = call i32 @SUNLinSolInitialize(ptr noundef %239)
+  store i32 %240, ptr %16, align 4, !tbaa !9
+  %241 = load i32, ptr %16, align 4, !tbaa !9
+  %242 = icmp ne i32 %241, 0
+  br i1 %242, label %243, label %262
 
-242:                                              ; preds = %235
-  %243 = load ptr, ptr %12, align 8
-  %244 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %243, i32 0, i32 5
-  %245 = load ptr, ptr %244, align 8
-  %246 = call i32 @SUNLinSolFree(ptr noundef %245)
-  %247 = load ptr, ptr %12, align 8
-  %248 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %247, i32 0, i32 4
-  %249 = load ptr, ptr %248, align 8
-  call void @SUNMatDestroy(ptr noundef %249)
-  %250 = load ptr, ptr %12, align 8
-  %251 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %250, i32 0, i32 3
-  %252 = load ptr, ptr %251, align 8
-  call void @SUNMatDestroy(ptr noundef %252)
-  %253 = load ptr, ptr %10, align 8
-  %254 = load ptr, ptr %12, align 8
-  %255 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %254, i32 0, i32 6
-  call void @arkFreeVec(ptr noundef %253, ptr noundef %255)
-  %256 = load ptr, ptr %10, align 8
-  %257 = load ptr, ptr %12, align 8
-  %258 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %257, i32 0, i32 7
-  call void @arkFreeVec(ptr noundef %256, ptr noundef %258)
-  %259 = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %259) #6
-  store ptr null, ptr %12, align 8
-  %260 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %260, i32 noundef -12, i32 noundef 175, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.3)
+243:                                              ; preds = %236
+  %244 = load ptr, ptr %12, align 8, !tbaa !27
+  %245 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %244, i32 0, i32 5
+  %246 = load ptr, ptr %245, align 8, !tbaa !40
+  %247 = call i32 @SUNLinSolFree(ptr noundef %246)
+  %248 = load ptr, ptr %12, align 8, !tbaa !27
+  %249 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %248, i32 0, i32 4
+  %250 = load ptr, ptr %249, align 8, !tbaa !39
+  call void @SUNMatDestroy(ptr noundef %250)
+  %251 = load ptr, ptr %12, align 8, !tbaa !27
+  %252 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %251, i32 0, i32 3
+  %253 = load ptr, ptr %252, align 8, !tbaa !37
+  call void @SUNMatDestroy(ptr noundef %253)
+  %254 = load ptr, ptr %10, align 8, !tbaa !11
+  %255 = load ptr, ptr %12, align 8, !tbaa !27
+  %256 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %255, i32 0, i32 6
+  call void @arkFreeVec(ptr noundef %254, ptr noundef %256)
+  %257 = load ptr, ptr %10, align 8, !tbaa !11
+  %258 = load ptr, ptr %12, align 8, !tbaa !27
+  %259 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %258, i32 0, i32 7
+  call void @arkFreeVec(ptr noundef %257, ptr noundef %259)
+  %260 = load ptr, ptr %12, align 8, !tbaa !27
+  call void @free(ptr noundef %260) #6
+  store ptr null, ptr %12, align 8, !tbaa !27
+  %261 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %261, i32 noundef -12, i32 noundef 175, ptr noundef @__func__.ARKBandPrecInit, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -12, ptr %5, align 4
-  br label %281
+  store i32 1, ptr %17, align 4
+  br label %282
 
-261:                                              ; preds = %235
-  %262 = load ptr, ptr %11, align 8
-  %263 = getelementptr inbounds %struct.ARKLsMemRec, ptr %262, i32 0, i32 30
-  %264 = load ptr, ptr %263, align 8
-  %265 = icmp ne ptr %264, null
-  br i1 %265, label %266, label %272
+262:                                              ; preds = %236
+  %263 = load ptr, ptr %11, align 8, !tbaa !43
+  %264 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %263, i32 0, i32 30
+  %265 = load ptr, ptr %264, align 8, !tbaa !45
+  %266 = icmp ne ptr %265, null
+  br i1 %266, label %267, label %273
 
-266:                                              ; preds = %261
-  %267 = load ptr, ptr %11, align 8
-  %268 = getelementptr inbounds %struct.ARKLsMemRec, ptr %267, i32 0, i32 30
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr %10, align 8
-  %271 = call i32 %269(ptr noundef %270)
-  br label %272
+267:                                              ; preds = %262
+  %268 = load ptr, ptr %11, align 8, !tbaa !43
+  %269 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %268, i32 0, i32 30
+  %270 = load ptr, ptr %269, align 8, !tbaa !45
+  %271 = load ptr, ptr %10, align 8, !tbaa !11
+  %272 = call i32 %270(ptr noundef %271)
+  br label %273
 
-272:                                              ; preds = %266, %261
-  %273 = load ptr, ptr %12, align 8
-  %274 = load ptr, ptr %11, align 8
-  %275 = getelementptr inbounds %struct.ARKLsMemRec, ptr %274, i32 0, i32 31
-  store ptr %273, ptr %275, align 8
-  %276 = load ptr, ptr %11, align 8
-  %277 = getelementptr inbounds %struct.ARKLsMemRec, ptr %276, i32 0, i32 30
-  store ptr @ARKBandPrecFree, ptr %277, align 8
-  %278 = load ptr, ptr %6, align 8
-  %279 = call i32 @arkLSSetPreconditioner(ptr noundef %278, ptr noundef @ARKBandPrecSetup, ptr noundef @ARKBandPrecSolve)
-  store i32 %279, ptr %16, align 4
-  %280 = load i32, ptr %16, align 4
-  store i32 %280, ptr %5, align 4
-  br label %281
+273:                                              ; preds = %267, %262
+  %274 = load ptr, ptr %12, align 8, !tbaa !27
+  %275 = load ptr, ptr %11, align 8, !tbaa !43
+  %276 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %275, i32 0, i32 31
+  store ptr %274, ptr %276, align 8, !tbaa !47
+  %277 = load ptr, ptr %11, align 8, !tbaa !43
+  %278 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %277, i32 0, i32 30
+  store ptr @ARKBandPrecFree, ptr %278, align 8, !tbaa !45
+  %279 = load ptr, ptr %6, align 8, !tbaa !3
+  %280 = call i32 @ARKodeSetPreconditioner(ptr noundef %279, ptr noundef @ARKBandPrecSetup, ptr noundef @ARKBandPrecSolve)
+  store i32 %280, ptr %16, align 4, !tbaa !9
+  %281 = load i32, ptr %16, align 4, !tbaa !9
+  store i32 %281, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %282
 
-281:                                              ; preds = %272, %242, %219, %195, %175, %150, %115, %38, %32, %21
-  %282 = load i32, ptr %5, align 4
-  ret i32 %282
+282:                                              ; preds = %273, %243, %220, %196, %176, %151, %116, %39, %33, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %283 = load i32, ptr %5, align 4
+  ret i32 %283
 }
 
-declare i32 @arkLs_AccessLMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+declare i32 @arkLs_AccessARKODELMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
-declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
-declare void @SUNMatDestroy(ptr noundef) #1
+declare void @SUNMatDestroy(ptr noundef) #2
 
-declare ptr @SUNLinSol_Band(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @SUNLinSol_Band(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @SUNLinSolFree(ptr noundef) #1
+declare i32 @SUNLinSolFree(ptr noundef) #2
 
-declare void @arkFreeVec(ptr noundef, ptr noundef) #1
+declare void @arkFreeVec(ptr noundef, ptr noundef) #2
 
-declare i32 @SUNLinSolInitialize(ptr noundef) #1
+declare i32 @SUNLinSolInitialize(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ARKBandPrecFree(ptr noundef %0) #0 {
@@ -490,80 +518,91 @@ define internal i32 @ARKBandPrecFree(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %47
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %8 = load ptr, ptr %3, align 8, !tbaa !11
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.ARKodeMemRec, ptr %11, i32 0, i32 23
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = call ptr %13(ptr noundef %14)
-  store ptr %15, ptr %5, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %10
   store i32 0, ptr %2, align 4
-  br label %47
+  store i32 1, ptr %7, align 4
+  br label %48
 
-19:                                               ; preds = %10
-  %20 = load ptr, ptr %5, align 8
-  store ptr %20, ptr %4, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.ARKLsMemRec, ptr %21, i32 0, i32 31
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %26
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %12, i32 0, i32 42
+  %14 = load ptr, ptr %13, align 8, !tbaa !48
+  %15 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = call ptr %14(ptr noundef %15)
+  store ptr %16, ptr %5, align 8, !tbaa !3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
-25:                                               ; preds = %19
+19:                                               ; preds = %11
   store i32 0, ptr %2, align 4
-  br label %47
+  store i32 1, ptr %7, align 4
+  br label %48
 
-26:                                               ; preds = %19
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.ARKLsMemRec, ptr %27, i32 0, i32 31
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %6, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %30, i32 0, i32 5
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @SUNLinSolFree(ptr noundef %32)
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %34, i32 0, i32 4
-  %36 = load ptr, ptr %35, align 8
-  call void @SUNMatDestroy(ptr noundef %36)
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %37, i32 0, i32 3
-  %39 = load ptr, ptr %38, align 8
-  call void @SUNMatDestroy(ptr noundef %39)
-  %40 = load ptr, ptr %3, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %41, i32 0, i32 6
-  call void @arkFreeVec(ptr noundef %40, ptr noundef %42)
-  %43 = load ptr, ptr %3, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %44, i32 0, i32 7
-  call void @arkFreeVec(ptr noundef %43, ptr noundef %45)
-  %46 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %46) #6
-  store ptr null, ptr %6, align 8
+20:                                               ; preds = %11
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %21, ptr %4, align 8, !tbaa !43
+  %22 = load ptr, ptr %4, align 8, !tbaa !43
+  %23 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %22, i32 0, i32 31
+  %24 = load ptr, ptr %23, align 8, !tbaa !47
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %20
   store i32 0, ptr %2, align 4
-  br label %47
+  store i32 1, ptr %7, align 4
+  br label %48
 
-47:                                               ; preds = %26, %25, %18, %9
-  %48 = load i32, ptr %2, align 4
-  ret i32 %48
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %4, align 8, !tbaa !43
+  %29 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %28, i32 0, i32 31
+  %30 = load ptr, ptr %29, align 8, !tbaa !47
+  store ptr %30, ptr %6, align 8, !tbaa !27
+  %31 = load ptr, ptr %6, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %31, i32 0, i32 5
+  %33 = load ptr, ptr %32, align 8, !tbaa !40
+  %34 = call i32 @SUNLinSolFree(ptr noundef %33)
+  %35 = load ptr, ptr %6, align 8, !tbaa !27
+  %36 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %35, i32 0, i32 4
+  %37 = load ptr, ptr %36, align 8, !tbaa !39
+  call void @SUNMatDestroy(ptr noundef %37)
+  %38 = load ptr, ptr %6, align 8, !tbaa !27
+  %39 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %38, i32 0, i32 3
+  %40 = load ptr, ptr %39, align 8, !tbaa !37
+  call void @SUNMatDestroy(ptr noundef %40)
+  %41 = load ptr, ptr %3, align 8, !tbaa !11
+  %42 = load ptr, ptr %6, align 8, !tbaa !27
+  %43 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %42, i32 0, i32 6
+  call void @arkFreeVec(ptr noundef %41, ptr noundef %43)
+  %44 = load ptr, ptr %3, align 8, !tbaa !11
+  %45 = load ptr, ptr %6, align 8, !tbaa !27
+  %46 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %45, i32 0, i32 7
+  call void @arkFreeVec(ptr noundef %44, ptr noundef %46)
+  %47 = load ptr, ptr %6, align 8, !tbaa !27
+  call void @free(ptr noundef %47) #6
+  store ptr null, ptr %6, align 8, !tbaa !27
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %48
+
+48:                                               ; preds = %27, %26, %19, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %49 = load i32, ptr %2, align 4
+  ret i32 %49
 }
 
-declare i32 @arkLSSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @ARKodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, double noundef %5, ptr noundef %6) #0 {
@@ -578,180 +617,197 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
-  store double %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %11, align 8
-  store i32 %3, ptr %12, align 4
-  store ptr %4, ptr %13, align 8
-  store double %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  %19 = load ptr, ptr %15, align 8
-  store ptr %19, ptr %16, align 8
-  %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %20, i32 0, i32 9
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %17, align 8
-  %23 = load i32, ptr %12, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %43
+  %19 = alloca i32, align 4
+  store double %0, ptr %9, align 8, !tbaa !49
+  store ptr %1, ptr %10, align 8, !tbaa !50
+  store ptr %2, ptr %11, align 8, !tbaa !50
+  store i32 %3, ptr %12, align 4, !tbaa !9
+  store ptr %4, ptr %13, align 8, !tbaa !51
+  store double %5, ptr %14, align 8, !tbaa !49
+  store ptr %6, ptr %15, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %20 = load ptr, ptr %15, align 8, !tbaa !3
+  store ptr %20, ptr %16, align 8, !tbaa !27
+  %21 = load ptr, ptr %16, align 8, !tbaa !27
+  %22 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %21, i32 0, i32 9
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
+  store ptr %23, ptr %17, align 8, !tbaa !11
+  %24 = load i32, ptr %12, align 4, !tbaa !9
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %44
 
-25:                                               ; preds = %7
-  %26 = load ptr, ptr %13, align 8
-  store i32 0, ptr %26, align 4
-  %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %16, align 8
-  %31 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %30, i32 0, i32 4
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @SUNMatCopy(ptr noundef %29, ptr noundef %32)
-  store i32 %33, ptr %18, align 4
-  %34 = load i32, ptr %18, align 4
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %38
+26:                                               ; preds = %7
+  %27 = load ptr, ptr %13, align 8, !tbaa !51
+  store i32 0, ptr %27, align 4, !tbaa !9
+  %28 = load ptr, ptr %16, align 8, !tbaa !27
+  %29 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %29, align 8, !tbaa !37
+  %31 = load ptr, ptr %16, align 8, !tbaa !27
+  %32 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %31, i32 0, i32 4
+  %33 = load ptr, ptr %32, align 8, !tbaa !39
+  %34 = call i32 @SUNMatCopy(ptr noundef %30, ptr noundef %33)
+  store i32 %34, ptr %18, align 4, !tbaa !9
+  %35 = load i32, ptr %18, align 4, !tbaa !9
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %25
-  %37 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %37, i32 noundef -1, i32 noundef 343, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.5)
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %38, i32 noundef -1, i32 noundef 344, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-38:                                               ; preds = %25
-  %39 = load i32, ptr %18, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %26
+  %40 = load i32, ptr %18, align 4, !tbaa !9
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   store i32 1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-42:                                               ; preds = %38
-  br label %94
+43:                                               ; preds = %39
+  br label %95
 
-43:                                               ; preds = %7
-  %44 = load ptr, ptr %13, align 8
-  store i32 1, ptr %44, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %45, i32 0, i32 3
-  %47 = load ptr, ptr %46, align 8
-  %48 = call i32 @SUNMatZero(ptr noundef %47)
-  store i32 %48, ptr %18, align 4
-  %49 = load i32, ptr %18, align 4
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %53
+44:                                               ; preds = %7
+  %45 = load ptr, ptr %13, align 8, !tbaa !51
+  store i32 1, ptr %45, align 4, !tbaa !9
+  %46 = load ptr, ptr %16, align 8, !tbaa !27
+  %47 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %46, i32 0, i32 3
+  %48 = load ptr, ptr %47, align 8, !tbaa !37
+  %49 = call i32 @SUNMatZero(ptr noundef %48)
+  store i32 %49, ptr %18, align 4, !tbaa !9
+  %50 = load i32, ptr %18, align 4, !tbaa !9
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %52, i32 noundef -1, i32 noundef 356, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.5)
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %53, i32 noundef -1, i32 noundef 357, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-53:                                               ; preds = %43
-  %54 = load i32, ptr %18, align 4
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %57
+54:                                               ; preds = %44
+  %55 = load i32, ptr %18, align 4, !tbaa !9
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %53
+57:                                               ; preds = %54
   store i32 1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %16, align 8
-  %59 = load double, ptr %9, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = load ptr, ptr %11, align 8
-  %62 = load ptr, ptr %16, align 8
-  %63 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %62, i32 0, i32 6
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %16, align 8
-  %66 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %65, i32 0, i32 7
-  %67 = load ptr, ptr %66, align 8
-  %68 = call i32 @ARKBandPDQJac(ptr noundef %58, double noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %64, ptr noundef %67)
-  store i32 %68, ptr %18, align 4
-  %69 = load i32, ptr %18, align 4
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %71, label %73
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %16, align 8, !tbaa !27
+  %60 = load double, ptr %9, align 8, !tbaa !49
+  %61 = load ptr, ptr %10, align 8, !tbaa !50
+  %62 = load ptr, ptr %11, align 8, !tbaa !50
+  %63 = load ptr, ptr %16, align 8, !tbaa !27
+  %64 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %63, i32 0, i32 6
+  %65 = load ptr, ptr %64, align 8, !tbaa !41
+  %66 = load ptr, ptr %16, align 8, !tbaa !27
+  %67 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %66, i32 0, i32 7
+  %68 = load ptr, ptr %67, align 8, !tbaa !42
+  %69 = call i32 @ARKBandPDQJac(ptr noundef %59, double noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %65, ptr noundef %68)
+  store i32 %69, ptr %18, align 4, !tbaa !9
+  %70 = load i32, ptr %18, align 4, !tbaa !9
+  %71 = icmp slt i32 %70, 0
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %57
-  %72 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %72, i32 noundef -1, i32 noundef 365, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.6)
+72:                                               ; preds = %58
+  %73 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %73, i32 noundef -1, i32 noundef 366, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-73:                                               ; preds = %57
-  %74 = load i32, ptr %18, align 4
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %76, label %77
+74:                                               ; preds = %58
+  %75 = load i32, ptr %18, align 4, !tbaa !9
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %73
+77:                                               ; preds = %74
   store i32 1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %16, align 8
-  %79 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %78, i32 0, i32 3
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %16, align 8
-  %82 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %81, i32 0, i32 4
-  %83 = load ptr, ptr %82, align 8
-  %84 = call i32 @SUNMatCopy(ptr noundef %80, ptr noundef %83)
-  store i32 %84, ptr %18, align 4
-  %85 = load i32, ptr %18, align 4
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %87, label %89
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %16, align 8, !tbaa !27
+  %80 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %79, i32 0, i32 3
+  %81 = load ptr, ptr %80, align 8, !tbaa !37
+  %82 = load ptr, ptr %16, align 8, !tbaa !27
+  %83 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %82, i32 0, i32 4
+  %84 = load ptr, ptr %83, align 8, !tbaa !39
+  %85 = call i32 @SUNMatCopy(ptr noundef %81, ptr noundef %84)
+  store i32 %85, ptr %18, align 4, !tbaa !9
+  %86 = load i32, ptr %18, align 4, !tbaa !9
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %88, label %90
 
-87:                                               ; preds = %77
-  %88 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %88, i32 noundef -1, i32 noundef 374, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.5)
+88:                                               ; preds = %78
+  %89 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %89, i32 noundef -1, i32 noundef 375, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-89:                                               ; preds = %77
-  %90 = load i32, ptr %18, align 4
-  %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %92, label %93
+90:                                               ; preds = %78
+  %91 = load i32, ptr %18, align 4, !tbaa !9
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %94
 
-92:                                               ; preds = %89
+93:                                               ; preds = %90
   store i32 1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-93:                                               ; preds = %89
-  br label %94
+94:                                               ; preds = %90
+  br label %95
 
-94:                                               ; preds = %93, %42
-  %95 = load double, ptr %14, align 8
-  %96 = fneg double %95
-  %97 = load ptr, ptr %16, align 8
-  %98 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %97, i32 0, i32 4
-  %99 = load ptr, ptr %98, align 8
-  %100 = call i32 @SUNMatScaleAddI(double noundef %96, ptr noundef %99)
-  store i32 %100, ptr %18, align 4
-  %101 = load i32, ptr %18, align 4
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %105
+95:                                               ; preds = %94, %43
+  %96 = load double, ptr %14, align 8, !tbaa !49
+  %97 = fneg double %96
+  %98 = load ptr, ptr %16, align 8, !tbaa !27
+  %99 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %98, i32 0, i32 4
+  %100 = load ptr, ptr %99, align 8, !tbaa !39
+  %101 = call i32 @SUNMatScaleAddI(double noundef %97, ptr noundef %100)
+  store i32 %101, ptr %18, align 4, !tbaa !9
+  %102 = load i32, ptr %18, align 4, !tbaa !9
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %106
 
-103:                                              ; preds = %94
-  %104 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %104, i32 noundef -1, i32 noundef 385, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.5)
+104:                                              ; preds = %95
+  %105 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %105, i32 noundef -1, i32 noundef 386, ptr noundef @__func__.ARKBandPrecSetup, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -1, ptr %8, align 4
-  br label %114
+  store i32 1, ptr %19, align 4
+  br label %115
 
-105:                                              ; preds = %94
-  %106 = load ptr, ptr %16, align 8
-  %107 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %106, i32 0, i32 5
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %16, align 8
-  %110 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %109, i32 0, i32 4
-  %111 = load ptr, ptr %110, align 8
-  %112 = call i32 @SUNLinSolSetup_Band(ptr noundef %108, ptr noundef %111)
-  store i32 %112, ptr %18, align 4
-  %113 = load i32, ptr %18, align 4
-  store i32 %113, ptr %8, align 4
-  br label %114
+106:                                              ; preds = %95
+  %107 = load ptr, ptr %16, align 8, !tbaa !27
+  %108 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %107, i32 0, i32 5
+  %109 = load ptr, ptr %108, align 8, !tbaa !40
+  %110 = load ptr, ptr %16, align 8, !tbaa !27
+  %111 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %110, i32 0, i32 4
+  %112 = load ptr, ptr %111, align 8, !tbaa !39
+  %113 = call i32 @SUNLinSolSetup_Band(ptr noundef %109, ptr noundef %112)
+  store i32 %113, ptr %18, align 4, !tbaa !9
+  %114 = load i32, ptr %18, align 4, !tbaa !9
+  store i32 %114, ptr %8, align 4
+  store i32 1, ptr %19, align 4
+  br label %115
 
-114:                                              ; preds = %105, %103, %92, %87, %76, %71, %56, %51, %41, %36
-  %115 = load i32, ptr %8, align 4
-  ret i32 %115
+115:                                              ; preds = %106, %104, %93, %88, %77, %72, %57, %52, %42, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  %116 = load i32, ptr %8, align 4
+  ret i32 %116
 }
 
 ; Function Attrs: nounwind uwtable
@@ -767,30 +823,37 @@ define internal i32 @ARKBandPrecSolve(double noundef %0, ptr noundef %1, ptr nou
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
-  store double %0, ptr %10, align 8
-  store ptr %1, ptr %11, align 8
-  store ptr %2, ptr %12, align 8
-  store ptr %3, ptr %13, align 8
-  store ptr %4, ptr %14, align 8
-  store double %5, ptr %15, align 8
-  store double %6, ptr %16, align 8
-  store i32 %7, ptr %17, align 4
-  store ptr %8, ptr %18, align 8
-  %21 = load ptr, ptr %18, align 8
-  store ptr %21, ptr %19, align 8
-  %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %22, i32 0, i32 5
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %25, i32 0, i32 4
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %14, align 8
-  %29 = load ptr, ptr %13, align 8
+  store double %0, ptr %10, align 8, !tbaa !49
+  store ptr %1, ptr %11, align 8, !tbaa !50
+  store ptr %2, ptr %12, align 8, !tbaa !50
+  store ptr %3, ptr %13, align 8, !tbaa !50
+  store ptr %4, ptr %14, align 8, !tbaa !50
+  store double %5, ptr %15, align 8, !tbaa !49
+  store double %6, ptr %16, align 8, !tbaa !49
+  store i32 %7, ptr %17, align 4, !tbaa !9
+  store ptr %8, ptr %18, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  %21 = load ptr, ptr %18, align 8, !tbaa !3
+  store ptr %21, ptr %19, align 8, !tbaa !27
+  %22 = load ptr, ptr %19, align 8, !tbaa !27
+  %23 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %22, i32 0, i32 5
+  %24 = load ptr, ptr %23, align 8, !tbaa !40
+  %25 = load ptr, ptr %19, align 8, !tbaa !27
+  %26 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %25, i32 0, i32 4
+  %27 = load ptr, ptr %26, align 8, !tbaa !39
+  %28 = load ptr, ptr %14, align 8, !tbaa !50
+  %29 = load ptr, ptr %13, align 8, !tbaa !50
   %30 = call i32 @SUNLinSolSolve(ptr noundef %24, ptr noundef %27, ptr noundef %28, ptr noundef %29, double noundef 0.000000e+00)
-  store i32 %30, ptr %20, align 4
-  %31 = load i32, ptr %20, align 4
+  store i32 %30, ptr %20, align 4, !tbaa !9
+  %31 = load i32, ptr %20, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
   ret i32 %31
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -806,197 +869,217 @@ define i32 @ARKBandPrecGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef 
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = call i32 @arkLs_AccessLMem(ptr noundef %16, ptr noundef @__func__.ARKBandPrecGetWorkSpace, ptr noundef %8, ptr noundef %9)
-  store i32 %17, ptr %15, align 4
-  %18 = load i32, ptr %15, align 4
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %22
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = call i32 @arkLs_AccessARKODELMem(ptr noundef %17, ptr noundef @__func__.ARKBandPrecGetWorkSpace, ptr noundef %8, ptr noundef %9)
+  store i32 %18, ptr %15, align 4, !tbaa !9
+  %19 = load i32, ptr %15, align 4, !tbaa !9
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %23
 
-20:                                               ; preds = %3
-  %21 = load i32, ptr %15, align 4
-  store i32 %21, ptr %4, align 4
-  br label %136
+21:                                               ; preds = %3
+  %22 = load i32, ptr %15, align 4, !tbaa !9
+  store i32 %22, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %137
 
-22:                                               ; preds = %3
-  %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds %struct.ARKLsMemRec, ptr %23, i32 0, i32 31
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %29
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %9, align 8, !tbaa !43
+  %25 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %24, i32 0, i32 31
+  %26 = load ptr, ptr %25, align 8, !tbaa !47
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %28, i32 noundef -5, i32 noundef 210, ptr noundef @__func__.ARKBandPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.4)
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %8, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %29, i32 noundef -5, i32 noundef 211, ptr noundef @__func__.ARKBandPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -5, ptr %4, align 4
-  br label %136
+  store i32 1, ptr %16, align 4
+  br label %137
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds %struct.ARKLsMemRec, ptr %30, i32 0, i32 31
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %10, align 8
-  %33 = load ptr, ptr %7, align 8
-  store i64 4, ptr %33, align 8
-  %34 = load ptr, ptr %6, align 8
-  store i64 0, ptr %34, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.ARKodeMemRec, ptr %35, i32 0, i32 39
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct._generic_N_Vector, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %39, i32 0, i32 4
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %57
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %9, align 8, !tbaa !43
+  %32 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %31, i32 0, i32 31
+  %33 = load ptr, ptr %32, align 8, !tbaa !47
+  store ptr %33, ptr %10, align 8, !tbaa !27
+  %34 = load ptr, ptr %7, align 8, !tbaa !53
+  store i64 4, ptr %34, align 8, !tbaa !7
+  %35 = load ptr, ptr %6, align 8, !tbaa !53
+  store i64 0, ptr %35, align 8, !tbaa !7
+  %36 = load ptr, ptr %8, align 8, !tbaa !11
+  %37 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %36, i32 0, i32 79
+  %38 = load ptr, ptr %37, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !55
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %58
 
-43:                                               ; preds = %29
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.ARKodeMemRec, ptr %44, i32 0, i32 39
-  %46 = load ptr, ptr %45, align 8
-  call void @N_VSpace(ptr noundef %46, ptr noundef %11, ptr noundef %12)
-  %47 = load i64, ptr %12, align 8
-  %48 = mul nsw i64 2, %47
-  %49 = load ptr, ptr %7, align 8
-  %50 = load i64, ptr %49, align 8
-  %51 = add nsw i64 %50, %48
-  store i64 %51, ptr %49, align 8
-  %52 = load i64, ptr %11, align 8
-  %53 = mul nsw i64 2, %52
-  %54 = load ptr, ptr %6, align 8
-  %55 = load i64, ptr %54, align 8
-  %56 = add nsw i64 %55, %53
-  store i64 %56, ptr %54, align 8
-  br label %57
+44:                                               ; preds = %30
+  %45 = load ptr, ptr %8, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %45, i32 0, i32 79
+  %47 = load ptr, ptr %46, align 8, !tbaa !13
+  call void @N_VSpace(ptr noundef %47, ptr noundef %11, ptr noundef %12)
+  %48 = load i64, ptr %12, align 8, !tbaa !7
+  %49 = mul nsw i64 2, %48
+  %50 = load ptr, ptr %7, align 8, !tbaa !53
+  %51 = load i64, ptr %50, align 8, !tbaa !7
+  %52 = add nsw i64 %51, %49
+  store i64 %52, ptr %50, align 8, !tbaa !7
+  %53 = load i64, ptr %11, align 8, !tbaa !7
+  %54 = mul nsw i64 2, %53
+  %55 = load ptr, ptr %6, align 8, !tbaa !53
+  %56 = load i64, ptr %55, align 8, !tbaa !7
+  %57 = add nsw i64 %56, %54
+  store i64 %57, ptr %55, align 8, !tbaa !7
+  br label %58
 
-57:                                               ; preds = %43, %29
-  %58 = load ptr, ptr %10, align 8
-  %59 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %58, i32 0, i32 3
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._generic_SUNMatrix, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct._generic_SUNMatrix_Ops, ptr %62, i32 0, i32 9
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %83
+58:                                               ; preds = %44, %30
+  %59 = load ptr, ptr %10, align 8, !tbaa !27
+  %60 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %59, i32 0, i32 3
+  %61 = load ptr, ptr %60, align 8, !tbaa !37
+  %62 = getelementptr inbounds nuw %struct._generic_SUNMatrix, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !56
+  %64 = getelementptr inbounds nuw %struct._generic_SUNMatrix_Ops, ptr %63, i32 0, i32 9
+  %65 = load ptr, ptr %64, align 8, !tbaa !59
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %84
 
-66:                                               ; preds = %57
-  %67 = load ptr, ptr %10, align 8
-  %68 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %67, i32 0, i32 3
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i32 @SUNMatSpace(ptr noundef %69, ptr noundef %13, ptr noundef %14)
-  store i32 %70, ptr %15, align 4
-  %71 = load i32, ptr %15, align 4
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %82
+67:                                               ; preds = %58
+  %68 = load ptr, ptr %10, align 8, !tbaa !27
+  %69 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %68, i32 0, i32 3
+  %70 = load ptr, ptr %69, align 8, !tbaa !37
+  %71 = call i32 @SUNMatSpace(ptr noundef %70, ptr noundef %13, ptr noundef %14)
+  store i32 %71, ptr %15, align 4, !tbaa !9
+  %72 = load i32, ptr %15, align 4, !tbaa !9
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %83
 
-73:                                               ; preds = %66
-  %74 = load i64, ptr %14, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = load i64, ptr %75, align 8
-  %77 = add nsw i64 %76, %74
-  store i64 %77, ptr %75, align 8
-  %78 = load i64, ptr %13, align 8
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i64, ptr %79, align 8
-  %81 = add nsw i64 %80, %78
-  store i64 %81, ptr %79, align 8
-  br label %82
-
-82:                                               ; preds = %73, %66
+74:                                               ; preds = %67
+  %75 = load i64, ptr %14, align 8, !tbaa !7
+  %76 = load ptr, ptr %7, align 8, !tbaa !53
+  %77 = load i64, ptr %76, align 8, !tbaa !7
+  %78 = add nsw i64 %77, %75
+  store i64 %78, ptr %76, align 8, !tbaa !7
+  %79 = load i64, ptr %13, align 8, !tbaa !7
+  %80 = load ptr, ptr %6, align 8, !tbaa !53
+  %81 = load i64, ptr %80, align 8, !tbaa !7
+  %82 = add nsw i64 %81, %79
+  store i64 %82, ptr %80, align 8, !tbaa !7
   br label %83
 
-83:                                               ; preds = %82, %57
-  %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %84, i32 0, i32 4
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct._generic_SUNMatrix, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct._generic_SUNMatrix_Ops, ptr %88, i32 0, i32 9
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp ne ptr %90, null
-  br i1 %91, label %92, label %109
+83:                                               ; preds = %74, %67
+  br label %84
 
-92:                                               ; preds = %83
-  %93 = load ptr, ptr %10, align 8
-  %94 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %93, i32 0, i32 4
-  %95 = load ptr, ptr %94, align 8
-  %96 = call i32 @SUNMatSpace(ptr noundef %95, ptr noundef %13, ptr noundef %14)
-  store i32 %96, ptr %15, align 4
-  %97 = load i32, ptr %15, align 4
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %108
+84:                                               ; preds = %83, %58
+  %85 = load ptr, ptr %10, align 8, !tbaa !27
+  %86 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %85, i32 0, i32 4
+  %87 = load ptr, ptr %86, align 8, !tbaa !39
+  %88 = getelementptr inbounds nuw %struct._generic_SUNMatrix, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8, !tbaa !56
+  %90 = getelementptr inbounds nuw %struct._generic_SUNMatrix_Ops, ptr %89, i32 0, i32 9
+  %91 = load ptr, ptr %90, align 8, !tbaa !59
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %110
 
-99:                                               ; preds = %92
-  %100 = load i64, ptr %14, align 8
-  %101 = load ptr, ptr %7, align 8
-  %102 = load i64, ptr %101, align 8
-  %103 = add nsw i64 %102, %100
-  store i64 %103, ptr %101, align 8
-  %104 = load i64, ptr %13, align 8
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i64, ptr %105, align 8
-  %107 = add nsw i64 %106, %104
-  store i64 %107, ptr %105, align 8
-  br label %108
+93:                                               ; preds = %84
+  %94 = load ptr, ptr %10, align 8, !tbaa !27
+  %95 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %94, i32 0, i32 4
+  %96 = load ptr, ptr %95, align 8, !tbaa !39
+  %97 = call i32 @SUNMatSpace(ptr noundef %96, ptr noundef %13, ptr noundef %14)
+  store i32 %97, ptr %15, align 4, !tbaa !9
+  %98 = load i32, ptr %15, align 4, !tbaa !9
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %109
 
-108:                                              ; preds = %99, %92
+100:                                              ; preds = %93
+  %101 = load i64, ptr %14, align 8, !tbaa !7
+  %102 = load ptr, ptr %7, align 8, !tbaa !53
+  %103 = load i64, ptr %102, align 8, !tbaa !7
+  %104 = add nsw i64 %103, %101
+  store i64 %104, ptr %102, align 8, !tbaa !7
+  %105 = load i64, ptr %13, align 8, !tbaa !7
+  %106 = load ptr, ptr %6, align 8, !tbaa !53
+  %107 = load i64, ptr %106, align 8, !tbaa !7
+  %108 = add nsw i64 %107, %105
+  store i64 %108, ptr %106, align 8, !tbaa !7
   br label %109
 
-109:                                              ; preds = %108, %83
-  %110 = load ptr, ptr %10, align 8
-  %111 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %110, i32 0, i32 5
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %112, i32 0, i32 1
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %114, i32 0, i32 12
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp ne ptr %116, null
-  br i1 %117, label %118, label %135
+109:                                              ; preds = %100, %93
+  br label %110
 
-118:                                              ; preds = %109
-  %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %119, i32 0, i32 5
-  %121 = load ptr, ptr %120, align 8
-  %122 = call i32 @SUNLinSolSpace(ptr noundef %121, ptr noundef %13, ptr noundef %14)
-  store i32 %122, ptr %15, align 4
-  %123 = load i32, ptr %15, align 4
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %125, label %134
+110:                                              ; preds = %109, %84
+  %111 = load ptr, ptr %10, align 8, !tbaa !27
+  %112 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %111, i32 0, i32 5
+  %113 = load ptr, ptr %112, align 8, !tbaa !40
+  %114 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %113, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8, !tbaa !61
+  %116 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %115, i32 0, i32 12
+  %117 = load ptr, ptr %116, align 8, !tbaa !64
+  %118 = icmp ne ptr %117, null
+  br i1 %118, label %119, label %136
 
-125:                                              ; preds = %118
-  %126 = load i64, ptr %14, align 8
-  %127 = load ptr, ptr %7, align 8
-  %128 = load i64, ptr %127, align 8
-  %129 = add nsw i64 %128, %126
-  store i64 %129, ptr %127, align 8
-  %130 = load i64, ptr %13, align 8
-  %131 = load ptr, ptr %6, align 8
-  %132 = load i64, ptr %131, align 8
-  %133 = add nsw i64 %132, %130
-  store i64 %133, ptr %131, align 8
-  br label %134
+119:                                              ; preds = %110
+  %120 = load ptr, ptr %10, align 8, !tbaa !27
+  %121 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %120, i32 0, i32 5
+  %122 = load ptr, ptr %121, align 8, !tbaa !40
+  %123 = call i32 @SUNLinSolSpace(ptr noundef %122, ptr noundef %13, ptr noundef %14)
+  store i32 %123, ptr %15, align 4, !tbaa !9
+  %124 = load i32, ptr %15, align 4, !tbaa !9
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %126, label %135
 
-134:                                              ; preds = %125, %118
+126:                                              ; preds = %119
+  %127 = load i64, ptr %14, align 8, !tbaa !7
+  %128 = load ptr, ptr %7, align 8, !tbaa !53
+  %129 = load i64, ptr %128, align 8, !tbaa !7
+  %130 = add nsw i64 %129, %127
+  store i64 %130, ptr %128, align 8, !tbaa !7
+  %131 = load i64, ptr %13, align 8, !tbaa !7
+  %132 = load ptr, ptr %6, align 8, !tbaa !53
+  %133 = load i64, ptr %132, align 8, !tbaa !7
+  %134 = add nsw i64 %133, %131
+  store i64 %134, ptr %132, align 8, !tbaa !7
   br label %135
 
-135:                                              ; preds = %134, %109
-  store i32 0, ptr %4, align 4
+135:                                              ; preds = %126, %119
   br label %136
 
-136:                                              ; preds = %135, %27, %20
-  %137 = load i32, ptr %4, align 4
-  ret i32 %137
+136:                                              ; preds = %135, %110
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %137
+
+137:                                              ; preds = %136, %28, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %138 = load i32, ptr %4, align 4
+  ret i32 %138
 }
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKBandPrecGetNumRhsEvals(ptr noundef %0, ptr noundef %1) #0 {
@@ -1007,54 +1090,66 @@ define i32 @ARKBandPrecGetNumRhsEvals(ptr noundef %0, ptr noundef %1) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = call i32 @arkLs_AccessLMem(ptr noundef %10, ptr noundef @__func__.ARKBandPrecGetNumRhsEvals, ptr noundef %6, ptr noundef %7)
-  store i32 %11, ptr %9, align 4
-  %12 = load i32, ptr %9, align 4
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %16
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = call i32 @arkLs_AccessARKODELMem(ptr noundef %11, ptr noundef @__func__.ARKBandPrecGetNumRhsEvals, ptr noundef %6, ptr noundef %7)
+  store i32 %12, ptr %9, align 4, !tbaa !9
+  %13 = load i32, ptr %9, align 4, !tbaa !9
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %2
-  %15 = load i32, ptr %9, align 4
-  store i32 %15, ptr %3, align 4
-  br label %31
+15:                                               ; preds = %2
+  %16 = load i32, ptr %9, align 4, !tbaa !9
+  store i32 %16, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %32
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct.ARKLsMemRec, ptr %17, i32 0, i32 31
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %23
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %7, align 8, !tbaa !43
+  %19 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %18, i32 0, i32 31
+  %20 = load ptr, ptr %19, align 8, !tbaa !47
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %24
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %22, i32 noundef -5, i32 noundef 270, ptr noundef @__func__.ARKBandPrecGetNumRhsEvals, ptr noundef @.str, ptr noundef @.str.4)
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %6, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %23, i32 noundef -5, i32 noundef 271, ptr noundef @__func__.ARKBandPrecGetNumRhsEvals, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -5, ptr %3, align 4
-  br label %31
+  store i32 1, ptr %10, align 4
+  br label %32
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.ARKLsMemRec, ptr %24, i32 0, i32 31
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %8, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %27, i32 0, i32 8
-  %29 = load i64, ptr %28, align 8
-  %30 = load ptr, ptr %5, align 8
-  store i64 %29, ptr %30, align 8
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %7, align 8, !tbaa !43
+  %26 = getelementptr inbounds nuw %struct.ARKLsMemRec, ptr %25, i32 0, i32 31
+  %27 = load ptr, ptr %26, align 8, !tbaa !47
+  store ptr %27, ptr %8, align 8, !tbaa !27
+  %28 = load ptr, ptr %8, align 8, !tbaa !27
+  %29 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %28, i32 0, i32 8
+  %30 = load i64, ptr %29, align 8, !tbaa !36
+  %31 = load ptr, ptr %5, align 8, !tbaa !53
+  store i64 %30, ptr %31, align 8, !tbaa !7
   store i32 0, ptr %3, align 4
-  br label %31
+  store i32 1, ptr %10, align 4
+  br label %32
 
-31:                                               ; preds = %23, %21, %14
-  %32 = load i32, ptr %3, align 4
-  ret i32 %32
+32:                                               ; preds = %24, %22, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %33 = load i32, ptr %3, align 4
+  ret i32 %33
 }
 
-declare i32 @SUNMatCopy(ptr noundef, ptr noundef) #1
+declare i32 @SUNMatCopy(ptr noundef, ptr noundef) #2
 
-declare i32 @SUNMatZero(ptr noundef) #1
+declare i32 @SUNMatZero(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ARKBandPDQJac(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -1089,615 +1184,740 @@ define internal i32 @ARKBandPDQJac(ptr noundef %0, double noundef %1, ptr nounde
   %35 = alloca ptr, align 8
   %36 = alloca ptr, align 8
   %37 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store double %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %38, i32 0, i32 9
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %14, align 8
-  store ptr null, ptr %15, align 8
-  %41 = load ptr, ptr %14, align 8
-  %42 = getelementptr inbounds %struct.ARKodeMemRec, ptr %41, i32 0, i32 25
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %14, align 8
-  %45 = call ptr %43(ptr noundef %44)
-  store ptr %45, ptr %15, align 8
-  %46 = load ptr, ptr %15, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %49
-
-48:                                               ; preds = %6
-  store i32 -1, ptr %7, align 4
-  br label %426
+  %38 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !27
+  store double %1, ptr %9, align 8, !tbaa !49
+  store ptr %2, ptr %10, align 8, !tbaa !50
+  store ptr %3, ptr %11, align 8, !tbaa !50
+  store ptr %4, ptr %12, align 8, !tbaa !50
+  store ptr %5, ptr %13, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #6
+  %39 = load ptr, ptr %8, align 8, !tbaa !27
+  %40 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %39, i32 0, i32 9
+  %41 = load ptr, ptr %40, align 8, !tbaa !29
+  store ptr %41, ptr %14, align 8, !tbaa !11
+  store ptr null, ptr %15, align 8, !tbaa !3
+  %42 = load ptr, ptr %14, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %42, i32 0, i32 43
+  %44 = load ptr, ptr %43, align 8, !tbaa !66
+  %45 = load ptr, ptr %14, align 8, !tbaa !11
+  %46 = call ptr %44(ptr noundef %45)
+  store ptr %46, ptr %15, align 8, !tbaa !3
+  %47 = load ptr, ptr %15, align 8, !tbaa !3
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %50
 
 49:                                               ; preds = %6
-  %50 = load ptr, ptr %14, align 8
-  %51 = getelementptr inbounds %struct.ARKodeMemRec, ptr %50, i32 0, i32 32
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @N_VGetArrayPointer(ptr noundef %52)
-  store ptr %53, ptr %31, align 8
-  %54 = load ptr, ptr %11, align 8
-  %55 = call ptr @N_VGetArrayPointer(ptr noundef %54)
-  store ptr %55, ptr %32, align 8
-  %56 = load ptr, ptr %12, align 8
-  %57 = call ptr @N_VGetArrayPointer(ptr noundef %56)
-  store ptr %57, ptr %33, align 8
-  %58 = load ptr, ptr %10, align 8
-  %59 = call ptr @N_VGetArrayPointer(ptr noundef %58)
-  store ptr %59, ptr %34, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = call ptr @N_VGetArrayPointer(ptr noundef %60)
-  store ptr %61, ptr %35, align 8
-  %62 = load ptr, ptr %14, align 8
-  %63 = getelementptr inbounds %struct.ARKodeMemRec, ptr %62, i32 0, i32 18
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %71
+  store i32 -1, ptr %7, align 4
+  store i32 1, ptr %38, align 4
+  br label %427
 
-66:                                               ; preds = %49
-  %67 = load ptr, ptr %14, align 8
-  %68 = getelementptr inbounds %struct.ARKodeMemRec, ptr %67, i32 0, i32 43
-  %69 = load ptr, ptr %68, align 8
-  %70 = call ptr @N_VGetArrayPointer(ptr noundef %69)
-  br label %72
+50:                                               ; preds = %6
+  %51 = load ptr, ptr %14, align 8, !tbaa !11
+  %52 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %51, i32 0, i32 72
+  %53 = load ptr, ptr %52, align 8, !tbaa !67
+  %54 = call ptr @N_VGetArrayPointer(ptr noundef %53)
+  store ptr %54, ptr %31, align 8, !tbaa !68
+  %55 = load ptr, ptr %11, align 8, !tbaa !50
+  %56 = call ptr @N_VGetArrayPointer(ptr noundef %55)
+  store ptr %56, ptr %32, align 8, !tbaa !68
+  %57 = load ptr, ptr %12, align 8, !tbaa !50
+  %58 = call ptr @N_VGetArrayPointer(ptr noundef %57)
+  store ptr %58, ptr %33, align 8, !tbaa !68
+  %59 = load ptr, ptr %10, align 8, !tbaa !50
+  %60 = call ptr @N_VGetArrayPointer(ptr noundef %59)
+  store ptr %60, ptr %34, align 8, !tbaa !68
+  %61 = load ptr, ptr %13, align 8, !tbaa !50
+  %62 = call ptr @N_VGetArrayPointer(ptr noundef %61)
+  store ptr %62, ptr %35, align 8, !tbaa !68
+  %63 = load ptr, ptr %14, align 8, !tbaa !11
+  %64 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %63, i32 0, i32 18
+  %65 = load i32, ptr %64, align 8, !tbaa !70
+  %66 = icmp ne i32 %65, 0
+  br i1 %66, label %67, label %72
 
-71:                                               ; preds = %49
-  br label %72
+67:                                               ; preds = %50
+  %68 = load ptr, ptr %14, align 8, !tbaa !11
+  %69 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %68, i32 0, i32 84
+  %70 = load ptr, ptr %69, align 8, !tbaa !71
+  %71 = call ptr @N_VGetArrayPointer(ptr noundef %70)
+  br label %73
 
-72:                                               ; preds = %71, %66
-  %73 = phi ptr [ %70, %66 ], [ null, %71 ]
-  store ptr %73, ptr %36, align 8
-  %74 = load ptr, ptr %10, align 8
-  %75 = load ptr, ptr %13, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %74, ptr noundef %75)
-  %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds %struct.ARKodeMemRec, ptr %76, i32 0, i32 1
-  %78 = load double, ptr %77, align 8
-  %79 = fcmp ole double %78, 0.000000e+00
-  br i1 %79, label %80, label %81
+72:                                               ; preds = %50
+  br label %73
 
-80:                                               ; preds = %72
-  br label %86
+73:                                               ; preds = %72, %67
+  %74 = phi ptr [ %71, %67 ], [ null, %72 ]
+  store ptr %74, ptr %36, align 8, !tbaa !68
+  %75 = load ptr, ptr %10, align 8, !tbaa !50
+  %76 = load ptr, ptr %13, align 8, !tbaa !50
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %75, ptr noundef %76)
+  %77 = load ptr, ptr %14, align 8, !tbaa !11
+  %78 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %77, i32 0, i32 1
+  %79 = load double, ptr %78, align 8, !tbaa !72
+  %80 = fcmp ole double %79, 0.000000e+00
+  br i1 %80, label %81, label %82
 
-81:                                               ; preds = %72
-  %82 = load ptr, ptr %14, align 8
-  %83 = getelementptr inbounds %struct.ARKodeMemRec, ptr %82, i32 0, i32 1
-  %84 = load double, ptr %83, align 8
-  %85 = call double @sqrt(double noundef %84) #6
-  br label %86
+81:                                               ; preds = %73
+  br label %87
 
-86:                                               ; preds = %81, %80
-  %87 = phi double [ 0.000000e+00, %80 ], [ %85, %81 ]
-  store double %87, ptr %21, align 8
-  %88 = load ptr, ptr %11, align 8
-  %89 = load ptr, ptr %14, align 8
-  %90 = getelementptr inbounds %struct.ARKodeMemRec, ptr %89, i32 0, i32 33
-  %91 = load ptr, ptr %90, align 8
-  %92 = call double @N_VWrmsNorm(ptr noundef %88, ptr noundef %91)
-  store double %92, ptr %16, align 8
-  %93 = load double, ptr %16, align 8
-  %94 = fcmp une double %93, 0.000000e+00
-  br i1 %94, label %95, label %112
+82:                                               ; preds = %73
+  %83 = load ptr, ptr %14, align 8, !tbaa !11
+  %84 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %83, i32 0, i32 1
+  %85 = load double, ptr %84, align 8, !tbaa !72
+  %86 = call double @sqrt(double noundef %85) #6, !tbaa !9
+  br label %87
 
-95:                                               ; preds = %86
-  %96 = load ptr, ptr %14, align 8
-  %97 = getelementptr inbounds %struct.ARKodeMemRec, ptr %96, i32 0, i32 50
-  %98 = load double, ptr %97, align 8
-  %99 = call double @llvm.fabs.f64(double %98)
-  %100 = fmul double 1.000000e+03, %99
-  %101 = load ptr, ptr %14, align 8
-  %102 = getelementptr inbounds %struct.ARKodeMemRec, ptr %101, i32 0, i32 1
-  %103 = load double, ptr %102, align 8
-  %104 = fmul double %100, %103
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %105, i32 0, i32 0
-  %107 = load i64, ptr %106, align 8
-  %108 = sitofp i64 %107 to double
-  %109 = fmul double %104, %108
-  %110 = load double, ptr %16, align 8
-  %111 = fmul double %109, %110
-  br label %113
+87:                                               ; preds = %82, %81
+  %88 = phi double [ 0.000000e+00, %81 ], [ %86, %82 ]
+  store double %88, ptr %21, align 8, !tbaa !49
+  %89 = load ptr, ptr %11, align 8, !tbaa !50
+  %90 = load ptr, ptr %14, align 8, !tbaa !11
+  %91 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %90, i32 0, i32 73
+  %92 = load ptr, ptr %91, align 8, !tbaa !73
+  %93 = call double @N_VWrmsNorm(ptr noundef %89, ptr noundef %92)
+  store double %93, ptr %16, align 8, !tbaa !49
+  %94 = load double, ptr %16, align 8, !tbaa !49
+  %95 = fcmp une double %94, 0.000000e+00
+  br i1 %95, label %96, label %113
 
-112:                                              ; preds = %86
-  br label %113
+96:                                               ; preds = %87
+  %97 = load ptr, ptr %14, align 8, !tbaa !11
+  %98 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %97, i32 0, i32 92
+  %99 = load double, ptr %98, align 8, !tbaa !74
+  %100 = call double @llvm.fabs.f64(double %99)
+  %101 = fmul double 1.000000e+03, %100
+  %102 = load ptr, ptr %14, align 8, !tbaa !11
+  %103 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %102, i32 0, i32 1
+  %104 = load double, ptr %103, align 8, !tbaa !72
+  %105 = fmul double %101, %104
+  %106 = load ptr, ptr %8, align 8, !tbaa !27
+  %107 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %106, i32 0, i32 0
+  %108 = load i64, ptr %107, align 8, !tbaa !33
+  %109 = sitofp i64 %108 to double
+  %110 = fmul double %105, %109
+  %111 = load double, ptr %16, align 8, !tbaa !49
+  %112 = fmul double %110, %111
+  br label %114
 
-113:                                              ; preds = %112, %95
-  %114 = phi double [ %111, %95 ], [ 1.000000e+00, %112 ]
-  store double %114, ptr %17, align 8
-  %115 = load ptr, ptr %8, align 8
-  %116 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %115, i32 0, i32 1
-  %117 = load i64, ptr %116, align 8
-  %118 = load ptr, ptr %8, align 8
-  %119 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %118, i32 0, i32 2
-  %120 = load i64, ptr %119, align 8
-  %121 = add nsw i64 %117, %120
-  %122 = add nsw i64 %121, 1
-  store i64 %122, ptr %26, align 8
-  %123 = load i64, ptr %26, align 8
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %124, i32 0, i32 0
-  %126 = load i64, ptr %125, align 8
-  %127 = icmp slt i64 %123, %126
-  br i1 %127, label %128, label %130
+113:                                              ; preds = %87
+  br label %114
 
-128:                                              ; preds = %113
-  %129 = load i64, ptr %26, align 8
-  br label %134
+114:                                              ; preds = %113, %96
+  %115 = phi double [ %112, %96 ], [ 1.000000e+00, %113 ]
+  store double %115, ptr %17, align 8, !tbaa !49
+  %116 = load ptr, ptr %8, align 8, !tbaa !27
+  %117 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %116, i32 0, i32 1
+  %118 = load i64, ptr %117, align 8, !tbaa !35
+  %119 = load ptr, ptr %8, align 8, !tbaa !27
+  %120 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %119, i32 0, i32 2
+  %121 = load i64, ptr %120, align 8, !tbaa !34
+  %122 = add nsw i64 %118, %121
+  %123 = add nsw i64 %122, 1
+  store i64 %123, ptr %26, align 8, !tbaa !7
+  %124 = load i64, ptr %26, align 8, !tbaa !7
+  %125 = load ptr, ptr %8, align 8, !tbaa !27
+  %126 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %125, i32 0, i32 0
+  %127 = load i64, ptr %126, align 8, !tbaa !33
+  %128 = icmp slt i64 %124, %127
+  br i1 %128, label %129, label %131
 
-130:                                              ; preds = %113
-  %131 = load ptr, ptr %8, align 8
-  %132 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %131, i32 0, i32 0
-  %133 = load i64, ptr %132, align 8
-  br label %134
+129:                                              ; preds = %114
+  %130 = load i64, ptr %26, align 8, !tbaa !7
+  br label %135
 
-134:                                              ; preds = %130, %128
-  %135 = phi i64 [ %129, %128 ], [ %133, %130 ]
-  store i64 %135, ptr %27, align 8
-  store i64 1, ptr %23, align 8
-  br label %136
+131:                                              ; preds = %114
+  %132 = load ptr, ptr %8, align 8, !tbaa !27
+  %133 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %132, i32 0, i32 0
+  %134 = load i64, ptr %133, align 8, !tbaa !33
+  br label %135
 
-136:                                              ; preds = %422, %134
-  %137 = load i64, ptr %23, align 8
-  %138 = load i64, ptr %27, align 8
-  %139 = icmp sle i64 %137, %138
-  br i1 %139, label %140, label %425
+135:                                              ; preds = %131, %129
+  %136 = phi i64 [ %130, %129 ], [ %134, %131 ]
+  store i64 %136, ptr %27, align 8, !tbaa !7
+  store i64 1, ptr %23, align 8, !tbaa !7
+  br label %137
 
-140:                                              ; preds = %136
-  %141 = load i64, ptr %23, align 8
-  %142 = sub nsw i64 %141, 1
-  store i64 %142, ptr %25, align 8
-  br label %143
+137:                                              ; preds = %423, %135
+  %138 = load i64, ptr %23, align 8, !tbaa !7
+  %139 = load i64, ptr %27, align 8, !tbaa !7
+  %140 = icmp sle i64 %138, %139
+  br i1 %140, label %141, label %426
 
-143:                                              ; preds = %232, %140
-  %144 = load i64, ptr %25, align 8
-  %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %145, i32 0, i32 0
-  %147 = load i64, ptr %146, align 8
-  %148 = icmp slt i64 %144, %147
-  br i1 %148, label %149, label %236
+141:                                              ; preds = %137
+  %142 = load i64, ptr %23, align 8, !tbaa !7
+  %143 = sub nsw i64 %142, 1
+  store i64 %143, ptr %25, align 8, !tbaa !7
+  br label %144
 
-149:                                              ; preds = %143
-  %150 = load double, ptr %21, align 8
-  %151 = load ptr, ptr %34, align 8
-  %152 = load i64, ptr %25, align 8
-  %153 = getelementptr inbounds double, ptr %151, i64 %152
-  %154 = load double, ptr %153, align 8
-  %155 = call double @llvm.fabs.f64(double %154)
-  %156 = fmul double %150, %155
-  %157 = load double, ptr %17, align 8
-  %158 = load ptr, ptr %31, align 8
-  %159 = load i64, ptr %25, align 8
-  %160 = getelementptr inbounds double, ptr %158, i64 %159
-  %161 = load double, ptr %160, align 8
-  %162 = fdiv double %157, %161
-  %163 = fcmp ogt double %156, %162
-  br i1 %163, label %164, label %172
+144:                                              ; preds = %233, %141
+  %145 = load i64, ptr %25, align 8, !tbaa !7
+  %146 = load ptr, ptr %8, align 8, !tbaa !27
+  %147 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %146, i32 0, i32 0
+  %148 = load i64, ptr %147, align 8, !tbaa !33
+  %149 = icmp slt i64 %145, %148
+  br i1 %149, label %150, label %237
 
-164:                                              ; preds = %149
-  %165 = load double, ptr %21, align 8
-  %166 = load ptr, ptr %34, align 8
-  %167 = load i64, ptr %25, align 8
-  %168 = getelementptr inbounds double, ptr %166, i64 %167
-  %169 = load double, ptr %168, align 8
-  %170 = call double @llvm.fabs.f64(double %169)
-  %171 = fmul double %165, %170
-  br label %179
+150:                                              ; preds = %144
+  %151 = load double, ptr %21, align 8, !tbaa !49
+  %152 = load ptr, ptr %34, align 8, !tbaa !68
+  %153 = load i64, ptr %25, align 8, !tbaa !7
+  %154 = getelementptr inbounds double, ptr %152, i64 %153
+  %155 = load double, ptr %154, align 8, !tbaa !49
+  %156 = call double @llvm.fabs.f64(double %155)
+  %157 = fmul double %151, %156
+  %158 = load double, ptr %17, align 8, !tbaa !49
+  %159 = load ptr, ptr %31, align 8, !tbaa !68
+  %160 = load i64, ptr %25, align 8, !tbaa !7
+  %161 = getelementptr inbounds double, ptr %159, i64 %160
+  %162 = load double, ptr %161, align 8, !tbaa !49
+  %163 = fdiv double %158, %162
+  %164 = fcmp ogt double %157, %163
+  br i1 %164, label %165, label %173
 
-172:                                              ; preds = %149
-  %173 = load double, ptr %17, align 8
-  %174 = load ptr, ptr %31, align 8
-  %175 = load i64, ptr %25, align 8
-  %176 = getelementptr inbounds double, ptr %174, i64 %175
-  %177 = load double, ptr %176, align 8
-  %178 = fdiv double %173, %177
-  br label %179
+165:                                              ; preds = %150
+  %166 = load double, ptr %21, align 8, !tbaa !49
+  %167 = load ptr, ptr %34, align 8, !tbaa !68
+  %168 = load i64, ptr %25, align 8, !tbaa !7
+  %169 = getelementptr inbounds double, ptr %167, i64 %168
+  %170 = load double, ptr %169, align 8, !tbaa !49
+  %171 = call double @llvm.fabs.f64(double %170)
+  %172 = fmul double %166, %171
+  br label %180
 
-179:                                              ; preds = %172, %164
-  %180 = phi double [ %171, %164 ], [ %178, %172 ]
-  store double %180, ptr %18, align 8
-  %181 = load ptr, ptr %34, align 8
-  %182 = load i64, ptr %25, align 8
-  %183 = getelementptr inbounds double, ptr %181, i64 %182
-  %184 = load double, ptr %183, align 8
-  store double %184, ptr %20, align 8
-  %185 = load ptr, ptr %14, align 8
-  %186 = getelementptr inbounds %struct.ARKodeMemRec, ptr %185, i32 0, i32 18
-  %187 = load i32, ptr %186, align 8
-  %188 = icmp ne i32 %187, 0
-  br i1 %188, label %189, label %225
+173:                                              ; preds = %150
+  %174 = load double, ptr %17, align 8, !tbaa !49
+  %175 = load ptr, ptr %31, align 8, !tbaa !68
+  %176 = load i64, ptr %25, align 8, !tbaa !7
+  %177 = getelementptr inbounds double, ptr %175, i64 %176
+  %178 = load double, ptr %177, align 8, !tbaa !49
+  %179 = fdiv double %174, %178
+  br label %180
 
-189:                                              ; preds = %179
-  %190 = load ptr, ptr %36, align 8
-  %191 = load i64, ptr %25, align 8
-  %192 = getelementptr inbounds double, ptr %190, i64 %191
-  %193 = load double, ptr %192, align 8
-  store double %193, ptr %22, align 8
-  %194 = load double, ptr %22, align 8
-  %195 = call double @llvm.fabs.f64(double %194)
-  %196 = fcmp oeq double %195, 1.000000e+00
-  br i1 %196, label %197, label %208
+180:                                              ; preds = %173, %165
+  %181 = phi double [ %172, %165 ], [ %179, %173 ]
+  store double %181, ptr %18, align 8, !tbaa !49
+  %182 = load ptr, ptr %34, align 8, !tbaa !68
+  %183 = load i64, ptr %25, align 8, !tbaa !7
+  %184 = getelementptr inbounds double, ptr %182, i64 %183
+  %185 = load double, ptr %184, align 8, !tbaa !49
+  store double %185, ptr %20, align 8, !tbaa !49
+  %186 = load ptr, ptr %14, align 8, !tbaa !11
+  %187 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %186, i32 0, i32 18
+  %188 = load i32, ptr %187, align 8, !tbaa !70
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %226
 
-197:                                              ; preds = %189
-  %198 = load double, ptr %20, align 8
-  %199 = load double, ptr %18, align 8
-  %200 = fadd double %198, %199
-  %201 = load double, ptr %22, align 8
-  %202 = fmul double %200, %201
-  %203 = fcmp olt double %202, 0.000000e+00
-  br i1 %203, label %204, label %207
+190:                                              ; preds = %180
+  %191 = load ptr, ptr %36, align 8, !tbaa !68
+  %192 = load i64, ptr %25, align 8, !tbaa !7
+  %193 = getelementptr inbounds double, ptr %191, i64 %192
+  %194 = load double, ptr %193, align 8, !tbaa !49
+  store double %194, ptr %22, align 8, !tbaa !49
+  %195 = load double, ptr %22, align 8, !tbaa !49
+  %196 = call double @llvm.fabs.f64(double %195)
+  %197 = fcmp oeq double %196, 1.000000e+00
+  br i1 %197, label %198, label %209
 
-204:                                              ; preds = %197
-  %205 = load double, ptr %18, align 8
-  %206 = fneg double %205
-  store double %206, ptr %18, align 8
-  br label %207
+198:                                              ; preds = %190
+  %199 = load double, ptr %20, align 8, !tbaa !49
+  %200 = load double, ptr %18, align 8, !tbaa !49
+  %201 = fadd double %199, %200
+  %202 = load double, ptr %22, align 8, !tbaa !49
+  %203 = fmul double %201, %202
+  %204 = fcmp olt double %203, 0.000000e+00
+  br i1 %204, label %205, label %208
 
-207:                                              ; preds = %204, %197
-  br label %224
+205:                                              ; preds = %198
+  %206 = load double, ptr %18, align 8, !tbaa !49
+  %207 = fneg double %206
+  store double %207, ptr %18, align 8, !tbaa !49
+  br label %208
 
-208:                                              ; preds = %189
-  %209 = load double, ptr %22, align 8
-  %210 = call double @llvm.fabs.f64(double %209)
-  %211 = fcmp oeq double %210, 2.000000e+00
-  br i1 %211, label %212, label %223
-
-212:                                              ; preds = %208
-  %213 = load double, ptr %20, align 8
-  %214 = load double, ptr %18, align 8
-  %215 = fadd double %213, %214
-  %216 = load double, ptr %22, align 8
-  %217 = fmul double %215, %216
-  %218 = fcmp ole double %217, 0.000000e+00
-  br i1 %218, label %219, label %222
-
-219:                                              ; preds = %212
-  %220 = load double, ptr %18, align 8
-  %221 = fneg double %220
-  store double %221, ptr %18, align 8
-  br label %222
-
-222:                                              ; preds = %219, %212
-  br label %223
-
-223:                                              ; preds = %222, %208
-  br label %224
-
-224:                                              ; preds = %223, %207
+208:                                              ; preds = %205, %198
   br label %225
 
-225:                                              ; preds = %224, %179
-  %226 = load double, ptr %18, align 8
-  %227 = load ptr, ptr %35, align 8
-  %228 = load i64, ptr %25, align 8
-  %229 = getelementptr inbounds double, ptr %227, i64 %228
-  %230 = load double, ptr %229, align 8
-  %231 = fadd double %230, %226
-  store double %231, ptr %229, align 8
-  br label %232
+209:                                              ; preds = %190
+  %210 = load double, ptr %22, align 8, !tbaa !49
+  %211 = call double @llvm.fabs.f64(double %210)
+  %212 = fcmp oeq double %211, 2.000000e+00
+  br i1 %212, label %213, label %224
 
-232:                                              ; preds = %225
-  %233 = load i64, ptr %26, align 8
-  %234 = load i64, ptr %25, align 8
-  %235 = add nsw i64 %234, %233
-  store i64 %235, ptr %25, align 8
-  br label %143
+213:                                              ; preds = %209
+  %214 = load double, ptr %20, align 8, !tbaa !49
+  %215 = load double, ptr %18, align 8, !tbaa !49
+  %216 = fadd double %214, %215
+  %217 = load double, ptr %22, align 8, !tbaa !49
+  %218 = fmul double %216, %217
+  %219 = fcmp ole double %218, 0.000000e+00
+  br i1 %219, label %220, label %223
 
-236:                                              ; preds = %143
-  %237 = load ptr, ptr %15, align 8
-  %238 = load double, ptr %9, align 8
-  %239 = load ptr, ptr %13, align 8
-  %240 = load ptr, ptr %12, align 8
-  %241 = load ptr, ptr %14, align 8
-  %242 = getelementptr inbounds %struct.ARKodeMemRec, ptr %241, i32 0, i32 2
-  %243 = load ptr, ptr %242, align 8
-  %244 = call i32 %237(double noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef %243)
-  store i32 %244, ptr %37, align 4
-  %245 = load ptr, ptr %8, align 8
-  %246 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %245, i32 0, i32 8
-  %247 = load i64, ptr %246, align 8
-  %248 = add nsw i64 %247, 1
-  store i64 %248, ptr %246, align 8
-  %249 = load i32, ptr %37, align 4
-  %250 = icmp ne i32 %249, 0
-  br i1 %250, label %251, label %253
+220:                                              ; preds = %213
+  %221 = load double, ptr %18, align 8, !tbaa !49
+  %222 = fneg double %221
+  store double %222, ptr %18, align 8, !tbaa !49
+  br label %223
 
-251:                                              ; preds = %236
-  %252 = load i32, ptr %37, align 4
-  store i32 %252, ptr %7, align 4
-  br label %426
+223:                                              ; preds = %220, %213
+  br label %224
 
-253:                                              ; preds = %236
-  %254 = load i64, ptr %23, align 8
-  %255 = sub nsw i64 %254, 1
-  store i64 %255, ptr %25, align 8
-  br label %256
+224:                                              ; preds = %223, %209
+  br label %225
 
-256:                                              ; preds = %417, %253
-  %257 = load i64, ptr %25, align 8
-  %258 = load ptr, ptr %8, align 8
-  %259 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %258, i32 0, i32 0
-  %260 = load i64, ptr %259, align 8
-  %261 = icmp slt i64 %257, %260
-  br i1 %261, label %262, label %421
+225:                                              ; preds = %224, %208
+  br label %226
 
-262:                                              ; preds = %256
-  %263 = load ptr, ptr %34, align 8
-  %264 = load i64, ptr %25, align 8
-  %265 = getelementptr inbounds double, ptr %263, i64 %264
-  %266 = load double, ptr %265, align 8
-  store double %266, ptr %20, align 8
-  %267 = load ptr, ptr %34, align 8
-  %268 = load i64, ptr %25, align 8
-  %269 = getelementptr inbounds double, ptr %267, i64 %268
-  %270 = load double, ptr %269, align 8
-  %271 = load ptr, ptr %35, align 8
-  %272 = load i64, ptr %25, align 8
-  %273 = getelementptr inbounds double, ptr %271, i64 %272
-  store double %270, ptr %273, align 8
-  %274 = load ptr, ptr %8, align 8
-  %275 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %274, i32 0, i32 3
-  %276 = load ptr, ptr %275, align 8
-  %277 = load i64, ptr %25, align 8
-  %278 = call ptr @SUNBandMatrix_Column(ptr noundef %276, i64 noundef %277)
-  store ptr %278, ptr %30, align 8
-  %279 = load double, ptr %21, align 8
-  %280 = load ptr, ptr %34, align 8
-  %281 = load i64, ptr %25, align 8
-  %282 = getelementptr inbounds double, ptr %280, i64 %281
-  %283 = load double, ptr %282, align 8
-  %284 = call double @llvm.fabs.f64(double %283)
-  %285 = fmul double %279, %284
-  %286 = load double, ptr %17, align 8
-  %287 = load ptr, ptr %31, align 8
-  %288 = load i64, ptr %25, align 8
-  %289 = getelementptr inbounds double, ptr %287, i64 %288
-  %290 = load double, ptr %289, align 8
-  %291 = fdiv double %286, %290
-  %292 = fcmp ogt double %285, %291
-  br i1 %292, label %293, label %301
+226:                                              ; preds = %225, %180
+  %227 = load double, ptr %18, align 8, !tbaa !49
+  %228 = load ptr, ptr %35, align 8, !tbaa !68
+  %229 = load i64, ptr %25, align 8, !tbaa !7
+  %230 = getelementptr inbounds double, ptr %228, i64 %229
+  %231 = load double, ptr %230, align 8, !tbaa !49
+  %232 = fadd double %231, %227
+  store double %232, ptr %230, align 8, !tbaa !49
+  br label %233
 
-293:                                              ; preds = %262
-  %294 = load double, ptr %21, align 8
-  %295 = load ptr, ptr %34, align 8
-  %296 = load i64, ptr %25, align 8
-  %297 = getelementptr inbounds double, ptr %295, i64 %296
-  %298 = load double, ptr %297, align 8
-  %299 = call double @llvm.fabs.f64(double %298)
-  %300 = fmul double %294, %299
-  br label %308
+233:                                              ; preds = %226
+  %234 = load i64, ptr %26, align 8, !tbaa !7
+  %235 = load i64, ptr %25, align 8, !tbaa !7
+  %236 = add nsw i64 %235, %234
+  store i64 %236, ptr %25, align 8, !tbaa !7
+  br label %144
 
-301:                                              ; preds = %262
-  %302 = load double, ptr %17, align 8
-  %303 = load ptr, ptr %31, align 8
-  %304 = load i64, ptr %25, align 8
-  %305 = getelementptr inbounds double, ptr %303, i64 %304
-  %306 = load double, ptr %305, align 8
-  %307 = fdiv double %302, %306
-  br label %308
+237:                                              ; preds = %144
+  %238 = load ptr, ptr %15, align 8, !tbaa !3
+  %239 = load double, ptr %9, align 8, !tbaa !49
+  %240 = load ptr, ptr %13, align 8, !tbaa !50
+  %241 = load ptr, ptr %12, align 8, !tbaa !50
+  %242 = load ptr, ptr %14, align 8, !tbaa !11
+  %243 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %242, i32 0, i32 2
+  %244 = load ptr, ptr %243, align 8, !tbaa !75
+  %245 = call i32 %238(double noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef %244)
+  store i32 %245, ptr %37, align 4, !tbaa !9
+  %246 = load ptr, ptr %8, align 8, !tbaa !27
+  %247 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %246, i32 0, i32 8
+  %248 = load i64, ptr %247, align 8, !tbaa !36
+  %249 = add nsw i64 %248, 1
+  store i64 %249, ptr %247, align 8, !tbaa !36
+  %250 = load i32, ptr %37, align 4, !tbaa !9
+  %251 = icmp ne i32 %250, 0
+  br i1 %251, label %252, label %254
 
-308:                                              ; preds = %301, %293
-  %309 = phi double [ %300, %293 ], [ %307, %301 ]
-  store double %309, ptr %18, align 8
-  %310 = load ptr, ptr %14, align 8
-  %311 = getelementptr inbounds %struct.ARKodeMemRec, ptr %310, i32 0, i32 18
-  %312 = load i32, ptr %311, align 8
-  %313 = icmp ne i32 %312, 0
-  br i1 %313, label %314, label %350
+252:                                              ; preds = %237
+  %253 = load i32, ptr %37, align 4, !tbaa !9
+  store i32 %253, ptr %7, align 4
+  store i32 1, ptr %38, align 4
+  br label %427
 
-314:                                              ; preds = %308
-  %315 = load ptr, ptr %36, align 8
-  %316 = load i64, ptr %25, align 8
-  %317 = getelementptr inbounds double, ptr %315, i64 %316
-  %318 = load double, ptr %317, align 8
-  store double %318, ptr %22, align 8
-  %319 = load double, ptr %22, align 8
-  %320 = call double @llvm.fabs.f64(double %319)
-  %321 = fcmp oeq double %320, 1.000000e+00
-  br i1 %321, label %322, label %333
+254:                                              ; preds = %237
+  %255 = load i64, ptr %23, align 8, !tbaa !7
+  %256 = sub nsw i64 %255, 1
+  store i64 %256, ptr %25, align 8, !tbaa !7
+  br label %257
 
-322:                                              ; preds = %314
-  %323 = load double, ptr %20, align 8
-  %324 = load double, ptr %18, align 8
-  %325 = fadd double %323, %324
-  %326 = load double, ptr %22, align 8
-  %327 = fmul double %325, %326
-  %328 = fcmp olt double %327, 0.000000e+00
-  br i1 %328, label %329, label %332
+257:                                              ; preds = %418, %254
+  %258 = load i64, ptr %25, align 8, !tbaa !7
+  %259 = load ptr, ptr %8, align 8, !tbaa !27
+  %260 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %259, i32 0, i32 0
+  %261 = load i64, ptr %260, align 8, !tbaa !33
+  %262 = icmp slt i64 %258, %261
+  br i1 %262, label %263, label %422
 
-329:                                              ; preds = %322
-  %330 = load double, ptr %18, align 8
-  %331 = fneg double %330
-  store double %331, ptr %18, align 8
-  br label %332
+263:                                              ; preds = %257
+  %264 = load ptr, ptr %34, align 8, !tbaa !68
+  %265 = load i64, ptr %25, align 8, !tbaa !7
+  %266 = getelementptr inbounds double, ptr %264, i64 %265
+  %267 = load double, ptr %266, align 8, !tbaa !49
+  store double %267, ptr %20, align 8, !tbaa !49
+  %268 = load ptr, ptr %34, align 8, !tbaa !68
+  %269 = load i64, ptr %25, align 8, !tbaa !7
+  %270 = getelementptr inbounds double, ptr %268, i64 %269
+  %271 = load double, ptr %270, align 8, !tbaa !49
+  %272 = load ptr, ptr %35, align 8, !tbaa !68
+  %273 = load i64, ptr %25, align 8, !tbaa !7
+  %274 = getelementptr inbounds double, ptr %272, i64 %273
+  store double %271, ptr %274, align 8, !tbaa !49
+  %275 = load ptr, ptr %8, align 8, !tbaa !27
+  %276 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %275, i32 0, i32 3
+  %277 = load ptr, ptr %276, align 8, !tbaa !37
+  %278 = load i64, ptr %25, align 8, !tbaa !7
+  %279 = call ptr @SUNBandMatrix_Column(ptr noundef %277, i64 noundef %278)
+  store ptr %279, ptr %30, align 8, !tbaa !68
+  %280 = load double, ptr %21, align 8, !tbaa !49
+  %281 = load ptr, ptr %34, align 8, !tbaa !68
+  %282 = load i64, ptr %25, align 8, !tbaa !7
+  %283 = getelementptr inbounds double, ptr %281, i64 %282
+  %284 = load double, ptr %283, align 8, !tbaa !49
+  %285 = call double @llvm.fabs.f64(double %284)
+  %286 = fmul double %280, %285
+  %287 = load double, ptr %17, align 8, !tbaa !49
+  %288 = load ptr, ptr %31, align 8, !tbaa !68
+  %289 = load i64, ptr %25, align 8, !tbaa !7
+  %290 = getelementptr inbounds double, ptr %288, i64 %289
+  %291 = load double, ptr %290, align 8, !tbaa !49
+  %292 = fdiv double %287, %291
+  %293 = fcmp ogt double %286, %292
+  br i1 %293, label %294, label %302
 
-332:                                              ; preds = %329, %322
-  br label %349
+294:                                              ; preds = %263
+  %295 = load double, ptr %21, align 8, !tbaa !49
+  %296 = load ptr, ptr %34, align 8, !tbaa !68
+  %297 = load i64, ptr %25, align 8, !tbaa !7
+  %298 = getelementptr inbounds double, ptr %296, i64 %297
+  %299 = load double, ptr %298, align 8, !tbaa !49
+  %300 = call double @llvm.fabs.f64(double %299)
+  %301 = fmul double %295, %300
+  br label %309
 
-333:                                              ; preds = %314
-  %334 = load double, ptr %22, align 8
-  %335 = call double @llvm.fabs.f64(double %334)
-  %336 = fcmp oeq double %335, 2.000000e+00
-  br i1 %336, label %337, label %348
+302:                                              ; preds = %263
+  %303 = load double, ptr %17, align 8, !tbaa !49
+  %304 = load ptr, ptr %31, align 8, !tbaa !68
+  %305 = load i64, ptr %25, align 8, !tbaa !7
+  %306 = getelementptr inbounds double, ptr %304, i64 %305
+  %307 = load double, ptr %306, align 8, !tbaa !49
+  %308 = fdiv double %303, %307
+  br label %309
 
-337:                                              ; preds = %333
-  %338 = load double, ptr %20, align 8
-  %339 = load double, ptr %18, align 8
-  %340 = fadd double %338, %339
-  %341 = load double, ptr %22, align 8
-  %342 = fmul double %340, %341
-  %343 = fcmp ole double %342, 0.000000e+00
-  br i1 %343, label %344, label %347
+309:                                              ; preds = %302, %294
+  %310 = phi double [ %301, %294 ], [ %308, %302 ]
+  store double %310, ptr %18, align 8, !tbaa !49
+  %311 = load ptr, ptr %14, align 8, !tbaa !11
+  %312 = getelementptr inbounds nuw %struct.ARKodeMemRec, ptr %311, i32 0, i32 18
+  %313 = load i32, ptr %312, align 8, !tbaa !70
+  %314 = icmp ne i32 %313, 0
+  br i1 %314, label %315, label %351
 
-344:                                              ; preds = %337
-  %345 = load double, ptr %18, align 8
-  %346 = fneg double %345
-  store double %346, ptr %18, align 8
-  br label %347
+315:                                              ; preds = %309
+  %316 = load ptr, ptr %36, align 8, !tbaa !68
+  %317 = load i64, ptr %25, align 8, !tbaa !7
+  %318 = getelementptr inbounds double, ptr %316, i64 %317
+  %319 = load double, ptr %318, align 8, !tbaa !49
+  store double %319, ptr %22, align 8, !tbaa !49
+  %320 = load double, ptr %22, align 8, !tbaa !49
+  %321 = call double @llvm.fabs.f64(double %320)
+  %322 = fcmp oeq double %321, 1.000000e+00
+  br i1 %322, label %323, label %334
 
-347:                                              ; preds = %344, %337
-  br label %348
+323:                                              ; preds = %315
+  %324 = load double, ptr %20, align 8, !tbaa !49
+  %325 = load double, ptr %18, align 8, !tbaa !49
+  %326 = fadd double %324, %325
+  %327 = load double, ptr %22, align 8, !tbaa !49
+  %328 = fmul double %326, %327
+  %329 = fcmp olt double %328, 0.000000e+00
+  br i1 %329, label %330, label %333
 
-348:                                              ; preds = %347, %333
-  br label %349
+330:                                              ; preds = %323
+  %331 = load double, ptr %18, align 8, !tbaa !49
+  %332 = fneg double %331
+  store double %332, ptr %18, align 8, !tbaa !49
+  br label %333
 
-349:                                              ; preds = %348, %332
+333:                                              ; preds = %330, %323
   br label %350
 
-350:                                              ; preds = %349, %308
-  %351 = load double, ptr %18, align 8
-  %352 = fdiv double 1.000000e+00, %351
-  store double %352, ptr %19, align 8
-  %353 = load i64, ptr %25, align 8
-  %354 = load ptr, ptr %8, align 8
-  %355 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %354, i32 0, i32 2
-  %356 = load i64, ptr %355, align 8
-  %357 = sub nsw i64 %353, %356
-  %358 = icmp sgt i64 0, %357
-  br i1 %358, label %359, label %360
+334:                                              ; preds = %315
+  %335 = load double, ptr %22, align 8, !tbaa !49
+  %336 = call double @llvm.fabs.f64(double %335)
+  %337 = fcmp oeq double %336, 2.000000e+00
+  br i1 %337, label %338, label %349
 
-359:                                              ; preds = %350
-  br label %366
+338:                                              ; preds = %334
+  %339 = load double, ptr %20, align 8, !tbaa !49
+  %340 = load double, ptr %18, align 8, !tbaa !49
+  %341 = fadd double %339, %340
+  %342 = load double, ptr %22, align 8, !tbaa !49
+  %343 = fmul double %341, %342
+  %344 = fcmp ole double %343, 0.000000e+00
+  br i1 %344, label %345, label %348
 
-360:                                              ; preds = %350
-  %361 = load i64, ptr %25, align 8
-  %362 = load ptr, ptr %8, align 8
-  %363 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %362, i32 0, i32 2
-  %364 = load i64, ptr %363, align 8
-  %365 = sub nsw i64 %361, %364
-  br label %366
+345:                                              ; preds = %338
+  %346 = load double, ptr %18, align 8, !tbaa !49
+  %347 = fneg double %346
+  store double %347, ptr %18, align 8, !tbaa !49
+  br label %348
 
-366:                                              ; preds = %360, %359
-  %367 = phi i64 [ 0, %359 ], [ %365, %360 ]
-  store i64 %367, ptr %28, align 8
-  %368 = load i64, ptr %25, align 8
-  %369 = load ptr, ptr %8, align 8
-  %370 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %369, i32 0, i32 1
-  %371 = load i64, ptr %370, align 8
-  %372 = add nsw i64 %368, %371
-  %373 = load ptr, ptr %8, align 8
-  %374 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %373, i32 0, i32 0
-  %375 = load i64, ptr %374, align 8
-  %376 = sub nsw i64 %375, 1
-  %377 = icmp slt i64 %372, %376
-  br i1 %377, label %378, label %384
+348:                                              ; preds = %345, %338
+  br label %349
 
-378:                                              ; preds = %366
-  %379 = load i64, ptr %25, align 8
-  %380 = load ptr, ptr %8, align 8
-  %381 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %380, i32 0, i32 1
-  %382 = load i64, ptr %381, align 8
-  %383 = add nsw i64 %379, %382
-  br label %389
+349:                                              ; preds = %348, %334
+  br label %350
 
-384:                                              ; preds = %366
-  %385 = load ptr, ptr %8, align 8
-  %386 = getelementptr inbounds %struct.ARKBandPrecDataRec, ptr %385, i32 0, i32 0
-  %387 = load i64, ptr %386, align 8
-  %388 = sub nsw i64 %387, 1
-  br label %389
+350:                                              ; preds = %349, %333
+  br label %351
 
-389:                                              ; preds = %384, %378
-  %390 = phi i64 [ %383, %378 ], [ %388, %384 ]
-  store i64 %390, ptr %29, align 8
-  %391 = load i64, ptr %28, align 8
-  store i64 %391, ptr %24, align 8
-  br label %392
+351:                                              ; preds = %350, %309
+  %352 = load double, ptr %18, align 8, !tbaa !49
+  %353 = fdiv double 1.000000e+00, %352
+  store double %353, ptr %19, align 8, !tbaa !49
+  %354 = load i64, ptr %25, align 8, !tbaa !7
+  %355 = load ptr, ptr %8, align 8, !tbaa !27
+  %356 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %355, i32 0, i32 2
+  %357 = load i64, ptr %356, align 8, !tbaa !34
+  %358 = sub nsw i64 %354, %357
+  %359 = icmp sgt i64 0, %358
+  br i1 %359, label %360, label %361
 
-392:                                              ; preds = %413, %389
-  %393 = load i64, ptr %24, align 8
-  %394 = load i64, ptr %29, align 8
-  %395 = icmp sle i64 %393, %394
-  br i1 %395, label %396, label %416
+360:                                              ; preds = %351
+  br label %367
 
-396:                                              ; preds = %392
-  %397 = load double, ptr %19, align 8
-  %398 = load ptr, ptr %33, align 8
-  %399 = load i64, ptr %24, align 8
-  %400 = getelementptr inbounds double, ptr %398, i64 %399
-  %401 = load double, ptr %400, align 8
-  %402 = load ptr, ptr %32, align 8
-  %403 = load i64, ptr %24, align 8
-  %404 = getelementptr inbounds double, ptr %402, i64 %403
-  %405 = load double, ptr %404, align 8
-  %406 = fsub double %401, %405
-  %407 = fmul double %397, %406
-  %408 = load ptr, ptr %30, align 8
-  %409 = load i64, ptr %24, align 8
-  %410 = load i64, ptr %25, align 8
-  %411 = sub nsw i64 %409, %410
-  %412 = getelementptr inbounds double, ptr %408, i64 %411
-  store double %407, ptr %412, align 8
-  br label %413
+361:                                              ; preds = %351
+  %362 = load i64, ptr %25, align 8, !tbaa !7
+  %363 = load ptr, ptr %8, align 8, !tbaa !27
+  %364 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %363, i32 0, i32 2
+  %365 = load i64, ptr %364, align 8, !tbaa !34
+  %366 = sub nsw i64 %362, %365
+  br label %367
 
-413:                                              ; preds = %396
-  %414 = load i64, ptr %24, align 8
-  %415 = add nsw i64 %414, 1
-  store i64 %415, ptr %24, align 8
-  br label %392
+367:                                              ; preds = %361, %360
+  %368 = phi i64 [ 0, %360 ], [ %366, %361 ]
+  store i64 %368, ptr %28, align 8, !tbaa !7
+  %369 = load i64, ptr %25, align 8, !tbaa !7
+  %370 = load ptr, ptr %8, align 8, !tbaa !27
+  %371 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %370, i32 0, i32 1
+  %372 = load i64, ptr %371, align 8, !tbaa !35
+  %373 = add nsw i64 %369, %372
+  %374 = load ptr, ptr %8, align 8, !tbaa !27
+  %375 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %374, i32 0, i32 0
+  %376 = load i64, ptr %375, align 8, !tbaa !33
+  %377 = sub nsw i64 %376, 1
+  %378 = icmp slt i64 %373, %377
+  br i1 %378, label %379, label %385
 
-416:                                              ; preds = %392
-  br label %417
+379:                                              ; preds = %367
+  %380 = load i64, ptr %25, align 8, !tbaa !7
+  %381 = load ptr, ptr %8, align 8, !tbaa !27
+  %382 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %381, i32 0, i32 1
+  %383 = load i64, ptr %382, align 8, !tbaa !35
+  %384 = add nsw i64 %380, %383
+  br label %390
 
-417:                                              ; preds = %416
-  %418 = load i64, ptr %26, align 8
-  %419 = load i64, ptr %25, align 8
-  %420 = add nsw i64 %419, %418
-  store i64 %420, ptr %25, align 8
-  br label %256
+385:                                              ; preds = %367
+  %386 = load ptr, ptr %8, align 8, !tbaa !27
+  %387 = getelementptr inbounds nuw %struct.ARKBandPrecDataRec, ptr %386, i32 0, i32 0
+  %388 = load i64, ptr %387, align 8, !tbaa !33
+  %389 = sub nsw i64 %388, 1
+  br label %390
 
-421:                                              ; preds = %256
-  br label %422
+390:                                              ; preds = %385, %379
+  %391 = phi i64 [ %384, %379 ], [ %389, %385 ]
+  store i64 %391, ptr %29, align 8, !tbaa !7
+  %392 = load i64, ptr %28, align 8, !tbaa !7
+  store i64 %392, ptr %24, align 8, !tbaa !7
+  br label %393
 
-422:                                              ; preds = %421
-  %423 = load i64, ptr %23, align 8
-  %424 = add nsw i64 %423, 1
-  store i64 %424, ptr %23, align 8
-  br label %136
+393:                                              ; preds = %414, %390
+  %394 = load i64, ptr %24, align 8, !tbaa !7
+  %395 = load i64, ptr %29, align 8, !tbaa !7
+  %396 = icmp sle i64 %394, %395
+  br i1 %396, label %397, label %417
 
-425:                                              ; preds = %136
+397:                                              ; preds = %393
+  %398 = load double, ptr %19, align 8, !tbaa !49
+  %399 = load ptr, ptr %33, align 8, !tbaa !68
+  %400 = load i64, ptr %24, align 8, !tbaa !7
+  %401 = getelementptr inbounds double, ptr %399, i64 %400
+  %402 = load double, ptr %401, align 8, !tbaa !49
+  %403 = load ptr, ptr %32, align 8, !tbaa !68
+  %404 = load i64, ptr %24, align 8, !tbaa !7
+  %405 = getelementptr inbounds double, ptr %403, i64 %404
+  %406 = load double, ptr %405, align 8, !tbaa !49
+  %407 = fsub double %402, %406
+  %408 = fmul double %398, %407
+  %409 = load ptr, ptr %30, align 8, !tbaa !68
+  %410 = load i64, ptr %24, align 8, !tbaa !7
+  %411 = load i64, ptr %25, align 8, !tbaa !7
+  %412 = sub nsw i64 %410, %411
+  %413 = getelementptr inbounds double, ptr %409, i64 %412
+  store double %408, ptr %413, align 8, !tbaa !49
+  br label %414
+
+414:                                              ; preds = %397
+  %415 = load i64, ptr %24, align 8, !tbaa !7
+  %416 = add nsw i64 %415, 1
+  store i64 %416, ptr %24, align 8, !tbaa !7
+  br label %393
+
+417:                                              ; preds = %393
+  br label %418
+
+418:                                              ; preds = %417
+  %419 = load i64, ptr %26, align 8, !tbaa !7
+  %420 = load i64, ptr %25, align 8, !tbaa !7
+  %421 = add nsw i64 %420, %419
+  store i64 %421, ptr %25, align 8, !tbaa !7
+  br label %257
+
+422:                                              ; preds = %257
+  br label %423
+
+423:                                              ; preds = %422
+  %424 = load i64, ptr %23, align 8, !tbaa !7
+  %425 = add nsw i64 %424, 1
+  store i64 %425, ptr %23, align 8, !tbaa !7
+  br label %137
+
+426:                                              ; preds = %137
   store i32 0, ptr %7, align 4
-  br label %426
+  store i32 1, ptr %38, align 4
+  br label %427
 
-426:                                              ; preds = %425, %251, %48
-  %427 = load i32, ptr %7, align 4
-  ret i32 %427
+427:                                              ; preds = %426, %252, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  %428 = load i32, ptr %7, align 4
+  ret i32 %428
 }
 
-declare i32 @SUNMatScaleAddI(double noundef, ptr noundef) #1
+declare i32 @SUNMatScaleAddI(double noundef, ptr noundef) #2
 
-declare i32 @SUNLinSolSetup_Band(ptr noundef, ptr noundef) #1
+declare i32 @SUNLinSolSetup_Band(ptr noundef, ptr noundef) #2
 
-declare ptr @N_VGetArrayPointer(ptr noundef) #1
+declare ptr @N_VGetArrayPointer(ptr noundef) #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #3
+declare double @sqrt(double noundef) #4
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) #1
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #5
 
-declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) #1
+declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) #2
 
-declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) #1
+declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS12ARKodeMemRec", !4, i64 0}
+!13 = !{!14, !17, i64 616}
+!14 = !{!"ARKodeMemRec", !15, i64 0, !16, i64 8, !4, i64 16, !10, i64 24, !10, i64 28, !16, i64 32, !16, i64 40, !17, i64 48, !10, i64 56, !16, i64 64, !17, i64 72, !10, i64 80, !10, i64 84, !4, i64 88, !4, i64 96, !10, i64 104, !4, i64 112, !4, i64 120, !10, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !4, i64 248, !10, i64 256, !4, i64 264, !4, i64 272, !10, i64 280, !4, i64 288, !10, i64 296, !4, i64 304, !4, i64 312, !4, i64 320, !4, i64 328, !4, i64 336, !4, i64 344, !4, i64 352, !4, i64 360, !4, i64 368, !4, i64 376, !4, i64 384, !4, i64 392, !4, i64 400, !4, i64 408, !4, i64 416, !4, i64 424, !4, i64 432, !4, i64 440, !4, i64 448, !4, i64 456, !4, i64 464, !4, i64 472, !4, i64 480, !4, i64 488, !4, i64 496, !4, i64 504, !10, i64 512, !4, i64 520, !4, i64 528, !4, i64 536, !4, i64 544, !4, i64 552, !17, i64 560, !17, i64 568, !10, i64 576, !17, i64 584, !17, i64 592, !17, i64 600, !10, i64 608, !17, i64 616, !17, i64 624, !17, i64 632, !17, i64 640, !17, i64 648, !17, i64 656, !18, i64 664, !10, i64 672, !10, i64 676, !10, i64 680, !10, i64 684, !16, i64 688, !16, i64 696, !16, i64 704, !16, i64 712, !16, i64 720, !16, i64 728, !16, i64 736, !16, i64 744, !16, i64 752, !16, i64 760, !10, i64 768, !19, i64 776, !8, i64 784, !10, i64 792, !10, i64 796, !10, i64 800, !10, i64 804, !8, i64 808, !8, i64 816, !10, i64 824, !8, i64 832, !8, i64 840, !8, i64 848, !8, i64 856, !8, i64 864, !8, i64 872, !8, i64 880, !16, i64 888, !16, i64 896, !16, i64 904, !16, i64 912, !16, i64 920, !10, i64 928, !16, i64 936, !16, i64 944, !10, i64 952, !10, i64 956, !10, i64 960, !10, i64 964, !10, i64 968, !10, i64 972, !10, i64 976, !10, i64 980, !20, i64 984, !10, i64 992, !21, i64 1000, !4, i64 1008, !4, i64 1016, !4, i64 1024, !10, i64 1032, !10, i64 1036, !10, i64 1040}
+!15 = !{!"p1 _ZTS11SUNContext_", !4, i64 0}
+!16 = !{!"double", !5, i64 0}
+!17 = !{!"p1 _ZTS17_generic_N_Vector", !4, i64 0}
+!18 = !{!"p1 _ZTS18_generic_ARKInterp", !4, i64 0}
+!19 = !{!"p1 _ZTS18ARKodeHAdaptMemRec", !4, i64 0}
+!20 = !{!"p1 _ZTS16ARKodeRootMemRec", !4, i64 0}
+!21 = !{!"p1 _ZTS17ARKodeRelaxMemRec", !4, i64 0}
+!22 = !{!23, !24, i64 8}
+!23 = !{!"_generic_N_Vector", !4, i64 0, !24, i64 8, !15, i64 16}
+!24 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !4, i64 0}
+!25 = !{!26, !4, i64 40}
+!26 = !{!"_generic_N_Vector_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !4, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !4, i64 280, !4, i64 288, !4, i64 296, !4, i64 304, !4, i64 312, !4, i64 320, !4, i64 328, !4, i64 336, !4, i64 344, !4, i64 352, !4, i64 360, !4, i64 368, !4, i64 376, !4, i64 384, !4, i64 392, !4, i64 400, !4, i64 408, !4, i64 416, !4, i64 424, !4, i64 432, !4, i64 440}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS18ARKBandPrecDataRec", !4, i64 0}
+!29 = !{!30, !4, i64 72}
+!30 = !{!"ARKBandPrecDataRec", !8, i64 0, !8, i64 8, !8, i64 16, !31, i64 24, !31, i64 32, !32, i64 40, !17, i64 48, !17, i64 56, !8, i64 64, !4, i64 72}
+!31 = !{!"p1 _ZTS18_generic_SUNMatrix", !4, i64 0}
+!32 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !4, i64 0}
+!33 = !{!30, !8, i64 0}
+!34 = !{!30, !8, i64 16}
+!35 = !{!30, !8, i64 8}
+!36 = !{!30, !8, i64 64}
+!37 = !{!30, !31, i64 24}
+!38 = !{!14, !15, i64 0}
+!39 = !{!30, !31, i64 32}
+!40 = !{!30, !32, i64 40}
+!41 = !{!30, !17, i64 48}
+!42 = !{!30, !17, i64 56}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS11ARKLsMemRec", !4, i64 0}
+!45 = !{!46, !4, i64 224}
+!46 = !{!"ARKLsMemRec", !10, i64 0, !10, i64 4, !10, i64 8, !4, i64 16, !4, i64 24, !10, i64 32, !10, i64 36, !16, i64 40, !16, i64 48, !32, i64 56, !31, i64 64, !31, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !17, i64 104, !8, i64 112, !16, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !16, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !10, i64 240, !4, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !10, i64 280, !4, i64 288, !4, i64 296, !10, i64 304}
+!47 = !{!46, !4, i64 232}
+!48 = !{!14, !4, i64 320}
+!49 = !{!16, !16, i64 0}
+!50 = !{!17, !17, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 int", !4, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 long", !4, i64 0}
+!55 = !{!26, !4, i64 32}
+!56 = !{!57, !58, i64 8}
+!57 = !{!"_generic_SUNMatrix", !4, i64 0, !58, i64 8, !15, i64 16}
+!58 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !4, i64 0}
+!59 = !{!60, !4, i64 72}
+!60 = !{!"_generic_SUNMatrix_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72}
+!61 = !{!62, !63, i64 8}
+!62 = !{!"_generic_SUNLinearSolver", !4, i64 0, !63, i64 8, !15, i64 16}
+!63 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !4, i64 0}
+!64 = !{!65, !4, i64 96}
+!65 = !{!"_generic_SUNLinearSolver_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112}
+!66 = !{!14, !4, i64 328}
+!67 = !{!14, !17, i64 560}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 double", !4, i64 0}
+!70 = !{!14, !10, i64 128}
+!71 = !{!14, !17, i64 656}
+!72 = !{!14, !16, i64 8}
+!73 = !{!14, !17, i64 568}
+!74 = !{!14, !16, i64 704}
+!75 = !{!14, !4, i64 16}

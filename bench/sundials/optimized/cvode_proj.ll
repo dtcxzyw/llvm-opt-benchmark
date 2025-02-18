@@ -38,7 +38,7 @@ define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) loc
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i32, ptr %9, align 8
+  %10 = load i32, ptr %9, align 8, !tbaa !3
   %.not = icmp eq i32 %10, 2
   br i1 %.not, label %12, label %11
 
@@ -48,30 +48,30 @@ define range(i32 -22, 1) i32 @CVodeSetProjFn(ptr noundef %0, ptr noundef %1) loc
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12
   %calloc.i = tail call dereferenceable_or_null(80) ptr @calloc(i64 1, i64 80)
-  store ptr %calloc.i, ptr %13, align 8
+  store ptr %calloc.i, ptr %13, align 8, !tbaa !17
   %17 = icmp eq ptr %calloc.i, null
   br i1 %17, label %cvProjCreate.exit, label %cvProjSetDefaults.exit.i
 
 cvProjSetDefaults.exit.i:                         ; preds = %16
-  store i32 1, ptr %calloc.i, align 8
+  store i32 1, ptr %calloc.i, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
-  store i32 1, ptr %18, align 4
+  store i32 1, ptr %18, align 4, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
-  store i32 1, ptr %19, align 8
+  store i32 1, ptr %19, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
-  store i64 1, ptr %20, align 8
+  store i64 1, ptr %20, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
-  store i32 10, ptr %21, align 8
+  store i32 10, ptr %21, align 8, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 48
-  store double 1.000000e-01, ptr %22, align 8
+  store double 1.000000e-01, ptr %22, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 56
-  store double 2.500000e-01, ptr %23, align 8
+  store double 2.500000e-01, ptr %23, align 8, !tbaa !25
   br label %24
 
 cvProjCreate.exit:                                ; preds = %16
@@ -80,11 +80,11 @@ cvProjCreate.exit:                                ; preds = %16
 
 24:                                               ; preds = %cvProjSetDefaults.exit.i, %12
   %25 = phi ptr [ %calloc.i, %cvProjSetDefaults.exit.i ], [ %14, %12 ]
-  store i32 0, ptr %25, align 8
+  store i32 0, ptr %25, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store ptr %1, ptr %26, align 8
+  store ptr %1, ptr %26, align 8, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1512
-  store i32 1, ptr %27, align 8
+  store i32 1, ptr %27, align 8, !tbaa !27
   br label %28
 
 28:                                               ; preds = %24, %cvProjCreate.exit, %11, %7, %4
@@ -105,7 +105,7 @@ define range(i32 -29, 1) i32 @CVodeSetProjErrEst(ptr noundef %0, i32 noundef %1)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
 
@@ -115,7 +115,7 @@ define range(i32 -29, 1) i32 @CVodeSetProjErrEst(ptr noundef %0, i32 noundef %1)
 
 cvAccessProjMem.exit:                             ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %1, ptr %10, align 4
+  store i32 %1, ptr %10, align 4, !tbaa !20
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessProjMem.exit
@@ -134,7 +134,7 @@ define range(i32 -29, 1) i32 @CVodeSetProjFrequency(ptr noundef %0, i64 noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
 
@@ -149,8 +149,8 @@ cvAccessProjMem.exit:                             ; preds = %5
 
 12:                                               ; preds = %cvAccessProjMem.exit
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 1, ptr %13, align 8
-  store i32 1, ptr %11, align 8
+  store i64 1, ptr %13, align 8, !tbaa !22
+  store i32 1, ptr %11, align 8, !tbaa !27
   br label %cvAccessProjMem.exit.thread
 
 14:                                               ; preds = %cvAccessProjMem.exit
@@ -159,13 +159,13 @@ cvAccessProjMem.exit:                             ; preds = %5
   br i1 %15, label %17, label %18
 
 17:                                               ; preds = %14
-  store i64 0, ptr %16, align 8
-  store i32 0, ptr %11, align 8
+  store i64 0, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %11, align 8, !tbaa !27
   br label %cvAccessProjMem.exit.thread
 
 18:                                               ; preds = %14
-  store i64 %1, ptr %16, align 8
-  store i32 1, ptr %11, align 8
+  store i64 %1, ptr %16, align 8, !tbaa !22
+  store i32 1, ptr %11, align 8, !tbaa !27
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %12, %18, %17
@@ -184,7 +184,7 @@ define range(i32 -29, 1) i32 @CVodeSetMaxNumProjFails(ptr noundef %0, i32 nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
 
@@ -198,11 +198,11 @@ cvAccessProjMem.exit:                             ; preds = %5
   br i1 %10, label %12, label %13
 
 12:                                               ; preds = %cvAccessProjMem.exit
-  store i32 10, ptr %11, align 8
+  store i32 10, ptr %11, align 8, !tbaa !23
   br label %cvAccessProjMem.exit.thread
 
 13:                                               ; preds = %cvAccessProjMem.exit
-  store i32 %1, ptr %11, align 8
+  store i32 %1, ptr %11, align 8, !tbaa !23
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %12, %13
@@ -221,7 +221,7 @@ define range(i32 -29, 1) i32 @CVodeSetEpsProj(ptr noundef %0, double noundef %1)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
 
@@ -235,11 +235,11 @@ cvAccessProjMem.exit:                             ; preds = %5
   br i1 %10, label %13, label %12
 
 12:                                               ; preds = %cvAccessProjMem.exit
-  store double 1.000000e-01, ptr %11, align 8
+  store double 1.000000e-01, ptr %11, align 8, !tbaa !24
   br label %cvAccessProjMem.exit.thread
 
 13:                                               ; preds = %cvAccessProjMem.exit
-  store double %1, ptr %11, align 8
+  store double %1, ptr %11, align 8, !tbaa !24
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %12, %13
@@ -258,7 +258,7 @@ define range(i32 -29, 1) i32 @CVodeSetProjFailEta(ptr noundef %0, double noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
 
@@ -267,12 +267,22 @@ define range(i32 -29, 1) i32 @CVodeSetProjFailEta(ptr noundef %0, double noundef
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit:                             ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store double 2.500000e-01, ptr %10, align 8
+  %10 = fcmp ole double %1, 0.000000e+00
+  %11 = fcmp ogt double %1, 1.000000e+00
+  %or.cond = or i1 %10, %11
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  br i1 %or.cond, label %13, label %14
+
+13:                                               ; preds = %cvAccessProjMem.exit
+  store double 2.500000e-01, ptr %12, align 8, !tbaa !25
   br label %cvAccessProjMem.exit.thread
 
-cvAccessProjMem.exit.thread:                      ; preds = %cvAccessProjMem.exit, %9, %4
-  %.0 = phi i32 [ -29, %9 ], [ -21, %4 ], [ 0, %cvAccessProjMem.exit ]
+14:                                               ; preds = %cvAccessProjMem.exit
+  store double %1, ptr %12, align 8, !tbaa !25
+  br label %cvAccessProjMem.exit.thread
+
+cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %13, %14
+  %.0 = phi i32 [ 0, %14 ], [ 0, %13 ], [ -29, %9 ], [ -21, %4 ]
   ret i32 %.0
 }
 
@@ -287,7 +297,7 @@ define range(i32 -29, 1) i32 @CVodeGetNumProjEvals(ptr noundef %0, ptr noundef w
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
 
@@ -297,8 +307,8 @@ define range(i32 -29, 1) i32 @CVodeGetNumProjEvals(ptr noundef %0, ptr noundef w
 
 cvAccessProjMem.exit:                             ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr %1, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !29
+  store i64 %11, ptr %1, align 8, !tbaa !30
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessProjMem.exit
@@ -317,7 +327,7 @@ define range(i32 -29, 1) i32 @CVodeGetNumProjFails(ptr noundef %0, ptr noundef w
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %cvAccessProjMem.exit
 
@@ -327,8 +337,8 @@ define range(i32 -29, 1) i32 @CVodeGetNumProjFails(ptr noundef %0, ptr noundef w
 
 cvAccessProjMem.exit:                             ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr %1, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !31
+  store i64 %11, ptr %1, align 8, !tbaa !30
   br label %cvAccessProjMem.exit.thread
 
 cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessProjMem.exit
@@ -339,117 +349,116 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessPro
 ; Function Attrs: nounwind uwtable
 define range(i32 -31, 4) i32 @cvDoProjection(ptr noundef %0, ptr noundef writeonly captures(none) %1, double noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -29, i32 noundef 287, ptr noundef nonnull @__func__.cvDoProjection, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #8
-  br label %72
+  br label %71
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !20
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.thread, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !34
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %18, ptr noundef %16) #8
   br label %.thread
 
 .thread:                                          ; preds = %9, %14
   %.04957 = phi ptr [ %16, %14 ], [ null, %9 ]
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %22 = load double, ptr %21, align 8
+  %22 = load double, ptr %21, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %26 = load double, ptr %25, align 8
+  %26 = load double, ptr %25, align 8, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !37
   %29 = tail call i32 %20(double noundef %22, ptr noundef %24, ptr noundef %11, double noundef %26, ptr noundef %.04957, ptr noundef %28) #8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %31 = load i64, ptr %30, align 8
+  %31 = load i64, ptr %30, align 8, !tbaa !29
   %32 = add nsw i64 %31, 1
-  store i64 %32, ptr %30, align 8
+  store i64 %32, ptr %30, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %33, align 8
+  store i32 0, ptr %33, align 8, !tbaa !21
   %34 = icmp eq i32 %29, 0
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %.thread
-  %36 = load i32, ptr %12, align 4
+  %36 = load i32, ptr %12, align 4, !tbaa !20
   %.not55 = icmp eq i32 %36, 0
   br i1 %.not55, label %42, label %37
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %39 = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !38
   %40 = tail call double @N_VWrmsNorm(ptr noundef %.04957, ptr noundef %39) #8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store double %40, ptr %41, align 8
+  store double %40, ptr %41, align 8, !tbaa !39
   br label %42
 
 42:                                               ; preds = %37, %35
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1516
-  store i32 1, ptr %43, align 4
-  br label %72
+  store i32 1, ptr %43, align 4, !tbaa !40
+  br label %71
 
 44:                                               ; preds = %.thread
   %45 = icmp slt i32 %29, 0
   %46 = icmp sgt i32 %29, 0
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %48 = load i64, ptr %47, align 8
+  %48 = load i64, ptr %47, align 8, !tbaa !31
   %49 = add nsw i64 %48, 1
-  store i64 %49, ptr %47, align 8
+  store i64 %49, ptr %47, align 8, !tbaa !31
   tail call void @cvRestore(ptr noundef nonnull %0, double noundef %2) #8
-  br i1 %45, label %72, label %50
+  br i1 %45, label %71, label %50
 
 50:                                               ; preds = %44
-  %51 = load i32, ptr %3, align 4
+  %51 = load i32, ptr %3, align 4, !tbaa !41
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %3, align 4
+  store i32 %52, ptr %3, align 4, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store double 1.000000e+00, ptr %53, align 8
+  store double 1.000000e+00, ptr %53, align 8, !tbaa !42
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %55 = load double, ptr %54, align 8
+  %55 = load double, ptr %54, align 8, !tbaa !43
   %56 = tail call double @llvm.fabs.f64(double %55)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %58 = load double, ptr %57, align 8
+  %58 = load double, ptr %57, align 8, !tbaa !44
   %59 = fmul double %58, 0x3FF000010C6F7A0B
   %60 = fcmp ugt double %56, %59
-  br i1 %60, label %61, label %72
+  br i1 %60, label %61, label %71
 
 61:                                               ; preds = %50
-  %62 = load i32, ptr %3, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %62, %64
-  %or.cond = and i1 %46, %65
-  br i1 %or.cond, label %72, label %66
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %63 = load i32, ptr %62, align 8, !tbaa !23
+  %64 = icmp eq i32 %52, %63
+  %or.cond = and i1 %46, %64
+  br i1 %or.cond, label %71, label %65
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %68 = load double, ptr %67, align 8
-  %69 = fdiv double %58, %56
-  %70 = fcmp ogt double %68, %69
-  %. = select i1 %70, double %68, double %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store double %., ptr %71, align 8
-  store i32 8, ptr %1, align 4
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %67 = load double, ptr %66, align 8, !tbaa !25
+  %68 = fdiv double %58, %56
+  %69 = fcmp ogt double %67, %68
+  %. = select i1 %69, double %67, double %68
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store double %., ptr %70, align 8, !tbaa !45
+  store i32 8, ptr %1, align 4, !tbaa !41
   tail call void @cvRescale(ptr noundef nonnull %0) #8
-  br label %72
+  br label %71
 
-72:                                               ; preds = %50, %61, %44, %66, %42, %8
-  %.0 = phi i32 [ -29, %8 ], [ 0, %42 ], [ 3, %66 ], [ -30, %44 ], [ -31, %61 ], [ -31, %50 ]
+71:                                               ; preds = %50, %61, %44, %65, %42, %8
+  %.0 = phi i32 [ -29, %8 ], [ 0, %42 ], [ 3, %65 ], [ -30, %44 ], [ -31, %61 ], [ -31, %50 ]
   ret i32 %.0
 }
 
@@ -471,9 +480,9 @@ define range(i32 -29, 1) i32 @cvProjInit(ptr noundef writeonly captures(address_
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %4, align 8
+  store i32 1, ptr %4, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %5, align 8
+  store i64 0, ptr %5, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %7
@@ -485,13 +494,13 @@ define range(i32 -29, 1) i32 @cvProjInit(ptr noundef writeonly captures(address_
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef i32 @cvProjFree(ptr noundef captures(none) %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %2) #8
-  store ptr null, ptr %0, align 8
+  store ptr null, ptr %0, align 8, !tbaa !17
   br label %5
 
 5:                                                ; preds = %1, %4
@@ -507,19 +516,62 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !10, i64 32}
+!4 = !{!"CVodeMemRec", !5, i64 0, !9, i64 8, !6, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !9, i64 40, !9, i64 48, !11, i64 56, !10, i64 64, !10, i64 68, !6, i64 72, !6, i64 80, !10, i64 88, !7, i64 96, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !10, i64 272, !10, i64 276, !9, i64 280, !10, i64 288, !10, i64 292, !10, i64 296, !10, i64 300, !10, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !7, i64 376, !7, i64 488, !7, i64 536, !9, i64 640, !9, i64 648, !9, i64 656, !9, i64 664, !9, i64 672, !9, i64 680, !9, i64 688, !10, i64 696, !9, i64 704, !10, i64 712, !12, i64 720, !10, i64 728, !10, i64 732, !10, i64 736, !9, i64 744, !9, i64 752, !9, i64 760, !9, i64 768, !9, i64 776, !9, i64 784, !9, i64 792, !9, i64 800, !9, i64 808, !9, i64 816, !9, i64 824, !9, i64 832, !12, i64 840, !10, i64 848, !12, i64 856, !12, i64 864, !12, i64 872, !12, i64 880, !12, i64 888, !12, i64 896, !12, i64 904, !10, i64 912, !9, i64 920, !9, i64 928, !9, i64 936, !12, i64 944, !12, i64 952, !12, i64 960, !12, i64 968, !13, i64 976, !10, i64 984, !6, i64 992, !10, i64 1000, !6, i64 1008, !6, i64 1016, !6, i64 1024, !6, i64 1032, !6, i64 1040, !12, i64 1048, !9, i64 1056, !10, i64 1064, !12, i64 1072, !9, i64 1080, !9, i64 1088, !9, i64 1096, !10, i64 1104, !9, i64 1112, !10, i64 1120, !10, i64 1124, !10, i64 1128, !10, i64 1132, !10, i64 1136, !6, i64 1144, !12, i64 1152, !10, i64 1160, !7, i64 1168, !10, i64 1360, !12, i64 1368, !6, i64 1376, !10, i64 1384, !14, i64 1392, !14, i64 1400, !9, i64 1408, !9, i64 1416, !9, i64 1424, !15, i64 1432, !15, i64 1440, !15, i64 1448, !9, i64 1456, !9, i64 1464, !10, i64 1472, !10, i64 1476, !12, i64 1480, !14, i64 1488, !10, i64 1496, !16, i64 1504, !10, i64 1512, !10, i64 1516, !7, i64 1520, !7, i64 1624, !7, i64 1728, !10, i64 1832}
+!5 = !{!"p1 _ZTS11SUNContext_", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"double", !7, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!"p1 _ZTS17_generic_N_Vector", !6, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !6, i64 0}
+!14 = !{!"p1 int", !6, i64 0}
+!15 = !{!"p1 double", !6, i64 0}
+!16 = !{!"p1 _ZTS15CVodeProjMemRec", !6, i64 0}
+!17 = !{!16, !16, i64 0}
+!18 = !{!19, !10, i64 0}
+!19 = !{!"CVodeProjMemRec", !10, i64 0, !10, i64 4, !10, i64 8, !12, i64 16, !12, i64 24, !10, i64 32, !6, i64 40, !9, i64 48, !9, i64 56, !12, i64 64, !12, i64 72}
+!20 = !{!19, !10, i64 4}
+!21 = !{!19, !10, i64 8}
+!22 = !{!19, !12, i64 16}
+!23 = !{!19, !10, i64 32}
+!24 = !{!19, !9, i64 48}
+!25 = !{!19, !9, i64 56}
+!26 = !{!19, !6, i64 40}
+!27 = !{!4, !10, i64 1512}
+!28 = !{!4, !16, i64 1504}
+!29 = !{!19, !12, i64 64}
+!30 = !{!12, !12, i64 0}
+!31 = !{!19, !12, i64 72}
+!32 = !{!4, !11, i64 224}
+!33 = !{!4, !11, i64 232}
+!34 = !{!4, !11, i64 216}
+!35 = !{!4, !9, i64 360}
+!36 = !{!4, !11, i64 208}
+!37 = !{!4, !6, i64 24}
+!38 = !{!4, !11, i64 200}
+!39 = !{!4, !9, i64 688}
+!40 = !{!4, !10, i64 1516}
+!41 = !{!10, !10, i64 0}
+!42 = !{!4, !9, i64 760}
+!43 = !{!4, !9, i64 320}
+!44 = !{!4, !9, i64 744}
+!45 = !{!4, !9, i64 344}
+!46 = !{!19, !12, i64 24}

@@ -49,943 +49,983 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   %28 = alloca i64, align 8
   %29 = alloca i64, align 8
   %30 = alloca i32, align 4
-  store ptr %0, ptr %11, align 8
-  store i64 %1, ptr %12, align 8
-  store i64 %2, ptr %13, align 8
-  store i64 %3, ptr %14, align 8
-  store i64 %4, ptr %15, align 8
-  store i64 %5, ptr %16, align 8
-  store double %6, ptr %17, align 8
-  store ptr %7, ptr %18, align 8
-  store ptr %8, ptr %19, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %34
-
-33:                                               ; preds = %9
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 69, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %10, align 4
-  br label %621
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !3
+  store i64 %1, ptr %12, align 8, !tbaa !7
+  store i64 %2, ptr %13, align 8, !tbaa !7
+  store i64 %3, ptr %14, align 8, !tbaa !7
+  store i64 %4, ptr %15, align 8, !tbaa !7
+  store i64 %5, ptr %16, align 8, !tbaa !7
+  store double %6, ptr %17, align 8, !tbaa !9
+  store ptr %7, ptr %18, align 8, !tbaa !3
+  store ptr %8, ptr %19, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #6
+  %32 = load ptr, ptr %11, align 8, !tbaa !3
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %9
-  %35 = load ptr, ptr %11, align 8
-  store ptr %35, ptr %20, align 8
-  %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds %struct.CVodeMemRec, ptr %36, i32 0, i32 94
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %42
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 69, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %10, align 4
+  store i32 1, ptr %31, align 4
+  br label %622
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %41, i32 noundef -2, i32 noundef 78, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.2)
+35:                                               ; preds = %9
+  %36 = load ptr, ptr %11, align 8, !tbaa !3
+  store ptr %36, ptr %20, align 8, !tbaa !11
+  %37 = load ptr, ptr %20, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %37, i32 0, i32 94
+  %39 = load ptr, ptr %38, align 8, !tbaa !13
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %43
+
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %42, i32 noundef -2, i32 noundef 78, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-42:                                               ; preds = %34
-  %43 = load ptr, ptr %20, align 8
-  %44 = getelementptr inbounds %struct.CVodeMemRec, ptr %43, i32 0, i32 94
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %21, align 8
-  %46 = load ptr, ptr %20, align 8
-  %47 = getelementptr inbounds %struct.CVodeMemRec, ptr %46, i32 0, i32 18
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._generic_N_Vector, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %50, i32 0, i32 5
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %56
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %20, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %44, i32 0, i32 94
+  %46 = load ptr, ptr %45, align 8, !tbaa !13
+  store ptr %46, ptr %21, align 8, !tbaa !22
+  %47 = load ptr, ptr %20, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %47, i32 0, i32 18
+  %49 = load ptr, ptr %48, align 8, !tbaa !24
+  %50 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !25
+  %52 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %51, i32 0, i32 5
+  %53 = load ptr, ptr %52, align 8, !tbaa !28
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %42
-  %55 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %55, i32 noundef -3, i32 noundef 87, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.3)
+55:                                               ; preds = %43
+  %56 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %56, i32 noundef -3, i32 noundef 87, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -3, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-56:                                               ; preds = %42
-  store ptr null, ptr %22, align 8
-  %57 = call noalias ptr @malloc(i64 noundef 160) #5
-  store ptr %57, ptr %22, align 8
-  %58 = load ptr, ptr %22, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %62
+57:                                               ; preds = %43
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %58 = call noalias ptr @malloc(i64 noundef 160) #7
+  store ptr %58, ptr %22, align 8, !tbaa !30
+  %59 = load ptr, ptr %22, align 8, !tbaa !30
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %61, i32 noundef -4, i32 noundef 97, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %62, i32 noundef -4, i32 noundef 97, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %11, align 8
-  %64 = load ptr, ptr %22, align 8
-  %65 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %64, i32 0, i32 19
-  store ptr %63, ptr %65, align 8
-  %66 = load ptr, ptr %18, align 8
-  %67 = load ptr, ptr %22, align 8
-  %68 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %67, i32 0, i32 5
-  store ptr %66, ptr %68, align 8
-  %69 = load ptr, ptr %19, align 8
-  %70 = load ptr, ptr %22, align 8
-  %71 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %70, i32 0, i32 6
-  store ptr %69, ptr %71, align 8
-  %72 = load i64, ptr %12, align 8
-  %73 = sub nsw i64 %72, 1
-  %74 = load i64, ptr %13, align 8
-  %75 = icmp sgt i64 0, %74
-  br i1 %75, label %76, label %77
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %11, align 8, !tbaa !3
+  %65 = load ptr, ptr %22, align 8, !tbaa !30
+  %66 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %65, i32 0, i32 19
+  store ptr %64, ptr %66, align 8, !tbaa !32
+  %67 = load ptr, ptr %18, align 8, !tbaa !3
+  %68 = load ptr, ptr %22, align 8, !tbaa !30
+  %69 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %68, i32 0, i32 5
+  store ptr %67, ptr %69, align 8, !tbaa !36
+  %70 = load ptr, ptr %19, align 8, !tbaa !3
+  %71 = load ptr, ptr %22, align 8, !tbaa !30
+  %72 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %71, i32 0, i32 6
+  store ptr %70, ptr %72, align 8, !tbaa !37
+  %73 = load i64, ptr %12, align 8, !tbaa !7
+  %74 = sub nsw i64 %73, 1
+  %75 = load i64, ptr %13, align 8, !tbaa !7
+  %76 = icmp sgt i64 0, %75
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %62
-  br label %79
+77:                                               ; preds = %63
+  br label %80
 
-77:                                               ; preds = %62
-  %78 = load i64, ptr %13, align 8
-  br label %79
+78:                                               ; preds = %63
+  %79 = load i64, ptr %13, align 8, !tbaa !7
+  br label %80
 
-79:                                               ; preds = %77, %76
-  %80 = phi i64 [ 0, %76 ], [ %78, %77 ]
-  %81 = icmp slt i64 %73, %80
-  br i1 %81, label %82, label %85
+80:                                               ; preds = %78, %77
+  %81 = phi i64 [ 0, %77 ], [ %79, %78 ]
+  %82 = icmp slt i64 %74, %81
+  br i1 %82, label %83, label %86
 
-82:                                               ; preds = %79
-  %83 = load i64, ptr %12, align 8
-  %84 = sub nsw i64 %83, 1
-  br label %93
+83:                                               ; preds = %80
+  %84 = load i64, ptr %12, align 8, !tbaa !7
+  %85 = sub nsw i64 %84, 1
+  br label %94
 
-85:                                               ; preds = %79
-  %86 = load i64, ptr %13, align 8
-  %87 = icmp sgt i64 0, %86
-  br i1 %87, label %88, label %89
+86:                                               ; preds = %80
+  %87 = load i64, ptr %13, align 8, !tbaa !7
+  %88 = icmp sgt i64 0, %87
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %85
-  br label %91
+89:                                               ; preds = %86
+  br label %92
 
-89:                                               ; preds = %85
-  %90 = load i64, ptr %13, align 8
-  br label %91
+90:                                               ; preds = %86
+  %91 = load i64, ptr %13, align 8, !tbaa !7
+  br label %92
 
-91:                                               ; preds = %89, %88
-  %92 = phi i64 [ 0, %88 ], [ %90, %89 ]
-  br label %93
+92:                                               ; preds = %90, %89
+  %93 = phi i64 [ 0, %89 ], [ %91, %90 ]
+  br label %94
 
-93:                                               ; preds = %91, %82
-  %94 = phi i64 [ %84, %82 ], [ %92, %91 ]
-  %95 = load ptr, ptr %22, align 8
-  %96 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %95, i32 0, i32 0
-  store i64 %94, ptr %96, align 8
-  %97 = load i64, ptr %12, align 8
-  %98 = sub nsw i64 %97, 1
-  %99 = load i64, ptr %14, align 8
-  %100 = icmp sgt i64 0, %99
-  br i1 %100, label %101, label %102
+94:                                               ; preds = %92, %83
+  %95 = phi i64 [ %85, %83 ], [ %93, %92 ]
+  %96 = load ptr, ptr %22, align 8, !tbaa !30
+  %97 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %96, i32 0, i32 0
+  store i64 %95, ptr %97, align 8, !tbaa !38
+  %98 = load i64, ptr %12, align 8, !tbaa !7
+  %99 = sub nsw i64 %98, 1
+  %100 = load i64, ptr %14, align 8, !tbaa !7
+  %101 = icmp sgt i64 0, %100
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %93
-  br label %104
+102:                                              ; preds = %94
+  br label %105
 
-102:                                              ; preds = %93
-  %103 = load i64, ptr %14, align 8
-  br label %104
+103:                                              ; preds = %94
+  %104 = load i64, ptr %14, align 8, !tbaa !7
+  br label %105
 
-104:                                              ; preds = %102, %101
-  %105 = phi i64 [ 0, %101 ], [ %103, %102 ]
-  %106 = icmp slt i64 %98, %105
-  br i1 %106, label %107, label %110
+105:                                              ; preds = %103, %102
+  %106 = phi i64 [ 0, %102 ], [ %104, %103 ]
+  %107 = icmp slt i64 %99, %106
+  br i1 %107, label %108, label %111
 
-107:                                              ; preds = %104
-  %108 = load i64, ptr %12, align 8
-  %109 = sub nsw i64 %108, 1
-  br label %118
+108:                                              ; preds = %105
+  %109 = load i64, ptr %12, align 8, !tbaa !7
+  %110 = sub nsw i64 %109, 1
+  br label %119
 
-110:                                              ; preds = %104
-  %111 = load i64, ptr %14, align 8
-  %112 = icmp sgt i64 0, %111
-  br i1 %112, label %113, label %114
+111:                                              ; preds = %105
+  %112 = load i64, ptr %14, align 8, !tbaa !7
+  %113 = icmp sgt i64 0, %112
+  br i1 %113, label %114, label %115
 
-113:                                              ; preds = %110
-  br label %116
+114:                                              ; preds = %111
+  br label %117
 
-114:                                              ; preds = %110
-  %115 = load i64, ptr %14, align 8
-  br label %116
+115:                                              ; preds = %111
+  %116 = load i64, ptr %14, align 8, !tbaa !7
+  br label %117
 
-116:                                              ; preds = %114, %113
-  %117 = phi i64 [ 0, %113 ], [ %115, %114 ]
-  br label %118
+117:                                              ; preds = %115, %114
+  %118 = phi i64 [ 0, %114 ], [ %116, %115 ]
+  br label %119
 
-118:                                              ; preds = %116, %107
-  %119 = phi i64 [ %109, %107 ], [ %117, %116 ]
-  %120 = load ptr, ptr %22, align 8
-  %121 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %120, i32 0, i32 1
-  store i64 %119, ptr %121, align 8
-  %122 = load i64, ptr %12, align 8
-  %123 = sub nsw i64 %122, 1
-  %124 = load i64, ptr %15, align 8
-  %125 = icmp sgt i64 0, %124
-  br i1 %125, label %126, label %127
+119:                                              ; preds = %117, %108
+  %120 = phi i64 [ %110, %108 ], [ %118, %117 ]
+  %121 = load ptr, ptr %22, align 8, !tbaa !30
+  %122 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %121, i32 0, i32 1
+  store i64 %120, ptr %122, align 8, !tbaa !39
+  %123 = load i64, ptr %12, align 8, !tbaa !7
+  %124 = sub nsw i64 %123, 1
+  %125 = load i64, ptr %15, align 8, !tbaa !7
+  %126 = icmp sgt i64 0, %125
+  br i1 %126, label %127, label %128
 
-126:                                              ; preds = %118
-  br label %129
+127:                                              ; preds = %119
+  br label %130
 
-127:                                              ; preds = %118
-  %128 = load i64, ptr %15, align 8
-  br label %129
+128:                                              ; preds = %119
+  %129 = load i64, ptr %15, align 8, !tbaa !7
+  br label %130
 
-129:                                              ; preds = %127, %126
-  %130 = phi i64 [ 0, %126 ], [ %128, %127 ]
-  %131 = icmp slt i64 %123, %130
-  br i1 %131, label %132, label %135
+130:                                              ; preds = %128, %127
+  %131 = phi i64 [ 0, %127 ], [ %129, %128 ]
+  %132 = icmp slt i64 %124, %131
+  br i1 %132, label %133, label %136
 
-132:                                              ; preds = %129
-  %133 = load i64, ptr %12, align 8
-  %134 = sub nsw i64 %133, 1
-  br label %143
+133:                                              ; preds = %130
+  %134 = load i64, ptr %12, align 8, !tbaa !7
+  %135 = sub nsw i64 %134, 1
+  br label %144
 
-135:                                              ; preds = %129
-  %136 = load i64, ptr %15, align 8
-  %137 = icmp sgt i64 0, %136
-  br i1 %137, label %138, label %139
+136:                                              ; preds = %130
+  %137 = load i64, ptr %15, align 8, !tbaa !7
+  %138 = icmp sgt i64 0, %137
+  br i1 %138, label %139, label %140
 
-138:                                              ; preds = %135
-  br label %141
+139:                                              ; preds = %136
+  br label %142
 
-139:                                              ; preds = %135
-  %140 = load i64, ptr %15, align 8
-  br label %141
+140:                                              ; preds = %136
+  %141 = load i64, ptr %15, align 8, !tbaa !7
+  br label %142
 
-141:                                              ; preds = %139, %138
-  %142 = phi i64 [ 0, %138 ], [ %140, %139 ]
-  br label %143
+142:                                              ; preds = %140, %139
+  %143 = phi i64 [ 0, %139 ], [ %141, %140 ]
+  br label %144
 
-143:                                              ; preds = %141, %132
-  %144 = phi i64 [ %134, %132 ], [ %142, %141 ]
-  store i64 %144, ptr %23, align 8
-  %145 = load i64, ptr %12, align 8
-  %146 = sub nsw i64 %145, 1
-  %147 = load i64, ptr %16, align 8
-  %148 = icmp sgt i64 0, %147
-  br i1 %148, label %149, label %150
+144:                                              ; preds = %142, %133
+  %145 = phi i64 [ %135, %133 ], [ %143, %142 ]
+  store i64 %145, ptr %23, align 8, !tbaa !7
+  %146 = load i64, ptr %12, align 8, !tbaa !7
+  %147 = sub nsw i64 %146, 1
+  %148 = load i64, ptr %16, align 8, !tbaa !7
+  %149 = icmp sgt i64 0, %148
+  br i1 %149, label %150, label %151
 
-149:                                              ; preds = %143
-  br label %152
+150:                                              ; preds = %144
+  br label %153
 
-150:                                              ; preds = %143
-  %151 = load i64, ptr %16, align 8
-  br label %152
+151:                                              ; preds = %144
+  %152 = load i64, ptr %16, align 8, !tbaa !7
+  br label %153
 
-152:                                              ; preds = %150, %149
-  %153 = phi i64 [ 0, %149 ], [ %151, %150 ]
-  %154 = icmp slt i64 %146, %153
-  br i1 %154, label %155, label %158
+153:                                              ; preds = %151, %150
+  %154 = phi i64 [ 0, %150 ], [ %152, %151 ]
+  %155 = icmp slt i64 %147, %154
+  br i1 %155, label %156, label %159
 
-155:                                              ; preds = %152
-  %156 = load i64, ptr %12, align 8
-  %157 = sub nsw i64 %156, 1
-  br label %166
+156:                                              ; preds = %153
+  %157 = load i64, ptr %12, align 8, !tbaa !7
+  %158 = sub nsw i64 %157, 1
+  br label %167
 
-158:                                              ; preds = %152
-  %159 = load i64, ptr %16, align 8
-  %160 = icmp sgt i64 0, %159
-  br i1 %160, label %161, label %162
+159:                                              ; preds = %153
+  %160 = load i64, ptr %16, align 8, !tbaa !7
+  %161 = icmp sgt i64 0, %160
+  br i1 %161, label %162, label %163
 
-161:                                              ; preds = %158
-  br label %164
+162:                                              ; preds = %159
+  br label %165
 
-162:                                              ; preds = %158
-  %163 = load i64, ptr %16, align 8
-  br label %164
+163:                                              ; preds = %159
+  %164 = load i64, ptr %16, align 8, !tbaa !7
+  br label %165
 
-164:                                              ; preds = %162, %161
-  %165 = phi i64 [ 0, %161 ], [ %163, %162 ]
-  br label %166
+165:                                              ; preds = %163, %162
+  %166 = phi i64 [ 0, %162 ], [ %164, %163 ]
+  br label %167
 
-166:                                              ; preds = %164, %155
-  %167 = phi i64 [ %157, %155 ], [ %165, %164 ]
-  store i64 %167, ptr %24, align 8
-  %168 = load i64, ptr %23, align 8
-  %169 = load ptr, ptr %22, align 8
-  %170 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %169, i32 0, i32 2
-  store i64 %168, ptr %170, align 8
-  %171 = load i64, ptr %24, align 8
-  %172 = load ptr, ptr %22, align 8
-  %173 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %172, i32 0, i32 3
-  store i64 %171, ptr %173, align 8
-  %174 = load i64, ptr %12, align 8
-  %175 = load i64, ptr %23, align 8
-  %176 = load i64, ptr %24, align 8
-  %177 = load i64, ptr %23, align 8
-  %178 = load ptr, ptr %20, align 8
-  %179 = getelementptr inbounds %struct.CVodeMemRec, ptr %178, i32 0, i32 0
-  %180 = load ptr, ptr %179, align 8
-  %181 = call ptr @SUNBandMatrixStorage(i64 noundef %174, i64 noundef %175, i64 noundef %176, i64 noundef %177, ptr noundef %180)
-  %182 = load ptr, ptr %22, align 8
-  %183 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %182, i32 0, i32 7
-  store ptr %181, ptr %183, align 8
-  %184 = load ptr, ptr %22, align 8
-  %185 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %184, i32 0, i32 7
-  %186 = load ptr, ptr %185, align 8
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %188, label %191
+167:                                              ; preds = %165, %156
+  %168 = phi i64 [ %158, %156 ], [ %166, %165 ]
+  store i64 %168, ptr %24, align 8, !tbaa !7
+  %169 = load i64, ptr %23, align 8, !tbaa !7
+  %170 = load ptr, ptr %22, align 8, !tbaa !30
+  %171 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %170, i32 0, i32 2
+  store i64 %169, ptr %171, align 8, !tbaa !40
+  %172 = load i64, ptr %24, align 8, !tbaa !7
+  %173 = load ptr, ptr %22, align 8, !tbaa !30
+  %174 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %173, i32 0, i32 3
+  store i64 %172, ptr %174, align 8, !tbaa !41
+  %175 = load i64, ptr %12, align 8, !tbaa !7
+  %176 = load i64, ptr %23, align 8, !tbaa !7
+  %177 = load i64, ptr %24, align 8, !tbaa !7
+  %178 = load i64, ptr %23, align 8, !tbaa !7
+  %179 = load ptr, ptr %20, align 8, !tbaa !11
+  %180 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %179, i32 0, i32 0
+  %181 = load ptr, ptr %180, align 8, !tbaa !42
+  %182 = call ptr @SUNBandMatrixStorage(i64 noundef %175, i64 noundef %176, i64 noundef %177, i64 noundef %178, ptr noundef %181)
+  %183 = load ptr, ptr %22, align 8, !tbaa !30
+  %184 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %183, i32 0, i32 7
+  store ptr %182, ptr %184, align 8, !tbaa !43
+  %185 = load ptr, ptr %22, align 8, !tbaa !30
+  %186 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %185, i32 0, i32 7
+  %187 = load ptr, ptr %186, align 8, !tbaa !43
+  %188 = icmp eq ptr %187, null
+  br i1 %188, label %189, label %192
 
-188:                                              ; preds = %166
-  %189 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %189) #6
-  store ptr null, ptr %22, align 8
-  %190 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %190, i32 noundef -4, i32 noundef 119, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+189:                                              ; preds = %167
+  %190 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %190) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %191 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %191, i32 noundef -4, i32 noundef 119, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-191:                                              ; preds = %166
-  %192 = load i64, ptr %12, align 8
-  %193 = sub nsw i64 %192, 1
-  %194 = load i64, ptr %23, align 8
-  %195 = load i64, ptr %24, align 8
-  %196 = add nsw i64 %194, %195
-  %197 = icmp slt i64 %193, %196
-  br i1 %197, label %198, label %201
+192:                                              ; preds = %167
+  %193 = load i64, ptr %12, align 8, !tbaa !7
+  %194 = sub nsw i64 %193, 1
+  %195 = load i64, ptr %23, align 8, !tbaa !7
+  %196 = load i64, ptr %24, align 8, !tbaa !7
+  %197 = add nsw i64 %195, %196
+  %198 = icmp slt i64 %194, %197
+  br i1 %198, label %199, label %202
 
-198:                                              ; preds = %191
-  %199 = load i64, ptr %12, align 8
-  %200 = sub nsw i64 %199, 1
-  br label %205
+199:                                              ; preds = %192
+  %200 = load i64, ptr %12, align 8, !tbaa !7
+  %201 = sub nsw i64 %200, 1
+  br label %206
 
-201:                                              ; preds = %191
-  %202 = load i64, ptr %23, align 8
-  %203 = load i64, ptr %24, align 8
-  %204 = add nsw i64 %202, %203
-  br label %205
+202:                                              ; preds = %192
+  %203 = load i64, ptr %23, align 8, !tbaa !7
+  %204 = load i64, ptr %24, align 8, !tbaa !7
+  %205 = add nsw i64 %203, %204
+  br label %206
 
-205:                                              ; preds = %201, %198
-  %206 = phi i64 [ %200, %198 ], [ %204, %201 ]
-  store i64 %206, ptr %25, align 8
-  %207 = load ptr, ptr %22, align 8
-  %208 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %207, i32 0, i32 8
-  store ptr null, ptr %208, align 8
-  %209 = load i64, ptr %12, align 8
-  %210 = load i64, ptr %23, align 8
-  %211 = load i64, ptr %24, align 8
-  %212 = load i64, ptr %25, align 8
-  %213 = load ptr, ptr %20, align 8
-  %214 = getelementptr inbounds %struct.CVodeMemRec, ptr %213, i32 0, i32 0
-  %215 = load ptr, ptr %214, align 8
-  %216 = call ptr @SUNBandMatrixStorage(i64 noundef %209, i64 noundef %210, i64 noundef %211, i64 noundef %212, ptr noundef %215)
-  %217 = load ptr, ptr %22, align 8
-  %218 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %217, i32 0, i32 8
-  store ptr %216, ptr %218, align 8
-  %219 = load ptr, ptr %22, align 8
-  %220 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %219, i32 0, i32 8
-  %221 = load ptr, ptr %220, align 8
-  %222 = icmp eq ptr %221, null
-  br i1 %222, label %223, label %229
+206:                                              ; preds = %202, %199
+  %207 = phi i64 [ %201, %199 ], [ %205, %202 ]
+  store i64 %207, ptr %25, align 8, !tbaa !7
+  %208 = load ptr, ptr %22, align 8, !tbaa !30
+  %209 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %208, i32 0, i32 8
+  store ptr null, ptr %209, align 8, !tbaa !44
+  %210 = load i64, ptr %12, align 8, !tbaa !7
+  %211 = load i64, ptr %23, align 8, !tbaa !7
+  %212 = load i64, ptr %24, align 8, !tbaa !7
+  %213 = load i64, ptr %25, align 8, !tbaa !7
+  %214 = load ptr, ptr %20, align 8, !tbaa !11
+  %215 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %214, i32 0, i32 0
+  %216 = load ptr, ptr %215, align 8, !tbaa !42
+  %217 = call ptr @SUNBandMatrixStorage(i64 noundef %210, i64 noundef %211, i64 noundef %212, i64 noundef %213, ptr noundef %216)
+  %218 = load ptr, ptr %22, align 8, !tbaa !30
+  %219 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %218, i32 0, i32 8
+  store ptr %217, ptr %219, align 8, !tbaa !44
+  %220 = load ptr, ptr %22, align 8, !tbaa !30
+  %221 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %220, i32 0, i32 8
+  %222 = load ptr, ptr %221, align 8, !tbaa !44
+  %223 = icmp eq ptr %222, null
+  br i1 %223, label %224, label %230
 
-223:                                              ; preds = %205
-  %224 = load ptr, ptr %22, align 8
-  %225 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %224, i32 0, i32 7
-  %226 = load ptr, ptr %225, align 8
-  call void @SUNMatDestroy(ptr noundef %226)
-  %227 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %227) #6
-  store ptr null, ptr %22, align 8
-  %228 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %228, i32 noundef -4, i32 noundef 134, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+224:                                              ; preds = %206
+  %225 = load ptr, ptr %22, align 8, !tbaa !30
+  %226 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %225, i32 0, i32 7
+  %227 = load ptr, ptr %226, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %227)
+  %228 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %228) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %229 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %229, i32 noundef -4, i32 noundef 134, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-229:                                              ; preds = %205
-  %230 = load ptr, ptr %22, align 8
-  %231 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %230, i32 0, i32 13
-  store ptr null, ptr %231, align 8
-  %232 = load i64, ptr %12, align 8
-  %233 = load ptr, ptr %20, align 8
-  %234 = getelementptr inbounds %struct.CVodeMemRec, ptr %233, i32 0, i32 0
-  %235 = load ptr, ptr %234, align 8
-  %236 = call ptr @N_VNewEmpty_Serial(i64 noundef %232, ptr noundef %235)
-  %237 = load ptr, ptr %22, align 8
-  %238 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %237, i32 0, i32 13
-  store ptr %236, ptr %238, align 8
-  %239 = load ptr, ptr %22, align 8
-  %240 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %239, i32 0, i32 13
-  %241 = load ptr, ptr %240, align 8
-  %242 = icmp eq ptr %241, null
-  br i1 %242, label %243, label %252
+230:                                              ; preds = %206
+  %231 = load ptr, ptr %22, align 8, !tbaa !30
+  %232 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %231, i32 0, i32 13
+  store ptr null, ptr %232, align 8, !tbaa !45
+  %233 = load i64, ptr %12, align 8, !tbaa !7
+  %234 = load ptr, ptr %20, align 8, !tbaa !11
+  %235 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %234, i32 0, i32 0
+  %236 = load ptr, ptr %235, align 8, !tbaa !42
+  %237 = call ptr @N_VNewEmpty_Serial(i64 noundef %233, ptr noundef %236)
+  %238 = load ptr, ptr %22, align 8, !tbaa !30
+  %239 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %238, i32 0, i32 13
+  store ptr %237, ptr %239, align 8, !tbaa !45
+  %240 = load ptr, ptr %22, align 8, !tbaa !30
+  %241 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %240, i32 0, i32 13
+  %242 = load ptr, ptr %241, align 8, !tbaa !45
+  %243 = icmp eq ptr %242, null
+  br i1 %243, label %244, label %253
 
-243:                                              ; preds = %229
-  %244 = load ptr, ptr %22, align 8
-  %245 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %244, i32 0, i32 8
-  %246 = load ptr, ptr %245, align 8
-  call void @SUNMatDestroy(ptr noundef %246)
-  %247 = load ptr, ptr %22, align 8
-  %248 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %247, i32 0, i32 7
-  %249 = load ptr, ptr %248, align 8
-  call void @SUNMatDestroy(ptr noundef %249)
-  %250 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %250) #6
-  store ptr null, ptr %22, align 8
-  %251 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %251, i32 noundef -4, i32 noundef 148, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+244:                                              ; preds = %230
+  %245 = load ptr, ptr %22, align 8, !tbaa !30
+  %246 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %245, i32 0, i32 8
+  %247 = load ptr, ptr %246, align 8, !tbaa !44
+  call void @SUNMatDestroy(ptr noundef %247)
+  %248 = load ptr, ptr %22, align 8, !tbaa !30
+  %249 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %248, i32 0, i32 7
+  %250 = load ptr, ptr %249, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %250)
+  %251 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %251) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %252 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %252, i32 noundef -4, i32 noundef 148, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-252:                                              ; preds = %229
-  %253 = load ptr, ptr %22, align 8
-  %254 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %253, i32 0, i32 14
-  store ptr null, ptr %254, align 8
-  %255 = load i64, ptr %12, align 8
-  %256 = load ptr, ptr %20, align 8
-  %257 = getelementptr inbounds %struct.CVodeMemRec, ptr %256, i32 0, i32 0
-  %258 = load ptr, ptr %257, align 8
-  %259 = call ptr @N_VNewEmpty_Serial(i64 noundef %255, ptr noundef %258)
-  %260 = load ptr, ptr %22, align 8
-  %261 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %260, i32 0, i32 14
-  store ptr %259, ptr %261, align 8
-  %262 = load ptr, ptr %22, align 8
-  %263 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %262, i32 0, i32 14
-  %264 = load ptr, ptr %263, align 8
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %266, label %278
+253:                                              ; preds = %230
+  %254 = load ptr, ptr %22, align 8, !tbaa !30
+  %255 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %254, i32 0, i32 14
+  store ptr null, ptr %255, align 8, !tbaa !46
+  %256 = load i64, ptr %12, align 8, !tbaa !7
+  %257 = load ptr, ptr %20, align 8, !tbaa !11
+  %258 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %257, i32 0, i32 0
+  %259 = load ptr, ptr %258, align 8, !tbaa !42
+  %260 = call ptr @N_VNewEmpty_Serial(i64 noundef %256, ptr noundef %259)
+  %261 = load ptr, ptr %22, align 8, !tbaa !30
+  %262 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %261, i32 0, i32 14
+  store ptr %260, ptr %262, align 8, !tbaa !46
+  %263 = load ptr, ptr %22, align 8, !tbaa !30
+  %264 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %263, i32 0, i32 14
+  %265 = load ptr, ptr %264, align 8, !tbaa !46
+  %266 = icmp eq ptr %265, null
+  br i1 %266, label %267, label %279
 
-266:                                              ; preds = %252
-  %267 = load ptr, ptr %22, align 8
-  %268 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %267, i32 0, i32 13
-  %269 = load ptr, ptr %268, align 8
-  call void @N_VDestroy(ptr noundef %269)
-  %270 = load ptr, ptr %22, align 8
-  %271 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %270, i32 0, i32 8
-  %272 = load ptr, ptr %271, align 8
-  call void @SUNMatDestroy(ptr noundef %272)
-  %273 = load ptr, ptr %22, align 8
-  %274 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %273, i32 0, i32 7
-  %275 = load ptr, ptr %274, align 8
-  call void @SUNMatDestroy(ptr noundef %275)
-  %276 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %276) #6
-  store ptr null, ptr %22, align 8
-  %277 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %277, i32 noundef -4, i32 noundef 161, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+267:                                              ; preds = %253
+  %268 = load ptr, ptr %22, align 8, !tbaa !30
+  %269 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %268, i32 0, i32 13
+  %270 = load ptr, ptr %269, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %270)
+  %271 = load ptr, ptr %22, align 8, !tbaa !30
+  %272 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %271, i32 0, i32 8
+  %273 = load ptr, ptr %272, align 8, !tbaa !44
+  call void @SUNMatDestroy(ptr noundef %273)
+  %274 = load ptr, ptr %22, align 8, !tbaa !30
+  %275 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %274, i32 0, i32 7
+  %276 = load ptr, ptr %275, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %276)
+  %277 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %277) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %278 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %278, i32 noundef -4, i32 noundef 161, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-278:                                              ; preds = %252
-  %279 = load ptr, ptr %22, align 8
-  %280 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %279, i32 0, i32 10
-  store ptr null, ptr %280, align 8
-  %281 = load ptr, ptr %20, align 8
-  %282 = getelementptr inbounds %struct.CVodeMemRec, ptr %281, i32 0, i32 18
-  %283 = load ptr, ptr %282, align 8
-  %284 = call ptr @N_VClone(ptr noundef %283)
-  %285 = load ptr, ptr %22, align 8
-  %286 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %285, i32 0, i32 10
-  store ptr %284, ptr %286, align 8
-  %287 = load ptr, ptr %22, align 8
-  %288 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %287, i32 0, i32 10
-  %289 = load ptr, ptr %288, align 8
-  %290 = icmp eq ptr %289, null
-  br i1 %290, label %291, label %306
+279:                                              ; preds = %253
+  %280 = load ptr, ptr %22, align 8, !tbaa !30
+  %281 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %280, i32 0, i32 10
+  store ptr null, ptr %281, align 8, !tbaa !47
+  %282 = load ptr, ptr %20, align 8, !tbaa !11
+  %283 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %282, i32 0, i32 18
+  %284 = load ptr, ptr %283, align 8, !tbaa !24
+  %285 = call ptr @N_VClone(ptr noundef %284)
+  %286 = load ptr, ptr %22, align 8, !tbaa !30
+  %287 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %286, i32 0, i32 10
+  store ptr %285, ptr %287, align 8, !tbaa !47
+  %288 = load ptr, ptr %22, align 8, !tbaa !30
+  %289 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %288, i32 0, i32 10
+  %290 = load ptr, ptr %289, align 8, !tbaa !47
+  %291 = icmp eq ptr %290, null
+  br i1 %291, label %292, label %307
 
-291:                                              ; preds = %278
-  %292 = load ptr, ptr %22, align 8
-  %293 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %292, i32 0, i32 13
-  %294 = load ptr, ptr %293, align 8
-  call void @N_VDestroy(ptr noundef %294)
-  %295 = load ptr, ptr %22, align 8
-  %296 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %295, i32 0, i32 14
-  %297 = load ptr, ptr %296, align 8
-  call void @N_VDestroy(ptr noundef %297)
-  %298 = load ptr, ptr %22, align 8
-  %299 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %298, i32 0, i32 8
-  %300 = load ptr, ptr %299, align 8
-  call void @SUNMatDestroy(ptr noundef %300)
-  %301 = load ptr, ptr %22, align 8
-  %302 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %301, i32 0, i32 7
-  %303 = load ptr, ptr %302, align 8
-  call void @SUNMatDestroy(ptr noundef %303)
-  %304 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %304) #6
-  store ptr null, ptr %22, align 8
-  %305 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %305, i32 noundef -4, i32 noundef 175, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+292:                                              ; preds = %279
+  %293 = load ptr, ptr %22, align 8, !tbaa !30
+  %294 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %293, i32 0, i32 13
+  %295 = load ptr, ptr %294, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %295)
+  %296 = load ptr, ptr %22, align 8, !tbaa !30
+  %297 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %296, i32 0, i32 14
+  %298 = load ptr, ptr %297, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %298)
+  %299 = load ptr, ptr %22, align 8, !tbaa !30
+  %300 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %299, i32 0, i32 8
+  %301 = load ptr, ptr %300, align 8, !tbaa !44
+  call void @SUNMatDestroy(ptr noundef %301)
+  %302 = load ptr, ptr %22, align 8, !tbaa !30
+  %303 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %302, i32 0, i32 7
+  %304 = load ptr, ptr %303, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %304)
+  %305 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %305) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %306 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %306, i32 noundef -4, i32 noundef 175, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-306:                                              ; preds = %278
-  %307 = load ptr, ptr %22, align 8
-  %308 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %307, i32 0, i32 11
-  store ptr null, ptr %308, align 8
-  %309 = load ptr, ptr %20, align 8
-  %310 = getelementptr inbounds %struct.CVodeMemRec, ptr %309, i32 0, i32 18
-  %311 = load ptr, ptr %310, align 8
-  %312 = call ptr @N_VClone(ptr noundef %311)
-  %313 = load ptr, ptr %22, align 8
-  %314 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %313, i32 0, i32 11
-  store ptr %312, ptr %314, align 8
-  %315 = load ptr, ptr %22, align 8
-  %316 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %315, i32 0, i32 11
-  %317 = load ptr, ptr %316, align 8
-  %318 = icmp eq ptr %317, null
-  br i1 %318, label %319, label %337
+307:                                              ; preds = %279
+  %308 = load ptr, ptr %22, align 8, !tbaa !30
+  %309 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %308, i32 0, i32 11
+  store ptr null, ptr %309, align 8, !tbaa !48
+  %310 = load ptr, ptr %20, align 8, !tbaa !11
+  %311 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %310, i32 0, i32 18
+  %312 = load ptr, ptr %311, align 8, !tbaa !24
+  %313 = call ptr @N_VClone(ptr noundef %312)
+  %314 = load ptr, ptr %22, align 8, !tbaa !30
+  %315 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %314, i32 0, i32 11
+  store ptr %313, ptr %315, align 8, !tbaa !48
+  %316 = load ptr, ptr %22, align 8, !tbaa !30
+  %317 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %316, i32 0, i32 11
+  %318 = load ptr, ptr %317, align 8, !tbaa !48
+  %319 = icmp eq ptr %318, null
+  br i1 %319, label %320, label %338
 
-319:                                              ; preds = %306
-  %320 = load ptr, ptr %22, align 8
-  %321 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %320, i32 0, i32 10
-  %322 = load ptr, ptr %321, align 8
-  call void @N_VDestroy(ptr noundef %322)
-  %323 = load ptr, ptr %22, align 8
-  %324 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %323, i32 0, i32 13
-  %325 = load ptr, ptr %324, align 8
-  call void @N_VDestroy(ptr noundef %325)
-  %326 = load ptr, ptr %22, align 8
-  %327 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %326, i32 0, i32 14
-  %328 = load ptr, ptr %327, align 8
-  call void @N_VDestroy(ptr noundef %328)
-  %329 = load ptr, ptr %22, align 8
-  %330 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %329, i32 0, i32 8
-  %331 = load ptr, ptr %330, align 8
-  call void @SUNMatDestroy(ptr noundef %331)
-  %332 = load ptr, ptr %22, align 8
-  %333 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %332, i32 0, i32 7
-  %334 = load ptr, ptr %333, align 8
-  call void @SUNMatDestroy(ptr noundef %334)
-  %335 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %335) #6
-  store ptr null, ptr %22, align 8
-  %336 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %336, i32 noundef -4, i32 noundef 190, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+320:                                              ; preds = %307
+  %321 = load ptr, ptr %22, align 8, !tbaa !30
+  %322 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %321, i32 0, i32 10
+  %323 = load ptr, ptr %322, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %323)
+  %324 = load ptr, ptr %22, align 8, !tbaa !30
+  %325 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %324, i32 0, i32 13
+  %326 = load ptr, ptr %325, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %326)
+  %327 = load ptr, ptr %22, align 8, !tbaa !30
+  %328 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %327, i32 0, i32 14
+  %329 = load ptr, ptr %328, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %329)
+  %330 = load ptr, ptr %22, align 8, !tbaa !30
+  %331 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %330, i32 0, i32 8
+  %332 = load ptr, ptr %331, align 8, !tbaa !44
+  call void @SUNMatDestroy(ptr noundef %332)
+  %333 = load ptr, ptr %22, align 8, !tbaa !30
+  %334 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %333, i32 0, i32 7
+  %335 = load ptr, ptr %334, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %335)
+  %336 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %336) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %337 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %337, i32 noundef -4, i32 noundef 190, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-337:                                              ; preds = %306
-  %338 = load ptr, ptr %22, align 8
-  %339 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %338, i32 0, i32 12
-  store ptr null, ptr %339, align 8
-  %340 = load ptr, ptr %20, align 8
-  %341 = getelementptr inbounds %struct.CVodeMemRec, ptr %340, i32 0, i32 18
-  %342 = load ptr, ptr %341, align 8
-  %343 = call ptr @N_VClone(ptr noundef %342)
-  %344 = load ptr, ptr %22, align 8
-  %345 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %344, i32 0, i32 12
-  store ptr %343, ptr %345, align 8
-  %346 = load ptr, ptr %22, align 8
-  %347 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %346, i32 0, i32 12
-  %348 = load ptr, ptr %347, align 8
-  %349 = icmp eq ptr %348, null
-  br i1 %349, label %350, label %371
+338:                                              ; preds = %307
+  %339 = load ptr, ptr %22, align 8, !tbaa !30
+  %340 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %339, i32 0, i32 12
+  store ptr null, ptr %340, align 8, !tbaa !49
+  %341 = load ptr, ptr %20, align 8, !tbaa !11
+  %342 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %341, i32 0, i32 18
+  %343 = load ptr, ptr %342, align 8, !tbaa !24
+  %344 = call ptr @N_VClone(ptr noundef %343)
+  %345 = load ptr, ptr %22, align 8, !tbaa !30
+  %346 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %345, i32 0, i32 12
+  store ptr %344, ptr %346, align 8, !tbaa !49
+  %347 = load ptr, ptr %22, align 8, !tbaa !30
+  %348 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %347, i32 0, i32 12
+  %349 = load ptr, ptr %348, align 8, !tbaa !49
+  %350 = icmp eq ptr %349, null
+  br i1 %350, label %351, label %372
 
-350:                                              ; preds = %337
-  %351 = load ptr, ptr %22, align 8
-  %352 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %351, i32 0, i32 10
-  %353 = load ptr, ptr %352, align 8
-  call void @N_VDestroy(ptr noundef %353)
-  %354 = load ptr, ptr %22, align 8
-  %355 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %354, i32 0, i32 11
-  %356 = load ptr, ptr %355, align 8
-  call void @N_VDestroy(ptr noundef %356)
-  %357 = load ptr, ptr %22, align 8
-  %358 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %357, i32 0, i32 13
-  %359 = load ptr, ptr %358, align 8
-  call void @N_VDestroy(ptr noundef %359)
-  %360 = load ptr, ptr %22, align 8
-  %361 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %360, i32 0, i32 14
-  %362 = load ptr, ptr %361, align 8
-  call void @N_VDestroy(ptr noundef %362)
-  %363 = load ptr, ptr %22, align 8
-  %364 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %363, i32 0, i32 8
-  %365 = load ptr, ptr %364, align 8
-  call void @SUNMatDestroy(ptr noundef %365)
-  %366 = load ptr, ptr %22, align 8
-  %367 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %366, i32 0, i32 7
-  %368 = load ptr, ptr %367, align 8
-  call void @SUNMatDestroy(ptr noundef %368)
-  %369 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %369) #6
-  store ptr null, ptr %22, align 8
-  %370 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %370, i32 noundef -4, i32 noundef 206, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+351:                                              ; preds = %338
+  %352 = load ptr, ptr %22, align 8, !tbaa !30
+  %353 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %352, i32 0, i32 10
+  %354 = load ptr, ptr %353, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %354)
+  %355 = load ptr, ptr %22, align 8, !tbaa !30
+  %356 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %355, i32 0, i32 11
+  %357 = load ptr, ptr %356, align 8, !tbaa !48
+  call void @N_VDestroy(ptr noundef %357)
+  %358 = load ptr, ptr %22, align 8, !tbaa !30
+  %359 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %358, i32 0, i32 13
+  %360 = load ptr, ptr %359, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %360)
+  %361 = load ptr, ptr %22, align 8, !tbaa !30
+  %362 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %361, i32 0, i32 14
+  %363 = load ptr, ptr %362, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %363)
+  %364 = load ptr, ptr %22, align 8, !tbaa !30
+  %365 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %364, i32 0, i32 8
+  %366 = load ptr, ptr %365, align 8, !tbaa !44
+  call void @SUNMatDestroy(ptr noundef %366)
+  %367 = load ptr, ptr %22, align 8, !tbaa !30
+  %368 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %367, i32 0, i32 7
+  %369 = load ptr, ptr %368, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %369)
+  %370 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %370) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %371 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %371, i32 noundef -4, i32 noundef 206, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-371:                                              ; preds = %337
-  %372 = load ptr, ptr %22, align 8
-  %373 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %372, i32 0, i32 9
-  store ptr null, ptr %373, align 8
-  %374 = load ptr, ptr %22, align 8
-  %375 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %374, i32 0, i32 14
-  %376 = load ptr, ptr %375, align 8
-  %377 = load ptr, ptr %22, align 8
-  %378 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %377, i32 0, i32 8
-  %379 = load ptr, ptr %378, align 8
-  %380 = load ptr, ptr %20, align 8
-  %381 = getelementptr inbounds %struct.CVodeMemRec, ptr %380, i32 0, i32 0
-  %382 = load ptr, ptr %381, align 8
-  %383 = call ptr @SUNLinSol_Band(ptr noundef %376, ptr noundef %379, ptr noundef %382)
-  %384 = load ptr, ptr %22, align 8
-  %385 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %384, i32 0, i32 9
-  store ptr %383, ptr %385, align 8
-  %386 = load ptr, ptr %22, align 8
-  %387 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %386, i32 0, i32 9
-  %388 = load ptr, ptr %387, align 8
-  %389 = icmp eq ptr %388, null
-  br i1 %389, label %390, label %414
+372:                                              ; preds = %338
+  %373 = load ptr, ptr %22, align 8, !tbaa !30
+  %374 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %373, i32 0, i32 9
+  store ptr null, ptr %374, align 8, !tbaa !50
+  %375 = load ptr, ptr %22, align 8, !tbaa !30
+  %376 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %375, i32 0, i32 14
+  %377 = load ptr, ptr %376, align 8, !tbaa !46
+  %378 = load ptr, ptr %22, align 8, !tbaa !30
+  %379 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %378, i32 0, i32 8
+  %380 = load ptr, ptr %379, align 8, !tbaa !44
+  %381 = load ptr, ptr %20, align 8, !tbaa !11
+  %382 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %381, i32 0, i32 0
+  %383 = load ptr, ptr %382, align 8, !tbaa !42
+  %384 = call ptr @SUNLinSol_Band(ptr noundef %377, ptr noundef %380, ptr noundef %383)
+  %385 = load ptr, ptr %22, align 8, !tbaa !30
+  %386 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %385, i32 0, i32 9
+  store ptr %384, ptr %386, align 8, !tbaa !50
+  %387 = load ptr, ptr %22, align 8, !tbaa !30
+  %388 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %387, i32 0, i32 9
+  %389 = load ptr, ptr %388, align 8, !tbaa !50
+  %390 = icmp eq ptr %389, null
+  br i1 %390, label %391, label %415
 
-390:                                              ; preds = %371
-  %391 = load ptr, ptr %22, align 8
-  %392 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %391, i32 0, i32 10
-  %393 = load ptr, ptr %392, align 8
-  call void @N_VDestroy(ptr noundef %393)
-  %394 = load ptr, ptr %22, align 8
-  %395 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %394, i32 0, i32 11
-  %396 = load ptr, ptr %395, align 8
-  call void @N_VDestroy(ptr noundef %396)
-  %397 = load ptr, ptr %22, align 8
-  %398 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %397, i32 0, i32 12
-  %399 = load ptr, ptr %398, align 8
-  call void @N_VDestroy(ptr noundef %399)
-  %400 = load ptr, ptr %22, align 8
-  %401 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %400, i32 0, i32 13
-  %402 = load ptr, ptr %401, align 8
-  call void @N_VDestroy(ptr noundef %402)
-  %403 = load ptr, ptr %22, align 8
-  %404 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %403, i32 0, i32 14
-  %405 = load ptr, ptr %404, align 8
-  call void @N_VDestroy(ptr noundef %405)
-  %406 = load ptr, ptr %22, align 8
-  %407 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %406, i32 0, i32 8
-  %408 = load ptr, ptr %407, align 8
-  call void @SUNMatDestroy(ptr noundef %408)
-  %409 = load ptr, ptr %22, align 8
-  %410 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %409, i32 0, i32 7
-  %411 = load ptr, ptr %410, align 8
-  call void @SUNMatDestroy(ptr noundef %411)
-  %412 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %412) #6
-  store ptr null, ptr %22, align 8
-  %413 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %413, i32 noundef -4, i32 noundef 225, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
+391:                                              ; preds = %372
+  %392 = load ptr, ptr %22, align 8, !tbaa !30
+  %393 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %392, i32 0, i32 10
+  %394 = load ptr, ptr %393, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %394)
+  %395 = load ptr, ptr %22, align 8, !tbaa !30
+  %396 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %395, i32 0, i32 11
+  %397 = load ptr, ptr %396, align 8, !tbaa !48
+  call void @N_VDestroy(ptr noundef %397)
+  %398 = load ptr, ptr %22, align 8, !tbaa !30
+  %399 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %398, i32 0, i32 12
+  %400 = load ptr, ptr %399, align 8, !tbaa !49
+  call void @N_VDestroy(ptr noundef %400)
+  %401 = load ptr, ptr %22, align 8, !tbaa !30
+  %402 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %401, i32 0, i32 13
+  %403 = load ptr, ptr %402, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %403)
+  %404 = load ptr, ptr %22, align 8, !tbaa !30
+  %405 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %404, i32 0, i32 14
+  %406 = load ptr, ptr %405, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %406)
+  %407 = load ptr, ptr %22, align 8, !tbaa !30
+  %408 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %407, i32 0, i32 8
+  %409 = load ptr, ptr %408, align 8, !tbaa !44
+  call void @SUNMatDestroy(ptr noundef %409)
+  %410 = load ptr, ptr %22, align 8, !tbaa !30
+  %411 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %410, i32 0, i32 7
+  %412 = load ptr, ptr %411, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %412)
+  %413 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %413) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %414 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %414, i32 noundef -4, i32 noundef 225, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -4, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-414:                                              ; preds = %371
-  %415 = load ptr, ptr %22, align 8
-  %416 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %415, i32 0, i32 9
-  %417 = load ptr, ptr %416, align 8
-  %418 = call i32 @SUNLinSolInitialize(ptr noundef %417)
-  store i32 %418, ptr %30, align 4
-  %419 = load i32, ptr %30, align 4
-  %420 = icmp ne i32 %419, 0
-  br i1 %420, label %421, label %449
+415:                                              ; preds = %372
+  %416 = load ptr, ptr %22, align 8, !tbaa !30
+  %417 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %416, i32 0, i32 9
+  %418 = load ptr, ptr %417, align 8, !tbaa !50
+  %419 = call i32 @SUNLinSolInitialize(ptr noundef %418)
+  store i32 %419, ptr %30, align 4, !tbaa !51
+  %420 = load i32, ptr %30, align 4, !tbaa !51
+  %421 = icmp ne i32 %420, 0
+  br i1 %421, label %422, label %450
 
-421:                                              ; preds = %414
-  %422 = load ptr, ptr %22, align 8
-  %423 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %422, i32 0, i32 10
-  %424 = load ptr, ptr %423, align 8
-  call void @N_VDestroy(ptr noundef %424)
-  %425 = load ptr, ptr %22, align 8
-  %426 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %425, i32 0, i32 11
-  %427 = load ptr, ptr %426, align 8
-  call void @N_VDestroy(ptr noundef %427)
-  %428 = load ptr, ptr %22, align 8
-  %429 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %428, i32 0, i32 12
-  %430 = load ptr, ptr %429, align 8
-  call void @N_VDestroy(ptr noundef %430)
-  %431 = load ptr, ptr %22, align 8
-  %432 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %431, i32 0, i32 13
-  %433 = load ptr, ptr %432, align 8
-  call void @N_VDestroy(ptr noundef %433)
-  %434 = load ptr, ptr %22, align 8
-  %435 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %434, i32 0, i32 14
-  %436 = load ptr, ptr %435, align 8
-  call void @N_VDestroy(ptr noundef %436)
-  %437 = load ptr, ptr %22, align 8
-  %438 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %437, i32 0, i32 8
-  %439 = load ptr, ptr %438, align 8
-  call void @SUNMatDestroy(ptr noundef %439)
-  %440 = load ptr, ptr %22, align 8
-  %441 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %440, i32 0, i32 7
-  %442 = load ptr, ptr %441, align 8
-  call void @SUNMatDestroy(ptr noundef %442)
-  %443 = load ptr, ptr %22, align 8
-  %444 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %443, i32 0, i32 9
-  %445 = load ptr, ptr %444, align 8
-  %446 = call i32 @SUNLinSolFree(ptr noundef %445)
-  %447 = load ptr, ptr %22, align 8
-  call void @free(ptr noundef %447) #6
-  store ptr null, ptr %22, align 8
-  %448 = load ptr, ptr %20, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %448, i32 noundef -9, i32 noundef 244, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.5)
+422:                                              ; preds = %415
+  %423 = load ptr, ptr %22, align 8, !tbaa !30
+  %424 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %423, i32 0, i32 10
+  %425 = load ptr, ptr %424, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %425)
+  %426 = load ptr, ptr %22, align 8, !tbaa !30
+  %427 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %426, i32 0, i32 11
+  %428 = load ptr, ptr %427, align 8, !tbaa !48
+  call void @N_VDestroy(ptr noundef %428)
+  %429 = load ptr, ptr %22, align 8, !tbaa !30
+  %430 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %429, i32 0, i32 12
+  %431 = load ptr, ptr %430, align 8, !tbaa !49
+  call void @N_VDestroy(ptr noundef %431)
+  %432 = load ptr, ptr %22, align 8, !tbaa !30
+  %433 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %432, i32 0, i32 13
+  %434 = load ptr, ptr %433, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %434)
+  %435 = load ptr, ptr %22, align 8, !tbaa !30
+  %436 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %435, i32 0, i32 14
+  %437 = load ptr, ptr %436, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %437)
+  %438 = load ptr, ptr %22, align 8, !tbaa !30
+  %439 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %438, i32 0, i32 8
+  %440 = load ptr, ptr %439, align 8, !tbaa !44
+  call void @SUNMatDestroy(ptr noundef %440)
+  %441 = load ptr, ptr %22, align 8, !tbaa !30
+  %442 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %441, i32 0, i32 7
+  %443 = load ptr, ptr %442, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %443)
+  %444 = load ptr, ptr %22, align 8, !tbaa !30
+  %445 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %444, i32 0, i32 9
+  %446 = load ptr, ptr %445, align 8, !tbaa !50
+  %447 = call i32 @SUNLinSolFree(ptr noundef %446)
+  %448 = load ptr, ptr %22, align 8, !tbaa !30
+  call void @free(ptr noundef %448) #6
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %449 = load ptr, ptr %20, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %449, i32 noundef -9, i32 noundef 244, ptr noundef @__func__.CVBBDPrecInit, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -9, ptr %10, align 4
-  br label %621
+  store i32 1, ptr %31, align 4
+  br label %622
 
-449:                                              ; preds = %414
-  %450 = load double, ptr %17, align 8
-  %451 = fcmp ogt double %450, 0.000000e+00
-  br i1 %451, label %452, label %454
+450:                                              ; preds = %415
+  %451 = load double, ptr %17, align 8, !tbaa !9
+  %452 = fcmp ogt double %451, 0.000000e+00
+  br i1 %452, label %453, label %455
 
-452:                                              ; preds = %449
-  %453 = load double, ptr %17, align 8
-  br label %467
+453:                                              ; preds = %450
+  %454 = load double, ptr %17, align 8, !tbaa !9
+  br label %468
 
-454:                                              ; preds = %449
-  %455 = load ptr, ptr %20, align 8
-  %456 = getelementptr inbounds %struct.CVodeMemRec, ptr %455, i32 0, i32 1
-  %457 = load double, ptr %456, align 8
-  %458 = fcmp ole double %457, 0.000000e+00
-  br i1 %458, label %459, label %460
+455:                                              ; preds = %450
+  %456 = load ptr, ptr %20, align 8, !tbaa !11
+  %457 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %456, i32 0, i32 1
+  %458 = load double, ptr %457, align 8, !tbaa !52
+  %459 = fcmp ole double %458, 0.000000e+00
+  br i1 %459, label %460, label %461
 
-459:                                              ; preds = %454
-  br label %465
+460:                                              ; preds = %455
+  br label %466
 
-460:                                              ; preds = %454
-  %461 = load ptr, ptr %20, align 8
-  %462 = getelementptr inbounds %struct.CVodeMemRec, ptr %461, i32 0, i32 1
-  %463 = load double, ptr %462, align 8
-  %464 = call double @sqrt(double noundef %463) #6
-  br label %465
+461:                                              ; preds = %455
+  %462 = load ptr, ptr %20, align 8, !tbaa !11
+  %463 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %462, i32 0, i32 1
+  %464 = load double, ptr %463, align 8, !tbaa !52
+  %465 = call double @sqrt(double noundef %464) #6, !tbaa !51
+  br label %466
 
-465:                                              ; preds = %460, %459
-  %466 = phi double [ 0.000000e+00, %459 ], [ %464, %460 ]
-  br label %467
+466:                                              ; preds = %461, %460
+  %467 = phi double [ 0.000000e+00, %460 ], [ %465, %461 ]
+  br label %468
 
-467:                                              ; preds = %465, %452
-  %468 = phi double [ %453, %452 ], [ %466, %465 ]
-  %469 = load ptr, ptr %22, align 8
-  %470 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %469, i32 0, i32 4
-  store double %468, ptr %470, align 8
-  %471 = load i64, ptr %12, align 8
-  %472 = load ptr, ptr %22, align 8
-  %473 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %472, i32 0, i32 15
-  store i64 %471, ptr %473, align 8
-  %474 = load ptr, ptr %22, align 8
-  %475 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %474, i32 0, i32 16
-  store i64 0, ptr %475, align 8
-  %476 = load ptr, ptr %22, align 8
-  %477 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %476, i32 0, i32 17
-  store i64 0, ptr %477, align 8
-  %478 = load ptr, ptr %20, align 8
-  %479 = getelementptr inbounds %struct.CVodeMemRec, ptr %478, i32 0, i32 18
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds %struct._generic_N_Vector, ptr %480, i32 0, i32 1
-  %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %482, i32 0, i32 4
-  %484 = load ptr, ptr %483, align 8
-  %485 = icmp ne ptr %484, null
-  br i1 %485, label %486, label %502
+468:                                              ; preds = %466, %453
+  %469 = phi double [ %454, %453 ], [ %467, %466 ]
+  %470 = load ptr, ptr %22, align 8, !tbaa !30
+  %471 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %470, i32 0, i32 4
+  store double %469, ptr %471, align 8, !tbaa !53
+  %472 = load i64, ptr %12, align 8, !tbaa !7
+  %473 = load ptr, ptr %22, align 8, !tbaa !30
+  %474 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %473, i32 0, i32 15
+  store i64 %472, ptr %474, align 8, !tbaa !54
+  %475 = load ptr, ptr %22, align 8, !tbaa !30
+  %476 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %475, i32 0, i32 16
+  store i64 0, ptr %476, align 8, !tbaa !55
+  %477 = load ptr, ptr %22, align 8, !tbaa !30
+  %478 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %477, i32 0, i32 17
+  store i64 0, ptr %478, align 8, !tbaa !56
+  %479 = load ptr, ptr %20, align 8, !tbaa !11
+  %480 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %479, i32 0, i32 18
+  %481 = load ptr, ptr %480, align 8, !tbaa !24
+  %482 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %481, i32 0, i32 1
+  %483 = load ptr, ptr %482, align 8, !tbaa !25
+  %484 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %483, i32 0, i32 4
+  %485 = load ptr, ptr %484, align 8, !tbaa !57
+  %486 = icmp ne ptr %485, null
+  br i1 %486, label %487, label %503
 
-486:                                              ; preds = %467
-  %487 = load ptr, ptr %20, align 8
-  %488 = getelementptr inbounds %struct.CVodeMemRec, ptr %487, i32 0, i32 18
-  %489 = load ptr, ptr %488, align 8
-  call void @N_VSpace(ptr noundef %489, ptr noundef %26, ptr noundef %27)
-  %490 = load i64, ptr %26, align 8
-  %491 = mul nsw i64 3, %490
-  %492 = load ptr, ptr %22, align 8
-  %493 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %492, i32 0, i32 16
-  %494 = load i64, ptr %493, align 8
-  %495 = add nsw i64 %494, %491
-  store i64 %495, ptr %493, align 8
-  %496 = load i64, ptr %27, align 8
-  %497 = mul nsw i64 3, %496
-  %498 = load ptr, ptr %22, align 8
-  %499 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %498, i32 0, i32 17
-  %500 = load i64, ptr %499, align 8
-  %501 = add nsw i64 %500, %497
-  store i64 %501, ptr %499, align 8
-  br label %502
+487:                                              ; preds = %468
+  %488 = load ptr, ptr %20, align 8, !tbaa !11
+  %489 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %488, i32 0, i32 18
+  %490 = load ptr, ptr %489, align 8, !tbaa !24
+  call void @N_VSpace(ptr noundef %490, ptr noundef %26, ptr noundef %27)
+  %491 = load i64, ptr %26, align 8, !tbaa !7
+  %492 = mul nsw i64 3, %491
+  %493 = load ptr, ptr %22, align 8, !tbaa !30
+  %494 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %493, i32 0, i32 16
+  %495 = load i64, ptr %494, align 8, !tbaa !55
+  %496 = add nsw i64 %495, %492
+  store i64 %496, ptr %494, align 8, !tbaa !55
+  %497 = load i64, ptr %27, align 8, !tbaa !7
+  %498 = mul nsw i64 3, %497
+  %499 = load ptr, ptr %22, align 8, !tbaa !30
+  %500 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %499, i32 0, i32 17
+  %501 = load i64, ptr %500, align 8, !tbaa !56
+  %502 = add nsw i64 %501, %498
+  store i64 %502, ptr %500, align 8, !tbaa !56
+  br label %503
 
-502:                                              ; preds = %486, %467
-  %503 = load ptr, ptr %22, align 8
-  %504 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %503, i32 0, i32 14
-  %505 = load ptr, ptr %504, align 8
-  %506 = getelementptr inbounds %struct._generic_N_Vector, ptr %505, i32 0, i32 1
-  %507 = load ptr, ptr %506, align 8
-  %508 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %507, i32 0, i32 4
-  %509 = load ptr, ptr %508, align 8
-  %510 = icmp ne ptr %509, null
-  br i1 %510, label %511, label %527
+503:                                              ; preds = %487, %468
+  %504 = load ptr, ptr %22, align 8, !tbaa !30
+  %505 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %504, i32 0, i32 14
+  %506 = load ptr, ptr %505, align 8, !tbaa !46
+  %507 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %506, i32 0, i32 1
+  %508 = load ptr, ptr %507, align 8, !tbaa !25
+  %509 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %508, i32 0, i32 4
+  %510 = load ptr, ptr %509, align 8, !tbaa !57
+  %511 = icmp ne ptr %510, null
+  br i1 %511, label %512, label %528
 
-511:                                              ; preds = %502
-  %512 = load ptr, ptr %22, align 8
-  %513 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %512, i32 0, i32 14
-  %514 = load ptr, ptr %513, align 8
-  call void @N_VSpace(ptr noundef %514, ptr noundef %26, ptr noundef %27)
-  %515 = load i64, ptr %26, align 8
-  %516 = mul nsw i64 2, %515
-  %517 = load ptr, ptr %22, align 8
-  %518 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %517, i32 0, i32 16
-  %519 = load i64, ptr %518, align 8
-  %520 = add nsw i64 %519, %516
-  store i64 %520, ptr %518, align 8
-  %521 = load i64, ptr %27, align 8
-  %522 = mul nsw i64 2, %521
-  %523 = load ptr, ptr %22, align 8
-  %524 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %523, i32 0, i32 17
-  %525 = load i64, ptr %524, align 8
-  %526 = add nsw i64 %525, %522
-  store i64 %526, ptr %524, align 8
-  br label %527
+512:                                              ; preds = %503
+  %513 = load ptr, ptr %22, align 8, !tbaa !30
+  %514 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %513, i32 0, i32 14
+  %515 = load ptr, ptr %514, align 8, !tbaa !46
+  call void @N_VSpace(ptr noundef %515, ptr noundef %26, ptr noundef %27)
+  %516 = load i64, ptr %26, align 8, !tbaa !7
+  %517 = mul nsw i64 2, %516
+  %518 = load ptr, ptr %22, align 8, !tbaa !30
+  %519 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %518, i32 0, i32 16
+  %520 = load i64, ptr %519, align 8, !tbaa !55
+  %521 = add nsw i64 %520, %517
+  store i64 %521, ptr %519, align 8, !tbaa !55
+  %522 = load i64, ptr %27, align 8, !tbaa !7
+  %523 = mul nsw i64 2, %522
+  %524 = load ptr, ptr %22, align 8, !tbaa !30
+  %525 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %524, i32 0, i32 17
+  %526 = load i64, ptr %525, align 8, !tbaa !56
+  %527 = add nsw i64 %526, %523
+  store i64 %527, ptr %525, align 8, !tbaa !56
+  br label %528
 
-527:                                              ; preds = %511, %502
-  %528 = load ptr, ptr %22, align 8
-  %529 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %528, i32 0, i32 7
-  %530 = load ptr, ptr %529, align 8
-  %531 = getelementptr inbounds %struct._generic_SUNMatrix, ptr %530, i32 0, i32 1
-  %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds %struct._generic_SUNMatrix_Ops, ptr %532, i32 0, i32 9
-  %534 = load ptr, ptr %533, align 8
-  %535 = icmp ne ptr %534, null
-  br i1 %535, label %536, label %551
+528:                                              ; preds = %512, %503
+  %529 = load ptr, ptr %22, align 8, !tbaa !30
+  %530 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %529, i32 0, i32 7
+  %531 = load ptr, ptr %530, align 8, !tbaa !43
+  %532 = getelementptr inbounds nuw %struct._generic_SUNMatrix, ptr %531, i32 0, i32 1
+  %533 = load ptr, ptr %532, align 8, !tbaa !58
+  %534 = getelementptr inbounds nuw %struct._generic_SUNMatrix_Ops, ptr %533, i32 0, i32 9
+  %535 = load ptr, ptr %534, align 8, !tbaa !61
+  %536 = icmp ne ptr %535, null
+  br i1 %536, label %537, label %552
 
-536:                                              ; preds = %527
-  %537 = load ptr, ptr %22, align 8
-  %538 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %537, i32 0, i32 7
-  %539 = load ptr, ptr %538, align 8
-  %540 = call i32 @SUNMatSpace(ptr noundef %539, ptr noundef %28, ptr noundef %29)
-  store i32 %540, ptr %30, align 4
-  %541 = load i64, ptr %28, align 8
-  %542 = load ptr, ptr %22, align 8
-  %543 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %542, i32 0, i32 16
-  %544 = load i64, ptr %543, align 8
-  %545 = add nsw i64 %544, %541
-  store i64 %545, ptr %543, align 8
-  %546 = load i64, ptr %29, align 8
-  %547 = load ptr, ptr %22, align 8
-  %548 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %547, i32 0, i32 17
-  %549 = load i64, ptr %548, align 8
-  %550 = add nsw i64 %549, %546
-  store i64 %550, ptr %548, align 8
-  br label %551
+537:                                              ; preds = %528
+  %538 = load ptr, ptr %22, align 8, !tbaa !30
+  %539 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %538, i32 0, i32 7
+  %540 = load ptr, ptr %539, align 8, !tbaa !43
+  %541 = call i32 @SUNMatSpace(ptr noundef %540, ptr noundef %28, ptr noundef %29)
+  store i32 %541, ptr %30, align 4, !tbaa !51
+  %542 = load i64, ptr %28, align 8, !tbaa !7
+  %543 = load ptr, ptr %22, align 8, !tbaa !30
+  %544 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %543, i32 0, i32 16
+  %545 = load i64, ptr %544, align 8, !tbaa !55
+  %546 = add nsw i64 %545, %542
+  store i64 %546, ptr %544, align 8, !tbaa !55
+  %547 = load i64, ptr %29, align 8, !tbaa !7
+  %548 = load ptr, ptr %22, align 8, !tbaa !30
+  %549 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %548, i32 0, i32 17
+  %550 = load i64, ptr %549, align 8, !tbaa !56
+  %551 = add nsw i64 %550, %547
+  store i64 %551, ptr %549, align 8, !tbaa !56
+  br label %552
 
-551:                                              ; preds = %536, %527
-  %552 = load ptr, ptr %22, align 8
-  %553 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %552, i32 0, i32 8
-  %554 = load ptr, ptr %553, align 8
-  %555 = getelementptr inbounds %struct._generic_SUNMatrix, ptr %554, i32 0, i32 1
-  %556 = load ptr, ptr %555, align 8
-  %557 = getelementptr inbounds %struct._generic_SUNMatrix_Ops, ptr %556, i32 0, i32 9
-  %558 = load ptr, ptr %557, align 8
-  %559 = icmp ne ptr %558, null
-  br i1 %559, label %560, label %575
+552:                                              ; preds = %537, %528
+  %553 = load ptr, ptr %22, align 8, !tbaa !30
+  %554 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %553, i32 0, i32 8
+  %555 = load ptr, ptr %554, align 8, !tbaa !44
+  %556 = getelementptr inbounds nuw %struct._generic_SUNMatrix, ptr %555, i32 0, i32 1
+  %557 = load ptr, ptr %556, align 8, !tbaa !58
+  %558 = getelementptr inbounds nuw %struct._generic_SUNMatrix_Ops, ptr %557, i32 0, i32 9
+  %559 = load ptr, ptr %558, align 8, !tbaa !61
+  %560 = icmp ne ptr %559, null
+  br i1 %560, label %561, label %576
 
-560:                                              ; preds = %551
-  %561 = load ptr, ptr %22, align 8
-  %562 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %561, i32 0, i32 8
-  %563 = load ptr, ptr %562, align 8
-  %564 = call i32 @SUNMatSpace(ptr noundef %563, ptr noundef %28, ptr noundef %29)
-  store i32 %564, ptr %30, align 4
-  %565 = load i64, ptr %28, align 8
-  %566 = load ptr, ptr %22, align 8
-  %567 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %566, i32 0, i32 16
-  %568 = load i64, ptr %567, align 8
-  %569 = add nsw i64 %568, %565
-  store i64 %569, ptr %567, align 8
-  %570 = load i64, ptr %29, align 8
-  %571 = load ptr, ptr %22, align 8
-  %572 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %571, i32 0, i32 17
-  %573 = load i64, ptr %572, align 8
-  %574 = add nsw i64 %573, %570
-  store i64 %574, ptr %572, align 8
-  br label %575
+561:                                              ; preds = %552
+  %562 = load ptr, ptr %22, align 8, !tbaa !30
+  %563 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %562, i32 0, i32 8
+  %564 = load ptr, ptr %563, align 8, !tbaa !44
+  %565 = call i32 @SUNMatSpace(ptr noundef %564, ptr noundef %28, ptr noundef %29)
+  store i32 %565, ptr %30, align 4, !tbaa !51
+  %566 = load i64, ptr %28, align 8, !tbaa !7
+  %567 = load ptr, ptr %22, align 8, !tbaa !30
+  %568 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %567, i32 0, i32 16
+  %569 = load i64, ptr %568, align 8, !tbaa !55
+  %570 = add nsw i64 %569, %566
+  store i64 %570, ptr %568, align 8, !tbaa !55
+  %571 = load i64, ptr %29, align 8, !tbaa !7
+  %572 = load ptr, ptr %22, align 8, !tbaa !30
+  %573 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %572, i32 0, i32 17
+  %574 = load i64, ptr %573, align 8, !tbaa !56
+  %575 = add nsw i64 %574, %571
+  store i64 %575, ptr %573, align 8, !tbaa !56
+  br label %576
 
-575:                                              ; preds = %560, %551
-  %576 = load ptr, ptr %22, align 8
-  %577 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %576, i32 0, i32 9
-  %578 = load ptr, ptr %577, align 8
-  %579 = getelementptr inbounds %struct._generic_SUNLinearSolver, ptr %578, i32 0, i32 1
-  %580 = load ptr, ptr %579, align 8
-  %581 = getelementptr inbounds %struct._generic_SUNLinearSolver_Ops, ptr %580, i32 0, i32 12
-  %582 = load ptr, ptr %581, align 8
-  %583 = icmp ne ptr %582, null
-  br i1 %583, label %584, label %599
+576:                                              ; preds = %561, %552
+  %577 = load ptr, ptr %22, align 8, !tbaa !30
+  %578 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %577, i32 0, i32 9
+  %579 = load ptr, ptr %578, align 8, !tbaa !50
+  %580 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver, ptr %579, i32 0, i32 1
+  %581 = load ptr, ptr %580, align 8, !tbaa !63
+  %582 = getelementptr inbounds nuw %struct._generic_SUNLinearSolver_Ops, ptr %581, i32 0, i32 12
+  %583 = load ptr, ptr %582, align 8, !tbaa !66
+  %584 = icmp ne ptr %583, null
+  br i1 %584, label %585, label %600
 
-584:                                              ; preds = %575
-  %585 = load ptr, ptr %22, align 8
-  %586 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %585, i32 0, i32 9
-  %587 = load ptr, ptr %586, align 8
-  %588 = call i32 @SUNLinSolSpace(ptr noundef %587, ptr noundef %28, ptr noundef %29)
-  store i32 %588, ptr %30, align 4
-  %589 = load i64, ptr %28, align 8
-  %590 = load ptr, ptr %22, align 8
-  %591 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %590, i32 0, i32 16
-  %592 = load i64, ptr %591, align 8
-  %593 = add nsw i64 %592, %589
-  store i64 %593, ptr %591, align 8
-  %594 = load i64, ptr %29, align 8
-  %595 = load ptr, ptr %22, align 8
-  %596 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %595, i32 0, i32 17
-  %597 = load i64, ptr %596, align 8
-  %598 = add nsw i64 %597, %594
-  store i64 %598, ptr %596, align 8
-  br label %599
+585:                                              ; preds = %576
+  %586 = load ptr, ptr %22, align 8, !tbaa !30
+  %587 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %586, i32 0, i32 9
+  %588 = load ptr, ptr %587, align 8, !tbaa !50
+  %589 = call i32 @SUNLinSolSpace(ptr noundef %588, ptr noundef %28, ptr noundef %29)
+  store i32 %589, ptr %30, align 4, !tbaa !51
+  %590 = load i64, ptr %28, align 8, !tbaa !7
+  %591 = load ptr, ptr %22, align 8, !tbaa !30
+  %592 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %591, i32 0, i32 16
+  %593 = load i64, ptr %592, align 8, !tbaa !55
+  %594 = add nsw i64 %593, %590
+  store i64 %594, ptr %592, align 8, !tbaa !55
+  %595 = load i64, ptr %29, align 8, !tbaa !7
+  %596 = load ptr, ptr %22, align 8, !tbaa !30
+  %597 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %596, i32 0, i32 17
+  %598 = load i64, ptr %597, align 8, !tbaa !56
+  %599 = add nsw i64 %598, %595
+  store i64 %599, ptr %597, align 8, !tbaa !56
+  br label %600
 
-599:                                              ; preds = %584, %575
-  %600 = load ptr, ptr %22, align 8
-  %601 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %600, i32 0, i32 18
-  store i64 0, ptr %601, align 8
-  %602 = load ptr, ptr %21, align 8
-  %603 = getelementptr inbounds %struct.CVLsMemRec, ptr %602, i32 0, i32 30
-  %604 = load ptr, ptr %603, align 8
-  %605 = icmp ne ptr %604, null
-  br i1 %605, label %606, label %612
+600:                                              ; preds = %585, %576
+  %601 = load ptr, ptr %22, align 8, !tbaa !30
+  %602 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %601, i32 0, i32 18
+  store i64 0, ptr %602, align 8, !tbaa !68
+  %603 = load ptr, ptr %21, align 8, !tbaa !22
+  %604 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %603, i32 0, i32 30
+  %605 = load ptr, ptr %604, align 8, !tbaa !69
+  %606 = icmp ne ptr %605, null
+  br i1 %606, label %607, label %613
 
-606:                                              ; preds = %599
-  %607 = load ptr, ptr %21, align 8
-  %608 = getelementptr inbounds %struct.CVLsMemRec, ptr %607, i32 0, i32 30
-  %609 = load ptr, ptr %608, align 8
-  %610 = load ptr, ptr %20, align 8
-  %611 = call i32 %609(ptr noundef %610)
-  br label %612
+607:                                              ; preds = %600
+  %608 = load ptr, ptr %21, align 8, !tbaa !22
+  %609 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %608, i32 0, i32 30
+  %610 = load ptr, ptr %609, align 8, !tbaa !69
+  %611 = load ptr, ptr %20, align 8, !tbaa !11
+  %612 = call i32 %610(ptr noundef %611)
+  br label %613
 
-612:                                              ; preds = %606, %599
-  %613 = load ptr, ptr %22, align 8
-  %614 = load ptr, ptr %21, align 8
-  %615 = getelementptr inbounds %struct.CVLsMemRec, ptr %614, i32 0, i32 31
-  store ptr %613, ptr %615, align 8
-  %616 = load ptr, ptr %21, align 8
-  %617 = getelementptr inbounds %struct.CVLsMemRec, ptr %616, i32 0, i32 30
-  store ptr @CVBBDPrecFree, ptr %617, align 8
-  %618 = load ptr, ptr %11, align 8
-  %619 = call i32 @CVodeSetPreconditioner(ptr noundef %618, ptr noundef @CVBBDPrecSetup, ptr noundef @CVBBDPrecSolve)
-  store i32 %619, ptr %30, align 4
-  %620 = load i32, ptr %30, align 4
-  store i32 %620, ptr %10, align 4
-  br label %621
+613:                                              ; preds = %607, %600
+  %614 = load ptr, ptr %22, align 8, !tbaa !30
+  %615 = load ptr, ptr %21, align 8, !tbaa !22
+  %616 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %615, i32 0, i32 31
+  store ptr %614, ptr %616, align 8, !tbaa !71
+  %617 = load ptr, ptr %21, align 8, !tbaa !22
+  %618 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %617, i32 0, i32 30
+  store ptr @CVBBDPrecFree, ptr %618, align 8, !tbaa !69
+  %619 = load ptr, ptr %11, align 8, !tbaa !3
+  %620 = call i32 @CVodeSetPreconditioner(ptr noundef %619, ptr noundef @CVBBDPrecSetup, ptr noundef @CVBBDPrecSolve)
+  store i32 %620, ptr %30, align 4, !tbaa !51
+  %621 = load i32, ptr %30, align 4, !tbaa !51
+  store i32 %621, ptr %10, align 4
+  store i32 1, ptr %31, align 4
+  br label %622
 
-621:                                              ; preds = %612, %421, %390, %350, %319, %291, %266, %243, %223, %188, %60, %54, %40, %33
-  %622 = load i32, ptr %10, align 4
-  ret i32 %622
+622:                                              ; preds = %613, %422, %391, %351, %320, %292, %267, %244, %224, %189, %61, %55, %41, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  %623 = load i32, ptr %10, align 4
+  ret i32 %623
 }
 
-declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
-declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
-
-declare void @SUNMatDestroy(ptr noundef) #1
-
-declare ptr @N_VNewEmpty_Serial(i64 noundef, ptr noundef) #1
-
-declare void @N_VDestroy(ptr noundef) #1
-
-declare ptr @N_VClone(ptr noundef) #1
-
-declare ptr @SUNLinSol_Band(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare i32 @SUNLinSolInitialize(ptr noundef) #1
-
-declare i32 @SUNLinSolFree(ptr noundef) #1
+declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #3
+declare void @free(ptr noundef) #4
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @SUNMatDestroy(ptr noundef) #2
 
-declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @N_VNewEmpty_Serial(i64 noundef, ptr noundef) #2
 
-declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @N_VDestroy(ptr noundef) #2
+
+declare ptr @N_VClone(ptr noundef) #2
+
+declare ptr @SUNLinSol_Band(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare i32 @SUNLinSolInitialize(ptr noundef) #2
+
+declare i32 @SUNLinSolFree(ptr noundef) #2
+
+; Function Attrs: nounwind
+declare double @sqrt(double noundef) #4
+
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBBDPrecFree(ptr noundef %0) #0 {
@@ -993,81 +1033,89 @@ define internal i32 @CVBBDPrecFree(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.CVodeMemRec, ptr %6, i32 0, i32 94
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %50
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %7 = load ptr, ptr %3, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %7, i32 0, i32 94
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 94
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %4, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.CVLsMemRec, ptr %15, i32 0, i32 31
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %11
   store i32 0, ptr %2, align 4
-  br label %50
+  store i32 1, ptr %6, align 4
+  br label %51
 
-20:                                               ; preds = %11
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.CVLsMemRec, ptr %21, i32 0, i32 31
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %5, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %24, i32 0, i32 9
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @SUNLinSolFree(ptr noundef %26)
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %28, i32 0, i32 10
-  %30 = load ptr, ptr %29, align 8
-  call void @N_VDestroy(ptr noundef %30)
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %31, i32 0, i32 11
-  %33 = load ptr, ptr %32, align 8
-  call void @N_VDestroy(ptr noundef %33)
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %34, i32 0, i32 12
-  %36 = load ptr, ptr %35, align 8
-  call void @N_VDestroy(ptr noundef %36)
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %37, i32 0, i32 13
-  %39 = load ptr, ptr %38, align 8
-  call void @N_VDestroy(ptr noundef %39)
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %40, i32 0, i32 14
-  %42 = load ptr, ptr %41, align 8
-  call void @N_VDestroy(ptr noundef %42)
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %43, i32 0, i32 8
-  %45 = load ptr, ptr %44, align 8
-  call void @SUNMatDestroy(ptr noundef %45)
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %46, i32 0, i32 7
-  %48 = load ptr, ptr %47, align 8
-  call void @SUNMatDestroy(ptr noundef %48)
-  %49 = load ptr, ptr %5, align 8
-  call void @free(ptr noundef %49) #6
-  store ptr null, ptr %5, align 8
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 94
+  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  store ptr %15, ptr %4, align 8, !tbaa !22
+  %16 = load ptr, ptr %4, align 8, !tbaa !22
+  %17 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %16, i32 0, i32 31
+  %18 = load ptr, ptr %17, align 8, !tbaa !71
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %12
   store i32 0, ptr %2, align 4
-  br label %50
+  store i32 1, ptr %6, align 4
+  br label %51
 
-50:                                               ; preds = %20, %19, %10
-  %51 = load i32, ptr %2, align 4
-  ret i32 %51
+21:                                               ; preds = %12
+  %22 = load ptr, ptr %4, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %22, i32 0, i32 31
+  %24 = load ptr, ptr %23, align 8, !tbaa !71
+  store ptr %24, ptr %5, align 8, !tbaa !30
+  %25 = load ptr, ptr %5, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %25, i32 0, i32 9
+  %27 = load ptr, ptr %26, align 8, !tbaa !50
+  %28 = call i32 @SUNLinSolFree(ptr noundef %27)
+  %29 = load ptr, ptr %5, align 8, !tbaa !30
+  %30 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %29, i32 0, i32 10
+  %31 = load ptr, ptr %30, align 8, !tbaa !47
+  call void @N_VDestroy(ptr noundef %31)
+  %32 = load ptr, ptr %5, align 8, !tbaa !30
+  %33 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %32, i32 0, i32 11
+  %34 = load ptr, ptr %33, align 8, !tbaa !48
+  call void @N_VDestroy(ptr noundef %34)
+  %35 = load ptr, ptr %5, align 8, !tbaa !30
+  %36 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %35, i32 0, i32 12
+  %37 = load ptr, ptr %36, align 8, !tbaa !49
+  call void @N_VDestroy(ptr noundef %37)
+  %38 = load ptr, ptr %5, align 8, !tbaa !30
+  %39 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %38, i32 0, i32 13
+  %40 = load ptr, ptr %39, align 8, !tbaa !45
+  call void @N_VDestroy(ptr noundef %40)
+  %41 = load ptr, ptr %5, align 8, !tbaa !30
+  %42 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %41, i32 0, i32 14
+  %43 = load ptr, ptr %42, align 8, !tbaa !46
+  call void @N_VDestroy(ptr noundef %43)
+  %44 = load ptr, ptr %5, align 8, !tbaa !30
+  %45 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %44, i32 0, i32 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !44
+  call void @SUNMatDestroy(ptr noundef %46)
+  %47 = load ptr, ptr %5, align 8, !tbaa !30
+  %48 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %47, i32 0, i32 7
+  %49 = load ptr, ptr %48, align 8, !tbaa !43
+  call void @SUNMatDestroy(ptr noundef %49)
+  %50 = load ptr, ptr %5, align 8, !tbaa !30
+  call void @free(ptr noundef %50) #6
+  store ptr null, ptr %5, align 8, !tbaa !30
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %51
+
+51:                                               ; preds = %21, %20, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %52 = load i32, ptr %2, align 4
+  ret i32 %52
 }
 
-declare i32 @CVodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @CVodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, double noundef %5, ptr noundef %6) #0 {
@@ -1082,182 +1130,199 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr nound
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
-  store double %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %11, align 8
-  store i32 %3, ptr %12, align 4
-  store ptr %4, ptr %13, align 8
-  store double %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  %19 = load ptr, ptr %15, align 8
-  store ptr %19, ptr %16, align 8
-  %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %20, i32 0, i32 19
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %17, align 8
-  %23 = load i32, ptr %12, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %43
+  %19 = alloca i32, align 4
+  store double %0, ptr %9, align 8, !tbaa !9
+  store ptr %1, ptr %10, align 8, !tbaa !72
+  store ptr %2, ptr %11, align 8, !tbaa !72
+  store i32 %3, ptr %12, align 4, !tbaa !51
+  store ptr %4, ptr %13, align 8, !tbaa !73
+  store double %5, ptr %14, align 8, !tbaa !9
+  store ptr %6, ptr %15, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %20 = load ptr, ptr %15, align 8, !tbaa !3
+  store ptr %20, ptr %16, align 8, !tbaa !30
+  %21 = load ptr, ptr %16, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %21, i32 0, i32 19
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  store ptr %23, ptr %17, align 8, !tbaa !11
+  %24 = load i32, ptr %12, align 4, !tbaa !51
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %44
 
-25:                                               ; preds = %7
-  %26 = load ptr, ptr %13, align 8
-  store i32 0, ptr %26, align 4
-  %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %27, i32 0, i32 7
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %16, align 8
-  %31 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %30, i32 0, i32 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 @SUNMatCopy(ptr noundef %29, ptr noundef %32)
-  store i32 %33, ptr %18, align 4
-  %34 = load i32, ptr %18, align 4
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %38
+26:                                               ; preds = %7
+  %27 = load ptr, ptr %13, align 8, !tbaa !73
+  store i32 0, ptr %27, align 4, !tbaa !51
+  %28 = load ptr, ptr %16, align 8, !tbaa !30
+  %29 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %28, i32 0, i32 7
+  %30 = load ptr, ptr %29, align 8, !tbaa !43
+  %31 = load ptr, ptr %16, align 8, !tbaa !30
+  %32 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %31, i32 0, i32 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !44
+  %34 = call i32 @SUNMatCopy(ptr noundef %30, ptr noundef %33)
+  store i32 %34, ptr %18, align 4, !tbaa !51
+  %35 = load i32, ptr %18, align 4, !tbaa !51
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %25
-  %37 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %37, i32 noundef -1, i32 noundef 488, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %38, i32 noundef -1, i32 noundef 489, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
   store i32 -1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-38:                                               ; preds = %25
-  %39 = load i32, ptr %18, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %26
+  %40 = load i32, ptr %18, align 4, !tbaa !51
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   store i32 1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-42:                                               ; preds = %38
-  br label %96
+43:                                               ; preds = %39
+  br label %97
 
-43:                                               ; preds = %7
-  %44 = load ptr, ptr %13, align 8
-  store i32 1, ptr %44, align 4
-  %45 = load ptr, ptr %16, align 8
-  %46 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %45, i32 0, i32 7
-  %47 = load ptr, ptr %46, align 8
-  %48 = call i32 @SUNMatZero(ptr noundef %47)
-  store i32 %48, ptr %18, align 4
-  %49 = load i32, ptr %18, align 4
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %53
+44:                                               ; preds = %7
+  %45 = load ptr, ptr %13, align 8, !tbaa !73
+  store i32 1, ptr %45, align 4, !tbaa !51
+  %46 = load ptr, ptr %16, align 8, !tbaa !30
+  %47 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %46, i32 0, i32 7
+  %48 = load ptr, ptr %47, align 8, !tbaa !43
+  %49 = call i32 @SUNMatZero(ptr noundef %48)
+  store i32 %49, ptr %18, align 4, !tbaa !51
+  %50 = load i32, ptr %18, align 4, !tbaa !51
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %52, i32 noundef -1, i32 noundef 502, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
+52:                                               ; preds = %44
+  %53 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %53, i32 noundef -1, i32 noundef 503, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
   store i32 -1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-53:                                               ; preds = %43
-  %54 = load i32, ptr %18, align 4
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %57
+54:                                               ; preds = %44
+  %55 = load i32, ptr %18, align 4, !tbaa !51
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %53
+57:                                               ; preds = %54
   store i32 1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %16, align 8
-  %59 = load double, ptr %9, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = load ptr, ptr %16, align 8
-  %62 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %61, i32 0, i32 10
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %16, align 8
-  %65 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %64, i32 0, i32 11
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %16, align 8
-  %68 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %67, i32 0, i32 12
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i32 @CVBBDDQJac(ptr noundef %58, double noundef %59, ptr noundef %60, ptr noundef %63, ptr noundef %66, ptr noundef %69)
-  store i32 %70, ptr %18, align 4
-  %71 = load i32, ptr %18, align 4
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %75
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %16, align 8, !tbaa !30
+  %60 = load double, ptr %9, align 8, !tbaa !9
+  %61 = load ptr, ptr %10, align 8, !tbaa !72
+  %62 = load ptr, ptr %16, align 8, !tbaa !30
+  %63 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %62, i32 0, i32 10
+  %64 = load ptr, ptr %63, align 8, !tbaa !47
+  %65 = load ptr, ptr %16, align 8, !tbaa !30
+  %66 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %65, i32 0, i32 11
+  %67 = load ptr, ptr %66, align 8, !tbaa !48
+  %68 = load ptr, ptr %16, align 8, !tbaa !30
+  %69 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %68, i32 0, i32 12
+  %70 = load ptr, ptr %69, align 8, !tbaa !49
+  %71 = call i32 @CVBBDDQJac(ptr noundef %59, double noundef %60, ptr noundef %61, ptr noundef %64, ptr noundef %67, ptr noundef %70)
+  store i32 %71, ptr %18, align 4, !tbaa !51
+  %72 = load i32, ptr %18, align 4, !tbaa !51
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %76
 
-73:                                               ; preds = %57
-  %74 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %74, i32 noundef -1, i32 noundef 511, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.8)
+74:                                               ; preds = %58
+  %75 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %75, i32 noundef -1, i32 noundef 512, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.8)
   store i32 -1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-75:                                               ; preds = %57
-  %76 = load i32, ptr %18, align 4
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %78, label %79
+76:                                               ; preds = %58
+  %77 = load i32, ptr %18, align 4, !tbaa !51
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %79, label %80
 
-78:                                               ; preds = %75
+79:                                               ; preds = %76
   store i32 1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %16, align 8
-  %81 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %80, i32 0, i32 7
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %16, align 8
-  %84 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %83, i32 0, i32 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = call i32 @SUNMatCopy(ptr noundef %82, ptr noundef %85)
-  store i32 %86, ptr %18, align 4
-  %87 = load i32, ptr %18, align 4
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %91
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %16, align 8, !tbaa !30
+  %82 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %81, i32 0, i32 7
+  %83 = load ptr, ptr %82, align 8, !tbaa !43
+  %84 = load ptr, ptr %16, align 8, !tbaa !30
+  %85 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %84, i32 0, i32 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !44
+  %87 = call i32 @SUNMatCopy(ptr noundef %83, ptr noundef %86)
+  store i32 %87, ptr %18, align 4, !tbaa !51
+  %88 = load i32, ptr %18, align 4, !tbaa !51
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %79
-  %90 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %90, i32 noundef -1, i32 noundef 520, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
+90:                                               ; preds = %80
+  %91 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %91, i32 noundef -1, i32 noundef 521, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
   store i32 -1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-91:                                               ; preds = %79
-  %92 = load i32, ptr %18, align 4
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %94, label %95
+92:                                               ; preds = %80
+  %93 = load i32, ptr %18, align 4, !tbaa !51
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %95, label %96
 
-94:                                               ; preds = %91
+95:                                               ; preds = %92
   store i32 1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-95:                                               ; preds = %91
-  br label %96
+96:                                               ; preds = %92
+  br label %97
 
-96:                                               ; preds = %95, %42
-  %97 = load double, ptr %14, align 8
-  %98 = fneg double %97
-  %99 = load ptr, ptr %16, align 8
-  %100 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %99, i32 0, i32 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = call i32 @SUNMatScaleAddI(double noundef %98, ptr noundef %101)
-  store i32 %102, ptr %18, align 4
-  %103 = load i32, ptr %18, align 4
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %105, label %107
+97:                                               ; preds = %96, %43
+  %98 = load double, ptr %14, align 8, !tbaa !9
+  %99 = fneg double %98
+  %100 = load ptr, ptr %16, align 8, !tbaa !30
+  %101 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %100, i32 0, i32 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !44
+  %103 = call i32 @SUNMatScaleAddI(double noundef %99, ptr noundef %102)
+  store i32 %103, ptr %18, align 4, !tbaa !51
+  %104 = load i32, ptr %18, align 4, !tbaa !51
+  %105 = icmp ne i32 %104, 0
+  br i1 %105, label %106, label %108
 
-105:                                              ; preds = %96
-  %106 = load ptr, ptr %17, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %106, i32 noundef -1, i32 noundef 531, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
+106:                                              ; preds = %97
+  %107 = load ptr, ptr %17, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %107, i32 noundef -1, i32 noundef 532, ptr noundef @__func__.CVBBDPrecSetup, ptr noundef @.str, ptr noundef @.str.7)
   store i32 -1, ptr %8, align 4
-  br label %116
+  store i32 1, ptr %19, align 4
+  br label %117
 
-107:                                              ; preds = %96
-  %108 = load ptr, ptr %16, align 8
-  %109 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %108, i32 0, i32 9
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %16, align 8
-  %112 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %111, i32 0, i32 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = call i32 @SUNLinSolSetup_Band(ptr noundef %110, ptr noundef %113)
-  store i32 %114, ptr %18, align 4
-  %115 = load i32, ptr %18, align 4
-  store i32 %115, ptr %8, align 4
-  br label %116
+108:                                              ; preds = %97
+  %109 = load ptr, ptr %16, align 8, !tbaa !30
+  %110 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %109, i32 0, i32 9
+  %111 = load ptr, ptr %110, align 8, !tbaa !50
+  %112 = load ptr, ptr %16, align 8, !tbaa !30
+  %113 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %112, i32 0, i32 8
+  %114 = load ptr, ptr %113, align 8, !tbaa !44
+  %115 = call i32 @SUNLinSolSetup_Band(ptr noundef %111, ptr noundef %114)
+  store i32 %115, ptr %18, align 4, !tbaa !51
+  %116 = load i32, ptr %18, align 4, !tbaa !51
+  store i32 %116, ptr %8, align 4
+  store i32 1, ptr %19, align 4
+  br label %117
 
-116:                                              ; preds = %107, %105, %94, %89, %78, %73, %56, %51, %41, %36
-  %117 = load i32, ptr %8, align 4
-  ret i32 %117
+117:                                              ; preds = %108, %106, %95, %90, %79, %74, %57, %52, %42, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  %118 = load i32, ptr %8, align 4
+  ret i32 %118
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1273,54 +1338,61 @@ define internal i32 @CVBBDPrecSolve(double noundef %0, ptr noundef %1, ptr nound
   %18 = alloca ptr, align 8
   %19 = alloca i32, align 4
   %20 = alloca ptr, align 8
-  store double %0, ptr %10, align 8
-  store ptr %1, ptr %11, align 8
-  store ptr %2, ptr %12, align 8
-  store ptr %3, ptr %13, align 8
-  store ptr %4, ptr %14, align 8
-  store double %5, ptr %15, align 8
-  store double %6, ptr %16, align 8
-  store i32 %7, ptr %17, align 4
-  store ptr %8, ptr %18, align 8
-  %21 = load ptr, ptr %18, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = load ptr, ptr %13, align 8
+  store double %0, ptr %10, align 8, !tbaa !9
+  store ptr %1, ptr %11, align 8, !tbaa !72
+  store ptr %2, ptr %12, align 8, !tbaa !72
+  store ptr %3, ptr %13, align 8, !tbaa !72
+  store ptr %4, ptr %14, align 8, !tbaa !72
+  store double %5, ptr %15, align 8, !tbaa !9
+  store double %6, ptr %16, align 8, !tbaa !9
+  store i32 %7, ptr %17, align 4, !tbaa !51
+  store ptr %8, ptr %18, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %21 = load ptr, ptr %18, align 8, !tbaa !3
+  store ptr %21, ptr %20, align 8, !tbaa !30
+  %22 = load ptr, ptr %13, align 8, !tbaa !72
   %23 = call ptr @N_VGetArrayPointer(ptr noundef %22)
-  %24 = load ptr, ptr %20, align 8
-  %25 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %24, i32 0, i32 14
-  %26 = load ptr, ptr %25, align 8
+  %24 = load ptr, ptr %20, align 8, !tbaa !30
+  %25 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %24, i32 0, i32 14
+  %26 = load ptr, ptr %25, align 8, !tbaa !46
   call void @N_VSetArrayPointer(ptr noundef %23, ptr noundef %26)
-  %27 = load ptr, ptr %14, align 8
+  %27 = load ptr, ptr %14, align 8, !tbaa !72
   %28 = call ptr @N_VGetArrayPointer(ptr noundef %27)
-  %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %29, i32 0, i32 13
-  %31 = load ptr, ptr %30, align 8
+  %29 = load ptr, ptr %20, align 8, !tbaa !30
+  %30 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %29, i32 0, i32 13
+  %31 = load ptr, ptr %30, align 8, !tbaa !45
   call void @N_VSetArrayPointer(ptr noundef %28, ptr noundef %31)
-  %32 = load ptr, ptr %20, align 8
-  %33 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %32, i32 0, i32 9
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %20, align 8
-  %36 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %35, i32 0, i32 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %20, align 8
-  %39 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %38, i32 0, i32 13
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %41, i32 0, i32 14
-  %43 = load ptr, ptr %42, align 8
+  %32 = load ptr, ptr %20, align 8, !tbaa !30
+  %33 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %32, i32 0, i32 9
+  %34 = load ptr, ptr %33, align 8, !tbaa !50
+  %35 = load ptr, ptr %20, align 8, !tbaa !30
+  %36 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %35, i32 0, i32 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !44
+  %38 = load ptr, ptr %20, align 8, !tbaa !30
+  %39 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %38, i32 0, i32 13
+  %40 = load ptr, ptr %39, align 8, !tbaa !45
+  %41 = load ptr, ptr %20, align 8, !tbaa !30
+  %42 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %41, i32 0, i32 14
+  %43 = load ptr, ptr %42, align 8, !tbaa !46
   %44 = call i32 @SUNLinSolSolve(ptr noundef %34, ptr noundef %37, ptr noundef %40, ptr noundef %43, double noundef 0.000000e+00)
-  store i32 %44, ptr %19, align 4
-  %45 = load ptr, ptr %20, align 8
-  %46 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %45, i32 0, i32 14
-  %47 = load ptr, ptr %46, align 8
+  store i32 %44, ptr %19, align 4, !tbaa !51
+  %45 = load ptr, ptr %20, align 8, !tbaa !30
+  %46 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %45, i32 0, i32 14
+  %47 = load ptr, ptr %46, align 8, !tbaa !46
   call void @N_VSetArrayPointer(ptr noundef null, ptr noundef %47)
-  %48 = load ptr, ptr %20, align 8
-  %49 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %48, i32 0, i32 13
-  %50 = load ptr, ptr %49, align 8
+  %48 = load ptr, ptr %20, align 8, !tbaa !30
+  %49 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %48, i32 0, i32 13
+  %50 = load ptr, ptr %49, align 8, !tbaa !45
   call void @N_VSetArrayPointer(ptr noundef null, ptr noundef %50)
-  %51 = load i32, ptr %19, align 4
+  %51 = load i32, ptr %19, align 4, !tbaa !51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
   ret i32 %51
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) #0 {
@@ -1333,191 +1405,204 @@ define i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, doub
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store double %3, ptr %9, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %4
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 314, ptr noundef @__func__.CVBBDPrecReInit, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %5, align 4
-  br label %115
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i64 %1, ptr %7, align 8, !tbaa !7
+  store i64 %2, ptr %8, align 8, !tbaa !7
+  store double %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %15 = load ptr, ptr %6, align 8, !tbaa !3
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
-  %18 = load ptr, ptr %6, align 8
-  store ptr %18, ptr %10, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 94
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %25
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 314, ptr noundef @__func__.CVBBDPrecReInit, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %116
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %24, i32 noundef -2, i32 noundef 323, ptr noundef @__func__.CVBBDPrecReInit, ptr noundef @.str, ptr noundef @.str.2)
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %19, ptr %10, align 8, !tbaa !11
+  %20 = load ptr, ptr %10, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 94
+  %22 = load ptr, ptr %21, align 8, !tbaa !13
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %25, i32 noundef -2, i32 noundef 323, ptr noundef @__func__.CVBBDPrecReInit, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %5, align 4
-  br label %115
+  store i32 1, ptr %14, align 4
+  br label %116
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds %struct.CVodeMemRec, ptr %26, i32 0, i32 94
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %11, align 8
-  %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds %struct.CVLsMemRec, ptr %29, i32 0, i32 31
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %35
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %10, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %27, i32 0, i32 94
+  %29 = load ptr, ptr %28, align 8, !tbaa !13
+  store ptr %29, ptr %11, align 8, !tbaa !22
+  %30 = load ptr, ptr %11, align 8, !tbaa !22
+  %31 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %30, i32 0, i32 31
+  %32 = load ptr, ptr %31, align 8, !tbaa !71
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %25
-  %34 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %34, i32 noundef -5, i32 noundef 332, ptr noundef @__func__.CVBBDPrecReInit, ptr noundef @.str, ptr noundef @.str.6)
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %10, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %35, i32 noundef -5, i32 noundef 332, ptr noundef @__func__.CVBBDPrecReInit, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -5, ptr %5, align 4
-  br label %115
+  store i32 1, ptr %14, align 4
+  br label %116
 
-35:                                               ; preds = %25
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct.CVLsMemRec, ptr %36, i32 0, i32 31
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %12, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %39, i32 0, i32 15
-  %41 = load i64, ptr %40, align 8
-  store i64 %41, ptr %13, align 8
-  %42 = load i64, ptr %13, align 8
-  %43 = sub nsw i64 %42, 1
-  %44 = load i64, ptr %7, align 8
-  %45 = icmp sgt i64 0, %44
-  br i1 %45, label %46, label %47
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %11, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %37, i32 0, i32 31
+  %39 = load ptr, ptr %38, align 8, !tbaa !71
+  store ptr %39, ptr %12, align 8, !tbaa !30
+  %40 = load ptr, ptr %12, align 8, !tbaa !30
+  %41 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %40, i32 0, i32 15
+  %42 = load i64, ptr %41, align 8, !tbaa !54
+  store i64 %42, ptr %13, align 8, !tbaa !7
+  %43 = load i64, ptr %13, align 8, !tbaa !7
+  %44 = sub nsw i64 %43, 1
+  %45 = load i64, ptr %7, align 8, !tbaa !7
+  %46 = icmp sgt i64 0, %45
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %35
-  br label %49
+47:                                               ; preds = %36
+  br label %50
 
-47:                                               ; preds = %35
-  %48 = load i64, ptr %7, align 8
-  br label %49
+48:                                               ; preds = %36
+  %49 = load i64, ptr %7, align 8, !tbaa !7
+  br label %50
 
-49:                                               ; preds = %47, %46
-  %50 = phi i64 [ 0, %46 ], [ %48, %47 ]
-  %51 = icmp slt i64 %43, %50
-  br i1 %51, label %52, label %55
+50:                                               ; preds = %48, %47
+  %51 = phi i64 [ 0, %47 ], [ %49, %48 ]
+  %52 = icmp slt i64 %44, %51
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %49
-  %53 = load i64, ptr %13, align 8
-  %54 = sub nsw i64 %53, 1
-  br label %63
+53:                                               ; preds = %50
+  %54 = load i64, ptr %13, align 8, !tbaa !7
+  %55 = sub nsw i64 %54, 1
+  br label %64
 
-55:                                               ; preds = %49
-  %56 = load i64, ptr %7, align 8
-  %57 = icmp sgt i64 0, %56
-  br i1 %57, label %58, label %59
+56:                                               ; preds = %50
+  %57 = load i64, ptr %7, align 8, !tbaa !7
+  %58 = icmp sgt i64 0, %57
+  br i1 %58, label %59, label %60
 
-58:                                               ; preds = %55
-  br label %61
+59:                                               ; preds = %56
+  br label %62
 
-59:                                               ; preds = %55
-  %60 = load i64, ptr %7, align 8
-  br label %61
+60:                                               ; preds = %56
+  %61 = load i64, ptr %7, align 8, !tbaa !7
+  br label %62
 
-61:                                               ; preds = %59, %58
-  %62 = phi i64 [ 0, %58 ], [ %60, %59 ]
-  br label %63
+62:                                               ; preds = %60, %59
+  %63 = phi i64 [ 0, %59 ], [ %61, %60 ]
+  br label %64
 
-63:                                               ; preds = %61, %52
-  %64 = phi i64 [ %54, %52 ], [ %62, %61 ]
-  %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %65, i32 0, i32 0
-  store i64 %64, ptr %66, align 8
-  %67 = load i64, ptr %13, align 8
-  %68 = sub nsw i64 %67, 1
-  %69 = load i64, ptr %8, align 8
-  %70 = icmp sgt i64 0, %69
-  br i1 %70, label %71, label %72
+64:                                               ; preds = %62, %53
+  %65 = phi i64 [ %55, %53 ], [ %63, %62 ]
+  %66 = load ptr, ptr %12, align 8, !tbaa !30
+  %67 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %66, i32 0, i32 0
+  store i64 %65, ptr %67, align 8, !tbaa !38
+  %68 = load i64, ptr %13, align 8, !tbaa !7
+  %69 = sub nsw i64 %68, 1
+  %70 = load i64, ptr %8, align 8, !tbaa !7
+  %71 = icmp sgt i64 0, %70
+  br i1 %71, label %72, label %73
 
-71:                                               ; preds = %63
-  br label %74
+72:                                               ; preds = %64
+  br label %75
 
-72:                                               ; preds = %63
-  %73 = load i64, ptr %8, align 8
-  br label %74
+73:                                               ; preds = %64
+  %74 = load i64, ptr %8, align 8, !tbaa !7
+  br label %75
 
-74:                                               ; preds = %72, %71
-  %75 = phi i64 [ 0, %71 ], [ %73, %72 ]
-  %76 = icmp slt i64 %68, %75
-  br i1 %76, label %77, label %80
+75:                                               ; preds = %73, %72
+  %76 = phi i64 [ 0, %72 ], [ %74, %73 ]
+  %77 = icmp slt i64 %69, %76
+  br i1 %77, label %78, label %81
 
-77:                                               ; preds = %74
-  %78 = load i64, ptr %13, align 8
-  %79 = sub nsw i64 %78, 1
-  br label %88
+78:                                               ; preds = %75
+  %79 = load i64, ptr %13, align 8, !tbaa !7
+  %80 = sub nsw i64 %79, 1
+  br label %89
 
-80:                                               ; preds = %74
-  %81 = load i64, ptr %8, align 8
-  %82 = icmp sgt i64 0, %81
-  br i1 %82, label %83, label %84
+81:                                               ; preds = %75
+  %82 = load i64, ptr %8, align 8, !tbaa !7
+  %83 = icmp sgt i64 0, %82
+  br i1 %83, label %84, label %85
 
-83:                                               ; preds = %80
-  br label %86
+84:                                               ; preds = %81
+  br label %87
 
-84:                                               ; preds = %80
-  %85 = load i64, ptr %8, align 8
-  br label %86
+85:                                               ; preds = %81
+  %86 = load i64, ptr %8, align 8, !tbaa !7
+  br label %87
 
-86:                                               ; preds = %84, %83
-  %87 = phi i64 [ 0, %83 ], [ %85, %84 ]
-  br label %88
+87:                                               ; preds = %85, %84
+  %88 = phi i64 [ 0, %84 ], [ %86, %85 ]
+  br label %89
 
-88:                                               ; preds = %86, %77
-  %89 = phi i64 [ %79, %77 ], [ %87, %86 ]
-  %90 = load ptr, ptr %12, align 8
-  %91 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %90, i32 0, i32 1
-  store i64 %89, ptr %91, align 8
-  %92 = load double, ptr %9, align 8
-  %93 = fcmp ogt double %92, 0.000000e+00
-  br i1 %93, label %94, label %96
+89:                                               ; preds = %87, %78
+  %90 = phi i64 [ %80, %78 ], [ %88, %87 ]
+  %91 = load ptr, ptr %12, align 8, !tbaa !30
+  %92 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %91, i32 0, i32 1
+  store i64 %90, ptr %92, align 8, !tbaa !39
+  %93 = load double, ptr %9, align 8, !tbaa !9
+  %94 = fcmp ogt double %93, 0.000000e+00
+  br i1 %94, label %95, label %97
 
-94:                                               ; preds = %88
-  %95 = load double, ptr %9, align 8
-  br label %109
+95:                                               ; preds = %89
+  %96 = load double, ptr %9, align 8, !tbaa !9
+  br label %110
 
-96:                                               ; preds = %88
-  %97 = load ptr, ptr %10, align 8
-  %98 = getelementptr inbounds %struct.CVodeMemRec, ptr %97, i32 0, i32 1
-  %99 = load double, ptr %98, align 8
-  %100 = fcmp ole double %99, 0.000000e+00
-  br i1 %100, label %101, label %102
+97:                                               ; preds = %89
+  %98 = load ptr, ptr %10, align 8, !tbaa !11
+  %99 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %98, i32 0, i32 1
+  %100 = load double, ptr %99, align 8, !tbaa !52
+  %101 = fcmp ole double %100, 0.000000e+00
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %96
-  br label %107
+102:                                              ; preds = %97
+  br label %108
 
-102:                                              ; preds = %96
-  %103 = load ptr, ptr %10, align 8
-  %104 = getelementptr inbounds %struct.CVodeMemRec, ptr %103, i32 0, i32 1
-  %105 = load double, ptr %104, align 8
-  %106 = call double @sqrt(double noundef %105) #6
-  br label %107
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %10, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %104, i32 0, i32 1
+  %106 = load double, ptr %105, align 8, !tbaa !52
+  %107 = call double @sqrt(double noundef %106) #6, !tbaa !51
+  br label %108
 
-107:                                              ; preds = %102, %101
-  %108 = phi double [ 0.000000e+00, %101 ], [ %106, %102 ]
-  br label %109
+108:                                              ; preds = %103, %102
+  %109 = phi double [ 0.000000e+00, %102 ], [ %107, %103 ]
+  br label %110
 
-109:                                              ; preds = %107, %94
-  %110 = phi double [ %95, %94 ], [ %108, %107 ]
-  %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %111, i32 0, i32 4
-  store double %110, ptr %112, align 8
-  %113 = load ptr, ptr %12, align 8
-  %114 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %113, i32 0, i32 18
-  store i64 0, ptr %114, align 8
+110:                                              ; preds = %108, %95
+  %111 = phi double [ %96, %95 ], [ %109, %108 ]
+  %112 = load ptr, ptr %12, align 8, !tbaa !30
+  %113 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %112, i32 0, i32 4
+  store double %111, ptr %113, align 8, !tbaa !53
+  %114 = load ptr, ptr %12, align 8, !tbaa !30
+  %115 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %114, i32 0, i32 18
+  store i64 0, ptr %115, align 8, !tbaa !68
   store i32 0, ptr %5, align 4
-  br label %115
+  store i32 1, ptr %14, align 4
+  br label %116
 
-115:                                              ; preds = %109, %33, %23, %16
-  %116 = load i32, ptr %5, align 4
-  ret i32 %116
+116:                                              ; preds = %110, %34, %24, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %117 = load i32, ptr %5, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1529,71 +1614,82 @@ define i32 @CVBBDPrecGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 361, ptr noundef @__func__.CVBBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %4, align 4
-  br label %44
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !74
+  store ptr %2, ptr %7, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %8, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.CVodeMemRec, ptr %16, i32 0, i32 94
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %22
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 361, ptr noundef @__func__.CVBBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %45
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %21, i32 noundef -2, i32 noundef 369, ptr noundef @__func__.CVBBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.2)
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %16, ptr %8, align 8, !tbaa !11
+  %17 = load ptr, ptr %8, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %17, i32 0, i32 94
+  %19 = load ptr, ptr %18, align 8, !tbaa !13
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %8, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %22, i32 noundef -2, i32 noundef 369, ptr noundef @__func__.CVBBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %4, align 4
-  br label %44
+  store i32 1, ptr %11, align 4
+  br label %45
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.CVodeMemRec, ptr %23, i32 0, i32 94
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %9, align 8
-  %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds %struct.CVLsMemRec, ptr %26, i32 0, i32 31
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %32
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %8, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %24, i32 0, i32 94
+  %26 = load ptr, ptr %25, align 8, !tbaa !13
+  store ptr %26, ptr %9, align 8, !tbaa !22
+  %27 = load ptr, ptr %9, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %27, i32 0, i32 31
+  %29 = load ptr, ptr %28, align 8, !tbaa !71
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %22
-  %31 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %31, i32 noundef -5, i32 noundef 377, ptr noundef @__func__.CVBBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.6)
+31:                                               ; preds = %23
+  %32 = load ptr, ptr %8, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %32, i32 noundef -5, i32 noundef 377, ptr noundef @__func__.CVBBDPrecGetWorkSpace, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -5, ptr %4, align 4
-  br label %44
+  store i32 1, ptr %11, align 4
+  br label %45
 
-32:                                               ; preds = %22
-  %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds %struct.CVLsMemRec, ptr %33, i32 0, i32 31
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %10, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %36, i32 0, i32 16
-  %38 = load i64, ptr %37, align 8
-  %39 = load ptr, ptr %6, align 8
-  store i64 %38, ptr %39, align 8
-  %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %40, i32 0, i32 17
-  %42 = load i64, ptr %41, align 8
-  %43 = load ptr, ptr %7, align 8
-  store i64 %42, ptr %43, align 8
+33:                                               ; preds = %23
+  %34 = load ptr, ptr %9, align 8, !tbaa !22
+  %35 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %34, i32 0, i32 31
+  %36 = load ptr, ptr %35, align 8, !tbaa !71
+  store ptr %36, ptr %10, align 8, !tbaa !30
+  %37 = load ptr, ptr %10, align 8, !tbaa !30
+  %38 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %37, i32 0, i32 16
+  %39 = load i64, ptr %38, align 8, !tbaa !55
+  %40 = load ptr, ptr %6, align 8, !tbaa !74
+  store i64 %39, ptr %40, align 8, !tbaa !7
+  %41 = load ptr, ptr %10, align 8, !tbaa !30
+  %42 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %41, i32 0, i32 17
+  %43 = load i64, ptr %42, align 8, !tbaa !56
+  %44 = load ptr, ptr %7, align 8, !tbaa !74
+  store i64 %43, ptr %44, align 8, !tbaa !7
   store i32 0, ptr %4, align 4
-  br label %44
+  store i32 1, ptr %11, align 4
+  br label %45
 
-44:                                               ; preds = %32, %30, %20, %13
-  %45 = load i32, ptr %4, align 4
-  ret i32 %45
+45:                                               ; preds = %33, %31, %21, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %46 = load i32, ptr %4, align 4
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1604,70 +1700,81 @@ define i32 @CVBBDPrecGetNumGfnEvals(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 397, ptr noundef @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %38
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !74
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %6, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.CVodeMemRec, ptr %14, i32 0, i32 94
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %20
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 397, ptr noundef @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %39
 
-18:                                               ; preds = %12
-  %19 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %19, i32 noundef -2, i32 noundef 405, ptr noundef @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.2)
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %14, ptr %6, align 8, !tbaa !11
+  %15 = load ptr, ptr %6, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %15, i32 0, i32 94
+  %17 = load ptr, ptr %16, align 8, !tbaa !13
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %20, i32 noundef -2, i32 noundef 405, ptr noundef @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %9, align 4
+  br label %39
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.CVodeMemRec, ptr %21, i32 0, i32 94
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %7, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct.CVLsMemRec, ptr %24, i32 0, i32 31
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %30
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %6, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %22, i32 0, i32 94
+  %24 = load ptr, ptr %23, align 8, !tbaa !13
+  store ptr %24, ptr %7, align 8, !tbaa !22
+  %25 = load ptr, ptr %7, align 8, !tbaa !22
+  %26 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %25, i32 0, i32 31
+  %27 = load ptr, ptr %26, align 8, !tbaa !71
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %29, i32 noundef -5, i32 noundef 413, ptr noundef @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.6)
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %6, align 8, !tbaa !11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %30, i32 noundef -5, i32 noundef 413, ptr noundef @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -5, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %9, align 4
+  br label %39
 
-30:                                               ; preds = %20
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct.CVLsMemRec, ptr %31, i32 0, i32 31
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %8, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %34, i32 0, i32 18
-  %36 = load i64, ptr %35, align 8
-  %37 = load ptr, ptr %5, align 8
-  store i64 %36, ptr %37, align 8
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %7, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %32, i32 0, i32 31
+  %34 = load ptr, ptr %33, align 8, !tbaa !71
+  store ptr %34, ptr %8, align 8, !tbaa !30
+  %35 = load ptr, ptr %8, align 8, !tbaa !30
+  %36 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %35, i32 0, i32 18
+  %37 = load i64, ptr %36, align 8, !tbaa !68
+  %38 = load ptr, ptr %5, align 8, !tbaa !74
+  store i64 %37, ptr %38, align 8, !tbaa !7
   store i32 0, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %9, align 4
+  br label %39
 
-38:                                               ; preds = %30, %28, %18, %11
-  %39 = load i32, ptr %3, align 4
-  ret i32 %39
+39:                                               ; preds = %31, %29, %19, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %40 = load i32, ptr %3, align 4
+  ret i32 %40
 }
 
-declare i32 @SUNMatCopy(ptr noundef, ptr noundef) #1
+declare i32 @SUNMatCopy(ptr noundef, ptr noundef) #2
 
-declare i32 @SUNMatZero(ptr noundef) #1
+declare i32 @SUNMatZero(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBBDDQJac(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -1700,651 +1807,779 @@ define internal i32 @CVBBDDQJac(ptr noundef %0, double noundef %1, ptr noundef %
   %33 = alloca ptr, align 8
   %34 = alloca ptr, align 8
   %35 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store double %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  store ptr null, ptr %34, align 8
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %36, i32 0, i32 19
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %14, align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load ptr, ptr %12, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %39, ptr noundef %40)
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %41, i32 0, i32 6
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %63
+  %36 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !30
+  store double %1, ptr %9, align 8, !tbaa !9
+  store ptr %2, ptr %10, align 8, !tbaa !72
+  store ptr %3, ptr %11, align 8, !tbaa !72
+  store ptr %4, ptr %12, align 8, !tbaa !72
+  store ptr %5, ptr %13, align 8, !tbaa !72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #6
+  store ptr null, ptr %34, align 8, !tbaa !76
+  %37 = load ptr, ptr %8, align 8, !tbaa !30
+  %38 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %37, i32 0, i32 19
+  %39 = load ptr, ptr %38, align 8, !tbaa !32
+  store ptr %39, ptr %14, align 8, !tbaa !11
+  %40 = load ptr, ptr %10, align 8, !tbaa !72
+  %41 = load ptr, ptr %12, align 8, !tbaa !72
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %40, ptr noundef %41)
+  %42 = load ptr, ptr %8, align 8, !tbaa !30
+  %43 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %42, i32 0, i32 6
+  %44 = load ptr, ptr %43, align 8, !tbaa !37
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %64
 
-45:                                               ; preds = %6
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %46, i32 0, i32 6
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %49, i32 0, i32 15
-  %51 = load i64, ptr %50, align 8
-  %52 = load double, ptr %9, align 8
-  %53 = load ptr, ptr %10, align 8
-  %54 = load ptr, ptr %14, align 8
-  %55 = getelementptr inbounds %struct.CVodeMemRec, ptr %54, i32 0, i32 3
-  %56 = load ptr, ptr %55, align 8
-  %57 = call i32 %48(i64 noundef %51, double noundef %52, ptr noundef %53, ptr noundef %56)
-  store i32 %57, ptr %35, align 4
-  %58 = load i32, ptr %35, align 4
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %62
+46:                                               ; preds = %6
+  %47 = load ptr, ptr %8, align 8, !tbaa !30
+  %48 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %47, i32 0, i32 6
+  %49 = load ptr, ptr %48, align 8, !tbaa !37
+  %50 = load ptr, ptr %8, align 8, !tbaa !30
+  %51 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %50, i32 0, i32 15
+  %52 = load i64, ptr %51, align 8, !tbaa !54
+  %53 = load double, ptr %9, align 8, !tbaa !9
+  %54 = load ptr, ptr %10, align 8, !tbaa !72
+  %55 = load ptr, ptr %14, align 8, !tbaa !11
+  %56 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %55, i32 0, i32 3
+  %57 = load ptr, ptr %56, align 8, !tbaa !77
+  %58 = call i32 %49(i64 noundef %52, double noundef %53, ptr noundef %54, ptr noundef %57)
+  store i32 %58, ptr %35, align 4, !tbaa !51
+  %59 = load i32, ptr %35, align 4, !tbaa !51
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %45
-  %61 = load i32, ptr %35, align 4
-  store i32 %61, ptr %7, align 4
-  br label %459
+61:                                               ; preds = %46
+  %62 = load i32, ptr %35, align 4, !tbaa !51
+  store i32 %62, ptr %7, align 4
+  store i32 1, ptr %36, align 4
+  br label %460
 
-62:                                               ; preds = %45
-  br label %63
+63:                                               ; preds = %46
+  br label %64
 
-63:                                               ; preds = %62, %6
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %64, i32 0, i32 5
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %67, i32 0, i32 15
-  %69 = load i64, ptr %68, align 8
-  %70 = load double, ptr %9, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = load ptr, ptr %11, align 8
-  %73 = load ptr, ptr %14, align 8
-  %74 = getelementptr inbounds %struct.CVodeMemRec, ptr %73, i32 0, i32 3
-  %75 = load ptr, ptr %74, align 8
-  %76 = call i32 %66(i64 noundef %69, double noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %75)
-  store i32 %76, ptr %35, align 4
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %77, i32 0, i32 18
-  %79 = load i64, ptr %78, align 8
-  %80 = add nsw i64 %79, 1
-  store i64 %80, ptr %78, align 8
-  %81 = load i32, ptr %35, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %85
+64:                                               ; preds = %63, %6
+  %65 = load ptr, ptr %8, align 8, !tbaa !30
+  %66 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %65, i32 0, i32 5
+  %67 = load ptr, ptr %66, align 8, !tbaa !36
+  %68 = load ptr, ptr %8, align 8, !tbaa !30
+  %69 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %68, i32 0, i32 15
+  %70 = load i64, ptr %69, align 8, !tbaa !54
+  %71 = load double, ptr %9, align 8, !tbaa !9
+  %72 = load ptr, ptr %12, align 8, !tbaa !72
+  %73 = load ptr, ptr %11, align 8, !tbaa !72
+  %74 = load ptr, ptr %14, align 8, !tbaa !11
+  %75 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %74, i32 0, i32 3
+  %76 = load ptr, ptr %75, align 8, !tbaa !77
+  %77 = call i32 %67(i64 noundef %70, double noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %76)
+  store i32 %77, ptr %35, align 4, !tbaa !51
+  %78 = load ptr, ptr %8, align 8, !tbaa !30
+  %79 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %78, i32 0, i32 18
+  %80 = load i64, ptr %79, align 8, !tbaa !68
+  %81 = add nsw i64 %80, 1
+  store i64 %81, ptr %79, align 8, !tbaa !68
+  %82 = load i32, ptr %35, align 4, !tbaa !51
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %86
 
-83:                                               ; preds = %63
-  %84 = load i32, ptr %35, align 4
-  store i32 %84, ptr %7, align 4
-  br label %459
+84:                                               ; preds = %64
+  %85 = load i32, ptr %35, align 4, !tbaa !51
+  store i32 %85, ptr %7, align 4
+  store i32 1, ptr %36, align 4
+  br label %460
 
-85:                                               ; preds = %63
-  %86 = load ptr, ptr %10, align 8
-  %87 = call ptr @N_VGetArrayPointer(ptr noundef %86)
-  store ptr %87, ptr %28, align 8
-  %88 = load ptr, ptr %11, align 8
-  %89 = call ptr @N_VGetArrayPointer(ptr noundef %88)
-  store ptr %89, ptr %30, align 8
-  %90 = load ptr, ptr %14, align 8
-  %91 = getelementptr inbounds %struct.CVodeMemRec, ptr %90, i32 0, i32 15
-  %92 = load ptr, ptr %91, align 8
-  %93 = call ptr @N_VGetArrayPointer(ptr noundef %92)
-  store ptr %93, ptr %29, align 8
-  %94 = load ptr, ptr %12, align 8
-  %95 = call ptr @N_VGetArrayPointer(ptr noundef %94)
-  store ptr %95, ptr %32, align 8
-  %96 = load ptr, ptr %13, align 8
-  %97 = call ptr @N_VGetArrayPointer(ptr noundef %96)
-  store ptr %97, ptr %31, align 8
-  %98 = load ptr, ptr %14, align 8
-  %99 = getelementptr inbounds %struct.CVodeMemRec, ptr %98, i32 0, i32 13
-  %100 = load i32, ptr %99, align 8
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %107
+86:                                               ; preds = %64
+  %87 = load ptr, ptr %10, align 8, !tbaa !72
+  %88 = call ptr @N_VGetArrayPointer(ptr noundef %87)
+  store ptr %88, ptr %28, align 8, !tbaa !76
+  %89 = load ptr, ptr %11, align 8, !tbaa !72
+  %90 = call ptr @N_VGetArrayPointer(ptr noundef %89)
+  store ptr %90, ptr %30, align 8, !tbaa !76
+  %91 = load ptr, ptr %14, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %91, i32 0, i32 15
+  %93 = load ptr, ptr %92, align 8, !tbaa !78
+  %94 = call ptr @N_VGetArrayPointer(ptr noundef %93)
+  store ptr %94, ptr %29, align 8, !tbaa !76
+  %95 = load ptr, ptr %12, align 8, !tbaa !72
+  %96 = call ptr @N_VGetArrayPointer(ptr noundef %95)
+  store ptr %96, ptr %32, align 8, !tbaa !76
+  %97 = load ptr, ptr %13, align 8, !tbaa !72
+  %98 = call ptr @N_VGetArrayPointer(ptr noundef %97)
+  store ptr %98, ptr %31, align 8, !tbaa !76
+  %99 = load ptr, ptr %14, align 8, !tbaa !11
+  %100 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %99, i32 0, i32 13
+  %101 = load i32, ptr %100, align 8, !tbaa !79
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %108
 
-102:                                              ; preds = %85
-  %103 = load ptr, ptr %14, align 8
-  %104 = getelementptr inbounds %struct.CVodeMemRec, ptr %103, i32 0, i32 23
-  %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @N_VGetArrayPointer(ptr noundef %105)
-  store ptr %106, ptr %34, align 8
-  br label %107
+103:                                              ; preds = %86
+  %104 = load ptr, ptr %14, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %104, i32 0, i32 23
+  %106 = load ptr, ptr %105, align 8, !tbaa !80
+  %107 = call ptr @N_VGetArrayPointer(ptr noundef %106)
+  store ptr %107, ptr %34, align 8, !tbaa !76
+  br label %108
 
-107:                                              ; preds = %102, %85
-  %108 = load ptr, ptr %11, align 8
-  %109 = load ptr, ptr %14, align 8
-  %110 = getelementptr inbounds %struct.CVodeMemRec, ptr %109, i32 0, i32 15
-  %111 = load ptr, ptr %110, align 8
-  %112 = call double @N_VWrmsNorm(ptr noundef %108, ptr noundef %111)
-  store double %112, ptr %15, align 8
-  %113 = load double, ptr %15, align 8
-  %114 = fcmp une double %113, 0.000000e+00
-  br i1 %114, label %115, label %132
+108:                                              ; preds = %103, %86
+  %109 = load ptr, ptr %11, align 8, !tbaa !72
+  %110 = load ptr, ptr %14, align 8, !tbaa !11
+  %111 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %110, i32 0, i32 15
+  %112 = load ptr, ptr %111, align 8, !tbaa !78
+  %113 = call double @N_VWrmsNorm(ptr noundef %109, ptr noundef %112)
+  store double %113, ptr %15, align 8, !tbaa !9
+  %114 = load double, ptr %15, align 8, !tbaa !9
+  %115 = fcmp une double %114, 0.000000e+00
+  br i1 %115, label %116, label %133
 
-115:                                              ; preds = %107
-  %116 = load ptr, ptr %14, align 8
-  %117 = getelementptr inbounds %struct.CVodeMemRec, ptr %116, i32 0, i32 33
-  %118 = load double, ptr %117, align 8
-  %119 = call double @llvm.fabs.f64(double %118)
-  %120 = fmul double 1.000000e+03, %119
-  %121 = load ptr, ptr %14, align 8
-  %122 = getelementptr inbounds %struct.CVodeMemRec, ptr %121, i32 0, i32 1
-  %123 = load double, ptr %122, align 8
-  %124 = fmul double %120, %123
-  %125 = load ptr, ptr %8, align 8
-  %126 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %125, i32 0, i32 15
-  %127 = load i64, ptr %126, align 8
-  %128 = sitofp i64 %127 to double
-  %129 = fmul double %124, %128
-  %130 = load double, ptr %15, align 8
-  %131 = fmul double %129, %130
-  br label %133
+116:                                              ; preds = %108
+  %117 = load ptr, ptr %14, align 8, !tbaa !11
+  %118 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %117, i32 0, i32 33
+  %119 = load double, ptr %118, align 8, !tbaa !81
+  %120 = call double @llvm.fabs.f64(double %119)
+  %121 = fmul double 1.000000e+03, %120
+  %122 = load ptr, ptr %14, align 8, !tbaa !11
+  %123 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %122, i32 0, i32 1
+  %124 = load double, ptr %123, align 8, !tbaa !52
+  %125 = fmul double %121, %124
+  %126 = load ptr, ptr %8, align 8, !tbaa !30
+  %127 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %126, i32 0, i32 15
+  %128 = load i64, ptr %127, align 8, !tbaa !54
+  %129 = sitofp i64 %128 to double
+  %130 = fmul double %125, %129
+  %131 = load double, ptr %15, align 8, !tbaa !9
+  %132 = fmul double %130, %131
+  br label %134
 
-132:                                              ; preds = %107
-  br label %133
+133:                                              ; preds = %108
+  br label %134
 
-133:                                              ; preds = %132, %115
-  %134 = phi double [ %131, %115 ], [ 1.000000e+00, %132 ]
-  store double %134, ptr %16, align 8
-  %135 = load ptr, ptr %8, align 8
-  %136 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %135, i32 0, i32 1
-  %137 = load i64, ptr %136, align 8
-  %138 = load ptr, ptr %8, align 8
-  %139 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %138, i32 0, i32 0
-  %140 = load i64, ptr %139, align 8
-  %141 = add nsw i64 %137, %140
-  %142 = add nsw i64 %141, 1
-  store i64 %142, ptr %24, align 8
-  %143 = load i64, ptr %24, align 8
-  %144 = load ptr, ptr %8, align 8
-  %145 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %144, i32 0, i32 15
-  %146 = load i64, ptr %145, align 8
-  %147 = icmp slt i64 %143, %146
-  br i1 %147, label %148, label %150
+134:                                              ; preds = %133, %116
+  %135 = phi double [ %132, %116 ], [ 1.000000e+00, %133 ]
+  store double %135, ptr %16, align 8, !tbaa !9
+  %136 = load ptr, ptr %8, align 8, !tbaa !30
+  %137 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %136, i32 0, i32 1
+  %138 = load i64, ptr %137, align 8, !tbaa !39
+  %139 = load ptr, ptr %8, align 8, !tbaa !30
+  %140 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %139, i32 0, i32 0
+  %141 = load i64, ptr %140, align 8, !tbaa !38
+  %142 = add nsw i64 %138, %141
+  %143 = add nsw i64 %142, 1
+  store i64 %143, ptr %24, align 8, !tbaa !7
+  %144 = load i64, ptr %24, align 8, !tbaa !7
+  %145 = load ptr, ptr %8, align 8, !tbaa !30
+  %146 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %145, i32 0, i32 15
+  %147 = load i64, ptr %146, align 8, !tbaa !54
+  %148 = icmp slt i64 %144, %147
+  br i1 %148, label %149, label %151
 
-148:                                              ; preds = %133
-  %149 = load i64, ptr %24, align 8
-  br label %154
+149:                                              ; preds = %134
+  %150 = load i64, ptr %24, align 8, !tbaa !7
+  br label %155
 
-150:                                              ; preds = %133
-  %151 = load ptr, ptr %8, align 8
-  %152 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %151, i32 0, i32 15
-  %153 = load i64, ptr %152, align 8
-  br label %154
+151:                                              ; preds = %134
+  %152 = load ptr, ptr %8, align 8, !tbaa !30
+  %153 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %152, i32 0, i32 15
+  %154 = load i64, ptr %153, align 8, !tbaa !54
+  br label %155
 
-154:                                              ; preds = %150, %148
-  %155 = phi i64 [ %149, %148 ], [ %153, %150 ]
-  store i64 %155, ptr %25, align 8
-  store i64 1, ptr %21, align 8
-  br label %156
+155:                                              ; preds = %151, %149
+  %156 = phi i64 [ %150, %149 ], [ %154, %151 ]
+  store i64 %156, ptr %25, align 8, !tbaa !7
+  store i64 1, ptr %21, align 8, !tbaa !7
+  br label %157
 
-156:                                              ; preds = %455, %154
-  %157 = load i64, ptr %21, align 8
-  %158 = load i64, ptr %25, align 8
-  %159 = icmp sle i64 %157, %158
-  br i1 %159, label %160, label %458
+157:                                              ; preds = %456, %155
+  %158 = load i64, ptr %21, align 8, !tbaa !7
+  %159 = load i64, ptr %25, align 8, !tbaa !7
+  %160 = icmp sle i64 %158, %159
+  br i1 %160, label %161, label %459
 
-160:                                              ; preds = %156
-  %161 = load i64, ptr %21, align 8
-  %162 = sub nsw i64 %161, 1
-  store i64 %162, ptr %23, align 8
-  br label %163
+161:                                              ; preds = %157
+  %162 = load i64, ptr %21, align 8, !tbaa !7
+  %163 = sub nsw i64 %162, 1
+  store i64 %163, ptr %23, align 8, !tbaa !7
+  br label %164
 
-163:                                              ; preds = %256, %160
-  %164 = load i64, ptr %23, align 8
-  %165 = load ptr, ptr %8, align 8
-  %166 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %165, i32 0, i32 15
-  %167 = load i64, ptr %166, align 8
-  %168 = icmp slt i64 %164, %167
-  br i1 %168, label %169, label %260
+164:                                              ; preds = %257, %161
+  %165 = load i64, ptr %23, align 8, !tbaa !7
+  %166 = load ptr, ptr %8, align 8, !tbaa !30
+  %167 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %166, i32 0, i32 15
+  %168 = load i64, ptr %167, align 8, !tbaa !54
+  %169 = icmp slt i64 %165, %168
+  br i1 %169, label %170, label %261
 
-169:                                              ; preds = %163
-  %170 = load ptr, ptr %8, align 8
-  %171 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %170, i32 0, i32 4
-  %172 = load double, ptr %171, align 8
-  %173 = load ptr, ptr %28, align 8
-  %174 = load i64, ptr %23, align 8
-  %175 = getelementptr inbounds double, ptr %173, i64 %174
-  %176 = load double, ptr %175, align 8
-  %177 = call double @llvm.fabs.f64(double %176)
-  %178 = fmul double %172, %177
-  %179 = load double, ptr %16, align 8
-  %180 = load ptr, ptr %29, align 8
-  %181 = load i64, ptr %23, align 8
-  %182 = getelementptr inbounds double, ptr %180, i64 %181
-  %183 = load double, ptr %182, align 8
-  %184 = fdiv double %179, %183
-  %185 = fcmp ogt double %178, %184
-  br i1 %185, label %186, label %196
+170:                                              ; preds = %164
+  %171 = load ptr, ptr %8, align 8, !tbaa !30
+  %172 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %171, i32 0, i32 4
+  %173 = load double, ptr %172, align 8, !tbaa !53
+  %174 = load ptr, ptr %28, align 8, !tbaa !76
+  %175 = load i64, ptr %23, align 8, !tbaa !7
+  %176 = getelementptr inbounds double, ptr %174, i64 %175
+  %177 = load double, ptr %176, align 8, !tbaa !9
+  %178 = call double @llvm.fabs.f64(double %177)
+  %179 = fmul double %173, %178
+  %180 = load double, ptr %16, align 8, !tbaa !9
+  %181 = load ptr, ptr %29, align 8, !tbaa !76
+  %182 = load i64, ptr %23, align 8, !tbaa !7
+  %183 = getelementptr inbounds double, ptr %181, i64 %182
+  %184 = load double, ptr %183, align 8, !tbaa !9
+  %185 = fdiv double %180, %184
+  %186 = fcmp ogt double %179, %185
+  br i1 %186, label %187, label %197
 
-186:                                              ; preds = %169
-  %187 = load ptr, ptr %8, align 8
-  %188 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %187, i32 0, i32 4
-  %189 = load double, ptr %188, align 8
-  %190 = load ptr, ptr %28, align 8
-  %191 = load i64, ptr %23, align 8
-  %192 = getelementptr inbounds double, ptr %190, i64 %191
-  %193 = load double, ptr %192, align 8
-  %194 = call double @llvm.fabs.f64(double %193)
-  %195 = fmul double %189, %194
-  br label %203
+187:                                              ; preds = %170
+  %188 = load ptr, ptr %8, align 8, !tbaa !30
+  %189 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %188, i32 0, i32 4
+  %190 = load double, ptr %189, align 8, !tbaa !53
+  %191 = load ptr, ptr %28, align 8, !tbaa !76
+  %192 = load i64, ptr %23, align 8, !tbaa !7
+  %193 = getelementptr inbounds double, ptr %191, i64 %192
+  %194 = load double, ptr %193, align 8, !tbaa !9
+  %195 = call double @llvm.fabs.f64(double %194)
+  %196 = fmul double %190, %195
+  br label %204
 
-196:                                              ; preds = %169
-  %197 = load double, ptr %16, align 8
-  %198 = load ptr, ptr %29, align 8
-  %199 = load i64, ptr %23, align 8
-  %200 = getelementptr inbounds double, ptr %198, i64 %199
-  %201 = load double, ptr %200, align 8
-  %202 = fdiv double %197, %201
-  br label %203
+197:                                              ; preds = %170
+  %198 = load double, ptr %16, align 8, !tbaa !9
+  %199 = load ptr, ptr %29, align 8, !tbaa !76
+  %200 = load i64, ptr %23, align 8, !tbaa !7
+  %201 = getelementptr inbounds double, ptr %199, i64 %200
+  %202 = load double, ptr %201, align 8, !tbaa !9
+  %203 = fdiv double %198, %202
+  br label %204
 
-203:                                              ; preds = %196, %186
-  %204 = phi double [ %195, %186 ], [ %202, %196 ]
-  store double %204, ptr %17, align 8
-  %205 = load ptr, ptr %28, align 8
-  %206 = load i64, ptr %23, align 8
-  %207 = getelementptr inbounds double, ptr %205, i64 %206
-  %208 = load double, ptr %207, align 8
-  store double %208, ptr %19, align 8
-  %209 = load ptr, ptr %14, align 8
-  %210 = getelementptr inbounds %struct.CVodeMemRec, ptr %209, i32 0, i32 13
-  %211 = load i32, ptr %210, align 8
-  %212 = icmp ne i32 %211, 0
-  br i1 %212, label %213, label %249
+204:                                              ; preds = %197, %187
+  %205 = phi double [ %196, %187 ], [ %203, %197 ]
+  store double %205, ptr %17, align 8, !tbaa !9
+  %206 = load ptr, ptr %28, align 8, !tbaa !76
+  %207 = load i64, ptr %23, align 8, !tbaa !7
+  %208 = getelementptr inbounds double, ptr %206, i64 %207
+  %209 = load double, ptr %208, align 8, !tbaa !9
+  store double %209, ptr %19, align 8, !tbaa !9
+  %210 = load ptr, ptr %14, align 8, !tbaa !11
+  %211 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %210, i32 0, i32 13
+  %212 = load i32, ptr %211, align 8, !tbaa !79
+  %213 = icmp ne i32 %212, 0
+  br i1 %213, label %214, label %250
 
-213:                                              ; preds = %203
-  %214 = load ptr, ptr %34, align 8
-  %215 = load i64, ptr %23, align 8
-  %216 = getelementptr inbounds double, ptr %214, i64 %215
-  %217 = load double, ptr %216, align 8
-  store double %217, ptr %20, align 8
-  %218 = load double, ptr %20, align 8
-  %219 = call double @llvm.fabs.f64(double %218)
-  %220 = fcmp oeq double %219, 1.000000e+00
-  br i1 %220, label %221, label %232
+214:                                              ; preds = %204
+  %215 = load ptr, ptr %34, align 8, !tbaa !76
+  %216 = load i64, ptr %23, align 8, !tbaa !7
+  %217 = getelementptr inbounds double, ptr %215, i64 %216
+  %218 = load double, ptr %217, align 8, !tbaa !9
+  store double %218, ptr %20, align 8, !tbaa !9
+  %219 = load double, ptr %20, align 8, !tbaa !9
+  %220 = call double @llvm.fabs.f64(double %219)
+  %221 = fcmp oeq double %220, 1.000000e+00
+  br i1 %221, label %222, label %233
 
-221:                                              ; preds = %213
-  %222 = load double, ptr %19, align 8
-  %223 = load double, ptr %17, align 8
-  %224 = fadd double %222, %223
-  %225 = load double, ptr %20, align 8
-  %226 = fmul double %224, %225
-  %227 = fcmp olt double %226, 0.000000e+00
-  br i1 %227, label %228, label %231
+222:                                              ; preds = %214
+  %223 = load double, ptr %19, align 8, !tbaa !9
+  %224 = load double, ptr %17, align 8, !tbaa !9
+  %225 = fadd double %223, %224
+  %226 = load double, ptr %20, align 8, !tbaa !9
+  %227 = fmul double %225, %226
+  %228 = fcmp olt double %227, 0.000000e+00
+  br i1 %228, label %229, label %232
 
-228:                                              ; preds = %221
-  %229 = load double, ptr %17, align 8
-  %230 = fneg double %229
-  store double %230, ptr %17, align 8
-  br label %231
+229:                                              ; preds = %222
+  %230 = load double, ptr %17, align 8, !tbaa !9
+  %231 = fneg double %230
+  store double %231, ptr %17, align 8, !tbaa !9
+  br label %232
 
-231:                                              ; preds = %228, %221
-  br label %248
-
-232:                                              ; preds = %213
-  %233 = load double, ptr %20, align 8
-  %234 = call double @llvm.fabs.f64(double %233)
-  %235 = fcmp oeq double %234, 2.000000e+00
-  br i1 %235, label %236, label %247
-
-236:                                              ; preds = %232
-  %237 = load double, ptr %19, align 8
-  %238 = load double, ptr %17, align 8
-  %239 = fadd double %237, %238
-  %240 = load double, ptr %20, align 8
-  %241 = fmul double %239, %240
-  %242 = fcmp ole double %241, 0.000000e+00
-  br i1 %242, label %243, label %246
-
-243:                                              ; preds = %236
-  %244 = load double, ptr %17, align 8
-  %245 = fneg double %244
-  store double %245, ptr %17, align 8
-  br label %246
-
-246:                                              ; preds = %243, %236
-  br label %247
-
-247:                                              ; preds = %246, %232
-  br label %248
-
-248:                                              ; preds = %247, %231
+232:                                              ; preds = %229, %222
   br label %249
 
-249:                                              ; preds = %248, %203
-  %250 = load double, ptr %17, align 8
-  %251 = load ptr, ptr %32, align 8
-  %252 = load i64, ptr %23, align 8
-  %253 = getelementptr inbounds double, ptr %251, i64 %252
-  %254 = load double, ptr %253, align 8
-  %255 = fadd double %254, %250
-  store double %255, ptr %253, align 8
-  br label %256
+233:                                              ; preds = %214
+  %234 = load double, ptr %20, align 8, !tbaa !9
+  %235 = call double @llvm.fabs.f64(double %234)
+  %236 = fcmp oeq double %235, 2.000000e+00
+  br i1 %236, label %237, label %248
 
-256:                                              ; preds = %249
-  %257 = load i64, ptr %24, align 8
-  %258 = load i64, ptr %23, align 8
-  %259 = add nsw i64 %258, %257
-  store i64 %259, ptr %23, align 8
-  br label %163
+237:                                              ; preds = %233
+  %238 = load double, ptr %19, align 8, !tbaa !9
+  %239 = load double, ptr %17, align 8, !tbaa !9
+  %240 = fadd double %238, %239
+  %241 = load double, ptr %20, align 8, !tbaa !9
+  %242 = fmul double %240, %241
+  %243 = fcmp ole double %242, 0.000000e+00
+  br i1 %243, label %244, label %247
 
-260:                                              ; preds = %163
-  %261 = load ptr, ptr %8, align 8
-  %262 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %261, i32 0, i32 5
-  %263 = load ptr, ptr %262, align 8
-  %264 = load ptr, ptr %8, align 8
-  %265 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %264, i32 0, i32 15
-  %266 = load i64, ptr %265, align 8
-  %267 = load double, ptr %9, align 8
-  %268 = load ptr, ptr %12, align 8
-  %269 = load ptr, ptr %13, align 8
-  %270 = load ptr, ptr %14, align 8
-  %271 = getelementptr inbounds %struct.CVodeMemRec, ptr %270, i32 0, i32 3
-  %272 = load ptr, ptr %271, align 8
-  %273 = call i32 %263(i64 noundef %266, double noundef %267, ptr noundef %268, ptr noundef %269, ptr noundef %272)
-  store i32 %273, ptr %35, align 4
-  %274 = load ptr, ptr %8, align 8
-  %275 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %274, i32 0, i32 18
-  %276 = load i64, ptr %275, align 8
-  %277 = add nsw i64 %276, 1
-  store i64 %277, ptr %275, align 8
-  %278 = load i32, ptr %35, align 4
-  %279 = icmp ne i32 %278, 0
-  br i1 %279, label %280, label %282
+244:                                              ; preds = %237
+  %245 = load double, ptr %17, align 8, !tbaa !9
+  %246 = fneg double %245
+  store double %246, ptr %17, align 8, !tbaa !9
+  br label %247
 
-280:                                              ; preds = %260
-  %281 = load i32, ptr %35, align 4
-  store i32 %281, ptr %7, align 4
-  br label %459
+247:                                              ; preds = %244, %237
+  br label %248
 
-282:                                              ; preds = %260
-  %283 = load i64, ptr %21, align 8
-  %284 = sub nsw i64 %283, 1
-  store i64 %284, ptr %23, align 8
-  br label %285
+248:                                              ; preds = %247, %233
+  br label %249
 
-285:                                              ; preds = %450, %282
-  %286 = load i64, ptr %23, align 8
-  %287 = load ptr, ptr %8, align 8
-  %288 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %287, i32 0, i32 15
-  %289 = load i64, ptr %288, align 8
-  %290 = icmp slt i64 %286, %289
-  br i1 %290, label %291, label %454
+249:                                              ; preds = %248, %232
+  br label %250
 
-291:                                              ; preds = %285
-  %292 = load ptr, ptr %28, align 8
-  %293 = load i64, ptr %23, align 8
-  %294 = getelementptr inbounds double, ptr %292, i64 %293
-  %295 = load double, ptr %294, align 8
-  store double %295, ptr %19, align 8
-  %296 = load ptr, ptr %28, align 8
-  %297 = load i64, ptr %23, align 8
-  %298 = getelementptr inbounds double, ptr %296, i64 %297
-  %299 = load double, ptr %298, align 8
-  %300 = load ptr, ptr %32, align 8
-  %301 = load i64, ptr %23, align 8
-  %302 = getelementptr inbounds double, ptr %300, i64 %301
-  store double %299, ptr %302, align 8
-  %303 = load ptr, ptr %8, align 8
-  %304 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %303, i32 0, i32 7
-  %305 = load ptr, ptr %304, align 8
-  %306 = load i64, ptr %23, align 8
-  %307 = call ptr @SUNBandMatrix_Column(ptr noundef %305, i64 noundef %306)
-  store ptr %307, ptr %33, align 8
-  %308 = load ptr, ptr %8, align 8
-  %309 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %308, i32 0, i32 4
-  %310 = load double, ptr %309, align 8
-  %311 = load ptr, ptr %28, align 8
-  %312 = load i64, ptr %23, align 8
-  %313 = getelementptr inbounds double, ptr %311, i64 %312
-  %314 = load double, ptr %313, align 8
-  %315 = call double @llvm.fabs.f64(double %314)
-  %316 = fmul double %310, %315
-  %317 = load double, ptr %16, align 8
-  %318 = load ptr, ptr %29, align 8
-  %319 = load i64, ptr %23, align 8
-  %320 = getelementptr inbounds double, ptr %318, i64 %319
-  %321 = load double, ptr %320, align 8
-  %322 = fdiv double %317, %321
-  %323 = fcmp ogt double %316, %322
-  br i1 %323, label %324, label %334
+250:                                              ; preds = %249, %204
+  %251 = load double, ptr %17, align 8, !tbaa !9
+  %252 = load ptr, ptr %32, align 8, !tbaa !76
+  %253 = load i64, ptr %23, align 8, !tbaa !7
+  %254 = getelementptr inbounds double, ptr %252, i64 %253
+  %255 = load double, ptr %254, align 8, !tbaa !9
+  %256 = fadd double %255, %251
+  store double %256, ptr %254, align 8, !tbaa !9
+  br label %257
 
-324:                                              ; preds = %291
-  %325 = load ptr, ptr %8, align 8
-  %326 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %325, i32 0, i32 4
-  %327 = load double, ptr %326, align 8
-  %328 = load ptr, ptr %28, align 8
-  %329 = load i64, ptr %23, align 8
-  %330 = getelementptr inbounds double, ptr %328, i64 %329
-  %331 = load double, ptr %330, align 8
-  %332 = call double @llvm.fabs.f64(double %331)
-  %333 = fmul double %327, %332
-  br label %341
+257:                                              ; preds = %250
+  %258 = load i64, ptr %24, align 8, !tbaa !7
+  %259 = load i64, ptr %23, align 8, !tbaa !7
+  %260 = add nsw i64 %259, %258
+  store i64 %260, ptr %23, align 8, !tbaa !7
+  br label %164
 
-334:                                              ; preds = %291
-  %335 = load double, ptr %16, align 8
-  %336 = load ptr, ptr %29, align 8
-  %337 = load i64, ptr %23, align 8
-  %338 = getelementptr inbounds double, ptr %336, i64 %337
-  %339 = load double, ptr %338, align 8
-  %340 = fdiv double %335, %339
-  br label %341
+261:                                              ; preds = %164
+  %262 = load ptr, ptr %8, align 8, !tbaa !30
+  %263 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %262, i32 0, i32 5
+  %264 = load ptr, ptr %263, align 8, !tbaa !36
+  %265 = load ptr, ptr %8, align 8, !tbaa !30
+  %266 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %265, i32 0, i32 15
+  %267 = load i64, ptr %266, align 8, !tbaa !54
+  %268 = load double, ptr %9, align 8, !tbaa !9
+  %269 = load ptr, ptr %12, align 8, !tbaa !72
+  %270 = load ptr, ptr %13, align 8, !tbaa !72
+  %271 = load ptr, ptr %14, align 8, !tbaa !11
+  %272 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %271, i32 0, i32 3
+  %273 = load ptr, ptr %272, align 8, !tbaa !77
+  %274 = call i32 %264(i64 noundef %267, double noundef %268, ptr noundef %269, ptr noundef %270, ptr noundef %273)
+  store i32 %274, ptr %35, align 4, !tbaa !51
+  %275 = load ptr, ptr %8, align 8, !tbaa !30
+  %276 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %275, i32 0, i32 18
+  %277 = load i64, ptr %276, align 8, !tbaa !68
+  %278 = add nsw i64 %277, 1
+  store i64 %278, ptr %276, align 8, !tbaa !68
+  %279 = load i32, ptr %35, align 4, !tbaa !51
+  %280 = icmp ne i32 %279, 0
+  br i1 %280, label %281, label %283
 
-341:                                              ; preds = %334, %324
-  %342 = phi double [ %333, %324 ], [ %340, %334 ]
-  store double %342, ptr %17, align 8
-  %343 = load ptr, ptr %14, align 8
-  %344 = getelementptr inbounds %struct.CVodeMemRec, ptr %343, i32 0, i32 13
-  %345 = load i32, ptr %344, align 8
-  %346 = icmp ne i32 %345, 0
-  br i1 %346, label %347, label %383
+281:                                              ; preds = %261
+  %282 = load i32, ptr %35, align 4, !tbaa !51
+  store i32 %282, ptr %7, align 4
+  store i32 1, ptr %36, align 4
+  br label %460
 
-347:                                              ; preds = %341
-  %348 = load ptr, ptr %34, align 8
-  %349 = load i64, ptr %23, align 8
-  %350 = getelementptr inbounds double, ptr %348, i64 %349
-  %351 = load double, ptr %350, align 8
-  store double %351, ptr %20, align 8
-  %352 = load double, ptr %20, align 8
-  %353 = call double @llvm.fabs.f64(double %352)
-  %354 = fcmp oeq double %353, 1.000000e+00
-  br i1 %354, label %355, label %366
+283:                                              ; preds = %261
+  %284 = load i64, ptr %21, align 8, !tbaa !7
+  %285 = sub nsw i64 %284, 1
+  store i64 %285, ptr %23, align 8, !tbaa !7
+  br label %286
 
-355:                                              ; preds = %347
-  %356 = load double, ptr %19, align 8
-  %357 = load double, ptr %17, align 8
-  %358 = fadd double %356, %357
-  %359 = load double, ptr %20, align 8
-  %360 = fmul double %358, %359
-  %361 = fcmp olt double %360, 0.000000e+00
-  br i1 %361, label %362, label %365
+286:                                              ; preds = %451, %283
+  %287 = load i64, ptr %23, align 8, !tbaa !7
+  %288 = load ptr, ptr %8, align 8, !tbaa !30
+  %289 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %288, i32 0, i32 15
+  %290 = load i64, ptr %289, align 8, !tbaa !54
+  %291 = icmp slt i64 %287, %290
+  br i1 %291, label %292, label %455
 
-362:                                              ; preds = %355
-  %363 = load double, ptr %17, align 8
-  %364 = fneg double %363
-  store double %364, ptr %17, align 8
-  br label %365
+292:                                              ; preds = %286
+  %293 = load ptr, ptr %28, align 8, !tbaa !76
+  %294 = load i64, ptr %23, align 8, !tbaa !7
+  %295 = getelementptr inbounds double, ptr %293, i64 %294
+  %296 = load double, ptr %295, align 8, !tbaa !9
+  store double %296, ptr %19, align 8, !tbaa !9
+  %297 = load ptr, ptr %28, align 8, !tbaa !76
+  %298 = load i64, ptr %23, align 8, !tbaa !7
+  %299 = getelementptr inbounds double, ptr %297, i64 %298
+  %300 = load double, ptr %299, align 8, !tbaa !9
+  %301 = load ptr, ptr %32, align 8, !tbaa !76
+  %302 = load i64, ptr %23, align 8, !tbaa !7
+  %303 = getelementptr inbounds double, ptr %301, i64 %302
+  store double %300, ptr %303, align 8, !tbaa !9
+  %304 = load ptr, ptr %8, align 8, !tbaa !30
+  %305 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %304, i32 0, i32 7
+  %306 = load ptr, ptr %305, align 8, !tbaa !43
+  %307 = load i64, ptr %23, align 8, !tbaa !7
+  %308 = call ptr @SUNBandMatrix_Column(ptr noundef %306, i64 noundef %307)
+  store ptr %308, ptr %33, align 8, !tbaa !76
+  %309 = load ptr, ptr %8, align 8, !tbaa !30
+  %310 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %309, i32 0, i32 4
+  %311 = load double, ptr %310, align 8, !tbaa !53
+  %312 = load ptr, ptr %28, align 8, !tbaa !76
+  %313 = load i64, ptr %23, align 8, !tbaa !7
+  %314 = getelementptr inbounds double, ptr %312, i64 %313
+  %315 = load double, ptr %314, align 8, !tbaa !9
+  %316 = call double @llvm.fabs.f64(double %315)
+  %317 = fmul double %311, %316
+  %318 = load double, ptr %16, align 8, !tbaa !9
+  %319 = load ptr, ptr %29, align 8, !tbaa !76
+  %320 = load i64, ptr %23, align 8, !tbaa !7
+  %321 = getelementptr inbounds double, ptr %319, i64 %320
+  %322 = load double, ptr %321, align 8, !tbaa !9
+  %323 = fdiv double %318, %322
+  %324 = fcmp ogt double %317, %323
+  br i1 %324, label %325, label %335
 
-365:                                              ; preds = %362, %355
-  br label %382
+325:                                              ; preds = %292
+  %326 = load ptr, ptr %8, align 8, !tbaa !30
+  %327 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %326, i32 0, i32 4
+  %328 = load double, ptr %327, align 8, !tbaa !53
+  %329 = load ptr, ptr %28, align 8, !tbaa !76
+  %330 = load i64, ptr %23, align 8, !tbaa !7
+  %331 = getelementptr inbounds double, ptr %329, i64 %330
+  %332 = load double, ptr %331, align 8, !tbaa !9
+  %333 = call double @llvm.fabs.f64(double %332)
+  %334 = fmul double %328, %333
+  br label %342
 
-366:                                              ; preds = %347
-  %367 = load double, ptr %20, align 8
-  %368 = call double @llvm.fabs.f64(double %367)
-  %369 = fcmp oeq double %368, 2.000000e+00
-  br i1 %369, label %370, label %381
+335:                                              ; preds = %292
+  %336 = load double, ptr %16, align 8, !tbaa !9
+  %337 = load ptr, ptr %29, align 8, !tbaa !76
+  %338 = load i64, ptr %23, align 8, !tbaa !7
+  %339 = getelementptr inbounds double, ptr %337, i64 %338
+  %340 = load double, ptr %339, align 8, !tbaa !9
+  %341 = fdiv double %336, %340
+  br label %342
 
-370:                                              ; preds = %366
-  %371 = load double, ptr %19, align 8
-  %372 = load double, ptr %17, align 8
-  %373 = fadd double %371, %372
-  %374 = load double, ptr %20, align 8
-  %375 = fmul double %373, %374
-  %376 = fcmp ole double %375, 0.000000e+00
-  br i1 %376, label %377, label %380
+342:                                              ; preds = %335, %325
+  %343 = phi double [ %334, %325 ], [ %341, %335 ]
+  store double %343, ptr %17, align 8, !tbaa !9
+  %344 = load ptr, ptr %14, align 8, !tbaa !11
+  %345 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %344, i32 0, i32 13
+  %346 = load i32, ptr %345, align 8, !tbaa !79
+  %347 = icmp ne i32 %346, 0
+  br i1 %347, label %348, label %384
 
-377:                                              ; preds = %370
-  %378 = load double, ptr %17, align 8
-  %379 = fneg double %378
-  store double %379, ptr %17, align 8
-  br label %380
+348:                                              ; preds = %342
+  %349 = load ptr, ptr %34, align 8, !tbaa !76
+  %350 = load i64, ptr %23, align 8, !tbaa !7
+  %351 = getelementptr inbounds double, ptr %349, i64 %350
+  %352 = load double, ptr %351, align 8, !tbaa !9
+  store double %352, ptr %20, align 8, !tbaa !9
+  %353 = load double, ptr %20, align 8, !tbaa !9
+  %354 = call double @llvm.fabs.f64(double %353)
+  %355 = fcmp oeq double %354, 1.000000e+00
+  br i1 %355, label %356, label %367
 
-380:                                              ; preds = %377, %370
-  br label %381
+356:                                              ; preds = %348
+  %357 = load double, ptr %19, align 8, !tbaa !9
+  %358 = load double, ptr %17, align 8, !tbaa !9
+  %359 = fadd double %357, %358
+  %360 = load double, ptr %20, align 8, !tbaa !9
+  %361 = fmul double %359, %360
+  %362 = fcmp olt double %361, 0.000000e+00
+  br i1 %362, label %363, label %366
 
-381:                                              ; preds = %380, %366
-  br label %382
+363:                                              ; preds = %356
+  %364 = load double, ptr %17, align 8, !tbaa !9
+  %365 = fneg double %364
+  store double %365, ptr %17, align 8, !tbaa !9
+  br label %366
 
-382:                                              ; preds = %381, %365
+366:                                              ; preds = %363, %356
   br label %383
 
-383:                                              ; preds = %382, %341
-  %384 = load double, ptr %17, align 8
-  %385 = fdiv double 1.000000e+00, %384
-  store double %385, ptr %18, align 8
-  %386 = load i64, ptr %23, align 8
-  %387 = load ptr, ptr %8, align 8
-  %388 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %387, i32 0, i32 2
-  %389 = load i64, ptr %388, align 8
-  %390 = sub nsw i64 %386, %389
-  %391 = icmp sgt i64 0, %390
-  br i1 %391, label %392, label %393
+367:                                              ; preds = %348
+  %368 = load double, ptr %20, align 8, !tbaa !9
+  %369 = call double @llvm.fabs.f64(double %368)
+  %370 = fcmp oeq double %369, 2.000000e+00
+  br i1 %370, label %371, label %382
 
-392:                                              ; preds = %383
-  br label %399
+371:                                              ; preds = %367
+  %372 = load double, ptr %19, align 8, !tbaa !9
+  %373 = load double, ptr %17, align 8, !tbaa !9
+  %374 = fadd double %372, %373
+  %375 = load double, ptr %20, align 8, !tbaa !9
+  %376 = fmul double %374, %375
+  %377 = fcmp ole double %376, 0.000000e+00
+  br i1 %377, label %378, label %381
 
-393:                                              ; preds = %383
-  %394 = load i64, ptr %23, align 8
-  %395 = load ptr, ptr %8, align 8
-  %396 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %395, i32 0, i32 2
-  %397 = load i64, ptr %396, align 8
-  %398 = sub nsw i64 %394, %397
-  br label %399
+378:                                              ; preds = %371
+  %379 = load double, ptr %17, align 8, !tbaa !9
+  %380 = fneg double %379
+  store double %380, ptr %17, align 8, !tbaa !9
+  br label %381
 
-399:                                              ; preds = %393, %392
-  %400 = phi i64 [ 0, %392 ], [ %398, %393 ]
-  store i64 %400, ptr %26, align 8
-  %401 = load i64, ptr %23, align 8
-  %402 = load ptr, ptr %8, align 8
-  %403 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %402, i32 0, i32 3
-  %404 = load i64, ptr %403, align 8
-  %405 = add nsw i64 %401, %404
-  %406 = load ptr, ptr %8, align 8
-  %407 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %406, i32 0, i32 15
-  %408 = load i64, ptr %407, align 8
-  %409 = sub nsw i64 %408, 1
-  %410 = icmp slt i64 %405, %409
-  br i1 %410, label %411, label %417
+381:                                              ; preds = %378, %371
+  br label %382
 
-411:                                              ; preds = %399
-  %412 = load i64, ptr %23, align 8
-  %413 = load ptr, ptr %8, align 8
-  %414 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %413, i32 0, i32 3
-  %415 = load i64, ptr %414, align 8
-  %416 = add nsw i64 %412, %415
-  br label %422
+382:                                              ; preds = %381, %367
+  br label %383
 
-417:                                              ; preds = %399
-  %418 = load ptr, ptr %8, align 8
-  %419 = getelementptr inbounds %struct.CVBBDPrecDataRec, ptr %418, i32 0, i32 15
-  %420 = load i64, ptr %419, align 8
-  %421 = sub nsw i64 %420, 1
-  br label %422
+383:                                              ; preds = %382, %366
+  br label %384
 
-422:                                              ; preds = %417, %411
-  %423 = phi i64 [ %416, %411 ], [ %421, %417 ]
-  store i64 %423, ptr %27, align 8
-  %424 = load i64, ptr %26, align 8
-  store i64 %424, ptr %22, align 8
-  br label %425
+384:                                              ; preds = %383, %342
+  %385 = load double, ptr %17, align 8, !tbaa !9
+  %386 = fdiv double 1.000000e+00, %385
+  store double %386, ptr %18, align 8, !tbaa !9
+  %387 = load i64, ptr %23, align 8, !tbaa !7
+  %388 = load ptr, ptr %8, align 8, !tbaa !30
+  %389 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %388, i32 0, i32 2
+  %390 = load i64, ptr %389, align 8, !tbaa !40
+  %391 = sub nsw i64 %387, %390
+  %392 = icmp sgt i64 0, %391
+  br i1 %392, label %393, label %394
 
-425:                                              ; preds = %446, %422
-  %426 = load i64, ptr %22, align 8
-  %427 = load i64, ptr %27, align 8
-  %428 = icmp sle i64 %426, %427
-  br i1 %428, label %429, label %449
+393:                                              ; preds = %384
+  br label %400
 
-429:                                              ; preds = %425
-  %430 = load double, ptr %18, align 8
-  %431 = load ptr, ptr %31, align 8
-  %432 = load i64, ptr %22, align 8
-  %433 = getelementptr inbounds double, ptr %431, i64 %432
-  %434 = load double, ptr %433, align 8
-  %435 = load ptr, ptr %30, align 8
-  %436 = load i64, ptr %22, align 8
-  %437 = getelementptr inbounds double, ptr %435, i64 %436
-  %438 = load double, ptr %437, align 8
-  %439 = fsub double %434, %438
-  %440 = fmul double %430, %439
-  %441 = load ptr, ptr %33, align 8
-  %442 = load i64, ptr %22, align 8
-  %443 = load i64, ptr %23, align 8
-  %444 = sub nsw i64 %442, %443
-  %445 = getelementptr inbounds double, ptr %441, i64 %444
-  store double %440, ptr %445, align 8
-  br label %446
+394:                                              ; preds = %384
+  %395 = load i64, ptr %23, align 8, !tbaa !7
+  %396 = load ptr, ptr %8, align 8, !tbaa !30
+  %397 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %396, i32 0, i32 2
+  %398 = load i64, ptr %397, align 8, !tbaa !40
+  %399 = sub nsw i64 %395, %398
+  br label %400
 
-446:                                              ; preds = %429
-  %447 = load i64, ptr %22, align 8
-  %448 = add nsw i64 %447, 1
-  store i64 %448, ptr %22, align 8
-  br label %425
+400:                                              ; preds = %394, %393
+  %401 = phi i64 [ 0, %393 ], [ %399, %394 ]
+  store i64 %401, ptr %26, align 8, !tbaa !7
+  %402 = load i64, ptr %23, align 8, !tbaa !7
+  %403 = load ptr, ptr %8, align 8, !tbaa !30
+  %404 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %403, i32 0, i32 3
+  %405 = load i64, ptr %404, align 8, !tbaa !41
+  %406 = add nsw i64 %402, %405
+  %407 = load ptr, ptr %8, align 8, !tbaa !30
+  %408 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %407, i32 0, i32 15
+  %409 = load i64, ptr %408, align 8, !tbaa !54
+  %410 = sub nsw i64 %409, 1
+  %411 = icmp slt i64 %406, %410
+  br i1 %411, label %412, label %418
 
-449:                                              ; preds = %425
-  br label %450
+412:                                              ; preds = %400
+  %413 = load i64, ptr %23, align 8, !tbaa !7
+  %414 = load ptr, ptr %8, align 8, !tbaa !30
+  %415 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %414, i32 0, i32 3
+  %416 = load i64, ptr %415, align 8, !tbaa !41
+  %417 = add nsw i64 %413, %416
+  br label %423
 
-450:                                              ; preds = %449
-  %451 = load i64, ptr %24, align 8
-  %452 = load i64, ptr %23, align 8
-  %453 = add nsw i64 %452, %451
-  store i64 %453, ptr %23, align 8
-  br label %285
+418:                                              ; preds = %400
+  %419 = load ptr, ptr %8, align 8, !tbaa !30
+  %420 = getelementptr inbounds nuw %struct.CVBBDPrecDataRec, ptr %419, i32 0, i32 15
+  %421 = load i64, ptr %420, align 8, !tbaa !54
+  %422 = sub nsw i64 %421, 1
+  br label %423
 
-454:                                              ; preds = %285
-  br label %455
+423:                                              ; preds = %418, %412
+  %424 = phi i64 [ %417, %412 ], [ %422, %418 ]
+  store i64 %424, ptr %27, align 8, !tbaa !7
+  %425 = load i64, ptr %26, align 8, !tbaa !7
+  store i64 %425, ptr %22, align 8, !tbaa !7
+  br label %426
 
-455:                                              ; preds = %454
-  %456 = load i64, ptr %21, align 8
-  %457 = add nsw i64 %456, 1
-  store i64 %457, ptr %21, align 8
-  br label %156
+426:                                              ; preds = %447, %423
+  %427 = load i64, ptr %22, align 8, !tbaa !7
+  %428 = load i64, ptr %27, align 8, !tbaa !7
+  %429 = icmp sle i64 %427, %428
+  br i1 %429, label %430, label %450
 
-458:                                              ; preds = %156
+430:                                              ; preds = %426
+  %431 = load double, ptr %18, align 8, !tbaa !9
+  %432 = load ptr, ptr %31, align 8, !tbaa !76
+  %433 = load i64, ptr %22, align 8, !tbaa !7
+  %434 = getelementptr inbounds double, ptr %432, i64 %433
+  %435 = load double, ptr %434, align 8, !tbaa !9
+  %436 = load ptr, ptr %30, align 8, !tbaa !76
+  %437 = load i64, ptr %22, align 8, !tbaa !7
+  %438 = getelementptr inbounds double, ptr %436, i64 %437
+  %439 = load double, ptr %438, align 8, !tbaa !9
+  %440 = fsub double %435, %439
+  %441 = fmul double %431, %440
+  %442 = load ptr, ptr %33, align 8, !tbaa !76
+  %443 = load i64, ptr %22, align 8, !tbaa !7
+  %444 = load i64, ptr %23, align 8, !tbaa !7
+  %445 = sub nsw i64 %443, %444
+  %446 = getelementptr inbounds double, ptr %442, i64 %445
+  store double %441, ptr %446, align 8, !tbaa !9
+  br label %447
+
+447:                                              ; preds = %430
+  %448 = load i64, ptr %22, align 8, !tbaa !7
+  %449 = add nsw i64 %448, 1
+  store i64 %449, ptr %22, align 8, !tbaa !7
+  br label %426
+
+450:                                              ; preds = %426
+  br label %451
+
+451:                                              ; preds = %450
+  %452 = load i64, ptr %24, align 8, !tbaa !7
+  %453 = load i64, ptr %23, align 8, !tbaa !7
+  %454 = add nsw i64 %453, %452
+  store i64 %454, ptr %23, align 8, !tbaa !7
+  br label %286
+
+455:                                              ; preds = %286
+  br label %456
+
+456:                                              ; preds = %455
+  %457 = load i64, ptr %21, align 8, !tbaa !7
+  %458 = add nsw i64 %457, 1
+  store i64 %458, ptr %21, align 8, !tbaa !7
+  br label %157
+
+459:                                              ; preds = %157
   store i32 0, ptr %7, align 4
-  br label %459
+  store i32 1, ptr %36, align 4
+  br label %460
 
-459:                                              ; preds = %458, %280, %83, %60
-  %460 = load i32, ptr %7, align 4
-  ret i32 %460
+460:                                              ; preds = %459, %281, %84, %61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  %461 = load i32, ptr %7, align 4
+  ret i32 %461
 }
 
-declare i32 @SUNMatScaleAddI(double noundef, ptr noundef) #1
+declare i32 @SUNMatScaleAddI(double noundef, ptr noundef) #2
 
-declare i32 @SUNLinSolSetup_Band(ptr noundef, ptr noundef) #1
+declare i32 @SUNLinSolSetup_Band(ptr noundef, ptr noundef) #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @N_VGetArrayPointer(ptr noundef) #1
+declare ptr @N_VGetArrayPointer(ptr noundef) #2
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) #1
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #5
 
-declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) #1
+declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) #2
 
-declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) #1
+declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) #2
 
-declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) #1
+declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"long", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"double", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS11CVodeMemRec", !4, i64 0}
+!13 = !{!14, !4, i64 1040}
+!14 = !{!"CVodeMemRec", !15, i64 0, !10, i64 8, !4, i64 16, !4, i64 24, !16, i64 32, !16, i64 36, !10, i64 40, !10, i64 48, !17, i64 56, !16, i64 64, !16, i64 68, !4, i64 72, !4, i64 80, !16, i64 88, !5, i64 96, !17, i64 200, !17, i64 208, !17, i64 216, !17, i64 224, !17, i64 232, !17, i64 240, !17, i64 248, !17, i64 256, !17, i64 264, !16, i64 272, !16, i64 276, !10, i64 280, !16, i64 288, !16, i64 292, !16, i64 296, !16, i64 300, !16, i64 304, !10, i64 312, !10, i64 320, !10, i64 328, !10, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !10, i64 368, !5, i64 376, !5, i64 488, !5, i64 536, !10, i64 640, !10, i64 648, !10, i64 656, !10, i64 664, !10, i64 672, !10, i64 680, !10, i64 688, !16, i64 696, !10, i64 704, !16, i64 712, !8, i64 720, !16, i64 728, !16, i64 732, !16, i64 736, !10, i64 744, !10, i64 752, !10, i64 760, !10, i64 768, !10, i64 776, !10, i64 784, !10, i64 792, !10, i64 800, !10, i64 808, !10, i64 816, !10, i64 824, !10, i64 832, !8, i64 840, !16, i64 848, !8, i64 856, !8, i64 864, !8, i64 872, !8, i64 880, !8, i64 888, !8, i64 896, !8, i64 904, !16, i64 912, !10, i64 920, !10, i64 928, !10, i64 936, !8, i64 944, !8, i64 952, !8, i64 960, !8, i64 968, !18, i64 976, !16, i64 984, !4, i64 992, !16, i64 1000, !4, i64 1008, !4, i64 1016, !4, i64 1024, !4, i64 1032, !4, i64 1040, !8, i64 1048, !10, i64 1056, !16, i64 1064, !8, i64 1072, !10, i64 1080, !10, i64 1088, !10, i64 1096, !16, i64 1104, !10, i64 1112, !16, i64 1120, !16, i64 1124, !16, i64 1128, !16, i64 1132, !16, i64 1136, !4, i64 1144, !8, i64 1152, !16, i64 1160, !5, i64 1168, !16, i64 1360, !8, i64 1368, !4, i64 1376, !16, i64 1384, !19, i64 1392, !19, i64 1400, !10, i64 1408, !10, i64 1416, !10, i64 1424, !20, i64 1432, !20, i64 1440, !20, i64 1448, !10, i64 1456, !10, i64 1464, !16, i64 1472, !16, i64 1476, !8, i64 1480, !19, i64 1488, !16, i64 1496, !21, i64 1504, !16, i64 1512, !16, i64 1516, !5, i64 1520, !5, i64 1624, !5, i64 1728, !16, i64 1832}
+!15 = !{!"p1 _ZTS11SUNContext_", !4, i64 0}
+!16 = !{!"int", !5, i64 0}
+!17 = !{!"p1 _ZTS17_generic_N_Vector", !4, i64 0}
+!18 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !4, i64 0}
+!19 = !{!"p1 int", !4, i64 0}
+!20 = !{!"p1 double", !4, i64 0}
+!21 = !{!"p1 _ZTS15CVodeProjMemRec", !4, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS10CVLsMemRec", !4, i64 0}
+!24 = !{!14, !17, i64 224}
+!25 = !{!26, !27, i64 8}
+!26 = !{!"_generic_N_Vector", !4, i64 0, !27, i64 8, !15, i64 16}
+!27 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !4, i64 0}
+!28 = !{!29, !4, i64 40}
+!29 = !{!"_generic_N_Vector_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !4, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !4, i64 280, !4, i64 288, !4, i64 296, !4, i64 304, !4, i64 312, !4, i64 320, !4, i64 328, !4, i64 336, !4, i64 344, !4, i64 352, !4, i64 360, !4, i64 368, !4, i64 376, !4, i64 384, !4, i64 392, !4, i64 400, !4, i64 408, !4, i64 416, !4, i64 424, !4, i64 432, !4, i64 440}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS16CVBBDPrecDataRec", !4, i64 0}
+!32 = !{!33, !4, i64 152}
+!33 = !{!"CVBBDPrecDataRec", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !10, i64 32, !4, i64 40, !4, i64 48, !34, i64 56, !34, i64 64, !35, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !17, i64 104, !17, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !4, i64 152}
+!34 = !{!"p1 _ZTS18_generic_SUNMatrix", !4, i64 0}
+!35 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !4, i64 0}
+!36 = !{!33, !4, i64 40}
+!37 = !{!33, !4, i64 48}
+!38 = !{!33, !8, i64 0}
+!39 = !{!33, !8, i64 8}
+!40 = !{!33, !8, i64 16}
+!41 = !{!33, !8, i64 24}
+!42 = !{!14, !15, i64 0}
+!43 = !{!33, !34, i64 56}
+!44 = !{!33, !34, i64 64}
+!45 = !{!33, !17, i64 104}
+!46 = !{!33, !17, i64 112}
+!47 = !{!33, !17, i64 80}
+!48 = !{!33, !17, i64 88}
+!49 = !{!33, !17, i64 96}
+!50 = !{!33, !35, i64 72}
+!51 = !{!16, !16, i64 0}
+!52 = !{!14, !10, i64 8}
+!53 = !{!33, !10, i64 32}
+!54 = !{!33, !8, i64 120}
+!55 = !{!33, !8, i64 128}
+!56 = !{!33, !8, i64 136}
+!57 = !{!29, !4, i64 32}
+!58 = !{!59, !60, i64 8}
+!59 = !{!"_generic_SUNMatrix", !4, i64 0, !60, i64 8, !15, i64 16}
+!60 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !4, i64 0}
+!61 = !{!62, !4, i64 72}
+!62 = !{!"_generic_SUNMatrix_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72}
+!63 = !{!64, !65, i64 8}
+!64 = !{!"_generic_SUNLinearSolver", !4, i64 0, !65, i64 8, !15, i64 16}
+!65 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !4, i64 0}
+!66 = !{!67, !4, i64 96}
+!67 = !{!"_generic_SUNLinearSolver_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112}
+!68 = !{!33, !8, i64 144}
+!69 = !{!70, !4, i64 232}
+!70 = !{!"CVLsMemRec", !16, i64 0, !16, i64 4, !16, i64 8, !4, i64 16, !4, i64 24, !16, i64 32, !10, i64 40, !16, i64 48, !10, i64 56, !10, i64 64, !35, i64 72, !34, i64 80, !34, i64 88, !17, i64 96, !17, i64 104, !17, i64 112, !17, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !8, i64 184, !8, i64 192, !8, i64 200, !10, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !16, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !4, i64 280, !16, i64 288, !4, i64 296, !4, i64 304, !16, i64 312}
+!71 = !{!70, !4, i64 240}
+!72 = !{!17, !17, i64 0}
+!73 = !{!19, !19, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 long", !4, i64 0}
+!76 = !{!20, !20, i64 0}
+!77 = !{!14, !4, i64 24}
+!78 = !{!14, !17, i64 200}
+!79 = !{!14, !16, i64 88}
+!80 = !{!14, !17, i64 264}
+!81 = !{!14, !10, i64 320}

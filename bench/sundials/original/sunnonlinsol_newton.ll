@@ -12,127 +12,136 @@ define ptr @SUNNonlinSol_Newton(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  store ptr %8, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
   %10 = call ptr @SUNNonlinSolNewEmpty(ptr noundef %9)
-  store ptr %10, ptr %6, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %13, i32 0, i32 0
-  store ptr @SUNNonlinSolGetType_Newton, ptr %14, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %17, i32 0, i32 1
-  store ptr @SUNNonlinSolInitialize_Newton, ptr %18, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %21, i32 0, i32 3
-  store ptr @SUNNonlinSolSolve_Newton, ptr %22, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %25, i32 0, i32 4
-  store ptr @SUNNonlinSolFree_Newton, ptr %26, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %29, i32 0, i32 5
-  store ptr @SUNNonlinSolSetSysFn_Newton, ptr %30, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %33, i32 0, i32 6
-  store ptr @SUNNonlinSolSetLSetupFn_Newton, ptr %34, align 8
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %37, i32 0, i32 7
-  store ptr @SUNNonlinSolSetLSolveFn_Newton, ptr %38, align 8
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %39, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %41, i32 0, i32 8
-  store ptr @SUNNonlinSolSetConvTestFn_Newton, ptr %42, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %45, i32 0, i32 9
-  store ptr @SUNNonlinSolSetMaxIters_Newton, ptr %46, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %47, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %49, i32 0, i32 10
-  store ptr @SUNNonlinSolGetNumIters_Newton, ptr %50, align 8
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %53, i32 0, i32 11
-  store ptr @SUNNonlinSolGetCurIter_Newton, ptr %54, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct._generic_SUNNonlinearSolver_Ops, ptr %57, i32 0, i32 12
-  store ptr @SUNNonlinSolGetNumConvFails_Newton, ptr %58, align 8
-  store ptr null, ptr %7, align 8
-  %59 = call noalias ptr @malloc(i64 noundef 80) #5
-  store ptr %59, ptr %7, align 8
-  %60 = load ptr, ptr %7, align 8
+  store ptr %10, ptr %6, align 8, !tbaa !10
+  %11 = load ptr, ptr %6, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
+  %14 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %13, i32 0, i32 0
+  store ptr @SUNNonlinSolGetType_Newton, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %6, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %17, i32 0, i32 1
+  store ptr @SUNNonlinSolInitialize_Newton, ptr %18, align 8, !tbaa !17
+  %19 = load ptr, ptr %6, align 8, !tbaa !10
+  %20 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !12
+  %22 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %21, i32 0, i32 3
+  store ptr @SUNNonlinSolSolve_Newton, ptr %22, align 8, !tbaa !18
+  %23 = load ptr, ptr %6, align 8, !tbaa !10
+  %24 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %25, i32 0, i32 4
+  store ptr @SUNNonlinSolFree_Newton, ptr %26, align 8, !tbaa !19
+  %27 = load ptr, ptr %6, align 8, !tbaa !10
+  %28 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !12
+  %30 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %29, i32 0, i32 5
+  store ptr @SUNNonlinSolSetSysFn_Newton, ptr %30, align 8, !tbaa !20
+  %31 = load ptr, ptr %6, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !12
+  %34 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %33, i32 0, i32 6
+  store ptr @SUNNonlinSolSetLSetupFn_Newton, ptr %34, align 8, !tbaa !21
+  %35 = load ptr, ptr %6, align 8, !tbaa !10
+  %36 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !12
+  %38 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %37, i32 0, i32 7
+  store ptr @SUNNonlinSolSetLSolveFn_Newton, ptr %38, align 8, !tbaa !22
+  %39 = load ptr, ptr %6, align 8, !tbaa !10
+  %40 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !12
+  %42 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %41, i32 0, i32 8
+  store ptr @SUNNonlinSolSetConvTestFn_Newton, ptr %42, align 8, !tbaa !23
+  %43 = load ptr, ptr %6, align 8, !tbaa !10
+  %44 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !12
+  %46 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %45, i32 0, i32 9
+  store ptr @SUNNonlinSolSetMaxIters_Newton, ptr %46, align 8, !tbaa !24
+  %47 = load ptr, ptr %6, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8, !tbaa !12
+  %50 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %49, i32 0, i32 10
+  store ptr @SUNNonlinSolGetNumIters_Newton, ptr %50, align 8, !tbaa !25
+  %51 = load ptr, ptr %6, align 8, !tbaa !10
+  %52 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !12
+  %54 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %53, i32 0, i32 11
+  store ptr @SUNNonlinSolGetCurIter_Newton, ptr %54, align 8, !tbaa !26
+  %55 = load ptr, ptr %6, align 8, !tbaa !10
+  %56 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8, !tbaa !12
+  %58 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver_Ops, ptr %57, i32 0, i32 12
+  store ptr @SUNNonlinSolGetNumConvFails_Newton, ptr %58, align 8, !tbaa !27
+  store ptr null, ptr %7, align 8, !tbaa !28
+  %59 = call noalias ptr @malloc(i64 noundef 80) #7
+  store ptr %59, ptr %7, align 8, !tbaa !28
+  %60 = load ptr, ptr %7, align 8, !tbaa !28
   call void @llvm.memset.p0.i64(ptr align 8 %60, i8 0, i64 80, i1 false)
-  %61 = load ptr, ptr %7, align 8
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %62, i32 0, i32 0
-  store ptr %61, ptr %63, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %64, i32 0, i32 0
-  store ptr null, ptr %65, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %66, i32 0, i32 1
-  store ptr null, ptr %67, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %68, i32 0, i32 2
-  store ptr null, ptr %69, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %70, i32 0, i32 3
-  store ptr null, ptr %71, align 8
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %72, i32 0, i32 5
-  store i32 0, ptr %73, align 8
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %74, i32 0, i32 6
-  store i32 0, ptr %75, align 4
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %76, i32 0, i32 7
-  store i32 3, ptr %77, align 8
-  %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %78, i32 0, i32 8
-  store i64 0, ptr %79, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %80, i32 0, i32 9
-  store i64 0, ptr %81, align 8
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %82, i32 0, i32 10
-  store ptr null, ptr %83, align 8
-  %84 = load ptr, ptr %3, align 8
+  %61 = load ptr, ptr %7, align 8, !tbaa !28
+  %62 = load ptr, ptr %6, align 8, !tbaa !10
+  %63 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %62, i32 0, i32 0
+  store ptr %61, ptr %63, align 8, !tbaa !30
+  %64 = load ptr, ptr %7, align 8, !tbaa !28
+  %65 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %64, i32 0, i32 0
+  store ptr null, ptr %65, align 8, !tbaa !31
+  %66 = load ptr, ptr %7, align 8, !tbaa !28
+  %67 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %66, i32 0, i32 1
+  store ptr null, ptr %67, align 8, !tbaa !35
+  %68 = load ptr, ptr %7, align 8, !tbaa !28
+  %69 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %68, i32 0, i32 2
+  store ptr null, ptr %69, align 8, !tbaa !36
+  %70 = load ptr, ptr %7, align 8, !tbaa !28
+  %71 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %70, i32 0, i32 3
+  store ptr null, ptr %71, align 8, !tbaa !37
+  %72 = load ptr, ptr %7, align 8, !tbaa !28
+  %73 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %72, i32 0, i32 5
+  store i32 0, ptr %73, align 8, !tbaa !38
+  %74 = load ptr, ptr %7, align 8, !tbaa !28
+  %75 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %74, i32 0, i32 6
+  store i32 0, ptr %75, align 4, !tbaa !39
+  %76 = load ptr, ptr %7, align 8, !tbaa !28
+  %77 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %76, i32 0, i32 7
+  store i32 3, ptr %77, align 8, !tbaa !40
+  %78 = load ptr, ptr %7, align 8, !tbaa !28
+  %79 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %78, i32 0, i32 8
+  store i64 0, ptr %79, align 8, !tbaa !41
+  %80 = load ptr, ptr %7, align 8, !tbaa !28
+  %81 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %80, i32 0, i32 9
+  store i64 0, ptr %81, align 8, !tbaa !42
+  %82 = load ptr, ptr %7, align 8, !tbaa !28
+  %83 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %82, i32 0, i32 10
+  store ptr null, ptr %83, align 8, !tbaa !43
+  %84 = load ptr, ptr %3, align 8, !tbaa !3
   %85 = call ptr @N_VClone(ptr noundef %84)
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %86, i32 0, i32 4
-  store ptr %85, ptr %87, align 8
-  %88 = load ptr, ptr %6, align 8
+  %86 = load ptr, ptr %7, align 8, !tbaa !28
+  %87 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %86, i32 0, i32 4
+  store ptr %85, ptr %87, align 8, !tbaa !44
+  %88 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret ptr %88
 }
 
-declare ptr @SUNNonlinSolNewEmpty(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @SUNNonlinSolNewEmpty(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @SUNNonlinSolGetType_Newton(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret i32 0
 }
 
@@ -140,26 +149,28 @@ define i32 @SUNNonlinSolGetType_Newton(ptr noundef %0) #0 {
 define i32 @SUNNonlinSolInitialize_Newton(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %4, i32 0, i32 2
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %9, i32 0, i32 8
-  store i64 0, ptr %10, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %13, i32 0, i32 9
-  store i64 0, ptr %14, align 8
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %17, i32 0, i32 5
-  store i32 0, ptr %18, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  %5 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %4, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  store ptr %6, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %2, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %10 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %9, i32 0, i32 8
+  store i64 0, ptr %10, align 8, !tbaa !41
+  %11 = load ptr, ptr %2, align 8, !tbaa !10
+  %12 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %14 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %13, i32 0, i32 9
+  store i64 0, ptr %14, align 8, !tbaa !42
+  %15 = load ptr, ptr %2, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
+  %18 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %17, i32 0, i32 5
+  store i32 0, ptr %18, align 8, !tbaa !38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret i32 0
 }
 
@@ -177,262 +188,273 @@ define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr noundef %1, ptr noundef
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca ptr, align 8
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store double %4, ptr %13, align 8
-  store i32 %5, ptr %14, align 4
-  store ptr %6, ptr %15, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %16, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %25, i32 0, i32 4
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %19, align 8
-  store i32 0, ptr %18, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %30, i32 0, i32 8
-  store i64 0, ptr %31, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %34, i32 0, i32 9
-  store i64 0, ptr %35, align 8
-  br label %36
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !10
+  store ptr %1, ptr %10, align 8, !tbaa !3
+  store ptr %2, ptr %11, align 8, !tbaa !3
+  store ptr %3, ptr %12, align 8, !tbaa !3
+  store double %4, ptr %13, align 8, !tbaa !46
+  store i32 %5, ptr %14, align 4, !tbaa !48
+  store ptr %6, ptr %15, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  %21 = load ptr, ptr %9, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !45
+  store ptr %23, ptr %16, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %24 = load ptr, ptr %9, align 8, !tbaa !10
+  %25 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %27 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %26, i32 0, i32 4
+  %28 = load ptr, ptr %27, align 8, !tbaa !44
+  store ptr %28, ptr %19, align 8, !tbaa !3
+  store i32 0, ptr %18, align 4, !tbaa !48
+  %29 = load ptr, ptr %9, align 8, !tbaa !10
+  %30 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !30
+  %32 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %31, i32 0, i32 8
+  store i64 0, ptr %32, align 8, !tbaa !41
+  %33 = load ptr, ptr %9, align 8, !tbaa !10
+  %34 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !30
+  %36 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %35, i32 0, i32 9
+  store i64 0, ptr %36, align 8, !tbaa !42
+  br label %37
 
-36:                                               ; preds = %175, %7
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %11, align 8
-  %43 = load ptr, ptr %19, align 8
-  %44 = load ptr, ptr %15, align 8
-  %45 = call i32 %41(ptr noundef %42, ptr noundef %43, ptr noundef %44)
-  store i32 %45, ptr %17, align 4
-  %46 = load i32, ptr %17, align 4
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %49
+37:                                               ; preds = %176, %7
+  %38 = load ptr, ptr %9, align 8, !tbaa !10
+  %39 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !30
+  %41 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %40, i32 0, i32 6
+  store i32 0, ptr %41, align 4, !tbaa !39
+  %42 = load ptr, ptr %9, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !30
+  %45 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8, !tbaa !31
+  %47 = load ptr, ptr %11, align 8, !tbaa !3
+  %48 = load ptr, ptr %19, align 8, !tbaa !3
+  %49 = load ptr, ptr %15, align 8, !tbaa !49
+  %50 = call i32 %46(ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store i32 %50, ptr %17, align 4, !tbaa !48
+  %51 = load i32, ptr %17, align 4, !tbaa !48
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %54
 
-48:                                               ; preds = %36
-  br label %184
+53:                                               ; preds = %37
+  br label %185
 
-49:                                               ; preds = %36
-  %50 = load i32, ptr %14, align 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %69
+54:                                               ; preds = %37
+  %55 = load i32, ptr %14, align 4, !tbaa !48
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %74
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %18, align 4
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %61, i32 0, i32 5
-  %63 = load ptr, ptr %15, align 8
-  %64 = call i32 %57(i32 noundef %58, ptr noundef %62, ptr noundef %63)
-  store i32 %64, ptr %17, align 4
-  %65 = load i32, ptr %17, align 4
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %68
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %9, align 8, !tbaa !10
+  %59 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !30
+  %61 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !35
+  %63 = load i32, ptr %18, align 4, !tbaa !48
+  %64 = load ptr, ptr %9, align 8, !tbaa !10
+  %65 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !30
+  %67 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %66, i32 0, i32 5
+  %68 = load ptr, ptr %15, align 8, !tbaa !49
+  %69 = call i32 %62(i32 noundef %63, ptr noundef %67, ptr noundef %68)
+  store i32 %69, ptr %17, align 4, !tbaa !48
+  %70 = load i32, ptr %17, align 4, !tbaa !48
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %73
 
-67:                                               ; preds = %52
-  br label %184
+72:                                               ; preds = %57
+  br label %185
 
-68:                                               ; preds = %52
-  br label %69
-
-69:                                               ; preds = %68, %49
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %70, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %72, i32 0, i32 6
-  store i32 0, ptr %73, align 4
+73:                                               ; preds = %57
   br label %74
 
-74:                                               ; preds = %157, %69
-  %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %75, i32 0, i32 0
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %77, i32 0, i32 8
-  %79 = load i64, ptr %78, align 8
-  %80 = add nsw i64 %79, 1
-  store i64 %80, ptr %78, align 8
-  %81 = load ptr, ptr %19, align 8
-  %82 = load ptr, ptr %19, align 8
-  call void @N_VScale(double noundef -1.000000e+00, ptr noundef %81, ptr noundef %82)
-  %83 = load ptr, ptr %9, align 8
-  %84 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %85, i32 0, i32 2
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %19, align 8
-  %89 = load ptr, ptr %15, align 8
-  %90 = call i32 %87(ptr noundef %88, ptr noundef %89)
-  store i32 %90, ptr %17, align 4
-  %91 = load i32, ptr %17, align 4
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %94
+74:                                               ; preds = %73, %54
+  br label %75
 
-93:                                               ; preds = %74
-  br label %158
+75:                                               ; preds = %158, %74
+  %76 = load ptr, ptr %9, align 8, !tbaa !10
+  %77 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !30
+  %79 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %78, i32 0, i32 8
+  %80 = load i64, ptr %79, align 8, !tbaa !41
+  %81 = add nsw i64 %80, 1
+  store i64 %81, ptr %79, align 8, !tbaa !41
+  %82 = load ptr, ptr %19, align 8, !tbaa !3
+  %83 = load ptr, ptr %19, align 8, !tbaa !3
+  call void @N_VScale(double noundef -1.000000e+00, ptr noundef %82, ptr noundef %83)
+  %84 = load ptr, ptr %9, align 8, !tbaa !10
+  %85 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !30
+  %87 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %86, i32 0, i32 2
+  %88 = load ptr, ptr %87, align 8, !tbaa !36
+  %89 = load ptr, ptr %19, align 8, !tbaa !3
+  %90 = load ptr, ptr %15, align 8, !tbaa !49
+  %91 = call i32 %88(ptr noundef %89, ptr noundef %90)
+  store i32 %91, ptr %17, align 4, !tbaa !48
+  %92 = load i32, ptr %17, align 4, !tbaa !48
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %95
 
-94:                                               ; preds = %74
-  %95 = load ptr, ptr %11, align 8
-  %96 = load ptr, ptr %19, align 8
-  %97 = load ptr, ptr %11, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %95, double noundef 1.000000e+00, ptr noundef %96, ptr noundef %97)
-  %98 = load ptr, ptr %9, align 8
-  %99 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %98, i32 0, i32 0
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %100, i32 0, i32 3
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %9, align 8
-  %104 = load ptr, ptr %11, align 8
-  %105 = load ptr, ptr %19, align 8
-  %106 = load double, ptr %13, align 8
-  %107 = load ptr, ptr %12, align 8
-  %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %108, i32 0, i32 0
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %110, i32 0, i32 10
-  %112 = load ptr, ptr %111, align 8
-  %113 = call i32 %102(ptr noundef %103, ptr noundef %104, ptr noundef %105, double noundef %106, ptr noundef %107, ptr noundef %112)
-  store i32 %113, ptr %17, align 4
-  %114 = load i32, ptr %17, align 4
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %121
+94:                                               ; preds = %75
+  br label %159
 
-116:                                              ; preds = %94
-  %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %117, i32 0, i32 0
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %119, i32 0, i32 5
-  store i32 0, ptr %120, align 8
+95:                                               ; preds = %75
+  %96 = load ptr, ptr %11, align 8, !tbaa !3
+  %97 = load ptr, ptr %19, align 8, !tbaa !3
+  %98 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %96, double noundef 1.000000e+00, ptr noundef %97, ptr noundef %98)
+  %99 = load ptr, ptr %9, align 8, !tbaa !10
+  %100 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %99, i32 0, i32 0
+  %101 = load ptr, ptr %100, align 8, !tbaa !30
+  %102 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %101, i32 0, i32 3
+  %103 = load ptr, ptr %102, align 8, !tbaa !37
+  %104 = load ptr, ptr %9, align 8, !tbaa !10
+  %105 = load ptr, ptr %11, align 8, !tbaa !3
+  %106 = load ptr, ptr %19, align 8, !tbaa !3
+  %107 = load double, ptr %13, align 8, !tbaa !46
+  %108 = load ptr, ptr %12, align 8, !tbaa !3
+  %109 = load ptr, ptr %9, align 8, !tbaa !10
+  %110 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %109, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8, !tbaa !30
+  %112 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %111, i32 0, i32 10
+  %113 = load ptr, ptr %112, align 8, !tbaa !43
+  %114 = call i32 %103(ptr noundef %104, ptr noundef %105, ptr noundef %106, double noundef %107, ptr noundef %108, ptr noundef %113)
+  store i32 %114, ptr %17, align 4, !tbaa !48
+  %115 = load ptr, ptr %9, align 8, !tbaa !10
+  %116 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %115, i32 0, i32 0
+  %117 = load ptr, ptr %116, align 8, !tbaa !30
+  %118 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %117, i32 0, i32 6
+  %119 = load i32, ptr %118, align 4, !tbaa !39
+  %120 = add nsw i32 %119, 1
+  store i32 %120, ptr %118, align 4, !tbaa !39
+  %121 = load i32, ptr %17, align 4, !tbaa !48
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %123, label %128
+
+123:                                              ; preds = %95
+  %124 = load ptr, ptr %9, align 8, !tbaa !10
+  %125 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8, !tbaa !30
+  %127 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %126, i32 0, i32 5
+  store i32 0, ptr %127, align 8, !tbaa !38
   store i32 0, ptr %8, align 4
-  br label %192
+  store i32 1, ptr %20, align 4
+  br label %193
 
-121:                                              ; preds = %94
-  %122 = load i32, ptr %17, align 4
-  %123 = icmp ne i32 %122, 901
-  br i1 %123, label %124, label %125
+128:                                              ; preds = %95
+  %129 = load i32, ptr %17, align 4, !tbaa !48
+  %130 = icmp ne i32 %129, 901
+  br i1 %130, label %131, label %132
 
-124:                                              ; preds = %121
-  br label %158
+131:                                              ; preds = %128
+  br label %159
 
-125:                                              ; preds = %121
-  %126 = load ptr, ptr %9, align 8
-  %127 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %126, i32 0, i32 0
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %128, i32 0, i32 6
-  %130 = load i32, ptr %129, align 4
-  %131 = add nsw i32 %130, 1
-  store i32 %131, ptr %129, align 4
-  %132 = load ptr, ptr %9, align 8
-  %133 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %132, i32 0, i32 0
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %134, i32 0, i32 6
-  %136 = load i32, ptr %135, align 4
-  %137 = load ptr, ptr %9, align 8
-  %138 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %137, i32 0, i32 0
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %139, i32 0, i32 7
-  %141 = load i32, ptr %140, align 8
-  %142 = icmp sge i32 %136, %141
-  br i1 %142, label %143, label %144
+132:                                              ; preds = %128
+  %133 = load ptr, ptr %9, align 8, !tbaa !10
+  %134 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %133, i32 0, i32 0
+  %135 = load ptr, ptr %134, align 8, !tbaa !30
+  %136 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %135, i32 0, i32 6
+  %137 = load i32, ptr %136, align 4, !tbaa !39
+  %138 = load ptr, ptr %9, align 8, !tbaa !10
+  %139 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %138, i32 0, i32 0
+  %140 = load ptr, ptr %139, align 8, !tbaa !30
+  %141 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %140, i32 0, i32 7
+  %142 = load i32, ptr %141, align 8, !tbaa !40
+  %143 = icmp sge i32 %137, %142
+  br i1 %143, label %144, label %145
 
-143:                                              ; preds = %125
-  store i32 902, ptr %17, align 4
-  br label %158
+144:                                              ; preds = %132
+  store i32 902, ptr %17, align 4, !tbaa !48
+  br label %159
 
-144:                                              ; preds = %125
-  %145 = load ptr, ptr %9, align 8
-  %146 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %145, i32 0, i32 0
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %147, i32 0, i32 0
-  %149 = load ptr, ptr %148, align 8
-  %150 = load ptr, ptr %11, align 8
-  %151 = load ptr, ptr %19, align 8
-  %152 = load ptr, ptr %15, align 8
-  %153 = call i32 %149(ptr noundef %150, ptr noundef %151, ptr noundef %152)
-  store i32 %153, ptr %17, align 4
-  %154 = load i32, ptr %17, align 4
-  %155 = icmp ne i32 %154, 0
-  br i1 %155, label %156, label %157
+145:                                              ; preds = %132
+  %146 = load ptr, ptr %9, align 8, !tbaa !10
+  %147 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %146, i32 0, i32 0
+  %148 = load ptr, ptr %147, align 8, !tbaa !30
+  %149 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %148, i32 0, i32 0
+  %150 = load ptr, ptr %149, align 8, !tbaa !31
+  %151 = load ptr, ptr %11, align 8, !tbaa !3
+  %152 = load ptr, ptr %19, align 8, !tbaa !3
+  %153 = load ptr, ptr %15, align 8, !tbaa !49
+  %154 = call i32 %150(ptr noundef %151, ptr noundef %152, ptr noundef %153)
+  store i32 %154, ptr %17, align 4, !tbaa !48
+  %155 = load i32, ptr %17, align 4, !tbaa !48
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %157, label %158
 
-156:                                              ; preds = %144
-  br label %158
+157:                                              ; preds = %145
+  br label %159
 
-157:                                              ; preds = %144
-  br label %74
+158:                                              ; preds = %145
+  br label %75
 
-158:                                              ; preds = %156, %143, %124, %93
-  %159 = load i32, ptr %17, align 4
-  %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %161, label %183
+159:                                              ; preds = %157, %144, %131, %94
+  %160 = load i32, ptr %17, align 4, !tbaa !48
+  %161 = icmp sgt i32 %160, 0
+  br i1 %161, label %162, label %184
 
-161:                                              ; preds = %158
-  %162 = load ptr, ptr %9, align 8
-  %163 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %162, i32 0, i32 0
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %164, i32 0, i32 5
-  %166 = load i32, ptr %165, align 8
-  %167 = icmp ne i32 %166, 0
-  br i1 %167, label %183, label %168
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %9, align 8, !tbaa !10
+  %164 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %163, i32 0, i32 0
+  %165 = load ptr, ptr %164, align 8, !tbaa !30
+  %166 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %165, i32 0, i32 5
+  %167 = load i32, ptr %166, align 8, !tbaa !38
+  %168 = icmp ne i32 %167, 0
+  br i1 %168, label %184, label %169
 
-168:                                              ; preds = %161
-  %169 = load ptr, ptr %9, align 8
-  %170 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %169, i32 0, i32 0
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %171, i32 0, i32 1
-  %173 = load ptr, ptr %172, align 8
-  %174 = icmp ne ptr %173, null
-  br i1 %174, label %175, label %183
+169:                                              ; preds = %162
+  %170 = load ptr, ptr %9, align 8, !tbaa !10
+  %171 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %170, i32 0, i32 0
+  %172 = load ptr, ptr %171, align 8, !tbaa !30
+  %173 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %172, i32 0, i32 1
+  %174 = load ptr, ptr %173, align 8, !tbaa !35
+  %175 = icmp ne ptr %174, null
+  br i1 %175, label %176, label %184
 
-175:                                              ; preds = %168
-  %176 = load ptr, ptr %9, align 8
-  %177 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %176, i32 0, i32 0
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %178, i32 0, i32 9
-  %180 = load i64, ptr %179, align 8
-  %181 = add nsw i64 %180, 1
-  store i64 %181, ptr %179, align 8
-  store i32 1, ptr %14, align 4
-  store i32 1, ptr %18, align 4
-  %182 = load ptr, ptr %11, align 8
-  call void @N_VConst(double noundef 0.000000e+00, ptr noundef %182)
-  br label %36
+176:                                              ; preds = %169
+  %177 = load ptr, ptr %9, align 8, !tbaa !10
+  %178 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %177, i32 0, i32 0
+  %179 = load ptr, ptr %178, align 8, !tbaa !30
+  %180 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %179, i32 0, i32 9
+  %181 = load i64, ptr %180, align 8, !tbaa !42
+  %182 = add nsw i64 %181, 1
+  store i64 %182, ptr %180, align 8, !tbaa !42
+  store i32 1, ptr %14, align 4, !tbaa !48
+  store i32 1, ptr %18, align 4, !tbaa !48
+  %183 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @N_VConst(double noundef 0.000000e+00, ptr noundef %183)
+  br label %37
 
-183:                                              ; preds = %168, %161, %158
-  br label %184
+184:                                              ; preds = %169, %162, %159
+  br label %185
 
-184:                                              ; preds = %183, %67, %48
-  %185 = load ptr, ptr %9, align 8
-  %186 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %185, i32 0, i32 0
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %187, i32 0, i32 9
-  %189 = load i64, ptr %188, align 8
-  %190 = add nsw i64 %189, 1
-  store i64 %190, ptr %188, align 8
-  %191 = load i32, ptr %17, align 4
-  store i32 %191, ptr %8, align 4
-  br label %192
+185:                                              ; preds = %184, %72, %53
+  %186 = load ptr, ptr %9, align 8, !tbaa !10
+  %187 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %186, i32 0, i32 0
+  %188 = load ptr, ptr %187, align 8, !tbaa !30
+  %189 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %188, i32 0, i32 9
+  %190 = load i64, ptr %189, align 8, !tbaa !42
+  %191 = add nsw i64 %190, 1
+  store i64 %191, ptr %189, align 8, !tbaa !42
+  %192 = load i32, ptr %17, align 4, !tbaa !48
+  store i32 %192, ptr %8, align 4
+  store i32 1, ptr %20, align 4
+  br label %193
 
-192:                                              ; preds = %184, %116
-  %193 = load i32, ptr %8, align 4
-  ret i32 %193
+193:                                              ; preds = %185, %123
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  %194 = load i32, ptr %8, align 4
+  ret i32 %194
 }
 
 ; Function Attrs: nounwind uwtable
@@ -440,8 +462,8 @@ define i32 @SUNNonlinSolFree_Newton(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -450,70 +472,72 @@ define i32 @SUNNonlinSolFree_Newton(ptr noundef %0) #0 {
   br label %52
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %4, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %9 = load ptr, ptr %3, align 8, !tbaa !10
+  %10 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !45
+  store ptr %11, ptr %4, align 8, !tbaa !8
+  %12 = load ptr, ptr %3, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %39
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %19, i32 0, i32 4
-  %21 = load ptr, ptr %20, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  %20 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %19, i32 0, i32 4
+  %21 = load ptr, ptr %20, align 8, !tbaa !44
   %22 = icmp ne ptr %21, null
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %16
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %26, i32 0, i32 4
-  %28 = load ptr, ptr %27, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !10
+  %25 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %27 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %26, i32 0, i32 4
+  %28 = load ptr, ptr %27, align 8, !tbaa !44
   call void @N_VDestroy(ptr noundef %28)
   br label %29
 
 29:                                               ; preds = %23, %16
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %32, i32 0, i32 4
-  store ptr null, ptr %33, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
+  %30 = load ptr, ptr %3, align 8, !tbaa !10
+  %31 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !30
+  %33 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %32, i32 0, i32 4
+  store ptr null, ptr %33, align 8, !tbaa !44
+  %34 = load ptr, ptr %3, align 8, !tbaa !10
+  %35 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !30
   call void @free(ptr noundef %36) #6
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %37, i32 0, i32 0
-  store ptr null, ptr %38, align 8
+  %37 = load ptr, ptr %3, align 8, !tbaa !10
+  %38 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %37, i32 0, i32 0
+  store ptr null, ptr %38, align 8, !tbaa !30
   br label %39
 
 39:                                               ; preds = %29, %8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
+  %40 = load ptr, ptr %3, align 8, !tbaa !10
+  %41 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !12
   %43 = icmp ne ptr %42, null
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
+  %45 = load ptr, ptr %3, align 8, !tbaa !10
+  %46 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !12
   call void @free(ptr noundef %47) #6
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %48, i32 0, i32 1
-  store ptr null, ptr %49, align 8
+  %48 = load ptr, ptr %3, align 8, !tbaa !10
+  %49 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %48, i32 0, i32 1
+  store ptr null, ptr %49, align 8, !tbaa !12
   br label %50
 
 50:                                               ; preds = %44, %39
-  %51 = load ptr, ptr %3, align 8
+  %51 = load ptr, ptr %3, align 8, !tbaa !10
   call void @free(ptr noundef %51) #6
   store i32 0, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
   br label %52
 
 52:                                               ; preds = %50, %7
@@ -526,18 +550,20 @@ define i32 @SUNNonlinSolSetSysFn_Newton(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %6, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %12, i32 0, i32 0
-  store ptr %9, ptr %13, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
+  store ptr %8, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %4, align 8, !tbaa !49
+  %10 = load ptr, ptr %3, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %12, i32 0, i32 0
+  store ptr %9, ptr %13, align 8, !tbaa !31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret i32 0
 }
 
@@ -545,14 +571,14 @@ define i32 @SUNNonlinSolSetSysFn_Newton(ptr noundef %0, ptr noundef %1) #0 {
 define i32 @SUNNonlinSolSetLSetupFn_Newton(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %8, i32 0, i32 1
-  store ptr %5, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  %9 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %8, i32 0, i32 1
+  store ptr %5, ptr %9, align 8, !tbaa !35
   ret i32 0
 }
 
@@ -561,18 +587,20 @@ define i32 @SUNNonlinSolSetLSolveFn_Newton(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %6, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %12, i32 0, i32 2
-  store ptr %9, ptr %13, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
+  store ptr %8, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %4, align 8, !tbaa !49
+  %10 = load ptr, ptr %3, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %12, i32 0, i32 2
+  store ptr %9, ptr %13, align 8, !tbaa !36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret i32 0
 }
 
@@ -582,25 +610,27 @@ define i32 @SUNNonlinSolSetConvTestFn_Newton(ptr noundef %0, ptr noundef %1, ptr
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %14, i32 0, i32 3
-  store ptr %11, ptr %15, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %19, i32 0, i32 10
-  store ptr %16, ptr %20, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !49
+  store ptr %2, ptr %6, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %8 = load ptr, ptr %4, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !45
+  store ptr %10, ptr %7, align 8, !tbaa !8
+  %11 = load ptr, ptr %5, align 8, !tbaa !49
+  %12 = load ptr, ptr %4, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %15 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %14, i32 0, i32 3
+  store ptr %11, ptr %15, align 8, !tbaa !37
+  %16 = load ptr, ptr %6, align 8, !tbaa !49
+  %17 = load ptr, ptr %4, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  %20 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %19, i32 0, i32 10
+  store ptr %16, ptr %20, align 8, !tbaa !43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 0
 }
 
@@ -609,18 +639,20 @@ define i32 @SUNNonlinSolSetMaxIters_Newton(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %6, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %12, i32 0, i32 7
-  store i32 %9, ptr %13, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store i32 %1, ptr %4, align 4, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
+  store ptr %8, ptr %5, align 8, !tbaa !8
+  %9 = load i32, ptr %4, align 4, !tbaa !48
+  %10 = load ptr, ptr %3, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %12, i32 0, i32 7
+  store i32 %9, ptr %13, align 8, !tbaa !40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret i32 0
 }
 
@@ -628,15 +660,15 @@ define i32 @SUNNonlinSolSetMaxIters_Newton(ptr noundef %0, i32 noundef %1) #0 {
 define i32 @SUNNonlinSolGetNumIters_Newton(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %7, i32 0, i32 8
-  %9 = load i64, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  store i64 %9, ptr %10, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !50
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %8 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %7, i32 0, i32 8
+  %9 = load i64, ptr %8, align 8, !tbaa !41
+  %10 = load ptr, ptr %4, align 8, !tbaa !50
+  store i64 %9, ptr %10, align 8, !tbaa !52
   ret i32 0
 }
 
@@ -644,15 +676,15 @@ define i32 @SUNNonlinSolGetNumIters_Newton(ptr noundef %0, ptr noundef %1) #0 {
 define i32 @SUNNonlinSolGetCurIter_Newton(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %7, i32 0, i32 6
-  %9 = load i32, ptr %8, align 4
-  %10 = load ptr, ptr %4, align 8
-  store i32 %9, ptr %10, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %8 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %7, i32 0, i32 6
+  %9 = load i32, ptr %8, align 4, !tbaa !39
+  %10 = load ptr, ptr %4, align 8, !tbaa !53
+  store i32 %9, ptr %10, align 4, !tbaa !48
   ret i32 0
 }
 
@@ -660,25 +692,28 @@ define i32 @SUNNonlinSolGetCurIter_Newton(ptr noundef %0, ptr noundef %1) #0 {
 define i32 @SUNNonlinSolGetNumConvFails_Newton(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %7, i32 0, i32 9
-  %9 = load i64, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  store i64 %9, ptr %10, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !50
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %8 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %7, i32 0, i32 9
+  %9 = load i64, ptr %8, align 8, !tbaa !42
+  %10 = load ptr, ptr %4, align 8, !tbaa !50
+  store i64 %9, ptr %10, align 8, !tbaa !52
   ret i32 0
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @N_VClone(ptr noundef) #1
+declare ptr @N_VClone(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @SUNNonlinSol_NewtonSens(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -688,65 +723,123 @@ define ptr @SUNNonlinSol_NewtonSens(i32 noundef %0, ptr noundef %1, ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %7, align 8
-  %11 = load i32, ptr %4, align 4
-  %12 = load ptr, ptr %5, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !48
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %10 = load ptr, ptr %6, align 8, !tbaa !8
+  store ptr %10, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %11 = load i32, ptr %4, align 4, !tbaa !48
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
   %13 = call ptr @N_VNew_SensWrapper(i32 noundef %11, ptr noundef %12)
-  store ptr %13, ptr %9, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = load ptr, ptr %6, align 8
+  store ptr %13, ptr %9, align 8, !tbaa !3
+  %14 = load ptr, ptr %9, align 8, !tbaa !3
+  %15 = load ptr, ptr %6, align 8, !tbaa !8
   %16 = call ptr @SUNNonlinSol_Newton(ptr noundef %14, ptr noundef %15)
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
+  store ptr %16, ptr %8, align 8, !tbaa !10
+  %17 = load ptr, ptr %9, align 8, !tbaa !3
   call void @N_VDestroy(ptr noundef %17)
-  %18 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret ptr %18
 }
 
-declare ptr @N_VNew_SensWrapper(i32 noundef, ptr noundef) #1
+declare ptr @N_VNew_SensWrapper(i32 noundef, ptr noundef) #2
 
-declare void @N_VDestroy(ptr noundef) #1
+declare void @N_VDestroy(ptr noundef) #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) #2
 
-declare void @N_VConst(double noundef, ptr noundef) #1
+declare void @N_VConst(double noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @SUNNonlinSolGetSysFn_Newton(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._generic_SUNNonlinearSolver, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct._SUNNonlinearSolverContent_Newton, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %10, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %3, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw %struct._generic_SUNNonlinearSolver, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %8 = getelementptr inbounds nuw %struct._SUNNonlinearSolverContent_Newton, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %10 = load ptr, ptr %4, align 8, !tbaa !49
+  store ptr %9, ptr %10, align 8, !tbaa !49
   ret i32 0
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
+attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS11SUNContext_", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !5, i64 0}
+!12 = !{!13, !14, i64 8}
+!13 = !{!"_generic_SUNNonlinearSolver", !5, i64 0, !14, i64 8, !9, i64 16}
+!14 = !{!"p1 _ZTS31_generic_SUNNonlinearSolver_Ops", !5, i64 0}
+!15 = !{!16, !5, i64 0}
+!16 = !{!"_generic_SUNNonlinearSolver_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96}
+!17 = !{!16, !5, i64 8}
+!18 = !{!16, !5, i64 24}
+!19 = !{!16, !5, i64 32}
+!20 = !{!16, !5, i64 40}
+!21 = !{!16, !5, i64 48}
+!22 = !{!16, !5, i64 56}
+!23 = !{!16, !5, i64 64}
+!24 = !{!16, !5, i64 72}
+!25 = !{!16, !5, i64 80}
+!26 = !{!16, !5, i64 88}
+!27 = !{!16, !5, i64 96}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS33_SUNNonlinearSolverContent_Newton", !5, i64 0}
+!30 = !{!13, !5, i64 0}
+!31 = !{!32, !5, i64 0}
+!32 = !{!"_SUNNonlinearSolverContent_Newton", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !4, i64 32, !33, i64 40, !33, i64 44, !33, i64 48, !34, i64 56, !34, i64 64, !5, i64 72}
+!33 = !{!"int", !6, i64 0}
+!34 = !{!"long", !6, i64 0}
+!35 = !{!32, !5, i64 8}
+!36 = !{!32, !5, i64 16}
+!37 = !{!32, !5, i64 24}
+!38 = !{!32, !33, i64 40}
+!39 = !{!32, !33, i64 44}
+!40 = !{!32, !33, i64 48}
+!41 = !{!32, !34, i64 56}
+!42 = !{!32, !34, i64 64}
+!43 = !{!32, !5, i64 72}
+!44 = !{!32, !4, i64 32}
+!45 = !{!13, !9, i64 16}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"double", !6, i64 0}
+!48 = !{!33, !33, i64 0}
+!49 = !{!5, !5, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 long", !5, i64 0}
+!52 = !{!34, !34, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 int", !5, i64 0}

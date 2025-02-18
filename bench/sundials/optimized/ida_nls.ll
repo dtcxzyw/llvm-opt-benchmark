@@ -30,7 +30,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolver(ptr noundef %0, ptr noundef 
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 49, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 49, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %51
 
 5:                                                ; preds = %2
@@ -38,102 +38,102 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolver(ptr noundef %0, ptr noundef 
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -22, i32 noundef 57, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -22, i32 noundef 57, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #3
   br label %51
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %10, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17, %13, %8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 66, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 66, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #3
   br label %51
 
 22:                                               ; preds = %17
-  %23 = tail call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #2
+  %23 = tail call i32 @SUNNonlinSolGetType(ptr noundef nonnull %1) #3
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %25, label %24
 
 24:                                               ; preds = %22
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 74, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 74, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #3
   br label %51
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !14
   %.not33 = icmp eq ptr %27, null
   br i1 %.not33, label %33, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  %30 = load i32, ptr %29, align 8
+  %30 = load i32, ptr %29, align 8, !tbaa !23
   %.not34 = icmp eq i32 %30, 0
   br i1 %.not34, label %33, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %27) #2
+  %32 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %27) #3
   br label %33
 
 33:                                               ; preds = %31, %28, %25
-  store ptr %1, ptr %26, align 8
+  store ptr %1, ptr %26, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  store i32 0, ptr %34, align 8
-  %35 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef nonnull %1, ptr noundef nonnull @idaNlsResidual) #2
+  store i32 0, ptr %34, align 8, !tbaa !23
+  %35 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef nonnull %1, ptr noundef nonnull @idaNlsResidual) #3
   %.not35 = icmp eq i32 %35, 0
   br i1 %.not35, label %37, label %36
 
 36:                                               ; preds = %33
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 96, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 96, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #3
   br label %51
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %26, align 8
-  %39 = tail call i32 @SUNNonlinSolSetConvTestFn(ptr noundef %38, ptr noundef nonnull @idaNlsConvTest, ptr noundef nonnull %0) #2
+  %38 = load ptr, ptr %26, align 8, !tbaa !14
+  %39 = tail call i32 @SUNNonlinSolSetConvTestFn(ptr noundef %38, ptr noundef nonnull @idaNlsConvTest, ptr noundef nonnull %0) #3
   %.not36 = icmp eq i32 %39, 0
   br i1 %.not36, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 105, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 105, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #3
   br label %51
 
 41:                                               ; preds = %37
-  %42 = load ptr, ptr %26, align 8
-  %43 = tail call i32 @SUNNonlinSolSetMaxIters(ptr noundef %42, i32 noundef 4) #2
+  %42 = load ptr, ptr %26, align 8, !tbaa !14
+  %43 = tail call i32 @SUNNonlinSolSetMaxIters(ptr noundef %42, i32 noundef 4) #3
   %.not37 = icmp eq i32 %43, 0
   br i1 %.not37, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 114, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 114, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #3
   br label %51
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !24
   %.not38 = icmp eq ptr %47, null
   br i1 %.not38, label %48, label %49
 
 48:                                               ; preds = %45
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 122, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 122, ptr noundef nonnull @__func__.IDASetNonlinearSolver, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #3
   br label %51
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  store ptr %47, ptr %50, align 8
+  store ptr %47, ptr %50, align 8, !tbaa !25
   br label %51
 
 51:                                               ; preds = %49, %48, %44, %40, %36, %24, %21, %7, %4
@@ -141,13 +141,16 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolver(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
-declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #1
+declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #2
+
+declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -20, 2) i32 @idaNlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
@@ -155,38 +158,38 @@ define internal range(i32 -20, 2) i32 @idaNlsResidual(ptr noundef %0, ptr nounde
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 295, ptr noundef nonnull @__func__.idaNlsResidual, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 296, ptr noundef nonnull @__func__.idaNlsResidual, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %33
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  %10 = load ptr, ptr %9, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %8, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %10) #2
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %8, double noundef 1.000000e+00, ptr noundef %0, ptr noundef %10) #3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 696
-  %14 = load double, ptr %13, align 8
+  %14 = load double, ptr %13, align 8, !tbaa !29
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 400
-  %16 = load ptr, ptr %15, align 8
-  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef %14, ptr noundef %0, ptr noundef %16) #2
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
+  tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef %14, ptr noundef %0, ptr noundef %16) #3
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 1000
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 680
-  %20 = load double, ptr %19, align 8
-  %21 = load ptr, ptr %9, align 8
-  %22 = load ptr, ptr %15, align 8
+  %20 = load double, ptr %19, align 8, !tbaa !31
+  %21 = load ptr, ptr %9, align 8, !tbaa !27
+  %22 = load ptr, ptr %15, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %18(double noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %1, ptr noundef %24) #2
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %25 = tail call i32 %18(double noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %1, ptr noundef %24) #3
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 872
-  %27 = load i64, ptr %26, align 8
+  %27 = load i64, ptr %26, align 8, !tbaa !33
   %28 = add nsw i64 %27, 1
-  store i64 %28, ptr %26, align 8
+  store i64 %28, ptr %26, align 8, !tbaa !33
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %30 = load ptr, ptr %29, align 8
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %30) #2
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %30) #3
   %31 = icmp slt i32 %25, 0
   br i1 %31, label %33, label %32
 
@@ -200,49 +203,50 @@ define internal range(i32 -20, 2) i32 @idaNlsResidual(ptr noundef %0, ptr nounde
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -20, 903) i32 @idaNlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) #0 {
   %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
   %8 = icmp eq ptr %5, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 331, ptr noundef nonnull @__func__.idaNlsConvTest, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 333, ptr noundef nonnull @__func__.idaNlsConvTest, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %37
 
 10:                                               ; preds = %6
-  %11 = tail call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %4) #2
-  %12 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %0, ptr noundef nonnull %7) #2
+  %11 = tail call double @N_VWrmsNorm(ptr noundef %2, ptr noundef %4) #3
+  %12 = call i32 @SUNNonlinSolGetCurIter(ptr noundef %0, ptr noundef nonnull %7) #3
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %37
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr %7, align 4
+  %14 = load i32, ptr %7, align 4, !tbaa !35
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 736
   br i1 %15, label %17, label %22
 
 17:                                               ; preds = %13
-  store double %11, ptr %16, align 8
+  store double %11, ptr %16, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 760
-  %19 = load double, ptr %18, align 8
+  %19 = load double, ptr %18, align 8, !tbaa !37
   %20 = fmul double %19, 1.000000e-04
   %21 = fcmp ugt double %11, %20
   br i1 %21, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 728
-  %.pre = load double, ptr %.phi.trans.insert, align 8
+  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !38
   br label %33
 
 22:                                               ; preds = %13
-  %23 = load double, ptr %16, align 8
+  %23 = load double, ptr %16, align 8, !tbaa !36
   %24 = fdiv double %11, %23
   %25 = sitofp i32 %14 to double
   %26 = fdiv double 1.000000e+00, %25
-  %27 = call double @SUNRpowerR(double noundef %24, double noundef %26) #2
+  %27 = call double @SUNRpowerR(double noundef %24, double noundef %26) #3
   %28 = fcmp ogt double %27, 9.000000e-01
   br i1 %28, label %37, label %29
 
@@ -250,7 +254,7 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTest(ptr noundef %0, ptr read
   %30 = fsub double 1.000000e+00, %27
   %31 = fdiv double %27, %30
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 728
-  store double %31, ptr %32, align 8
+  store double %31, ptr %32, align 8, !tbaa !38
   br label %33
 
 33:                                               ; preds = %._crit_edge, %29
@@ -262,10 +266,14 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTest(ptr noundef %0, ptr read
 
 37:                                               ; preds = %33, %22, %17, %10, %9
   %.0 = phi i32 [ -20, %9 ], [ -20, %10 ], [ 0, %17 ], [ 902, %22 ], [ %., %33 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -20, 1) i32 @IDASetNlsResFn(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -273,7 +281,7 @@ define range(i32 -20, 1) i32 @IDASetNlsResFn(ptr noundef captures(address_is_nul
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 143, ptr noundef nonnull @__func__.IDASetNlsResFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 143, ptr noundef nonnull @__func__.IDASetNlsResFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %12
 
 5:                                                ; preds = %2
@@ -282,14 +290,14 @@ define range(i32 -20, 1) i32 @IDASetNlsResFn(ptr noundef captures(address_is_nul
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  store ptr %1, ptr %7, align 8
+  store ptr %1, ptr %7, align 8, !tbaa !25
   br label %12
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  store ptr %10, ptr %11, align 8
+  store ptr %10, ptr %11, align 8, !tbaa !25
   br label %12
 
 12:                                               ; preds = %6, %8, %4
@@ -303,34 +311,34 @@ define range(i32 -20, 1) i32 @IDAGetNonlinearSystemData(ptr noundef readonly cap
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 169, ptr noundef nonnull @__func__.IDAGetNonlinearSystemData, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 169, ptr noundef nonnull @__func__.IDAGetNonlinearSystemData, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %29
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %14 = load double, ptr %13, align 8
-  store double %14, ptr %1, align 8
+  %14 = load double, ptr %13, align 8, !tbaa !31
+  store double %14, ptr %1, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %2, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  store ptr %16, ptr %2, align 8, !tbaa !40
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %3, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  store ptr %18, ptr %3, align 8, !tbaa !40
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %4, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  store ptr %20, ptr %4, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %5, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  store ptr %22, ptr %5, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %6, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !34
+  store ptr %24, ptr %6, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %26 = load double, ptr %25, align 8
-  store double %26, ptr %7, align 8
+  %26 = load double, ptr %25, align 8, !tbaa !29
+  store double %26, ptr %7, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %8, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !32
+  store ptr %28, ptr %8, align 8, !tbaa !41
   br label %29
 
 29:                                               ; preds = %12, %11
@@ -341,43 +349,43 @@ define range(i32 -20, 1) i32 @IDAGetNonlinearSystemData(ptr noundef readonly cap
 ; Function Attrs: nounwind uwtable
 define range(i32 -15, 1) i32 @idaNlsInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !42
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %.idaNlsLSetup = select i1 %.not, ptr null, ptr @idaNlsLSetup
-  %6 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef %.idaNlsLSetup) #2
+  %6 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef %.idaNlsLSetup) #3
   %.not14 = icmp eq i32 %6, 0
   br i1 %.not14, label %8, label %7
 
 7:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 204, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 204, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #3
   br label %20
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !43
   %.not15 = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
   %.idaNlsLSolve = select i1 %.not15, ptr null, ptr @idaNlsLSolve
-  %13 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %12, ptr noundef %.idaNlsLSolve) #2
+  %13 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %12, ptr noundef %.idaNlsLSolve) #3
   %.not16 = icmp eq i32 %13, 0
   br i1 %.not16, label %15, label %14
 
 14:                                               ; preds = %8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 218, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 218, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #3
   br label %20
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %17) #2
+  %17 = load ptr, ptr %16, align 8, !tbaa !14
+  %18 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %17) #3
   %.not17 = icmp eq i32 %18, 0
   br i1 %.not17, label %20, label %19
 
 19:                                               ; preds = %15
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 228, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 228, ptr noundef nonnull @__func__.idaNlsInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #3
   br label %20
 
 20:                                               ; preds = %15, %19, %14, %7
@@ -385,7 +393,7 @@ define range(i32 -15, 1) i32 @idaNlsInit(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.013
 }
 
-declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 {
@@ -393,38 +401,38 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr noundef writeonl
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 243, ptr noundef nonnull @__func__.idaNlsLSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 244, ptr noundef nonnull @__func__.idaNlsLSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %32
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 912
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !44
   %9 = add nsw i64 %8, 1
-  store i64 %9, ptr %7, align 8
+  store i64 %9, ptr %7, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 1016
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 400
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 464
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !45
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %11(ptr noundef nonnull %2, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23) #2
-  store i32 1, ptr %1, align 4
+  %23 = load ptr, ptr %22, align 8, !tbaa !47
+  %24 = tail call i32 %11(ptr noundef nonnull %2, ptr noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %19, ptr noundef %21, ptr noundef %23) #3
+  store i32 1, ptr %1, align 4, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 696
-  %26 = load double, ptr %25, align 8
+  %26 = load double, ptr %25, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 712
-  store double %26, ptr %27, align 8
+  store double %26, ptr %27, align 8, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 720
-  store double 1.000000e+00, ptr %28, align 8
+  store double 1.000000e+00, ptr %28, align 8, !tbaa !49
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 728
-  store double 2.000000e+01, ptr %29, align 8
+  store double 2.000000e+01, ptr %29, align 8, !tbaa !38
   %30 = icmp slt i32 %24, 0
   br i1 %30, label %32, label %31
 
@@ -438,7 +446,7 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr noundef writeonl
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -20, 4) i32 @idaNlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
@@ -446,21 +454,21 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolve(ptr noundef %0, ptr noundef 
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 274, ptr noundef nonnull @__func__.idaNlsLSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 275, ptr noundef nonnull @__func__.idaNlsLSolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   br label %19
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1024
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %7(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #2
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %16 = tail call i32 %7(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15) #3
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -474,25 +482,73 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolve(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #2
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNNonlinSolGetCurIter(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNNonlinSolGetCurIter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #1
+declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !8, i64 8}
+!4 = !{!"_generic_SUNNonlinearSolver", !5, i64 0, !8, i64 8, !9, i64 16}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 _ZTS31_generic_SUNNonlinearSolver_Ops", !5, i64 0}
+!9 = !{!"p1 _ZTS11SUNContext_", !5, i64 0}
+!10 = !{!11, !5, i64 0}
+!11 = !{!"_generic_SUNNonlinearSolver_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96}
+!12 = !{!11, !5, i64 24}
+!13 = !{!11, !5, i64 40}
+!14 = !{!15, !20, i64 984}
+!15 = !{!"IDAMemRec", !9, i64 0, !16, i64 8, !5, i64 16, !5, i64 24, !17, i64 32, !16, i64 40, !16, i64 48, !18, i64 56, !17, i64 64, !17, i64 68, !5, i64 72, !5, i64 80, !17, i64 88, !17, i64 92, !6, i64 96, !6, i64 144, !6, i64 192, !6, i64 240, !6, i64 288, !6, i64 336, !18, i64 384, !18, i64 392, !18, i64 400, !18, i64 408, !18, i64 416, !18, i64 424, !18, i64 432, !18, i64 440, !18, i64 448, !18, i64 456, !18, i64 464, !18, i64 472, !18, i64 480, !18, i64 488, !18, i64 496, !18, i64 504, !18, i64 512, !16, i64 520, !18, i64 528, !18, i64 536, !17, i64 544, !17, i64 548, !17, i64 552, !17, i64 556, !17, i64 560, !17, i64 564, !17, i64 568, !17, i64 572, !16, i64 576, !16, i64 584, !16, i64 592, !17, i64 600, !16, i64 608, !17, i64 616, !17, i64 620, !17, i64 624, !17, i64 628, !17, i64 632, !16, i64 640, !16, i64 648, !16, i64 656, !16, i64 664, !16, i64 672, !16, i64 680, !16, i64 688, !16, i64 696, !16, i64 704, !16, i64 712, !16, i64 720, !16, i64 728, !16, i64 736, !16, i64 744, !16, i64 752, !16, i64 760, !17, i64 768, !17, i64 772, !17, i64 776, !17, i64 780, !19, i64 784, !16, i64 792, !16, i64 800, !16, i64 808, !16, i64 816, !16, i64 824, !16, i64 832, !16, i64 840, !16, i64 848, !16, i64 856, !19, i64 864, !19, i64 872, !19, i64 880, !19, i64 888, !19, i64 896, !19, i64 904, !19, i64 912, !19, i64 920, !19, i64 928, !19, i64 936, !19, i64 944, !16, i64 952, !17, i64 960, !17, i64 964, !17, i64 968, !17, i64 972, !17, i64 976, !20, i64 984, !17, i64 992, !5, i64 1000, !5, i64 1008, !5, i64 1016, !5, i64 1024, !5, i64 1032, !5, i64 1040, !5, i64 1048, !16, i64 1056, !17, i64 1064, !5, i64 1072, !17, i64 1080, !21, i64 1088, !21, i64 1096, !16, i64 1104, !16, i64 1112, !16, i64 1120, !22, i64 1128, !22, i64 1136, !22, i64 1144, !16, i64 1152, !16, i64 1160, !17, i64 1168, !17, i64 1172, !19, i64 1176, !21, i64 1184, !17, i64 1192, !6, i64 1200, !6, i64 1248, !6, i64 1288, !6, i64 1336}
+!16 = !{!"double", !6, i64 0}
+!17 = !{!"int", !6, i64 0}
+!18 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !5, i64 0}
+!21 = !{!"p1 int", !5, i64 0}
+!22 = !{!"p1 double", !5, i64 0}
+!23 = !{!15, !17, i64 992}
+!24 = !{!15, !5, i64 16}
+!25 = !{!15, !5, i64 1000}
+!26 = !{!15, !18, i64 408}
+!27 = !{!15, !18, i64 392}
+!28 = !{!15, !18, i64 416}
+!29 = !{!15, !16, i64 696}
+!30 = !{!15, !18, i64 400}
+!31 = !{!15, !16, i64 680}
+!32 = !{!15, !5, i64 24}
+!33 = !{!15, !19, i64 872}
+!34 = !{!15, !18, i64 448}
+!35 = !{!17, !17, i64 0}
+!36 = !{!15, !16, i64 736}
+!37 = !{!15, !16, i64 760}
+!38 = !{!15, !16, i64 728}
+!39 = !{!16, !16, i64 0}
+!40 = !{!18, !18, i64 0}
+!41 = !{!5, !5, i64 0}
+!42 = !{!15, !5, i64 1016}
+!43 = !{!15, !5, i64 1024}
+!44 = !{!15, !19, i64 912}
+!45 = !{!15, !18, i64 464}
+!46 = !{!15, !18, i64 472}
+!47 = !{!15, !18, i64 480}
+!48 = !{!15, !16, i64 712}
+!49 = !{!15, !16, i64 720}
+!50 = !{!15, !18, i64 384}

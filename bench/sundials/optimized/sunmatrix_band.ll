@@ -10,78 +10,126 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @SUNBandMatrix(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = add nsw i64 %2, %1
-  %6 = tail call ptr @SUNBandMatrixStorage(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %5, ptr noundef %3)
+  %6 = tail call ptr @SUNMatNewEmpty(ptr noundef %3) #18
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr @SUNMatGetID_Band, ptr %8, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @SUNMatClone_Band, ptr %9, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @SUNMatDestroy_Band, ptr %10, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr @SUNMatZero_Band, ptr %11, align 8, !tbaa !14
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr @SUNMatCopy_Band, ptr %12, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store ptr @SUNMatScaleAdd_Band, ptr %13, align 8, !tbaa !16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr @SUNMatScaleAddI_Band, ptr %14, align 8, !tbaa !17
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store ptr @SUNMatMatvec_Band, ptr %15, align 8, !tbaa !18
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @SUNMatSpace_Band, ptr %16, align 8, !tbaa !19
+  %17 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  store ptr %17, ptr %6, align 8, !tbaa !20
+  %18 = add i64 %2, 1
+  %19 = add i64 %18, %5
+  store i64 %0, ptr %17, align 8, !tbaa !21
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 %0, ptr %20, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i64 %1, ptr %21, align 8, !tbaa !27
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store i64 %2, ptr %22, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i64 %5, ptr %23, align 8, !tbaa !29
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 %19, ptr %24, align 8, !tbaa !30
+  %25 = mul nsw i64 %19, %0
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  store i64 %25, ptr %26, align 8, !tbaa !31
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %29 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 8) #20
+  store ptr %29, ptr %27, align 8, !tbaa !32
+  %30 = shl i64 %0, 3
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #19
+  store ptr %31, ptr %28, align 8, !tbaa !33
+  %32 = icmp sgt i64 %0, 0
+  br i1 %32, label %.lr.ph.i, label %SUNBandMatrixStorage.exit
+
+.lr.ph.i:                                         ; preds = %4, %.lr.ph.i
+  %.045.i = phi i64 [ %36, %.lr.ph.i ], [ 0, %4 ]
+  %33 = mul nsw i64 %.045.i, %19
+  %34 = getelementptr inbounds double, ptr %29, i64 %33
+  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %.045.i
+  store ptr %34, ptr %35, align 8, !tbaa !34
+  %36 = add nuw nsw i64 %.045.i, 1
+  %exitcond.not.i = icmp eq i64 %36, %0
+  br i1 %exitcond.not.i, label %SUNBandMatrixStorage.exit, label %.lr.ph.i
+
+SUNBandMatrixStorage.exit:                        ; preds = %.lr.ph.i, %4
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @SUNBandMatrixStorage(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @SUNMatNewEmpty(ptr noundef %4) #16
+  %6 = tail call ptr @SUNMatNewEmpty(ptr noundef %4) #18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr @SUNMatGetID_Band, ptr %8, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @SUNMatClone_Band, ptr %10, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr @SUNMatDestroy_Band, ptr %12, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr @SUNMatZero_Band, ptr %14, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr @SUNMatCopy_Band, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store ptr @SUNMatScaleAdd_Band, ptr %18, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store ptr @SUNMatScaleAddI_Band, ptr %20, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  store ptr @SUNMatMatvec_Band, ptr %22, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  store ptr @SUNMatSpace_Band, ptr %24, align 8
-  %25 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #17
-  store ptr %25, ptr %6, align 8
-  %26 = add i64 %2, 1
-  %27 = add i64 %26, %3
-  store i64 %0, ptr %25, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 %0, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i64 %1, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i64 %2, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i64 %3, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 %27, ptr %32, align 8
-  %33 = mul nsw i64 %27, %0
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  store i64 %33, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %36 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %37 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 8) #18
-  store ptr %37, ptr %35, align 8
-  %38 = shl i64 %0, 3
-  %39 = tail call noalias ptr @malloc(i64 noundef %38) #17
-  store ptr %39, ptr %36, align 8
-  %40 = icmp sgt i64 %0, 0
-  br i1 %40, label %.lr.ph, label %._crit_edge
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr @SUNMatGetID_Band, ptr %8, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @SUNMatClone_Band, ptr %9, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @SUNMatDestroy_Band, ptr %10, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr @SUNMatZero_Band, ptr %11, align 8, !tbaa !14
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr @SUNMatCopy_Band, ptr %12, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store ptr @SUNMatScaleAdd_Band, ptr %13, align 8, !tbaa !16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr @SUNMatScaleAddI_Band, ptr %14, align 8, !tbaa !17
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store ptr @SUNMatMatvec_Band, ptr %15, align 8, !tbaa !18
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @SUNMatSpace_Band, ptr %16, align 8, !tbaa !19
+  %17 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  store ptr %17, ptr %6, align 8, !tbaa !20
+  %18 = add i64 %2, 1
+  %19 = add i64 %18, %3
+  store i64 %0, ptr %17, align 8, !tbaa !21
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 %0, ptr %20, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i64 %1, ptr %21, align 8, !tbaa !27
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store i64 %2, ptr %22, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i64 %3, ptr %23, align 8, !tbaa !29
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 %19, ptr %24, align 8, !tbaa !30
+  %25 = mul nsw i64 %19, %0
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  store i64 %25, ptr %26, align 8, !tbaa !31
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %29 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 8) #20
+  store ptr %29, ptr %27, align 8, !tbaa !32
+  %30 = shl i64 %0, 3
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #19
+  store ptr %31, ptr %28, align 8, !tbaa !33
+  %32 = icmp sgt i64 %0, 0
+  br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.045 = phi i64 [ %46, %.lr.ph ], [ 0, %5 ]
-  %41 = load ptr, ptr %35, align 8
-  %42 = mul nsw i64 %.045, %27
-  %43 = getelementptr inbounds double, ptr %41, i64 %42
-  %44 = load ptr, ptr %36, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.045
-  store ptr %43, ptr %45, align 8
-  %46 = add nuw nsw i64 %.045, 1
-  %exitcond.not = icmp eq i64 %46, %0
+  %.045 = phi i64 [ %36, %.lr.ph ], [ 0, %5 ]
+  %33 = mul nsw i64 %.045, %19
+  %34 = getelementptr inbounds double, ptr %29, i64 %33
+  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %.045
+  store ptr %34, ptr %35, align 8, !tbaa !34
+  %36 = add nuw nsw i64 %.045, 1
+  %exitcond.not = icmp eq i64 %36, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -98,17 +146,75 @@ define noundef i32 @SUNMatGetID_Band(ptr readnone captures(none) %0) #2 {
 ; Function Attrs: nounwind uwtable
 define noundef ptr @SUNMatClone_Band(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %11 = load i64, ptr %10, align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = tail call ptr @SUNBandMatrixStorage(i64 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11, ptr noundef %12)
+  %11 = load i64, ptr %10, align 8, !tbaa !29
+  %12 = load ptr, ptr %2, align 8, !tbaa !35
+  %13 = tail call ptr @SUNMatNewEmpty(ptr noundef %12) #18
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !3
+  store ptr @SUNMatGetID_Band, ptr %15, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr @SUNMatClone_Band, ptr %16, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr @SUNMatDestroy_Band, ptr %17, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr @SUNMatZero_Band, ptr %18, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store ptr @SUNMatCopy_Band, ptr %19, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr @SUNMatScaleAdd_Band, ptr %20, align 8, !tbaa !16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store ptr @SUNMatScaleAddI_Band, ptr %21, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  store ptr @SUNMatMatvec_Band, ptr %22, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store ptr @SUNMatSpace_Band, ptr %23, align 8, !tbaa !19
+  %24 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  store ptr %24, ptr %13, align 8, !tbaa !20
+  %25 = add i64 %9, 1
+  %26 = add i64 %25, %11
+  store i64 %5, ptr %24, align 8, !tbaa !21
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 %5, ptr %27, align 8, !tbaa !26
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %7, ptr %28, align 8, !tbaa !27
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i64 %9, ptr %29, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  store i64 %11, ptr %30, align 8, !tbaa !29
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i64 %26, ptr %31, align 8, !tbaa !30
+  %32 = mul nsw i64 %26, %5
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  store i64 %32, ptr %33, align 8, !tbaa !31
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %36 = tail call noalias ptr @calloc(i64 noundef %32, i64 noundef 8) #20
+  store ptr %36, ptr %34, align 8, !tbaa !32
+  %37 = shl i64 %5, 3
+  %38 = tail call noalias ptr @malloc(i64 noundef %37) #19
+  store ptr %38, ptr %35, align 8, !tbaa !33
+  %39 = icmp sgt i64 %5, 0
+  br i1 %39, label %.lr.ph.i, label %SUNBandMatrixStorage.exit
+
+.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
+  %.045.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %1 ]
+  %40 = mul nsw i64 %.045.i, %26
+  %41 = getelementptr inbounds double, ptr %36, i64 %40
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %.045.i
+  store ptr %41, ptr %42, align 8, !tbaa !34
+  %43 = add nuw nsw i64 %.045.i, 1
+  %exitcond.not.i = icmp eq i64 %43, %5
+  br i1 %exitcond.not.i, label %SUNBandMatrixStorage.exit, label %.lr.ph.i
+
+SUNBandMatrixStorage.exit:                        ; preds = %.lr.ph.i, %1
   ret ptr %13
 }
 
@@ -118,699 +224,656 @@ define void @SUNMatDestroy_Band(ptr noundef captures(address_is_null) %0) #3 {
   br i1 %2, label %25, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8, !tbaa !20
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
   %.not18 = icmp eq ptr %7, null
   br i1 %.not18, label %11, label %8
 
 8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %7) #16
-  %9 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef nonnull %7) #18
+  %9 = load ptr, ptr %0, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr null, ptr %10, align 8
-  %.pre = load ptr, ptr %0, align 8
+  store ptr null, ptr %10, align 8, !tbaa !32
   br label %11
 
 11:                                               ; preds = %8, %5
-  %12 = phi ptr [ %.pre, %8 ], [ %4, %5 ]
+  %12 = phi ptr [ %9, %8 ], [ %4, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %18, label %15
 
 15:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %14) #16
-  %16 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef nonnull %14) #18
+  %16 = load ptr, ptr %0, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store ptr null, ptr %17, align 8
-  %.pre21 = load ptr, ptr %0, align 8
+  store ptr null, ptr %17, align 8, !tbaa !33
   br label %18
 
 18:                                               ; preds = %15, %11
-  %19 = phi ptr [ %.pre21, %15 ], [ %12, %11 ]
-  tail call void @free(ptr noundef %19) #16
-  store ptr null, ptr %0, align 8
+  %19 = phi ptr [ %16, %15 ], [ %12, %11 ]
+  tail call void @free(ptr noundef nonnull %19) #18
+  store ptr null, ptr %0, align 8, !tbaa !20
   br label %20
 
 20:                                               ; preds = %18, %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !3
   %.not20 = icmp eq ptr %22, null
   br i1 %.not20, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void @free(ptr noundef nonnull %22) #16
+  tail call void @free(ptr noundef nonnull %22) #18
   br label %24
 
 24:                                               ; preds = %23, %20
-  tail call void @free(ptr noundef nonnull %0) #16
+  tail call void @free(ptr noundef nonnull %0) #18
   br label %25
 
 25:                                               ; preds = %1, %24
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @SUNMatZero_Band(ptr noundef readonly captures(none) %0) #4 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %6 = load i64, ptr %5, align 8
-  %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %4 = load i64, ptr %3, align 8, !tbaa !31
+  %5 = icmp sgt i64 %4, 0
+  br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1, %.lr.ph
-  %.06 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw double, ptr %4, i64 %.06
-  store double 0.000000e+00, ptr %8, align 8
-  %9 = add nuw nsw i64 %.06, 1
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %9, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge
+.lr.ph.preheader:                                 ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %8 = shl nuw i64 %4, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %8, i1 false), !tbaa !36
+  br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %1
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNMatCopy_Band(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i64, ptr %4, align 8
-  %6 = load ptr, ptr %1, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !27
+  %6 = load ptr, ptr %1, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !27
   %9 = icmp sgt i64 %5, %8
-  br i1 %9, label %._crit_edge73, label %10
+  br i1 %9, label %._crit_edge77, label %10
 
-._crit_edge73:                                    ; preds = %2
+._crit_edge77:                                    ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.pre75 = load i64, ptr %.phi.trans.insert74, align 8
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
+  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !28
   br label %16
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = icmp sgt i64 %12, %14
   br i1 %15, label %16, label %.loopexit
 
-16:                                               ; preds = %._crit_edge73, %10
-  %17 = phi i64 [ %.pre75, %._crit_edge73 ], [ %12, %10 ]
-  %18 = phi i64 [ %.pre, %._crit_edge73 ], [ %14, %10 ]
+16:                                               ; preds = %._crit_edge77, %10
+  %17 = phi i64 [ %.pre79, %._crit_edge77 ], [ %12, %10 ]
+  %18 = phi i64 [ %.pre, %._crit_edge77 ], [ %14, %10 ]
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %. = tail call i64 @llvm.smax.i64(i64 %18, i64 %17)
-  %19 = tail call i64 @llvm.smax.i64(i64 %8, i64 %5)
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %23 = load i64, ptr %22, align 8
-  %24 = tail call i64 @llvm.smax.i64(i64 %21, i64 %23)
-  %25 = add i64 %., 1
-  %26 = add i64 %25, %24
-  store i64 %19, ptr %7, align 8
-  %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i64 %., ptr %28, align 8
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store i64 %24, ptr %30, align 8
-  %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 %26, ptr %32, align 8
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = mul nsw i64 %35, %26
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  store i64 %36, ptr %37, align 8
-  %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = load i64, ptr %41, align 8
-  %43 = shl i64 %26, 3
-  %44 = mul i64 %43, %42
-  %45 = tail call ptr @realloc(ptr noundef %40, i64 noundef %44) #19
-  %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  store ptr %45, ptr %47, align 8
-  %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp sgt i64 %50, 0
-  br i1 %51, label %.lr.ph, label %.loopexit
+  %20 = tail call i64 @llvm.smax.i64(i64 %8, i64 %5)
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %22 = load i64, ptr %21, align 8, !tbaa !29
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %24 = load i64, ptr %23, align 8, !tbaa !29
+  %25 = tail call i64 @llvm.smax.i64(i64 %22, i64 %24)
+  %26 = add i64 %., 1
+  %27 = add i64 %26, %25
+  store i64 %20, ptr %7, align 8, !tbaa !27
+  store i64 %., ptr %19, align 8, !tbaa !28
+  store i64 %25, ptr %21, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %27, ptr %28, align 8, !tbaa !30
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !26
+  %31 = mul nsw i64 %30, %27
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i64 %31, ptr %32, align 8, !tbaa !31
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %35 = shl i64 %31, 3
+  %36 = tail call ptr @realloc(ptr noundef %34, i64 noundef %35) #21
+  %37 = load ptr, ptr %1, align 8, !tbaa !20
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  store ptr %36, ptr %38, align 8, !tbaa !32
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %40 = load i64, ptr %39, align 8, !tbaa !26
+  %41 = icmp sgt i64 %40, 0
+  br i1 %41, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %16, %.lr.ph
-  %52 = phi ptr [ %61, %.lr.ph ], [ %48, %16 ]
-  %.05966 = phi i64 [ %60, %.lr.ph ], [ 0, %16 ]
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %54 = load ptr, ptr %53, align 8
-  %55 = mul nsw i64 %.05966, %26
-  %56 = getelementptr inbounds double, ptr %54, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.05966
-  store ptr %56, ptr %59, align 8
-  %60 = add nuw nsw i64 %.05966, 1
-  %61 = load ptr, ptr %1, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load i64, ptr %62, align 8
-  %64 = icmp slt i64 %60, %63
-  br i1 %64, label %.lr.ph, label %.loopexit
+.lr.ph:                                           ; preds = %16
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %43 = load ptr, ptr %42, align 8, !tbaa !33
+  br label %44
 
-.loopexit:                                        ; preds = %.lr.ph, %16, %10
-  %65 = phi ptr [ %48, %16 ], [ %6, %10 ], [ %61, %.lr.ph ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  %69 = load i64, ptr %68, align 8
-  %70 = icmp sgt i64 %69, 0
-  br i1 %70, label %.lr.ph.i, label %SUNMatZero_Band.exit
+44:                                               ; preds = %.lr.ph, %44
+  %.05966 = phi i64 [ 0, %.lr.ph ], [ %49, %44 ]
+  %45 = load ptr, ptr %38, align 8, !tbaa !32
+  %46 = mul nsw i64 %.05966, %27
+  %47 = getelementptr inbounds double, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %.05966
+  store ptr %47, ptr %48, align 8, !tbaa !34
+  %49 = add nuw nsw i64 %.05966, 1
+  %exitcond.not = icmp eq i64 %49, %40
+  br i1 %exitcond.not, label %.loopexit, label %44
 
-.lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
-  %.06.i = phi i64 [ %72, %.lr.ph.i ], [ 0, %.loopexit ]
-  %71 = getelementptr inbounds nuw double, ptr %67, i64 %.06.i
-  store double 0.000000e+00, ptr %71, align 8
-  %72 = add nuw nsw i64 %.06.i, 1
-  %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  %75 = load i64, ptr %74, align 8
-  %76 = icmp slt i64 %72, %75
-  br i1 %76, label %.lr.ph.i, label %SUNMatZero_Band.exit
+.loopexit:                                        ; preds = %44, %16, %10
+  %50 = phi ptr [ %37, %16 ], [ %6, %10 ], [ %37, %44 ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %52 = load i64, ptr %51, align 8, !tbaa !31
+  %53 = icmp sgt i64 %52, 0
+  br i1 %53, label %.lr.ph.preheader.i, label %SUNMatZero_Band.exit
 
-SUNMatZero_Band.exit:                             ; preds = %.lr.ph.i, %.loopexit
-  %77 = phi ptr [ %65, %.loopexit ], [ %73, %.lr.ph.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load i64, ptr %78, align 8
-  %80 = icmp sgt i64 %79, 0
-  br i1 %80, label %.lr.ph71.preheader, label %._crit_edge72
+.lr.ph.preheader.i:                               ; preds = %.loopexit
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %55 = load ptr, ptr %54, align 8, !tbaa !32
+  %56 = shl nuw i64 %52, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %55, i8 0, i64 %56, i1 false), !tbaa !36
+  br label %SUNMatZero_Band.exit
 
-.lr.ph71.preheader:                               ; preds = %SUNMatZero_Band.exit
-  %.pre76 = load ptr, ptr %0, align 8
-  br label %.lr.ph71
+SUNMatZero_Band.exit:                             ; preds = %.loopexit, %.lr.ph.preheader.i
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %58 = load i64, ptr %57, align 8, !tbaa !26
+  %59 = icmp sgt i64 %58, 0
+  br i1 %59, label %.lr.ph71, label %._crit_edge72
 
-.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %._crit_edge
-  %81 = phi ptr [ %109, %._crit_edge ], [ %77, %.lr.ph71.preheader ]
-  %82 = phi ptr [ %110, %._crit_edge ], [ %.pre76, %.lr.ph71.preheader ]
-  %.170 = phi i64 [ %111, %._crit_edge ], [ 0, %.lr.ph71.preheader ]
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 64
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.170
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds double, ptr %86, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %82, i64 64
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %.170
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds double, ptr %93, i64 %95
-  %97 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %98 = load i64, ptr %97, align 8
-  %99 = sub nsw i64 0, %98
-  %100 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %101 = load i64, ptr %100, align 8
-  %.not67 = icmp slt i64 %101, %99
-  br i1 %.not67, label %._crit_edge, label %.lr.ph69
+.lr.ph71:                                         ; preds = %SUNMatZero_Band.exit
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 64
+  %61 = load ptr, ptr %60, align 8, !tbaa !33
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %63 = load i64, ptr %62, align 8, !tbaa !29
+  %64 = load ptr, ptr %0, align 8, !tbaa !20
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  %66 = load ptr, ptr %65, align 8, !tbaa !33
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %68 = load i64, ptr %67, align 8, !tbaa !29
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %70 = load i64, ptr %69, align 8, !tbaa !27
+  %71 = sub nsw i64 0, %70
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %73 = load i64, ptr %72, align 8, !tbaa !28
+  %.not67 = icmp slt i64 %73, %71
+  br i1 %.not67, label %._crit_edge72, label %.lr.ph69
 
-.lr.ph69:                                         ; preds = %.lr.ph71, %.lr.ph69
-  %.068 = phi i64 [ %105, %.lr.ph69 ], [ %99, %.lr.ph71 ]
-  %102 = getelementptr inbounds double, ptr %96, i64 %.068
-  %103 = load double, ptr %102, align 8
-  %104 = getelementptr inbounds double, ptr %89, i64 %.068
-  store double %103, ptr %104, align 8
-  %105 = add nsw i64 %.068, 1
-  %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  %108 = load i64, ptr %107, align 8
-  %.not.not = icmp slt i64 %.068, %108
-  br i1 %.not.not, label %.lr.ph69, label %._crit_edge.loopexit
+.lr.ph69:                                         ; preds = %.lr.ph71, %._crit_edge
+  %.170 = phi i64 [ %85, %._crit_edge ], [ 0, %.lr.ph71 ]
+  %74 = getelementptr inbounds nuw ptr, ptr %61, i64 %.170
+  %75 = load ptr, ptr %74, align 8, !tbaa !34
+  %76 = getelementptr inbounds double, ptr %75, i64 %63
+  %77 = getelementptr inbounds nuw ptr, ptr %66, i64 %.170
+  %78 = load ptr, ptr %77, align 8, !tbaa !34
+  %79 = getelementptr inbounds double, ptr %78, i64 %68
+  br label %80
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph69
-  %.pre77 = load ptr, ptr %1, align 8
-  br label %._crit_edge
+80:                                               ; preds = %.lr.ph69, %80
+  %.068 = phi i64 [ %71, %.lr.ph69 ], [ %84, %80 ]
+  %81 = getelementptr inbounds double, ptr %79, i64 %.068
+  %82 = load double, ptr %81, align 8, !tbaa !36
+  %83 = getelementptr inbounds double, ptr %76, i64 %.068
+  store double %82, ptr %83, align 8, !tbaa !36
+  %84 = add i64 %.068, 1
+  %exitcond75.not = icmp eq i64 %.068, %73
+  br i1 %exitcond75.not, label %._crit_edge, label %80
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph71
-  %109 = phi ptr [ %.pre77, %._crit_edge.loopexit ], [ %81, %.lr.ph71 ]
-  %110 = phi ptr [ %106, %._crit_edge.loopexit ], [ %82, %.lr.ph71 ]
-  %111 = add nuw nsw i64 %.170, 1
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %113 = load i64, ptr %112, align 8
-  %114 = icmp slt i64 %111, %113
-  br i1 %114, label %.lr.ph71, label %._crit_edge72
+._crit_edge:                                      ; preds = %80
+  %85 = add nuw nsw i64 %.170, 1
+  %exitcond76.not = icmp eq i64 %85, %58
+  br i1 %exitcond76.not, label %._crit_edge72, label %.lr.ph69
 
-._crit_edge72:                                    ; preds = %._crit_edge, %SUNMatZero_Band.exit
+._crit_edge72:                                    ; preds = %._crit_edge, %.lr.ph71, %SUNMatZero_Band.exit
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNMatScaleAdd_Band(double noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i64, ptr %5, align 8
-  %7 = load ptr, ptr %1, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !27
+  %7 = load ptr, ptr %1, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 8, !tbaa !27
   %10 = icmp sgt i64 %6, %9
-  br i1 %10, label %._crit_edge38, label %11
+  br i1 %10, label %._crit_edge36, label %11
 
-._crit_edge38:                                    ; preds = %3
+._crit_edge36:                                    ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.pre39 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.pre41 = load i64, ptr %.phi.trans.insert40, align 8
-  br label %20
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
+  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.pre38 = load i64, ptr %.phi.trans.insert37, align 8, !tbaa !28
+  br label %29
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %15 = load i64, ptr %14, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !28
   %16 = icmp sgt i64 %13, %15
-  br i1 %16, label %20, label %.preheader
+  br i1 %16, label %29, label %.preheader
 
 .preheader:                                       ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %18 = load i64, ptr %17, align 8
+  %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = icmp sgt i64 %18, 0
-  br i1 %19, label %.lr.ph35, label %.loopexit
+  br i1 %19, label %.lr.ph33, label %.loopexit
 
-20:                                               ; preds = %._crit_edge38, %11
-  %21 = phi i64 [ %.pre41, %._crit_edge38 ], [ %13, %11 ]
-  %22 = phi i64 [ %.pre39, %._crit_edge38 ], [ %15, %11 ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %..i = tail call i64 @llvm.smax.i64(i64 %22, i64 %21)
-  %24 = tail call i64 @llvm.smax.i64(i64 %9, i64 %6)
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %26 = load i64, ptr %25, align 8
-  %27 = add nsw i64 %..i, %24
-  %.not.i = icmp sgt i64 %26, %27
-  %28 = add nsw i64 %26, -1
-  %29 = select i1 %.not.i, i64 %27, i64 %28
-  %30 = load ptr, ptr %23, align 8
-  %31 = tail call ptr @SUNBandMatrixStorage(i64 noundef %26, i64 noundef %24, i64 noundef %..i, i64 noundef %29, ptr noundef %30)
-  %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = icmp sgt i64 %34, 0
-  br i1 %35, label %.lr.ph78.i, label %.preheader.i
+.lr.ph33:                                         ; preds = %.preheader
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %21 = load ptr, ptr %20, align 8, !tbaa !33
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %23 = load i64, ptr %22, align 8, !tbaa !29
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %27 = load i64, ptr %26, align 8, !tbaa !29
+  %28 = sub nsw i64 0, %6
+  %.not30 = icmp slt i64 %13, %28
+  br i1 %.not30, label %.loopexit, label %.lr.ph
 
-.preheader.i:                                     ; preds = %._crit_edge.i, %20
-  %36 = phi ptr [ %32, %20 ], [ %70, %._crit_edge.i ]
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load i64, ptr %38, align 8
-  %40 = icmp sgt i64 %39, 0
-  br i1 %40, label %.lr.ph85.i, label %._crit_edge86.i
+29:                                               ; preds = %._crit_edge36, %11
+  %30 = phi i64 [ %.pre38, %._crit_edge36 ], [ %13, %11 ]
+  %31 = phi i64 [ %.pre, %._crit_edge36 ], [ %15, %11 ]
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %..i = tail call i64 @llvm.smax.i64(i64 %31, i64 %30)
+  %33 = tail call i64 @llvm.smax.i64(i64 %9, i64 %6)
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !26
+  %36 = add nsw i64 %..i, %33
+  %.not.i = icmp sgt i64 %35, %36
+  %37 = add nsw i64 %35, -1
+  %38 = select i1 %.not.i, i64 %36, i64 %37
+  %39 = load ptr, ptr %32, align 8, !tbaa !35
+  %40 = tail call ptr @SUNMatNewEmpty(ptr noundef %39) #18
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !3
+  store ptr @SUNMatGetID_Band, ptr %42, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr @SUNMatClone_Band, ptr %43, align 8, !tbaa !12
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store ptr @SUNMatDestroy_Band, ptr %44, align 8, !tbaa !13
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  store ptr @SUNMatZero_Band, ptr %45, align 8, !tbaa !14
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  store ptr @SUNMatCopy_Band, ptr %46, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store ptr @SUNMatScaleAdd_Band, ptr %47, align 8, !tbaa !16
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store ptr @SUNMatScaleAddI_Band, ptr %48, align 8, !tbaa !17
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 64
+  store ptr @SUNMatMatvec_Band, ptr %49, align 8, !tbaa !18
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 72
+  store ptr @SUNMatSpace_Band, ptr %50, align 8, !tbaa !19
+  %51 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #19
+  store ptr %51, ptr %40, align 8, !tbaa !20
+  %52 = add i64 %..i, 1
+  %53 = add i64 %52, %38
+  store i64 %35, ptr %51, align 8, !tbaa !21
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i64 %35, ptr %54, align 8, !tbaa !26
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  store i64 %33, ptr %55, align 8, !tbaa !27
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  store i64 %..i, ptr %56, align 8, !tbaa !28
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  store i64 %38, ptr %57, align 8, !tbaa !29
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i64 %53, ptr %58, align 8, !tbaa !30
+  %59 = mul nsw i64 %53, %35
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  store i64 %59, ptr %60, align 8, !tbaa !31
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %63 = tail call noalias ptr @calloc(i64 noundef %59, i64 noundef 8) #20
+  store ptr %63, ptr %61, align 8, !tbaa !32
+  %64 = shl i64 %35, 3
+  %65 = tail call noalias ptr @malloc(i64 noundef %64) #19
+  store ptr %65, ptr %62, align 8, !tbaa !33
+  %66 = icmp sgt i64 %35, 0
+  br i1 %66, label %.lr.ph.i.i, label %SUNBandMatrixStorage.exit.i
 
-.lr.ph78.i:                                       ; preds = %20, %._crit_edge.i
-  %41 = phi ptr [ %70, %._crit_edge.i ], [ %32, %20 ]
-  %.06476.i = phi i64 [ %71, %._crit_edge.i ], [ 0, %20 ]
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.06476.i
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds double, ptr %45, i64 %47
-  %49 = load ptr, ptr %31, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.06476.i
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds double, ptr %53, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %58 = load i64, ptr %57, align 8
-  %59 = sub nsw i64 0, %58
-  %60 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %61 = load i64, ptr %60, align 8
-  %.not7374.i = icmp slt i64 %61, %59
-  br i1 %.not7374.i, label %._crit_edge.i, label %.lr.ph.i
+.lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
+  %.045.i.i = phi i64 [ %70, %.lr.ph.i.i ], [ 0, %29 ]
+  %67 = mul nsw i64 %.045.i.i, %53
+  %68 = getelementptr inbounds double, ptr %63, i64 %67
+  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %.045.i.i
+  store ptr %68, ptr %69, align 8, !tbaa !34
+  %70 = add nuw nsw i64 %.045.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %70, %35
+  br i1 %exitcond.not.i.i, label %SUNBandMatrixStorage.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph78.i, %.lr.ph.i
-  %.075.i = phi i64 [ %66, %.lr.ph.i ], [ %59, %.lr.ph78.i ]
-  %62 = getelementptr inbounds double, ptr %48, i64 %.075.i
-  %63 = load double, ptr %62, align 8
-  %64 = fmul double %0, %63
-  %65 = getelementptr inbounds double, ptr %56, i64 %.075.i
-  store double %64, ptr %65, align 8
-  %66 = add nsw i64 %.075.i, 1
-  %67 = load ptr, ptr %1, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = load i64, ptr %68, align 8
-  %.not73.not.i = icmp slt i64 %.075.i, %69
-  br i1 %.not73.not.i, label %.lr.ph.i, label %._crit_edge.i
+SUNBandMatrixStorage.exit.i:                      ; preds = %.lr.ph.i.i, %29
+  %71 = load ptr, ptr %1, align 8, !tbaa !20
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load i64, ptr %72, align 8, !tbaa !26
+  %74 = icmp sgt i64 %73, 0
+  br i1 %74, label %.lr.ph77.i, label %.preheader.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph78.i
-  %70 = phi ptr [ %41, %.lr.ph78.i ], [ %67, %.lr.ph.i ]
-  %71 = add nuw nsw i64 %.06476.i, 1
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %73 = load i64, ptr %72, align 8
-  %74 = icmp slt i64 %71, %73
-  br i1 %74, label %.lr.ph78.i, label %.preheader.i
+.lr.ph77.i:                                       ; preds = %SUNBandMatrixStorage.exit.i
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  %76 = load ptr, ptr %75, align 8, !tbaa !33
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  %78 = load i64, ptr %77, align 8, !tbaa !29
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %80 = load i64, ptr %79, align 8, !tbaa !27
+  %81 = sub nsw i64 0, %80
+  %82 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %83 = load i64, ptr %82, align 8, !tbaa !28
+  %.not7374.i = icmp slt i64 %83, %81
+  br i1 %.not7374.i, label %.preheader.i, label %.lr.ph.i
 
-.lr.ph85.i:                                       ; preds = %.preheader.i, %._crit_edge83.i
-  %75 = phi ptr [ %105, %._crit_edge83.i ], [ %37, %.preheader.i ]
-  %.16584.i = phi i64 [ %106, %._crit_edge83.i ], [ 0, %.preheader.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.16584.i
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds double, ptr %79, i64 %81
-  %83 = load ptr, ptr %31, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 64
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %.16584.i
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds double, ptr %87, i64 %89
-  %91 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %92 = load i64, ptr %91, align 8
-  %93 = sub nsw i64 0, %92
-  %94 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %95 = load i64, ptr %94, align 8
-  %.not7279.i = icmp slt i64 %95, %93
-  br i1 %.not7279.i, label %._crit_edge83.i, label %.lr.ph82.i
+.preheader.i:                                     ; preds = %._crit_edge.i, %.lr.ph77.i, %SUNBandMatrixStorage.exit.i
+  %84 = load ptr, ptr %2, align 8, !tbaa !20
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load i64, ptr %85, align 8, !tbaa !26
+  %87 = icmp sgt i64 %86, 0
+  br i1 %87, label %.lr.ph84.i, label %._crit_edge85.i
 
-.lr.ph82.i:                                       ; preds = %.lr.ph85.i, %.lr.ph82.i
-  %.180.i = phi i64 [ %101, %.lr.ph82.i ], [ %93, %.lr.ph85.i ]
-  %96 = getelementptr inbounds double, ptr %82, i64 %.180.i
-  %97 = load double, ptr %96, align 8
-  %98 = getelementptr inbounds double, ptr %90, i64 %.180.i
-  %99 = load double, ptr %98, align 8
-  %100 = fadd double %97, %99
-  store double %100, ptr %98, align 8
-  %101 = add nsw i64 %.180.i, 1
-  %102 = load ptr, ptr %2, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  %104 = load i64, ptr %103, align 8
-  %.not72.not.i = icmp slt i64 %.180.i, %104
-  br i1 %.not72.not.i, label %.lr.ph82.i, label %._crit_edge83.i
+.lr.ph84.i:                                       ; preds = %.preheader.i
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 64
+  %89 = load ptr, ptr %88, align 8, !tbaa !33
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  %91 = load i64, ptr %90, align 8, !tbaa !29
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %93 = load i64, ptr %92, align 8, !tbaa !27
+  %94 = sub nsw i64 0, %93
+  %95 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %96 = load i64, ptr %95, align 8, !tbaa !28
+  %.not7278.i = icmp slt i64 %96, %94
+  br i1 %.not7278.i, label %._crit_edge85.i, label %.lr.ph81.i
 
-._crit_edge83.i:                                  ; preds = %.lr.ph82.i, %.lr.ph85.i
-  %105 = phi ptr [ %75, %.lr.ph85.i ], [ %102, %.lr.ph82.i ]
-  %106 = add nuw nsw i64 %.16584.i, 1
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %108 = load i64, ptr %107, align 8
-  %109 = icmp slt i64 %106, %108
-  br i1 %109, label %.lr.ph85.i, label %._crit_edge86.loopexit.i
+.lr.ph.i:                                         ; preds = %.lr.ph77.i, %._crit_edge.i
+  %.06476.i = phi i64 [ %109, %._crit_edge.i ], [ 0, %.lr.ph77.i ]
+  %97 = getelementptr inbounds nuw ptr, ptr %76, i64 %.06476.i
+  %98 = load ptr, ptr %97, align 8, !tbaa !34
+  %99 = getelementptr inbounds double, ptr %98, i64 %78
+  %100 = getelementptr inbounds nuw ptr, ptr %65, i64 %.06476.i
+  %101 = load ptr, ptr %100, align 8, !tbaa !34
+  %102 = getelementptr inbounds double, ptr %101, i64 %38
+  br label %103
 
-._crit_edge86.loopexit.i:                         ; preds = %._crit_edge83.i
-  %.pre.i = load ptr, ptr %1, align 8
-  br label %._crit_edge86.i
+103:                                              ; preds = %103, %.lr.ph.i
+  %.075.i = phi i64 [ %81, %.lr.ph.i ], [ %108, %103 ]
+  %104 = getelementptr inbounds double, ptr %99, i64 %.075.i
+  %105 = load double, ptr %104, align 8, !tbaa !36
+  %106 = fmul double %0, %105
+  %107 = getelementptr inbounds double, ptr %102, i64 %.075.i
+  store double %106, ptr %107, align 8, !tbaa !36
+  %108 = add i64 %.075.i, 1
+  %exitcond.not.i = icmp eq i64 %.075.i, %83
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %103
 
-._crit_edge86.i:                                  ; preds = %._crit_edge86.loopexit.i, %.preheader.i
-  %110 = phi ptr [ %.pre.i, %._crit_edge86.loopexit.i ], [ %36, %.preheader.i ]
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  %112 = load ptr, ptr %111, align 8
-  tail call void @free(ptr noundef %112) #16
-  %113 = load ptr, ptr %1, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 48
-  store ptr null, ptr %114, align 8
-  %115 = load ptr, ptr %1, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 64
-  %117 = load ptr, ptr %116, align 8
-  tail call void @free(ptr noundef %117) #16
-  %118 = load ptr, ptr %1, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 64
-  store ptr null, ptr %119, align 8
-  %120 = load ptr, ptr %1, align 8
-  tail call void @free(ptr noundef %120) #16
-  store ptr null, ptr %1, align 8
-  %121 = load ptr, ptr %31, align 8
-  store ptr %121, ptr %1, align 8
-  store ptr null, ptr %31, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %.not20.i.i = icmp eq ptr %123, null
-  br i1 %.not20.i.i, label %SMScaleAddNew_Band.exit, label %124
+._crit_edge.i:                                    ; preds = %103
+  %109 = add nuw nsw i64 %.06476.i, 1
+  %exitcond88.not.i = icmp eq i64 %109, %73
+  br i1 %exitcond88.not.i, label %.preheader.i, label %.lr.ph.i
 
-124:                                              ; preds = %._crit_edge86.i
-  tail call void @free(ptr noundef nonnull %123) #16
+.lr.ph81.i:                                       ; preds = %.lr.ph84.i, %._crit_edge82.i
+  %.16583.i = phi i64 [ %123, %._crit_edge82.i ], [ 0, %.lr.ph84.i ]
+  %110 = getelementptr inbounds nuw ptr, ptr %89, i64 %.16583.i
+  %111 = load ptr, ptr %110, align 8, !tbaa !34
+  %112 = getelementptr inbounds double, ptr %111, i64 %91
+  %113 = getelementptr inbounds nuw ptr, ptr %65, i64 %.16583.i
+  %114 = load ptr, ptr %113, align 8, !tbaa !34
+  %115 = getelementptr inbounds double, ptr %114, i64 %38
+  br label %116
+
+116:                                              ; preds = %116, %.lr.ph81.i
+  %.179.i = phi i64 [ %94, %.lr.ph81.i ], [ %122, %116 ]
+  %117 = getelementptr inbounds double, ptr %112, i64 %.179.i
+  %118 = load double, ptr %117, align 8, !tbaa !36
+  %119 = getelementptr inbounds double, ptr %115, i64 %.179.i
+  %120 = load double, ptr %119, align 8, !tbaa !36
+  %121 = fadd double %118, %120
+  store double %121, ptr %119, align 8, !tbaa !36
+  %122 = add i64 %.179.i, 1
+  %exitcond89.not.i = icmp eq i64 %.179.i, %96
+  br i1 %exitcond89.not.i, label %._crit_edge82.i, label %116
+
+._crit_edge82.i:                                  ; preds = %116
+  %123 = add nuw nsw i64 %.16583.i, 1
+  %exitcond90.not.i = icmp eq i64 %123, %86
+  br i1 %exitcond90.not.i, label %._crit_edge85.i, label %.lr.ph81.i
+
+._crit_edge85.i:                                  ; preds = %._crit_edge82.i, %.lr.ph84.i, %.preheader.i
+  %124 = getelementptr inbounds nuw i8, ptr %71, i64 48
+  %125 = load ptr, ptr %124, align 8, !tbaa !32
+  tail call void @free(ptr noundef %125) #18
+  %126 = load ptr, ptr %1, align 8, !tbaa !20
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
+  store ptr null, ptr %127, align 8, !tbaa !32
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 64
+  %129 = load ptr, ptr %128, align 8, !tbaa !33
+  tail call void @free(ptr noundef %129) #18
+  %130 = load ptr, ptr %1, align 8, !tbaa !20
+  tail call void @free(ptr noundef %130) #18
+  store ptr null, ptr %1, align 8, !tbaa !20
+  %131 = load ptr, ptr %40, align 8, !tbaa !20
+  store ptr %131, ptr %1, align 8, !tbaa !20
+  store ptr null, ptr %40, align 8, !tbaa !20
+  %132 = load ptr, ptr %41, align 8, !tbaa !3
+  %.not20.i.i = icmp eq ptr %132, null
+  br i1 %.not20.i.i, label %SMScaleAddNew_Band.exit, label %133
+
+133:                                              ; preds = %._crit_edge85.i
+  tail call void @free(ptr noundef nonnull %132) #18
   br label %SMScaleAddNew_Band.exit
 
-SMScaleAddNew_Band.exit:                          ; preds = %._crit_edge86.i, %124
-  tail call void @free(ptr noundef nonnull %31) #16
+SMScaleAddNew_Band.exit:                          ; preds = %._crit_edge85.i, %133
+  tail call void @free(ptr noundef nonnull %40) #18
   br label %.loopexit
 
-.lr.ph35:                                         ; preds = %.preheader, %._crit_edge
-  %125 = phi ptr [ %155, %._crit_edge ], [ %7, %.preheader ]
-  %126 = phi ptr [ %156, %._crit_edge ], [ %4, %.preheader ]
-  %.02934 = phi i64 [ %157, %._crit_edge ], [ 0, %.preheader ]
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 64
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %.02934
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds double, ptr %130, i64 %132
-  %134 = getelementptr inbounds nuw i8, ptr %126, i64 64
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %.02934
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %126, i64 40
-  %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds double, ptr %137, i64 %139
-  %141 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  %142 = load i64, ptr %141, align 8
-  %143 = sub nsw i64 0, %142
-  %144 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  %145 = load i64, ptr %144, align 8
-  %.not32 = icmp slt i64 %145, %143
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph33, %._crit_edge
+  %.02932 = phi i64 [ %147, %._crit_edge ], [ 0, %.lr.ph33 ]
+  %134 = getelementptr inbounds nuw ptr, ptr %21, i64 %.02932
+  %135 = load ptr, ptr %134, align 8, !tbaa !34
+  %136 = getelementptr inbounds double, ptr %135, i64 %23
+  %137 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02932
+  %138 = load ptr, ptr %137, align 8, !tbaa !34
+  %139 = getelementptr inbounds double, ptr %138, i64 %27
+  br label %140
 
-.lr.ph:                                           ; preds = %.lr.ph35, %.lr.ph
-  %.02833 = phi i64 [ %151, %.lr.ph ], [ %143, %.lr.ph35 ]
-  %146 = getelementptr inbounds double, ptr %133, i64 %.02833
-  %147 = load double, ptr %146, align 8
-  %148 = getelementptr inbounds double, ptr %140, i64 %.02833
-  %149 = load double, ptr %148, align 8
-  %150 = tail call double @llvm.fmuladd.f64(double %0, double %147, double %149)
-  store double %150, ptr %146, align 8
-  %151 = add nsw i64 %.02833, 1
-  %152 = load ptr, ptr %2, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
-  %154 = load i64, ptr %153, align 8
-  %.not.not = icmp slt i64 %.02833, %154
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge.loopexit
+140:                                              ; preds = %.lr.ph, %140
+  %.02831 = phi i64 [ %28, %.lr.ph ], [ %146, %140 ]
+  %141 = getelementptr inbounds double, ptr %136, i64 %.02831
+  %142 = load double, ptr %141, align 8, !tbaa !36
+  %143 = getelementptr inbounds double, ptr %139, i64 %.02831
+  %144 = load double, ptr %143, align 8, !tbaa !36
+  %145 = tail call double @llvm.fmuladd.f64(double %0, double %142, double %144)
+  store double %145, ptr %141, align 8, !tbaa !36
+  %146 = add i64 %.02831, 1
+  %exitcond.not = icmp eq i64 %.02831, %13
+  br i1 %exitcond.not, label %._crit_edge, label %140
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %1, align 8
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %140
+  %147 = add nuw nsw i64 %.02932, 1
+  %exitcond35.not = icmp eq i64 %147, %18
+  br i1 %exitcond35.not, label %.loopexit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph35
-  %155 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %125, %.lr.ph35 ]
-  %156 = phi ptr [ %152, %._crit_edge.loopexit ], [ %126, %.lr.ph35 ]
-  %157 = add nuw nsw i64 %.02934, 1
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %159 = load i64, ptr %158, align 8
-  %160 = icmp slt i64 %157, %159
-  br i1 %160, label %.lr.ph35, label %.loopexit
-
-.loopexit:                                        ; preds = %._crit_edge, %.preheader, %SMScaleAddNew_Band.exit
+.loopexit:                                        ; preds = %._crit_edge, %.lr.ph33, %.preheader, %SMScaleAddNew_Band.exit
   ret i32 0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr noundef readonly captures(none) %1) #4 {
-  %3 = load ptr, ptr %1, align 8
+define noundef i32 @SUNMatScaleAddI_Band(double noundef %0, ptr noundef readonly captures(none) %1) #5 {
+  %3 = load ptr, ptr %1, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !26
   %6 = icmp sgt i64 %5, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge24
 
-.lr.ph23:                                         ; preds = %2, %._crit_edge
-  %7 = phi ptr [ %33, %._crit_edge ], [ %3, %2 ]
-  %.01821 = phi i64 [ %32, %._crit_edge ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01821
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds double, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = load i64, ptr %15, align 8
-  %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %19 = load i64, ptr %18, align 8
-  %.not19 = icmp slt i64 %19, %17
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+.lr.ph23:                                         ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %10 = load i64, ptr %9, align 8, !tbaa !29
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %12 = load i64, ptr %11, align 8, !tbaa !27
+  %13 = sub nsw i64 0, %12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %15 = load i64, ptr %14, align 8, !tbaa !28
+  %.not19 = icmp slt i64 %15, %13
+  br i1 %.not19, label %.lr.ph23.split.us, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph23, %.lr.ph
-  %.020 = phi i64 [ %23, %.lr.ph ], [ %17, %.lr.ph23 ]
-  %20 = getelementptr inbounds double, ptr %14, i64 %.020
-  %21 = load double, ptr %20, align 8
-  %22 = fmul double %0, %21
-  store double %22, ptr %20, align 8
-  %23 = add nsw i64 %.020, 1
-  %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i64, ptr %25, align 8
-  %.not.not = icmp slt i64 %.020, %26
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge.loopexit
+.lr.ph23.split.us:                                ; preds = %.lr.ph23, %.lr.ph23.split.us
+  %.01821.us = phi i64 [ %21, %.lr.ph23.split.us ], [ 0, %.lr.ph23 ]
+  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01821.us
+  %17 = load ptr, ptr %16, align 8, !tbaa !34
+  %18 = getelementptr inbounds double, ptr %17, i64 %10
+  %19 = load double, ptr %18, align 8, !tbaa !36
+  %20 = fadd double %19, 1.000000e+00
+  store double %20, ptr %18, align 8, !tbaa !36
+  %21 = add nuw nsw i64 %.01821.us, 1
+  %exitcond27.not = icmp eq i64 %21, %5
+  br i1 %exitcond27.not, label %._crit_edge24, label %.lr.ph23.split.us
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert26 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.01821
-  %.pre27 = load ptr, ptr %.phi.trans.insert26, align 8
-  %.phi.trans.insert28 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %.pre29 = load i64, ptr %.phi.trans.insert28, align 8
-  br label %._crit_edge
+.lr.ph:                                           ; preds = %.lr.ph23, %._crit_edge
+  %.01821 = phi i64 [ %32, %._crit_edge ], [ 0, %.lr.ph23 ]
+  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01821
+  %23 = load ptr, ptr %22, align 8, !tbaa !34
+  %24 = getelementptr inbounds double, ptr %23, i64 %10
+  br label %25
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph23
-  %27 = phi i64 [ %13, %.lr.ph23 ], [ %.pre29, %._crit_edge.loopexit ]
-  %28 = phi ptr [ %11, %.lr.ph23 ], [ %.pre27, %._crit_edge.loopexit ]
-  %29 = getelementptr inbounds double, ptr %28, i64 %27
-  %30 = load double, ptr %29, align 8
+25:                                               ; preds = %.lr.ph, %25
+  %.020 = phi i64 [ %13, %.lr.ph ], [ %29, %25 ]
+  %26 = getelementptr inbounds double, ptr %24, i64 %.020
+  %27 = load double, ptr %26, align 8, !tbaa !36
+  %28 = fmul double %0, %27
+  store double %28, ptr %26, align 8, !tbaa !36
+  %29 = add i64 %.020, 1
+  %exitcond.not = icmp eq i64 %.020, %15
+  br i1 %exitcond.not, label %._crit_edge, label %25
+
+._crit_edge:                                      ; preds = %25
+  %30 = load double, ptr %24, align 8, !tbaa !36
   %31 = fadd double %30, 1.000000e+00
-  store double %31, ptr %29, align 8
+  store double %31, ptr %24, align 8, !tbaa !36
   %32 = add nuw nsw i64 %.01821, 1
-  %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = icmp slt i64 %32, %35
-  br i1 %36, label %.lr.ph23, label %._crit_edge24
+  %exitcond26.not = icmp eq i64 %32, %5
+  br i1 %exitcond26.not, label %._crit_edge24, label %.lr.ph
 
-._crit_edge24:                                    ; preds = %._crit_edge, %2
+._crit_edge24:                                    ; preds = %._crit_edge, %.lr.ph23.split.us, %2
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNMatMatvec_Band(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #16
-  %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #16
-  %6 = load ptr, ptr %0, align 8
-  %7 = load i64, ptr %6, align 8
+  %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #18
+  %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #18
+  %6 = load ptr, ptr %0, align 8, !tbaa !20
+  %7 = load i64, ptr %6, align 8, !tbaa !21
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %.lr.ph, label %.preheader
+  br i1 %8, label %.lr.ph.preheader, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %3
-  %9 = phi ptr [ %6, %3 ], [ %15, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8
+.lr.ph.preheader:                                 ; preds = %3
+  %9 = shl nuw i64 %7, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %9, i1 false), !tbaa !36
+  br label %.preheader
+
+.preheader:                                       ; preds = %.lr.ph.preheader, %3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !26
   %12 = icmp sgt i64 %11, 0
-  br i1 %12, label %.lr.ph44, label %._crit_edge45
+  br i1 %12, label %.lr.ph46, label %._crit_edge47
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.039 = phi i64 [ %14, %.lr.ph ], [ 0, %3 ]
-  %13 = getelementptr inbounds nuw double, ptr %5, i64 %.039
-  store double 0.000000e+00, ptr %13, align 8
-  %14 = add nuw nsw i64 %.039, 1
-  %15 = load ptr, ptr %0, align 8
-  %16 = load i64, ptr %15, align 8
-  %17 = icmp slt i64 %14, %16
-  br i1 %17, label %.lr.ph, label %.preheader
+.lr.ph46:                                         ; preds = %.preheader
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %16 = load i64, ptr %15, align 8, !tbaa !29
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %18 = load i64, ptr %17, align 8, !tbaa !27
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %20 = load i64, ptr %19, align 8, !tbaa !28
+  %21 = add nsw i64 %7, -1
+  br label %22
 
-.lr.ph44:                                         ; preds = %.preheader, %._crit_edge
-  %18 = phi ptr [ %45, %._crit_edge ], [ %9, %.preheader ]
-  %.03443 = phi i64 [ %46, %._crit_edge ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.03443
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds double, ptr %22, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %27 = load i64, ptr %26, align 8
-  %28 = sub nsw i64 %.03443, %27
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %28, i64 0)
-  %29 = load i64, ptr %18, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %31 = load i64, ptr %30, align 8
-  %32 = add nsw i64 %31, %.03443
-  %.not = icmp sgt i64 %29, %32
-  %33 = add nsw i64 %29, -1
-  %34 = select i1 %.not, i64 %32, i64 %33
-  %.not3840 = icmp sgt i64 %spec.select, %34
-  br i1 %.not3840, label %._crit_edge, label %.lr.ph42
+22:                                               ; preds = %.lr.ph46, %._crit_edge
+  %.03445 = phi i64 [ 0, %.lr.ph46 ], [ %39, %._crit_edge ]
+  %23 = getelementptr inbounds nuw ptr, ptr %14, i64 %.03445
+  %24 = load ptr, ptr %23, align 8, !tbaa !34
+  %25 = getelementptr inbounds double, ptr %24, i64 %16
+  %26 = sub nsw i64 %.03445, %18
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %26, i64 0)
+  %27 = add nsw i64 %20, %.03445
+  %.not = icmp sgt i64 %7, %27
+  %28 = select i1 %.not, i64 %27, i64 %21
+  %.not3842 = icmp sgt i64 %spec.select, %28
+  br i1 %.not3842, label %._crit_edge, label %.lr.ph44
 
-.lr.ph42:                                         ; preds = %.lr.ph44
-  %35 = getelementptr inbounds nuw double, ptr %4, i64 %.03443
-  br label %36
+.lr.ph44:                                         ; preds = %22
+  %29 = getelementptr inbounds nuw double, ptr %4, i64 %.03445
+  br label %30
 
-36:                                               ; preds = %.lr.ph42, %36
-  %.141 = phi i64 [ %spec.select, %.lr.ph42 ], [ %44, %36 ]
-  %37 = sub nsw i64 %.141, %.03443
-  %38 = getelementptr inbounds double, ptr %25, i64 %37
-  %39 = load double, ptr %38, align 8
-  %40 = load double, ptr %35, align 8
-  %41 = getelementptr inbounds nuw double, ptr %5, i64 %.141
-  %42 = load double, ptr %41, align 8
-  %43 = tail call double @llvm.fmuladd.f64(double %39, double %40, double %42)
-  store double %43, ptr %41, align 8
-  %44 = add nuw nsw i64 %.141, 1
-  %.not38.not = icmp slt i64 %.141, %34
-  br i1 %.not38.not, label %36, label %._crit_edge.loopexit
+30:                                               ; preds = %.lr.ph44, %30
+  %.143 = phi i64 [ %spec.select, %.lr.ph44 ], [ %38, %30 ]
+  %31 = sub nsw i64 %.143, %.03445
+  %32 = getelementptr inbounds double, ptr %25, i64 %31
+  %33 = load double, ptr %32, align 8, !tbaa !36
+  %34 = load double, ptr %29, align 8, !tbaa !36
+  %35 = getelementptr inbounds nuw double, ptr %5, i64 %.143
+  %36 = load double, ptr %35, align 8, !tbaa !36
+  %37 = tail call double @llvm.fmuladd.f64(double %33, double %34, double %36)
+  store double %37, ptr %35, align 8, !tbaa !36
+  %38 = add nuw nsw i64 %.143, 1
+  %.not38.not = icmp slt i64 %.143, %28
+  br i1 %.not38.not, label %30, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %36
-  %.pre = load ptr, ptr %0, align 8
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %30, %22
+  %39 = add nuw nsw i64 %.03445, 1
+  %exitcond.not = icmp eq i64 %39, %11
+  br i1 %exitcond.not, label %._crit_edge47, label %22
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph44
-  %45 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %18, %.lr.ph44 ]
-  %46 = add nuw nsw i64 %.03443, 1
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load i64, ptr %47, align 8
-  %49 = icmp slt i64 %46, %48
-  br i1 %49, label %.lr.ph44, label %._crit_edge45
-
-._crit_edge45:                                    ; preds = %._crit_edge, %.preheader
+._crit_edge47:                                    ; preds = %._crit_edge, %.preheader
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNMatSpace_Band(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #5 {
-  %4 = load ptr, ptr %0, align 8
+define noundef i32 @SUNMatSpace_Band(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #6 {
+  %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !28
   %11 = add i64 %8, 1
   %12 = add i64 %11, %10
   %13 = mul nsw i64 %12, %6
-  store i64 %13, ptr %1, align 8
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = add nsw i64 %16, 7
-  store i64 %17, ptr %2, align 8
+  store i64 %13, ptr %1, align 8, !tbaa !38
+  %14 = load i64, ptr %5, align 8, !tbaa !26
+  %15 = add nsw i64 %14, 7
+  store i64 %15, ptr %2, align 8, !tbaa !38
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
+define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
-  %3 = load ptr, ptr %0, align 8
-  %4 = load i64, ptr %3, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
+  %4 = load i64, ptr %3, align 8, !tbaa !21
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %.lr.ph44, label %._crit_edge45
 
@@ -818,13 +881,13 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
   %6 = phi ptr [ %34, %._crit_edge ], [ %3, %2 ]
   %.042 = phi i64 [ %33, %._crit_edge ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = sub i64 %.042, %8
   %spec.select = tail call i64 @llvm.smax.i64(i64 %9, i64 0)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !27
   %14 = add nsw i64 %13, %.042
   %.not = icmp sgt i64 %11, %14
   %15 = add nsw i64 %11, -1
@@ -838,25 +901,25 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph44, %.lr.ph
   %.03038 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph44 ]
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #16
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #18
   %19 = add nuw nsw i64 %.03038, 1
   %exitcond.not = icmp eq i64 %19, %9
   br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
 .lr.ph41:                                         ; preds = %.preheader, %.lr.ph41
   %.140 = phi i64 [ %32, %.lr.ph41 ], [ %spec.select, %.preheader ]
-  %20 = load ptr, ptr %0, align 8
+  %20 = load ptr, ptr %0, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.140
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !34
   %25 = sub nsw i64 %.042, %.140
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %27 = load i64, ptr %26, align 8
+  %27 = load i64, ptr %26, align 8, !tbaa !29
   %28 = getelementptr double, ptr %24, i64 %25
   %29 = getelementptr double, ptr %28, i64 %27
-  %30 = load double, ptr %29, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #16
+  %30 = load double, ptr %29, align 8, !tbaa !36
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #18
   %32 = add nuw nsw i64 %.140, 1
   %.not36.not = icmp slt i64 %.140, %16
   br i1 %.not36.not, label %.lr.ph41, label %._crit_edge
@@ -864,8 +927,8 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
 ._crit_edge:                                      ; preds = %.lr.ph41, %.preheader
   %fputc37 = tail call i32 @fputc(i32 10, ptr %1)
   %33 = add nuw nsw i64 %.042, 1
-  %34 = load ptr, ptr %0, align 8
-  %35 = load i64, ptr %34, align 8
+  %34 = load ptr, ptr %0, align 8, !tbaa !20
+  %35 = load i64, ptr %34, align 8, !tbaa !21
   %36 = icmp slt i64 %33, %35
   br i1 %36, label %.lr.ph44, label %._crit_edge45
 
@@ -875,133 +938,173 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_Rows(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = load i64, ptr %2, align 8
+define i64 @SUNBandMatrix_Rows(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
+  %3 = load i64, ptr %2, align 8, !tbaa !21
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_Columns(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
+define i64 @SUNBandMatrix_Columns(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load i64, ptr %3, align 8
+  %4 = load i64, ptr %3, align 8, !tbaa !26
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_LowerBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
+define i64 @SUNBandMatrix_LowerBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load i64, ptr %3, align 8
+  %4 = load i64, ptr %3, align 8, !tbaa !28
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_UpperBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
+define i64 @SUNBandMatrix_UpperBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4 = load i64, ptr %3, align 8
+  %4 = load i64, ptr %3, align 8, !tbaa !27
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_StoredUpperBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
+define i64 @SUNBandMatrix_StoredUpperBandwidth(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %4 = load i64, ptr %3, align 8
+  %4 = load i64, ptr %3, align 8, !tbaa !29
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_LDim(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
+define i64 @SUNBandMatrix_LDim(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load i64, ptr %3, align 8
+  %4 = load i64, ptr %3, align 8, !tbaa !30
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @SUNBandMatrix_LData(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
+define i64 @SUNBandMatrix_LData(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %4 = load i64, ptr %3, align 8
+  %4 = load i64, ptr %3, align 8, !tbaa !31
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNBandMatrix_Data(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
+define ptr @SUNBandMatrix_Data(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !32
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNBandMatrix_Cols(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
-  %2 = load ptr, ptr %0, align 8
+define ptr @SUNBandMatrix_Cols(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @SUNBandMatrix_Column(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #10 {
-  %3 = load ptr, ptr %0, align 8
+define ptr @SUNBandMatrix_Column(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #11 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = getelementptr inbounds ptr, ptr %5, i64 %1
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds double, ptr %7, i64 %9
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #13
+declare double @llvm.fmuladd.f64(double, double, double) #14
 
 declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #15
+declare i64 @llvm.smax.i64(i64, i64) #16
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(0) }
-attributes #18 = { nounwind allocsize(0,1) }
-attributes #19 = { nounwind allocsize(1) }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind allocsize(0,1) }
+attributes #21 = { nounwind allocsize(1) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !8, i64 8}
+!4 = !{!"_generic_SUNMatrix", !5, i64 0, !8, i64 8, !9, i64 16}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
+!9 = !{!"p1 _ZTS11SUNContext_", !5, i64 0}
+!10 = !{!11, !5, i64 0}
+!11 = !{!"_generic_SUNMatrix_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72}
+!12 = !{!11, !5, i64 8}
+!13 = !{!11, !5, i64 16}
+!14 = !{!11, !5, i64 24}
+!15 = !{!11, !5, i64 32}
+!16 = !{!11, !5, i64 40}
+!17 = !{!11, !5, i64 48}
+!18 = !{!11, !5, i64 64}
+!19 = !{!11, !5, i64 72}
+!20 = !{!4, !5, i64 0}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_SUNMatrixContent_Band", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !24, i64 48, !23, i64 56, !25, i64 64}
+!23 = !{!"long", !6, i64 0}
+!24 = !{!"p1 double", !5, i64 0}
+!25 = !{!"p2 double", !5, i64 0}
+!26 = !{!22, !23, i64 8}
+!27 = !{!22, !23, i64 24}
+!28 = !{!22, !23, i64 32}
+!29 = !{!22, !23, i64 40}
+!30 = !{!22, !23, i64 16}
+!31 = !{!22, !23, i64 56}
+!32 = !{!22, !24, i64 48}
+!33 = !{!22, !25, i64 64}
+!34 = !{!24, !24, i64 0}
+!35 = !{!4, !9, i64 16}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"double", !6, i64 0}
+!38 = !{!23, !23, i64 0}

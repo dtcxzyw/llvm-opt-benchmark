@@ -184,47 +184,58 @@ define i32 @CVodeSetDeltaGammaMaxLSetup(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 48, ptr noundef @__func__.CVodeSetDeltaGammaMaxLSetup, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %22
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp olt double %12, 0.000000e+00
-  br i1 %13, label %14, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 48, ptr noundef @__func__.CVodeSetDeltaGammaMaxLSetup, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.CVodeMemRec, ptr %15, i32 0, i32 96
-  store double 3.000000e-01, ptr %16, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp olt double %13, 0.000000e+00
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %10
-  %18 = load double, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 96
-  store double %18, ptr %20, align 8
-  br label %21
-
-21:                                               ; preds = %17, %14
-  store i32 0, ptr %3, align 4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %16, i32 0, i32 96
+  store double 3.000000e-01, ptr %17, align 8, !tbaa !11
   br label %22
 
-22:                                               ; preds = %21, %9
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+18:                                               ; preds = %11
+  %19 = load double, ptr %5, align 8, !tbaa !7
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 96
+  store double %19, ptr %21, align 8, !tbaa !11
+  br label %22
+
+22:                                               ; preds = %18, %15
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
+
+23:                                               ; preds = %22, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
-declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @CVodeSetUserData(ptr noundef %0, ptr noundef %1) #0 {
@@ -232,30 +243,35 @@ define i32 @CVodeSetUserData(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 73, ptr noundef @__func__.CVodeSetUserData, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.CVodeMemRec, ptr %13, i32 0, i32 3
-  store ptr %12, ptr %14, align 8
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 73, ptr noundef @__func__.CVodeSetUserData, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = load ptr, ptr %6, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %14, i32 0, i32 3
+  store ptr %13, ptr %15, align 8, !tbaa !21
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -264,28 +280,33 @@ define i32 @CVodeSetMonitorFn(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 97, ptr noundef @__func__.CVodeSetMonitorFn, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %13
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %12, i32 noundef -22, i32 noundef 107, ptr noundef @__func__.CVodeSetMonitorFn, ptr noundef @.str, ptr noundef @.str.2)
-  store i32 -22, ptr %3, align 4
-  br label %13
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 97, ptr noundef @__func__.CVodeSetMonitorFn, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %14
 
-13:                                               ; preds = %10, %9
-  %14 = load i32, ptr %3, align 4
-  ret i32 %14
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %13, i32 noundef -22, i32 noundef 109, ptr noundef @__func__.CVodeSetMonitorFn, ptr noundef @.str, ptr noundef @.str.2)
+  store i32 -22, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %14
+
+14:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %15 = load i32, ptr %3, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -294,38 +315,44 @@ define i32 @CVodeSetMonitorFrequency(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 125, ptr noundef @__func__.CVodeSetMonitorFrequency, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %17
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load i64, ptr %5, align 8
-  %12 = icmp slt i64 %11, 0
-  br i1 %12, label %13, label %14
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 127, ptr noundef @__func__.CVodeSetMonitorFrequency, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %18
 
-13:                                               ; preds = %10
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -22, i32 noundef 131, ptr noundef @__func__.CVodeSetMonitorFrequency, ptr noundef @.str, ptr noundef @.str.3)
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !22
+  %13 = icmp slt i64 %12, 0
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -22, i32 noundef 133, ptr noundef @__func__.CVodeSetMonitorFrequency, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %3, align 4
-  br label %17
+  store i32 1, ptr %7, align 4
+  br label %18
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8
-  store ptr %15, ptr %6, align 8
-  %16 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %16, i32 noundef -22, i32 noundef 142, ptr noundef @__func__.CVodeSetMonitorFrequency, ptr noundef @.str, ptr noundef @.str.2)
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %16, ptr %6, align 8, !tbaa !9
+  %17 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %17, i32 noundef -22, i32 noundef 144, ptr noundef @__func__.CVodeSetMonitorFrequency, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -22, ptr %3, align 4
-  br label %17
+  store i32 1, ptr %7, align 4
+  br label %18
 
-17:                                               ; preds = %14, %13, %9
-  %18 = load i32, ptr %3, align 4
-  ret i32 %18
+18:                                               ; preds = %15, %14, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %19 = load i32, ptr %3, align 4
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -335,57 +362,66 @@ define i32 @CVodeSetMaxOrd(ptr noundef %0, i32 noundef %1) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 161, ptr noundef @__func__.CVodeSetMaxOrd, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %30
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load i32, ptr %5, align 4
-  %14 = icmp sle i32 %13, 0
-  br i1 %14, label %15, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 163, ptr noundef @__func__.CVodeSetMaxOrd, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %31
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %16, i32 noundef -22, i32 noundef 169, ptr noundef @__func__.CVodeSetMaxOrd, ptr noundef @.str, ptr noundef @.str.4)
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !9
+  %14 = load i32, ptr %5, align 4, !tbaa !23
+  %15 = icmp sle i32 %14, 0
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %17, i32 noundef -22, i32 noundef 171, ptr noundef @__func__.CVodeSetMaxOrd, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -22, ptr %3, align 4
-  br label %30
+  store i32 1, ptr %8, align 4
+  br label %31
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 104
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %7, align 4
-  %21 = load i32, ptr %5, align 4
-  %22 = load i32, ptr %7, align 4
-  %23 = icmp sgt i32 %21, %22
-  br i1 %23, label %24, label %26
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %6, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 104
+  %21 = load i32, ptr %20, align 8, !tbaa !24
+  store i32 %21, ptr %7, align 4, !tbaa !23
+  %22 = load i32, ptr %5, align 4, !tbaa !23
+  %23 = load i32, ptr %7, align 4, !tbaa !23
+  %24 = icmp sgt i32 %22, %23
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %25, i32 noundef -22, i32 noundef 180, ptr noundef @__func__.CVodeSetMaxOrd, ptr noundef @.str, ptr noundef @.str.5)
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %26, i32 noundef -22, i32 noundef 182, ptr noundef @__func__.CVodeSetMaxOrd, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -22, ptr %3, align 4
-  br label %30
+  store i32 1, ptr %8, align 4
+  br label %31
 
-26:                                               ; preds = %17
-  %27 = load i32, ptr %5, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.CVodeMemRec, ptr %28, i32 0, i32 52
-  store i32 %27, ptr %29, align 8
+27:                                               ; preds = %18
+  %28 = load i32, ptr %5, align 4, !tbaa !23
+  %29 = load ptr, ptr %6, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %29, i32 0, i32 52
+  store i32 %28, ptr %30, align 8, !tbaa !25
   store i32 0, ptr %3, align 4
-  br label %30
+  store i32 1, ptr %8, align 4
+  br label %31
 
-30:                                               ; preds = %26, %24, %15, %10
-  %31 = load i32, ptr %3, align 4
-  ret i32 %31
+31:                                               ; preds = %27, %25, %16, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %32 = load i32, ptr %3, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -394,44 +430,49 @@ define i32 @CVodeSetMaxNumSteps(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 202, ptr noundef @__func__.CVodeSetMaxNumSteps, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %22
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 204, ptr noundef @__func__.CVodeSetMaxNumSteps, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.CVodeMemRec, ptr %15, i32 0, i32 53
-  store i64 500, ptr %16, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i64, ptr %5, align 8, !tbaa !22
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %10
-  %18 = load i64, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 53
-  store i64 %18, ptr %20, align 8
-  br label %21
-
-21:                                               ; preds = %17, %14
-  store i32 0, ptr %3, align 4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %16, i32 0, i32 53
+  store i64 500, ptr %17, align 8, !tbaa !26
   br label %22
 
-22:                                               ; preds = %21, %9
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+18:                                               ; preds = %11
+  %19 = load i64, ptr %5, align 8, !tbaa !22
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 53
+  store i64 %19, ptr %21, align 8, !tbaa !26
+  br label %22
+
+22:                                               ; preds = %18, %15
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
+
+23:                                               ; preds = %22, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -440,30 +481,35 @@ define i32 @CVodeSetMaxHnilWarns(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 227, ptr noundef @__func__.CVodeSetMaxHnilWarns, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.CVodeMemRec, ptr %13, i32 0, i32 54
-  store i32 %12, ptr %14, align 8
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 229, ptr noundef @__func__.CVodeSetMaxHnilWarns, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %5, align 4, !tbaa !23
+  %14 = load ptr, ptr %6, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %14, i32 0, i32 54
+  store i32 %13, ptr %15, align 8, !tbaa !27
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -472,48 +518,54 @@ define i32 @CVodeSetStabLimDet(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 250, ptr noundef @__func__.CVodeSetStabLimDet, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %25
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %21
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 252, ptr noundef @__func__.CVodeSetStabLimDet, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.CVodeMemRec, ptr %15, i32 0, i32 4
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp ne i32 %17, 2
-  br i1 %18, label %19, label %21
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %5, align 4, !tbaa !23
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %22
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %20, i32 noundef -22, i32 noundef 258, ptr noundef @__func__.CVodeSetStabLimDet, ptr noundef @.str, ptr noundef @.str.6)
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %16, i32 0, i32 4
+  %18 = load i32, ptr %17, align 8, !tbaa !28
+  %19 = icmp ne i32 %18, 2
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %21, i32 noundef -22, i32 noundef 260, ptr noundef @__func__.CVodeSetStabLimDet, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -22, ptr %3, align 4
-  br label %25
+  store i32 1, ptr %7, align 4
+  br label %26
 
-21:                                               ; preds = %14, %10
-  %22 = load i32, ptr %5, align 4
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.CVodeMemRec, ptr %23, i32 0, i32 111
-  store i32 %22, ptr %24, align 8
+22:                                               ; preds = %15, %11
+  %23 = load i32, ptr %5, align 4, !tbaa !23
+  %24 = load ptr, ptr %6, align 8, !tbaa !9
+  %25 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %24, i32 0, i32 111
+  store i32 %23, ptr %25, align 8, !tbaa !29
   store i32 0, ptr %3, align 4
-  br label %25
+  store i32 1, ptr %7, align 4
+  br label %26
 
-25:                                               ; preds = %21, %19, %9
-  %26 = load i32, ptr %3, align 4
-  ret i32 %26
+26:                                               ; preds = %22, %20, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -522,30 +574,35 @@ define i32 @CVodeSetInitStep(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 280, ptr noundef @__func__.CVodeSetInitStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.CVodeMemRec, ptr %13, i32 0, i32 32
-  store double %12, ptr %14, align 8
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 282, ptr noundef @__func__.CVodeSetInitStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = load ptr, ptr %6, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %14, i32 0, i32 32
+  store double %13, ptr %15, align 8, !tbaa !30
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -554,68 +611,76 @@ define i32 @CVodeSetMinStep(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 303, ptr noundef @__func__.CVodeSetMinStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %35
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp olt double %12, 0.000000e+00
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 305, ptr noundef @__func__.CVodeSetMinStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %36
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %15, i32 noundef -22, i32 noundef 311, ptr noundef @__func__.CVodeSetMinStep, ptr noundef @.str, ptr noundef @.str.7)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp olt double %13, 0.000000e+00
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %16, i32 noundef -22, i32 noundef 313, ptr noundef @__func__.CVodeSetMinStep, ptr noundef @.str, ptr noundef @.str.7)
   store i32 -22, ptr %3, align 4
-  br label %35
+  store i32 1, ptr %7, align 4
+  br label %36
 
-16:                                               ; preds = %10
-  %17 = load double, ptr %5, align 8
-  %18 = fcmp oeq double %17, 0.000000e+00
-  br i1 %18, label %19, label %22
+17:                                               ; preds = %11
+  %18 = load double, ptr %5, align 8, !tbaa !7
+  %19 = fcmp oeq double %18, 0.000000e+00
+  br i1 %19, label %20, label %23
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.CVodeMemRec, ptr %20, i32 0, i32 57
-  store double 0.000000e+00, ptr %21, align 8
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %21, i32 0, i32 57
+  store double 0.000000e+00, ptr %22, align 8, !tbaa !31
   store i32 0, ptr %3, align 4
-  br label %35
+  store i32 1, ptr %7, align 4
+  br label %36
 
-22:                                               ; preds = %16
-  %23 = load double, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.CVodeMemRec, ptr %24, i32 0, i32 58
-  %26 = load double, ptr %25, align 8
-  %27 = fmul double %23, %26
-  %28 = fcmp ogt double %27, 1.000000e+00
-  br i1 %28, label %29, label %31
+23:                                               ; preds = %17
+  %24 = load double, ptr %5, align 8, !tbaa !7
+  %25 = load ptr, ptr %6, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %25, i32 0, i32 58
+  %27 = load double, ptr %26, align 8, !tbaa !32
+  %28 = fmul double %24, %27
+  %29 = fcmp ogt double %28, 1.000000e+00
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %30, i32 noundef -22, i32 noundef 325, ptr noundef @__func__.CVodeSetMinStep, ptr noundef @.str, ptr noundef @.str.8)
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %31, i32 noundef -22, i32 noundef 327, ptr noundef @__func__.CVodeSetMinStep, ptr noundef @.str, ptr noundef @.str.8)
   store i32 -22, ptr %3, align 4
-  br label %35
+  store i32 1, ptr %7, align 4
+  br label %36
 
-31:                                               ; preds = %22
-  %32 = load double, ptr %5, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.CVodeMemRec, ptr %33, i32 0, i32 57
-  store double %32, ptr %34, align 8
+32:                                               ; preds = %23
+  %33 = load double, ptr %5, align 8, !tbaa !7
+  %34 = load ptr, ptr %6, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %34, i32 0, i32 57
+  store double %33, ptr %35, align 8, !tbaa !31
   store i32 0, ptr %3, align 4
-  br label %35
+  store i32 1, ptr %7, align 4
+  br label %36
 
-35:                                               ; preds = %31, %29, %19, %14, %9
-  %36 = load i32, ptr %3, align 4
-  ret i32 %36
+36:                                               ; preds = %32, %30, %20, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %37 = load i32, ptr %3, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
@@ -625,71 +690,81 @@ define i32 @CVodeSetMaxStep(ptr noundef %0, double noundef %1) #0 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 348, ptr noundef @__func__.CVodeSetMaxStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %38
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %7, align 8
-  %13 = load double, ptr %5, align 8
-  %14 = fcmp olt double %13, 0.000000e+00
-  br i1 %14, label %15, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 350, ptr noundef @__func__.CVodeSetMaxStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %39
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %7, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %16, i32 noundef -22, i32 noundef 356, ptr noundef @__func__.CVodeSetMaxStep, ptr noundef @.str, ptr noundef @.str.9)
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %7, align 8, !tbaa !9
+  %14 = load double, ptr %5, align 8, !tbaa !7
+  %15 = fcmp olt double %14, 0.000000e+00
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %7, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %17, i32 noundef -22, i32 noundef 358, ptr noundef @__func__.CVodeSetMaxStep, ptr noundef @.str, ptr noundef @.str.9)
   store i32 -22, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %8, align 4
+  br label %39
 
-17:                                               ; preds = %11
-  %18 = load double, ptr %5, align 8
-  %19 = fcmp oeq double %18, 0.000000e+00
-  br i1 %19, label %20, label %23
+18:                                               ; preds = %12
+  %19 = load double, ptr %5, align 8, !tbaa !7
+  %20 = fcmp oeq double %19, 0.000000e+00
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct.CVodeMemRec, ptr %21, i32 0, i32 58
-  store double 0.000000e+00, ptr %22, align 8
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %7, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %22, i32 0, i32 58
+  store double 0.000000e+00, ptr %23, align 8, !tbaa !32
   store i32 0, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %8, align 4
+  br label %39
 
-23:                                               ; preds = %17
-  %24 = load double, ptr %5, align 8
-  %25 = fdiv double 1.000000e+00, %24
-  store double %25, ptr %6, align 8
-  %26 = load double, ptr %6, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.CVodeMemRec, ptr %27, i32 0, i32 57
-  %29 = load double, ptr %28, align 8
-  %30 = fmul double %26, %29
-  %31 = fcmp ogt double %30, 1.000000e+00
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %18
+  %25 = load double, ptr %5, align 8, !tbaa !7
+  %26 = fdiv double 1.000000e+00, %25
+  store double %26, ptr %6, align 8, !tbaa !7
+  %27 = load double, ptr %6, align 8, !tbaa !7
+  %28 = load ptr, ptr %7, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %28, i32 0, i32 57
+  %30 = load double, ptr %29, align 8, !tbaa !31
+  %31 = fmul double %27, %30
+  %32 = fcmp ogt double %31, 1.000000e+00
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %7, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 371, ptr noundef @__func__.CVodeSetMaxStep, ptr noundef @.str, ptr noundef @.str.8)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %7, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 373, ptr noundef @__func__.CVodeSetMaxStep, ptr noundef @.str, ptr noundef @.str.8)
   store i32 -22, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %8, align 4
+  br label %39
 
-34:                                               ; preds = %23
-  %35 = load double, ptr %6, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct.CVodeMemRec, ptr %36, i32 0, i32 58
-  store double %35, ptr %37, align 8
+35:                                               ; preds = %24
+  %36 = load double, ptr %6, align 8, !tbaa !7
+  %37 = load ptr, ptr %7, align 8, !tbaa !9
+  %38 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %37, i32 0, i32 58
+  store double %36, ptr %38, align 8, !tbaa !32
   store i32 0, ptr %3, align 4
-  br label %38
+  store i32 1, ptr %8, align 4
+  br label %39
 
-38:                                               ; preds = %34, %32, %20, %15, %10
-  %39 = load i32, ptr %3, align 4
-  ret i32 %39
+39:                                               ; preds = %35, %33, %21, %16, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %40 = load i32, ptr %3, align 4
+  ret i32 %40
 }
 
 ; Function Attrs: nounwind uwtable
@@ -699,68 +774,73 @@ define i32 @CVodeSetEtaFixedStepBounds(ptr noundef %0, double noundef %1, double
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store double %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 394, ptr noundef @__func__.CVodeSetEtaFixedStepBounds, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %4, align 4
-  br label %37
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store double %1, ptr %6, align 8, !tbaa !7
+  store double %2, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = load double, ptr %6, align 8
-  %15 = fcmp olt double %14, 0.000000e+00
-  br i1 %15, label %19, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 396, ptr noundef @__func__.CVodeSetEtaFixedStepBounds, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %38
 
-16:                                               ; preds = %12
-  %17 = load double, ptr %6, align 8
-  %18 = fcmp oge double %17, 1.000000e+00
-  br i1 %18, label %19, label %22
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %14, ptr %8, align 8, !tbaa !9
+  %15 = load double, ptr %6, align 8, !tbaa !7
+  %16 = fcmp olt double %15, 0.000000e+00
+  br i1 %16, label %20, label %17
 
-19:                                               ; preds = %16, %12
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.CVodeMemRec, ptr %20, i32 0, i32 60
-  store double 0.000000e+00, ptr %21, align 8
-  br label %26
+17:                                               ; preds = %13
+  %18 = load double, ptr %6, align 8, !tbaa !7
+  %19 = fcmp oge double %18, 1.000000e+00
+  br i1 %19, label %20, label %23
 
-22:                                               ; preds = %16
-  %23 = load double, ptr %6, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.CVodeMemRec, ptr %24, i32 0, i32 60
-  store double %23, ptr %25, align 8
-  br label %26
+20:                                               ; preds = %17, %13
+  %21 = load ptr, ptr %8, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %21, i32 0, i32 60
+  store double 0.000000e+00, ptr %22, align 8, !tbaa !33
+  br label %27
 
-26:                                               ; preds = %22, %19
-  %27 = load double, ptr %7, align 8
-  %28 = fcmp ole double %27, 1.000000e+00
-  br i1 %28, label %29, label %32
+23:                                               ; preds = %17
+  %24 = load double, ptr %6, align 8, !tbaa !7
+  %25 = load ptr, ptr %8, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %25, i32 0, i32 60
+  store double %24, ptr %26, align 8, !tbaa !33
+  br label %27
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct.CVodeMemRec, ptr %30, i32 0, i32 61
-  store double 1.500000e+00, ptr %31, align 8
-  br label %36
+27:                                               ; preds = %23, %20
+  %28 = load double, ptr %7, align 8, !tbaa !7
+  %29 = fcmp ole double %28, 1.000000e+00
+  br i1 %29, label %30, label %33
 
-32:                                               ; preds = %26
-  %33 = load double, ptr %7, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.CVodeMemRec, ptr %34, i32 0, i32 61
-  store double %33, ptr %35, align 8
-  br label %36
-
-36:                                               ; preds = %32, %29
-  store i32 0, ptr %4, align 4
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %8, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %31, i32 0, i32 61
+  store double 1.500000e+00, ptr %32, align 8, !tbaa !34
   br label %37
 
-37:                                               ; preds = %36, %11
-  %38 = load i32, ptr %4, align 4
-  ret i32 %38
+33:                                               ; preds = %27
+  %34 = load double, ptr %7, align 8, !tbaa !7
+  %35 = load ptr, ptr %8, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %35, i32 0, i32 61
+  store double %34, ptr %36, align 8, !tbaa !34
+  br label %37
+
+37:                                               ; preds = %33, %30
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %38
+
+38:                                               ; preds = %37, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %39 = load i32, ptr %4, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -769,44 +849,49 @@ define i32 @CVodeSetEtaMaxFirstStep(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 425, ptr noundef @__func__.CVodeSetEtaMaxFirstStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %22
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 1.000000e+00
-  br i1 %13, label %14, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 427, ptr noundef @__func__.CVodeSetEtaMaxFirstStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.CVodeMemRec, ptr %15, i32 0, i32 62
-  store double 1.000000e+04, ptr %16, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp ole double %13, 1.000000e+00
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %10
-  %18 = load double, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 62
-  store double %18, ptr %20, align 8
-  br label %21
-
-21:                                               ; preds = %17, %14
-  store i32 0, ptr %3, align 4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %16, i32 0, i32 62
+  store double 1.000000e+04, ptr %17, align 8, !tbaa !35
   br label %22
 
-22:                                               ; preds = %21, %9
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+18:                                               ; preds = %11
+  %19 = load double, ptr %5, align 8, !tbaa !7
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 62
+  store double %19, ptr %21, align 8, !tbaa !35
+  br label %22
+
+22:                                               ; preds = %18, %15
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
+
+23:                                               ; preds = %22, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -815,44 +900,49 @@ define i32 @CVodeSetEtaMaxEarlyStep(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 451, ptr noundef @__func__.CVodeSetEtaMaxEarlyStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %22
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 1.000000e+00
-  br i1 %13, label %14, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 453, ptr noundef @__func__.CVodeSetEtaMaxEarlyStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.CVodeMemRec, ptr %15, i32 0, i32 63
-  store double 1.000000e+01, ptr %16, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp ole double %13, 1.000000e+00
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %10
-  %18 = load double, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 63
-  store double %18, ptr %20, align 8
-  br label %21
-
-21:                                               ; preds = %17, %14
-  store i32 0, ptr %3, align 4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %16, i32 0, i32 63
+  store double 1.000000e+01, ptr %17, align 8, !tbaa !36
   br label %22
 
-22:                                               ; preds = %21, %9
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+18:                                               ; preds = %11
+  %19 = load double, ptr %5, align 8, !tbaa !7
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 63
+  store double %19, ptr %21, align 8, !tbaa !36
+  br label %22
+
+22:                                               ; preds = %18, %15
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
+
+23:                                               ; preds = %22, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -861,44 +951,49 @@ define i32 @CVodeSetNumStepsEtaMaxEarlyStep(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 477, ptr noundef @__func__.CVodeSetNumStepsEtaMaxEarlyStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %22
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 479, ptr noundef @__func__.CVodeSetNumStepsEtaMaxEarlyStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.CVodeMemRec, ptr %15, i32 0, i32 69
-  store i64 10, ptr %16, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i64, ptr %5, align 8, !tbaa !22
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %10
-  %18 = load i64, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 69
-  store i64 %18, ptr %20, align 8
-  br label %21
-
-21:                                               ; preds = %17, %14
-  store i32 0, ptr %3, align 4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %16, i32 0, i32 69
+  store i64 10, ptr %17, align 8, !tbaa !37
   br label %22
 
-22:                                               ; preds = %21, %9
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+18:                                               ; preds = %11
+  %19 = load i64, ptr %5, align 8, !tbaa !22
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 69
+  store i64 %19, ptr %21, align 8, !tbaa !37
+  br label %22
+
+22:                                               ; preds = %18, %15
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
+
+23:                                               ; preds = %22, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -907,44 +1002,49 @@ define i32 @CVodeSetEtaMax(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 502, ptr noundef @__func__.CVodeSetEtaMax, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %22
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 1.000000e+00
-  br i1 %13, label %14, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 504, ptr noundef @__func__.CVodeSetEtaMax, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.CVodeMemRec, ptr %15, i32 0, i32 64
-  store double 1.000000e+01, ptr %16, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp ole double %13, 1.000000e+00
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %10
-  %18 = load double, ptr %5, align 8
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 64
-  store double %18, ptr %20, align 8
-  br label %21
-
-21:                                               ; preds = %17, %14
-  store i32 0, ptr %3, align 4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %16, i32 0, i32 64
+  store double 1.000000e+01, ptr %17, align 8, !tbaa !38
   br label %22
 
-22:                                               ; preds = %21, %9
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+18:                                               ; preds = %11
+  %19 = load double, ptr %5, align 8, !tbaa !7
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 64
+  store double %19, ptr %21, align 8, !tbaa !38
+  br label %22
+
+22:                                               ; preds = %18, %15
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
+
+23:                                               ; preds = %22, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -953,49 +1053,54 @@ define i32 @CVodeSetEtaMin(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 527, ptr noundef @__func__.CVodeSetEtaMin, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %25
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 0.000000e+00
-  br i1 %13, label %17, label %14
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 529, ptr noundef @__func__.CVodeSetEtaMin, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
 
-14:                                               ; preds = %10
-  %15 = load double, ptr %5, align 8
-  %16 = fcmp oge double %15, 1.000000e+00
-  br i1 %16, label %17, label %20
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp ole double %13, 0.000000e+00
+  br i1 %14, label %18, label %15
 
-17:                                               ; preds = %14, %10
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 65
-  store double 1.000000e-01, ptr %19, align 8
-  br label %24
+15:                                               ; preds = %11
+  %16 = load double, ptr %5, align 8, !tbaa !7
+  %17 = fcmp oge double %16, 1.000000e+00
+  br i1 %17, label %18, label %21
 
-20:                                               ; preds = %14
-  %21 = load double, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.CVodeMemRec, ptr %22, i32 0, i32 65
-  store double %21, ptr %23, align 8
-  br label %24
-
-24:                                               ; preds = %20, %17
-  store i32 0, ptr %3, align 4
+18:                                               ; preds = %15, %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 65
+  store double 1.000000e-01, ptr %20, align 8, !tbaa !39
   br label %25
 
-25:                                               ; preds = %24, %9
-  %26 = load i32, ptr %3, align 4
-  ret i32 %26
+21:                                               ; preds = %15
+  %22 = load double, ptr %5, align 8, !tbaa !7
+  %23 = load ptr, ptr %6, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %23, i32 0, i32 65
+  store double %22, ptr %24, align 8, !tbaa !39
+  br label %25
+
+25:                                               ; preds = %21, %18
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
+
+26:                                               ; preds = %25, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1004,49 +1109,54 @@ define i32 @CVodeSetEtaMinErrFail(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 555, ptr noundef @__func__.CVodeSetEtaMinErrFail, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %25
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 0.000000e+00
-  br i1 %13, label %17, label %14
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 557, ptr noundef @__func__.CVodeSetEtaMinErrFail, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
 
-14:                                               ; preds = %10
-  %15 = load double, ptr %5, align 8
-  %16 = fcmp oge double %15, 1.000000e+00
-  br i1 %16, label %17, label %20
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp ole double %13, 0.000000e+00
+  br i1 %14, label %18, label %15
 
-17:                                               ; preds = %14, %10
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 66
-  store double 1.000000e-01, ptr %19, align 8
-  br label %24
+15:                                               ; preds = %11
+  %16 = load double, ptr %5, align 8, !tbaa !7
+  %17 = fcmp oge double %16, 1.000000e+00
+  br i1 %17, label %18, label %21
 
-20:                                               ; preds = %14
-  %21 = load double, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.CVodeMemRec, ptr %22, i32 0, i32 66
-  store double %21, ptr %23, align 8
-  br label %24
-
-24:                                               ; preds = %20, %17
-  store i32 0, ptr %3, align 4
+18:                                               ; preds = %15, %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 66
+  store double 1.000000e-01, ptr %20, align 8, !tbaa !40
   br label %25
 
-25:                                               ; preds = %24, %9
-  %26 = load i32, ptr %3, align 4
-  ret i32 %26
+21:                                               ; preds = %15
+  %22 = load double, ptr %5, align 8, !tbaa !7
+  %23 = load ptr, ptr %6, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %23, i32 0, i32 66
+  store double %22, ptr %24, align 8, !tbaa !40
+  br label %25
+
+25:                                               ; preds = %21, %18
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
+
+26:                                               ; preds = %25, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1055,49 +1165,54 @@ define i32 @CVodeSetEtaMaxErrFail(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 584, ptr noundef @__func__.CVodeSetEtaMaxErrFail, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %25
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 0.000000e+00
-  br i1 %13, label %17, label %14
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 586, ptr noundef @__func__.CVodeSetEtaMaxErrFail, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
 
-14:                                               ; preds = %10
-  %15 = load double, ptr %5, align 8
-  %16 = fcmp oge double %15, 1.000000e+00
-  br i1 %16, label %17, label %20
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp ole double %13, 0.000000e+00
+  br i1 %14, label %18, label %15
 
-17:                                               ; preds = %14, %10
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 67
-  store double 2.000000e-01, ptr %19, align 8
-  br label %24
+15:                                               ; preds = %11
+  %16 = load double, ptr %5, align 8, !tbaa !7
+  %17 = fcmp oge double %16, 1.000000e+00
+  br i1 %17, label %18, label %21
 
-20:                                               ; preds = %14
-  %21 = load double, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.CVodeMemRec, ptr %22, i32 0, i32 67
-  store double %21, ptr %23, align 8
-  br label %24
-
-24:                                               ; preds = %20, %17
-  store i32 0, ptr %3, align 4
+18:                                               ; preds = %15, %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 67
+  store double 2.000000e-01, ptr %20, align 8, !tbaa !41
   br label %25
 
-25:                                               ; preds = %24, %9
-  %26 = load i32, ptr %3, align 4
-  ret i32 %26
+21:                                               ; preds = %15
+  %22 = load double, ptr %5, align 8, !tbaa !7
+  %23 = load ptr, ptr %6, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %23, i32 0, i32 67
+  store double %22, ptr %24, align 8, !tbaa !41
+  br label %25
+
+25:                                               ; preds = %21, %18
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
+
+26:                                               ; preds = %25, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1106,44 +1221,49 @@ define i32 @CVodeSetNumFailsEtaMaxErrFail(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 613, ptr noundef @__func__.CVodeSetNumFailsEtaMaxErrFail, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %22
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 615, ptr noundef @__func__.CVodeSetNumFailsEtaMaxErrFail, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.CVodeMemRec, ptr %15, i32 0, i32 70
-  store i32 2, ptr %16, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %5, align 4, !tbaa !23
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %15, label %18
 
-17:                                               ; preds = %10
-  %18 = load i32, ptr %5, align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 70
-  store i32 %18, ptr %20, align 8
-  br label %21
-
-21:                                               ; preds = %17, %14
-  store i32 0, ptr %3, align 4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %16, i32 0, i32 70
+  store i32 2, ptr %17, align 8, !tbaa !42
   br label %22
 
-22:                                               ; preds = %21, %9
-  %23 = load i32, ptr %3, align 4
-  ret i32 %23
+18:                                               ; preds = %11
+  %19 = load i32, ptr %5, align 4, !tbaa !23
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 70
+  store i32 %19, ptr %21, align 8, !tbaa !42
+  br label %22
+
+22:                                               ; preds = %18, %15
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %23
+
+23:                                               ; preds = %22, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1152,49 +1272,54 @@ define i32 @CVodeSetEtaConvFail(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 638, ptr noundef @__func__.CVodeSetEtaConvFail, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %25
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 0.000000e+00
-  br i1 %13, label %17, label %14
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 640, ptr noundef @__func__.CVodeSetEtaConvFail, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
 
-14:                                               ; preds = %10
-  %15 = load double, ptr %5, align 8
-  %16 = fcmp oge double %15, 1.000000e+00
-  br i1 %16, label %17, label %20
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = fcmp ole double %13, 0.000000e+00
+  br i1 %14, label %18, label %15
 
-17:                                               ; preds = %14, %10
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 68
-  store double 2.500000e-01, ptr %19, align 8
-  br label %24
+15:                                               ; preds = %11
+  %16 = load double, ptr %5, align 8, !tbaa !7
+  %17 = fcmp oge double %16, 1.000000e+00
+  br i1 %17, label %18, label %21
 
-20:                                               ; preds = %14
-  %21 = load double, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.CVodeMemRec, ptr %22, i32 0, i32 68
-  store double %21, ptr %23, align 8
-  br label %24
-
-24:                                               ; preds = %20, %17
-  store i32 0, ptr %3, align 4
+18:                                               ; preds = %15, %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 68
+  store double 2.500000e-01, ptr %20, align 8, !tbaa !43
   br label %25
 
-25:                                               ; preds = %24, %9
-  %26 = load i32, ptr %3, align 4
-  ret i32 %26
+21:                                               ; preds = %15
+  %22 = load double, ptr %5, align 8, !tbaa !7
+  %23 = load ptr, ptr %6, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %23, i32 0, i32 68
+  store double %22, ptr %24, align 8, !tbaa !43
+  br label %25
+
+25:                                               ; preds = %21, %18
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %26
+
+26:                                               ; preds = %25, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1203,66 +1328,72 @@ define i32 @CVodeSetStopTime(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 663, ptr noundef @__func__.CVodeSetStopTime, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %40
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 71
-  %14 = load i64, ptr %13, align 8
-  %15 = icmp sgt i64 %14, 0
-  br i1 %15, label %16, label %34
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 665, ptr noundef @__func__.CVodeSetStopTime, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %41
 
-16:                                               ; preds = %10
-  %17 = load double, ptr %5, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 38
-  %20 = load double, ptr %19, align 8
-  %21 = fsub double %17, %20
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.CVodeMemRec, ptr %22, i32 0, i32 33
-  %24 = load double, ptr %23, align 8
-  %25 = fmul double %21, %24
-  %26 = fcmp olt double %25, 0.000000e+00
-  br i1 %26, label %27, label %33
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 71
+  %15 = load i64, ptr %14, align 8, !tbaa !44
+  %16 = icmp sgt i64 %15, 0
+  br i1 %16, label %17, label %35
 
-27:                                               ; preds = %16
-  %28 = load ptr, ptr %6, align 8
-  %29 = load double, ptr %5, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.CVodeMemRec, ptr %30, i32 0, i32 38
-  %32 = load double, ptr %31, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %28, i32 noundef -22, i32 noundef 676, ptr noundef @__func__.CVodeSetStopTime, ptr noundef @.str, ptr noundef @.str.10, double noundef %29, double noundef %32)
+17:                                               ; preds = %11
+  %18 = load double, ptr %5, align 8, !tbaa !7
+  %19 = load ptr, ptr %6, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 38
+  %21 = load double, ptr %20, align 8, !tbaa !45
+  %22 = fsub double %18, %21
+  %23 = load ptr, ptr %6, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %23, i32 0, i32 33
+  %25 = load double, ptr %24, align 8, !tbaa !46
+  %26 = fmul double %22, %25
+  %27 = fcmp olt double %26, 0.000000e+00
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %6, align 8, !tbaa !9
+  %30 = load double, ptr %5, align 8, !tbaa !7
+  %31 = load ptr, ptr %6, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %31, i32 0, i32 38
+  %33 = load double, ptr %32, align 8, !tbaa !45
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %29, i32 noundef -22, i32 noundef 678, ptr noundef @__func__.CVodeSetStopTime, ptr noundef @.str, ptr noundef @.str.10, double noundef %30, double noundef %33)
   store i32 -22, ptr %3, align 4
-  br label %40
+  store i32 1, ptr %7, align 4
+  br label %41
 
-33:                                               ; preds = %16
-  br label %34
+34:                                               ; preds = %17
+  br label %35
 
-34:                                               ; preds = %33, %10
-  %35 = load double, ptr %5, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.CVodeMemRec, ptr %36, i32 0, i32 26
-  store double %35, ptr %37, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.CVodeMemRec, ptr %38, i32 0, i32 24
-  store i32 1, ptr %39, align 8
+35:                                               ; preds = %34, %11
+  %36 = load double, ptr %5, align 8, !tbaa !7
+  %37 = load ptr, ptr %6, align 8, !tbaa !9
+  %38 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %37, i32 0, i32 26
+  store double %36, ptr %38, align 8, !tbaa !47
+  %39 = load ptr, ptr %6, align 8, !tbaa !9
+  %40 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %39, i32 0, i32 24
+  store i32 1, ptr %40, align 8, !tbaa !48
   store i32 0, ptr %3, align 4
-  br label %40
+  store i32 1, ptr %7, align 4
+  br label %41
 
-40:                                               ; preds = %34, %27, %9
-  %41 = load i32, ptr %3, align 4
-  ret i32 %41
+41:                                               ; preds = %35, %28, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %42 = load i32, ptr %3, align 4
+  ret i32 %42
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1271,30 +1402,35 @@ define i32 @CVodeSetInterpolateStopTime(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 701, ptr noundef @__func__.CVodeSetInterpolateStopTime, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.CVodeMemRec, ptr %13, i32 0, i32 25
-  store i32 %12, ptr %14, align 4
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 703, ptr noundef @__func__.CVodeSetInterpolateStopTime, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %5, align 4, !tbaa !23
+  %14 = load ptr, ptr %6, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %14, i32 0, i32 25
+  store i32 %13, ptr %15, align 4, !tbaa !49
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1302,28 +1438,33 @@ define i32 @CVodeClearStopTime(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %1
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 722, ptr noundef @__func__.CVodeClearStopTime, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %2, align 4
-  br label %12
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %4, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.CVodeMemRec, ptr %10, i32 0, i32 24
-  store i32 0, ptr %11, align 8
-  store i32 0, ptr %2, align 4
-  br label %12
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 724, ptr noundef @__func__.CVodeClearStopTime, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %13
 
-12:                                               ; preds = %8, %7
-  %13 = load i32, ptr %2, align 4
-  ret i32 %13
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %10, ptr %4, align 8, !tbaa !9
+  %11 = load ptr, ptr %4, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %11, i32 0, i32 24
+  store i32 0, ptr %12, align 8, !tbaa !48
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %13
+
+13:                                               ; preds = %9, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %14 = load i32, ptr %2, align 4
+  ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1332,30 +1473,35 @@ define i32 @CVodeSetMaxErrTestFails(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 745, ptr noundef @__func__.CVodeSetMaxErrTestFails, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.CVodeMemRec, ptr %13, i32 0, i32 55
-  store i32 %12, ptr %14, align 4
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 747, ptr noundef @__func__.CVodeSetMaxErrTestFails, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %5, align 4, !tbaa !23
+  %14 = load ptr, ptr %6, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %14, i32 0, i32 55
+  store i32 %13, ptr %15, align 4, !tbaa !50
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1364,30 +1510,35 @@ define i32 @CVodeSetMaxConvFails(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 769, ptr noundef @__func__.CVodeSetMaxConvFails, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.CVodeMemRec, ptr %13, i32 0, i32 56
-  store i32 %12, ptr %14, align 8
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 771, ptr noundef @__func__.CVodeSetMaxConvFails, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %5, align 4, !tbaa !23
+  %14 = load ptr, ptr %6, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %14, i32 0, i32 56
+  store i32 %13, ptr %15, align 8, !tbaa !51
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1396,46 +1547,52 @@ define i32 @CVodeSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 793, ptr noundef @__func__.CVodeSetMaxNonlinIters, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %23
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 86
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 795, ptr noundef @__func__.CVodeSetMaxNonlinIters, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %24
 
-16:                                               ; preds = %10
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 801, ptr noundef @__func__.CVodeSetMaxNonlinIters, ptr noundef @.str, ptr noundef @.str.11)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 86
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %11
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 803, ptr noundef @__func__.CVodeSetMaxNonlinIters, ptr noundef @.str, ptr noundef @.str.11)
   store i32 -20, ptr %3, align 4
-  br label %23
+  store i32 1, ptr %7, align 4
+  br label %24
 
-17:                                               ; preds = %10
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 86
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %5, align 4
-  %22 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef %20, i32 noundef %21)
-  store i32 %22, ptr %3, align 4
-  br label %23
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 86
+  %21 = load ptr, ptr %20, align 8, !tbaa !52
+  %22 = load i32, ptr %5, align 4, !tbaa !23
+  %23 = call i32 @SUNNonlinSolSetMaxIters(ptr noundef %21, i32 noundef %22)
+  store i32 %23, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %24
 
-23:                                               ; preds = %17, %16, %9
-  %24 = load i32, ptr %3, align 4
-  ret i32 %24
+24:                                               ; preds = %18, %17, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %25 = load i32, ptr %3, align 4
+  ret i32 %25
 }
 
-declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) #1
+declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @CVodeSetNonlinConvCoef(ptr noundef %0, double noundef %1) #0 {
@@ -1443,30 +1600,35 @@ define i32 @CVodeSetNonlinConvCoef(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 822, ptr noundef @__func__.CVodeSetNonlinConvCoef, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.CVodeMemRec, ptr %13, i32 0, i32 51
-  store double %12, ptr %14, align 8
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 824, ptr noundef @__func__.CVodeSetNonlinConvCoef, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load double, ptr %5, align 8, !tbaa !7
+  %14 = load ptr, ptr %6, align 8, !tbaa !9
+  %15 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %14, i32 0, i32 51
+  store double %13, ptr %15, align 8, !tbaa !53
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1475,53 +1637,59 @@ define i32 @CVodeSetLSetupFrequency(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 846, ptr noundef @__func__.CVodeSetLSetupFrequency, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %26
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 848, ptr noundef @__func__.CVodeSetLSetupFrequency, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %27
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %15, i32 noundef -22, i32 noundef 855, ptr noundef @__func__.CVodeSetLSetupFrequency, ptr noundef @.str, ptr noundef @.str.12)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load i64, ptr %5, align 8, !tbaa !22
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %16, i32 noundef -22, i32 noundef 857, ptr noundef @__func__.CVodeSetLSetupFrequency, ptr noundef @.str, ptr noundef @.str.12)
   store i32 -22, ptr %3, align 4
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %27
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %20
+17:                                               ; preds = %11
+  %18 = load i64, ptr %5, align 8, !tbaa !22
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %16
-  br label %22
+20:                                               ; preds = %17
+  br label %23
 
-20:                                               ; preds = %16
-  %21 = load i64, ptr %5, align 8
-  br label %22
+21:                                               ; preds = %17
+  %22 = load i64, ptr %5, align 8, !tbaa !22
+  br label %23
 
-22:                                               ; preds = %20, %19
-  %23 = phi i64 [ 20, %19 ], [ %21, %20 ]
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.CVodeMemRec, ptr %24, i32 0, i32 95
-  store i64 %23, ptr %25, align 8
+23:                                               ; preds = %21, %20
+  %24 = phi i64 [ 20, %20 ], [ %22, %21 ]
+  %25 = load ptr, ptr %6, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %25, i32 0, i32 95
+  store i64 %24, ptr %26, align 8, !tbaa !54
   store i32 0, ptr %3, align 4
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %27
 
-26:                                               ; preds = %22, %14, %9
-  %27 = load i32, ptr %3, align 4
-  ret i32 %27
+27:                                               ; preds = %23, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %28 = load i32, ptr %3, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1532,71 +1700,81 @@ define i32 @CVodeSetRootDirection(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 880, ptr noundef @__func__.CVodeSetRootDirection, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %41
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %6, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.CVodeMemRec, ptr %14, i32 0, i32 116
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %8, align 4
-  %17 = load i32, ptr %8, align 4
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %20
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 882, ptr noundef @__func__.CVodeSetRootDirection, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %42
 
-19:                                               ; preds = %12
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -22, i32 noundef 889, ptr noundef @__func__.CVodeSetRootDirection, ptr noundef @.str, ptr noundef @.str.13)
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %14, ptr %6, align 8, !tbaa !9
+  %15 = load ptr, ptr %6, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %15, i32 0, i32 116
+  %17 = load i32, ptr %16, align 8, !tbaa !56
+  store i32 %17, ptr %8, align 4, !tbaa !23
+  %18 = load i32, ptr %8, align 4, !tbaa !23
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %13
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -22, i32 noundef 891, ptr noundef @__func__.CVodeSetRootDirection, ptr noundef @.str, ptr noundef @.str.13)
   store i32 -22, ptr %3, align 4
-  br label %41
+  store i32 1, ptr %9, align 4
+  br label %42
 
-20:                                               ; preds = %12
-  store i32 0, ptr %7, align 4
-  br label %21
+21:                                               ; preds = %13
+  store i32 0, ptr %7, align 4, !tbaa !23
+  br label %22
 
-21:                                               ; preds = %37, %20
-  %22 = load i32, ptr %7, align 4
-  %23 = load i32, ptr %8, align 4
-  %24 = icmp slt i32 %22, %23
-  br i1 %24, label %25, label %40
+22:                                               ; preds = %38, %21
+  %23 = load i32, ptr %7, align 4, !tbaa !23
+  %24 = load i32, ptr %8, align 4, !tbaa !23
+  %25 = icmp slt i32 %23, %24
+  br i1 %25, label %26, label %41
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %5, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %26, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.CVodeMemRec, ptr %31, i32 0, i32 118
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i32, ptr %7, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %33, i64 %35
-  store i32 %30, ptr %36, align 4
-  br label %37
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %5, align 8, !tbaa !55
+  %28 = load i32, ptr %7, align 4, !tbaa !23
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i32, ptr %27, i64 %29
+  %31 = load i32, ptr %30, align 4, !tbaa !23
+  %32 = load ptr, ptr %6, align 8, !tbaa !9
+  %33 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %32, i32 0, i32 118
+  %34 = load ptr, ptr %33, align 8, !tbaa !57
+  %35 = load i32, ptr %7, align 4, !tbaa !23
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i32, ptr %34, i64 %36
+  store i32 %31, ptr %37, align 4, !tbaa !23
+  br label %38
 
-37:                                               ; preds = %25
-  %38 = load i32, ptr %7, align 4
-  %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %7, align 4
-  br label %21
+38:                                               ; preds = %26
+  %39 = load i32, ptr %7, align 4, !tbaa !23
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %7, align 4, !tbaa !23
+  br label %22
 
-40:                                               ; preds = %21
+41:                                               ; preds = %22
   store i32 0, ptr %3, align 4
-  br label %41
+  store i32 1, ptr %9, align 4
+  br label %42
 
-41:                                               ; preds = %40, %19, %11
-  %42 = load i32, ptr %3, align 4
-  ret i32 %42
+42:                                               ; preds = %41, %20, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %43 = load i32, ptr %3, align 4
+  ret i32 %43
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1604,28 +1782,33 @@ define i32 @CVodeSetNoInactiveRootWarn(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %1
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 912, ptr noundef @__func__.CVodeSetNoInactiveRootWarn, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %2, align 4
-  br label %12
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %4, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.CVodeMemRec, ptr %10, i32 0, i32 131
-  store i32 0, ptr %11, align 8
-  store i32 0, ptr %2, align 4
-  br label %12
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 914, ptr noundef @__func__.CVodeSetNoInactiveRootWarn, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %13
 
-12:                                               ; preds = %8, %7
-  %13 = load i32, ptr %2, align 4
-  ret i32 %13
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %10, ptr %4, align 8, !tbaa !9
+  %11 = load ptr, ptr %4, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %11, i32 0, i32 131
+  store i32 0, ptr %12, align 8, !tbaa !58
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %13
+
+13:                                               ; preds = %9, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %14 = load i32, ptr %2, align 4
+  ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1635,192 +1818,202 @@ define i32 @CVodeSetConstraints(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 936, ptr noundef @__func__.CVodeSetConstraints, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %123
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %43
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 938, ptr noundef @__func__.CVodeSetConstraints, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %124
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.CVodeMemRec, ptr %16, i32 0, i32 108
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %38
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !9
+  %14 = load ptr, ptr %5, align 8, !tbaa !59
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %44
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.CVodeMemRec, ptr %21, i32 0, i32 23
-  %23 = load ptr, ptr %22, align 8
-  call void @N_VDestroy(ptr noundef %23)
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.CVodeMemRec, ptr %24, i32 0, i32 82
-  %26 = load i64, ptr %25, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.CVodeMemRec, ptr %27, i32 0, i32 84
-  %29 = load i64, ptr %28, align 8
-  %30 = sub nsw i64 %29, %26
-  store i64 %30, ptr %28, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.CVodeMemRec, ptr %31, i32 0, i32 83
-  %33 = load i64, ptr %32, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.CVodeMemRec, ptr %34, i32 0, i32 85
-  %36 = load i64, ptr %35, align 8
-  %37 = sub nsw i64 %36, %33
-  store i64 %37, ptr %35, align 8
-  br label %38
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !9
+  %18 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %17, i32 0, i32 108
+  %19 = load i32, ptr %18, align 8, !tbaa !60
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %39
 
-38:                                               ; preds = %20, %15
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.CVodeMemRec, ptr %39, i32 0, i32 108
-  store i32 0, ptr %40, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.CVodeMemRec, ptr %41, i32 0, i32 13
-  store i32 0, ptr %42, align 8
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %6, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %22, i32 0, i32 23
+  %24 = load ptr, ptr %23, align 8, !tbaa !61
+  call void @N_VDestroy(ptr noundef %24)
+  %25 = load ptr, ptr %6, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %25, i32 0, i32 82
+  %27 = load i64, ptr %26, align 8, !tbaa !62
+  %28 = load ptr, ptr %6, align 8, !tbaa !9
+  %29 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %28, i32 0, i32 84
+  %30 = load i64, ptr %29, align 8, !tbaa !63
+  %31 = sub nsw i64 %30, %27
+  store i64 %31, ptr %29, align 8, !tbaa !63
+  %32 = load ptr, ptr %6, align 8, !tbaa !9
+  %33 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %32, i32 0, i32 83
+  %34 = load i64, ptr %33, align 8, !tbaa !64
+  %35 = load ptr, ptr %6, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %35, i32 0, i32 85
+  %37 = load i64, ptr %36, align 8, !tbaa !65
+  %38 = sub nsw i64 %37, %34
+  store i64 %38, ptr %36, align 8, !tbaa !65
+  br label %39
+
+39:                                               ; preds = %21, %16
+  %40 = load ptr, ptr %6, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %40, i32 0, i32 108
+  store i32 0, ptr %41, align 8, !tbaa !60
+  %42 = load ptr, ptr %6, align 8, !tbaa !9
+  %43 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %42, i32 0, i32 13
+  store i32 0, ptr %43, align 8, !tbaa !66
   store i32 0, ptr %3, align 4
-  br label %123
+  store i32 1, ptr %8, align 4
+  br label %124
 
-43:                                               ; preds = %11
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct._generic_N_Vector, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %46, i32 0, i32 14
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %78, label %50
+44:                                               ; preds = %12
+  %45 = load ptr, ptr %5, align 8, !tbaa !59
+  %46 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !67
+  %48 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %47, i32 0, i32 14
+  %49 = load ptr, ptr %48, align 8, !tbaa !70
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %79, label %51
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct._generic_N_Vector, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %53, i32 0, i32 20
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %78, label %57
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %5, align 8, !tbaa !59
+  %53 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !67
+  %55 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %54, i32 0, i32 20
+  %56 = load ptr, ptr %55, align 8, !tbaa !72
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %79, label %58
 
-57:                                               ; preds = %50
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct._generic_N_Vector, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %60, i32 0, i32 26
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %78, label %64
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %5, align 8, !tbaa !59
+  %60 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8, !tbaa !67
+  %62 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %61, i32 0, i32 26
+  %63 = load ptr, ptr %62, align 8, !tbaa !73
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %79, label %65
 
-64:                                               ; preds = %57
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct._generic_N_Vector, ptr %65, i32 0, i32 1
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %67, i32 0, i32 28
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %78, label %71
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %5, align 8, !tbaa !59
+  %67 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8, !tbaa !67
+  %69 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %68, i32 0, i32 28
+  %70 = load ptr, ptr %69, align 8, !tbaa !74
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %79, label %72
 
-71:                                               ; preds = %64
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct._generic_N_Vector, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._generic_N_Vector_Ops, ptr %74, i32 0, i32 29
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %80
+72:                                               ; preds = %65
+  %73 = load ptr, ptr %5, align 8, !tbaa !59
+  %74 = getelementptr inbounds nuw %struct._generic_N_Vector, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !67
+  %76 = getelementptr inbounds nuw %struct._generic_N_Vector_Ops, ptr %75, i32 0, i32 29
+  %77 = load ptr, ptr %76, align 8, !tbaa !75
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %81
 
-78:                                               ; preds = %71, %64, %57, %50, %43
-  %79 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %79, i32 noundef -22, i32 noundef 963, ptr noundef @__func__.CVodeSetConstraints, ptr noundef @.str, ptr noundef @.str.14)
+79:                                               ; preds = %72, %65, %58, %51, %44
+  %80 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %80, i32 noundef -22, i32 noundef 965, ptr noundef @__func__.CVodeSetConstraints, ptr noundef @.str, ptr noundef @.str.14)
   store i32 -22, ptr %3, align 4
-  br label %123
+  store i32 1, ptr %8, align 4
+  br label %124
 
-80:                                               ; preds = %71
-  %81 = load ptr, ptr %5, align 8
-  %82 = call double @N_VMaxNorm(ptr noundef %81)
-  store double %82, ptr %7, align 8
-  %83 = load double, ptr %7, align 8
-  %84 = fcmp ogt double %83, 2.500000e+00
-  br i1 %84, label %88, label %85
+81:                                               ; preds = %72
+  %82 = load ptr, ptr %5, align 8, !tbaa !59
+  %83 = call double @N_VMaxNorm(ptr noundef %82)
+  store double %83, ptr %7, align 8, !tbaa !7
+  %84 = load double, ptr %7, align 8, !tbaa !7
+  %85 = fcmp ogt double %84, 2.500000e+00
+  br i1 %85, label %89, label %86
 
-85:                                               ; preds = %80
-  %86 = load double, ptr %7, align 8
-  %87 = fcmp olt double %86, 5.000000e-01
-  br i1 %87, label %88, label %90
+86:                                               ; preds = %81
+  %87 = load double, ptr %7, align 8, !tbaa !7
+  %88 = fcmp olt double %87, 5.000000e-01
+  br i1 %88, label %89, label %91
 
-88:                                               ; preds = %85, %80
-  %89 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %89, i32 noundef -22, i32 noundef 972, ptr noundef @__func__.CVodeSetConstraints, ptr noundef @.str, ptr noundef @.str.15)
+89:                                               ; preds = %86, %81
+  %90 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %90, i32 noundef -22, i32 noundef 974, ptr noundef @__func__.CVodeSetConstraints, ptr noundef @.str, ptr noundef @.str.15)
   store i32 -22, ptr %3, align 4
-  br label %123
+  store i32 1, ptr %8, align 4
+  br label %124
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds %struct.CVodeMemRec, ptr %91, i32 0, i32 108
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp ne i32 %93, 0
-  br i1 %94, label %116, label %95
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %6, align 8, !tbaa !9
+  %93 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %92, i32 0, i32 108
+  %94 = load i32, ptr %93, align 8, !tbaa !60
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %117, label %96
 
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %5, align 8
-  %97 = call ptr @N_VClone(ptr noundef %96)
-  %98 = load ptr, ptr %6, align 8
-  %99 = getelementptr inbounds %struct.CVodeMemRec, ptr %98, i32 0, i32 23
-  store ptr %97, ptr %99, align 8
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct.CVodeMemRec, ptr %100, i32 0, i32 82
-  %102 = load i64, ptr %101, align 8
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds %struct.CVodeMemRec, ptr %103, i32 0, i32 84
-  %105 = load i64, ptr %104, align 8
-  %106 = add nsw i64 %105, %102
-  store i64 %106, ptr %104, align 8
-  %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds %struct.CVodeMemRec, ptr %107, i32 0, i32 83
-  %109 = load i64, ptr %108, align 8
-  %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct.CVodeMemRec, ptr %110, i32 0, i32 85
-  %112 = load i64, ptr %111, align 8
-  %113 = add nsw i64 %112, %109
-  store i64 %113, ptr %111, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct.CVodeMemRec, ptr %114, i32 0, i32 108
-  store i32 1, ptr %115, align 8
-  br label %116
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %5, align 8, !tbaa !59
+  %98 = call ptr @N_VClone(ptr noundef %97)
+  %99 = load ptr, ptr %6, align 8, !tbaa !9
+  %100 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %99, i32 0, i32 23
+  store ptr %98, ptr %100, align 8, !tbaa !61
+  %101 = load ptr, ptr %6, align 8, !tbaa !9
+  %102 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %101, i32 0, i32 82
+  %103 = load i64, ptr %102, align 8, !tbaa !62
+  %104 = load ptr, ptr %6, align 8, !tbaa !9
+  %105 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %104, i32 0, i32 84
+  %106 = load i64, ptr %105, align 8, !tbaa !63
+  %107 = add nsw i64 %106, %103
+  store i64 %107, ptr %105, align 8, !tbaa !63
+  %108 = load ptr, ptr %6, align 8, !tbaa !9
+  %109 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %108, i32 0, i32 83
+  %110 = load i64, ptr %109, align 8, !tbaa !64
+  %111 = load ptr, ptr %6, align 8, !tbaa !9
+  %112 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %111, i32 0, i32 85
+  %113 = load i64, ptr %112, align 8, !tbaa !65
+  %114 = add nsw i64 %113, %110
+  store i64 %114, ptr %112, align 8, !tbaa !65
+  %115 = load ptr, ptr %6, align 8, !tbaa !9
+  %116 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %115, i32 0, i32 108
+  store i32 1, ptr %116, align 8, !tbaa !60
+  br label %117
 
-116:                                              ; preds = %95, %90
-  %117 = load ptr, ptr %5, align 8
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct.CVodeMemRec, ptr %118, i32 0, i32 23
-  %120 = load ptr, ptr %119, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %117, ptr noundef %120)
-  %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds %struct.CVodeMemRec, ptr %121, i32 0, i32 13
-  store i32 1, ptr %122, align 8
+117:                                              ; preds = %96, %91
+  %118 = load ptr, ptr %5, align 8, !tbaa !59
+  %119 = load ptr, ptr %6, align 8, !tbaa !9
+  %120 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %119, i32 0, i32 23
+  %121 = load ptr, ptr %120, align 8, !tbaa !61
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %118, ptr noundef %121)
+  %122 = load ptr, ptr %6, align 8, !tbaa !9
+  %123 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %122, i32 0, i32 13
+  store i32 1, ptr %123, align 8, !tbaa !66
   store i32 0, ptr %3, align 4
-  br label %123
+  store i32 1, ptr %8, align 4
+  br label %124
 
-123:                                              ; preds = %116, %88, %78, %38, %10
-  %124 = load i32, ptr %3, align 4
-  ret i32 %124
+124:                                              ; preds = %117, %89, %79, %39, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %125 = load i32, ptr %3, align 4
+  ret i32 %125
 }
 
-declare void @N_VDestroy(ptr noundef) #1
+declare void @N_VDestroy(ptr noundef) #2
 
-declare double @N_VMaxNorm(ptr noundef) #1
+declare double @N_VMaxNorm(ptr noundef) #2
 
-declare ptr @N_VClone(ptr noundef) #1
+declare ptr @N_VClone(ptr noundef) #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @CVodeSetUseIntegratorFusedKernels(ptr noundef %0, i32 noundef %1) #0 {
@@ -1828,28 +2021,33 @@ define i32 @CVodeSetUseIntegratorFusedKernels(ptr noundef %0, i32 noundef %1) #0
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1008, ptr noundef @__func__.CVodeSetUseIntegratorFusedKernels, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %13
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %12, i32 noundef -22, i32 noundef 1026, ptr noundef @__func__.CVodeSetUseIntegratorFusedKernels, ptr noundef @.str, ptr noundef @.str.16)
-  store i32 -22, ptr %3, align 4
-  br label %13
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1010, ptr noundef @__func__.CVodeSetUseIntegratorFusedKernels, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %14
 
-13:                                               ; preds = %10, %9
-  %14 = load i32, ptr %3, align 4
-  ret i32 %14
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %13, i32 noundef -22, i32 noundef 1030, ptr noundef @__func__.CVodeSetUseIntegratorFusedKernels, ptr noundef @.str, ptr noundef @.str.16)
+  store i32 -22, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %14
+
+14:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %15 = load i32, ptr %3, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1858,31 +2056,36 @@ define i32 @CVodeGetNumSteps(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1050, ptr noundef @__func__.CVodeGetNumSteps, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 71
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1054, ptr noundef @__func__.CVodeGetNumSteps, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 71
+  %15 = load i64, ptr %14, align 8, !tbaa !44
+  %16 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %15, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1891,31 +2094,36 @@ define i32 @CVodeGetNumRhsEvals(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1073, ptr noundef @__func__.CVodeGetNumRhsEvals, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 72
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1077, ptr noundef @__func__.CVodeGetNumRhsEvals, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 72
+  %15 = load i64, ptr %14, align 8, !tbaa !78
+  %16 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %15, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1924,31 +2132,36 @@ define i32 @CVodeGetNumLinSolvSetups(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1096, ptr noundef @__func__.CVodeGetNumLinSolvSetups, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 77
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1100, ptr noundef @__func__.CVodeGetNumLinSolvSetups, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 77
+  %15 = load i64, ptr %14, align 8, !tbaa !79
+  %16 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %15, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1957,31 +2170,36 @@ define i32 @CVodeGetNumErrTestFails(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1119, ptr noundef @__func__.CVodeGetNumErrTestFails, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 76
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1123, ptr noundef @__func__.CVodeGetNumErrTestFails, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 76
+  %15 = load i64, ptr %14, align 8, !tbaa !80
+  %16 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %15, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1990,31 +2208,36 @@ define i32 @CVodeGetLastOrder(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1142, ptr noundef @__func__.CVodeGetLastOrder, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 97
-  %14 = load i32, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i32 %14, ptr %15, align 4
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1146, ptr noundef @__func__.CVodeGetLastOrder, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 97
+  %15 = load i32, ptr %14, align 8, !tbaa !81
+  %16 = load ptr, ptr %5, align 8, !tbaa !55
+  store i32 %15, ptr %16, align 4, !tbaa !23
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2023,31 +2246,36 @@ define i32 @CVodeGetCurrentOrder(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1165, ptr noundef @__func__.CVodeGetCurrentOrder, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 29
-  %14 = load i32, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i32 %14, ptr %15, align 4
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1169, ptr noundef @__func__.CVodeGetCurrentOrder, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 29
+  %15 = load i32, ptr %14, align 8, !tbaa !82
+  %16 = load ptr, ptr %5, align 8, !tbaa !55
+  store i32 %15, ptr %16, align 4, !tbaa !23
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2056,31 +2284,36 @@ define i32 @CVodeGetCurrentGamma(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1188, ptr noundef @__func__.CVodeGetCurrentGamma, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 44
-  %14 = load double, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store double %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1192, ptr noundef @__func__.CVodeGetCurrentGamma, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 44
+  %15 = load double, ptr %14, align 8, !tbaa !84
+  %16 = load ptr, ptr %5, align 8, !tbaa !83
+  store double %15, ptr %16, align 8, !tbaa !7
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2089,46 +2322,51 @@ define i32 @CVodeGetNumStabLimOrderReds(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1212, ptr noundef @__func__.CVodeGetNumStabLimOrderReds, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %24
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 111
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %18
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1216, ptr noundef @__func__.CVodeGetNumStabLimOrderReds, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %25
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %5, align 8
-  store i64 0, ptr %17, align 8
-  br label %23
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 111
+  %15 = load i32, ptr %14, align 8, !tbaa !29
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %10
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 114
-  %21 = load i64, ptr %20, align 8
-  %22 = load ptr, ptr %5, align 8
-  store i64 %21, ptr %22, align 8
-  br label %23
-
-23:                                               ; preds = %18, %16
-  store i32 0, ptr %3, align 4
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 0, ptr %18, align 8, !tbaa !22
   br label %24
 
-24:                                               ; preds = %23, %9
-  %25 = load i32, ptr %3, align 4
-  ret i32 %25
+19:                                               ; preds = %11
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 114
+  %22 = load i64, ptr %21, align 8, !tbaa !85
+  %23 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %22, ptr %23, align 8, !tbaa !22
+  br label %24
+
+24:                                               ; preds = %19, %17
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %25
+
+25:                                               ; preds = %24, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %26 = load i32, ptr %3, align 4
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2137,31 +2375,36 @@ define i32 @CVodeGetActualInitStep(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1236, ptr noundef @__func__.CVodeGetActualInitStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 99
-  %14 = load double, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store double %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1240, ptr noundef @__func__.CVodeGetActualInitStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 99
+  %15 = load double, ptr %14, align 8, !tbaa !86
+  %16 = load ptr, ptr %5, align 8, !tbaa !83
+  store double %15, ptr %16, align 8, !tbaa !7
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2170,31 +2413,36 @@ define i32 @CVodeGetLastStep(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1259, ptr noundef @__func__.CVodeGetLastStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 100
-  %14 = load double, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store double %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1263, ptr noundef @__func__.CVodeGetLastStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 100
+  %15 = load double, ptr %14, align 8, !tbaa !87
+  %16 = load ptr, ptr %5, align 8, !tbaa !83
+  store double %15, ptr %16, align 8, !tbaa !7
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2203,31 +2451,36 @@ define i32 @CVodeGetCurrentStep(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1282, ptr noundef @__func__.CVodeGetCurrentStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 35
-  %14 = load double, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store double %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1286, ptr noundef @__func__.CVodeGetCurrentStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 35
+  %15 = load double, ptr %14, align 8, !tbaa !88
+  %16 = load ptr, ptr %5, align 8, !tbaa !83
+  store double %15, ptr %16, align 8, !tbaa !7
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2236,31 +2489,36 @@ define i32 @CVodeGetCurrentState(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1305, ptr noundef @__func__.CVodeGetCurrentState, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !89
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store ptr %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1309, ptr noundef @__func__.CVodeGetCurrentState, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !91
+  %16 = load ptr, ptr %5, align 8, !tbaa !89
+  store ptr %15, ptr %16, align 8, !tbaa !59
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2269,31 +2527,36 @@ define i32 @CVodeGetCurrentTime(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1328, ptr noundef @__func__.CVodeGetCurrentTime, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 38
-  %14 = load double, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store double %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1332, ptr noundef @__func__.CVodeGetCurrentTime, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 38
+  %15 = load double, ptr %14, align 8, !tbaa !45
+  %16 = load ptr, ptr %5, align 8, !tbaa !83
+  store double %15, ptr %16, align 8, !tbaa !7
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2302,31 +2565,36 @@ define i32 @CVodeGetTolScaleFactor(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1351, ptr noundef @__func__.CVodeGetTolScaleFactor, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 103
-  %14 = load double, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store double %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1355, ptr noundef @__func__.CVodeGetTolScaleFactor, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 103
+  %15 = load double, ptr %14, align 8, !tbaa !92
+  %16 = load ptr, ptr %5, align 8, !tbaa !83
+  store double %15, ptr %16, align 8, !tbaa !7
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2335,31 +2603,36 @@ define i32 @CVodeGetErrWeights(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1374, ptr noundef @__func__.CVodeGetErrWeights, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 15
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %14, ptr noundef %15)
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1378, ptr noundef @__func__.CVodeGetErrWeights, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 15
+  %15 = load ptr, ptr %14, align 8, !tbaa !93
+  %16 = load ptr, ptr %5, align 8, !tbaa !59
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %15, ptr noundef %16)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2368,31 +2641,36 @@ define i32 @CVodeGetEstLocalErrors(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1397, ptr noundef @__func__.CVodeGetEstLocalErrors, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 17
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %14, ptr noundef %15)
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1401, ptr noundef @__func__.CVodeGetEstLocalErrors, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 17
+  %15 = load ptr, ptr %14, align 8, !tbaa !94
+  %16 = load ptr, ptr %5, align 8, !tbaa !59
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %15, ptr noundef %16)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2402,37 +2680,42 @@ define i32 @CVodeGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1420, ptr noundef @__func__.CVodeGetWorkSpace, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %4, align 4
-  br label %22
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !76
+  store ptr %2, ptr %7, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.CVodeMemRec, ptr %14, i32 0, i32 85
-  %16 = load i64, ptr %15, align 8
-  %17 = load ptr, ptr %7, align 8
-  store i64 %16, ptr %17, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 84
-  %20 = load i64, ptr %19, align 8
-  %21 = load ptr, ptr %6, align 8
-  store i64 %20, ptr %21, align 8
-  store i32 0, ptr %4, align 4
-  br label %22
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1424, ptr noundef @__func__.CVodeGetWorkSpace, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %23
 
-22:                                               ; preds = %12, %11
-  %23 = load i32, ptr %4, align 4
-  ret i32 %23
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %14, ptr %8, align 8, !tbaa !9
+  %15 = load ptr, ptr %8, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %15, i32 0, i32 85
+  %17 = load i64, ptr %16, align 8, !tbaa !65
+  %18 = load ptr, ptr %7, align 8, !tbaa !76
+  store i64 %17, ptr %18, align 8, !tbaa !22
+  %19 = load ptr, ptr %8, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 84
+  %21 = load i64, ptr %20, align 8, !tbaa !63
+  %22 = load ptr, ptr %6, align 8, !tbaa !76
+  store i64 %21, ptr %22, align 8, !tbaa !22
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %23
+
+23:                                               ; preds = %13, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %24 = load i32, ptr %4, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2450,85 +2733,90 @@ define i32 @CVodeGetIntegratorStats(ptr noundef %0, ptr noundef %1, ptr noundef 
   %22 = alloca ptr, align 8
   %23 = alloca ptr, align 8
   %24 = alloca ptr, align 8
-  store ptr %0, ptr %13, align 8
-  store ptr %1, ptr %14, align 8
-  store ptr %2, ptr %15, align 8
-  store ptr %3, ptr %16, align 8
-  store ptr %4, ptr %17, align 8
-  store ptr %5, ptr %18, align 8
-  store ptr %6, ptr %19, align 8
-  store ptr %7, ptr %20, align 8
-  store ptr %8, ptr %21, align 8
-  store ptr %9, ptr %22, align 8
-  store ptr %10, ptr %23, align 8
-  %25 = load ptr, ptr %13, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %11
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1447, ptr noundef @__func__.CVodeGetIntegratorStats, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %12, align 4
-  br label %70
+  %25 = alloca i32, align 4
+  store ptr %0, ptr %13, align 8, !tbaa !3
+  store ptr %1, ptr %14, align 8, !tbaa !76
+  store ptr %2, ptr %15, align 8, !tbaa !76
+  store ptr %3, ptr %16, align 8, !tbaa !76
+  store ptr %4, ptr %17, align 8, !tbaa !76
+  store ptr %5, ptr %18, align 8, !tbaa !55
+  store ptr %6, ptr %19, align 8, !tbaa !55
+  store ptr %7, ptr %20, align 8, !tbaa !83
+  store ptr %8, ptr %21, align 8, !tbaa !83
+  store ptr %9, ptr %22, align 8, !tbaa !83
+  store ptr %10, ptr %23, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  %26 = load ptr, ptr %13, align 8, !tbaa !3
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %29
 
 28:                                               ; preds = %11
-  %29 = load ptr, ptr %13, align 8
-  store ptr %29, ptr %24, align 8
-  %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds %struct.CVodeMemRec, ptr %30, i32 0, i32 71
-  %32 = load i64, ptr %31, align 8
-  %33 = load ptr, ptr %14, align 8
-  store i64 %32, ptr %33, align 8
-  %34 = load ptr, ptr %24, align 8
-  %35 = getelementptr inbounds %struct.CVodeMemRec, ptr %34, i32 0, i32 72
-  %36 = load i64, ptr %35, align 8
-  %37 = load ptr, ptr %15, align 8
-  store i64 %36, ptr %37, align 8
-  %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds %struct.CVodeMemRec, ptr %38, i32 0, i32 77
-  %40 = load i64, ptr %39, align 8
-  %41 = load ptr, ptr %16, align 8
-  store i64 %40, ptr %41, align 8
-  %42 = load ptr, ptr %24, align 8
-  %43 = getelementptr inbounds %struct.CVodeMemRec, ptr %42, i32 0, i32 76
-  %44 = load i64, ptr %43, align 8
-  %45 = load ptr, ptr %17, align 8
-  store i64 %44, ptr %45, align 8
-  %46 = load ptr, ptr %24, align 8
-  %47 = getelementptr inbounds %struct.CVodeMemRec, ptr %46, i32 0, i32 97
-  %48 = load i32, ptr %47, align 8
-  %49 = load ptr, ptr %18, align 8
-  store i32 %48, ptr %49, align 4
-  %50 = load ptr, ptr %24, align 8
-  %51 = getelementptr inbounds %struct.CVodeMemRec, ptr %50, i32 0, i32 29
-  %52 = load i32, ptr %51, align 8
-  %53 = load ptr, ptr %19, align 8
-  store i32 %52, ptr %53, align 4
-  %54 = load ptr, ptr %24, align 8
-  %55 = getelementptr inbounds %struct.CVodeMemRec, ptr %54, i32 0, i32 99
-  %56 = load double, ptr %55, align 8
-  %57 = load ptr, ptr %20, align 8
-  store double %56, ptr %57, align 8
-  %58 = load ptr, ptr %24, align 8
-  %59 = getelementptr inbounds %struct.CVodeMemRec, ptr %58, i32 0, i32 100
-  %60 = load double, ptr %59, align 8
-  %61 = load ptr, ptr %21, align 8
-  store double %60, ptr %61, align 8
-  %62 = load ptr, ptr %24, align 8
-  %63 = getelementptr inbounds %struct.CVodeMemRec, ptr %62, i32 0, i32 35
-  %64 = load double, ptr %63, align 8
-  %65 = load ptr, ptr %22, align 8
-  store double %64, ptr %65, align 8
-  %66 = load ptr, ptr %24, align 8
-  %67 = getelementptr inbounds %struct.CVodeMemRec, ptr %66, i32 0, i32 38
-  %68 = load double, ptr %67, align 8
-  %69 = load ptr, ptr %23, align 8
-  store double %68, ptr %69, align 8
-  store i32 0, ptr %12, align 4
-  br label %70
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1451, ptr noundef @__func__.CVodeGetIntegratorStats, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %12, align 4
+  store i32 1, ptr %25, align 4
+  br label %71
 
-70:                                               ; preds = %28, %27
-  %71 = load i32, ptr %12, align 4
-  ret i32 %71
+29:                                               ; preds = %11
+  %30 = load ptr, ptr %13, align 8, !tbaa !3
+  store ptr %30, ptr %24, align 8, !tbaa !9
+  %31 = load ptr, ptr %24, align 8, !tbaa !9
+  %32 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %31, i32 0, i32 71
+  %33 = load i64, ptr %32, align 8, !tbaa !44
+  %34 = load ptr, ptr %14, align 8, !tbaa !76
+  store i64 %33, ptr %34, align 8, !tbaa !22
+  %35 = load ptr, ptr %24, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %35, i32 0, i32 72
+  %37 = load i64, ptr %36, align 8, !tbaa !78
+  %38 = load ptr, ptr %15, align 8, !tbaa !76
+  store i64 %37, ptr %38, align 8, !tbaa !22
+  %39 = load ptr, ptr %24, align 8, !tbaa !9
+  %40 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %39, i32 0, i32 77
+  %41 = load i64, ptr %40, align 8, !tbaa !79
+  %42 = load ptr, ptr %16, align 8, !tbaa !76
+  store i64 %41, ptr %42, align 8, !tbaa !22
+  %43 = load ptr, ptr %24, align 8, !tbaa !9
+  %44 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %43, i32 0, i32 76
+  %45 = load i64, ptr %44, align 8, !tbaa !80
+  %46 = load ptr, ptr %17, align 8, !tbaa !76
+  store i64 %45, ptr %46, align 8, !tbaa !22
+  %47 = load ptr, ptr %24, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %47, i32 0, i32 97
+  %49 = load i32, ptr %48, align 8, !tbaa !81
+  %50 = load ptr, ptr %18, align 8, !tbaa !55
+  store i32 %49, ptr %50, align 4, !tbaa !23
+  %51 = load ptr, ptr %24, align 8, !tbaa !9
+  %52 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %51, i32 0, i32 29
+  %53 = load i32, ptr %52, align 8, !tbaa !82
+  %54 = load ptr, ptr %19, align 8, !tbaa !55
+  store i32 %53, ptr %54, align 4, !tbaa !23
+  %55 = load ptr, ptr %24, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %55, i32 0, i32 99
+  %57 = load double, ptr %56, align 8, !tbaa !86
+  %58 = load ptr, ptr %20, align 8, !tbaa !83
+  store double %57, ptr %58, align 8, !tbaa !7
+  %59 = load ptr, ptr %24, align 8, !tbaa !9
+  %60 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %59, i32 0, i32 100
+  %61 = load double, ptr %60, align 8, !tbaa !87
+  %62 = load ptr, ptr %21, align 8, !tbaa !83
+  store double %61, ptr %62, align 8, !tbaa !7
+  %63 = load ptr, ptr %24, align 8, !tbaa !9
+  %64 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %63, i32 0, i32 35
+  %65 = load double, ptr %64, align 8, !tbaa !88
+  %66 = load ptr, ptr %22, align 8, !tbaa !83
+  store double %65, ptr %66, align 8, !tbaa !7
+  %67 = load ptr, ptr %24, align 8, !tbaa !9
+  %68 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %67, i32 0, i32 38
+  %69 = load double, ptr %68, align 8, !tbaa !45
+  %70 = load ptr, ptr %23, align 8, !tbaa !83
+  store double %69, ptr %70, align 8, !tbaa !7
+  store i32 0, ptr %12, align 4
+  store i32 1, ptr %25, align 4
+  br label %71
+
+71:                                               ; preds = %29, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  %72 = load i32, ptr %12, align 4
+  ret i32 %72
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2537,31 +2825,36 @@ define i32 @CVodeGetNumGEvals(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1479, ptr noundef @__func__.CVodeGetNumGEvals, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 129
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1483, ptr noundef @__func__.CVodeGetNumGEvals, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 129
+  %15 = load i64, ptr %14, align 8, !tbaa !95
+  %16 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %15, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2572,61 +2865,70 @@ define i32 @CVodeGetRootInfo(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1503, ptr noundef @__func__.CVodeGetRootInfo, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %37
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %6, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.CVodeMemRec, ptr %14, i32 0, i32 116
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %8, align 4
-  store i32 0, ptr %7, align 4
-  br label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1507, ptr noundef @__func__.CVodeGetRootInfo, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %38
 
-17:                                               ; preds = %33, %12
-  %18 = load i32, ptr %7, align 4
-  %19 = load i32, ptr %8, align 4
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %21, label %36
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %14, ptr %6, align 8, !tbaa !9
+  %15 = load ptr, ptr %6, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %15, i32 0, i32 116
+  %17 = load i32, ptr %16, align 8, !tbaa !56
+  store i32 %17, ptr %8, align 4, !tbaa !23
+  store i32 0, ptr %7, align 4, !tbaa !23
+  br label %18
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.CVodeMemRec, ptr %22, i32 0, i32 117
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %7, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
-  %28 = load i32, ptr %27, align 4
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i32, ptr %7, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %29, i64 %31
-  store i32 %28, ptr %32, align 4
-  br label %33
+18:                                               ; preds = %34, %13
+  %19 = load i32, ptr %7, align 4, !tbaa !23
+  %20 = load i32, ptr %8, align 4, !tbaa !23
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %22, label %37
 
-33:                                               ; preds = %21
-  %34 = load i32, ptr %7, align 4
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %7, align 4
-  br label %17
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %6, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %23, i32 0, i32 117
+  %25 = load ptr, ptr %24, align 8, !tbaa !96
+  %26 = load i32, ptr %7, align 4, !tbaa !23
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %25, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !23
+  %30 = load ptr, ptr %5, align 8, !tbaa !55
+  %31 = load i32, ptr %7, align 4, !tbaa !23
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i32, ptr %30, i64 %32
+  store i32 %29, ptr %33, align 4, !tbaa !23
+  br label %34
 
-36:                                               ; preds = %17
+34:                                               ; preds = %22
+  %35 = load i32, ptr %7, align 4, !tbaa !23
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %7, align 4, !tbaa !23
+  br label %18
+
+37:                                               ; preds = %18
   store i32 0, ptr %3, align 4
-  br label %37
+  store i32 1, ptr %9, align 4
+  br label %38
 
-37:                                               ; preds = %36, %11
-  %38 = load i32, ptr %3, align 4
-  ret i32 %38
+38:                                               ; preds = %37, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %39 = load i32, ptr %3, align 4
+  ret i32 %39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2635,31 +2937,36 @@ define i32 @CVodeGetNumNonlinSolvIters(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1528, ptr noundef @__func__.CVodeGetNumNonlinSolvIters, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 74
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1532, ptr noundef @__func__.CVodeGetNumNonlinSolvIters, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 74
+  %15 = load i64, ptr %14, align 8, !tbaa !97
+  %16 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %15, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2668,31 +2975,36 @@ define i32 @CVodeGetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1552, ptr noundef @__func__.CVodeGetNumNonlinSolvConvFails, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 75
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1556, ptr noundef @__func__.CVodeGetNumNonlinSolvConvFails, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 75
+  %15 = load i64, ptr %14, align 8, !tbaa !98
+  %16 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %15, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2702,37 +3014,42 @@ define i32 @CVodeGetNonlinSolvStats(ptr noundef %0, ptr noundef %1, ptr noundef 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1575, ptr noundef @__func__.CVodeGetNonlinSolvStats, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %4, align 4
-  br label %22
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !76
+  store ptr %2, ptr %7, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.CVodeMemRec, ptr %14, i32 0, i32 74
-  %16 = load i64, ptr %15, align 8
-  %17 = load ptr, ptr %6, align 8
-  store i64 %16, ptr %17, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.CVodeMemRec, ptr %18, i32 0, i32 75
-  %20 = load i64, ptr %19, align 8
-  %21 = load ptr, ptr %7, align 8
-  store i64 %20, ptr %21, align 8
-  store i32 0, ptr %4, align 4
-  br label %22
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1579, ptr noundef @__func__.CVodeGetNonlinSolvStats, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %23
 
-22:                                               ; preds = %12, %11
-  %23 = load i32, ptr %4, align 4
-  ret i32 %23
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %14, ptr %8, align 8, !tbaa !9
+  %15 = load ptr, ptr %8, align 8, !tbaa !9
+  %16 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %15, i32 0, i32 74
+  %17 = load i64, ptr %16, align 8, !tbaa !97
+  %18 = load ptr, ptr %6, align 8, !tbaa !76
+  store i64 %17, ptr %18, align 8, !tbaa !22
+  %19 = load ptr, ptr %8, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %19, i32 0, i32 75
+  %21 = load i64, ptr %20, align 8, !tbaa !98
+  %22 = load ptr, ptr %7, align 8, !tbaa !76
+  store i64 %21, ptr %22, align 8, !tbaa !22
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %23
+
+23:                                               ; preds = %13, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %24 = load i32, ptr %4, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2741,31 +3058,36 @@ define i32 @CVodeGetNumStepSolveFails(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1600, ptr noundef @__func__.CVodeGetNumStepSolveFails, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 73
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1604, ptr noundef @__func__.CVodeGetNumStepSolveFails, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 73
+  %15 = load i64, ptr %14, align 8, !tbaa !99
+  %16 = load ptr, ptr %5, align 8, !tbaa !76
+  store i64 %15, ptr %16, align 8, !tbaa !22
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2777,500 +3099,510 @@ define i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1625, ptr noundef @__func__.CVodePrintAllStats, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %4, align 4
-  br label %432
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !100
+  store i32 %2, ptr %7, align 4, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %8, align 8
-  %16 = load i32, ptr %7, align 4
-  switch i32 %16, label %429 [
-    i32 0, label %17
-    i32 1, label %217
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1629, ptr noundef @__func__.CVodePrintAllStats, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %433
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %16, ptr %8, align 8, !tbaa !9
+  %17 = load i32, ptr %7, align 4, !tbaa !23
+  switch i32 %17, label %430 [
+    i32 0, label %18
+    i32 1, label %218
   ]
 
-17:                                               ; preds = %14
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.CVodeMemRec, ptr %19, i32 0, i32 38
-  %21 = load double, ptr %20, align 8
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.17, double noundef %21) #4
-  %23 = load ptr, ptr %6, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.CVodeMemRec, ptr %24, i32 0, i32 71
-  %26 = load i64, ptr %25, align 8
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.18, i64 noundef %26) #4
-  %28 = load ptr, ptr %6, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.CVodeMemRec, ptr %29, i32 0, i32 76
-  %31 = load i64, ptr %30, align 8
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.19, i64 noundef %31) #4
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.CVodeMemRec, ptr %34, i32 0, i32 73
-  %36 = load i64, ptr %35, align 8
-  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.20, i64 noundef %36) #4
-  %38 = load ptr, ptr %6, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.CVodeMemRec, ptr %39, i32 0, i32 99
-  %41 = load double, ptr %40, align 8
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.21, double noundef %41) #4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.CVodeMemRec, ptr %44, i32 0, i32 100
-  %46 = load double, ptr %45, align 8
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.22, double noundef %46) #4
-  %48 = load ptr, ptr %6, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.CVodeMemRec, ptr %49, i32 0, i32 35
-  %51 = load double, ptr %50, align 8
-  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef @.str.23, double noundef %51) #4
-  %53 = load ptr, ptr %6, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.CVodeMemRec, ptr %54, i32 0, i32 97
-  %56 = load i32, ptr %55, align 8
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef @.str.24, i32 noundef %56) #4
-  %58 = load ptr, ptr %6, align 8
-  %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds %struct.CVodeMemRec, ptr %59, i32 0, i32 29
-  %61 = load i32, ptr %60, align 8
-  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef @.str.25, i32 noundef %61) #4
-  %63 = load ptr, ptr %6, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.CVodeMemRec, ptr %64, i32 0, i32 114
-  %66 = load i64, ptr %65, align 8
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef @.str.26, i64 noundef %66) #4
-  %68 = load ptr, ptr %6, align 8
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.CVodeMemRec, ptr %69, i32 0, i32 72
-  %71 = load i64, ptr %70, align 8
-  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef @.str.27, i64 noundef %71) #4
-  %73 = load ptr, ptr %6, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.CVodeMemRec, ptr %74, i32 0, i32 74
-  %76 = load i64, ptr %75, align 8
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef @.str.28, i64 noundef %76) #4
-  %78 = load ptr, ptr %6, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds %struct.CVodeMemRec, ptr %79, i32 0, i32 75
-  %81 = load i64, ptr %80, align 8
-  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef @.str.29, i64 noundef %81) #4
-  %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds %struct.CVodeMemRec, ptr %83, i32 0, i32 71
-  %85 = load i64, ptr %84, align 8
-  %86 = icmp sgt i64 %85, 0
-  br i1 %86, label %87, label %99
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %6, align 8, !tbaa !100
+  %20 = load ptr, ptr %8, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %20, i32 0, i32 38
+  %22 = load double, ptr %21, align 8, !tbaa !45
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str.17, double noundef %22) #5
+  %24 = load ptr, ptr %6, align 8, !tbaa !100
+  %25 = load ptr, ptr %8, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %25, i32 0, i32 71
+  %27 = load i64, ptr %26, align 8, !tbaa !44
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.18, i64 noundef %27) #5
+  %29 = load ptr, ptr %6, align 8, !tbaa !100
+  %30 = load ptr, ptr %8, align 8, !tbaa !9
+  %31 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %30, i32 0, i32 76
+  %32 = load i64, ptr %31, align 8, !tbaa !80
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str.19, i64 noundef %32) #5
+  %34 = load ptr, ptr %6, align 8, !tbaa !100
+  %35 = load ptr, ptr %8, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %35, i32 0, i32 73
+  %37 = load i64, ptr %36, align 8, !tbaa !99
+  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.20, i64 noundef %37) #5
+  %39 = load ptr, ptr %6, align 8, !tbaa !100
+  %40 = load ptr, ptr %8, align 8, !tbaa !9
+  %41 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %40, i32 0, i32 99
+  %42 = load double, ptr %41, align 8, !tbaa !86
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef @.str.21, double noundef %42) #5
+  %44 = load ptr, ptr %6, align 8, !tbaa !100
+  %45 = load ptr, ptr %8, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %45, i32 0, i32 100
+  %47 = load double, ptr %46, align 8, !tbaa !87
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef @.str.22, double noundef %47) #5
+  %49 = load ptr, ptr %6, align 8, !tbaa !100
+  %50 = load ptr, ptr %8, align 8, !tbaa !9
+  %51 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %50, i32 0, i32 35
+  %52 = load double, ptr %51, align 8, !tbaa !88
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef @.str.23, double noundef %52) #5
+  %54 = load ptr, ptr %6, align 8, !tbaa !100
+  %55 = load ptr, ptr %8, align 8, !tbaa !9
+  %56 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %55, i32 0, i32 97
+  %57 = load i32, ptr %56, align 8, !tbaa !81
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef @.str.24, i32 noundef %57) #5
+  %59 = load ptr, ptr %6, align 8, !tbaa !100
+  %60 = load ptr, ptr %8, align 8, !tbaa !9
+  %61 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %60, i32 0, i32 29
+  %62 = load i32, ptr %61, align 8, !tbaa !82
+  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.25, i32 noundef %62) #5
+  %64 = load ptr, ptr %6, align 8, !tbaa !100
+  %65 = load ptr, ptr %8, align 8, !tbaa !9
+  %66 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %65, i32 0, i32 114
+  %67 = load i64, ptr %66, align 8, !tbaa !85
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef @.str.26, i64 noundef %67) #5
+  %69 = load ptr, ptr %6, align 8, !tbaa !100
+  %70 = load ptr, ptr %8, align 8, !tbaa !9
+  %71 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %70, i32 0, i32 72
+  %72 = load i64, ptr %71, align 8, !tbaa !78
+  %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef @.str.27, i64 noundef %72) #5
+  %74 = load ptr, ptr %6, align 8, !tbaa !100
+  %75 = load ptr, ptr %8, align 8, !tbaa !9
+  %76 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %75, i32 0, i32 74
+  %77 = load i64, ptr %76, align 8, !tbaa !97
+  %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef @.str.28, i64 noundef %77) #5
+  %79 = load ptr, ptr %6, align 8, !tbaa !100
+  %80 = load ptr, ptr %8, align 8, !tbaa !9
+  %81 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %80, i32 0, i32 75
+  %82 = load i64, ptr %81, align 8, !tbaa !98
+  %83 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.29, i64 noundef %82) #5
+  %84 = load ptr, ptr %8, align 8, !tbaa !9
+  %85 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %84, i32 0, i32 71
+  %86 = load i64, ptr %85, align 8, !tbaa !44
+  %87 = icmp sgt i64 %86, 0
+  br i1 %87, label %88, label %100
 
-87:                                               ; preds = %17
-  %88 = load ptr, ptr %6, align 8
-  %89 = load ptr, ptr %8, align 8
-  %90 = getelementptr inbounds %struct.CVodeMemRec, ptr %89, i32 0, i32 74
-  %91 = load i64, ptr %90, align 8
-  %92 = sitofp i64 %91 to double
-  %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %struct.CVodeMemRec, ptr %93, i32 0, i32 71
-  %95 = load i64, ptr %94, align 8
-  %96 = sitofp i64 %95 to double
-  %97 = fdiv double %92, %96
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef @.str.30, double noundef %97) #4
-  br label %99
+88:                                               ; preds = %18
+  %89 = load ptr, ptr %6, align 8, !tbaa !100
+  %90 = load ptr, ptr %8, align 8, !tbaa !9
+  %91 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %90, i32 0, i32 74
+  %92 = load i64, ptr %91, align 8, !tbaa !97
+  %93 = sitofp i64 %92 to double
+  %94 = load ptr, ptr %8, align 8, !tbaa !9
+  %95 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %94, i32 0, i32 71
+  %96 = load i64, ptr %95, align 8, !tbaa !44
+  %97 = sitofp i64 %96 to double
+  %98 = fdiv double %93, %97
+  %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef @.str.30, double noundef %98) #5
+  br label %100
 
-99:                                               ; preds = %87, %17
-  %100 = load ptr, ptr %6, align 8
-  %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.CVodeMemRec, ptr %101, i32 0, i32 77
-  %103 = load i64, ptr %102, align 8
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef @.str.31, i64 noundef %103) #4
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.CVodeMemRec, ptr %105, i32 0, i32 94
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp ne ptr %107, null
-  br i1 %108, label %109, label %192
+100:                                              ; preds = %88, %18
+  %101 = load ptr, ptr %6, align 8, !tbaa !100
+  %102 = load ptr, ptr %8, align 8, !tbaa !9
+  %103 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %102, i32 0, i32 77
+  %104 = load i64, ptr %103, align 8, !tbaa !79
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef @.str.31, i64 noundef %104) #5
+  %106 = load ptr, ptr %8, align 8, !tbaa !9
+  %107 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %106, i32 0, i32 94
+  %108 = load ptr, ptr %107, align 8, !tbaa !102
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %193
 
-109:                                              ; preds = %99
-  %110 = load ptr, ptr %8, align 8
-  %111 = getelementptr inbounds %struct.CVodeMemRec, ptr %110, i32 0, i32 94
-  %112 = load ptr, ptr %111, align 8
-  store ptr %112, ptr %9, align 8
-  %113 = load ptr, ptr %6, align 8
-  %114 = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds %struct.CVLsMemRec, ptr %114, i32 0, i32 18
-  %116 = load i64, ptr %115, align 8
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef @.str.32, i64 noundef %116) #4
-  %118 = load ptr, ptr %6, align 8
-  %119 = load ptr, ptr %9, align 8
-  %120 = getelementptr inbounds %struct.CVLsMemRec, ptr %119, i32 0, i32 19
-  %121 = load i64, ptr %120, align 8
-  %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef @.str.33, i64 noundef %121) #4
-  %123 = load ptr, ptr %6, align 8
-  %124 = load ptr, ptr %9, align 8
-  %125 = getelementptr inbounds %struct.CVLsMemRec, ptr %124, i32 0, i32 21
-  %126 = load i64, ptr %125, align 8
-  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef @.str.34, i64 noundef %126) #4
-  %128 = load ptr, ptr %6, align 8
-  %129 = load ptr, ptr %9, align 8
-  %130 = getelementptr inbounds %struct.CVLsMemRec, ptr %129, i32 0, i32 23
-  %131 = load i64, ptr %130, align 8
-  %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef @.str.35, i64 noundef %131) #4
-  %133 = load ptr, ptr %6, align 8
-  %134 = load ptr, ptr %9, align 8
-  %135 = getelementptr inbounds %struct.CVLsMemRec, ptr %134, i32 0, i32 22
-  %136 = load i64, ptr %135, align 8
-  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef @.str.36, i64 noundef %136) #4
-  %138 = load ptr, ptr %6, align 8
-  %139 = load ptr, ptr %9, align 8
-  %140 = getelementptr inbounds %struct.CVLsMemRec, ptr %139, i32 0, i32 24
-  %141 = load i64, ptr %140, align 8
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef @.str.37, i64 noundef %141) #4
-  %143 = load ptr, ptr %6, align 8
-  %144 = load ptr, ptr %9, align 8
-  %145 = getelementptr inbounds %struct.CVLsMemRec, ptr %144, i32 0, i32 25
-  %146 = load i64, ptr %145, align 8
-  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef @.str.38, i64 noundef %146) #4
-  %148 = load ptr, ptr %6, align 8
-  %149 = load ptr, ptr %9, align 8
-  %150 = getelementptr inbounds %struct.CVLsMemRec, ptr %149, i32 0, i32 26
-  %151 = load i64, ptr %150, align 8
-  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef @.str.39, i64 noundef %151) #4
-  %153 = load ptr, ptr %8, align 8
-  %154 = getelementptr inbounds %struct.CVodeMemRec, ptr %153, i32 0, i32 74
-  %155 = load i64, ptr %154, align 8
-  %156 = icmp sgt i64 %155, 0
-  br i1 %156, label %157, label %191
+110:                                              ; preds = %100
+  %111 = load ptr, ptr %8, align 8, !tbaa !9
+  %112 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %111, i32 0, i32 94
+  %113 = load ptr, ptr %112, align 8, !tbaa !102
+  store ptr %113, ptr %9, align 8, !tbaa !103
+  %114 = load ptr, ptr %6, align 8, !tbaa !100
+  %115 = load ptr, ptr %9, align 8, !tbaa !103
+  %116 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %115, i32 0, i32 18
+  %117 = load i64, ptr %116, align 8, !tbaa !105
+  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef @.str.32, i64 noundef %117) #5
+  %119 = load ptr, ptr %6, align 8, !tbaa !100
+  %120 = load ptr, ptr %9, align 8, !tbaa !103
+  %121 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %120, i32 0, i32 19
+  %122 = load i64, ptr %121, align 8, !tbaa !109
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef @.str.33, i64 noundef %122) #5
+  %124 = load ptr, ptr %6, align 8, !tbaa !100
+  %125 = load ptr, ptr %9, align 8, !tbaa !103
+  %126 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %125, i32 0, i32 21
+  %127 = load i64, ptr %126, align 8, !tbaa !110
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef @.str.34, i64 noundef %127) #5
+  %129 = load ptr, ptr %6, align 8, !tbaa !100
+  %130 = load ptr, ptr %9, align 8, !tbaa !103
+  %131 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %130, i32 0, i32 23
+  %132 = load i64, ptr %131, align 8, !tbaa !111
+  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef @.str.35, i64 noundef %132) #5
+  %134 = load ptr, ptr %6, align 8, !tbaa !100
+  %135 = load ptr, ptr %9, align 8, !tbaa !103
+  %136 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %135, i32 0, i32 22
+  %137 = load i64, ptr %136, align 8, !tbaa !112
+  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef @.str.36, i64 noundef %137) #5
+  %139 = load ptr, ptr %6, align 8, !tbaa !100
+  %140 = load ptr, ptr %9, align 8, !tbaa !103
+  %141 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %140, i32 0, i32 24
+  %142 = load i64, ptr %141, align 8, !tbaa !113
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef @.str.37, i64 noundef %142) #5
+  %144 = load ptr, ptr %6, align 8, !tbaa !100
+  %145 = load ptr, ptr %9, align 8, !tbaa !103
+  %146 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %145, i32 0, i32 25
+  %147 = load i64, ptr %146, align 8, !tbaa !114
+  %148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef @.str.38, i64 noundef %147) #5
+  %149 = load ptr, ptr %6, align 8, !tbaa !100
+  %150 = load ptr, ptr %9, align 8, !tbaa !103
+  %151 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %150, i32 0, i32 26
+  %152 = load i64, ptr %151, align 8, !tbaa !115
+  %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %149, ptr noundef @.str.39, i64 noundef %152) #5
+  %154 = load ptr, ptr %8, align 8, !tbaa !9
+  %155 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %154, i32 0, i32 74
+  %156 = load i64, ptr %155, align 8, !tbaa !97
+  %157 = icmp sgt i64 %156, 0
+  br i1 %157, label %158, label %192
 
-157:                                              ; preds = %109
-  %158 = load ptr, ptr %6, align 8
-  %159 = load ptr, ptr %9, align 8
-  %160 = getelementptr inbounds %struct.CVLsMemRec, ptr %159, i32 0, i32 22
-  %161 = load i64, ptr %160, align 8
-  %162 = sitofp i64 %161 to double
-  %163 = load ptr, ptr %8, align 8
-  %164 = getelementptr inbounds %struct.CVodeMemRec, ptr %163, i32 0, i32 74
-  %165 = load i64, ptr %164, align 8
-  %166 = sitofp i64 %165 to double
-  %167 = fdiv double %162, %166
-  %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %158, ptr noundef @.str.40, double noundef %167) #4
-  %169 = load ptr, ptr %6, align 8
-  %170 = load ptr, ptr %9, align 8
-  %171 = getelementptr inbounds %struct.CVLsMemRec, ptr %170, i32 0, i32 18
-  %172 = load i64, ptr %171, align 8
-  %173 = sitofp i64 %172 to double
-  %174 = load ptr, ptr %8, align 8
-  %175 = getelementptr inbounds %struct.CVodeMemRec, ptr %174, i32 0, i32 74
-  %176 = load i64, ptr %175, align 8
-  %177 = sitofp i64 %176 to double
-  %178 = fdiv double %173, %177
-  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef @.str.41, double noundef %178) #4
-  %180 = load ptr, ptr %6, align 8
-  %181 = load ptr, ptr %9, align 8
-  %182 = getelementptr inbounds %struct.CVLsMemRec, ptr %181, i32 0, i32 21
-  %183 = load i64, ptr %182, align 8
-  %184 = sitofp i64 %183 to double
-  %185 = load ptr, ptr %8, align 8
-  %186 = getelementptr inbounds %struct.CVodeMemRec, ptr %185, i32 0, i32 74
-  %187 = load i64, ptr %186, align 8
-  %188 = sitofp i64 %187 to double
-  %189 = fdiv double %184, %188
-  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef @.str.42, double noundef %189) #4
-  br label %191
-
-191:                                              ; preds = %157, %109
+158:                                              ; preds = %110
+  %159 = load ptr, ptr %6, align 8, !tbaa !100
+  %160 = load ptr, ptr %9, align 8, !tbaa !103
+  %161 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %160, i32 0, i32 22
+  %162 = load i64, ptr %161, align 8, !tbaa !112
+  %163 = sitofp i64 %162 to double
+  %164 = load ptr, ptr %8, align 8, !tbaa !9
+  %165 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %164, i32 0, i32 74
+  %166 = load i64, ptr %165, align 8, !tbaa !97
+  %167 = sitofp i64 %166 to double
+  %168 = fdiv double %163, %167
+  %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %159, ptr noundef @.str.40, double noundef %168) #5
+  %170 = load ptr, ptr %6, align 8, !tbaa !100
+  %171 = load ptr, ptr %9, align 8, !tbaa !103
+  %172 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %171, i32 0, i32 18
+  %173 = load i64, ptr %172, align 8, !tbaa !105
+  %174 = sitofp i64 %173 to double
+  %175 = load ptr, ptr %8, align 8, !tbaa !9
+  %176 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %175, i32 0, i32 74
+  %177 = load i64, ptr %176, align 8, !tbaa !97
+  %178 = sitofp i64 %177 to double
+  %179 = fdiv double %174, %178
+  %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef @.str.41, double noundef %179) #5
+  %181 = load ptr, ptr %6, align 8, !tbaa !100
+  %182 = load ptr, ptr %9, align 8, !tbaa !103
+  %183 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %182, i32 0, i32 21
+  %184 = load i64, ptr %183, align 8, !tbaa !110
+  %185 = sitofp i64 %184 to double
+  %186 = load ptr, ptr %8, align 8, !tbaa !9
+  %187 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %186, i32 0, i32 74
+  %188 = load i64, ptr %187, align 8, !tbaa !97
+  %189 = sitofp i64 %188 to double
+  %190 = fdiv double %185, %189
+  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %181, ptr noundef @.str.42, double noundef %190) #5
   br label %192
 
-192:                                              ; preds = %191, %99
-  %193 = load ptr, ptr %6, align 8
-  %194 = load ptr, ptr %8, align 8
-  %195 = getelementptr inbounds %struct.CVodeMemRec, ptr %194, i32 0, i32 129
-  %196 = load i64, ptr %195, align 8
-  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef @.str.43, i64 noundef %196) #4
-  %198 = load ptr, ptr %8, align 8
-  %199 = getelementptr inbounds %struct.CVodeMemRec, ptr %198, i32 0, i32 132
-  %200 = load ptr, ptr %199, align 8
-  %201 = icmp ne ptr %200, null
-  br i1 %201, label %202, label %216
+192:                                              ; preds = %158, %110
+  br label %193
 
-202:                                              ; preds = %192
-  %203 = load ptr, ptr %8, align 8
-  %204 = getelementptr inbounds %struct.CVodeMemRec, ptr %203, i32 0, i32 132
-  %205 = load ptr, ptr %204, align 8
-  store ptr %205, ptr %10, align 8
-  %206 = load ptr, ptr %6, align 8
-  %207 = load ptr, ptr %10, align 8
-  %208 = getelementptr inbounds %struct.CVodeProjMemRec, ptr %207, i32 0, i32 9
-  %209 = load i64, ptr %208, align 8
-  %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %206, ptr noundef @.str.44, i64 noundef %209) #4
-  %211 = load ptr, ptr %6, align 8
-  %212 = load ptr, ptr %10, align 8
-  %213 = getelementptr inbounds %struct.CVodeProjMemRec, ptr %212, i32 0, i32 10
-  %214 = load i64, ptr %213, align 8
-  %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %211, ptr noundef @.str.45, i64 noundef %214) #4
-  br label %216
+193:                                              ; preds = %192, %100
+  %194 = load ptr, ptr %6, align 8, !tbaa !100
+  %195 = load ptr, ptr %8, align 8, !tbaa !9
+  %196 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %195, i32 0, i32 129
+  %197 = load i64, ptr %196, align 8, !tbaa !95
+  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef @.str.43, i64 noundef %197) #5
+  %199 = load ptr, ptr %8, align 8, !tbaa !9
+  %200 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %199, i32 0, i32 132
+  %201 = load ptr, ptr %200, align 8, !tbaa !116
+  %202 = icmp ne ptr %201, null
+  br i1 %202, label %203, label %217
 
-216:                                              ; preds = %202, %192
-  br label %431
+203:                                              ; preds = %193
+  %204 = load ptr, ptr %8, align 8, !tbaa !9
+  %205 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %204, i32 0, i32 132
+  %206 = load ptr, ptr %205, align 8, !tbaa !116
+  store ptr %206, ptr %10, align 8, !tbaa !117
+  %207 = load ptr, ptr %6, align 8, !tbaa !100
+  %208 = load ptr, ptr %10, align 8, !tbaa !117
+  %209 = getelementptr inbounds nuw %struct.CVodeProjMemRec, ptr %208, i32 0, i32 9
+  %210 = load i64, ptr %209, align 8, !tbaa !118
+  %211 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %207, ptr noundef @.str.44, i64 noundef %210) #5
+  %212 = load ptr, ptr %6, align 8, !tbaa !100
+  %213 = load ptr, ptr %10, align 8, !tbaa !117
+  %214 = getelementptr inbounds nuw %struct.CVodeProjMemRec, ptr %213, i32 0, i32 10
+  %215 = load i64, ptr %214, align 8, !tbaa !120
+  %216 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef @.str.45, i64 noundef %215) #5
+  br label %217
 
-217:                                              ; preds = %14
-  %218 = load ptr, ptr %6, align 8
-  %219 = load ptr, ptr %8, align 8
-  %220 = getelementptr inbounds %struct.CVodeMemRec, ptr %219, i32 0, i32 38
-  %221 = load double, ptr %220, align 8
-  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %218, ptr noundef @.str.46, double noundef %221) #4
-  %223 = load ptr, ptr %6, align 8
-  %224 = load ptr, ptr %8, align 8
-  %225 = getelementptr inbounds %struct.CVodeMemRec, ptr %224, i32 0, i32 71
-  %226 = load i64, ptr %225, align 8
-  %227 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %223, ptr noundef @.str.47, i64 noundef %226) #4
-  %228 = load ptr, ptr %6, align 8
-  %229 = load ptr, ptr %8, align 8
-  %230 = getelementptr inbounds %struct.CVodeMemRec, ptr %229, i32 0, i32 76
-  %231 = load i64, ptr %230, align 8
-  %232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef @.str.48, i64 noundef %231) #4
-  %233 = load ptr, ptr %6, align 8
-  %234 = load ptr, ptr %8, align 8
-  %235 = getelementptr inbounds %struct.CVodeMemRec, ptr %234, i32 0, i32 73
-  %236 = load i64, ptr %235, align 8
-  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef @.str.49, i64 noundef %236) #4
-  %238 = load ptr, ptr %6, align 8
-  %239 = load ptr, ptr %8, align 8
-  %240 = getelementptr inbounds %struct.CVodeMemRec, ptr %239, i32 0, i32 99
-  %241 = load double, ptr %240, align 8
-  %242 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef @.str.50, double noundef %241) #4
-  %243 = load ptr, ptr %6, align 8
-  %244 = load ptr, ptr %8, align 8
-  %245 = getelementptr inbounds %struct.CVodeMemRec, ptr %244, i32 0, i32 100
-  %246 = load double, ptr %245, align 8
-  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef @.str.51, double noundef %246) #4
-  %248 = load ptr, ptr %6, align 8
-  %249 = load ptr, ptr %8, align 8
-  %250 = getelementptr inbounds %struct.CVodeMemRec, ptr %249, i32 0, i32 35
-  %251 = load double, ptr %250, align 8
-  %252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef @.str.52, double noundef %251) #4
-  %253 = load ptr, ptr %6, align 8
-  %254 = load ptr, ptr %8, align 8
-  %255 = getelementptr inbounds %struct.CVodeMemRec, ptr %254, i32 0, i32 97
-  %256 = load i32, ptr %255, align 8
-  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %253, ptr noundef @.str.53, i32 noundef %256) #4
-  %258 = load ptr, ptr %6, align 8
-  %259 = load ptr, ptr %8, align 8
-  %260 = getelementptr inbounds %struct.CVodeMemRec, ptr %259, i32 0, i32 29
-  %261 = load i32, ptr %260, align 8
-  %262 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef @.str.54, i32 noundef %261) #4
-  %263 = load ptr, ptr %6, align 8
-  %264 = load ptr, ptr %8, align 8
-  %265 = getelementptr inbounds %struct.CVodeMemRec, ptr %264, i32 0, i32 114
-  %266 = load i64, ptr %265, align 8
-  %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef @.str.55, i64 noundef %266) #4
-  %268 = load ptr, ptr %6, align 8
-  %269 = load ptr, ptr %8, align 8
-  %270 = getelementptr inbounds %struct.CVodeMemRec, ptr %269, i32 0, i32 72
-  %271 = load i64, ptr %270, align 8
-  %272 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %268, ptr noundef @.str.56, i64 noundef %271) #4
-  %273 = load ptr, ptr %6, align 8
-  %274 = load ptr, ptr %8, align 8
-  %275 = getelementptr inbounds %struct.CVodeMemRec, ptr %274, i32 0, i32 74
-  %276 = load i64, ptr %275, align 8
-  %277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %273, ptr noundef @.str.57, i64 noundef %276) #4
-  %278 = load ptr, ptr %6, align 8
-  %279 = load ptr, ptr %8, align 8
-  %280 = getelementptr inbounds %struct.CVodeMemRec, ptr %279, i32 0, i32 75
-  %281 = load i64, ptr %280, align 8
-  %282 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef @.str.58, i64 noundef %281) #4
-  %283 = load ptr, ptr %8, align 8
-  %284 = getelementptr inbounds %struct.CVodeMemRec, ptr %283, i32 0, i32 71
-  %285 = load i64, ptr %284, align 8
-  %286 = icmp sgt i64 %285, 0
-  br i1 %286, label %287, label %299
+217:                                              ; preds = %203, %193
+  br label %432
 
-287:                                              ; preds = %217
-  %288 = load ptr, ptr %6, align 8
-  %289 = load ptr, ptr %8, align 8
-  %290 = getelementptr inbounds %struct.CVodeMemRec, ptr %289, i32 0, i32 74
-  %291 = load i64, ptr %290, align 8
-  %292 = sitofp i64 %291 to double
-  %293 = load ptr, ptr %8, align 8
-  %294 = getelementptr inbounds %struct.CVodeMemRec, ptr %293, i32 0, i32 71
-  %295 = load i64, ptr %294, align 8
-  %296 = sitofp i64 %295 to double
-  %297 = fdiv double %292, %296
-  %298 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef @.str.59, double noundef %297) #4
-  br label %302
+218:                                              ; preds = %15
+  %219 = load ptr, ptr %6, align 8, !tbaa !100
+  %220 = load ptr, ptr %8, align 8, !tbaa !9
+  %221 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %220, i32 0, i32 38
+  %222 = load double, ptr %221, align 8, !tbaa !45
+  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef @.str.46, double noundef %222) #5
+  %224 = load ptr, ptr %6, align 8, !tbaa !100
+  %225 = load ptr, ptr %8, align 8, !tbaa !9
+  %226 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %225, i32 0, i32 71
+  %227 = load i64, ptr %226, align 8, !tbaa !44
+  %228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %224, ptr noundef @.str.47, i64 noundef %227) #5
+  %229 = load ptr, ptr %6, align 8, !tbaa !100
+  %230 = load ptr, ptr %8, align 8, !tbaa !9
+  %231 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %230, i32 0, i32 76
+  %232 = load i64, ptr %231, align 8, !tbaa !80
+  %233 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %229, ptr noundef @.str.48, i64 noundef %232) #5
+  %234 = load ptr, ptr %6, align 8, !tbaa !100
+  %235 = load ptr, ptr %8, align 8, !tbaa !9
+  %236 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %235, i32 0, i32 73
+  %237 = load i64, ptr %236, align 8, !tbaa !99
+  %238 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %234, ptr noundef @.str.49, i64 noundef %237) #5
+  %239 = load ptr, ptr %6, align 8, !tbaa !100
+  %240 = load ptr, ptr %8, align 8, !tbaa !9
+  %241 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %240, i32 0, i32 99
+  %242 = load double, ptr %241, align 8, !tbaa !86
+  %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef @.str.50, double noundef %242) #5
+  %244 = load ptr, ptr %6, align 8, !tbaa !100
+  %245 = load ptr, ptr %8, align 8, !tbaa !9
+  %246 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %245, i32 0, i32 100
+  %247 = load double, ptr %246, align 8, !tbaa !87
+  %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef @.str.51, double noundef %247) #5
+  %249 = load ptr, ptr %6, align 8, !tbaa !100
+  %250 = load ptr, ptr %8, align 8, !tbaa !9
+  %251 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %250, i32 0, i32 35
+  %252 = load double, ptr %251, align 8, !tbaa !88
+  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef @.str.52, double noundef %252) #5
+  %254 = load ptr, ptr %6, align 8, !tbaa !100
+  %255 = load ptr, ptr %8, align 8, !tbaa !9
+  %256 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %255, i32 0, i32 97
+  %257 = load i32, ptr %256, align 8, !tbaa !81
+  %258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %254, ptr noundef @.str.53, i32 noundef %257) #5
+  %259 = load ptr, ptr %6, align 8, !tbaa !100
+  %260 = load ptr, ptr %8, align 8, !tbaa !9
+  %261 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %260, i32 0, i32 29
+  %262 = load i32, ptr %261, align 8, !tbaa !82
+  %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %259, ptr noundef @.str.54, i32 noundef %262) #5
+  %264 = load ptr, ptr %6, align 8, !tbaa !100
+  %265 = load ptr, ptr %8, align 8, !tbaa !9
+  %266 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %265, i32 0, i32 114
+  %267 = load i64, ptr %266, align 8, !tbaa !85
+  %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef @.str.55, i64 noundef %267) #5
+  %269 = load ptr, ptr %6, align 8, !tbaa !100
+  %270 = load ptr, ptr %8, align 8, !tbaa !9
+  %271 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %270, i32 0, i32 72
+  %272 = load i64, ptr %271, align 8, !tbaa !78
+  %273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %269, ptr noundef @.str.56, i64 noundef %272) #5
+  %274 = load ptr, ptr %6, align 8, !tbaa !100
+  %275 = load ptr, ptr %8, align 8, !tbaa !9
+  %276 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %275, i32 0, i32 74
+  %277 = load i64, ptr %276, align 8, !tbaa !97
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %274, ptr noundef @.str.57, i64 noundef %277) #5
+  %279 = load ptr, ptr %6, align 8, !tbaa !100
+  %280 = load ptr, ptr %8, align 8, !tbaa !9
+  %281 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %280, i32 0, i32 75
+  %282 = load i64, ptr %281, align 8, !tbaa !98
+  %283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %279, ptr noundef @.str.58, i64 noundef %282) #5
+  %284 = load ptr, ptr %8, align 8, !tbaa !9
+  %285 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %284, i32 0, i32 71
+  %286 = load i64, ptr %285, align 8, !tbaa !44
+  %287 = icmp sgt i64 %286, 0
+  br i1 %287, label %288, label %300
 
-299:                                              ; preds = %217
-  %300 = load ptr, ptr %6, align 8
-  %301 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %300, ptr noundef @.str.60) #4
-  br label %302
+288:                                              ; preds = %218
+  %289 = load ptr, ptr %6, align 8, !tbaa !100
+  %290 = load ptr, ptr %8, align 8, !tbaa !9
+  %291 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %290, i32 0, i32 74
+  %292 = load i64, ptr %291, align 8, !tbaa !97
+  %293 = sitofp i64 %292 to double
+  %294 = load ptr, ptr %8, align 8, !tbaa !9
+  %295 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %294, i32 0, i32 71
+  %296 = load i64, ptr %295, align 8, !tbaa !44
+  %297 = sitofp i64 %296 to double
+  %298 = fdiv double %293, %297
+  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef @.str.59, double noundef %298) #5
+  br label %303
 
-302:                                              ; preds = %299, %287
-  %303 = load ptr, ptr %6, align 8
-  %304 = load ptr, ptr %8, align 8
-  %305 = getelementptr inbounds %struct.CVodeMemRec, ptr %304, i32 0, i32 77
-  %306 = load i64, ptr %305, align 8
-  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %303, ptr noundef @.str.61, i64 noundef %306) #4
-  %308 = load ptr, ptr %8, align 8
-  %309 = getelementptr inbounds %struct.CVodeMemRec, ptr %308, i32 0, i32 94
-  %310 = load ptr, ptr %309, align 8
-  %311 = icmp ne ptr %310, null
-  br i1 %311, label %312, label %402
+300:                                              ; preds = %218
+  %301 = load ptr, ptr %6, align 8, !tbaa !100
+  %302 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef @.str.60) #5
+  br label %303
 
-312:                                              ; preds = %302
-  %313 = load ptr, ptr %8, align 8
-  %314 = getelementptr inbounds %struct.CVodeMemRec, ptr %313, i32 0, i32 94
-  %315 = load ptr, ptr %314, align 8
-  store ptr %315, ptr %9, align 8
-  %316 = load ptr, ptr %6, align 8
-  %317 = load ptr, ptr %9, align 8
-  %318 = getelementptr inbounds %struct.CVLsMemRec, ptr %317, i32 0, i32 18
-  %319 = load i64, ptr %318, align 8
-  %320 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %316, ptr noundef @.str.62, i64 noundef %319) #4
-  %321 = load ptr, ptr %6, align 8
-  %322 = load ptr, ptr %9, align 8
-  %323 = getelementptr inbounds %struct.CVLsMemRec, ptr %322, i32 0, i32 19
-  %324 = load i64, ptr %323, align 8
-  %325 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %321, ptr noundef @.str.63, i64 noundef %324) #4
-  %326 = load ptr, ptr %6, align 8
-  %327 = load ptr, ptr %9, align 8
-  %328 = getelementptr inbounds %struct.CVLsMemRec, ptr %327, i32 0, i32 21
-  %329 = load i64, ptr %328, align 8
-  %330 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %326, ptr noundef @.str.64, i64 noundef %329) #4
-  %331 = load ptr, ptr %6, align 8
-  %332 = load ptr, ptr %9, align 8
-  %333 = getelementptr inbounds %struct.CVLsMemRec, ptr %332, i32 0, i32 23
-  %334 = load i64, ptr %333, align 8
-  %335 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef @.str.65, i64 noundef %334) #4
-  %336 = load ptr, ptr %6, align 8
-  %337 = load ptr, ptr %9, align 8
-  %338 = getelementptr inbounds %struct.CVLsMemRec, ptr %337, i32 0, i32 22
-  %339 = load i64, ptr %338, align 8
-  %340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef @.str.66, i64 noundef %339) #4
-  %341 = load ptr, ptr %6, align 8
-  %342 = load ptr, ptr %9, align 8
-  %343 = getelementptr inbounds %struct.CVLsMemRec, ptr %342, i32 0, i32 24
-  %344 = load i64, ptr %343, align 8
-  %345 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %341, ptr noundef @.str.67, i64 noundef %344) #4
-  %346 = load ptr, ptr %6, align 8
-  %347 = load ptr, ptr %9, align 8
-  %348 = getelementptr inbounds %struct.CVLsMemRec, ptr %347, i32 0, i32 25
-  %349 = load i64, ptr %348, align 8
-  %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %346, ptr noundef @.str.68, i64 noundef %349) #4
-  %351 = load ptr, ptr %6, align 8
-  %352 = load ptr, ptr %9, align 8
-  %353 = getelementptr inbounds %struct.CVLsMemRec, ptr %352, i32 0, i32 26
-  %354 = load i64, ptr %353, align 8
-  %355 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %351, ptr noundef @.str.69, i64 noundef %354) #4
-  %356 = load ptr, ptr %8, align 8
-  %357 = getelementptr inbounds %struct.CVodeMemRec, ptr %356, i32 0, i32 74
-  %358 = load i64, ptr %357, align 8
-  %359 = icmp sgt i64 %358, 0
-  br i1 %359, label %360, label %394
+303:                                              ; preds = %300, %288
+  %304 = load ptr, ptr %6, align 8, !tbaa !100
+  %305 = load ptr, ptr %8, align 8, !tbaa !9
+  %306 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %305, i32 0, i32 77
+  %307 = load i64, ptr %306, align 8, !tbaa !79
+  %308 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %304, ptr noundef @.str.61, i64 noundef %307) #5
+  %309 = load ptr, ptr %8, align 8, !tbaa !9
+  %310 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %309, i32 0, i32 94
+  %311 = load ptr, ptr %310, align 8, !tbaa !102
+  %312 = icmp ne ptr %311, null
+  br i1 %312, label %313, label %403
 
-360:                                              ; preds = %312
-  %361 = load ptr, ptr %6, align 8
-  %362 = load ptr, ptr %9, align 8
-  %363 = getelementptr inbounds %struct.CVLsMemRec, ptr %362, i32 0, i32 22
-  %364 = load i64, ptr %363, align 8
-  %365 = sitofp i64 %364 to double
-  %366 = load ptr, ptr %8, align 8
-  %367 = getelementptr inbounds %struct.CVodeMemRec, ptr %366, i32 0, i32 74
-  %368 = load i64, ptr %367, align 8
-  %369 = sitofp i64 %368 to double
-  %370 = fdiv double %365, %369
-  %371 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef @.str.70, double noundef %370) #4
-  %372 = load ptr, ptr %6, align 8
-  %373 = load ptr, ptr %9, align 8
-  %374 = getelementptr inbounds %struct.CVLsMemRec, ptr %373, i32 0, i32 18
-  %375 = load i64, ptr %374, align 8
-  %376 = sitofp i64 %375 to double
-  %377 = load ptr, ptr %8, align 8
-  %378 = getelementptr inbounds %struct.CVodeMemRec, ptr %377, i32 0, i32 74
-  %379 = load i64, ptr %378, align 8
-  %380 = sitofp i64 %379 to double
-  %381 = fdiv double %376, %380
-  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %372, ptr noundef @.str.71, double noundef %381) #4
-  %383 = load ptr, ptr %6, align 8
-  %384 = load ptr, ptr %9, align 8
-  %385 = getelementptr inbounds %struct.CVLsMemRec, ptr %384, i32 0, i32 21
-  %386 = load i64, ptr %385, align 8
-  %387 = sitofp i64 %386 to double
-  %388 = load ptr, ptr %8, align 8
-  %389 = getelementptr inbounds %struct.CVodeMemRec, ptr %388, i32 0, i32 74
-  %390 = load i64, ptr %389, align 8
-  %391 = sitofp i64 %390 to double
-  %392 = fdiv double %387, %391
-  %393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef @.str.72, double noundef %392) #4
-  br label %401
+313:                                              ; preds = %303
+  %314 = load ptr, ptr %8, align 8, !tbaa !9
+  %315 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %314, i32 0, i32 94
+  %316 = load ptr, ptr %315, align 8, !tbaa !102
+  store ptr %316, ptr %9, align 8, !tbaa !103
+  %317 = load ptr, ptr %6, align 8, !tbaa !100
+  %318 = load ptr, ptr %9, align 8, !tbaa !103
+  %319 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %318, i32 0, i32 18
+  %320 = load i64, ptr %319, align 8, !tbaa !105
+  %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %317, ptr noundef @.str.62, i64 noundef %320) #5
+  %322 = load ptr, ptr %6, align 8, !tbaa !100
+  %323 = load ptr, ptr %9, align 8, !tbaa !103
+  %324 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %323, i32 0, i32 19
+  %325 = load i64, ptr %324, align 8, !tbaa !109
+  %326 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef @.str.63, i64 noundef %325) #5
+  %327 = load ptr, ptr %6, align 8, !tbaa !100
+  %328 = load ptr, ptr %9, align 8, !tbaa !103
+  %329 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %328, i32 0, i32 21
+  %330 = load i64, ptr %329, align 8, !tbaa !110
+  %331 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %327, ptr noundef @.str.64, i64 noundef %330) #5
+  %332 = load ptr, ptr %6, align 8, !tbaa !100
+  %333 = load ptr, ptr %9, align 8, !tbaa !103
+  %334 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %333, i32 0, i32 23
+  %335 = load i64, ptr %334, align 8, !tbaa !111
+  %336 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %332, ptr noundef @.str.65, i64 noundef %335) #5
+  %337 = load ptr, ptr %6, align 8, !tbaa !100
+  %338 = load ptr, ptr %9, align 8, !tbaa !103
+  %339 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %338, i32 0, i32 22
+  %340 = load i64, ptr %339, align 8, !tbaa !112
+  %341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %337, ptr noundef @.str.66, i64 noundef %340) #5
+  %342 = load ptr, ptr %6, align 8, !tbaa !100
+  %343 = load ptr, ptr %9, align 8, !tbaa !103
+  %344 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %343, i32 0, i32 24
+  %345 = load i64, ptr %344, align 8, !tbaa !113
+  %346 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %342, ptr noundef @.str.67, i64 noundef %345) #5
+  %347 = load ptr, ptr %6, align 8, !tbaa !100
+  %348 = load ptr, ptr %9, align 8, !tbaa !103
+  %349 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %348, i32 0, i32 25
+  %350 = load i64, ptr %349, align 8, !tbaa !114
+  %351 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %347, ptr noundef @.str.68, i64 noundef %350) #5
+  %352 = load ptr, ptr %6, align 8, !tbaa !100
+  %353 = load ptr, ptr %9, align 8, !tbaa !103
+  %354 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %353, i32 0, i32 26
+  %355 = load i64, ptr %354, align 8, !tbaa !115
+  %356 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %352, ptr noundef @.str.69, i64 noundef %355) #5
+  %357 = load ptr, ptr %8, align 8, !tbaa !9
+  %358 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %357, i32 0, i32 74
+  %359 = load i64, ptr %358, align 8, !tbaa !97
+  %360 = icmp sgt i64 %359, 0
+  br i1 %360, label %361, label %395
 
-394:                                              ; preds = %312
-  %395 = load ptr, ptr %6, align 8
-  %396 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %395, ptr noundef @.str.73) #4
-  %397 = load ptr, ptr %6, align 8
-  %398 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %397, ptr noundef @.str.74) #4
-  %399 = load ptr, ptr %6, align 8
-  %400 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %399, ptr noundef @.str.75) #4
-  br label %401
-
-401:                                              ; preds = %394, %360
+361:                                              ; preds = %313
+  %362 = load ptr, ptr %6, align 8, !tbaa !100
+  %363 = load ptr, ptr %9, align 8, !tbaa !103
+  %364 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %363, i32 0, i32 22
+  %365 = load i64, ptr %364, align 8, !tbaa !112
+  %366 = sitofp i64 %365 to double
+  %367 = load ptr, ptr %8, align 8, !tbaa !9
+  %368 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %367, i32 0, i32 74
+  %369 = load i64, ptr %368, align 8, !tbaa !97
+  %370 = sitofp i64 %369 to double
+  %371 = fdiv double %366, %370
+  %372 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef @.str.70, double noundef %371) #5
+  %373 = load ptr, ptr %6, align 8, !tbaa !100
+  %374 = load ptr, ptr %9, align 8, !tbaa !103
+  %375 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %374, i32 0, i32 18
+  %376 = load i64, ptr %375, align 8, !tbaa !105
+  %377 = sitofp i64 %376 to double
+  %378 = load ptr, ptr %8, align 8, !tbaa !9
+  %379 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %378, i32 0, i32 74
+  %380 = load i64, ptr %379, align 8, !tbaa !97
+  %381 = sitofp i64 %380 to double
+  %382 = fdiv double %377, %381
+  %383 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %373, ptr noundef @.str.71, double noundef %382) #5
+  %384 = load ptr, ptr %6, align 8, !tbaa !100
+  %385 = load ptr, ptr %9, align 8, !tbaa !103
+  %386 = getelementptr inbounds nuw %struct.CVLsMemRec, ptr %385, i32 0, i32 21
+  %387 = load i64, ptr %386, align 8, !tbaa !110
+  %388 = sitofp i64 %387 to double
+  %389 = load ptr, ptr %8, align 8, !tbaa !9
+  %390 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %389, i32 0, i32 74
+  %391 = load i64, ptr %390, align 8, !tbaa !97
+  %392 = sitofp i64 %391 to double
+  %393 = fdiv double %388, %392
+  %394 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %384, ptr noundef @.str.72, double noundef %393) #5
   br label %402
 
-402:                                              ; preds = %401, %302
-  %403 = load ptr, ptr %6, align 8
-  %404 = load ptr, ptr %8, align 8
-  %405 = getelementptr inbounds %struct.CVodeMemRec, ptr %404, i32 0, i32 129
-  %406 = load i64, ptr %405, align 8
-  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %403, ptr noundef @.str.76, i64 noundef %406) #4
-  %408 = load ptr, ptr %8, align 8
-  %409 = getelementptr inbounds %struct.CVodeMemRec, ptr %408, i32 0, i32 132
-  %410 = load ptr, ptr %409, align 8
-  %411 = icmp ne ptr %410, null
-  br i1 %411, label %412, label %426
+395:                                              ; preds = %313
+  %396 = load ptr, ptr %6, align 8, !tbaa !100
+  %397 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %396, ptr noundef @.str.73) #5
+  %398 = load ptr, ptr %6, align 8, !tbaa !100
+  %399 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %398, ptr noundef @.str.74) #5
+  %400 = load ptr, ptr %6, align 8, !tbaa !100
+  %401 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %400, ptr noundef @.str.75) #5
+  br label %402
 
-412:                                              ; preds = %402
-  %413 = load ptr, ptr %8, align 8
-  %414 = getelementptr inbounds %struct.CVodeMemRec, ptr %413, i32 0, i32 132
-  %415 = load ptr, ptr %414, align 8
-  store ptr %415, ptr %10, align 8
-  %416 = load ptr, ptr %6, align 8
-  %417 = load ptr, ptr %10, align 8
-  %418 = getelementptr inbounds %struct.CVodeProjMemRec, ptr %417, i32 0, i32 9
-  %419 = load i64, ptr %418, align 8
-  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %416, ptr noundef @.str.77, i64 noundef %419) #4
-  %421 = load ptr, ptr %6, align 8
-  %422 = load ptr, ptr %10, align 8
-  %423 = getelementptr inbounds %struct.CVodeProjMemRec, ptr %422, i32 0, i32 10
-  %424 = load i64, ptr %423, align 8
-  %425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef @.str.78, i64 noundef %424) #4
-  br label %426
+402:                                              ; preds = %395, %361
+  br label %403
 
-426:                                              ; preds = %412, %402
-  %427 = load ptr, ptr %6, align 8
-  %428 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %427, ptr noundef @.str.79) #4
-  br label %431
+403:                                              ; preds = %402, %303
+  %404 = load ptr, ptr %6, align 8, !tbaa !100
+  %405 = load ptr, ptr %8, align 8, !tbaa !9
+  %406 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %405, i32 0, i32 129
+  %407 = load i64, ptr %406, align 8, !tbaa !95
+  %408 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %404, ptr noundef @.str.76, i64 noundef %407) #5
+  %409 = load ptr, ptr %8, align 8, !tbaa !9
+  %410 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %409, i32 0, i32 132
+  %411 = load ptr, ptr %410, align 8, !tbaa !116
+  %412 = icmp ne ptr %411, null
+  br i1 %412, label %413, label %427
 
-429:                                              ; preds = %14
-  %430 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %430, i32 noundef -22, i32 noundef 1768, ptr noundef @__func__.CVodePrintAllStats, ptr noundef @.str, ptr noundef @.str.80)
+413:                                              ; preds = %403
+  %414 = load ptr, ptr %8, align 8, !tbaa !9
+  %415 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %414, i32 0, i32 132
+  %416 = load ptr, ptr %415, align 8, !tbaa !116
+  store ptr %416, ptr %10, align 8, !tbaa !117
+  %417 = load ptr, ptr %6, align 8, !tbaa !100
+  %418 = load ptr, ptr %10, align 8, !tbaa !117
+  %419 = getelementptr inbounds nuw %struct.CVodeProjMemRec, ptr %418, i32 0, i32 9
+  %420 = load i64, ptr %419, align 8, !tbaa !118
+  %421 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %417, ptr noundef @.str.77, i64 noundef %420) #5
+  %422 = load ptr, ptr %6, align 8, !tbaa !100
+  %423 = load ptr, ptr %10, align 8, !tbaa !117
+  %424 = getelementptr inbounds nuw %struct.CVodeProjMemRec, ptr %423, i32 0, i32 10
+  %425 = load i64, ptr %424, align 8, !tbaa !120
+  %426 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %422, ptr noundef @.str.78, i64 noundef %425) #5
+  br label %427
+
+427:                                              ; preds = %413, %403
+  %428 = load ptr, ptr %6, align 8, !tbaa !100
+  %429 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %428, ptr noundef @.str.79) #5
+  br label %432
+
+430:                                              ; preds = %15
+  %431 = load ptr, ptr %8, align 8, !tbaa !9
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %431, i32 noundef -22, i32 noundef 1772, ptr noundef @__func__.CVodePrintAllStats, ptr noundef @.str, ptr noundef @.str.80)
   store i32 -22, ptr %4, align 4
-  br label %432
+  store i32 1, ptr %11, align 4
+  br label %433
 
-431:                                              ; preds = %426, %216
+432:                                              ; preds = %427, %217
   store i32 0, ptr %4, align 4
-  br label %432
+  store i32 1, ptr %11, align 4
+  br label %433
 
-432:                                              ; preds = %431, %429, %13
-  %433 = load i32, ptr %4, align 4
-  ret i32 %433
+433:                                              ; preds = %432, %430, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %434 = load i32, ptr %4, align 4
+  ret i32 %434
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @CVodeGetUserData(ptr noundef %0, ptr noundef %1) #0 {
@@ -3278,41 +3610,47 @@ define i32 @CVodeGetUserData(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1784, ptr noundef @__func__.CVodeGetUserData, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -21, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.CVodeMemRec, ptr %12, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store ptr %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1788, ptr noundef @__func__.CVodeGetUserData, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -21, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = getelementptr inbounds nuw %struct.CVodeMemRec, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %15, ptr %16, align 8, !tbaa !3
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @CVodeGetReturnFlagName(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = call noalias ptr @malloc(i64 noundef 24) #5
-  store ptr %4, ptr %3, align 8
-  %5 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = call noalias ptr @malloc(i64 noundef 24) #6
+  store ptr %4, ptr %3, align 8, !tbaa !121
+  %5 = load i64, ptr %2, align 8, !tbaa !22
   switch i64 %5, label %93 [
     i64 0, label %6
     i64 1, label %9
@@ -3346,176 +3684,297 @@ define ptr @CVodeGetReturnFlagName(i64 noundef %0) #0 {
   ]
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8
-  %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %7, ptr noundef @.str.81) #4
+  %7 = load ptr, ptr %3, align 8, !tbaa !121
+  %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %7, ptr noundef @.str.81) #5
   br label %96
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %10, ptr noundef @.str.82) #4
+  %10 = load ptr, ptr %3, align 8, !tbaa !121
+  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %10, ptr noundef @.str.82) #5
   br label %96
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %13, ptr noundef @.str.83) #4
+  %13 = load ptr, ptr %3, align 8, !tbaa !121
+  %14 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %13, ptr noundef @.str.83) #5
   br label %96
 
 15:                                               ; preds = %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %16, ptr noundef @.str.84) #4
+  %16 = load ptr, ptr %3, align 8, !tbaa !121
+  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %16, ptr noundef @.str.84) #5
   br label %96
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %3, align 8
-  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %19, ptr noundef @.str.85) #4
+  %19 = load ptr, ptr %3, align 8, !tbaa !121
+  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %19, ptr noundef @.str.85) #5
   br label %96
 
 21:                                               ; preds = %1
-  %22 = load ptr, ptr %3, align 8
-  %23 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %22, ptr noundef @.str.86) #4
+  %22 = load ptr, ptr %3, align 8, !tbaa !121
+  %23 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %22, ptr noundef @.str.86) #5
   br label %96
 
 24:                                               ; preds = %1
-  %25 = load ptr, ptr %3, align 8
-  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %25, ptr noundef @.str.87) #4
+  %25 = load ptr, ptr %3, align 8, !tbaa !121
+  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %25, ptr noundef @.str.87) #5
   br label %96
 
 27:                                               ; preds = %1
-  %28 = load ptr, ptr %3, align 8
-  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %28, ptr noundef @.str.88) #4
+  %28 = load ptr, ptr %3, align 8, !tbaa !121
+  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %28, ptr noundef @.str.88) #5
   br label %96
 
 30:                                               ; preds = %1
-  %31 = load ptr, ptr %3, align 8
-  %32 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %31, ptr noundef @.str.89) #4
+  %31 = load ptr, ptr %3, align 8, !tbaa !121
+  %32 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %31, ptr noundef @.str.89) #5
   br label %96
 
 33:                                               ; preds = %1
-  %34 = load ptr, ptr %3, align 8
-  %35 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %34, ptr noundef @.str.90) #4
+  %34 = load ptr, ptr %3, align 8, !tbaa !121
+  %35 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %34, ptr noundef @.str.90) #5
   br label %96
 
 36:                                               ; preds = %1
-  %37 = load ptr, ptr %3, align 8
-  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %37, ptr noundef @.str.91) #4
+  %37 = load ptr, ptr %3, align 8, !tbaa !121
+  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %37, ptr noundef @.str.91) #5
   br label %96
 
 39:                                               ; preds = %1
-  %40 = load ptr, ptr %3, align 8
-  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %40, ptr noundef @.str.92) #4
+  %40 = load ptr, ptr %3, align 8, !tbaa !121
+  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %40, ptr noundef @.str.92) #5
   br label %96
 
 42:                                               ; preds = %1
-  %43 = load ptr, ptr %3, align 8
-  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %43, ptr noundef @.str.93) #4
+  %43 = load ptr, ptr %3, align 8, !tbaa !121
+  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %43, ptr noundef @.str.93) #5
   br label %96
 
 45:                                               ; preds = %1
-  %46 = load ptr, ptr %3, align 8
-  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %46, ptr noundef @.str.94) #4
+  %46 = load ptr, ptr %3, align 8, !tbaa !121
+  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %46, ptr noundef @.str.94) #5
   br label %96
 
 48:                                               ; preds = %1
-  %49 = load ptr, ptr %3, align 8
-  %50 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %49, ptr noundef @.str.95) #4
+  %49 = load ptr, ptr %3, align 8, !tbaa !121
+  %50 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %49, ptr noundef @.str.95) #5
   br label %96
 
 51:                                               ; preds = %1
-  %52 = load ptr, ptr %3, align 8
-  %53 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %52, ptr noundef @.str.96) #4
+  %52 = load ptr, ptr %3, align 8, !tbaa !121
+  %53 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %52, ptr noundef @.str.96) #5
   br label %96
 
 54:                                               ; preds = %1
-  %55 = load ptr, ptr %3, align 8
-  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %55, ptr noundef @.str.97) #4
+  %55 = load ptr, ptr %3, align 8, !tbaa !121
+  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %55, ptr noundef @.str.97) #5
   br label %96
 
 57:                                               ; preds = %1
-  %58 = load ptr, ptr %3, align 8
-  %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %58, ptr noundef @.str.98) #4
+  %58 = load ptr, ptr %3, align 8, !tbaa !121
+  %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %58, ptr noundef @.str.98) #5
   br label %96
 
 60:                                               ; preds = %1
-  %61 = load ptr, ptr %3, align 8
-  %62 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %61, ptr noundef @.str.99) #4
+  %61 = load ptr, ptr %3, align 8, !tbaa !121
+  %62 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %61, ptr noundef @.str.99) #5
   br label %96
 
 63:                                               ; preds = %1
-  %64 = load ptr, ptr %3, align 8
-  %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %64, ptr noundef @.str.100) #4
+  %64 = load ptr, ptr %3, align 8, !tbaa !121
+  %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %64, ptr noundef @.str.100) #5
   br label %96
 
 66:                                               ; preds = %1
-  %67 = load ptr, ptr %3, align 8
-  %68 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %67, ptr noundef @.str.101) #4
+  %67 = load ptr, ptr %3, align 8, !tbaa !121
+  %68 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %67, ptr noundef @.str.101) #5
   br label %96
 
 69:                                               ; preds = %1
-  %70 = load ptr, ptr %3, align 8
-  %71 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %70, ptr noundef @.str.102) #4
+  %70 = load ptr, ptr %3, align 8, !tbaa !121
+  %71 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %70, ptr noundef @.str.102) #5
   br label %96
 
 72:                                               ; preds = %1
-  %73 = load ptr, ptr %3, align 8
-  %74 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %73, ptr noundef @.str.103) #4
+  %73 = load ptr, ptr %3, align 8, !tbaa !121
+  %74 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %73, ptr noundef @.str.103) #5
   br label %96
 
 75:                                               ; preds = %1
-  %76 = load ptr, ptr %3, align 8
-  %77 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %76, ptr noundef @.str.104) #4
+  %76 = load ptr, ptr %3, align 8, !tbaa !121
+  %77 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %76, ptr noundef @.str.104) #5
   br label %96
 
 78:                                               ; preds = %1
-  %79 = load ptr, ptr %3, align 8
-  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %79, ptr noundef @.str.105) #4
+  %79 = load ptr, ptr %3, align 8, !tbaa !121
+  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %79, ptr noundef @.str.105) #5
   br label %96
 
 81:                                               ; preds = %1
-  %82 = load ptr, ptr %3, align 8
-  %83 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %82, ptr noundef @.str.106) #4
+  %82 = load ptr, ptr %3, align 8, !tbaa !121
+  %83 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %82, ptr noundef @.str.106) #5
   br label %96
 
 84:                                               ; preds = %1
-  %85 = load ptr, ptr %3, align 8
-  %86 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %85, ptr noundef @.str.107) #4
+  %85 = load ptr, ptr %3, align 8, !tbaa !121
+  %86 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %85, ptr noundef @.str.107) #5
   br label %96
 
 87:                                               ; preds = %1
-  %88 = load ptr, ptr %3, align 8
-  %89 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %88, ptr noundef @.str.108) #4
+  %88 = load ptr, ptr %3, align 8, !tbaa !121
+  %89 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %88, ptr noundef @.str.108) #5
   br label %96
 
 90:                                               ; preds = %1
-  %91 = load ptr, ptr %3, align 8
-  %92 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %91, ptr noundef @.str.109) #4
+  %91 = load ptr, ptr %3, align 8, !tbaa !121
+  %92 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %91, ptr noundef @.str.109) #5
   br label %96
 
 93:                                               ; preds = %1
-  %94 = load ptr, ptr %3, align 8
-  %95 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %94, ptr noundef @.str.110) #4
+  %94 = load ptr, ptr %3, align 8, !tbaa !121
+  %95 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %94, ptr noundef @.str.110) #5
   br label %96
 
 96:                                               ; preds = %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6
-  %97 = load ptr, ptr %3, align 8
+  %97 = load ptr, ptr %3, align 8, !tbaa !121
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret ptr %97
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #3
+declare noalias ptr @malloc(i64 noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #2
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"double", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS11CVodeMemRec", !4, i64 0}
+!11 = !{!12, !8, i64 1056}
+!12 = !{!"CVodeMemRec", !13, i64 0, !8, i64 8, !4, i64 16, !4, i64 24, !14, i64 32, !14, i64 36, !8, i64 40, !8, i64 48, !15, i64 56, !14, i64 64, !14, i64 68, !4, i64 72, !4, i64 80, !14, i64 88, !5, i64 96, !15, i64 200, !15, i64 208, !15, i64 216, !15, i64 224, !15, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !15, i64 264, !14, i64 272, !14, i64 276, !8, i64 280, !14, i64 288, !14, i64 292, !14, i64 296, !14, i64 300, !14, i64 304, !8, i64 312, !8, i64 320, !8, i64 328, !8, i64 336, !8, i64 344, !8, i64 352, !8, i64 360, !8, i64 368, !5, i64 376, !5, i64 488, !5, i64 536, !8, i64 640, !8, i64 648, !8, i64 656, !8, i64 664, !8, i64 672, !8, i64 680, !8, i64 688, !14, i64 696, !8, i64 704, !14, i64 712, !16, i64 720, !14, i64 728, !14, i64 732, !14, i64 736, !8, i64 744, !8, i64 752, !8, i64 760, !8, i64 768, !8, i64 776, !8, i64 784, !8, i64 792, !8, i64 800, !8, i64 808, !8, i64 816, !8, i64 824, !8, i64 832, !16, i64 840, !14, i64 848, !16, i64 856, !16, i64 864, !16, i64 872, !16, i64 880, !16, i64 888, !16, i64 896, !16, i64 904, !14, i64 912, !8, i64 920, !8, i64 928, !8, i64 936, !16, i64 944, !16, i64 952, !16, i64 960, !16, i64 968, !17, i64 976, !14, i64 984, !4, i64 992, !14, i64 1000, !4, i64 1008, !4, i64 1016, !4, i64 1024, !4, i64 1032, !4, i64 1040, !16, i64 1048, !8, i64 1056, !14, i64 1064, !16, i64 1072, !8, i64 1080, !8, i64 1088, !8, i64 1096, !14, i64 1104, !8, i64 1112, !14, i64 1120, !14, i64 1124, !14, i64 1128, !14, i64 1132, !14, i64 1136, !4, i64 1144, !16, i64 1152, !14, i64 1160, !5, i64 1168, !14, i64 1360, !16, i64 1368, !4, i64 1376, !14, i64 1384, !18, i64 1392, !18, i64 1400, !8, i64 1408, !8, i64 1416, !8, i64 1424, !19, i64 1432, !19, i64 1440, !19, i64 1448, !8, i64 1456, !8, i64 1464, !14, i64 1472, !14, i64 1476, !16, i64 1480, !18, i64 1488, !14, i64 1496, !20, i64 1504, !14, i64 1512, !14, i64 1516, !5, i64 1520, !5, i64 1624, !5, i64 1728, !14, i64 1832}
+!13 = !{!"p1 _ZTS11SUNContext_", !4, i64 0}
+!14 = !{!"int", !5, i64 0}
+!15 = !{!"p1 _ZTS17_generic_N_Vector", !4, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !4, i64 0}
+!18 = !{!"p1 int", !4, i64 0}
+!19 = !{!"p1 double", !4, i64 0}
+!20 = !{!"p1 _ZTS15CVodeProjMemRec", !4, i64 0}
+!21 = !{!12, !4, i64 24}
+!22 = !{!16, !16, i64 0}
+!23 = !{!14, !14, i64 0}
+!24 = !{!12, !14, i64 1120}
+!25 = !{!12, !14, i64 712}
+!26 = !{!12, !16, i64 720}
+!27 = !{!12, !14, i64 728}
+!28 = !{!12, !14, i64 32}
+!29 = !{!12, !14, i64 1160}
+!30 = !{!12, !8, i64 312}
+!31 = !{!12, !8, i64 744}
+!32 = !{!12, !8, i64 752}
+!33 = !{!12, !8, i64 768}
+!34 = !{!12, !8, i64 776}
+!35 = !{!12, !8, i64 784}
+!36 = !{!12, !8, i64 792}
+!37 = !{!12, !16, i64 840}
+!38 = !{!12, !8, i64 800}
+!39 = !{!12, !8, i64 808}
+!40 = !{!12, !8, i64 816}
+!41 = !{!12, !8, i64 824}
+!42 = !{!12, !14, i64 848}
+!43 = !{!12, !8, i64 832}
+!44 = !{!12, !16, i64 856}
+!45 = !{!12, !8, i64 360}
+!46 = !{!12, !8, i64 320}
+!47 = !{!12, !8, i64 280}
+!48 = !{!12, !14, i64 272}
+!49 = !{!12, !14, i64 276}
+!50 = !{!12, !14, i64 732}
+!51 = !{!12, !14, i64 736}
+!52 = !{!12, !17, i64 976}
+!53 = !{!12, !8, i64 704}
+!54 = !{!12, !16, i64 1048}
+!55 = !{!18, !18, i64 0}
+!56 = !{!12, !14, i64 1384}
+!57 = !{!12, !18, i64 1400}
+!58 = !{!12, !14, i64 1496}
+!59 = !{!15, !15, i64 0}
+!60 = !{!12, !14, i64 1136}
+!61 = !{!12, !15, i64 264}
+!62 = !{!12, !16, i64 944}
+!63 = !{!12, !16, i64 960}
+!64 = !{!12, !16, i64 952}
+!65 = !{!12, !16, i64 968}
+!66 = !{!12, !14, i64 88}
+!67 = !{!68, !69, i64 8}
+!68 = !{!"_generic_N_Vector", !4, i64 0, !69, i64 8, !13, i64 16}
+!69 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !4, i64 0}
+!70 = !{!71, !4, i64 112}
+!71 = !{!"_generic_N_Vector_Ops", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104, !4, i64 112, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !4, i64 200, !4, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !4, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !4, i64 280, !4, i64 288, !4, i64 296, !4, i64 304, !4, i64 312, !4, i64 320, !4, i64 328, !4, i64 336, !4, i64 344, !4, i64 352, !4, i64 360, !4, i64 368, !4, i64 376, !4, i64 384, !4, i64 392, !4, i64 400, !4, i64 408, !4, i64 416, !4, i64 424, !4, i64 432, !4, i64 440}
+!72 = !{!71, !4, i64 160}
+!73 = !{!71, !4, i64 208}
+!74 = !{!71, !4, i64 224}
+!75 = !{!71, !4, i64 232}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 long", !4, i64 0}
+!78 = !{!12, !16, i64 864}
+!79 = !{!12, !16, i64 904}
+!80 = !{!12, !16, i64 896}
+!81 = !{!12, !14, i64 1064}
+!82 = !{!12, !14, i64 296}
+!83 = !{!19, !19, i64 0}
+!84 = !{!12, !8, i64 648}
+!85 = !{!12, !16, i64 1368}
+!86 = !{!12, !8, i64 1080}
+!87 = !{!12, !8, i64 1088}
+!88 = !{!12, !8, i64 336}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p2 _ZTS17_generic_N_Vector", !4, i64 0}
+!91 = !{!12, !15, i64 208}
+!92 = !{!12, !8, i64 1112}
+!93 = !{!12, !15, i64 200}
+!94 = !{!12, !15, i64 216}
+!95 = !{!12, !16, i64 1480}
+!96 = !{!12, !18, i64 1392}
+!97 = !{!12, !16, i64 880}
+!98 = !{!12, !16, i64 888}
+!99 = !{!12, !16, i64 872}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTS8_IO_FILE", !4, i64 0}
+!102 = !{!12, !4, i64 1040}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTS10CVLsMemRec", !4, i64 0}
+!105 = !{!106, !16, i64 136}
+!106 = !{!"CVLsMemRec", !14, i64 0, !14, i64 4, !14, i64 8, !4, i64 16, !4, i64 24, !14, i64 32, !8, i64 40, !14, i64 48, !8, i64 56, !8, i64 64, !107, i64 72, !108, i64 80, !108, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !16, i64 128, !16, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !8, i64 208, !4, i64 216, !4, i64 224, !4, i64 232, !4, i64 240, !14, i64 248, !4, i64 256, !4, i64 264, !4, i64 272, !4, i64 280, !14, i64 288, !4, i64 296, !4, i64 304, !14, i64 312}
+!107 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !4, i64 0}
+!108 = !{!"p1 _ZTS18_generic_SUNMatrix", !4, i64 0}
+!109 = !{!106, !16, i64 144}
+!110 = !{!106, !16, i64 160}
+!111 = !{!106, !16, i64 176}
+!112 = !{!106, !16, i64 168}
+!113 = !{!106, !16, i64 184}
+!114 = !{!106, !16, i64 192}
+!115 = !{!106, !16, i64 200}
+!116 = !{!12, !20, i64 1504}
+!117 = !{!20, !20, i64 0}
+!118 = !{!119, !16, i64 64}
+!119 = !{!"CVodeProjMemRec", !14, i64 0, !14, i64 4, !14, i64 8, !16, i64 16, !16, i64 24, !14, i64 32, !4, i64 40, !8, i64 48, !8, i64 56, !16, i64 64, !16, i64 72}
+!120 = !{!119, !16, i64 72}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"p1 omnipotent char", !4, i64 0}

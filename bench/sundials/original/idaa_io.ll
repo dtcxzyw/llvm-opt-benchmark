@@ -39,48 +39,62 @@ define i32 @IDAAdjSetNoSensi(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 65, ptr noundef @__func__.IDAAdjSetNoSensi, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %2, align 4
-  br label %23
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.IDAMemRec, ptr %11, i32 0, i32 240
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 65, ptr noundef @__func__.IDAAdjSetNoSensi, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %24
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %4, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %16, i32 noundef -101, i32 noundef 74, ptr noundef @__func__.IDAAdjSetNoSensi, ptr noundef @.str, ptr noundef @.str.2)
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %11, ptr %4, align 8, !tbaa !7
+  %12 = load ptr, ptr %4, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %12, i32 0, i32 240
+  %14 = load i32, ptr %13, align 8, !tbaa !9
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %4, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %17, i32 noundef -101, i32 noundef 74, ptr noundef @__func__.IDAAdjSetNoSensi, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %2, align 4
-  br label %23
+  store i32 1, ptr %6, align 4
+  br label %24
 
-17:                                               ; preds = %9
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.IDAMemRec, ptr %18, i32 0, i32 239
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %5, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.IDAadjMemRec, ptr %21, i32 0, i32 25
-  store i32 0, ptr %22, align 8
+18:                                               ; preds = %10
+  %19 = load ptr, ptr %4, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %19, i32 0, i32 239
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
+  store ptr %21, ptr %5, align 8, !tbaa !22
+  %22 = load ptr, ptr %5, align 8, !tbaa !22
+  %23 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %22, i32 0, i32 25
+  store i32 0, ptr %23, align 8, !tbaa !23
   store i32 0, ptr %2, align 4
-  br label %23
+  store i32 1, ptr %6, align 4
+  br label %24
 
-23:                                               ; preds = %17, %15, %8
-  %24 = load i32, ptr %2, align 4
-  ret i32 %24
+24:                                               ; preds = %18, %16, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
 }
 
-declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetNonlinearSolverB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -92,98 +106,111 @@ define i32 @IDASetNonlinearSolverB(ptr noundef %0, i32 noundef %1, ptr noundef %
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 101, ptr noundef @__func__.IDASetNonlinearSolverB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store ptr %2, ptr %7, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 101, ptr noundef @__func__.IDASetNonlinearSolverB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 110, ptr noundef @__func__.IDASetNonlinearSolverB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 110, ptr noundef @__func__.IDASetNonlinearSolverB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 119, ptr noundef @__func__.IDASetNonlinearSolverB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 119, ptr noundef @__func__.IDASetNonlinearSolverB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = call i32 @IDASetNonlinearSolver(ptr noundef %56, ptr noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load ptr, ptr %7, align 8, !tbaa !29
+  %59 = call i32 @IDASetNonlinearSolver(ptr noundef %57, ptr noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetNonlinearSolver(ptr noundef, ptr noundef) #1
+declare i32 @IDASetNonlinearSolver(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetUserDataB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -194,92 +221,103 @@ define i32 @IDASetUserDataB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 147, ptr noundef @__func__.IDASetUserDataB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %55
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %8, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.IDAMemRec, ptr %16, i32 0, i32 240
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %22
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 147, ptr noundef @__func__.IDASetUserDataB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %56
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %21, i32 noundef -101, i32 noundef 156, ptr noundef @__func__.IDASetUserDataB, ptr noundef @.str, ptr noundef @.str.2)
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %16, ptr %8, align 8, !tbaa !7
+  %17 = load ptr, ptr %8, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %17, i32 0, i32 240
+  %19 = load i32, ptr %18, align 8, !tbaa !9
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 156, ptr noundef @__func__.IDASetUserDataB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %55
+  store i32 1, ptr %11, align 4
+  br label %56
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.IDAMemRec, ptr %23, i32 0, i32 239
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %9, align 8
-  %26 = load i32, ptr %6, align 4
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct.IDAadjMemRec, ptr %27, i32 0, i32 8
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp sge i32 %26, %29
-  br i1 %30, label %31, label %33
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %8, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %24, i32 0, i32 239
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
+  store ptr %26, ptr %9, align 8, !tbaa !22
+  %27 = load i32, ptr %6, align 4, !tbaa !28
+  %28 = load ptr, ptr %9, align 8, !tbaa !22
+  %29 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
+  %30 = load i32, ptr %29, align 8, !tbaa !30
+  %31 = icmp sge i32 %27, %30
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %22
-  %32 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %32, i32 noundef -22, i32 noundef 165, ptr noundef @__func__.IDASetUserDataB, ptr noundef @.str, ptr noundef @.str.3)
+32:                                               ; preds = %23
+  %33 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 165, ptr noundef @__func__.IDASetUserDataB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %55
+  store i32 1, ptr %11, align 4
+  br label %56
 
-33:                                               ; preds = %22
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.IDAadjMemRec, ptr %34, i32 0, i32 7
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %10, align 8
-  br label %37
+34:                                               ; preds = %23
+  %35 = load ptr, ptr %9, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
+  %37 = load ptr, ptr %36, align 8, !tbaa !31
+  store ptr %37, ptr %10, align 8, !tbaa !32
+  br label %38
 
-37:                                               ; preds = %47, %33
-  %38 = load ptr, ptr %10, align 8
-  %39 = icmp ne ptr %38, null
-  br i1 %39, label %40, label %51
+38:                                               ; preds = %48, %34
+  %39 = load ptr, ptr %10, align 8, !tbaa !32
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %52
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr %6, align 4
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds %struct.IDABMemRec, ptr %42, i32 0, i32 0
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %41, %44
-  br i1 %45, label %46, label %47
+41:                                               ; preds = %38
+  %42 = load i32, ptr %6, align 4, !tbaa !28
+  %43 = load ptr, ptr %10, align 8, !tbaa !32
+  %44 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %43, i32 0, i32 0
+  %45 = load i32, ptr %44, align 8, !tbaa !33
+  %46 = icmp eq i32 %42, %45
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %40
-  br label %51
+47:                                               ; preds = %41
+  br label %52
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds %struct.IDABMemRec, ptr %48, i32 0, i32 17
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %10, align 8
-  br label %37
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %10, align 8, !tbaa !32
+  %50 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %49, i32 0, i32 17
+  %51 = load ptr, ptr %50, align 8, !tbaa !35
+  store ptr %51, ptr %10, align 8, !tbaa !32
+  br label %38
 
-51:                                               ; preds = %46, %37
-  %52 = load ptr, ptr %7, align 8
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 9
-  store ptr %52, ptr %54, align 8
+52:                                               ; preds = %47, %38
+  %53 = load ptr, ptr %7, align 8, !tbaa !3
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 9
+  store ptr %53, ptr %55, align 8, !tbaa !37
   store i32 0, ptr %4, align 4
-  br label %55
+  store i32 1, ptr %11, align 4
+  br label %56
 
-55:                                               ; preds = %51, %31, %20, %13
-  %56 = load i32, ptr %4, align 4
-  ret i32 %56
+56:                                               ; preds = %52, %32, %21, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %57 = load i32, ptr %4, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: nounwind uwtable
@@ -292,98 +330,111 @@ define i32 @IDASetMaxOrdB(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 195, ptr noundef @__func__.IDASetMaxOrdB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store i32 %2, ptr %7, align 4, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 195, ptr noundef @__func__.IDASetMaxOrdB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 204, ptr noundef @__func__.IDASetMaxOrdB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 204, ptr noundef @__func__.IDASetMaxOrdB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 213, ptr noundef @__func__.IDASetMaxOrdB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 213, ptr noundef @__func__.IDASetMaxOrdB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = call i32 @IDASetMaxOrd(ptr noundef %56, i32 noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load i32, ptr %7, align 4, !tbaa !28
+  %59 = call i32 @IDASetMaxOrd(ptr noundef %57, i32 noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetMaxOrd(ptr noundef, i32 noundef) #1
+declare i32 @IDASetMaxOrd(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetMaxNumStepsB(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 {
@@ -395,98 +446,111 @@ define i32 @IDASetMaxNumStepsB(ptr noundef %0, i32 noundef %1, i64 noundef %2) #
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i64 %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 241, ptr noundef @__func__.IDASetMaxNumStepsB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store i64 %2, ptr %7, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 241, ptr noundef @__func__.IDASetMaxNumStepsB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 250, ptr noundef @__func__.IDASetMaxNumStepsB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 250, ptr noundef @__func__.IDASetMaxNumStepsB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 259, ptr noundef @__func__.IDASetMaxNumStepsB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 259, ptr noundef @__func__.IDASetMaxNumStepsB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load i64, ptr %7, align 8
-  %58 = call i32 @IDASetMaxNumSteps(ptr noundef %56, i64 noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load i64, ptr %7, align 8, !tbaa !38
+  %59 = call i32 @IDASetMaxNumSteps(ptr noundef %57, i64 noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetMaxNumSteps(ptr noundef, i64 noundef) #1
+declare i32 @IDASetMaxNumSteps(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetInitStepB(ptr noundef %0, i32 noundef %1, double noundef %2) #0 {
@@ -498,98 +562,111 @@ define i32 @IDASetInitStepB(ptr noundef %0, i32 noundef %1, double noundef %2) #
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store double %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 287, ptr noundef @__func__.IDASetInitStepB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store double %2, ptr %7, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 287, ptr noundef @__func__.IDASetInitStepB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 296, ptr noundef @__func__.IDASetInitStepB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 296, ptr noundef @__func__.IDASetInitStepB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 305, ptr noundef @__func__.IDASetInitStepB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 305, ptr noundef @__func__.IDASetInitStepB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load double, ptr %7, align 8
-  %58 = call i32 @IDASetInitStep(ptr noundef %56, double noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load double, ptr %7, align 8, !tbaa !39
+  %59 = call i32 @IDASetInitStep(ptr noundef %57, double noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetInitStep(ptr noundef, double noundef) #1
+declare i32 @IDASetInitStep(ptr noundef, double noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetMaxStepB(ptr noundef %0, i32 noundef %1, double noundef %2) #0 {
@@ -601,98 +678,111 @@ define i32 @IDASetMaxStepB(ptr noundef %0, i32 noundef %1, double noundef %2) #0
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store double %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 333, ptr noundef @__func__.IDASetMaxStepB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store double %2, ptr %7, align 8, !tbaa !39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 333, ptr noundef @__func__.IDASetMaxStepB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 342, ptr noundef @__func__.IDASetMaxStepB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 342, ptr noundef @__func__.IDASetMaxStepB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 351, ptr noundef @__func__.IDASetMaxStepB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 351, ptr noundef @__func__.IDASetMaxStepB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load double, ptr %7, align 8
-  %58 = call i32 @IDASetMaxStep(ptr noundef %56, double noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load double, ptr %7, align 8, !tbaa !39
+  %59 = call i32 @IDASetMaxStep(ptr noundef %57, double noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetMaxStep(ptr noundef, double noundef) #1
+declare i32 @IDASetMaxStep(ptr noundef, double noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetSuppressAlgB(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -704,98 +794,111 @@ define i32 @IDASetSuppressAlgB(ptr noundef %0, i32 noundef %1, i32 noundef %2) #
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 379, ptr noundef @__func__.IDASetSuppressAlgB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store i32 %2, ptr %7, align 4, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 379, ptr noundef @__func__.IDASetSuppressAlgB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 388, ptr noundef @__func__.IDASetSuppressAlgB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 388, ptr noundef @__func__.IDASetSuppressAlgB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 397, ptr noundef @__func__.IDASetSuppressAlgB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 397, ptr noundef @__func__.IDASetSuppressAlgB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = call i32 @IDASetSuppressAlg(ptr noundef %56, i32 noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load i32, ptr %7, align 4, !tbaa !28
+  %59 = call i32 @IDASetSuppressAlg(ptr noundef %57, i32 noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetSuppressAlg(ptr noundef, i32 noundef) #1
+declare i32 @IDASetSuppressAlg(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetIdB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -807,98 +910,111 @@ define i32 @IDASetIdB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 425, ptr noundef @__func__.IDASetIdB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store ptr %2, ptr %7, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 425, ptr noundef @__func__.IDASetIdB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 434, ptr noundef @__func__.IDASetIdB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 434, ptr noundef @__func__.IDASetIdB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 443, ptr noundef @__func__.IDASetIdB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 443, ptr noundef @__func__.IDASetIdB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = call i32 @IDASetId(ptr noundef %56, ptr noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load ptr, ptr %7, align 8, !tbaa !40
+  %59 = call i32 @IDASetId(ptr noundef %57, ptr noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetId(ptr noundef, ptr noundef) #1
+declare i32 @IDASetId(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetConstraintsB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -910,98 +1026,111 @@ define i32 @IDASetConstraintsB(ptr noundef %0, i32 noundef %1, ptr noundef %2) #
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 471, ptr noundef @__func__.IDASetConstraintsB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store ptr %2, ptr %7, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 471, ptr noundef @__func__.IDASetConstraintsB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 480, ptr noundef @__func__.IDASetConstraintsB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 480, ptr noundef @__func__.IDASetConstraintsB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 489, ptr noundef @__func__.IDASetConstraintsB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 489, ptr noundef @__func__.IDASetConstraintsB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = call i32 @IDASetConstraints(ptr noundef %56, ptr noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load ptr, ptr %7, align 8, !tbaa !40
+  %59 = call i32 @IDASetConstraints(ptr noundef %57, ptr noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetConstraints(ptr noundef, ptr noundef) #1
+declare i32 @IDASetConstraints(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDASetQuadErrConB(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -1013,98 +1142,111 @@ define i32 @IDASetQuadErrConB(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 523, ptr noundef @__func__.IDASetQuadErrConB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %4, align 4
-  br label %59
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !28
+  store i32 %2, ptr %7, align 4, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.IDAMemRec, ptr %17, i32 0, i32 240
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 523, ptr noundef @__func__.IDASetQuadErrConB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %22, i32 noundef -101, i32 noundef 532, ptr noundef @__func__.IDASetQuadErrConB, ptr noundef @.str, ptr noundef @.str.2)
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %17, ptr %8, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %18, i32 0, i32 240
+  %20 = load i32, ptr %19, align 8, !tbaa !9
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %24
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %23, i32 noundef -101, i32 noundef 532, ptr noundef @__func__.IDASetQuadErrConB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.IDAMemRec, ptr %24, i32 0, i32 239
-  %26 = load ptr, ptr %25, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load i32, ptr %6, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %struct.IDAadjMemRec, ptr %28, i32 0, i32 8
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sge i32 %27, %30
-  br i1 %31, label %32, label %34
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %25, i32 0, i32 239
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  store ptr %27, ptr %9, align 8, !tbaa !22
+  %28 = load i32, ptr %6, align 4, !tbaa !28
+  %29 = load ptr, ptr %9, align 8, !tbaa !22
+  %30 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %29, i32 0, i32 8
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = icmp sge i32 %28, %31
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %33, i32 noundef -22, i32 noundef 541, ptr noundef @__func__.IDASetQuadErrConB, ptr noundef @.str, ptr noundef @.str.3)
+33:                                               ; preds = %24
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 541, ptr noundef @__func__.IDASetQuadErrConB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %12, align 4
+  br label %60
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.IDAadjMemRec, ptr %35, i32 0, i32 7
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %10, align 8
-  br label %38
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %9, align 8, !tbaa !22
+  %37 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %36, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  store ptr %38, ptr %10, align 8, !tbaa !32
+  br label %39
 
-38:                                               ; preds = %48, %34
-  %39 = load ptr, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %52
+39:                                               ; preds = %49, %35
+  %40 = load ptr, ptr %10, align 8, !tbaa !32
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %53
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %6, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.IDABMemRec, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %42, %45
-  br i1 %46, label %47, label %48
+42:                                               ; preds = %39
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %10, align 8, !tbaa !32
+  %45 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8, !tbaa !33
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %41
-  br label %52
+48:                                               ; preds = %42
+  br label %53
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.IDABMemRec, ptr %49, i32 0, i32 17
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %10, align 8
-  br label %38
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %10, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %50, i32 0, i32 17
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  store ptr %52, ptr %10, align 8, !tbaa !32
+  br label %39
 
-52:                                               ; preds = %47, %38
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds %struct.IDABMemRec, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = call i32 @IDASetQuadErrCon(ptr noundef %56, i32 noundef %57)
-  store i32 %58, ptr %4, align 4
-  br label %59
+53:                                               ; preds = %48, %39
+  %54 = load ptr, ptr %10, align 8, !tbaa !32
+  %55 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  store ptr %56, ptr %11, align 8, !tbaa !3
+  %57 = load ptr, ptr %11, align 8, !tbaa !3
+  %58 = load i32, ptr %7, align 4, !tbaa !28
+  %59 = call i32 @IDASetQuadErrCon(ptr noundef %57, i32 noundef %58)
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %60
 
-59:                                               ; preds = %52, %32, %21, %14
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %33, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare i32 @IDASetQuadErrCon(ptr noundef, i32 noundef) #1
+declare i32 @IDASetQuadErrCon(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @IDAGetAdjIDABmem(ptr noundef %0, i32 noundef %1) #0 {
@@ -1115,92 +1257,105 @@ define ptr @IDAGetAdjIDABmem(ptr noundef %0, i32 noundef %1) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef 0, i32 noundef 584, ptr noundef @__func__.IDAGetAdjIDABmem, ptr noundef @.str, ptr noundef @.str.1)
-  store ptr null, ptr %3, align 8
-  br label %55
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %6, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.IDAMemRec, ptr %15, i32 0, i32 240
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
-
-19:                                               ; preds = %13
-  %20 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %20, i32 noundef 0, i32 noundef 592, ptr noundef @__func__.IDAGetAdjIDABmem, ptr noundef @.str, ptr noundef @.str.2)
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef 0, i32 noundef 584, ptr noundef @__func__.IDAGetAdjIDABmem, ptr noundef @.str, ptr noundef @.str.1)
   store ptr null, ptr %3, align 8
-  br label %55
+  store i32 1, ptr %10, align 4
+  br label %56
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.IDAMemRec, ptr %22, i32 0, i32 239
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %7, align 8
-  %25 = load i32, ptr %5, align 4
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct.IDAadjMemRec, ptr %26, i32 0, i32 8
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp sge i32 %25, %28
-  br i1 %29, label %30, label %32
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %15, ptr %6, align 8, !tbaa !7
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %16, i32 0, i32 240
+  %18 = load i32, ptr %17, align 8, !tbaa !9
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %22
 
-30:                                               ; preds = %21
-  %31 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %31, i32 noundef 0, i32 noundef 600, ptr noundef @__func__.IDAGetAdjIDABmem, ptr noundef @.str, ptr noundef @.str.3)
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %21, i32 noundef 0, i32 noundef 592, ptr noundef @__func__.IDAGetAdjIDABmem, ptr noundef @.str, ptr noundef @.str.2)
   store ptr null, ptr %3, align 8
-  br label %55
+  store i32 1, ptr %10, align 4
+  br label %56
 
-32:                                               ; preds = %21
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %struct.IDAadjMemRec, ptr %33, i32 0, i32 7
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %8, align 8
-  br label %36
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %6, align 8, !tbaa !7
+  %24 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %23, i32 0, i32 239
+  %25 = load ptr, ptr %24, align 8, !tbaa !21
+  store ptr %25, ptr %7, align 8, !tbaa !22
+  %26 = load i32, ptr %5, align 4, !tbaa !28
+  %27 = load ptr, ptr %7, align 8, !tbaa !22
+  %28 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %27, i32 0, i32 8
+  %29 = load i32, ptr %28, align 8, !tbaa !30
+  %30 = icmp sge i32 %26, %29
+  br i1 %30, label %31, label %33
 
-36:                                               ; preds = %46, %32
-  %37 = load ptr, ptr %8, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %50
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %32, i32 noundef 0, i32 noundef 600, ptr noundef @__func__.IDAGetAdjIDABmem, ptr noundef @.str, ptr noundef @.str.3)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %56
 
-39:                                               ; preds = %36
-  %40 = load i32, ptr %5, align 4
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.IDABMemRec, ptr %41, i32 0, i32 0
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %40, %43
-  br i1 %44, label %45, label %46
+33:                                               ; preds = %22
+  %34 = load ptr, ptr %7, align 8, !tbaa !22
+  %35 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %34, i32 0, i32 7
+  %36 = load ptr, ptr %35, align 8, !tbaa !31
+  store ptr %36, ptr %8, align 8, !tbaa !32
+  br label %37
 
-45:                                               ; preds = %39
-  br label %50
+37:                                               ; preds = %47, %33
+  %38 = load ptr, ptr %8, align 8, !tbaa !32
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %51
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.IDABMemRec, ptr %47, i32 0, i32 17
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %8, align 8
-  br label %36
+40:                                               ; preds = %37
+  %41 = load i32, ptr %5, align 4, !tbaa !28
+  %42 = load ptr, ptr %8, align 8, !tbaa !32
+  %43 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %42, i32 0, i32 0
+  %44 = load i32, ptr %43, align 8, !tbaa !33
+  %45 = icmp eq i32 %41, %44
+  br i1 %45, label %46, label %47
 
-50:                                               ; preds = %45, %36
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.IDABMemRec, ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %9, align 8
-  %54 = load ptr, ptr %9, align 8
-  store ptr %54, ptr %3, align 8
-  br label %55
+46:                                               ; preds = %40
+  br label %51
 
-55:                                               ; preds = %50, %30, %19, %12
-  %56 = load ptr, ptr %3, align 8
-  ret ptr %56
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %8, align 8, !tbaa !32
+  %49 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %48, i32 0, i32 17
+  %50 = load ptr, ptr %49, align 8, !tbaa !35
+  store ptr %50, ptr %8, align 8, !tbaa !32
+  br label %37
+
+51:                                               ; preds = %46, %37
+  %52 = load ptr, ptr %8, align 8, !tbaa !32
+  %53 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %52, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8, !tbaa !36
+  store ptr %54, ptr %9, align 8, !tbaa !3
+  %55 = load ptr, ptr %9, align 8, !tbaa !3
+  store ptr %55, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %56
+
+56:                                               ; preds = %51, %31, %20, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %57 = load ptr, ptr %3, align 8
+  ret ptr %57
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1212,127 +1367,139 @@ define i32 @IDAGetAdjCheckPointsInfo(ptr noundef %0, ptr noundef %1) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 636, ptr noundef @__func__.IDAGetAdjCheckPointsInfo, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %3, align 4
-  br label %92
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %6, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.IDAMemRec, ptr %15, i32 0, i32 240
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %21
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 636, ptr noundef @__func__.IDAGetAdjCheckPointsInfo, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %93
 
-19:                                               ; preds = %13
-  %20 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %20, i32 noundef -101, i32 noundef 645, ptr noundef @__func__.IDAGetAdjCheckPointsInfo, ptr noundef @.str, ptr noundef @.str.2)
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %15, ptr %6, align 8, !tbaa !7
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  %17 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %16, i32 0, i32 240
+  %18 = load i32, ptr %17, align 8, !tbaa !9
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %21, i32 noundef -101, i32 noundef 645, ptr noundef @__func__.IDAGetAdjCheckPointsInfo, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %3, align 4
-  br label %92
+  store i32 1, ptr %10, align 4
+  br label %93
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.IDAMemRec, ptr %22, i32 0, i32 239
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %7, align 8
-  store i32 0, ptr %9, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.IDAadjMemRec, ptr %25, i32 0, i32 11
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %8, align 8
-  br label %28
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %6, align 8, !tbaa !7
+  %24 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %23, i32 0, i32 239
+  %25 = load ptr, ptr %24, align 8, !tbaa !21
+  store ptr %25, ptr %7, align 8, !tbaa !22
+  store i32 0, ptr %9, align 4, !tbaa !28
+  %26 = load ptr, ptr %7, align 8, !tbaa !22
+  %27 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %26, i32 0, i32 11
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
+  store ptr %28, ptr %8, align 8, !tbaa !42
+  br label %29
 
-28:                                               ; preds = %31, %21
-  %29 = load ptr, ptr %8, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %91
+29:                                               ; preds = %32, %22
+  %30 = load ptr, ptr %8, align 8, !tbaa !42
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %92
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr %9, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %33, i64 %35
-  %37 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %36, i32 0, i32 0
-  store ptr %32, ptr %37, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.IDAckpntMemRec, ptr %38, i32 0, i32 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %5, align 8
-  %42 = load i32, ptr %9, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %41, i64 %43
-  %45 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %44, i32 0, i32 1
-  store ptr %40, ptr %45, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.IDAckpntMemRec, ptr %46, i32 0, i32 0
-  %48 = load double, ptr %47, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = load i32, ptr %9, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %49, i64 %51
-  %53 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %52, i32 0, i32 2
-  store double %48, ptr %53, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.IDAckpntMemRec, ptr %54, i32 0, i32 1
-  %56 = load double, ptr %55, align 8
-  %57 = load ptr, ptr %5, align 8
-  %58 = load i32, ptr %9, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %57, i64 %59
-  %61 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %60, i32 0, i32 3
-  store double %56, ptr %61, align 8
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds %struct.IDAckpntMemRec, ptr %62, i32 0, i32 10
-  %64 = load i64, ptr %63, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = load i32, ptr %9, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %65, i64 %67
-  %69 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %68, i32 0, i32 4
-  store i64 %64, ptr %69, align 8
-  %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds %struct.IDAckpntMemRec, ptr %70, i32 0, i32 13
-  %72 = load i32, ptr %71, align 4
-  %73 = load ptr, ptr %5, align 8
-  %74 = load i32, ptr %9, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %73, i64 %75
-  %77 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %76, i32 0, i32 5
-  store i32 %72, ptr %77, align 8
-  %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.IDAckpntMemRec, ptr %78, i32 0, i32 17
-  %80 = load double, ptr %79, align 8
-  %81 = load ptr, ptr %5, align 8
-  %82 = load i32, ptr %9, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %81, i64 %83
-  %85 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %84, i32 0, i32 6
-  store double %80, ptr %85, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds %struct.IDAckpntMemRec, ptr %86, i32 0, i32 32
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %8, align 8
-  %89 = load i32, ptr %9, align 4
-  %90 = add nsw i32 %89, 1
-  store i32 %90, ptr %9, align 4
-  br label %28
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %8, align 8, !tbaa !42
+  %34 = load ptr, ptr %5, align 8, !tbaa !3
+  %35 = load i32, ptr %9, align 4, !tbaa !28
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %34, i64 %36
+  %38 = getelementptr inbounds nuw %struct.IDAadjCheckPointRec, ptr %37, i32 0, i32 0
+  store ptr %33, ptr %38, align 8, !tbaa !43
+  %39 = load ptr, ptr %8, align 8, !tbaa !42
+  %40 = getelementptr inbounds nuw %struct.IDAckpntMemRec, ptr %39, i32 0, i32 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !45
+  %42 = load ptr, ptr %5, align 8, !tbaa !3
+  %43 = load i32, ptr %9, align 4, !tbaa !28
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %42, i64 %44
+  %46 = getelementptr inbounds nuw %struct.IDAadjCheckPointRec, ptr %45, i32 0, i32 1
+  store ptr %41, ptr %46, align 8, !tbaa !47
+  %47 = load ptr, ptr %8, align 8, !tbaa !42
+  %48 = getelementptr inbounds nuw %struct.IDAckpntMemRec, ptr %47, i32 0, i32 0
+  %49 = load double, ptr %48, align 8, !tbaa !48
+  %50 = load ptr, ptr %5, align 8, !tbaa !3
+  %51 = load i32, ptr %9, align 4, !tbaa !28
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %50, i64 %52
+  %54 = getelementptr inbounds nuw %struct.IDAadjCheckPointRec, ptr %53, i32 0, i32 2
+  store double %49, ptr %54, align 8, !tbaa !49
+  %55 = load ptr, ptr %8, align 8, !tbaa !42
+  %56 = getelementptr inbounds nuw %struct.IDAckpntMemRec, ptr %55, i32 0, i32 1
+  %57 = load double, ptr %56, align 8, !tbaa !50
+  %58 = load ptr, ptr %5, align 8, !tbaa !3
+  %59 = load i32, ptr %9, align 4, !tbaa !28
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %58, i64 %60
+  %62 = getelementptr inbounds nuw %struct.IDAadjCheckPointRec, ptr %61, i32 0, i32 3
+  store double %57, ptr %62, align 8, !tbaa !51
+  %63 = load ptr, ptr %8, align 8, !tbaa !42
+  %64 = getelementptr inbounds nuw %struct.IDAckpntMemRec, ptr %63, i32 0, i32 10
+  %65 = load i64, ptr %64, align 8, !tbaa !52
+  %66 = load ptr, ptr %5, align 8, !tbaa !3
+  %67 = load i32, ptr %9, align 4, !tbaa !28
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %66, i64 %68
+  %70 = getelementptr inbounds nuw %struct.IDAadjCheckPointRec, ptr %69, i32 0, i32 4
+  store i64 %65, ptr %70, align 8, !tbaa !53
+  %71 = load ptr, ptr %8, align 8, !tbaa !42
+  %72 = getelementptr inbounds nuw %struct.IDAckpntMemRec, ptr %71, i32 0, i32 13
+  %73 = load i32, ptr %72, align 4, !tbaa !54
+  %74 = load ptr, ptr %5, align 8, !tbaa !3
+  %75 = load i32, ptr %9, align 4, !tbaa !28
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %74, i64 %76
+  %78 = getelementptr inbounds nuw %struct.IDAadjCheckPointRec, ptr %77, i32 0, i32 5
+  store i32 %73, ptr %78, align 8, !tbaa !55
+  %79 = load ptr, ptr %8, align 8, !tbaa !42
+  %80 = getelementptr inbounds nuw %struct.IDAckpntMemRec, ptr %79, i32 0, i32 17
+  %81 = load double, ptr %80, align 8, !tbaa !56
+  %82 = load ptr, ptr %5, align 8, !tbaa !3
+  %83 = load i32, ptr %9, align 4, !tbaa !28
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds %struct.IDAadjCheckPointRec, ptr %82, i64 %84
+  %86 = getelementptr inbounds nuw %struct.IDAadjCheckPointRec, ptr %85, i32 0, i32 6
+  store double %81, ptr %86, align 8, !tbaa !57
+  %87 = load ptr, ptr %8, align 8, !tbaa !42
+  %88 = getelementptr inbounds nuw %struct.IDAckpntMemRec, ptr %87, i32 0, i32 32
+  %89 = load ptr, ptr %88, align 8, !tbaa !45
+  store ptr %89, ptr %8, align 8, !tbaa !42
+  %90 = load i32, ptr %9, align 4, !tbaa !28
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %9, align 4, !tbaa !28
+  br label %29
 
-91:                                               ; preds = %28
+92:                                               ; preds = %29
   store i32 0, ptr %3, align 4
-  br label %92
+  store i32 1, ptr %10, align 4
+  br label %93
 
-92:                                               ; preds = %91, %19, %12
-  %93 = load i32, ptr %3, align 4
-  ret i32 %93
+93:                                               ; preds = %92, %20, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %94 = load i32, ptr %3, align 4
+  ret i32 %94
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1347,102 +1514,117 @@ define i32 @IDAGetConsistentICB(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %4
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 691, ptr noundef @__func__.IDAGetConsistentICB, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %5, align 4
-  br label %64
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !28
+  store ptr %2, ptr %8, align 8, !tbaa !40
+  store ptr %3, ptr %9, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %4
-  %19 = load ptr, ptr %6, align 8
-  store ptr %19, ptr %10, align 8
-  %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds %struct.IDAMemRec, ptr %20, i32 0, i32 240
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %26
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 691, ptr noundef @__func__.IDAGetConsistentICB, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %65
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %25, i32 noundef -101, i32 noundef 700, ptr noundef @__func__.IDAGetConsistentICB, ptr noundef @.str, ptr noundef @.str.2)
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %20, ptr %10, align 8, !tbaa !7
+  %21 = load ptr, ptr %10, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %21, i32 0, i32 240
+  %23 = load i32, ptr %22, align 8, !tbaa !9
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %27
+
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %10, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %26, i32 noundef -101, i32 noundef 700, ptr noundef @__func__.IDAGetConsistentICB, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %15, align 4
+  br label %65
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds %struct.IDAMemRec, ptr %27, i32 0, i32 239
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %11, align 8
-  %30 = load i32, ptr %7, align 4
-  %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds %struct.IDAadjMemRec, ptr %31, i32 0, i32 8
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp sge i32 %30, %33
-  br i1 %34, label %35, label %37
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %10, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %28, i32 0, i32 239
+  %30 = load ptr, ptr %29, align 8, !tbaa !21
+  store ptr %30, ptr %11, align 8, !tbaa !22
+  %31 = load i32, ptr %7, align 4, !tbaa !28
+  %32 = load ptr, ptr %11, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %32, i32 0, i32 8
+  %34 = load i32, ptr %33, align 8, !tbaa !30
+  %35 = icmp sge i32 %31, %34
+  br i1 %35, label %36, label %38
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %10, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %36, i32 noundef -22, i32 noundef 709, ptr noundef @__func__.IDAGetConsistentICB, ptr noundef @.str, ptr noundef @.str.3)
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %10, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %37, i32 noundef -22, i32 noundef 709, ptr noundef @__func__.IDAGetConsistentICB, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -22, ptr %5, align 4
-  br label %64
+  store i32 1, ptr %15, align 4
+  br label %65
 
-37:                                               ; preds = %26
-  %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds %struct.IDAadjMemRec, ptr %38, i32 0, i32 7
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %12, align 8
-  br label %41
+38:                                               ; preds = %27
+  %39 = load ptr, ptr %11, align 8, !tbaa !22
+  %40 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %39, i32 0, i32 7
+  %41 = load ptr, ptr %40, align 8, !tbaa !31
+  store ptr %41, ptr %12, align 8, !tbaa !32
+  br label %42
 
-41:                                               ; preds = %51, %37
-  %42 = load ptr, ptr %12, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %55
+42:                                               ; preds = %52, %38
+  %43 = load ptr, ptr %12, align 8, !tbaa !32
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %56
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %7, align 4
-  %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds %struct.IDABMemRec, ptr %46, i32 0, i32 0
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp eq i32 %45, %48
-  br i1 %49, label %50, label %51
+45:                                               ; preds = %42
+  %46 = load i32, ptr %7, align 4, !tbaa !28
+  %47 = load ptr, ptr %12, align 8, !tbaa !32
+  %48 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %47, i32 0, i32 0
+  %49 = load i32, ptr %48, align 8, !tbaa !33
+  %50 = icmp eq i32 %46, %49
+  br i1 %50, label %51, label %52
 
-50:                                               ; preds = %44
-  br label %55
+51:                                               ; preds = %45
+  br label %56
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr inbounds %struct.IDABMemRec, ptr %52, i32 0, i32 17
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %12, align 8
-  br label %41
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %12, align 8, !tbaa !32
+  %54 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %53, i32 0, i32 17
+  %55 = load ptr, ptr %54, align 8, !tbaa !35
+  store ptr %55, ptr %12, align 8, !tbaa !32
+  br label %42
 
-55:                                               ; preds = %50, %41
-  %56 = load ptr, ptr %12, align 8
-  %57 = getelementptr inbounds %struct.IDABMemRec, ptr %56, i32 0, i32 2
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %13, align 8
-  %59 = load ptr, ptr %13, align 8
-  %60 = load ptr, ptr %8, align 8
-  %61 = load ptr, ptr %9, align 8
-  %62 = call i32 @IDAGetConsistentIC(ptr noundef %59, ptr noundef %60, ptr noundef %61)
-  store i32 %62, ptr %14, align 4
-  %63 = load i32, ptr %14, align 4
-  store i32 %63, ptr %5, align 4
-  br label %64
+56:                                               ; preds = %51, %42
+  %57 = load ptr, ptr %12, align 8, !tbaa !32
+  %58 = getelementptr inbounds nuw %struct.IDABMemRec, ptr %57, i32 0, i32 2
+  %59 = load ptr, ptr %58, align 8, !tbaa !36
+  store ptr %59, ptr %13, align 8, !tbaa !3
+  %60 = load ptr, ptr %13, align 8, !tbaa !3
+  %61 = load ptr, ptr %8, align 8, !tbaa !40
+  %62 = load ptr, ptr %9, align 8, !tbaa !40
+  %63 = call i32 @IDAGetConsistentIC(ptr noundef %60, ptr noundef %61, ptr noundef %62)
+  store i32 %63, ptr %14, align 4, !tbaa !28
+  %64 = load i32, ptr %14, align 4, !tbaa !28
+  store i32 %64, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %65
 
-64:                                               ; preds = %55, %35, %24, %17
-  %65 = load i32, ptr %5, align 4
-  ret i32 %65
+65:                                               ; preds = %56, %36, %25, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %66 = load i32, ptr %5, align 4
+  ret i32 %66
 }
 
-declare i32 @IDAGetConsistentIC(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @IDAGetConsistentIC(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDAGetAdjDataPointHermite(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -1456,109 +1638,122 @@ define i32 @IDAGetAdjDataPointHermite(ptr noundef %0, i32 noundef %1, ptr nounde
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %5
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 760, ptr noundef @__func__.IDAGetAdjDataPointHermite, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %6, align 4
-  br label %72
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i32 %1, ptr %8, align 4, !tbaa !28
+  store ptr %2, ptr %9, align 8, !tbaa !58
+  store ptr %3, ptr %10, align 8, !tbaa !40
+  store ptr %4, ptr %11, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %17 = load ptr, ptr %7, align 8, !tbaa !3
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %5
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %12, align 8
-  %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds %struct.IDAMemRec, ptr %21, i32 0, i32 240
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %27
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 760, ptr noundef @__func__.IDAGetAdjDataPointHermite, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %73
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %12, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %26, i32 noundef -101, i32 noundef 769, ptr noundef @__func__.IDAGetAdjDataPointHermite, ptr noundef @.str, ptr noundef @.str.2)
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %21, ptr %12, align 8, !tbaa !7
+  %22 = load ptr, ptr %12, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %22, i32 0, i32 240
+  %24 = load i32, ptr %23, align 8, !tbaa !9
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %28
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %12, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %27, i32 noundef -101, i32 noundef 769, ptr noundef @__func__.IDAGetAdjDataPointHermite, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %6, align 4
-  br label %72
+  store i32 1, ptr %16, align 4
+  br label %73
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds %struct.IDAMemRec, ptr %28, i32 0, i32 239
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %13, align 8
-  %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr inbounds %struct.IDAadjMemRec, ptr %31, i32 0, i32 16
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %14, align 8
-  %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds %struct.IDAadjMemRec, ptr %34, i32 0, i32 18
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp ne i32 %36, 1
-  br i1 %37, label %38, label %40
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %12, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %29, i32 0, i32 239
+  %31 = load ptr, ptr %30, align 8, !tbaa !21
+  store ptr %31, ptr %13, align 8, !tbaa !22
+  %32 = load ptr, ptr %13, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %32, i32 0, i32 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !59
+  store ptr %34, ptr %14, align 8, !tbaa !60
+  %35 = load ptr, ptr %13, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %35, i32 0, i32 18
+  %37 = load i32, ptr %36, align 8, !tbaa !61
+  %38 = icmp ne i32 %37, 1
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %27
-  %39 = load ptr, ptr %12, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %39, i32 noundef -22, i32 noundef 779, ptr noundef @__func__.IDAGetAdjDataPointHermite, ptr noundef @.str, ptr noundef @.str.4)
+39:                                               ; preds = %28
+  %40 = load ptr, ptr %12, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %40, i32 noundef -22, i32 noundef 779, ptr noundef @__func__.IDAGetAdjDataPointHermite, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -22, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %73
+
+41:                                               ; preds = %28
+  %42 = load ptr, ptr %14, align 8, !tbaa !60
+  %43 = load i32, ptr %8, align 4, !tbaa !28
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !62
+  %47 = getelementptr inbounds nuw %struct.IDAdtpntMemRec, ptr %46, i32 0, i32 0
+  %48 = load double, ptr %47, align 8, !tbaa !64
+  %49 = load ptr, ptr %9, align 8, !tbaa !58
+  store double %48, ptr %49, align 8, !tbaa !39
+  %50 = load ptr, ptr %14, align 8, !tbaa !60
+  %51 = load i32, ptr %8, align 4, !tbaa !28
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
+  %54 = load ptr, ptr %53, align 8, !tbaa !62
+  %55 = getelementptr inbounds nuw %struct.IDAdtpntMemRec, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !66
+  store ptr %56, ptr %15, align 8, !tbaa !67
+  %57 = load ptr, ptr %10, align 8, !tbaa !40
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %64
+
+59:                                               ; preds = %41
+  %60 = load ptr, ptr %15, align 8, !tbaa !67
+  %61 = getelementptr inbounds nuw %struct.IDAhermiteDataMemRec, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !69
+  %63 = load ptr, ptr %10, align 8, !tbaa !40
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %62, ptr noundef %63)
+  br label %64
+
+64:                                               ; preds = %59, %41
+  %65 = load ptr, ptr %11, align 8, !tbaa !40
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %72
+
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %15, align 8, !tbaa !67
+  %69 = getelementptr inbounds nuw %struct.IDAhermiteDataMemRec, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !71
+  %71 = load ptr, ptr %11, align 8, !tbaa !40
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %70, ptr noundef %71)
   br label %72
 
-40:                                               ; preds = %27
-  %41 = load ptr, ptr %14, align 8
-  %42 = load i32, ptr %8, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.IDAdtpntMemRec, ptr %45, i32 0, i32 0
-  %47 = load double, ptr %46, align 8
-  %48 = load ptr, ptr %9, align 8
-  store double %47, ptr %48, align 8
-  %49 = load ptr, ptr %14, align 8
-  %50 = load i32, ptr %8, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.IDAdtpntMemRec, ptr %53, i32 0, i32 1
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %15, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %63
-
-58:                                               ; preds = %40
-  %59 = load ptr, ptr %15, align 8
-  %60 = getelementptr inbounds %struct.IDAhermiteDataMemRec, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %10, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %61, ptr noundef %62)
-  br label %63
-
-63:                                               ; preds = %58, %40
-  %64 = load ptr, ptr %11, align 8
-  %65 = icmp ne ptr %64, null
-  br i1 %65, label %66, label %71
-
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %15, align 8
-  %68 = getelementptr inbounds %struct.IDAhermiteDataMemRec, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %11, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %69, ptr noundef %70)
-  br label %71
-
-71:                                               ; preds = %66, %63
+72:                                               ; preds = %67, %64
   store i32 0, ptr %6, align 4
-  br label %72
+  store i32 1, ptr %16, align 4
+  br label %73
 
-72:                                               ; preds = %71, %38, %25, %18
-  %73 = load i32, ptr %6, align 4
-  ret i32 %73
+73:                                               ; preds = %72, %39, %26, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  %74 = load i32, ptr %6, align 4
+  ret i32 %74
 }
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IDAGetAdjDataPointPolynomial(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -1572,98 +1767,111 @@ define i32 @IDAGetAdjDataPointPolynomial(ptr noundef %0, i32 noundef %1, ptr nou
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %5
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 814, ptr noundef @__func__.IDAGetAdjDataPointPolynomial, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %6, align 4
-  br label %68
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i32 %1, ptr %8, align 4, !tbaa !28
+  store ptr %2, ptr %9, align 8, !tbaa !58
+  store ptr %3, ptr %10, align 8, !tbaa !72
+  store ptr %4, ptr %11, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %17 = load ptr, ptr %7, align 8, !tbaa !3
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %5
-  %20 = load ptr, ptr %7, align 8
-  store ptr %20, ptr %12, align 8
-  %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds %struct.IDAMemRec, ptr %21, i32 0, i32 240
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %27
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 814, ptr noundef @__func__.IDAGetAdjDataPointPolynomial, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %69
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %12, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %26, i32 noundef -101, i32 noundef 823, ptr noundef @__func__.IDAGetAdjDataPointPolynomial, ptr noundef @.str, ptr noundef @.str.2)
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %21, ptr %12, align 8, !tbaa !7
+  %22 = load ptr, ptr %12, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %22, i32 0, i32 240
+  %24 = load i32, ptr %23, align 8, !tbaa !9
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %28
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %12, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %27, i32 noundef -101, i32 noundef 823, ptr noundef @__func__.IDAGetAdjDataPointPolynomial, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %6, align 4
-  br label %68
+  store i32 1, ptr %16, align 4
+  br label %69
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds %struct.IDAMemRec, ptr %28, i32 0, i32 239
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %13, align 8
-  %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr inbounds %struct.IDAadjMemRec, ptr %31, i32 0, i32 16
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %14, align 8
-  %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds %struct.IDAadjMemRec, ptr %34, i32 0, i32 18
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp ne i32 %36, 2
-  br i1 %37, label %38, label %40
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %12, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %29, i32 0, i32 239
+  %31 = load ptr, ptr %30, align 8, !tbaa !21
+  store ptr %31, ptr %13, align 8, !tbaa !22
+  %32 = load ptr, ptr %13, align 8, !tbaa !22
+  %33 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %32, i32 0, i32 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !59
+  store ptr %34, ptr %14, align 8, !tbaa !60
+  %35 = load ptr, ptr %13, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %35, i32 0, i32 18
+  %37 = load i32, ptr %36, align 8, !tbaa !61
+  %38 = icmp ne i32 %37, 2
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %27
-  %39 = load ptr, ptr %12, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %39, i32 noundef -22, i32 noundef 833, ptr noundef @__func__.IDAGetAdjDataPointPolynomial, ptr noundef @.str, ptr noundef @.str.4)
+39:                                               ; preds = %28
+  %40 = load ptr, ptr %12, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %40, i32 noundef -22, i32 noundef 833, ptr noundef @__func__.IDAGetAdjDataPointPolynomial, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -22, ptr %6, align 4
-  br label %68
+  store i32 1, ptr %16, align 4
+  br label %69
 
-40:                                               ; preds = %27
-  %41 = load ptr, ptr %14, align 8
-  %42 = load i32, ptr %8, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct.IDAdtpntMemRec, ptr %45, i32 0, i32 0
-  %47 = load double, ptr %46, align 8
-  %48 = load ptr, ptr %9, align 8
-  store double %47, ptr %48, align 8
-  %49 = load ptr, ptr %14, align 8
-  %50 = load i32, ptr %8, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.IDAdtpntMemRec, ptr %53, i32 0, i32 1
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %15, align 8
-  %56 = load ptr, ptr %11, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %63
+41:                                               ; preds = %28
+  %42 = load ptr, ptr %14, align 8, !tbaa !60
+  %43 = load i32, ptr %8, align 4, !tbaa !28
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !62
+  %47 = getelementptr inbounds nuw %struct.IDAdtpntMemRec, ptr %46, i32 0, i32 0
+  %48 = load double, ptr %47, align 8, !tbaa !64
+  %49 = load ptr, ptr %9, align 8, !tbaa !58
+  store double %48, ptr %49, align 8, !tbaa !39
+  %50 = load ptr, ptr %14, align 8, !tbaa !60
+  %51 = load i32, ptr %8, align 4, !tbaa !28
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
+  %54 = load ptr, ptr %53, align 8, !tbaa !62
+  %55 = getelementptr inbounds nuw %struct.IDAdtpntMemRec, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !66
+  store ptr %56, ptr %15, align 8, !tbaa !73
+  %57 = load ptr, ptr %11, align 8, !tbaa !40
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %64
 
-58:                                               ; preds = %40
-  %59 = load ptr, ptr %15, align 8
-  %60 = getelementptr inbounds %struct.IDApolynomialDataMemRec, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %11, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %61, ptr noundef %62)
-  br label %63
+59:                                               ; preds = %41
+  %60 = load ptr, ptr %15, align 8, !tbaa !73
+  %61 = getelementptr inbounds nuw %struct.IDApolynomialDataMemRec, ptr %60, i32 0, i32 0
+  %62 = load ptr, ptr %61, align 8, !tbaa !75
+  %63 = load ptr, ptr %11, align 8, !tbaa !40
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %62, ptr noundef %63)
+  br label %64
 
-63:                                               ; preds = %58, %40
-  %64 = load ptr, ptr %15, align 8
-  %65 = getelementptr inbounds %struct.IDApolynomialDataMemRec, ptr %64, i32 0, i32 4
-  %66 = load i32, ptr %65, align 8
-  %67 = load ptr, ptr %10, align 8
-  store i32 %66, ptr %67, align 4
+64:                                               ; preds = %59, %41
+  %65 = load ptr, ptr %15, align 8, !tbaa !73
+  %66 = getelementptr inbounds nuw %struct.IDApolynomialDataMemRec, ptr %65, i32 0, i32 4
+  %67 = load i32, ptr %66, align 8, !tbaa !77
+  %68 = load ptr, ptr %10, align 8, !tbaa !72
+  store i32 %67, ptr %68, align 4, !tbaa !28
   store i32 0, ptr %6, align 4
-  br label %68
+  store i32 1, ptr %16, align 4
+  br label %69
 
-68:                                               ; preds = %63, %38, %25, %18
-  %69 = load i32, ptr %6, align 4
-  ret i32 %69
+69:                                               ; preds = %64, %39, %26, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  %70 = load i32, ptr %6, align 4
+  ret i32 %70
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1673,56 +1881,141 @@ define i32 @IDAGetAdjCurrentCheckPoint(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 861, ptr noundef @__func__.IDAGetAdjCurrentCheckPoint, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -20, ptr %3, align 4
-  br label %27
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.IDAMemRec, ptr %13, i32 0, i32 240
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %19
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, i32 noundef 861, ptr noundef @__func__.IDAGetAdjCurrentCheckPoint, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -20, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %28
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %18, i32 noundef -101, i32 noundef 870, ptr noundef @__func__.IDAGetAdjCurrentCheckPoint, ptr noundef @.str, ptr noundef @.str.2)
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !7
+  %14 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %14, i32 0, i32 240
+  %16 = load i32, ptr %15, align 8, !tbaa !9
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %19, i32 noundef -101, i32 noundef 870, ptr noundef @__func__.IDAGetAdjCurrentCheckPoint, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -101, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %8, align 4
+  br label %28
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.IDAMemRec, ptr %20, i32 0, i32 239
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %7, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct.IDAadjMemRec, ptr %23, i32 0, i32 12
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %5, align 8
-  store ptr %25, ptr %26, align 8
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.IDAMemRec, ptr %21, i32 0, i32 239
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
+  store ptr %23, ptr %7, align 8, !tbaa !22
+  %24 = load ptr, ptr %7, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw %struct.IDAadjMemRec, ptr %24, i32 0, i32 12
+  %26 = load ptr, ptr %25, align 8, !tbaa !78
+  %27 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %26, ptr %27, align 8, !tbaa !3
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %8, align 4
+  br label %28
 
-27:                                               ; preds = %19, %17, %10
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+28:                                               ; preds = %20, %18, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS9IDAMemRec", !4, i64 0}
+!9 = !{!10, !13, i64 2120}
+!10 = !{!"IDAMemRec", !11, i64 0, !12, i64 8, !4, i64 16, !4, i64 24, !13, i64 32, !12, i64 40, !12, i64 48, !14, i64 56, !13, i64 64, !13, i64 68, !4, i64 72, !4, i64 80, !13, i64 88, !13, i64 92, !13, i64 96, !4, i64 104, !4, i64 112, !13, i64 120, !13, i64 124, !12, i64 128, !12, i64 136, !14, i64 144, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !4, i64 168, !4, i64 176, !13, i64 184, !15, i64 192, !15, i64 200, !16, i64 208, !13, i64 216, !12, i64 224, !13, i64 232, !13, i64 236, !12, i64 240, !15, i64 248, !17, i64 256, !16, i64 264, !13, i64 272, !4, i64 280, !4, i64 288, !13, i64 296, !13, i64 300, !13, i64 304, !12, i64 312, !15, i64 320, !17, i64 328, !16, i64 336, !5, i64 344, !5, i64 392, !5, i64 440, !5, i64 488, !5, i64 536, !5, i64 584, !14, i64 632, !14, i64 640, !14, i64 648, !14, i64 656, !14, i64 664, !14, i64 672, !14, i64 680, !14, i64 688, !14, i64 696, !14, i64 704, !14, i64 712, !14, i64 720, !14, i64 728, !14, i64 736, !14, i64 744, !14, i64 752, !14, i64 760, !5, i64 768, !14, i64 816, !14, i64 824, !14, i64 832, !14, i64 840, !5, i64 848, !17, i64 896, !17, i64 904, !17, i64 912, !17, i64 920, !17, i64 928, !17, i64 936, !17, i64 944, !14, i64 952, !14, i64 960, !14, i64 968, !17, i64 976, !17, i64 984, !17, i64 992, !17, i64 1000, !17, i64 1008, !17, i64 1016, !5, i64 1024, !17, i64 1072, !17, i64 1080, !17, i64 1088, !17, i64 1096, !14, i64 1104, !12, i64 1112, !14, i64 1120, !14, i64 1128, !13, i64 1136, !13, i64 1140, !13, i64 1144, !13, i64 1148, !13, i64 1152, !13, i64 1156, !13, i64 1160, !13, i64 1164, !12, i64 1168, !12, i64 1176, !12, i64 1184, !13, i64 1192, !12, i64 1200, !13, i64 1208, !13, i64 1212, !13, i64 1216, !13, i64 1220, !13, i64 1224, !12, i64 1232, !12, i64 1240, !12, i64 1248, !12, i64 1256, !12, i64 1264, !12, i64 1272, !12, i64 1280, !12, i64 1288, !12, i64 1296, !12, i64 1304, !12, i64 1312, !12, i64 1320, !12, i64 1328, !12, i64 1336, !12, i64 1344, !12, i64 1352, !12, i64 1360, !13, i64 1368, !13, i64 1372, !13, i64 1376, !13, i64 1380, !18, i64 1384, !12, i64 1392, !12, i64 1400, !12, i64 1408, !12, i64 1416, !12, i64 1424, !12, i64 1432, !12, i64 1440, !12, i64 1448, !12, i64 1456, !18, i64 1464, !18, i64 1472, !18, i64 1480, !18, i64 1488, !18, i64 1496, !18, i64 1504, !18, i64 1512, !18, i64 1520, !18, i64 1528, !18, i64 1536, !18, i64 1544, !18, i64 1552, !18, i64 1560, !18, i64 1568, !18, i64 1576, !18, i64 1584, !18, i64 1592, !18, i64 1600, !18, i64 1608, !18, i64 1616, !18, i64 1624, !18, i64 1632, !18, i64 1640, !18, i64 1648, !18, i64 1656, !18, i64 1664, !12, i64 1672, !13, i64 1680, !13, i64 1684, !13, i64 1688, !13, i64 1692, !13, i64 1696, !13, i64 1700, !13, i64 1704, !13, i64 1708, !13, i64 1712, !13, i64 1716, !13, i64 1720, !13, i64 1724, !13, i64 1728, !19, i64 1736, !13, i64 1744, !19, i64 1752, !13, i64 1760, !19, i64 1768, !13, i64 1776, !14, i64 1784, !14, i64 1792, !14, i64 1800, !14, i64 1808, !14, i64 1816, !14, i64 1824, !13, i64 1832, !13, i64 1836, !4, i64 1840, !4, i64 1848, !4, i64 1856, !4, i64 1864, !4, i64 1872, !4, i64 1880, !4, i64 1888, !12, i64 1896, !13, i64 1904, !13, i64 1908, !4, i64 1912, !13, i64 1920, !16, i64 1928, !16, i64 1936, !12, i64 1944, !12, i64 1952, !12, i64 1960, !15, i64 1968, !15, i64 1976, !15, i64 1984, !12, i64 1992, !12, i64 2000, !13, i64 2008, !13, i64 2012, !18, i64 2016, !16, i64 2024, !13, i64 2032, !15, i64 2040, !5, i64 2048, !17, i64 2088, !17, i64 2096, !13, i64 2104, !20, i64 2112, !13, i64 2120}
+!11 = !{!"p1 _ZTS11SUNContext_", !4, i64 0}
+!12 = !{!"double", !5, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!"p1 _ZTS17_generic_N_Vector", !4, i64 0}
+!15 = !{!"p1 double", !4, i64 0}
+!16 = !{!"p1 int", !4, i64 0}
+!17 = !{!"p2 _ZTS17_generic_N_Vector", !4, i64 0}
+!18 = !{!"long", !5, i64 0}
+!19 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !4, i64 0}
+!20 = !{!"p1 _ZTS12IDAadjMemRec", !4, i64 0}
+!21 = !{!10, !20, i64 2112}
+!22 = !{!20, !20, i64 0}
+!23 = !{!24, !13, i64 184}
+!24 = !{!"IDAadjMemRec", !12, i64 0, !12, i64 8, !13, i64 16, !13, i64 20, !12, i64 24, !13, i64 32, !12, i64 40, !25, i64 48, !13, i64 56, !25, i64 64, !13, i64 72, !26, i64 80, !26, i64 88, !13, i64 96, !18, i64 104, !18, i64 112, !27, i64 120, !18, i64 128, !13, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !4, i64 168, !13, i64 176, !13, i64 180, !13, i64 184, !13, i64 188, !13, i64 192, !5, i64 200, !5, i64 248, !5, i64 296, !14, i64 344, !14, i64 352, !17, i64 360, !17, i64 368}
+!25 = !{!"p1 _ZTS10IDABMemRec", !4, i64 0}
+!26 = !{!"p1 _ZTS14IDAckpntMemRec", !4, i64 0}
+!27 = !{!"p2 _ZTS14IDAdtpntMemRec", !4, i64 0}
+!28 = !{!13, !13, i64 0}
+!29 = !{!19, !19, i64 0}
+!30 = !{!24, !13, i64 56}
+!31 = !{!24, !25, i64 48}
+!32 = !{!25, !25, i64 0}
+!33 = !{!34, !13, i64 0}
+!34 = !{!"IDABMemRec", !13, i64 0, !12, i64 8, !8, i64 16, !13, i64 24, !13, i64 28, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !12, i64 104, !14, i64 112, !14, i64 120, !25, i64 128}
+!35 = !{!34, !25, i64 128}
+!36 = !{!34, !8, i64 16}
+!37 = !{!34, !4, i64 64}
+!38 = !{!18, !18, i64 0}
+!39 = !{!12, !12, i64 0}
+!40 = !{!14, !14, i64 0}
+!41 = !{!24, !26, i64 80}
+!42 = !{!26, !26, i64 0}
+!43 = !{!44, !4, i64 0}
+!44 = !{!"", !4, i64 0, !4, i64 8, !12, i64 16, !12, i64 24, !18, i64 32, !13, i64 40, !12, i64 48}
+!45 = !{!46, !26, i64 592}
+!46 = !{!"IDAckpntMemRec", !12, i64 0, !12, i64 8, !5, i64 16, !13, i64 64, !5, i64 72, !13, i64 120, !13, i64 124, !5, i64 128, !13, i64 176, !5, i64 184, !18, i64 232, !12, i64 240, !13, i64 248, !13, i64 252, !13, i64 256, !13, i64 260, !13, i64 264, !12, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !5, i64 344, !5, i64 392, !5, i64 440, !5, i64 488, !5, i64 536, !13, i64 584, !26, i64 592}
+!47 = !{!44, !4, i64 8}
+!48 = !{!46, !12, i64 0}
+!49 = !{!44, !12, i64 16}
+!50 = !{!46, !12, i64 8}
+!51 = !{!44, !12, i64 24}
+!52 = !{!46, !18, i64 232}
+!53 = !{!44, !18, i64 32}
+!54 = !{!46, !13, i64 252}
+!55 = !{!44, !13, i64 40}
+!56 = !{!46, !12, i64 272}
+!57 = !{!44, !12, i64 48}
+!58 = !{!15, !15, i64 0}
+!59 = !{!24, !27, i64 120}
+!60 = !{!27, !27, i64 0}
+!61 = !{!24, !13, i64 136}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS14IDAdtpntMemRec", !4, i64 0}
+!64 = !{!65, !12, i64 0}
+!65 = !{!"IDAdtpntMemRec", !12, i64 0, !4, i64 8}
+!66 = !{!65, !4, i64 8}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTS20IDAhermiteDataMemRec", !4, i64 0}
+!69 = !{!70, !14, i64 0}
+!70 = !{!"IDAhermiteDataMemRec", !14, i64 0, !14, i64 8, !17, i64 16, !17, i64 24}
+!71 = !{!70, !14, i64 8}
+!72 = !{!16, !16, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS23IDApolynomialDataMemRec", !4, i64 0}
+!75 = !{!76, !14, i64 0}
+!76 = !{!"IDApolynomialDataMemRec", !14, i64 0, !17, i64 8, !14, i64 16, !17, i64 24, !13, i64 32}
+!77 = !{!76, !13, i64 32}
+!78 = !{!24, !26, i64 88}

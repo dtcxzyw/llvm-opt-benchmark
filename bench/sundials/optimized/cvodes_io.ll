@@ -265,11 +265,11 @@ define range(i32 -21, 1) i32 @CVodeSetDeltaGammaMaxLSetup(ptr noundef writeonly 
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %5
-  store double 3.000000e-01, ptr %7, align 8
+  store double 3.000000e-01, ptr %7, align 8, !tbaa !3
   br label %10
 
 9:                                                ; preds = %5
-  store double %1, ptr %7, align 8
+  store double %1, ptr %7, align 8, !tbaa !3
   br label %10
 
 10:                                               ; preds = %8, %9, %4
@@ -290,7 +290,7 @@ define range(i32 -21, 1) i32 @CVodeSetUserData(ptr noundef writeonly captures(ad
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %6, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !20
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -308,7 +308,7 @@ define range(i32 -22, -20) i32 @CVodeSetMonitorFn(ptr noundef %0, ptr noundef re
   br label %6
 
 5:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 107, ptr noundef nonnull @__func__.CVodeSetMonitorFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 109, ptr noundef nonnull @__func__.CVodeSetMonitorFn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -322,7 +322,7 @@ define range(i32 -22, -20) i32 @CVodeSetMonitorFrequency(ptr noundef %0, i64 nou
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 125, ptr noundef nonnull @__func__.CVodeSetMonitorFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 127, ptr noundef nonnull @__func__.CVodeSetMonitorFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %9
 
 5:                                                ; preds = %2
@@ -330,11 +330,11 @@ define range(i32 -22, -20) i32 @CVodeSetMonitorFrequency(ptr noundef %0, i64 nou
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -22, i32 noundef 131, ptr noundef nonnull @__func__.CVodeSetMonitorFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -22, i32 noundef 133, ptr noundef nonnull @__func__.CVodeSetMonitorFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #9
   br label %9
 
 8:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 142, ptr noundef nonnull @__func__.CVodeSetMonitorFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 144, ptr noundef nonnull @__func__.CVodeSetMonitorFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
   br label %9
 
 9:                                                ; preds = %8, %7, %4
@@ -348,7 +348,7 @@ define range(i32 -22, 1) i32 @CVodeSetMaxOrd(ptr noundef %0, i32 noundef %1) loc
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 161, ptr noundef nonnull @__func__.CVodeSetMaxOrd, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 163, ptr noundef nonnull @__func__.CVodeSetMaxOrd, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %20
 
 5:                                                ; preds = %2
@@ -356,28 +356,28 @@ define range(i32 -22, 1) i32 @CVodeSetMaxOrd(ptr noundef %0, i32 noundef %1) loc
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 169, ptr noundef nonnull @__func__.CVodeSetMaxOrd, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 171, ptr noundef nonnull @__func__.CVodeSetMaxOrd, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %20
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2096
-  %10 = load i32, ptr %9, align 8
+  %10 = load i32, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2100
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !22
   %. = tail call i32 @llvm.smin.i32(i32 %10, i32 %12)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2104
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = tail call i32 @llvm.smin.i32(i32 %., i32 %14)
   %16 = icmp sgt i32 %1, %15
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 182, ptr noundef nonnull @__func__.CVodeSetMaxOrd, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 184, ptr noundef nonnull @__func__.CVodeSetMaxOrd, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #9
   br label %20
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1432
-  store i32 %1, ptr %19, align 8
+  store i32 %1, ptr %19, align 8, !tbaa !24
   br label %20
 
 20:                                               ; preds = %18, %17, %7, %4
@@ -391,7 +391,7 @@ define range(i32 -21, 1) i32 @CVodeSetMaxNumSteps(ptr noundef writeonly captures
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 204, ptr noundef nonnull @__func__.CVodeSetMaxNumSteps, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 206, ptr noundef nonnull @__func__.CVodeSetMaxNumSteps, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %10
 
 5:                                                ; preds = %2
@@ -400,11 +400,11 @@ define range(i32 -21, 1) i32 @CVodeSetMaxNumSteps(ptr noundef writeonly captures
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 500, ptr %7, align 8
+  store i64 500, ptr %7, align 8, !tbaa !25
   br label %10
 
 9:                                                ; preds = %5
-  store i64 %1, ptr %7, align 8
+  store i64 %1, ptr %7, align 8, !tbaa !25
   br label %10
 
 10:                                               ; preds = %8, %9, %4
@@ -418,12 +418,12 @@ define range(i32 -21, 1) i32 @CVodeSetMaxHnilWarns(ptr noundef writeonly capture
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 229, ptr noundef nonnull @__func__.CVodeSetMaxHnilWarns, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 231, ptr noundef nonnull @__func__.CVodeSetMaxHnilWarns, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1448
-  store i32 %1, ptr %6, align 8
+  store i32 %1, ptr %6, align 8, !tbaa !26
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -437,7 +437,7 @@ define range(i32 -22, 1) i32 @CVodeSetStabLimDet(ptr noundef %0, i32 noundef %1)
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 252, ptr noundef nonnull @__func__.CVodeSetStabLimDet, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 254, ptr noundef nonnull @__func__.CVodeSetStabLimDet, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %12
 
 5:                                                ; preds = %2
@@ -446,17 +446,17 @@ define range(i32 -22, 1) i32 @CVodeSetStabLimDet(ptr noundef %0, i32 noundef %1)
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !27
   %.not8 = icmp eq i32 %8, 2
   br i1 %.not8, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 260, ptr noundef nonnull @__func__.CVodeSetStabLimDet, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 262, ptr noundef nonnull @__func__.CVodeSetStabLimDet, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #9
   br label %12
 
 10:                                               ; preds = %6, %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  store i32 %1, ptr %11, align 8
+  store i32 %1, ptr %11, align 8, !tbaa !28
   br label %12
 
 12:                                               ; preds = %10, %9, %4
@@ -470,12 +470,12 @@ define range(i32 -21, 1) i32 @CVodeSetInitStep(ptr noundef writeonly captures(ad
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 282, ptr noundef nonnull @__func__.CVodeSetInitStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 284, ptr noundef nonnull @__func__.CVodeSetInitStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  store double %1, ptr %6, align 8
+  store double %1, ptr %6, align 8, !tbaa !29
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -489,7 +489,7 @@ define range(i32 -22, 1) i32 @CVodeSetMinStep(ptr noundef %0, double noundef %1)
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 305, ptr noundef nonnull @__func__.CVodeSetMinStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 307, ptr noundef nonnull @__func__.CVodeSetMinStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %20
 
 5:                                                ; preds = %2
@@ -497,7 +497,7 @@ define range(i32 -22, 1) i32 @CVodeSetMinStep(ptr noundef %0, double noundef %1)
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 313, ptr noundef nonnull @__func__.CVodeSetMinStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 315, ptr noundef nonnull @__func__.CVodeSetMinStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #9
   br label %20
 
 8:                                                ; preds = %5
@@ -506,23 +506,23 @@ define range(i32 -22, 1) i32 @CVodeSetMinStep(ptr noundef %0, double noundef %1)
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  store double 0.000000e+00, ptr %11, align 8
+  store double 0.000000e+00, ptr %11, align 8, !tbaa !30
   br label %20
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  %14 = load double, ptr %13, align 8
+  %14 = load double, ptr %13, align 8, !tbaa !31
   %15 = fmul double %1, %14
   %16 = fcmp ogt double %15, 1.000000e+00
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %12
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 327, ptr noundef nonnull @__func__.CVodeSetMinStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 329, ptr noundef nonnull @__func__.CVodeSetMinStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
   br label %20
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  store double %1, ptr %19, align 8
+  store double %1, ptr %19, align 8, !tbaa !30
   br label %20
 
 20:                                               ; preds = %18, %17, %10, %7, %4
@@ -536,7 +536,7 @@ define range(i32 -22, 1) i32 @CVodeSetMaxStep(ptr noundef %0, double noundef %1)
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 350, ptr noundef nonnull @__func__.CVodeSetMaxStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 352, ptr noundef nonnull @__func__.CVodeSetMaxStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %21
 
 5:                                                ; preds = %2
@@ -544,7 +544,7 @@ define range(i32 -22, 1) i32 @CVodeSetMaxStep(ptr noundef %0, double noundef %1)
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 358, ptr noundef nonnull @__func__.CVodeSetMaxStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 360, ptr noundef nonnull @__func__.CVodeSetMaxStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #9
   br label %21
 
 8:                                                ; preds = %5
@@ -553,24 +553,24 @@ define range(i32 -22, 1) i32 @CVodeSetMaxStep(ptr noundef %0, double noundef %1)
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store double 0.000000e+00, ptr %11, align 8
+  store double 0.000000e+00, ptr %11, align 8, !tbaa !31
   br label %21
 
 12:                                               ; preds = %8
   %13 = fdiv double 1.000000e+00, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  %15 = load double, ptr %14, align 8
+  %15 = load double, ptr %14, align 8, !tbaa !30
   %16 = fmul double %13, %15
   %17 = fcmp ogt double %16, 1.000000e+00
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %12
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 373, ptr noundef nonnull @__func__.CVodeSetMaxStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 375, ptr noundef nonnull @__func__.CVodeSetMaxStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
   br label %21
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store double %13, ptr %20, align 8
+  store double %13, ptr %20, align 8, !tbaa !31
   br label %21
 
 21:                                               ; preds = %19, %18, %10, %7, %4
@@ -584,7 +584,7 @@ define range(i32 -21, 1) i32 @CVodeSetEtaFixedStepBounds(ptr noundef writeonly c
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 396, ptr noundef nonnull @__func__.CVodeSetEtaFixedStepBounds, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 398, ptr noundef nonnull @__func__.CVodeSetEtaFixedStepBounds, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %14
 
 6:                                                ; preds = %3
@@ -593,17 +593,17 @@ define range(i32 -21, 1) i32 @CVodeSetEtaFixedStepBounds(ptr noundef writeonly c
   %or.cond = or i1 %7, %8
   %.sink = select i1 %or.cond, double 0.000000e+00, double %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1488
-  store double %.sink, ptr %9, align 8
+  store double %.sink, ptr %9, align 8, !tbaa !32
   %10 = fcmp ugt double %2, 1.000000e+00
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   br i1 %10, label %13, label %12
 
 12:                                               ; preds = %6
-  store double 1.500000e+00, ptr %11, align 8
+  store double 1.500000e+00, ptr %11, align 8, !tbaa !33
   br label %14
 
 13:                                               ; preds = %6
-  store double %2, ptr %11, align 8
+  store double %2, ptr %11, align 8, !tbaa !33
   br label %14
 
 14:                                               ; preds = %12, %13, %5
@@ -617,7 +617,7 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMaxFirstStep(ptr noundef writeonly capt
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 427, ptr noundef nonnull @__func__.CVodeSetEtaMaxFirstStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 429, ptr noundef nonnull @__func__.CVodeSetEtaMaxFirstStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %10
 
 5:                                                ; preds = %2
@@ -626,11 +626,11 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMaxFirstStep(ptr noundef writeonly capt
   br i1 %6, label %9, label %8
 
 8:                                                ; preds = %5
-  store double 1.000000e+04, ptr %7, align 8
+  store double 1.000000e+04, ptr %7, align 8, !tbaa !34
   br label %10
 
 9:                                                ; preds = %5
-  store double %1, ptr %7, align 8
+  store double %1, ptr %7, align 8, !tbaa !34
   br label %10
 
 10:                                               ; preds = %8, %9, %4
@@ -644,7 +644,7 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMaxEarlyStep(ptr noundef writeonly capt
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 453, ptr noundef nonnull @__func__.CVodeSetEtaMaxEarlyStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 455, ptr noundef nonnull @__func__.CVodeSetEtaMaxEarlyStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %10
 
 5:                                                ; preds = %2
@@ -653,11 +653,11 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMaxEarlyStep(ptr noundef writeonly capt
   br i1 %6, label %9, label %8
 
 8:                                                ; preds = %5
-  store double 1.000000e+01, ptr %7, align 8
+  store double 1.000000e+01, ptr %7, align 8, !tbaa !35
   br label %10
 
 9:                                                ; preds = %5
-  store double %1, ptr %7, align 8
+  store double %1, ptr %7, align 8, !tbaa !35
   br label %10
 
 10:                                               ; preds = %8, %9, %4
@@ -671,7 +671,7 @@ define range(i32 -21, 1) i32 @CVodeSetNumStepsEtaMaxEarlyStep(ptr noundef writeo
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 479, ptr noundef nonnull @__func__.CVodeSetNumStepsEtaMaxEarlyStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 481, ptr noundef nonnull @__func__.CVodeSetNumStepsEtaMaxEarlyStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %10
 
 5:                                                ; preds = %2
@@ -680,11 +680,11 @@ define range(i32 -21, 1) i32 @CVodeSetNumStepsEtaMaxEarlyStep(ptr noundef writeo
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %5
-  store i64 10, ptr %7, align 8
+  store i64 10, ptr %7, align 8, !tbaa !36
   br label %10
 
 9:                                                ; preds = %5
-  store i64 %1, ptr %7, align 8
+  store i64 %1, ptr %7, align 8, !tbaa !36
   br label %10
 
 10:                                               ; preds = %8, %9, %4
@@ -698,7 +698,7 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMax(ptr noundef writeonly captures(addr
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 504, ptr noundef nonnull @__func__.CVodeSetEtaMax, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 506, ptr noundef nonnull @__func__.CVodeSetEtaMax, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %10
 
 5:                                                ; preds = %2
@@ -707,11 +707,11 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMax(ptr noundef writeonly captures(addr
   br i1 %6, label %9, label %8
 
 8:                                                ; preds = %5
-  store double 1.000000e+01, ptr %7, align 8
+  store double 1.000000e+01, ptr %7, align 8, !tbaa !37
   br label %10
 
 9:                                                ; preds = %5
-  store double %1, ptr %7, align 8
+  store double %1, ptr %7, align 8, !tbaa !37
   br label %10
 
 10:                                               ; preds = %8, %9, %4
@@ -725,7 +725,7 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMin(ptr noundef writeonly captures(addr
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 529, ptr noundef nonnull @__func__.CVodeSetEtaMin, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 531, ptr noundef nonnull @__func__.CVodeSetEtaMin, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %11
 
 5:                                                ; preds = %2
@@ -736,11 +736,11 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMin(ptr noundef writeonly captures(addr
   br i1 %or.cond, label %9, label %10
 
 9:                                                ; preds = %5
-  store double 1.000000e-01, ptr %8, align 8
+  store double 1.000000e-01, ptr %8, align 8, !tbaa !38
   br label %11
 
 10:                                               ; preds = %5
-  store double %1, ptr %8, align 8
+  store double %1, ptr %8, align 8, !tbaa !38
   br label %11
 
 11:                                               ; preds = %9, %10, %4
@@ -754,7 +754,7 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMinErrFail(ptr noundef writeonly captur
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 557, ptr noundef nonnull @__func__.CVodeSetEtaMinErrFail, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 559, ptr noundef nonnull @__func__.CVodeSetEtaMinErrFail, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %11
 
 5:                                                ; preds = %2
@@ -765,11 +765,11 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMinErrFail(ptr noundef writeonly captur
   br i1 %or.cond, label %9, label %10
 
 9:                                                ; preds = %5
-  store double 1.000000e-01, ptr %8, align 8
+  store double 1.000000e-01, ptr %8, align 8, !tbaa !39
   br label %11
 
 10:                                               ; preds = %5
-  store double %1, ptr %8, align 8
+  store double %1, ptr %8, align 8, !tbaa !39
   br label %11
 
 11:                                               ; preds = %9, %10, %4
@@ -783,7 +783,7 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMaxErrFail(ptr noundef writeonly captur
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 586, ptr noundef nonnull @__func__.CVodeSetEtaMaxErrFail, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 588, ptr noundef nonnull @__func__.CVodeSetEtaMaxErrFail, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %11
 
 5:                                                ; preds = %2
@@ -794,11 +794,11 @@ define range(i32 -21, 1) i32 @CVodeSetEtaMaxErrFail(ptr noundef writeonly captur
   br i1 %or.cond, label %9, label %10
 
 9:                                                ; preds = %5
-  store double 2.000000e-01, ptr %8, align 8
+  store double 2.000000e-01, ptr %8, align 8, !tbaa !40
   br label %11
 
 10:                                               ; preds = %5
-  store double %1, ptr %8, align 8
+  store double %1, ptr %8, align 8, !tbaa !40
   br label %11
 
 11:                                               ; preds = %9, %10, %4
@@ -812,7 +812,7 @@ define range(i32 -21, 1) i32 @CVodeSetNumFailsEtaMaxErrFail(ptr noundef writeonl
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 615, ptr noundef nonnull @__func__.CVodeSetNumFailsEtaMaxErrFail, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 617, ptr noundef nonnull @__func__.CVodeSetNumFailsEtaMaxErrFail, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %10
 
 5:                                                ; preds = %2
@@ -821,11 +821,11 @@ define range(i32 -21, 1) i32 @CVodeSetNumFailsEtaMaxErrFail(ptr noundef writeonl
   br i1 %6, label %8, label %9
 
 8:                                                ; preds = %5
-  store i32 2, ptr %7, align 8
+  store i32 2, ptr %7, align 8, !tbaa !41
   br label %10
 
 9:                                                ; preds = %5
-  store i32 %1, ptr %7, align 8
+  store i32 %1, ptr %7, align 8, !tbaa !41
   br label %10
 
 10:                                               ; preds = %8, %9, %4
@@ -839,7 +839,7 @@ define range(i32 -21, 1) i32 @CVodeSetEtaConvFail(ptr noundef writeonly captures
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 640, ptr noundef nonnull @__func__.CVodeSetEtaConvFail, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 642, ptr noundef nonnull @__func__.CVodeSetEtaConvFail, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %11
 
 5:                                                ; preds = %2
@@ -850,11 +850,11 @@ define range(i32 -21, 1) i32 @CVodeSetEtaConvFail(ptr noundef writeonly captures
   br i1 %or.cond, label %9, label %10
 
 9:                                                ; preds = %5
-  store double 2.500000e-01, ptr %8, align 8
+  store double 2.500000e-01, ptr %8, align 8, !tbaa !42
   br label %11
 
 10:                                               ; preds = %5
-  store double %1, ptr %8, align 8
+  store double %1, ptr %8, align 8, !tbaa !42
   br label %11
 
 11:                                               ; preds = %9, %10, %4
@@ -868,34 +868,34 @@ define range(i32 -22, 1) i32 @CVodeSetStopTime(ptr noundef %0, double noundef %1
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 665, ptr noundef nonnull @__func__.CVodeSetStopTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 667, ptr noundef nonnull @__func__.CVodeSetStopTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %21
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !43
   %8 = icmp sgt i64 %7, 0
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %11 = load double, ptr %10, align 8
+  %11 = load double, ptr %10, align 8, !tbaa !44
   %12 = fsub double %1, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  %14 = load double, ptr %13, align 8
+  %14 = load double, ptr %13, align 8, !tbaa !45
   %15 = fmul double %12, %14
   %16 = fcmp olt double %15, 0.000000e+00
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %9
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 678, ptr noundef nonnull @__func__.CVodeSetStopTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, double noundef %1, double noundef %11) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 680, ptr noundef nonnull @__func__.CVodeSetStopTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, double noundef %1, double noundef %11) #9
   br label %21
 
 18:                                               ; preds = %9, %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  store double %1, ptr %19, align 8
+  store double %1, ptr %19, align 8, !tbaa !46
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i32 1, ptr %20, align 8
+  store i32 1, ptr %20, align 8, !tbaa !47
   br label %21
 
 21:                                               ; preds = %18, %17, %4
@@ -909,12 +909,12 @@ define range(i32 -21, 1) i32 @CVodeSetInterpolateStopTime(ptr noundef writeonly 
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 702, ptr noundef nonnull @__func__.CVodeSetInterpolateStopTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 704, ptr noundef nonnull @__func__.CVodeSetInterpolateStopTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 948
-  store i32 %1, ptr %6, align 4
+  store i32 %1, ptr %6, align 4, !tbaa !48
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -928,12 +928,12 @@ define range(i32 -21, 1) i32 @CVodeClearStopTime(ptr noundef writeonly captures(
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 722, ptr noundef nonnull @__func__.CVodeClearStopTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 724, ptr noundef nonnull @__func__.CVodeClearStopTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %6
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i32 0, ptr %5, align 8
+  store i32 0, ptr %5, align 8, !tbaa !47
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -947,12 +947,12 @@ define range(i32 -21, 1) i32 @CVodeSetMaxErrTestFails(ptr noundef writeonly capt
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 745, ptr noundef nonnull @__func__.CVodeSetMaxErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 747, ptr noundef nonnull @__func__.CVodeSetMaxErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1452
-  store i32 %1, ptr %6, align 4
+  store i32 %1, ptr %6, align 4, !tbaa !49
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -966,12 +966,12 @@ define range(i32 -21, 1) i32 @CVodeSetMaxConvFails(ptr noundef writeonly capture
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 769, ptr noundef nonnull @__func__.CVodeSetMaxConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 771, ptr noundef nonnull @__func__.CVodeSetMaxConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  store i32 %1, ptr %6, align 8
+  store i32 %1, ptr %6, align 8, !tbaa !50
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -985,29 +985,29 @@ define i32 @CVodeSetMaxNonlinIters(ptr noundef readonly captures(address_is_null
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 794, ptr noundef nonnull @__func__.CVodeSetMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 796, ptr noundef nonnull @__func__.CVodeSetMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %25
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !52
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1848
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !53
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 808, ptr noundef nonnull @__func__.CVodeSetMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 810, ptr noundef nonnull @__func__.CVodeSetMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #9
   br label %25
 
 17:                                               ; preds = %12
@@ -1016,12 +1016,12 @@ define i32 @CVodeSetMaxNonlinIters(ptr noundef readonly captures(address_is_null
 
 .critedge:                                        ; preds = %5, %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %.critedge
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 820, ptr noundef nonnull @__func__.CVodeSetMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 822, ptr noundef nonnull @__func__.CVodeSetMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #9
   br label %25
 
 23:                                               ; preds = %.critedge
@@ -1041,12 +1041,12 @@ define range(i32 -21, 1) i32 @CVodeSetNonlinConvCoef(ptr noundef writeonly captu
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 844, ptr noundef nonnull @__func__.CVodeSetNonlinConvCoef, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 846, ptr noundef nonnull @__func__.CVodeSetNonlinConvCoef, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  store double %1, ptr %6, align 8
+  store double %1, ptr %6, align 8, !tbaa !55
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -1060,7 +1060,7 @@ define range(i32 -22, 1) i32 @CVodeSetLSetupFrequency(ptr noundef %0, i64 nounde
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 868, ptr noundef nonnull @__func__.CVodeSetLSetupFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 870, ptr noundef nonnull @__func__.CVodeSetLSetupFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %12
 
 5:                                                ; preds = %2
@@ -1068,14 +1068,14 @@ define range(i32 -22, 1) i32 @CVodeSetLSetupFrequency(ptr noundef %0, i64 nounde
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 877, ptr noundef nonnull @__func__.CVodeSetLSetupFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 879, ptr noundef nonnull @__func__.CVodeSetLSetupFrequency, ptr noundef nonnull @.str, ptr noundef nonnull @.str.12) #9
   br label %12
 
 8:                                                ; preds = %5
   %9 = icmp eq i64 %1, 0
   %10 = select i1 %9, i64 20, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2024
-  store i64 %10, ptr %11, align 8
+  store i64 %10, ptr %11, align 8, !tbaa !56
   br label %12
 
 12:                                               ; preds = %8, %7, %4
@@ -1089,14 +1089,14 @@ define range(i32 -22, 1) i32 @CVodeSetRootDirection(ptr noundef %0, ptr noundef 
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 902, ptr noundef nonnull @__func__.CVodeSetRootDirection, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 904, ptr noundef nonnull @__func__.CVodeSetRootDirection, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2400
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !57
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %11, label %.preheader
+  br i1 %8, label %12, label %.preheader
 
 .preheader:                                       ; preds = %5
   %9 = icmp sgt i32 %7, 0
@@ -1104,26 +1104,26 @@ define range(i32 -22, 1) i32 @CVodeSetRootDirection(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2416
+  %11 = load ptr, ptr %10, align 8, !tbaa !58
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %12
+  br label %13
 
-11:                                               ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 911, ptr noundef nonnull @__func__.CVodeSetRootDirection, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13) #9
+12:                                               ; preds = %5
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 913, ptr noundef nonnull @__func__.CVodeSetRootDirection, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13) #9
   br label %.loopexit
 
-12:                                               ; preds = %.lr.ph, %12
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4
-  %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  store i32 %14, ptr %16, align 4
+13:                                               ; preds = %.lr.ph, %13
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4, !tbaa !59
+  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  store i32 %15, ptr %16, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %12
+  br i1 %exitcond.not, label %.loopexit, label %13
 
-.loopexit:                                        ; preds = %12, %.preheader, %11, %4
-  %.0 = phi i32 [ -21, %4 ], [ -22, %11 ], [ 0, %.preheader ], [ 0, %12 ]
+.loopexit:                                        ; preds = %13, %.preheader, %12, %4
+  %.0 = phi i32 [ -21, %4 ], [ -22, %12 ], [ 0, %.preheader ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -1133,12 +1133,12 @@ define range(i32 -21, 1) i32 @CVodeSetNoInactiveRootWarn(ptr noundef writeonly c
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 934, ptr noundef nonnull @__func__.CVodeSetNoInactiveRootWarn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 936, ptr noundef nonnull @__func__.CVodeSetNoInactiveRootWarn, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %6
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2512
-  store i32 0, ptr %5, align 8
+  store i32 0, ptr %5, align 8, !tbaa !60
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -1152,7 +1152,7 @@ define range(i32 -22, 1) i32 @CVodeSetConstraints(ptr noundef %0, ptr noundef %1
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 958, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 960, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %72
 
 5:                                                ; preds = %2
@@ -1161,68 +1161,68 @@ define range(i32 -22, 1) i32 @CVodeSetConstraints(ptr noundef %0, ptr noundef %1
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2124
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !61
   %.not35 = icmp eq i32 %9, 0
   br i1 %.not35, label %23, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !62
   tail call void @N_VDestroy(ptr noundef %12) #9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1784
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !tbaa !63
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %16 = load i64, ptr %15, align 8
+  %16 = load i64, ptr %15, align 8, !tbaa !64
   %17 = sub nsw i64 %16, %14
-  store i64 %17, ptr %15, align 8
+  store i64 %17, ptr %15, align 8, !tbaa !64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %19 = load i64, ptr %18, align 8
+  %19 = load i64, ptr %18, align 8, !tbaa !65
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !66
   %22 = sub nsw i64 %21, %19
-  store i64 %22, ptr %20, align 8
+  store i64 %22, ptr %20, align 8, !tbaa !66
   br label %23
 
 23:                                               ; preds = %10, %7
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !61
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %24, align 8
+  store i32 0, ptr %24, align 8, !tbaa !67
   br label %72
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !68
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !71
   %30 = icmp eq ptr %29, null
   br i1 %30, label %47, label %31
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 160
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !73
   %34 = icmp eq ptr %33, null
   br i1 %34, label %47, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 208
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !74
   %38 = icmp eq ptr %37, null
   br i1 %38, label %47, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 224
-  %41 = load ptr, ptr %40, align 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !75
   %42 = icmp eq ptr %41, null
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 232
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !76
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %43, %39, %35, %31, %25
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 985, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 987, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14) #9
   br label %72
 
 48:                                               ; preds = %43
@@ -1233,44 +1233,44 @@ define range(i32 -22, 1) i32 @CVodeSetConstraints(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %52, label %53
 
 52:                                               ; preds = %48
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 994, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 996, ptr noundef nonnull @__func__.CVodeSetConstraints, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15) #9
   br label %72
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2124
-  %55 = load i32, ptr %54, align 4
+  %55 = load i32, ptr %54, align 4, !tbaa !61
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %56, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !62
   br label %69
 
 56:                                               ; preds = %53
   %57 = tail call ptr @N_VClone(ptr noundef nonnull %1) #9
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store ptr %57, ptr %58, align 8
+  store ptr %57, ptr %58, align 8, !tbaa !62
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1784
-  %60 = load i64, ptr %59, align 8
+  %60 = load i64, ptr %59, align 8, !tbaa !63
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %62 = load i64, ptr %61, align 8
+  %62 = load i64, ptr %61, align 8, !tbaa !64
   %63 = add nsw i64 %62, %60
-  store i64 %63, ptr %61, align 8
+  store i64 %63, ptr %61, align 8, !tbaa !64
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1792
-  %65 = load i64, ptr %64, align 8
+  %65 = load i64, ptr %64, align 8, !tbaa !65
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %67 = load i64, ptr %66, align 8
+  %67 = load i64, ptr %66, align 8, !tbaa !66
   %68 = add nsw i64 %67, %65
-  store i64 %68, ptr %66, align 8
-  store i32 1, ptr %54, align 4
+  store i64 %68, ptr %66, align 8, !tbaa !66
+  store i32 1, ptr %54, align 4, !tbaa !61
   br label %69
 
 69:                                               ; preds = %._crit_edge, %56
   %70 = phi ptr [ %.pre, %._crit_edge ], [ %57, %56 ]
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %1, ptr noundef %70) #9
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 1, ptr %71, align 8
+  store i32 1, ptr %71, align 8, !tbaa !67
   br label %72
 
 72:                                               ; preds = %69, %52, %47, %23, %4
@@ -1292,12 +1292,12 @@ define range(i32 -21, 1) i32 @CVodeSetQuadErrCon(ptr noundef writeonly captures(
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1027, ptr noundef nonnull @__func__.CVodeSetQuadErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1029, ptr noundef nonnull @__func__.CVodeSetQuadErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %1, ptr %6, align 8
+  store i32 %1, ptr %6, align 8, !tbaa !77
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -1311,7 +1311,7 @@ define range(i32 -22, 1) i32 @CVodeSetSensDQMethod(ptr noundef %0, i32 noundef %
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1049, ptr noundef nonnull @__func__.CVodeSetSensDQMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1051, ptr noundef nonnull @__func__.CVodeSetSensDQMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %15
 
 6:                                                ; preds = %3
@@ -1320,7 +1320,7 @@ define range(i32 -22, 1) i32 @CVodeSetSensDQMethod(ptr noundef %0, i32 noundef %
   br i1 %or.cond, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1057, ptr noundef nonnull @__func__.CVodeSetSensDQMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1059, ptr noundef nonnull @__func__.CVodeSetSensDQMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #9
   br label %15
 
 9:                                                ; preds = %6
@@ -1328,14 +1328,14 @@ define range(i32 -22, 1) i32 @CVodeSetSensDQMethod(ptr noundef %0, i32 noundef %
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1064, ptr noundef nonnull @__func__.CVodeSetSensDQMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1066, ptr noundef nonnull @__func__.CVodeSetSensDQMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #9
   br label %15
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i32 %1, ptr %13, align 8
+  store i32 %1, ptr %13, align 8, !tbaa !78
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double %2, ptr %14, align 8
+  store double %2, ptr %14, align 8, !tbaa !79
   br label %15
 
 15:                                               ; preds = %12, %11, %8, %5
@@ -1349,12 +1349,12 @@ define range(i32 -21, 1) i32 @CVodeSetSensErrCon(ptr noundef writeonly captures(
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1083, ptr noundef nonnull @__func__.CVodeSetSensErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1085, ptr noundef nonnull @__func__.CVodeSetSensErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %7
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 %1, ptr %6, align 8
+  store i32 %1, ptr %6, align 8, !tbaa !80
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -1368,29 +1368,29 @@ define i32 @CVodeSetSensMaxNonlinIters(ptr noundef readonly captures(address_is_
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1102, ptr noundef nonnull @__func__.CVodeSetSensMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1104, ptr noundef nonnull @__func__.CVodeSetSensMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %25
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !52
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1864
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !81
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 1116, ptr noundef nonnull @__func__.CVodeSetSensMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 1118, ptr noundef nonnull @__func__.CVodeSetSensMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #9
   br label %25
 
 17:                                               ; preds = %12
@@ -1399,12 +1399,12 @@ define i32 @CVodeSetSensMaxNonlinIters(ptr noundef readonly captures(address_is_
 
 .critedge:                                        ; preds = %5, %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1880
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !82
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %.critedge
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 1128, ptr noundef nonnull @__func__.CVodeSetSensMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -20, i32 noundef 1130, ptr noundef nonnull @__func__.CVodeSetSensMaxNonlinIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11) #9
   br label %25
 
 23:                                               ; preds = %.critedge
@@ -1422,24 +1422,24 @@ define range(i32 -40, 1) i32 @CVodeSetSensParams(ptr noundef %0, ptr noundef %1,
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1149, ptr noundef nonnull @__func__.CVodeSetSensParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1151, ptr noundef nonnull @__func__.CVodeSetSensParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !83
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 1159, ptr noundef nonnull @__func__.CVodeSetSensParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 1161, ptr noundef nonnull @__func__.CVodeSetSensParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %.loopexit
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %14 = load i32, ptr %13, align 8
+  %14 = load i32, ptr %13, align 8, !tbaa !84
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %1, ptr %15, align 8
+  store ptr %1, ptr %15, align 8, !tbaa !85
   %.not = icmp eq ptr %2, null
   %16 = icmp sgt i32 %14, 0
   br i1 %.not, label %.preheader49, label %.preheader51
@@ -1450,46 +1450,46 @@ define range(i32 -40, 1) i32 @CVodeSetSensParams(ptr noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %.preheader51
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %wide.trip.count = zext nneg i32 %14 to i64
-  br label %19
+  br label %20
 
 .preheader49:                                     ; preds = %12
   br i1 %16, label %.lr.ph55, label %.loopexit50
 
 .lr.ph55:                                         ; preds = %.preheader49
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %19 = load ptr, ptr %18, align 8, !tbaa !86
   %wide.trip.count66 = zext nneg i32 %14 to i64
-  br label %28
+  br label %29
 
-19:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %20 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %21 = load double, ptr %20, align 8
-  %22 = fcmp oeq double %21, 0.000000e+00
-  br i1 %22, label %23, label %24
+20:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  %21 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %22 = load double, ptr %21, align 8, !tbaa !87
+  %23 = fcmp oeq double %22, 0.000000e+00
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %19
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1178, ptr noundef nonnull @__func__.CVodeSetSensParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19) #9
+24:                                               ; preds = %20
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1180, ptr noundef nonnull @__func__.CVodeSetSensParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19) #9
   br label %.loopexit
 
-24:                                               ; preds = %19
-  %25 = tail call double @llvm.fabs.f64(double %21)
-  %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
-  store double %25, ptr %27, align 8
+25:                                               ; preds = %20
+  %26 = tail call double @llvm.fabs.f64(double %22)
+  %27 = load ptr, ptr %17, align 8, !tbaa !86
+  %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
+  store double %26, ptr %28, align 8, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit50, label %19
+  br i1 %exitcond.not, label %.loopexit50, label %20
 
-28:                                               ; preds = %.lr.ph55, %28
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next64, %28 ]
-  %29 = load ptr, ptr %18, align 8
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv63
-  store double 1.000000e+00, ptr %30, align 8
+29:                                               ; preds = %.lr.ph55, %29
+  %indvars.iv63 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next64, %29 ]
+  %30 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv63
+  store double 1.000000e+00, ptr %30, align 8, !tbaa !87
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %.loopexit50, label %28
+  br i1 %exitcond67.not, label %.loopexit50, label %29
 
-.loopexit50:                                      ; preds = %24, %28, %.preheader51, %.preheader49
+.loopexit50:                                      ; preds = %25, %29, %.preheader51, %.preheader49
   %.not46 = icmp eq ptr %3, null
   %31 = icmp sgt i32 %14, 0
   br i1 %.not46, label %.preheader, label %.preheader47
@@ -1500,47 +1500,47 @@ define range(i32 -40, 1) i32 @CVodeSetSensParams(ptr noundef %0, ptr noundef %1,
 .lr.ph57:                                         ; preds = %.preheader47
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %wide.trip.count71 = zext nneg i32 %14 to i64
-  br label %34
+  br label %35
 
 .preheader:                                       ; preds = %.loopexit50
   br i1 %31, label %.lr.ph59, label %.loopexit
 
 .lr.ph59:                                         ; preds = %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %34 = load ptr, ptr %33, align 8, !tbaa !88
   %wide.trip.count76 = zext nneg i32 %14 to i64
-  br label %42
+  br label %43
 
-34:                                               ; preds = %.lr.ph57, %39
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next69, %39 ]
-  %35 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv68
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %39
+35:                                               ; preds = %.lr.ph57, %40
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next69, %40 ]
+  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv68
+  %37 = load i32, ptr %36, align 4, !tbaa !59
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %39, label %40
 
-38:                                               ; preds = %34
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1198, ptr noundef nonnull @__func__.CVodeSetSensParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20) #9
+39:                                               ; preds = %35
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1200, ptr noundef nonnull @__func__.CVodeSetSensParams, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20) #9
   br label %.loopexit
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv68
-  store i32 %36, ptr %41, align 4
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %32, align 8, !tbaa !88
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv68
+  store i32 %37, ptr %42, align 4, !tbaa !59
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %.loopexit, label %34
+  br i1 %exitcond72.not, label %.loopexit, label %35
 
-42:                                               ; preds = %.lr.ph59, %42
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next74, %42 ]
-  %43 = load ptr, ptr %33, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv73
+43:                                               ; preds = %.lr.ph59, %43
+  %indvars.iv73 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next74, %43 ]
+  %44 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv73
   %45 = trunc nuw nsw i64 %indvars.iv73 to i32
-  store i32 %45, ptr %44, align 4
+  store i32 %45, ptr %44, align 4, !tbaa !59
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %.loopexit, label %42
+  br i1 %exitcond77.not, label %.loopexit, label %43
 
-.loopexit:                                        ; preds = %39, %42, %.preheader47, %.preheader, %38, %23, %11, %6
-  %.0 = phi i32 [ -21, %6 ], [ -40, %11 ], [ -22, %23 ], [ -22, %38 ], [ 0, %.preheader ], [ 0, %.preheader47 ], [ 0, %42 ], [ 0, %39 ]
+.loopexit:                                        ; preds = %40, %43, %.preheader47, %.preheader, %39, %24, %11, %6
+  %.0 = phi i32 [ -21, %6 ], [ -40, %11 ], [ -22, %24 ], [ -22, %39 ], [ 0, %.preheader ], [ 0, %.preheader47 ], [ 0, %43 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -1553,32 +1553,32 @@ define range(i32 -40, 1) i32 @CVodeSetQuadSensErrCon(ptr noundef %0, i32 noundef
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1221, ptr noundef nonnull @__func__.CVodeSetQuadSensErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1223, ptr noundef nonnull @__func__.CVodeSetQuadSensErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %17
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !83
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 1230, ptr noundef nonnull @__func__.CVodeSetQuadSensErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 1232, ptr noundef nonnull @__func__.CVodeSetQuadSensErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %17
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2156
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !89
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 1239, ptr noundef nonnull @__func__.CVodeSetQuadSensErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 1241, ptr noundef nonnull @__func__.CVodeSetQuadSensErrCon, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
   br label %17
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  store i32 %1, ptr %16, align 4
+  store i32 %1, ptr %16, align 4, !tbaa !90
   br label %17
 
 17:                                               ; preds = %15, %14, %9, %4
@@ -1592,13 +1592,13 @@ define range(i32 -21, 1) i32 @CVodeGetNumSteps(ptr noundef readonly captures(add
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1267, ptr noundef nonnull @__func__.CVodeGetNumSteps, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1269, ptr noundef nonnull @__func__.CVodeGetNumSteps, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !43
+  store i64 %7, ptr %1, align 8, !tbaa !91
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1612,13 +1612,13 @@ define range(i32 -21, 1) i32 @CVodeGetNumRhsEvals(ptr noundef readonly captures(
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1290, ptr noundef nonnull @__func__.CVodeGetNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1292, ptr noundef nonnull @__func__.CVodeGetNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1584
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !92
+  store i64 %7, ptr %1, align 8, !tbaa !91
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1632,13 +1632,13 @@ define range(i32 -21, 1) i32 @CVodeGetNumLinSolvSetups(ptr noundef readonly capt
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1313, ptr noundef nonnull @__func__.CVodeGetNumLinSolvSetups, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1315, ptr noundef nonnull @__func__.CVodeGetNumLinSolvSetups, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !93
+  store i64 %7, ptr %1, align 8, !tbaa !91
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1652,13 +1652,13 @@ define range(i32 -21, 1) i32 @CVodeGetNumErrTestFails(ptr noundef readonly captu
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1336, ptr noundef nonnull @__func__.CVodeGetNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1338, ptr noundef nonnull @__func__.CVodeGetNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !94
+  store i64 %7, ptr %1, align 8, !tbaa !91
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1672,13 +1672,13 @@ define range(i32 -21, 1) i32 @CVodeGetLastOrder(ptr noundef readonly captures(ad
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1359, ptr noundef nonnull @__func__.CVodeGetLastOrder, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1361, ptr noundef nonnull @__func__.CVodeGetLastOrder, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2044
-  %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr %1, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !95
+  store i32 %7, ptr %1, align 4, !tbaa !59
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1692,13 +1692,13 @@ define range(i32 -21, 1) i32 @CVodeGetCurrentOrder(ptr noundef readonly captures
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1382, ptr noundef nonnull @__func__.CVodeGetCurrentOrder, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1384, ptr noundef nonnull @__func__.CVodeGetCurrentOrder, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %7 = load i32, ptr %6, align 8
-  store i32 %7, ptr %1, align 4
+  %7 = load i32, ptr %6, align 8, !tbaa !96
+  store i32 %7, ptr %1, align 4, !tbaa !59
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1712,13 +1712,13 @@ define range(i32 -21, 1) i32 @CVodeGetCurrentGamma(ptr noundef readonly captures
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1405, ptr noundef nonnull @__func__.CVodeGetCurrentGamma, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1407, ptr noundef nonnull @__func__.CVodeGetCurrentGamma, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1320
-  %7 = load double, ptr %6, align 8
-  store double %7, ptr %1, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !97
+  store double %7, ptr %1, align 8, !tbaa !87
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1732,23 +1732,23 @@ define range(i32 -21, 1) i32 @CVodeGetNumStabLimOrderReds(ptr noundef readonly c
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1429, ptr noundef nonnull @__func__.CVodeGetNumStabLimOrderReds, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1431, ptr noundef nonnull @__func__.CVodeGetNumStabLimOrderReds, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !28
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2384
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !98
   br label %12
 
 12:                                               ; preds = %5, %9
   %storemerge = phi i64 [ %11, %9 ], [ 0, %5 ]
-  store i64 %storemerge, ptr %1, align 8
+  store i64 %storemerge, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %12, %4
@@ -1762,13 +1762,13 @@ define range(i32 -21, 1) i32 @CVodeGetActualInitStep(ptr noundef readonly captur
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1453, ptr noundef nonnull @__func__.CVodeGetActualInitStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1455, ptr noundef nonnull @__func__.CVodeGetActualInitStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  %7 = load double, ptr %6, align 8
-  store double %7, ptr %1, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !99
+  store double %7, ptr %1, align 8, !tbaa !87
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1782,13 +1782,13 @@ define range(i32 -21, 1) i32 @CVodeGetLastStep(ptr noundef readonly captures(add
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1476, ptr noundef nonnull @__func__.CVodeGetLastStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1478, ptr noundef nonnull @__func__.CVodeGetLastStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %7 = load double, ptr %6, align 8
-  store double %7, ptr %1, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !100
+  store double %7, ptr %1, align 8, !tbaa !87
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1802,13 +1802,13 @@ define range(i32 -21, 1) i32 @CVodeGetCurrentStep(ptr noundef readonly captures(
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1499, ptr noundef nonnull @__func__.CVodeGetCurrentStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1501, ptr noundef nonnull @__func__.CVodeGetCurrentStep, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %7 = load double, ptr %6, align 8
-  store double %7, ptr %1, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !101
+  store double %7, ptr %1, align 8, !tbaa !87
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1822,13 +1822,13 @@ define range(i32 -21, 1) i32 @CVodeGetCurrentState(ptr noundef readonly captures
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1522, ptr noundef nonnull @__func__.CVodeGetCurrentState, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1524, ptr noundef nonnull @__func__.CVodeGetCurrentState, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !102
+  store ptr %7, ptr %1, align 8, !tbaa !103
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1842,13 +1842,13 @@ define range(i32 -21, 1) i32 @CVodeGetCurrentStateSens(ptr noundef readonly capt
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1545, ptr noundef nonnull @__func__.CVodeGetCurrentStateSens, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1547, ptr noundef nonnull @__func__.CVodeGetCurrentStateSens, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
+  store ptr %7, ptr %1, align 8, !tbaa !105
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1862,13 +1862,13 @@ define range(i32 -21, 1) i32 @CVodeGetCurrentSensSolveIndex(ptr noundef readonly
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1569, ptr noundef nonnull @__func__.CVodeGetCurrentSensSolveIndex, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1571, ptr noundef nonnull @__func__.CVodeGetCurrentSensSolveIndex, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1892
-  %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr %1, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !106
+  store i32 %7, ptr %1, align 4, !tbaa !59
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1882,13 +1882,13 @@ define range(i32 -21, 1) i32 @CVodeGetCurrentTime(ptr noundef readonly captures(
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1592, ptr noundef nonnull @__func__.CVodeGetCurrentTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1594, ptr noundef nonnull @__func__.CVodeGetCurrentTime, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %7 = load double, ptr %6, align 8
-  store double %7, ptr %1, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !44
+  store double %7, ptr %1, align 8, !tbaa !87
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1902,13 +1902,13 @@ define range(i32 -21, 1) i32 @CVodeGetTolScaleFactor(ptr noundef readonly captur
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1615, ptr noundef nonnull @__func__.CVodeGetTolScaleFactor, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1617, ptr noundef nonnull @__func__.CVodeGetTolScaleFactor, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2088
-  %7 = load double, ptr %6, align 8
-  store double %7, ptr %1, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !107
+  store double %7, ptr %1, align 8, !tbaa !87
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1922,12 +1922,12 @@ define range(i32 -21, 1) i32 @CVodeGetErrWeights(ptr noundef readonly captures(a
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1638, ptr noundef nonnull @__func__.CVodeGetErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1640, ptr noundef nonnull @__func__.CVodeGetErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !108
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %7, ptr noundef %1) #9
   br label %8
 
@@ -1942,12 +1942,12 @@ define range(i32 -21, 1) i32 @CVodeGetEstLocalErrors(ptr noundef readonly captur
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1661, ptr noundef nonnull @__func__.CVodeGetEstLocalErrors, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1663, ptr noundef nonnull @__func__.CVodeGetEstLocalErrors, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !109
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %7, ptr noundef %1) #9
   br label %8
 
@@ -1962,16 +1962,16 @@ define range(i32 -21, 1) i32 @CVodeGetWorkSpace(ptr noundef readonly captures(ad
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1684, ptr noundef nonnull @__func__.CVodeGetWorkSpace, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1686, ptr noundef nonnull @__func__.CVodeGetWorkSpace, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %11
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1824
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %2, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !66
+  store i64 %8, ptr %2, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1816
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %1, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !64
+  store i64 %10, ptr %1, align 8, !tbaa !91
   br label %11
 
 11:                                               ; preds = %6, %5
@@ -1985,40 +1985,40 @@ define range(i32 -21, 1) i32 @CVodeGetIntegratorStats(ptr noundef readonly captu
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %11
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1711, ptr noundef nonnull @__func__.CVodeGetIntegratorStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1713, ptr noundef nonnull @__func__.CVodeGetIntegratorStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %35
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %16 = load i64, ptr %15, align 8
-  store i64 %16, ptr %1, align 8
+  %16 = load i64, ptr %15, align 8, !tbaa !43
+  store i64 %16, ptr %1, align 8, !tbaa !91
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1584
-  %18 = load i64, ptr %17, align 8
-  store i64 %18, ptr %2, align 8
+  %18 = load i64, ptr %17, align 8, !tbaa !92
+  store i64 %18, ptr %2, align 8, !tbaa !91
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  %20 = load i64, ptr %19, align 8
-  store i64 %20, ptr %3, align 8
+  %20 = load i64, ptr %19, align 8, !tbaa !93
+  store i64 %20, ptr %3, align 8, !tbaa !91
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr %4, align 8
+  %22 = load i64, ptr %21, align 8, !tbaa !94
+  store i64 %22, ptr %4, align 8, !tbaa !91
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2044
-  %24 = load i32, ptr %23, align 4
-  store i32 %24, ptr %5, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !95
+  store i32 %24, ptr %5, align 4, !tbaa !59
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %26 = load i32, ptr %25, align 8
-  store i32 %26, ptr %6, align 4
+  %26 = load i32, ptr %25, align 8, !tbaa !96
+  store i32 %26, ptr %6, align 4, !tbaa !59
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  %28 = load double, ptr %27, align 8
-  store double %28, ptr %7, align 8
+  %28 = load double, ptr %27, align 8, !tbaa !99
+  store double %28, ptr %7, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %30 = load double, ptr %29, align 8
-  store double %30, ptr %8, align 8
+  %30 = load double, ptr %29, align 8, !tbaa !100
+  store double %30, ptr %8, align 8, !tbaa !87
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %32 = load double, ptr %31, align 8
-  store double %32, ptr %9, align 8
+  %32 = load double, ptr %31, align 8, !tbaa !101
+  store double %32, ptr %9, align 8, !tbaa !87
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %34 = load double, ptr %33, align 8
-  store double %34, ptr %10, align 8
+  %34 = load double, ptr %33, align 8, !tbaa !44
+  store double %34, ptr %10, align 8, !tbaa !87
   br label %35
 
 35:                                               ; preds = %14, %13
@@ -2032,13 +2032,13 @@ define range(i32 -21, 1) i32 @CVodeGetNumGEvals(ptr noundef readonly captures(ad
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1743, ptr noundef nonnull @__func__.CVodeGetNumGEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1745, ptr noundef nonnull @__func__.CVodeGetNumGEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !110
+  store i64 %7, ptr %1, align 8, !tbaa !91
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -2052,33 +2052,33 @@ define range(i32 -21, 1) i32 @CVodeGetRootInfo(ptr noundef readonly captures(add
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1767, ptr noundef nonnull @__func__.CVodeGetRootInfo, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1769, ptr noundef nonnull @__func__.CVodeGetRootInfo, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2400
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !57
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2408
+  %10 = load ptr, ptr %9, align 8, !tbaa !111
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %10
+  br label %11
 
-10:                                               ; preds = %.lr.ph, %10
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4
+11:                                               ; preds = %.lr.ph, %11
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4, !tbaa !59
   %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  store i32 %13, ptr %14, align 4
+  store i32 %13, ptr %14, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10
+  br i1 %exitcond.not, label %.loopexit, label %11
 
-.loopexit:                                        ; preds = %10, %5, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %5 ], [ 0, %10 ]
+.loopexit:                                        ; preds = %11, %5, %4
+  %.0 = phi i32 [ -21, %4 ], [ 0, %5 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -2088,13 +2088,13 @@ define range(i32 -21, 1) i32 @CVodeGetNumNonlinSolvIters(ptr noundef readonly ca
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1792, ptr noundef nonnull @__func__.CVodeGetNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1794, ptr noundef nonnull @__func__.CVodeGetNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !112
+  store i64 %7, ptr %1, align 8, !tbaa !91
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -2108,13 +2108,13 @@ define range(i32 -21, 1) i32 @CVodeGetNumNonlinSolvConvFails(ptr noundef readonl
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1816, ptr noundef nonnull @__func__.CVodeGetNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1818, ptr noundef nonnull @__func__.CVodeGetNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !113
+  store i64 %7, ptr %1, align 8, !tbaa !91
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -2128,16 +2128,16 @@ define range(i32 -21, 1) i32 @CVodeGetNonlinSolvStats(ptr noundef readonly captu
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1839, ptr noundef nonnull @__func__.CVodeGetNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1841, ptr noundef nonnull @__func__.CVodeGetNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %11
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %1, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !112
+  store i64 %8, ptr %1, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %2, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !113
+  store i64 %10, ptr %2, align 8, !tbaa !91
   br label %11
 
 11:                                               ; preds = %6, %5
@@ -2151,13 +2151,13 @@ define range(i32 -21, 1) i32 @CVodeGetNumStepSolveFails(ptr noundef readonly cap
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1864, ptr noundef nonnull @__func__.CVodeGetNumStepSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1866, ptr noundef nonnull @__func__.CVodeGetNumStepSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1632
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !114
+  store i64 %7, ptr %1, align 8, !tbaa !91
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -2171,23 +2171,23 @@ define range(i32 -30, 1) i32 @CVodeGetQuadNumRhsEvals(ptr noundef %0, ptr nounde
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1889, ptr noundef nonnull @__func__.CVodeGetQuadNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1891, ptr noundef nonnull @__func__.CVodeGetQuadNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !115
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -30, i32 noundef 1897, ptr noundef nonnull @__func__.CVodeGetQuadNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -30, i32 noundef 1899, ptr noundef nonnull @__func__.CVodeGetQuadNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1592
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !116
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2201,23 +2201,23 @@ define range(i32 -30, 1) i32 @CVodeGetQuadNumErrTestFails(ptr noundef %0, ptr no
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1915, ptr noundef nonnull @__func__.CVodeGetQuadNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1917, ptr noundef nonnull @__func__.CVodeGetQuadNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !115
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -30, i32 noundef 1923, ptr noundef nonnull @__func__.CVodeGetQuadNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -30, i32 noundef 1925, ptr noundef nonnull @__func__.CVodeGetQuadNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !117
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2231,28 +2231,28 @@ define range(i32 -30, 1) i32 @CVodeGetQuadErrWeights(ptr noundef %0, ptr noundef
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1941, ptr noundef nonnull @__func__.CVodeGetQuadErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1943, ptr noundef nonnull @__func__.CVodeGetQuadErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %16
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !115
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -30, i32 noundef 1949, ptr noundef nonnull @__func__.CVodeGetQuadErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -30, i32 noundef 1951, ptr noundef nonnull @__func__.CVodeGetQuadErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #9
   br label %16
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %12 = load i32, ptr %11, align 8
+  %12 = load i32, ptr %11, align 8, !tbaa !77
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !118
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %15, ptr noundef %1) #9
   br label %16
 
@@ -2267,26 +2267,26 @@ define range(i32 -30, 1) i32 @CVodeGetQuadStats(ptr noundef %0, ptr noundef writ
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1967, ptr noundef nonnull @__func__.CVodeGetQuadStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 1969, ptr noundef nonnull @__func__.CVodeGetQuadStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %16
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !115
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -30, i32 noundef 1975, ptr noundef nonnull @__func__.CVodeGetQuadStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -30, i32 noundef 1977, ptr noundef nonnull @__func__.CVodeGetQuadStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22) #9
   br label %16
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1592
-  %13 = load i64, ptr %12, align 8
-  store i64 %13, ptr %1, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !116
+  store i64 %13, ptr %1, align 8, !tbaa !91
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %2, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !117
+  store i64 %15, ptr %2, align 8, !tbaa !91
   br label %16
 
 16:                                               ; preds = %11, %10, %5
@@ -2300,23 +2300,23 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensNumRhsEvals(ptr noundef %0, ptr no
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2000, ptr noundef nonnull @__func__.CVodeGetQuadSensNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2002, ptr noundef nonnull @__func__.CVodeGetQuadSensNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !119
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 2008, ptr noundef nonnull @__func__.CVodeGetQuadSensNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 2010, ptr noundef nonnull @__func__.CVodeGetQuadSensNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1616
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !120
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2330,23 +2330,23 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensNumErrTestFails(ptr noundef %0, pt
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2026, ptr noundef nonnull @__func__.CVodeGetQuadSensNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2028, ptr noundef nonnull @__func__.CVodeGetQuadSensNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !119
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 2034, ptr noundef nonnull @__func__.CVodeGetQuadSensNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 2036, ptr noundef nonnull @__func__.CVodeGetQuadSensNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !121
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2360,24 +2360,24 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensErrWeights(ptr noundef %0, ptr nou
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2053, ptr noundef nonnull @__func__.CVodeGetQuadSensErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2055, ptr noundef nonnull @__func__.CVodeGetQuadSensErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !119
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 2061, ptr noundef nonnull @__func__.CVodeGetQuadSensErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 2063, ptr noundef nonnull @__func__.CVodeGetQuadSensErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
   br label %.loopexit
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %12 = load i32, ptr %11, align 8
+  %12 = load i32, ptr %11, align 8, !tbaa !84
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !90
   %.not = icmp ne i32 %14, 0
   %15 = icmp sgt i32 %12, 0
   %or.cond = select i1 %.not, i1 %15, i1 false
@@ -2390,11 +2390,11 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensErrWeights(ptr noundef %0, ptr nou
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %16, align 8, !tbaa !122
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !103
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %20, ptr noundef %22) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2411,26 +2411,26 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensStats(ptr noundef %0, ptr noundef 
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2087, ptr noundef nonnull @__func__.CVodeGetQuadSensStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2089, ptr noundef nonnull @__func__.CVodeGetQuadSensStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %16
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !119
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 2095, ptr noundef nonnull @__func__.CVodeGetQuadSensStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -50, i32 noundef 2097, ptr noundef nonnull @__func__.CVodeGetQuadSensStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #9
   br label %16
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1616
-  %13 = load i64, ptr %12, align 8
-  store i64 %13, ptr %1, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !120
+  store i64 %13, ptr %1, align 8, !tbaa !91
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %2, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !121
+  store i64 %15, ptr %2, align 8, !tbaa !91
   br label %16
 
 16:                                               ; preds = %11, %10, %5
@@ -2444,23 +2444,23 @@ define range(i32 -40, 1) i32 @CVodeGetSensNumRhsEvals(ptr noundef %0, ptr nounde
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2120, ptr noundef nonnull @__func__.CVodeGetSensNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2122, ptr noundef nonnull @__func__.CVodeGetSensNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2128, ptr noundef nonnull @__func__.CVodeGetSensNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2130, ptr noundef nonnull @__func__.CVodeGetSensNumRhsEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !123
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2474,23 +2474,23 @@ define range(i32 -40, 1) i32 @CVodeGetNumRhsEvalsSens(ptr noundef %0, ptr nounde
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2146, ptr noundef nonnull @__func__.CVodeGetNumRhsEvalsSens, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2148, ptr noundef nonnull @__func__.CVodeGetNumRhsEvalsSens, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2154, ptr noundef nonnull @__func__.CVodeGetNumRhsEvalsSens, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2156, ptr noundef nonnull @__func__.CVodeGetNumRhsEvalsSens, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1608
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !124
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2504,23 +2504,23 @@ define range(i32 -40, 1) i32 @CVodeGetSensNumErrTestFails(ptr noundef %0, ptr no
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2172, ptr noundef nonnull @__func__.CVodeGetSensNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2174, ptr noundef nonnull @__func__.CVodeGetSensNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2180, ptr noundef nonnull @__func__.CVodeGetSensNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2182, ptr noundef nonnull @__func__.CVodeGetSensNumErrTestFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !125
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2534,23 +2534,23 @@ define range(i32 -40, 1) i32 @CVodeGetSensNumLinSolvSetups(ptr noundef %0, ptr n
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2198, ptr noundef nonnull @__func__.CVodeGetSensNumLinSolvSetups, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2200, ptr noundef nonnull @__func__.CVodeGetSensNumLinSolvSetups, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2206, ptr noundef nonnull @__func__.CVodeGetSensNumLinSolvSetups, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2208, ptr noundef nonnull @__func__.CVodeGetSensNumLinSolvSetups, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !126
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2564,22 +2564,22 @@ define range(i32 -40, 1) i32 @CVodeGetSensErrWeights(ptr noundef %0, ptr noundef
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2225, ptr noundef nonnull @__func__.CVodeGetSensErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2227, ptr noundef nonnull @__func__.CVodeGetSensErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2233, ptr noundef nonnull @__func__.CVodeGetSensErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2235, ptr noundef nonnull @__func__.CVodeGetSensErrWeights, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %.loopexit
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %12 = load i32, ptr %11, align 8
+  %12 = load i32, ptr %11, align 8, !tbaa !84
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %.loopexit
 
@@ -2590,11 +2590,11 @@ define range(i32 -40, 1) i32 @CVodeGetSensErrWeights(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %14, align 8, !tbaa !127
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !103
   %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !103
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %18, ptr noundef %20) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2611,32 +2611,32 @@ define range(i32 -40, 1) i32 @CVodeGetSensStats(ptr noundef %0, ptr noundef writ
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2257, ptr noundef nonnull @__func__.CVodeGetSensStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2259, ptr noundef nonnull @__func__.CVodeGetSensStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %22
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !51
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2265, ptr noundef nonnull @__func__.CVodeGetSensStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2267, ptr noundef nonnull @__func__.CVodeGetSensStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %22
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %1, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !123
+  store i64 %15, ptr %1, align 8, !tbaa !91
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1608
-  %17 = load i64, ptr %16, align 8
-  store i64 %17, ptr %2, align 8
+  %17 = load i64, ptr %16, align 8, !tbaa !124
+  store i64 %17, ptr %2, align 8, !tbaa !91
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  %19 = load i64, ptr %18, align 8
-  store i64 %19, ptr %3, align 8
+  %19 = load i64, ptr %18, align 8, !tbaa !125
+  store i64 %19, ptr %3, align 8, !tbaa !91
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %21 = load i64, ptr %20, align 8
-  store i64 %21, ptr %4, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !126
+  store i64 %21, ptr %4, align 8, !tbaa !91
   br label %22
 
 22:                                               ; preds = %13, %12, %7
@@ -2650,23 +2650,23 @@ define range(i32 -40, 1) i32 @CVodeGetSensNumNonlinSolvIters(ptr noundef %0, ptr
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2286, ptr noundef nonnull @__func__.CVodeGetSensNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2288, ptr noundef nonnull @__func__.CVodeGetSensNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2294, ptr noundef nonnull @__func__.CVodeGetSensNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2296, ptr noundef nonnull @__func__.CVodeGetSensNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !128
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2680,23 +2680,23 @@ define range(i32 -40, 1) i32 @CVodeGetSensNumNonlinSolvConvFails(ptr noundef %0,
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2312, ptr noundef nonnull @__func__.CVodeGetSensNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2314, ptr noundef nonnull @__func__.CVodeGetSensNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2320, ptr noundef nonnull @__func__.CVodeGetSensNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2322, ptr noundef nonnull @__func__.CVodeGetSensNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !129
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2710,26 +2710,26 @@ define range(i32 -40, 1) i32 @CVodeGetSensNonlinSolvStats(ptr noundef %0, ptr no
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2339, ptr noundef nonnull @__func__.CVodeGetSensNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2341, ptr noundef nonnull @__func__.CVodeGetSensNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %16
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2347, ptr noundef nonnull @__func__.CVodeGetSensNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2349, ptr noundef nonnull @__func__.CVodeGetSensNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %16
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  %13 = load i64, ptr %12, align 8
-  store i64 %13, ptr %1, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !128
+  store i64 %13, ptr %1, align 8, !tbaa !91
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %2, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !129
+  store i64 %15, ptr %2, align 8, !tbaa !91
   br label %16
 
 16:                                               ; preds = %11, %10, %5
@@ -2743,23 +2743,23 @@ define range(i32 -40, 1) i32 @CVodeGetNumStepSensSolveFails(ptr noundef %0, ptr 
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2364, ptr noundef nonnull @__func__.CVodeGetNumStepSensSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2366, ptr noundef nonnull @__func__.CVodeGetNumStepSensSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2372, ptr noundef nonnull @__func__.CVodeGetNumStepSensSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2374, ptr noundef nonnull @__func__.CVodeGetNumStepSensSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %13
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1640
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !130
+  store i64 %12, ptr %1, align 8, !tbaa !91
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -2773,24 +2773,24 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNumNonlinSolvIters(ptr noundef %0,
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2391, ptr noundef nonnull @__func__.CVodeGetStgrSensNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2393, ptr noundef nonnull @__func__.CVodeGetStgrSensNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !84
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !51
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2401, ptr noundef nonnull @__func__.CVodeGetStgrSensNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2403, ptr noundef nonnull @__func__.CVodeGetStgrSensNumNonlinSolvIters, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %.loopexit
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !52
   %15 = icmp eq i32 %14, 3
   %16 = icmp sgt i32 %7, 0
   %or.cond = select i1 %15, i1 %16, i1 false
@@ -2798,22 +2798,22 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNumNonlinSolvIters(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %18 = load ptr, ptr %17, align 8, !tbaa !131
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
-  %21 = load i64, ptr %20, align 8
+19:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
+  %21 = load i64, ptr %20, align 8, !tbaa !91
   %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  store i64 %21, ptr %22, align 8
+  store i64 %21, ptr %22, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %18
+  br i1 %exitcond.not, label %.loopexit, label %19
 
-.loopexit:                                        ; preds = %18, %12, %11, %4
-  %.0 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %18 ]
+.loopexit:                                        ; preds = %19, %12, %11, %4
+  %.0 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -2823,24 +2823,24 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNumNonlinSolvConvFails(ptr noundef
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2423, ptr noundef nonnull @__func__.CVodeGetStgrSensNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2425, ptr noundef nonnull @__func__.CVodeGetStgrSensNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !84
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !51
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2433, ptr noundef nonnull @__func__.CVodeGetStgrSensNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2435, ptr noundef nonnull @__func__.CVodeGetStgrSensNumNonlinSolvConvFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %.loopexit
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !52
   %15 = icmp eq i32 %14, 3
   %16 = icmp sgt i32 %7, 0
   %or.cond = select i1 %15, i1 %16, i1 false
@@ -2848,22 +2848,22 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNumNonlinSolvConvFails(ptr noundef
 
 .lr.ph:                                           ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  %18 = load ptr, ptr %17, align 8, !tbaa !132
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
-  %21 = load i64, ptr %20, align 8
+19:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
+  %21 = load i64, ptr %20, align 8, !tbaa !91
   %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  store i64 %21, ptr %22, align 8
+  store i64 %21, ptr %22, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %18
+  br i1 %exitcond.not, label %.loopexit, label %19
 
-.loopexit:                                        ; preds = %18, %12, %11, %4
-  %.0 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %18 ]
+.loopexit:                                        ; preds = %19, %12, %11, %4
+  %.0 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -2873,24 +2873,24 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNonlinSolvStats(ptr noundef %0, pt
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2456, ptr noundef nonnull @__func__.CVodeGetStgrSensNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2458, ptr noundef nonnull @__func__.CVodeGetStgrSensNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !84
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !51
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2466, ptr noundef nonnull @__func__.CVodeGetStgrSensNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2468, ptr noundef nonnull @__func__.CVodeGetStgrSensNonlinSolvStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %.loopexit
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !52
   %16 = icmp eq i32 %15, 3
   %17 = icmp sgt i32 %8, 0
   %or.cond = select i1 %16, i1 %17, i1 false
@@ -2898,38 +2898,38 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNonlinSolvStats(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %19 = load ptr, ptr %18, align 8, !tbaa !131
   %wide.trip.count = zext nneg i32 %8 to i64
-  br label %20
+  br label %22
 
-.lr.ph26:                                         ; preds = %20
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+.lr.ph26:                                         ; preds = %22
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  %21 = load ptr, ptr %20, align 8, !tbaa !132
   %wide.trip.count31 = zext nneg i32 %8 to i64
-  br label %25
+  br label %26
 
-20:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  store i64 %23, ptr %24, align 8
+22:                                               ; preds = %.lr.ph, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
+  %23 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %24 = load i64, ptr %23, align 8, !tbaa !91
+  %25 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  store i64 %24, ptr %25, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph26, label %20
+  br i1 %exitcond.not, label %.lr.ph26, label %22
 
-25:                                               ; preds = %.lr.ph26, %25
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %25 ]
-  %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv28
-  %28 = load i64, ptr %27, align 8
+26:                                               ; preds = %.lr.ph26, %26
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %26 ]
+  %27 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv28
+  %28 = load i64, ptr %27, align 8, !tbaa !91
   %29 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv28
-  store i64 %28, ptr %29, align 8
+  store i64 %28, ptr %29, align 8, !tbaa !91
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
-  br i1 %exitcond32.not, label %.loopexit, label %25
+  br i1 %exitcond32.not, label %.loopexit, label %26
 
-.loopexit:                                        ; preds = %25, %13, %12, %5
-  %.0 = phi i32 [ -21, %5 ], [ -40, %12 ], [ 0, %13 ], [ 0, %25 ]
+.loopexit:                                        ; preds = %26, %13, %12, %5
+  %.0 = phi i32 [ -21, %5 ], [ -40, %12 ], [ 0, %13 ], [ 0, %26 ]
   ret i32 %.0
 }
 
@@ -2939,24 +2939,24 @@ define range(i32 -40, 1) i32 @CVodeGetNumStepStgrSensSolveFails(ptr noundef %0, 
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2489, ptr noundef nonnull @__func__.CVodeGetNumStepStgrSensSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2491, ptr noundef nonnull @__func__.CVodeGetNumStepStgrSensSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %.loopexit
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !84
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !51
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2499, ptr noundef nonnull @__func__.CVodeGetNumStepStgrSensSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -40, i32 noundef 2501, ptr noundef nonnull @__func__.CVodeGetNumStepStgrSensSolveFails, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18) #9
   br label %.loopexit
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !52
   %15 = icmp eq i32 %14, 3
   %16 = icmp sgt i32 %7, 0
   %or.cond = select i1 %15, i1 %16, i1 false
@@ -2964,22 +2964,22 @@ define range(i32 -40, 1) i32 @CVodeGetNumStepStgrSensSolveFails(ptr noundef %0, 
 
 .lr.ph:                                           ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1648
+  %18 = load ptr, ptr %17, align 8, !tbaa !133
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
-  %21 = load i64, ptr %20, align 8
+19:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
+  %21 = load i64, ptr %20, align 8, !tbaa !91
   %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  store i64 %21, ptr %22, align 8
+  store i64 %21, ptr %22, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %18
+  br i1 %exitcond.not, label %.loopexit, label %19
 
-.loopexit:                                        ; preds = %18, %12, %11, %4
-  %.0 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %18 ]
+.loopexit:                                        ; preds = %19, %12, %11, %4
+  %.0 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -2989,7 +2989,7 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2527, ptr noundef nonnull @__func__.CVodePrintAllStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2529, ptr noundef nonnull @__func__.CVodePrintAllStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %413
 
 6:                                                ; preds = %3
@@ -3000,50 +3000,50 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %9 = load double, ptr %8, align 8
+  %9 = load double, ptr %8, align 8, !tbaa !44
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.23, double noundef %9) #9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %12 = load i64, ptr %11, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !43
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24, i64 noundef %12) #9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  %15 = load i64, ptr %14, align 8
+  %15 = load i64, ptr %14, align 8, !tbaa !94
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, i64 noundef %15) #9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1632
-  %18 = load i64, ptr %17, align 8
+  %18 = load i64, ptr %17, align 8, !tbaa !114
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i64 noundef %18) #9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  %21 = load double, ptr %20, align 8
+  %21 = load double, ptr %20, align 8, !tbaa !99
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, double noundef %21) #9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %24 = load double, ptr %23, align 8
+  %24 = load double, ptr %23, align 8, !tbaa !100
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.28, double noundef %24) #9
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %27 = load double, ptr %26, align 8
+  %27 = load double, ptr %26, align 8, !tbaa !101
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, double noundef %27) #9
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2044
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 4, !tbaa !95
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i32 noundef %30) #9
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %33 = load i32, ptr %32, align 8
+  %33 = load i32, ptr %32, align 8, !tbaa !96
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %33) #9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 2384
-  %36 = load i64, ptr %35, align 8
+  %36 = load i64, ptr %35, align 8, !tbaa !98
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, i64 noundef %36) #9
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1584
-  %39 = load i64, ptr %38, align 8
+  %39 = load i64, ptr %38, align 8, !tbaa !92
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, i64 noundef %39) #9
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %42 = load i64, ptr %41, align 8
+  %42 = load i64, ptr %41, align 8, !tbaa !112
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, i64 noundef %42) #9
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  %45 = load i64, ptr %44, align 8
+  %45 = load i64, ptr %44, align 8, !tbaa !113
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i64 noundef %45) #9
-  %47 = load i64, ptr %11, align 8
+  %47 = load i64, ptr %11, align 8, !tbaa !43
   %48 = icmp sgt i64 %47, 0
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %7
-  %50 = load i64, ptr %41, align 8
+  %50 = load i64, ptr %41, align 8, !tbaa !112
   %51 = sitofp i64 %50 to double
   %52 = uitofp nneg i64 %47 to double
   %53 = fdiv double %51, %52
@@ -3052,57 +3052,57 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 
 55:                                               ; preds = %49, %7
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  %57 = load i64, ptr %56, align 8
+  %57 = load i64, ptr %56, align 8, !tbaa !93
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i64 noundef %57) #9
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2016
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !134
   %.not262 = icmp eq ptr %60, null
   br i1 %.not262, label %106, label %61
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 136
-  %63 = load i64, ptr %62, align 8
+  %63 = load i64, ptr %62, align 8, !tbaa !135
   %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, i64 noundef %63) #9
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 144
-  %66 = load i64, ptr %65, align 8
+  %66 = load i64, ptr %65, align 8, !tbaa !139
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.39, i64 noundef %66) #9
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 160
-  %69 = load i64, ptr %68, align 8
+  %69 = load i64, ptr %68, align 8, !tbaa !140
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, i64 noundef %69) #9
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 176
-  %72 = load i64, ptr %71, align 8
+  %72 = load i64, ptr %71, align 8, !tbaa !141
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, i64 noundef %72) #9
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 168
-  %75 = load i64, ptr %74, align 8
+  %75 = load i64, ptr %74, align 8, !tbaa !142
   %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, i64 noundef %75) #9
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %78 = load i64, ptr %77, align 8
+  %78 = load i64, ptr %77, align 8, !tbaa !143
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.43, i64 noundef %78) #9
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 192
-  %81 = load i64, ptr %80, align 8
+  %81 = load i64, ptr %80, align 8, !tbaa !144
   %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, i64 noundef %81) #9
   %83 = getelementptr inbounds nuw i8, ptr %60, i64 200
-  %84 = load i64, ptr %83, align 8
+  %84 = load i64, ptr %83, align 8, !tbaa !145
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i64 noundef %84) #9
-  %86 = load i64, ptr %41, align 8
+  %86 = load i64, ptr %41, align 8, !tbaa !112
   %87 = icmp sgt i64 %86, 0
   br i1 %87, label %88, label %106
 
 88:                                               ; preds = %61
-  %89 = load i64, ptr %74, align 8
+  %89 = load i64, ptr %74, align 8, !tbaa !142
   %90 = sitofp i64 %89 to double
   %91 = uitofp nneg i64 %86 to double
   %92 = fdiv double %90, %91
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, double noundef %92) #9
-  %94 = load i64, ptr %62, align 8
+  %94 = load i64, ptr %62, align 8, !tbaa !135
   %95 = sitofp i64 %94 to double
-  %96 = load i64, ptr %41, align 8
+  %96 = load i64, ptr %41, align 8, !tbaa !112
   %97 = sitofp i64 %96 to double
   %98 = fdiv double %95, %97
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, double noundef %98) #9
-  %100 = load i64, ptr %68, align 8
+  %100 = load i64, ptr %68, align 8, !tbaa !140
   %101 = sitofp i64 %100 to double
-  %102 = load i64, ptr %41, align 8
+  %102 = load i64, ptr %41, align 8, !tbaa !112
   %103 = sitofp i64 %102 to double
   %104 = fdiv double %101, %103
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, double noundef %104) #9
@@ -3110,90 +3110,90 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 
 106:                                              ; preds = %61, %88, %55
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  %108 = load i64, ptr %107, align 8
+  %108 = load i64, ptr %107, align 8, !tbaa !110
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.49, i64 noundef %108) #9
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 2520
-  %111 = load ptr, ptr %110, align 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !146
   %.not263 = icmp eq ptr %111, null
   br i1 %.not263, label %119, label %112
 
 112:                                              ; preds = %106
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 64
-  %114 = load i64, ptr %113, align 8
+  %114 = load i64, ptr %113, align 8, !tbaa !147
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i64 noundef %114) #9
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 72
-  %117 = load i64, ptr %116, align 8
+  %117 = load i64, ptr %116, align 8, !tbaa !149
   %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.51, i64 noundef %117) #9
   br label %119
 
 119:                                              ; preds = %112, %106
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %121 = load i32, ptr %120, align 4
+  %121 = load i32, ptr %120, align 4, !tbaa !115
   %.not264 = icmp eq i32 %121, 0
   br i1 %.not264, label %129, label %122
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 1592
-  %124 = load i64, ptr %123, align 8
+  %124 = load i64, ptr %123, align 8, !tbaa !116
   %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.52, i64 noundef %124) #9
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  %127 = load i64, ptr %126, align 8
+  %127 = load i64, ptr %126, align 8, !tbaa !117
   %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.53, i64 noundef %127) #9
   br label %129
 
 129:                                              ; preds = %122, %119
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %131 = load i32, ptr %130, align 4
+  %131 = load i32, ptr %130, align 4, !tbaa !51
   %.not265 = icmp eq i32 %131, 0
   br i1 %.not265, label %199, label %132
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %134 = load i64, ptr %133, align 8
+  %134 = load i64, ptr %133, align 8, !tbaa !123
   %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.54, i64 noundef %134) #9
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 1608
-  %137 = load i64, ptr %136, align 8
+  %137 = load i64, ptr %136, align 8, !tbaa !124
   %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.55, i64 noundef %137) #9
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  %140 = load i64, ptr %139, align 8
+  %140 = load i64, ptr %139, align 8, !tbaa !125
   %141 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.56, i64 noundef %140) #9
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %143 = load i32, ptr %142, align 4
+  %143 = load i32, ptr %142, align 4, !tbaa !52
   %.not266 = icmp eq i32 %143, 1
   br i1 %.not266, label %.thread, label %144
 
 144:                                              ; preds = %132
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  %146 = load i64, ptr %145, align 8
+  %146 = load i64, ptr %145, align 8, !tbaa !128
   %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.57, i64 noundef %146) #9
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %149 = load i64, ptr %148, align 8
+  %149 = load i64, ptr %148, align 8, !tbaa !129
   %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.58, i64 noundef %149) #9
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 1640
-  %152 = load i64, ptr %151, align 8
+  %152 = load i64, ptr %151, align 8, !tbaa !130
   %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.59, i64 noundef %152) #9
-  %.pr = load i32, ptr %142, align 4
+  %.pr = load i32, ptr %142, align 4, !tbaa !52
   %154 = icmp eq i32 %.pr, 3
   br i1 %154, label %155, label %.thread
 
 155:                                              ; preds = %144
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  %157 = load ptr, ptr %156, align 8
-  %158 = load i64, ptr %157, align 8
+  %157 = load ptr, ptr %156, align 8, !tbaa !131
+  %158 = load i64, ptr %157, align 8, !tbaa !91
   %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.60, i64 noundef %158) #9
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %161 = load i32, ptr %160, align 8
+  %161 = load i32, ptr %160, align 8, !tbaa !84
   %162 = icmp sgt i32 %161, 1
   br i1 %162, label %.lr.ph282, label %._crit_edge
 
 .lr.ph282:                                        ; preds = %155, %.lr.ph282
   %indvars.iv298 = phi i64 [ %indvars.iv.next299, %.lr.ph282 ], [ 1, %155 ]
-  %163 = load ptr, ptr %156, align 8
+  %163 = load ptr, ptr %156, align 8, !tbaa !131
   %164 = getelementptr inbounds nuw i64, ptr %163, i64 %indvars.iv298
-  %165 = load i64, ptr %164, align 8
+  %165 = load i64, ptr %164, align 8, !tbaa !91
   %166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.61, i64 noundef %165) #9
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %167 = load i32, ptr %160, align 8
+  %167 = load i32, ptr %160, align 8, !tbaa !84
   %168 = sext i32 %167 to i64
   %169 = icmp slt i64 %indvars.iv.next299, %168
   br i1 %169, label %.lr.ph282, label %._crit_edge
@@ -3201,21 +3201,21 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 ._crit_edge:                                      ; preds = %.lr.ph282, %155
   %fputc267 = tail call i32 @fputc(i32 10, ptr %1)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %171 = load ptr, ptr %170, align 8
-  %172 = load i64, ptr %171, align 8
+  %171 = load ptr, ptr %170, align 8, !tbaa !132
+  %172 = load i64, ptr %171, align 8, !tbaa !91
   %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.63, i64 noundef %172) #9
-  %174 = load i32, ptr %160, align 8
+  %174 = load i32, ptr %160, align 8, !tbaa !84
   %175 = icmp sgt i32 %174, 1
   br i1 %175, label %.lr.ph285, label %._crit_edge286
 
 .lr.ph285:                                        ; preds = %._crit_edge, %.lr.ph285
   %indvars.iv301 = phi i64 [ %indvars.iv.next302, %.lr.ph285 ], [ 1, %._crit_edge ]
-  %176 = load ptr, ptr %170, align 8
+  %176 = load ptr, ptr %170, align 8, !tbaa !132
   %177 = getelementptr inbounds nuw i64, ptr %176, i64 %indvars.iv301
-  %178 = load i64, ptr %177, align 8
+  %178 = load i64, ptr %177, align 8, !tbaa !91
   %179 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.61, i64 noundef %178) #9
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %180 = load i32, ptr %160, align 8
+  %180 = load i32, ptr %160, align 8, !tbaa !84
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next302, %181
   br i1 %182, label %.lr.ph285, label %._crit_edge286
@@ -3223,21 +3223,21 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 ._crit_edge286:                                   ; preds = %.lr.ph285, %._crit_edge
   %fputc268 = tail call i32 @fputc(i32 10, ptr %1)
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 1648
-  %184 = load ptr, ptr %183, align 8
-  %185 = load i64, ptr %184, align 8
+  %184 = load ptr, ptr %183, align 8, !tbaa !133
+  %185 = load i64, ptr %184, align 8, !tbaa !91
   %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.64, i64 noundef %185) #9
-  %187 = load i32, ptr %160, align 8
+  %187 = load i32, ptr %160, align 8, !tbaa !84
   %188 = icmp sgt i32 %187, 1
   br i1 %188, label %.lr.ph289, label %._crit_edge290
 
 .lr.ph289:                                        ; preds = %._crit_edge286, %.lr.ph289
   %indvars.iv304 = phi i64 [ %indvars.iv.next305, %.lr.ph289 ], [ 1, %._crit_edge286 ]
-  %189 = load ptr, ptr %183, align 8
+  %189 = load ptr, ptr %183, align 8, !tbaa !133
   %190 = getelementptr inbounds nuw i64, ptr %189, i64 %indvars.iv304
-  %191 = load i64, ptr %190, align 8
+  %191 = load i64, ptr %190, align 8, !tbaa !91
   %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.61, i64 noundef %191) #9
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
-  %193 = load i32, ptr %160, align 8
+  %193 = load i32, ptr %160, align 8, !tbaa !84
   %194 = sext i32 %193 to i64
   %195 = icmp slt i64 %indvars.iv.next305, %194
   br i1 %195, label %.lr.ph289, label %._crit_edge290
@@ -3248,71 +3248,71 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 
 .thread:                                          ; preds = %132, %._crit_edge290, %144
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %197 = load i64, ptr %196, align 8
+  %197 = load i64, ptr %196, align 8, !tbaa !126
   %198 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.65, i64 noundef %197) #9
   br label %199
 
 199:                                              ; preds = %.thread, %129
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %201 = load i32, ptr %200, align 8
+  %201 = load i32, ptr %200, align 8, !tbaa !119
   %.not270 = icmp eq i32 %201, 0
   br i1 %.not270, label %413, label %202
 
 202:                                              ; preds = %199
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 1616
-  %204 = load i64, ptr %203, align 8
+  %204 = load i64, ptr %203, align 8, !tbaa !120
   %205 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.66, i64 noundef %204) #9
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  %207 = load i64, ptr %206, align 8
+  %207 = load i64, ptr %206, align 8, !tbaa !121
   %208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.67, i64 noundef %207) #9
   br label %413
 
 209:                                              ; preds = %6
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %211 = load double, ptr %210, align 8
+  %211 = load double, ptr %210, align 8, !tbaa !44
   %212 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.68, double noundef %211) #9
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 1576
-  %214 = load i64, ptr %213, align 8
+  %214 = load i64, ptr %213, align 8, !tbaa !43
   %215 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.69, i64 noundef %214) #9
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 1704
-  %217 = load i64, ptr %216, align 8
+  %217 = load i64, ptr %216, align 8, !tbaa !94
   %218 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.70, i64 noundef %217) #9
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 1632
-  %220 = load i64, ptr %219, align 8
+  %220 = load i64, ptr %219, align 8, !tbaa !114
   %221 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, i64 noundef %220) #9
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 2056
-  %223 = load double, ptr %222, align 8
+  %223 = load double, ptr %222, align 8, !tbaa !99
   %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.72, double noundef %223) #9
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %226 = load double, ptr %225, align 8
+  %226 = load double, ptr %225, align 8, !tbaa !100
   %227 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.73, double noundef %226) #9
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %229 = load double, ptr %228, align 8
+  %229 = load double, ptr %228, align 8, !tbaa !101
   %230 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.74, double noundef %229) #9
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 2044
-  %232 = load i32, ptr %231, align 4
+  %232 = load i32, ptr %231, align 4, !tbaa !95
   %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.75, i32 noundef %232) #9
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %235 = load i32, ptr %234, align 8
+  %235 = load i32, ptr %234, align 8, !tbaa !96
   %236 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.76, i32 noundef %235) #9
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 2384
-  %238 = load i64, ptr %237, align 8
+  %238 = load i64, ptr %237, align 8, !tbaa !98
   %239 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.77, i64 noundef %238) #9
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 1584
-  %241 = load i64, ptr %240, align 8
+  %241 = load i64, ptr %240, align 8, !tbaa !92
   %242 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.78, i64 noundef %241) #9
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %244 = load i64, ptr %243, align 8
+  %244 = load i64, ptr %243, align 8, !tbaa !112
   %245 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.79, i64 noundef %244) #9
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 1680
-  %247 = load i64, ptr %246, align 8
+  %247 = load i64, ptr %246, align 8, !tbaa !113
   %248 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.80, i64 noundef %247) #9
-  %249 = load i64, ptr %213, align 8
+  %249 = load i64, ptr %213, align 8, !tbaa !43
   %250 = icmp sgt i64 %249, 0
   br i1 %250, label %251, label %257
 
 251:                                              ; preds = %209
-  %252 = load i64, ptr %243, align 8
+  %252 = load i64, ptr %243, align 8, !tbaa !112
   %253 = sitofp i64 %252 to double
   %254 = uitofp nneg i64 %249 to double
   %255 = fdiv double %253, %254
@@ -3325,57 +3325,57 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 
 259:                                              ; preds = %257, %251
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 1736
-  %261 = load i64, ptr %260, align 8
+  %261 = load i64, ptr %260, align 8, !tbaa !93
   %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.83, i64 noundef %261) #9
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 2016
-  %264 = load ptr, ptr %263, align 8
+  %264 = load ptr, ptr %263, align 8, !tbaa !134
   %.not = icmp eq ptr %264, null
   br i1 %.not, label %314, label %265
 
 265:                                              ; preds = %259
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 136
-  %267 = load i64, ptr %266, align 8
+  %267 = load i64, ptr %266, align 8, !tbaa !135
   %268 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.84, i64 noundef %267) #9
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 144
-  %270 = load i64, ptr %269, align 8
+  %270 = load i64, ptr %269, align 8, !tbaa !139
   %271 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.85, i64 noundef %270) #9
   %272 = getelementptr inbounds nuw i8, ptr %264, i64 160
-  %273 = load i64, ptr %272, align 8
+  %273 = load i64, ptr %272, align 8, !tbaa !140
   %274 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.86, i64 noundef %273) #9
   %275 = getelementptr inbounds nuw i8, ptr %264, i64 176
-  %276 = load i64, ptr %275, align 8
+  %276 = load i64, ptr %275, align 8, !tbaa !141
   %277 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.87, i64 noundef %276) #9
   %278 = getelementptr inbounds nuw i8, ptr %264, i64 168
-  %279 = load i64, ptr %278, align 8
+  %279 = load i64, ptr %278, align 8, !tbaa !142
   %280 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.88, i64 noundef %279) #9
   %281 = getelementptr inbounds nuw i8, ptr %264, i64 184
-  %282 = load i64, ptr %281, align 8
+  %282 = load i64, ptr %281, align 8, !tbaa !143
   %283 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.89, i64 noundef %282) #9
   %284 = getelementptr inbounds nuw i8, ptr %264, i64 192
-  %285 = load i64, ptr %284, align 8
+  %285 = load i64, ptr %284, align 8, !tbaa !144
   %286 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.90, i64 noundef %285) #9
   %287 = getelementptr inbounds nuw i8, ptr %264, i64 200
-  %288 = load i64, ptr %287, align 8
+  %288 = load i64, ptr %287, align 8, !tbaa !145
   %289 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.91, i64 noundef %288) #9
-  %290 = load i64, ptr %243, align 8
+  %290 = load i64, ptr %243, align 8, !tbaa !112
   %291 = icmp sgt i64 %290, 0
   br i1 %291, label %292, label %310
 
 292:                                              ; preds = %265
-  %293 = load i64, ptr %278, align 8
+  %293 = load i64, ptr %278, align 8, !tbaa !142
   %294 = sitofp i64 %293 to double
   %295 = uitofp nneg i64 %290 to double
   %296 = fdiv double %294, %295
   %297 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.92, double noundef %296) #9
-  %298 = load i64, ptr %266, align 8
+  %298 = load i64, ptr %266, align 8, !tbaa !135
   %299 = sitofp i64 %298 to double
-  %300 = load i64, ptr %243, align 8
+  %300 = load i64, ptr %243, align 8, !tbaa !112
   %301 = sitofp i64 %300 to double
   %302 = fdiv double %299, %301
   %303 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.93, double noundef %302) #9
-  %304 = load i64, ptr %272, align 8
+  %304 = load i64, ptr %272, align 8, !tbaa !140
   %305 = sitofp i64 %304 to double
-  %306 = load i64, ptr %243, align 8
+  %306 = load i64, ptr %243, align 8, !tbaa !112
   %307 = sitofp i64 %306 to double
   %308 = fdiv double %305, %307
   %309 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.94, double noundef %308) #9
@@ -3389,75 +3389,75 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 
 314:                                              ; preds = %292, %310, %259
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  %316 = load i64, ptr %315, align 8
+  %316 = load i64, ptr %315, align 8, !tbaa !110
   %317 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.98, i64 noundef %316) #9
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 2520
-  %319 = load ptr, ptr %318, align 8
+  %319 = load ptr, ptr %318, align 8, !tbaa !146
   %.not257 = icmp eq ptr %319, null
   br i1 %.not257, label %327, label %320
 
 320:                                              ; preds = %314
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 64
-  %322 = load i64, ptr %321, align 8
+  %322 = load i64, ptr %321, align 8, !tbaa !147
   %323 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.99, i64 noundef %322) #9
   %324 = getelementptr inbounds nuw i8, ptr %319, i64 72
-  %325 = load i64, ptr %324, align 8
+  %325 = load i64, ptr %324, align 8, !tbaa !149
   %326 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.100, i64 noundef %325) #9
   br label %327
 
 327:                                              ; preds = %320, %314
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %329 = load i32, ptr %328, align 4
+  %329 = load i32, ptr %328, align 4, !tbaa !115
   %.not258 = icmp eq i32 %329, 0
   br i1 %.not258, label %337, label %330
 
 330:                                              ; preds = %327
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 1592
-  %332 = load i64, ptr %331, align 8
+  %332 = load i64, ptr %331, align 8, !tbaa !116
   %333 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.101, i64 noundef %332) #9
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 1712
-  %335 = load i64, ptr %334, align 8
+  %335 = load i64, ptr %334, align 8, !tbaa !117
   %336 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.102, i64 noundef %335) #9
   br label %337
 
 337:                                              ; preds = %330, %327
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %339 = load i32, ptr %338, align 4
+  %339 = load i32, ptr %338, align 4, !tbaa !51
   %.not259 = icmp eq i32 %339, 0
   br i1 %.not259, label %401, label %340
 
 340:                                              ; preds = %337
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %342 = load i64, ptr %341, align 8
+  %342 = load i64, ptr %341, align 8, !tbaa !123
   %343 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.103, i64 noundef %342) #9
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 1608
-  %345 = load i64, ptr %344, align 8
+  %345 = load i64, ptr %344, align 8, !tbaa !124
   %346 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.104, i64 noundef %345) #9
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 1720
-  %348 = load i64, ptr %347, align 8
+  %348 = load i64, ptr %347, align 8, !tbaa !125
   %349 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.105, i64 noundef %348) #9
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %351 = load i32, ptr %350, align 4
+  %351 = load i32, ptr %350, align 4, !tbaa !52
   %.not260 = icmp eq i32 %351, 1
   br i1 %.not260, label %.thread272, label %352
 
 352:                                              ; preds = %340
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  %354 = load i64, ptr %353, align 8
+  %354 = load i64, ptr %353, align 8, !tbaa !128
   %355 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.106, i64 noundef %354) #9
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %357 = load i64, ptr %356, align 8
+  %357 = load i64, ptr %356, align 8, !tbaa !129
   %358 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.107, i64 noundef %357) #9
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 1640
-  %360 = load i64, ptr %359, align 8
+  %360 = load i64, ptr %359, align 8, !tbaa !130
   %361 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.108, i64 noundef %360) #9
-  %.pr271 = load i32, ptr %350, align 4
+  %.pr271 = load i32, ptr %350, align 4, !tbaa !52
   %362 = icmp eq i32 %.pr271, 3
   br i1 %362, label %.preheader274, label %.thread272
 
 .preheader274:                                    ; preds = %352
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %364 = load i32, ptr %363, align 8
+  %364 = load i32, ptr %363, align 8, !tbaa !84
   %365 = icmp sgt i32 %364, 0
   br i1 %365, label %.lr.ph, label %.thread272
 
@@ -3475,13 +3475,13 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 
 369:                                              ; preds = %.lr.ph, %369
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %369 ]
-  %370 = load ptr, ptr %366, align 8
+  %370 = load ptr, ptr %366, align 8, !tbaa !131
   %371 = getelementptr inbounds nuw i64, ptr %370, i64 %indvars.iv
-  %372 = load i64, ptr %371, align 8
+  %372 = load i64, ptr %371, align 8, !tbaa !91
   %373 = trunc nuw nsw i64 %indvars.iv to i32
   %374 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.109, i32 noundef %373, i64 noundef %372) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %375 = load i32, ptr %363, align 8
+  %375 = load i32, ptr %363, align 8, !tbaa !84
   %376 = sext i32 %375 to i64
   %377 = icmp slt i64 %indvars.iv.next, %376
   br i1 %377, label %369, label %.preheader273
@@ -3496,48 +3496,48 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
 
 380:                                              ; preds = %.lr.ph278, %380
   %indvars.iv292 = phi i64 [ 0, %.lr.ph278 ], [ %indvars.iv.next293, %380 ]
-  %381 = load ptr, ptr %368, align 8
+  %381 = load ptr, ptr %368, align 8, !tbaa !132
   %382 = getelementptr inbounds nuw i64, ptr %381, i64 %indvars.iv292
-  %383 = load i64, ptr %382, align 8
+  %383 = load i64, ptr %382, align 8, !tbaa !91
   %384 = trunc nuw nsw i64 %indvars.iv292 to i32
   %385 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.110, i32 noundef %384, i64 noundef %383) #9
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %386 = load i32, ptr %363, align 8
+  %386 = load i32, ptr %363, align 8, !tbaa !84
   %387 = sext i32 %386 to i64
   %388 = icmp slt i64 %indvars.iv.next293, %387
   br i1 %388, label %380, label %.preheader
 
 389:                                              ; preds = %.lr.ph280, %389
   %indvars.iv295 = phi i64 [ 0, %.lr.ph280 ], [ %indvars.iv.next296, %389 ]
-  %390 = load ptr, ptr %379, align 8
+  %390 = load ptr, ptr %379, align 8, !tbaa !133
   %391 = getelementptr inbounds nuw i64, ptr %390, i64 %indvars.iv295
-  %392 = load i64, ptr %391, align 8
+  %392 = load i64, ptr %391, align 8, !tbaa !91
   %393 = trunc nuw nsw i64 %indvars.iv295 to i32
   %394 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.111, i32 noundef %393, i64 noundef %392) #9
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %395 = load i32, ptr %363, align 8
+  %395 = load i32, ptr %363, align 8, !tbaa !84
   %396 = sext i32 %395 to i64
   %397 = icmp slt i64 %indvars.iv.next296, %396
   br i1 %397, label %389, label %.thread272
 
 .thread272:                                       ; preds = %389, %.preheader274, %.preheader273, %.preheader, %340, %352
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 1744
-  %399 = load i64, ptr %398, align 8
+  %399 = load i64, ptr %398, align 8, !tbaa !126
   %400 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.112, i64 noundef %399) #9
   br label %401
 
 401:                                              ; preds = %.thread272, %337
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %403 = load i32, ptr %402, align 8
+  %403 = load i32, ptr %402, align 8, !tbaa !119
   %.not261 = icmp eq i32 %403, 0
   br i1 %.not261, label %411, label %404
 
 404:                                              ; preds = %401
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 1616
-  %406 = load i64, ptr %405, align 8
+  %406 = load i64, ptr %405, align 8, !tbaa !120
   %407 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.113, i64 noundef %406) #9
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 1728
-  %409 = load i64, ptr %408, align 8
+  %409 = load i64, ptr %408, align 8, !tbaa !121
   %410 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.114, i64 noundef %409) #9
   br label %411
 
@@ -3546,7 +3546,7 @@ define range(i32 -22, 1) i32 @CVodePrintAllStats(ptr noundef %0, ptr noundef cap
   br label %413
 
 412:                                              ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2772, ptr noundef nonnull @__func__.CVodePrintAllStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.115) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 2774, ptr noundef nonnull @__func__.CVodePrintAllStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.115) #9
   br label %413
 
 413:                                              ; preds = %411, %202, %199, %412, %5
@@ -3563,13 +3563,13 @@ define range(i32 -21, 1) i32 @CVodeGetUserData(ptr noundef readonly captures(add
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2788, ptr noundef nonnull @__func__.CVodeGetUserData, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 2790, ptr noundef nonnull @__func__.CVodeGetUserData, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %1, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  store ptr %7, ptr %1, align 8, !tbaa !150
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -3816,21 +3816,168 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !9, i64 2032}
+!4 = !{!"CVodeMemRec", !5, i64 0, !9, i64 8, !6, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !9, i64 40, !9, i64 48, !11, i64 56, !10, i64 64, !10, i64 68, !6, i64 72, !6, i64 80, !10, i64 88, !10, i64 92, !6, i64 96, !10, i64 104, !10, i64 108, !9, i64 112, !9, i64 120, !11, i64 128, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !6, i64 152, !6, i64 160, !6, i64 168, !10, i64 176, !10, i64 180, !12, i64 184, !12, i64 192, !13, i64 200, !10, i64 208, !9, i64 216, !10, i64 224, !10, i64 228, !9, i64 232, !12, i64 240, !14, i64 248, !13, i64 256, !10, i64 264, !6, i64 272, !6, i64 280, !10, i64 288, !10, i64 292, !10, i64 296, !9, i64 304, !12, i64 312, !14, i64 320, !13, i64 328, !7, i64 336, !11, i64 440, !11, i64 448, !11, i64 456, !11, i64 464, !11, i64 472, !11, i64 480, !11, i64 488, !11, i64 496, !11, i64 504, !7, i64 512, !11, i64 616, !11, i64 624, !11, i64 632, !11, i64 640, !7, i64 648, !14, i64 752, !14, i64 760, !14, i64 768, !14, i64 776, !14, i64 784, !10, i64 792, !7, i64 800, !14, i64 904, !14, i64 912, !14, i64 920, !14, i64 928, !11, i64 936, !10, i64 944, !10, i64 948, !9, i64 952, !10, i64 960, !10, i64 964, !10, i64 968, !10, i64 972, !10, i64 976, !9, i64 984, !9, i64 992, !9, i64 1000, !9, i64 1008, !9, i64 1016, !9, i64 1024, !9, i64 1032, !9, i64 1040, !7, i64 1048, !7, i64 1160, !7, i64 1208, !9, i64 1312, !9, i64 1320, !9, i64 1328, !9, i64 1336, !9, i64 1344, !9, i64 1352, !9, i64 1360, !9, i64 1368, !10, i64 1376, !9, i64 1384, !9, i64 1392, !10, i64 1400, !9, i64 1408, !9, i64 1416, !13, i64 1424, !10, i64 1432, !15, i64 1440, !10, i64 1448, !10, i64 1452, !10, i64 1456, !9, i64 1464, !9, i64 1472, !9, i64 1480, !9, i64 1488, !9, i64 1496, !9, i64 1504, !9, i64 1512, !9, i64 1520, !9, i64 1528, !9, i64 1536, !9, i64 1544, !9, i64 1552, !15, i64 1560, !10, i64 1568, !15, i64 1576, !15, i64 1584, !15, i64 1592, !15, i64 1600, !15, i64 1608, !15, i64 1616, !15, i64 1624, !15, i64 1632, !15, i64 1640, !16, i64 1648, !15, i64 1656, !15, i64 1664, !16, i64 1672, !15, i64 1680, !15, i64 1688, !16, i64 1696, !15, i64 1704, !15, i64 1712, !15, i64 1720, !15, i64 1728, !15, i64 1736, !15, i64 1744, !10, i64 1752, !9, i64 1760, !9, i64 1768, !9, i64 1776, !15, i64 1784, !15, i64 1792, !15, i64 1800, !15, i64 1808, !15, i64 1816, !15, i64 1824, !17, i64 1832, !10, i64 1840, !17, i64 1848, !10, i64 1856, !17, i64 1864, !10, i64 1872, !17, i64 1880, !10, i64 1888, !10, i64 1892, !15, i64 1896, !10, i64 1904, !6, i64 1912, !10, i64 1920, !11, i64 1928, !11, i64 1936, !11, i64 1944, !11, i64 1952, !11, i64 1960, !11, i64 1968, !10, i64 1976, !10, i64 1980, !6, i64 1984, !6, i64 1992, !6, i64 2000, !6, i64 2008, !6, i64 2016, !15, i64 2024, !9, i64 2032, !10, i64 2040, !10, i64 2044, !15, i64 2048, !9, i64 2056, !9, i64 2064, !9, i64 2072, !10, i64 2080, !10, i64 2084, !9, i64 2088, !10, i64 2096, !10, i64 2100, !10, i64 2104, !10, i64 2108, !10, i64 2112, !10, i64 2116, !10, i64 2120, !10, i64 2124, !10, i64 2128, !10, i64 2132, !10, i64 2136, !10, i64 2140, !10, i64 2144, !10, i64 2148, !10, i64 2152, !10, i64 2156, !6, i64 2160, !15, i64 2168, !10, i64 2176, !7, i64 2184, !10, i64 2376, !15, i64 2384, !6, i64 2392, !10, i64 2400, !13, i64 2408, !13, i64 2416, !9, i64 2424, !9, i64 2432, !9, i64 2440, !12, i64 2448, !12, i64 2456, !12, i64 2464, !9, i64 2472, !9, i64 2480, !10, i64 2488, !10, i64 2492, !15, i64 2496, !13, i64 2504, !10, i64 2512, !18, i64 2520, !10, i64 2528, !10, i64 2532, !7, i64 2536, !12, i64 2640, !14, i64 2648, !14, i64 2656, !10, i64 2664, !19, i64 2672, !10, i64 2680}
+!5 = !{!"p1 _ZTS11SUNContext_", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"double", !7, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!"p1 _ZTS17_generic_N_Vector", !6, i64 0}
+!12 = !{!"p1 double", !6, i64 0}
+!13 = !{!"p1 int", !6, i64 0}
+!14 = !{!"p2 _ZTS17_generic_N_Vector", !6, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!"p1 long", !6, i64 0}
+!17 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !6, i64 0}
+!18 = !{!"p1 _ZTS15CVodeProjMemRec", !6, i64 0}
+!19 = !{!"p1 _ZTS11CVadjMemRec", !6, i64 0}
+!20 = !{!4, !6, i64 24}
+!21 = !{!4, !10, i64 2096}
+!22 = !{!4, !10, i64 2100}
+!23 = !{!4, !10, i64 2104}
+!24 = !{!4, !10, i64 1432}
+!25 = !{!4, !15, i64 1440}
+!26 = !{!4, !10, i64 1448}
+!27 = !{!4, !10, i64 32}
+!28 = !{!4, !10, i64 2176}
+!29 = !{!4, !9, i64 984}
+!30 = !{!4, !9, i64 1464}
+!31 = !{!4, !9, i64 1472}
+!32 = !{!4, !9, i64 1488}
+!33 = !{!4, !9, i64 1496}
+!34 = !{!4, !9, i64 1504}
+!35 = !{!4, !9, i64 1512}
+!36 = !{!4, !15, i64 1560}
+!37 = !{!4, !9, i64 1520}
+!38 = !{!4, !9, i64 1528}
+!39 = !{!4, !9, i64 1536}
+!40 = !{!4, !9, i64 1544}
+!41 = !{!4, !10, i64 1568}
+!42 = !{!4, !9, i64 1552}
+!43 = !{!4, !15, i64 1576}
+!44 = !{!4, !9, i64 1032}
+!45 = !{!4, !9, i64 992}
+!46 = !{!4, !9, i64 952}
+!47 = !{!4, !10, i64 944}
+!48 = !{!4, !10, i64 948}
+!49 = !{!4, !10, i64 1452}
+!50 = !{!4, !10, i64 1456}
+!51 = !{!4, !10, i64 140}
+!52 = !{!4, !10, i64 148}
+!53 = !{!4, !17, i64 1848}
+!54 = !{!4, !17, i64 1832}
+!55 = !{!4, !9, i64 1416}
+!56 = !{!4, !15, i64 2024}
+!57 = !{!4, !10, i64 2400}
+!58 = !{!4, !13, i64 2416}
+!59 = !{!10, !10, i64 0}
+!60 = !{!4, !10, i64 2512}
+!61 = !{!4, !10, i64 2124}
+!62 = !{!4, !11, i64 504}
+!63 = !{!4, !15, i64 1784}
+!64 = !{!4, !15, i64 1816}
+!65 = !{!4, !15, i64 1792}
+!66 = !{!4, !15, i64 1824}
+!67 = !{!4, !10, i64 88}
+!68 = !{!69, !70, i64 8}
+!69 = !{!"_generic_N_Vector", !6, i64 0, !70, i64 8, !5, i64 16}
+!70 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
+!71 = !{!72, !6, i64 112}
+!72 = !{!"_generic_N_Vector_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !6, i64 432, !6, i64 440}
+!73 = !{!72, !6, i64 160}
+!74 = !{!72, !6, i64 208}
+!75 = !{!72, !6, i64 224}
+!76 = !{!72, !6, i64 232}
+!77 = !{!4, !10, i64 104}
+!78 = !{!4, !10, i64 208}
+!79 = !{!4, !9, i64 216}
+!80 = !{!4, !10, i64 224}
+!81 = !{!4, !17, i64 1864}
+!82 = !{!4, !17, i64 1880}
+!83 = !{!4, !10, i64 2144}
+!84 = !{!4, !10, i64 144}
+!85 = !{!4, !12, i64 184}
+!86 = !{!4, !12, i64 192}
+!87 = !{!9, !9, i64 0}
+!88 = !{!4, !13, i64 200}
+!89 = !{!4, !10, i64 2156}
+!90 = !{!4, !10, i64 292}
+!91 = !{!15, !15, i64 0}
+!92 = !{!4, !15, i64 1584}
+!93 = !{!4, !15, i64 1736}
+!94 = !{!4, !15, i64 1704}
+!95 = !{!4, !10, i64 2044}
+!96 = !{!4, !10, i64 968}
+!97 = !{!4, !9, i64 1320}
+!98 = !{!4, !15, i64 2384}
+!99 = !{!4, !9, i64 2056}
+!100 = !{!4, !9, i64 2064}
+!101 = !{!4, !9, i64 1008}
+!102 = !{!4, !11, i64 448}
+!103 = !{!11, !11, i64 0}
+!104 = !{!4, !14, i64 760}
+!105 = !{!14, !14, i64 0}
+!106 = !{!4, !10, i64 1892}
+!107 = !{!4, !9, i64 2088}
+!108 = !{!4, !11, i64 440}
+!109 = !{!4, !11, i64 456}
+!110 = !{!4, !15, i64 2496}
+!111 = !{!4, !13, i64 2408}
+!112 = !{!4, !15, i64 1656}
+!113 = !{!4, !15, i64 1680}
+!114 = !{!4, !15, i64 1632}
+!115 = !{!4, !10, i64 92}
+!116 = !{!4, !15, i64 1592}
+!117 = !{!4, !15, i64 1712}
+!118 = !{!4, !11, i64 616}
+!119 = !{!4, !10, i64 264}
+!120 = !{!4, !15, i64 1616}
+!121 = !{!4, !15, i64 1728}
+!122 = !{!4, !14, i64 904}
+!123 = !{!4, !15, i64 1600}
+!124 = !{!4, !15, i64 1608}
+!125 = !{!4, !15, i64 1720}
+!126 = !{!4, !15, i64 1744}
+!127 = !{!4, !14, i64 752}
+!128 = !{!4, !15, i64 1664}
+!129 = !{!4, !15, i64 1688}
+!130 = !{!4, !15, i64 1640}
+!131 = !{!4, !16, i64 1672}
+!132 = !{!4, !16, i64 1696}
+!133 = !{!4, !16, i64 1648}
+!134 = !{!4, !6, i64 2016}
+!135 = !{!136, !15, i64 136}
+!136 = !{!"CVLsMemRec", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !6, i64 24, !10, i64 32, !9, i64 40, !10, i64 48, !9, i64 56, !9, i64 64, !137, i64 72, !138, i64 80, !138, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !9, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !10, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !10, i64 288, !6, i64 296, !6, i64 304, !10, i64 312}
+!137 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !6, i64 0}
+!138 = !{!"p1 _ZTS18_generic_SUNMatrix", !6, i64 0}
+!139 = !{!136, !15, i64 144}
+!140 = !{!136, !15, i64 160}
+!141 = !{!136, !15, i64 176}
+!142 = !{!136, !15, i64 168}
+!143 = !{!136, !15, i64 184}
+!144 = !{!136, !15, i64 192}
+!145 = !{!136, !15, i64 200}
+!146 = !{!4, !18, i64 2520}
+!147 = !{!148, !15, i64 64}
+!148 = !{!"CVodeProjMemRec", !10, i64 0, !10, i64 4, !10, i64 8, !15, i64 16, !15, i64 24, !10, i64 32, !6, i64 40, !9, i64 48, !9, i64 56, !15, i64 64, !15, i64 72}
+!149 = !{!148, !15, i64 72}
+!150 = !{!6, !6, i64 0}

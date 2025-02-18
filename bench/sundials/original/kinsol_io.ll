@@ -120,33 +120,44 @@ define i32 @KINSetUserData(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 56, ptr noundef @__func__.KINSetUserData, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.KINMemRec, ptr %13, i32 0, i32 3
-  store ptr %12, ptr %14, align 8
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 56, ptr noundef @__func__.KINSetUserData, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.KINMemRec, ptr %14, i32 0, i32 3
+  store ptr %13, ptr %15, align 8, !tbaa !9
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
-declare void @KINProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @KINProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @KINSetDamping(ptr noundef %0, double noundef %1) #0 {
@@ -154,61 +165,67 @@ define i32 @KINSetDamping(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 78, ptr noundef @__func__.KINSetDamping, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %31
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 0.000000e+00
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 78, ptr noundef @__func__.KINSetDamping, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 87, ptr noundef @__func__.KINSetDamping, ptr noundef @.str, ptr noundef @.str.2)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load double, ptr %5, align 8, !tbaa !20
+  %14 = fcmp ole double %13, 0.000000e+00
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 87, ptr noundef @__func__.KINSetDamping, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
+
+17:                                               ; preds = %11
+  %18 = load double, ptr %5, align 8, !tbaa !20
+  %19 = fcmp olt double %18, 1.000000e+00
+  br i1 %19, label %20, label %26
+
+20:                                               ; preds = %17
+  %21 = load double, ptr %5, align 8, !tbaa !20
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.KINMemRec, ptr %22, i32 0, i32 50
+  store double %21, ptr %23, align 8, !tbaa !21
+  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.KINMemRec, ptr %24, i32 0, i32 49
+  store i32 1, ptr %25, align 4, !tbaa !22
   br label %31
 
-16:                                               ; preds = %10
-  %17 = load double, ptr %5, align 8
-  %18 = fcmp olt double %17, 1.000000e+00
-  br i1 %18, label %19, label %25
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %6, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.KINMemRec, ptr %27, i32 0, i32 50
+  store double 1.000000e+00, ptr %28, align 8, !tbaa !21
+  %29 = load ptr, ptr %6, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.KINMemRec, ptr %29, i32 0, i32 49
+  store i32 0, ptr %30, align 4, !tbaa !22
+  br label %31
 
-19:                                               ; preds = %16
-  %20 = load double, ptr %5, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.KINMemRec, ptr %21, i32 0, i32 50
-  store double %20, ptr %22, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.KINMemRec, ptr %23, i32 0, i32 49
-  store i32 1, ptr %24, align 4
-  br label %30
-
-25:                                               ; preds = %16
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.KINMemRec, ptr %26, i32 0, i32 50
-  store double 1.000000e+00, ptr %27, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.KINMemRec, ptr %28, i32 0, i32 49
-  store i32 0, ptr %29, align 4
-  br label %30
-
-30:                                               ; preds = %25, %19
+31:                                               ; preds = %26, %20
   store i32 0, ptr %3, align 4
-  br label %31
+  store i32 1, ptr %7, align 4
+  br label %32
 
-31:                                               ; preds = %30, %14, %9
-  %32 = load i32, ptr %3, align 4
-  ret i32 %32
+32:                                               ; preds = %31, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %33 = load i32, ptr %3, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -217,56 +234,62 @@ define i32 @KINSetMAA(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 120, ptr noundef @__func__.KINSetMAA, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %30
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 120, ptr noundef @__func__.KINSetMAA, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %31
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 128, ptr noundef @__func__.KINSetMAA, ptr noundef @.str, ptr noundef @.str.3)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i64, ptr %5, align 8, !tbaa !23
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 128, ptr noundef @__func__.KINSetMAA, ptr noundef @.str, ptr noundef @.str.3)
   store i32 -2, ptr %3, align 4
-  br label %30
+  store i32 1, ptr %7, align 4
+  br label %31
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.KINMemRec, ptr %18, i32 0, i32 7
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp sgt i64 %17, %20
-  br i1 %21, label %22, label %26
+17:                                               ; preds = %11
+  %18 = load i64, ptr %5, align 8, !tbaa !23
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.KINMemRec, ptr %19, i32 0, i32 7
+  %21 = load i64, ptr %20, align 8, !tbaa !24
+  %22 = icmp sgt i64 %18, %21
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.KINMemRec, ptr %23, i32 0, i32 7
-  %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr %5, align 8
-  br label %26
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.KINMemRec, ptr %24, i32 0, i32 7
+  %26 = load i64, ptr %25, align 8, !tbaa !24
+  store i64 %26, ptr %5, align 8, !tbaa !23
+  br label %27
 
-26:                                               ; preds = %22, %16
-  %27 = load i64, ptr %5, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.KINMemRec, ptr %28, i32 0, i32 61
-  store i64 %27, ptr %29, align 8
+27:                                               ; preds = %23, %17
+  %28 = load i64, ptr %5, align 8, !tbaa !23
+  %29 = load ptr, ptr %6, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.KINMemRec, ptr %29, i32 0, i32 61
+  store i64 %28, ptr %30, align 8, !tbaa !25
   store i32 0, ptr %3, align 4
-  br label %30
+  store i32 1, ptr %7, align 4
+  br label %31
 
-30:                                               ; preds = %26, %14, %9
-  %31 = load i32, ptr %3, align 4
-  ret i32 %31
+31:                                               ; preds = %27, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %32 = load i32, ptr %3, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -275,41 +298,47 @@ define i32 @KINSetDelayAA(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 152, ptr noundef @__func__.KINSetDelayAA, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %20
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 152, ptr noundef @__func__.KINSetDelayAA, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %21
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 161, ptr noundef @__func__.KINSetDelayAA, ptr noundef @.str, ptr noundef @.str.4)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i64, ptr %5, align 8, !tbaa !23
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 161, ptr noundef @__func__.KINSetDelayAA, ptr noundef @.str, ptr noundef @.str.4)
   store i32 -2, ptr %3, align 4
-  br label %20
+  store i32 1, ptr %7, align 4
+  br label %21
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.KINMemRec, ptr %18, i32 0, i32 62
-  store i64 %17, ptr %19, align 8
+17:                                               ; preds = %11
+  %18 = load i64, ptr %5, align 8, !tbaa !23
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.KINMemRec, ptr %19, i32 0, i32 62
+  store i64 %18, ptr %20, align 8, !tbaa !26
   store i32 0, ptr %3, align 4
-  br label %20
+  store i32 1, ptr %7, align 4
+  br label %21
 
-20:                                               ; preds = %16, %14, %9
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+21:                                               ; preds = %17, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %22 = load i32, ptr %3, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -318,46 +347,52 @@ define i32 @KINSetOrthAA(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 183, ptr noundef @__func__.KINSetOrthAA, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %23
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp slt i32 %12, 0
-  br i1 %13, label %17, label %14
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 183, ptr noundef @__func__.KINSetOrthAA, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %24
 
-14:                                               ; preds = %10
-  %15 = load i32, ptr %5, align 4
-  %16 = icmp sgt i32 %15, 3
-  br i1 %16, label %17, label %19
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i32, ptr %5, align 4, !tbaa !27
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %18, label %15
 
-17:                                               ; preds = %14, %10
-  %18 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %18, i32 noundef -2, i32 noundef 191, ptr noundef @__func__.KINSetOrthAA, ptr noundef @.str, ptr noundef @.str.5)
+15:                                               ; preds = %11
+  %16 = load i32, ptr %5, align 4, !tbaa !27
+  %17 = icmp sgt i32 %16, 3
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %15, %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %19, i32 noundef -2, i32 noundef 191, ptr noundef @__func__.KINSetOrthAA, ptr noundef @.str, ptr noundef @.str.5)
   store i32 -2, ptr %3, align 4
-  br label %23
+  store i32 1, ptr %7, align 4
+  br label %24
 
-19:                                               ; preds = %14
-  %20 = load i32, ptr %5, align 4
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.KINMemRec, ptr %21, i32 0, i32 63
-  store i32 %20, ptr %22, align 8
+20:                                               ; preds = %15
+  %21 = load i32, ptr %5, align 4, !tbaa !27
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.KINMemRec, ptr %22, i32 0, i32 63
+  store i32 %21, ptr %23, align 8, !tbaa !28
   store i32 0, ptr %3, align 4
-  br label %23
+  store i32 1, ptr %7, align 4
+  br label %24
 
-23:                                               ; preds = %19, %17, %9
-  %24 = load i32, ptr %3, align 4
-  ret i32 %24
+24:                                               ; preds = %20, %18, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %25 = load i32, ptr %3, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -366,61 +401,67 @@ define i32 @KINSetDampingAA(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 213, ptr noundef @__func__.KINSetDampingAA, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %31
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp ole double %12, 0.000000e+00
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 213, ptr noundef @__func__.KINSetDampingAA, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 222, ptr noundef @__func__.KINSetDampingAA, ptr noundef @.str, ptr noundef @.str.2)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load double, ptr %5, align 8, !tbaa !20
+  %14 = fcmp ole double %13, 0.000000e+00
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 222, ptr noundef @__func__.KINSetDampingAA, ptr noundef @.str, ptr noundef @.str.2)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %32
+
+17:                                               ; preds = %11
+  %18 = load double, ptr %5, align 8, !tbaa !20
+  %19 = fcmp olt double %18, 1.000000e+00
+  br i1 %19, label %20, label %26
+
+20:                                               ; preds = %17
+  %21 = load double, ptr %5, align 8, !tbaa !20
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.KINMemRec, ptr %22, i32 0, i32 56
+  store double %21, ptr %23, align 8, !tbaa !29
+  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.KINMemRec, ptr %24, i32 0, i32 66
+  store i32 1, ptr %25, align 8, !tbaa !30
   br label %31
 
-16:                                               ; preds = %10
-  %17 = load double, ptr %5, align 8
-  %18 = fcmp olt double %17, 1.000000e+00
-  br i1 %18, label %19, label %25
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %6, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.KINMemRec, ptr %27, i32 0, i32 56
+  store double 1.000000e+00, ptr %28, align 8, !tbaa !29
+  %29 = load ptr, ptr %6, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.KINMemRec, ptr %29, i32 0, i32 66
+  store i32 0, ptr %30, align 8, !tbaa !30
+  br label %31
 
-19:                                               ; preds = %16
-  %20 = load double, ptr %5, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.KINMemRec, ptr %21, i32 0, i32 56
-  store double %20, ptr %22, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.KINMemRec, ptr %23, i32 0, i32 66
-  store i32 1, ptr %24, align 8
-  br label %30
-
-25:                                               ; preds = %16
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.KINMemRec, ptr %26, i32 0, i32 56
-  store double 1.000000e+00, ptr %27, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.KINMemRec, ptr %28, i32 0, i32 66
-  store i32 0, ptr %29, align 8
-  br label %30
-
-30:                                               ; preds = %25, %19
+31:                                               ; preds = %26, %20
   store i32 0, ptr %3, align 4
-  br label %31
+  store i32 1, ptr %7, align 4
+  br label %32
 
-31:                                               ; preds = %30, %14, %9
-  %32 = load i32, ptr %3, align 4
-  ret i32 %32
+32:                                               ; preds = %31, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %33 = load i32, ptr %3, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -429,30 +470,35 @@ define i32 @KINSetReturnNewest(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 255, ptr noundef @__func__.KINSetReturnNewest, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.KINMemRec, ptr %13, i32 0, i32 48
-  store i32 %12, ptr %14, align 8
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 255, ptr noundef @__func__.KINSetReturnNewest, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i32, ptr %5, align 4, !tbaa !27
+  %14 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.KINMemRec, ptr %14, i32 0, i32 48
+  store i32 %13, ptr %15, align 8, !tbaa !31
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -461,55 +507,61 @@ define i32 @KINSetNumMaxIters(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 278, ptr noundef @__func__.KINSetNumMaxIters, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %27
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 278, ptr noundef @__func__.KINSetNumMaxIters, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 286, ptr noundef @__func__.KINSetNumMaxIters, ptr noundef @.str, ptr noundef @.str.6)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i64, ptr %5, align 8, !tbaa !23
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 286, ptr noundef @__func__.KINSetNumMaxIters, ptr noundef @.str, ptr noundef @.str.6)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
+
+17:                                               ; preds = %11
+  %18 = load i64, ptr %5, align 8, !tbaa !23
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.KINMemRec, ptr %21, i32 0, i32 7
+  store i64 200, ptr %22, align 8, !tbaa !24
   br label %27
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %22
+23:                                               ; preds = %17
+  %24 = load i64, ptr %5, align 8, !tbaa !23
+  %25 = load ptr, ptr %6, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.KINMemRec, ptr %25, i32 0, i32 7
+  store i64 %24, ptr %26, align 8, !tbaa !24
+  br label %27
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.KINMemRec, ptr %20, i32 0, i32 7
-  store i64 200, ptr %21, align 8
-  br label %26
-
-22:                                               ; preds = %16
-  %23 = load i64, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.KINMemRec, ptr %24, i32 0, i32 7
-  store i64 %23, ptr %25, align 8
-  br label %26
-
-26:                                               ; preds = %22, %19
+27:                                               ; preds = %23, %20
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-27:                                               ; preds = %26, %14, %9
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -518,30 +570,35 @@ define i32 @KINSetNoInitSetup(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 309, ptr noundef @__func__.KINSetNoInitSetup, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.KINMemRec, ptr %13, i32 0, i32 28
-  store i32 %12, ptr %14, align 8
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 309, ptr noundef @__func__.KINSetNoInitSetup, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i32, ptr %5, align 4, !tbaa !27
+  %14 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.KINMemRec, ptr %14, i32 0, i32 28
+  store i32 %13, ptr %15, align 8, !tbaa !32
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -550,30 +607,35 @@ define i32 @KINSetNoResMon(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 331, ptr noundef @__func__.KINSetNoResMon, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.KINMemRec, ptr %13, i32 0, i32 16
-  store i32 %12, ptr %14, align 4
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 331, ptr noundef @__func__.KINSetNoResMon, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i32, ptr %5, align 4, !tbaa !27
+  %14 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.KINMemRec, ptr %14, i32 0, i32 16
+  store i32 %13, ptr %15, align 4, !tbaa !33
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -582,55 +644,61 @@ define i32 @KINSetMaxSetupCalls(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 353, ptr noundef @__func__.KINSetMaxSetupCalls, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %27
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 353, ptr noundef @__func__.KINSetMaxSetupCalls, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 361, ptr noundef @__func__.KINSetMaxSetupCalls, ptr noundef @.str, ptr noundef @.str.7)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i64, ptr %5, align 8, !tbaa !23
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 361, ptr noundef @__func__.KINSetMaxSetupCalls, ptr noundef @.str, ptr noundef @.str.7)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
+
+17:                                               ; preds = %11
+  %18 = load i64, ptr %5, align 8, !tbaa !23
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.KINMemRec, ptr %21, i32 0, i32 8
+  store i64 10, ptr %22, align 8, !tbaa !34
   br label %27
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %22
+23:                                               ; preds = %17
+  %24 = load i64, ptr %5, align 8, !tbaa !23
+  %25 = load ptr, ptr %6, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.KINMemRec, ptr %25, i32 0, i32 8
+  store i64 %24, ptr %26, align 8, !tbaa !34
+  br label %27
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.KINMemRec, ptr %20, i32 0, i32 8
-  store i64 10, ptr %21, align 8
-  br label %26
-
-22:                                               ; preds = %16
-  %23 = load i64, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.KINMemRec, ptr %24, i32 0, i32 8
-  store i64 %23, ptr %25, align 8
-  br label %26
-
-26:                                               ; preds = %22, %19
+27:                                               ; preds = %23, %20
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-27:                                               ; preds = %26, %14, %9
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -639,55 +707,61 @@ define i32 @KINSetMaxSubSetupCalls(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 384, ptr noundef @__func__.KINSetMaxSubSetupCalls, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %27
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 384, ptr noundef @__func__.KINSetMaxSubSetupCalls, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 392, ptr noundef @__func__.KINSetMaxSubSetupCalls, ptr noundef @.str, ptr noundef @.str.8)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i64, ptr %5, align 8, !tbaa !23
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 392, ptr noundef @__func__.KINSetMaxSubSetupCalls, ptr noundef @.str, ptr noundef @.str.8)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
+
+17:                                               ; preds = %11
+  %18 = load i64, ptr %5, align 8, !tbaa !23
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.KINMemRec, ptr %21, i32 0, i32 9
+  store i64 5, ptr %22, align 8, !tbaa !35
   br label %27
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %22
+23:                                               ; preds = %17
+  %24 = load i64, ptr %5, align 8, !tbaa !23
+  %25 = load ptr, ptr %6, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.KINMemRec, ptr %25, i32 0, i32 9
+  store i64 %24, ptr %26, align 8, !tbaa !35
+  br label %27
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.KINMemRec, ptr %20, i32 0, i32 9
-  store i64 5, ptr %21, align 8
-  br label %26
-
-22:                                               ; preds = %16
-  %23 = load i64, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.KINMemRec, ptr %24, i32 0, i32 9
-  store i64 %23, ptr %25, align 8
-  br label %26
-
-26:                                               ; preds = %22, %19
+27:                                               ; preds = %23, %20
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-27:                                               ; preds = %26, %14, %9
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -696,51 +770,57 @@ define i32 @KINSetEtaForm(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 415, ptr noundef @__func__.KINSetEtaForm, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %26
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp ne i32 %12, 3
-  br i1 %13, label %14, label %22
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 415, ptr noundef @__func__.KINSetEtaForm, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %27
 
-14:                                               ; preds = %10
-  %15 = load i32, ptr %5, align 4
-  %16 = icmp ne i32 %15, 1
-  br i1 %16, label %17, label %22
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i32, ptr %5, align 4, !tbaa !27
+  %14 = icmp ne i32 %13, 3
+  br i1 %14, label %15, label %23
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %5, align 4
-  %19 = icmp ne i32 %18, 2
-  br i1 %19, label %20, label %22
+15:                                               ; preds = %11
+  %16 = load i32, ptr %5, align 4, !tbaa !27
+  %17 = icmp ne i32 %16, 1
+  br i1 %17, label %18, label %23
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %21, i32 noundef -2, i32 noundef 424, ptr noundef @__func__.KINSetEtaForm, ptr noundef @.str, ptr noundef @.str.9)
+18:                                               ; preds = %15
+  %19 = load i32, ptr %5, align 4, !tbaa !27
+  %20 = icmp ne i32 %19, 2
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %22, i32 noundef -2, i32 noundef 424, ptr noundef @__func__.KINSetEtaForm, ptr noundef @.str, ptr noundef @.str.9)
   store i32 -2, ptr %3, align 4
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %27
 
-22:                                               ; preds = %17, %14, %10
-  %23 = load i32, ptr %5, align 4
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.KINMemRec, ptr %24, i32 0, i32 11
-  store i32 %23, ptr %25, align 8
+23:                                               ; preds = %18, %15, %11
+  %24 = load i32, ptr %5, align 4, !tbaa !27
+  %25 = load ptr, ptr %6, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.KINMemRec, ptr %25, i32 0, i32 11
+  store i32 %24, ptr %26, align 8, !tbaa !36
   store i32 0, ptr %3, align 4
-  br label %26
+  store i32 1, ptr %7, align 4
+  br label %27
 
-26:                                               ; preds = %22, %20, %9
-  %27 = load i32, ptr %3, align 4
-  ret i32 %27
+27:                                               ; preds = %23, %21, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %28 = load i32, ptr %3, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -749,60 +829,66 @@ define i32 @KINSetEtaConstValue(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 446, ptr noundef @__func__.KINSetEtaConstValue, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %30
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp olt double %12, 0.000000e+00
-  br i1 %13, label %17, label %14
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 446, ptr noundef @__func__.KINSetEtaConstValue, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %31
 
-14:                                               ; preds = %10
-  %15 = load double, ptr %5, align 8
-  %16 = fcmp ogt double %15, 1.000000e+00
-  br i1 %16, label %17, label %19
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load double, ptr %5, align 8, !tbaa !20
+  %14 = fcmp olt double %13, 0.000000e+00
+  br i1 %14, label %18, label %15
 
-17:                                               ; preds = %14, %10
-  %18 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %18, i32 noundef -2, i32 noundef 454, ptr noundef @__func__.KINSetEtaConstValue, ptr noundef @.str, ptr noundef @.str.10)
+15:                                               ; preds = %11
+  %16 = load double, ptr %5, align 8, !tbaa !20
+  %17 = fcmp ogt double %16, 1.000000e+00
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %15, %11
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %19, i32 noundef -2, i32 noundef 454, ptr noundef @__func__.KINSetEtaConstValue, ptr noundef @.str, ptr noundef @.str.10)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %31
+
+20:                                               ; preds = %15
+  %21 = load double, ptr %5, align 8, !tbaa !20
+  %22 = fcmp oeq double %21, 0.000000e+00
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.KINMemRec, ptr %24, i32 0, i32 25
+  store double 1.000000e-01, ptr %25, align 8, !tbaa !37
   br label %30
 
-19:                                               ; preds = %14
-  %20 = load double, ptr %5, align 8
-  %21 = fcmp oeq double %20, 0.000000e+00
-  br i1 %21, label %22, label %25
+26:                                               ; preds = %20
+  %27 = load double, ptr %5, align 8, !tbaa !20
+  %28 = load ptr, ptr %6, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.KINMemRec, ptr %28, i32 0, i32 25
+  store double %27, ptr %29, align 8, !tbaa !37
+  br label %30
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.KINMemRec, ptr %23, i32 0, i32 25
-  store double 1.000000e-01, ptr %24, align 8
-  br label %29
-
-25:                                               ; preds = %19
-  %26 = load double, ptr %5, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.KINMemRec, ptr %27, i32 0, i32 25
-  store double %26, ptr %28, align 8
-  br label %29
-
-29:                                               ; preds = %25, %22
+30:                                               ; preds = %26, %23
   store i32 0, ptr %3, align 4
-  br label %30
+  store i32 1, ptr %7, align 4
+  br label %31
 
-30:                                               ; preds = %29, %17, %9
-  %31 = load i32, ptr %3, align 4
-  ret i32 %31
+31:                                               ; preds = %30, %18, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %32 = load i32, ptr %3, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
@@ -812,111 +898,118 @@ define i32 @KINSetEtaParams(ptr noundef %0, double noundef %1, double noundef %2
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store double %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 477, ptr noundef @__func__.KINSetEtaParams, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %4, align 4
-  br label %58
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store double %1, ptr %6, align 8, !tbaa !20
+  store double %2, ptr %7, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = load double, ptr %7, align 8
-  %15 = fcmp ole double %14, 1.000000e+00
-  br i1 %15, label %19, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 477, ptr noundef @__func__.KINSetEtaParams, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %59
 
-16:                                               ; preds = %12
-  %17 = load double, ptr %7, align 8
-  %18 = fcmp ogt double %17, 2.000000e+00
-  br i1 %18, label %19, label %25
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %14, ptr %8, align 8, !tbaa !7
+  %15 = load double, ptr %7, align 8, !tbaa !20
+  %16 = fcmp ole double %15, 1.000000e+00
+  br i1 %16, label %20, label %17
 
-19:                                               ; preds = %16, %12
-  %20 = load double, ptr %7, align 8
-  %21 = fcmp une double %20, 0.000000e+00
-  br i1 %21, label %22, label %24
+17:                                               ; preds = %13
+  %18 = load double, ptr %7, align 8, !tbaa !20
+  %19 = fcmp ogt double %18, 2.000000e+00
+  br i1 %19, label %20, label %26
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %23, i32 noundef -2, i32 noundef 487, ptr noundef @__func__.KINSetEtaParams, ptr noundef @.str, ptr noundef @.str.11)
+20:                                               ; preds = %17, %13
+  %21 = load double, ptr %7, align 8, !tbaa !20
+  %22 = fcmp une double %21, 0.000000e+00
+  br i1 %22, label %23, label %25
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %24, i32 noundef -2, i32 noundef 487, ptr noundef @__func__.KINSetEtaParams, ptr noundef @.str, ptr noundef @.str.11)
   store i32 -2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %59
+
+25:                                               ; preds = %20
+  br label %26
+
+26:                                               ; preds = %25, %17
+  %27 = load double, ptr %7, align 8, !tbaa !20
+  %28 = fcmp oeq double %27, 0.000000e+00
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %8, align 8, !tbaa !7
+  %31 = getelementptr inbounds nuw %struct.KINMemRec, ptr %30, i32 0, i32 27
+  store double 2.000000e+00, ptr %31, align 8, !tbaa !38
+  br label %36
+
+32:                                               ; preds = %26
+  %33 = load double, ptr %7, align 8, !tbaa !20
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.KINMemRec, ptr %34, i32 0, i32 27
+  store double %33, ptr %35, align 8, !tbaa !38
+  br label %36
+
+36:                                               ; preds = %32, %29
+  %37 = load double, ptr %6, align 8, !tbaa !20
+  %38 = fcmp ole double %37, 0.000000e+00
+  br i1 %38, label %42, label %39
+
+39:                                               ; preds = %36
+  %40 = load double, ptr %6, align 8, !tbaa !20
+  %41 = fcmp ogt double %40, 1.000000e+00
+  br i1 %41, label %42, label %48
+
+42:                                               ; preds = %39, %36
+  %43 = load double, ptr %6, align 8, !tbaa !20
+  %44 = fcmp une double %43, 0.000000e+00
+  br i1 %44, label %45, label %47
+
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %46, i32 noundef -2, i32 noundef 500, ptr noundef @__func__.KINSetEtaParams, ptr noundef @.str, ptr noundef @.str.12)
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %59
+
+47:                                               ; preds = %42
+  br label %48
+
+48:                                               ; preds = %47, %39
+  %49 = load double, ptr %6, align 8, !tbaa !20
+  %50 = fcmp oeq double %49, 0.000000e+00
+  br i1 %50, label %51, label %54
+
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %8, align 8, !tbaa !7
+  %53 = getelementptr inbounds nuw %struct.KINMemRec, ptr %52, i32 0, i32 26
+  store double 9.000000e-01, ptr %53, align 8, !tbaa !39
   br label %58
 
-24:                                               ; preds = %19
-  br label %25
-
-25:                                               ; preds = %24, %16
-  %26 = load double, ptr %7, align 8
-  %27 = fcmp oeq double %26, 0.000000e+00
-  br i1 %27, label %28, label %31
-
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.KINMemRec, ptr %29, i32 0, i32 27
-  store double 2.000000e+00, ptr %30, align 8
-  br label %35
-
-31:                                               ; preds = %25
-  %32 = load double, ptr %7, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.KINMemRec, ptr %33, i32 0, i32 27
-  store double %32, ptr %34, align 8
-  br label %35
-
-35:                                               ; preds = %31, %28
-  %36 = load double, ptr %6, align 8
-  %37 = fcmp ole double %36, 0.000000e+00
-  br i1 %37, label %41, label %38
-
-38:                                               ; preds = %35
-  %39 = load double, ptr %6, align 8
-  %40 = fcmp ogt double %39, 1.000000e+00
-  br i1 %40, label %41, label %47
-
-41:                                               ; preds = %38, %35
-  %42 = load double, ptr %6, align 8
-  %43 = fcmp une double %42, 0.000000e+00
-  br i1 %43, label %44, label %46
-
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %45, i32 noundef -2, i32 noundef 500, ptr noundef @__func__.KINSetEtaParams, ptr noundef @.str, ptr noundef @.str.12)
-  store i32 -2, ptr %4, align 4
+54:                                               ; preds = %48
+  %55 = load double, ptr %6, align 8, !tbaa !20
+  %56 = load ptr, ptr %8, align 8, !tbaa !7
+  %57 = getelementptr inbounds nuw %struct.KINMemRec, ptr %56, i32 0, i32 26
+  store double %55, ptr %57, align 8, !tbaa !39
   br label %58
 
-46:                                               ; preds = %41
-  br label %47
-
-47:                                               ; preds = %46, %38
-  %48 = load double, ptr %6, align 8
-  %49 = fcmp oeq double %48, 0.000000e+00
-  br i1 %49, label %50, label %53
-
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %8, align 8
-  %52 = getelementptr inbounds %struct.KINMemRec, ptr %51, i32 0, i32 26
-  store double 9.000000e-01, ptr %52, align 8
-  br label %57
-
-53:                                               ; preds = %47
-  %54 = load double, ptr %6, align 8
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.KINMemRec, ptr %55, i32 0, i32 26
-  store double %54, ptr %56, align 8
-  br label %57
-
-57:                                               ; preds = %53, %50
+58:                                               ; preds = %54, %51
   store i32 0, ptr %4, align 4
-  br label %58
+  store i32 1, ptr %9, align 4
+  br label %59
 
-58:                                               ; preds = %57, %44, %22, %11
-  %59 = load i32, ptr %4, align 4
-  ret i32 %59
+59:                                               ; preds = %58, %45, %23, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %60 = load i32, ptr %4, align 4
+  ret i32 %60
 }
 
 ; Function Attrs: nounwind uwtable
@@ -926,118 +1019,127 @@ define i32 @KINSetResMonParams(ptr noundef %0, double noundef %1, double noundef
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store double %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 524, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %4, align 4
-  br label %61
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store double %1, ptr %6, align 8, !tbaa !20
+  store double %2, ptr %7, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = load double, ptr %6, align 8
-  %15 = fcmp olt double %14, 0.000000e+00
-  br i1 %15, label %16, label %18
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 524, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %62
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %17, i32 noundef -2, i32 noundef 534, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.13)
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %14, ptr %8, align 8, !tbaa !7
+  %15 = load double, ptr %6, align 8, !tbaa !20
+  %16 = fcmp olt double %15, 0.000000e+00
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %18, i32 noundef -2, i32 noundef 534, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.13)
   store i32 -2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %62
+
+19:                                               ; preds = %13
+  %20 = load double, ptr %6, align 8, !tbaa !20
+  %21 = fcmp oeq double %20, 0.000000e+00
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %8, align 8, !tbaa !7
+  %24 = getelementptr inbounds nuw %struct.KINMemRec, ptr %23, i32 0, i32 86
+  store double 1.000000e-05, ptr %24, align 8, !tbaa !40
+  br label %29
+
+25:                                               ; preds = %19
+  %26 = load double, ptr %6, align 8, !tbaa !20
+  %27 = load ptr, ptr %8, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.KINMemRec, ptr %27, i32 0, i32 86
+  store double %26, ptr %28, align 8, !tbaa !40
+  br label %29
+
+29:                                               ; preds = %25, %22
+  %30 = load double, ptr %7, align 8, !tbaa !20
+  %31 = fcmp olt double %30, 0.000000e+00
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %33, i32 noundef -2, i32 noundef 546, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.13)
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %62
+
+34:                                               ; preds = %29
+  %35 = load double, ptr %7, align 8, !tbaa !20
+  %36 = fcmp oeq double %35, 0.000000e+00
+  br i1 %36, label %37, label %48
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %8, align 8, !tbaa !7
+  %39 = getelementptr inbounds nuw %struct.KINMemRec, ptr %38, i32 0, i32 86
+  %40 = load double, ptr %39, align 8, !tbaa !40
+  %41 = fcmp ogt double %40, 9.000000e-01
+  br i1 %41, label %42, label %44
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %43, i32 noundef -2, i32 noundef 555, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.13)
+  store i32 -2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %62
+
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %8, align 8, !tbaa !7
+  %46 = getelementptr inbounds nuw %struct.KINMemRec, ptr %45, i32 0, i32 87
+  store double 9.000000e-01, ptr %46, align 8, !tbaa !41
+  br label %47
+
+47:                                               ; preds = %44
   br label %61
 
-18:                                               ; preds = %12
-  %19 = load double, ptr %6, align 8
-  %20 = fcmp oeq double %19, 0.000000e+00
-  br i1 %20, label %21, label %24
+48:                                               ; preds = %34
+  %49 = load ptr, ptr %8, align 8, !tbaa !7
+  %50 = getelementptr inbounds nuw %struct.KINMemRec, ptr %49, i32 0, i32 86
+  %51 = load double, ptr %50, align 8, !tbaa !40
+  %52 = load double, ptr %7, align 8, !tbaa !20
+  %53 = fcmp ogt double %51, %52
+  br i1 %53, label %54, label %56
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.KINMemRec, ptr %22, i32 0, i32 86
-  store double 1.000000e-05, ptr %23, align 8
-  br label %28
-
-24:                                               ; preds = %18
-  %25 = load double, ptr %6, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.KINMemRec, ptr %26, i32 0, i32 86
-  store double %25, ptr %27, align 8
-  br label %28
-
-28:                                               ; preds = %24, %21
-  %29 = load double, ptr %7, align 8
-  %30 = fcmp olt double %29, 0.000000e+00
-  br i1 %30, label %31, label %33
-
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %32, i32 noundef -2, i32 noundef 546, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.13)
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %55, i32 noundef -2, i32 noundef 565, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.13)
   store i32 -2, ptr %4, align 4
-  br label %61
+  store i32 1, ptr %9, align 4
+  br label %62
 
-33:                                               ; preds = %28
-  %34 = load double, ptr %7, align 8
-  %35 = fcmp oeq double %34, 0.000000e+00
-  br i1 %35, label %36, label %47
-
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.KINMemRec, ptr %37, i32 0, i32 86
-  %39 = load double, ptr %38, align 8
-  %40 = fcmp ogt double %39, 9.000000e-01
-  br i1 %40, label %41, label %43
-
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %42, i32 noundef -2, i32 noundef 555, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.13)
-  store i32 -2, ptr %4, align 4
-  br label %61
-
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.KINMemRec, ptr %44, i32 0, i32 87
-  store double 9.000000e-01, ptr %45, align 8
-  br label %46
-
-46:                                               ; preds = %43
+56:                                               ; preds = %48
+  %57 = load double, ptr %7, align 8, !tbaa !20
+  %58 = load ptr, ptr %8, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw %struct.KINMemRec, ptr %58, i32 0, i32 87
+  store double %57, ptr %59, align 8, !tbaa !41
   br label %60
 
-47:                                               ; preds = %33
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.KINMemRec, ptr %48, i32 0, i32 86
-  %50 = load double, ptr %49, align 8
-  %51 = load double, ptr %7, align 8
-  %52 = fcmp ogt double %50, %51
-  br i1 %52, label %53, label %55
-
-53:                                               ; preds = %47
-  %54 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %54, i32 noundef -2, i32 noundef 565, ptr noundef @__func__.KINSetResMonParams, ptr noundef @.str, ptr noundef @.str.13)
-  store i32 -2, ptr %4, align 4
+60:                                               ; preds = %56
   br label %61
 
-55:                                               ; preds = %47
-  %56 = load double, ptr %7, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.KINMemRec, ptr %57, i32 0, i32 87
-  store double %56, ptr %58, align 8
-  br label %59
-
-59:                                               ; preds = %55
-  br label %60
-
-60:                                               ; preds = %59, %46
+61:                                               ; preds = %60, %47
   store i32 0, ptr %4, align 4
-  br label %61
+  store i32 1, ptr %9, align 4
+  br label %62
 
-61:                                               ; preds = %60, %53, %41, %31, %16, %11
-  %62 = load i32, ptr %4, align 4
-  ret i32 %62
+62:                                               ; preds = %61, %54, %42, %32, %17, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %63 = load i32, ptr %4, align 4
+  ret i32 %63
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1046,41 +1148,47 @@ define i32 @KINSetResMonConstValue(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 587, ptr noundef @__func__.KINSetResMonConstValue, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %20
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp olt double %12, 0.000000e+00
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 587, ptr noundef @__func__.KINSetResMonConstValue, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %21
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 597, ptr noundef @__func__.KINSetResMonConstValue, ptr noundef @.str, ptr noundef @.str.13)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load double, ptr %5, align 8, !tbaa !20
+  %14 = fcmp olt double %13, 0.000000e+00
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 597, ptr noundef @__func__.KINSetResMonConstValue, ptr noundef @.str, ptr noundef @.str.13)
   store i32 -2, ptr %3, align 4
-  br label %20
+  store i32 1, ptr %7, align 4
+  br label %21
 
-16:                                               ; preds = %10
-  %17 = load double, ptr %5, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.KINMemRec, ptr %18, i32 0, i32 85
-  store double %17, ptr %19, align 8
+17:                                               ; preds = %11
+  %18 = load double, ptr %5, align 8, !tbaa !20
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.KINMemRec, ptr %19, i32 0, i32 85
+  store double %18, ptr %20, align 8, !tbaa !42
   store i32 0, ptr %3, align 4
-  br label %20
+  store i32 1, ptr %7, align 4
+  br label %21
 
-20:                                               ; preds = %16, %14, %9
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+21:                                               ; preds = %17, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %22 = load i32, ptr %3, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1089,30 +1197,35 @@ define i32 @KINSetNoMinEps(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 620, ptr noundef @__func__.KINSetNoMinEps, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %15
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.KINMemRec, ptr %13, i32 0, i32 12
-  store i32 %12, ptr %14, align 4
-  store i32 0, ptr %3, align 4
-  br label %15
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 620, ptr noundef @__func__.KINSetNoMinEps, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
 
-15:                                               ; preds = %10, %9
-  %16 = load i32, ptr %3, align 4
-  ret i32 %16
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i32, ptr %5, align 4, !tbaa !27
+  %14 = load ptr, ptr %6, align 8, !tbaa !7
+  %15 = getelementptr inbounds nuw %struct.KINMemRec, ptr %14, i32 0, i32 12
+  store i32 %13, ptr %15, align 4, !tbaa !43
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %16
+
+16:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1121,41 +1234,47 @@ define i32 @KINSetMaxNewtonStep(ptr noundef %0, double noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 642, ptr noundef @__func__.KINSetMaxNewtonStep, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %20
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load double, ptr %5, align 8
-  %13 = fcmp olt double %12, 0.000000e+00
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 642, ptr noundef @__func__.KINSetMaxNewtonStep, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %21
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 650, ptr noundef @__func__.KINSetMaxNewtonStep, ptr noundef @.str, ptr noundef @.str.14)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load double, ptr %5, align 8, !tbaa !20
+  %14 = fcmp olt double %13, 0.000000e+00
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 650, ptr noundef @__func__.KINSetMaxNewtonStep, ptr noundef @.str, ptr noundef @.str.14)
   store i32 -2, ptr %3, align 4
-  br label %20
+  store i32 1, ptr %7, align 4
+  br label %21
 
-16:                                               ; preds = %10
-  %17 = load double, ptr %5, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.KINMemRec, ptr %18, i32 0, i32 20
-  store double %17, ptr %19, align 8
+17:                                               ; preds = %11
+  %18 = load double, ptr %5, align 8, !tbaa !20
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.KINMemRec, ptr %19, i32 0, i32 20
+  store double %18, ptr %20, align 8, !tbaa !44
   store i32 0, ptr %3, align 4
-  br label %20
+  store i32 1, ptr %7, align 4
+  br label %21
 
-20:                                               ; preds = %16, %14, %9
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+21:                                               ; preds = %17, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %22 = load i32, ptr %3, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1164,55 +1283,61 @@ define i32 @KINSetMaxBetaFails(ptr noundef %0, i64 noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 675, ptr noundef @__func__.KINSetMaxBetaFails, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %27
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp slt i64 %12, 0
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 675, ptr noundef @__func__.KINSetMaxBetaFails, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 683, ptr noundef @__func__.KINSetMaxBetaFails, ptr noundef @.str, ptr noundef @.str.15)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load i64, ptr %5, align 8, !tbaa !23
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 683, ptr noundef @__func__.KINSetMaxBetaFails, ptr noundef @.str, ptr noundef @.str.15)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %28
+
+17:                                               ; preds = %11
+  %18 = load i64, ptr %5, align 8, !tbaa !23
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw %struct.KINMemRec, ptr %21, i32 0, i32 10
+  store i64 10, ptr %22, align 8, !tbaa !45
   br label %27
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %22
+23:                                               ; preds = %17
+  %24 = load i64, ptr %5, align 8, !tbaa !23
+  %25 = load ptr, ptr %6, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.KINMemRec, ptr %25, i32 0, i32 10
+  store i64 %24, ptr %26, align 8, !tbaa !45
+  br label %27
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.KINMemRec, ptr %20, i32 0, i32 10
-  store i64 10, ptr %21, align 8
-  br label %26
-
-22:                                               ; preds = %16
-  %23 = load i64, ptr %5, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.KINMemRec, ptr %24, i32 0, i32 10
-  store i64 %23, ptr %25, align 8
-  br label %26
-
-26:                                               ; preds = %22, %19
+27:                                               ; preds = %23, %20
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %7, align 4
+  br label %28
 
-27:                                               ; preds = %26, %14, %9
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+28:                                               ; preds = %27, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %29 = load i32, ptr %3, align 4
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1222,90 +1347,98 @@ define i32 @KINSetRelErrFunc(ptr noundef %0, double noundef %1) #0 {
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 707, ptr noundef @__func__.KINSetRelErrFunc, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %46
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load double, ptr %5, align 8
-  %14 = fcmp olt double %13, 0.000000e+00
-  br i1 %14, label %15, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 707, ptr noundef @__func__.KINSetRelErrFunc, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %47
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 715, ptr noundef @__func__.KINSetRelErrFunc, ptr noundef @.str, ptr noundef @.str.16)
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !7
+  %14 = load double, ptr %5, align 8, !tbaa !20
+  %15 = fcmp olt double %14, 0.000000e+00
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %17, i32 noundef -2, i32 noundef 715, ptr noundef @__func__.KINSetRelErrFunc, ptr noundef @.str, ptr noundef @.str.16)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %47
+
+18:                                               ; preds = %12
+  %19 = load double, ptr %5, align 8, !tbaa !20
+  %20 = fcmp oeq double %19, 0.000000e+00
+  br i1 %20, label %21, label %35
+
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.KINMemRec, ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !46
+  store double %24, ptr %7, align 8, !tbaa !20
+  %25 = load double, ptr %7, align 8, !tbaa !20
+  %26 = fcmp ole double %25, 0.000000e+00
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %21
+  br label %31
+
+28:                                               ; preds = %21
+  %29 = load double, ptr %7, align 8, !tbaa !20
+  %30 = call double @sqrt(double noundef %29) #5, !tbaa !27
+  br label %31
+
+31:                                               ; preds = %28, %27
+  %32 = phi double [ 0.000000e+00, %27 ], [ %30, %28 ]
+  %33 = load ptr, ptr %6, align 8, !tbaa !7
+  %34 = getelementptr inbounds nuw %struct.KINMemRec, ptr %33, i32 0, i32 21
+  store double %32, ptr %34, align 8, !tbaa !47
   br label %46
 
-17:                                               ; preds = %11
-  %18 = load double, ptr %5, align 8
-  %19 = fcmp oeq double %18, 0.000000e+00
-  br i1 %19, label %20, label %34
+35:                                               ; preds = %18
+  %36 = load double, ptr %5, align 8, !tbaa !20
+  %37 = fcmp ole double %36, 0.000000e+00
+  br i1 %37, label %38, label %39
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.KINMemRec, ptr %21, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
-  store double %23, ptr %7, align 8
-  %24 = load double, ptr %7, align 8
-  %25 = fcmp ole double %24, 0.000000e+00
-  br i1 %25, label %26, label %27
+38:                                               ; preds = %35
+  br label %42
 
-26:                                               ; preds = %20
-  br label %30
+39:                                               ; preds = %35
+  %40 = load double, ptr %5, align 8, !tbaa !20
+  %41 = call double @sqrt(double noundef %40) #5, !tbaa !27
+  br label %42
 
-27:                                               ; preds = %20
-  %28 = load double, ptr %7, align 8
-  %29 = call double @sqrt(double noundef %28) #4
-  br label %30
+42:                                               ; preds = %39, %38
+  %43 = phi double [ 0.000000e+00, %38 ], [ %41, %39 ]
+  %44 = load ptr, ptr %6, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw %struct.KINMemRec, ptr %44, i32 0, i32 21
+  store double %43, ptr %45, align 8, !tbaa !47
+  br label %46
 
-30:                                               ; preds = %27, %26
-  %31 = phi double [ 0.000000e+00, %26 ], [ %29, %27 ]
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.KINMemRec, ptr %32, i32 0, i32 21
-  store double %31, ptr %33, align 8
-  br label %45
-
-34:                                               ; preds = %17
-  %35 = load double, ptr %5, align 8
-  %36 = fcmp ole double %35, 0.000000e+00
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %34
-  br label %41
-
-38:                                               ; preds = %34
-  %39 = load double, ptr %5, align 8
-  %40 = call double @sqrt(double noundef %39) #4
-  br label %41
-
-41:                                               ; preds = %38, %37
-  %42 = phi double [ 0.000000e+00, %37 ], [ %40, %38 ]
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct.KINMemRec, ptr %43, i32 0, i32 21
-  store double %42, ptr %44, align 8
-  br label %45
-
-45:                                               ; preds = %41, %30
+46:                                               ; preds = %42, %31
   store i32 0, ptr %3, align 4
-  br label %46
+  store i32 1, ptr %8, align 4
+  br label %47
 
-46:                                               ; preds = %45, %15, %10
-  %47 = load i32, ptr %3, align 4
-  ret i32 %47
+47:                                               ; preds = %46, %16, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %48 = load i32, ptr %3, align 4
+  ret i32 %48
 }
 
 ; Function Attrs: nounwind
-declare double @sqrt(double noundef) #2
+declare double @sqrt(double noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @KINSetFuncNormTol(ptr noundef %0, double noundef %1) #0 {
@@ -1314,64 +1447,72 @@ define i32 @KINSetFuncNormTol(ptr noundef %0, double noundef %1) #0 {
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 743, ptr noundef @__func__.KINSetFuncNormTol, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %33
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load double, ptr %5, align 8
-  %14 = fcmp olt double %13, 0.000000e+00
-  br i1 %14, label %15, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 743, ptr noundef @__func__.KINSetFuncNormTol, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %34
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 751, ptr noundef @__func__.KINSetFuncNormTol, ptr noundef @.str, ptr noundef @.str.17)
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !7
+  %14 = load double, ptr %5, align 8, !tbaa !20
+  %15 = fcmp olt double %14, 0.000000e+00
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %17, i32 noundef -2, i32 noundef 751, ptr noundef @__func__.KINSetFuncNormTol, ptr noundef @.str, ptr noundef @.str.17)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %34
+
+18:                                               ; preds = %12
+  %19 = load double, ptr %5, align 8, !tbaa !20
+  %20 = fcmp oeq double %19, 0.000000e+00
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.KINMemRec, ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !46
+  store double %24, ptr %7, align 8, !tbaa !20
+  %25 = load double, ptr %7, align 8, !tbaa !20
+  %26 = call double @SUNRpowerR(double noundef %25, double noundef 0x3FD5555555555555)
+  %27 = load ptr, ptr %6, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.KINMemRec, ptr %27, i32 0, i32 4
+  store double %26, ptr %28, align 8, !tbaa !48
   br label %33
 
-17:                                               ; preds = %11
-  %18 = load double, ptr %5, align 8
-  %19 = fcmp oeq double %18, 0.000000e+00
-  br i1 %19, label %20, label %28
+29:                                               ; preds = %18
+  %30 = load double, ptr %5, align 8, !tbaa !20
+  %31 = load ptr, ptr %6, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.KINMemRec, ptr %31, i32 0, i32 4
+  store double %30, ptr %32, align 8, !tbaa !48
+  br label %33
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.KINMemRec, ptr %21, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
-  store double %23, ptr %7, align 8
-  %24 = load double, ptr %7, align 8
-  %25 = call double @SUNRpowerR(double noundef %24, double noundef 0x3FD5555555555555)
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.KINMemRec, ptr %26, i32 0, i32 4
-  store double %25, ptr %27, align 8
-  br label %32
-
-28:                                               ; preds = %17
-  %29 = load double, ptr %5, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.KINMemRec, ptr %30, i32 0, i32 4
-  store double %29, ptr %31, align 8
-  br label %32
-
-32:                                               ; preds = %28, %20
+33:                                               ; preds = %29, %21
   store i32 0, ptr %3, align 4
-  br label %33
+  store i32 1, ptr %8, align 4
+  br label %34
 
-33:                                               ; preds = %32, %15, %10
-  %34 = load i32, ptr %3, align 4
-  ret i32 %34
+34:                                               ; preds = %33, %16, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %35 = load i32, ptr %3, align 4
+  ret i32 %35
 }
 
-declare double @SUNRpowerR(double noundef, double noundef) #1
+declare double @SUNRpowerR(double noundef, double noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @KINSetScaledStepTol(ptr noundef %0, double noundef %1) #0 {
@@ -1380,61 +1521,69 @@ define i32 @KINSetScaledStepTol(ptr noundef %0, double noundef %1) #0 {
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 779, ptr noundef @__func__.KINSetScaledStepTol, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %33
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load double, ptr %5, align 8
-  %14 = fcmp olt double %13, 0.000000e+00
-  br i1 %14, label %15, label %17
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 779, ptr noundef @__func__.KINSetScaledStepTol, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %34
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 787, ptr noundef @__func__.KINSetScaledStepTol, ptr noundef @.str, ptr noundef @.str.18)
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !7
+  %14 = load double, ptr %5, align 8, !tbaa !20
+  %15 = fcmp olt double %14, 0.000000e+00
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %17, i32 noundef -2, i32 noundef 787, ptr noundef @__func__.KINSetScaledStepTol, ptr noundef @.str, ptr noundef @.str.18)
   store i32 -2, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %34
+
+18:                                               ; preds = %12
+  %19 = load double, ptr %5, align 8, !tbaa !20
+  %20 = fcmp oeq double %19, 0.000000e+00
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.KINMemRec, ptr %22, i32 0, i32 1
+  %24 = load double, ptr %23, align 8, !tbaa !46
+  store double %24, ptr %7, align 8, !tbaa !20
+  %25 = load double, ptr %7, align 8, !tbaa !20
+  %26 = call double @SUNRpowerR(double noundef %25, double noundef 0x3FE5555555555556)
+  %27 = load ptr, ptr %6, align 8, !tbaa !7
+  %28 = getelementptr inbounds nuw %struct.KINMemRec, ptr %27, i32 0, i32 5
+  store double %26, ptr %28, align 8, !tbaa !49
   br label %33
 
-17:                                               ; preds = %11
-  %18 = load double, ptr %5, align 8
-  %19 = fcmp oeq double %18, 0.000000e+00
-  br i1 %19, label %20, label %28
+29:                                               ; preds = %18
+  %30 = load double, ptr %5, align 8, !tbaa !20
+  %31 = load ptr, ptr %6, align 8, !tbaa !7
+  %32 = getelementptr inbounds nuw %struct.KINMemRec, ptr %31, i32 0, i32 5
+  store double %30, ptr %32, align 8, !tbaa !49
+  br label %33
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.KINMemRec, ptr %21, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
-  store double %23, ptr %7, align 8
-  %24 = load double, ptr %7, align 8
-  %25 = call double @SUNRpowerR(double noundef %24, double noundef 0x3FE5555555555556)
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.KINMemRec, ptr %26, i32 0, i32 5
-  store double %25, ptr %27, align 8
-  br label %32
-
-28:                                               ; preds = %17
-  %29 = load double, ptr %5, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.KINMemRec, ptr %30, i32 0, i32 5
-  store double %29, ptr %31, align 8
-  br label %32
-
-32:                                               ; preds = %28, %20
+33:                                               ; preds = %29, %21
   store i32 0, ptr %3, align 4
-  br label %33
+  store i32 1, ptr %8, align 4
+  br label %34
 
-33:                                               ; preds = %32, %15, %10
-  %34 = load i32, ptr %3, align 4
-  ret i32 %34
+34:                                               ; preds = %33, %16, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %35 = load i32, ptr %3, align 4
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1444,130 +1593,139 @@ define i32 @KINSetConstraints(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 815, ptr noundef @__func__.KINSetConstraints, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %79
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %41
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 815, ptr noundef @__func__.KINSetConstraints, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %80
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.KINMemRec, ptr %16, i32 0, i32 13
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %38
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %13, ptr %6, align 8, !tbaa !7
+  %14 = load ptr, ptr %5, align 8, !tbaa !50
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %42
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.KINMemRec, ptr %21, i32 0, i32 44
-  %23 = load ptr, ptr %22, align 8
-  call void @N_VDestroy(ptr noundef %23)
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.KINMemRec, ptr %24, i32 0, i32 69
-  %26 = load i64, ptr %25, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.KINMemRec, ptr %27, i32 0, i32 71
-  %29 = load i64, ptr %28, align 8
-  %30 = sub nsw i64 %29, %26
-  store i64 %30, ptr %28, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct.KINMemRec, ptr %31, i32 0, i32 70
-  %33 = load i64, ptr %32, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.KINMemRec, ptr %34, i32 0, i32 72
-  %36 = load i64, ptr %35, align 8
-  %37 = sub nsw i64 %36, %33
-  store i64 %37, ptr %35, align 8
-  br label %38
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  %18 = getelementptr inbounds nuw %struct.KINMemRec, ptr %17, i32 0, i32 13
+  %19 = load i32, ptr %18, align 8, !tbaa !51
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %39
 
-38:                                               ; preds = %20, %15
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.KINMemRec, ptr %39, i32 0, i32 13
-  store i32 0, ptr %40, align 8
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %6, align 8, !tbaa !7
+  %23 = getelementptr inbounds nuw %struct.KINMemRec, ptr %22, i32 0, i32 44
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  call void @N_VDestroy(ptr noundef %24)
+  %25 = load ptr, ptr %6, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw %struct.KINMemRec, ptr %25, i32 0, i32 69
+  %27 = load i64, ptr %26, align 8, !tbaa !53
+  %28 = load ptr, ptr %6, align 8, !tbaa !7
+  %29 = getelementptr inbounds nuw %struct.KINMemRec, ptr %28, i32 0, i32 71
+  %30 = load i64, ptr %29, align 8, !tbaa !54
+  %31 = sub nsw i64 %30, %27
+  store i64 %31, ptr %29, align 8, !tbaa !54
+  %32 = load ptr, ptr %6, align 8, !tbaa !7
+  %33 = getelementptr inbounds nuw %struct.KINMemRec, ptr %32, i32 0, i32 70
+  %34 = load i64, ptr %33, align 8, !tbaa !55
+  %35 = load ptr, ptr %6, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw %struct.KINMemRec, ptr %35, i32 0, i32 72
+  %37 = load i64, ptr %36, align 8, !tbaa !56
+  %38 = sub nsw i64 %37, %34
+  store i64 %38, ptr %36, align 8, !tbaa !56
+  br label %39
+
+39:                                               ; preds = %21, %16
+  %40 = load ptr, ptr %6, align 8, !tbaa !7
+  %41 = getelementptr inbounds nuw %struct.KINMemRec, ptr %40, i32 0, i32 13
+  store i32 0, ptr %41, align 8, !tbaa !51
   store i32 0, ptr %3, align 4
-  br label %79
+  store i32 1, ptr %8, align 4
+  br label %80
 
-41:                                               ; preds = %11
-  %42 = load ptr, ptr %5, align 8
-  %43 = call double @N_VMaxNorm(ptr noundef %42)
-  store double %43, ptr %7, align 8
-  %44 = load double, ptr %7, align 8
-  %45 = fcmp ogt double %44, 2.500000e+00
-  br i1 %45, label %46, label %48
+42:                                               ; preds = %12
+  %43 = load ptr, ptr %5, align 8, !tbaa !50
+  %44 = call double @N_VMaxNorm(ptr noundef %43)
+  store double %44, ptr %7, align 8, !tbaa !20
+  %45 = load double, ptr %7, align 8, !tbaa !20
+  %46 = fcmp ogt double %45, 2.500000e+00
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %47, i32 noundef -2, i32 noundef 838, ptr noundef @__func__.KINSetConstraints, ptr noundef @.str, ptr noundef @.str.19)
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %48, i32 noundef -2, i32 noundef 838, ptr noundef @__func__.KINSetConstraints, ptr noundef @.str, ptr noundef @.str.19)
   store i32 -2, ptr %3, align 4
-  br label %79
+  store i32 1, ptr %8, align 4
+  br label %80
 
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.KINMemRec, ptr %49, i32 0, i32 13
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %74, label %53
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %6, align 8, !tbaa !7
+  %51 = getelementptr inbounds nuw %struct.KINMemRec, ptr %50, i32 0, i32 13
+  %52 = load i32, ptr %51, align 8, !tbaa !51
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %75, label %54
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %5, align 8
-  %55 = call ptr @N_VClone(ptr noundef %54)
-  %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %struct.KINMemRec, ptr %56, i32 0, i32 44
-  store ptr %55, ptr %57, align 8
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct.KINMemRec, ptr %58, i32 0, i32 69
-  %60 = load i64, ptr %59, align 8
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct.KINMemRec, ptr %61, i32 0, i32 71
-  %63 = load i64, ptr %62, align 8
-  %64 = add nsw i64 %63, %60
-  store i64 %64, ptr %62, align 8
-  %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct.KINMemRec, ptr %65, i32 0, i32 70
-  %67 = load i64, ptr %66, align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.KINMemRec, ptr %68, i32 0, i32 72
-  %70 = load i64, ptr %69, align 8
-  %71 = add nsw i64 %70, %67
-  store i64 %71, ptr %69, align 8
-  %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct.KINMemRec, ptr %72, i32 0, i32 13
-  store i32 1, ptr %73, align 8
-  br label %74
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %5, align 8, !tbaa !50
+  %56 = call ptr @N_VClone(ptr noundef %55)
+  %57 = load ptr, ptr %6, align 8, !tbaa !7
+  %58 = getelementptr inbounds nuw %struct.KINMemRec, ptr %57, i32 0, i32 44
+  store ptr %56, ptr %58, align 8, !tbaa !52
+  %59 = load ptr, ptr %6, align 8, !tbaa !7
+  %60 = getelementptr inbounds nuw %struct.KINMemRec, ptr %59, i32 0, i32 69
+  %61 = load i64, ptr %60, align 8, !tbaa !53
+  %62 = load ptr, ptr %6, align 8, !tbaa !7
+  %63 = getelementptr inbounds nuw %struct.KINMemRec, ptr %62, i32 0, i32 71
+  %64 = load i64, ptr %63, align 8, !tbaa !54
+  %65 = add nsw i64 %64, %61
+  store i64 %65, ptr %63, align 8, !tbaa !54
+  %66 = load ptr, ptr %6, align 8, !tbaa !7
+  %67 = getelementptr inbounds nuw %struct.KINMemRec, ptr %66, i32 0, i32 70
+  %68 = load i64, ptr %67, align 8, !tbaa !55
+  %69 = load ptr, ptr %6, align 8, !tbaa !7
+  %70 = getelementptr inbounds nuw %struct.KINMemRec, ptr %69, i32 0, i32 72
+  %71 = load i64, ptr %70, align 8, !tbaa !56
+  %72 = add nsw i64 %71, %68
+  store i64 %72, ptr %70, align 8, !tbaa !56
+  %73 = load ptr, ptr %6, align 8, !tbaa !7
+  %74 = getelementptr inbounds nuw %struct.KINMemRec, ptr %73, i32 0, i32 13
+  store i32 1, ptr %74, align 8, !tbaa !51
+  br label %75
 
-74:                                               ; preds = %53, %48
-  %75 = load ptr, ptr %5, align 8
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct.KINMemRec, ptr %76, i32 0, i32 44
-  %78 = load ptr, ptr %77, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %75, ptr noundef %78)
+75:                                               ; preds = %54, %49
+  %76 = load ptr, ptr %5, align 8, !tbaa !50
+  %77 = load ptr, ptr %6, align 8, !tbaa !7
+  %78 = getelementptr inbounds nuw %struct.KINMemRec, ptr %77, i32 0, i32 44
+  %79 = load ptr, ptr %78, align 8, !tbaa !52
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %76, ptr noundef %79)
   store i32 0, ptr %3, align 4
-  br label %79
+  store i32 1, ptr %8, align 4
+  br label %80
 
-79:                                               ; preds = %74, %46, %38, %10
-  %80 = load i32, ptr %3, align 4
-  ret i32 %80
+80:                                               ; preds = %75, %47, %39, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %81 = load i32, ptr %3, align 4
+  ret i32 %81
 }
 
-declare void @N_VDestroy(ptr noundef) #1
+declare void @N_VDestroy(ptr noundef) #2
 
-declare double @N_VMaxNorm(ptr noundef) #1
+declare double @N_VMaxNorm(ptr noundef) #2
 
-declare ptr @N_VClone(ptr noundef) #1
+declare ptr @N_VClone(ptr noundef) #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @KINSetSysFunc(ptr noundef %0, ptr noundef %1) #0 {
@@ -1575,41 +1733,47 @@ define i32 @KINSetSysFunc(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 870, ptr noundef @__func__.KINSetSysFunc, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %20
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 870, ptr noundef @__func__.KINSetSysFunc, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %21
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %6, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %15, i32 noundef -2, i32 noundef 878, ptr noundef @__func__.KINSetSysFunc, ptr noundef @.str, ptr noundef @.str.20)
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %16, i32 noundef -2, i32 noundef 878, ptr noundef @__func__.KINSetSysFunc, ptr noundef @.str, ptr noundef @.str.20)
   store i32 -2, ptr %3, align 4
-  br label %20
+  store i32 1, ptr %7, align 4
+  br label %21
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.KINMemRec, ptr %18, i32 0, i32 2
-  store ptr %17, ptr %19, align 8
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.KINMemRec, ptr %19, i32 0, i32 2
+  store ptr %18, ptr %20, align 8, !tbaa !57
   store i32 0, ptr %3, align 4
-  br label %20
+  store i32 1, ptr %7, align 4
+  br label %21
 
-20:                                               ; preds = %16, %14, %9
-  %21 = load i32, ptr %3, align 4
-  ret i32 %21
+21:                                               ; preds = %17, %15, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %22 = load i32, ptr %3, align 4
+  ret i32 %22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1619,37 +1783,42 @@ define i32 @KINGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 906, ptr noundef @__func__.KINGetWorkSpace, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %4, align 4
-  br label %22
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !58
+  store ptr %2, ptr %7, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.KINMemRec, ptr %14, i32 0, i32 71
-  %16 = load i64, ptr %15, align 8
-  %17 = load ptr, ptr %6, align 8
-  store i64 %16, ptr %17, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.KINMemRec, ptr %18, i32 0, i32 72
-  %20 = load i64, ptr %19, align 8
-  %21 = load ptr, ptr %7, align 8
-  store i64 %20, ptr %21, align 8
-  store i32 0, ptr %4, align 4
-  br label %22
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 906, ptr noundef @__func__.KINGetWorkSpace, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %23
 
-22:                                               ; preds = %12, %11
-  %23 = load i32, ptr %4, align 4
-  ret i32 %23
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %14, ptr %8, align 8, !tbaa !7
+  %15 = load ptr, ptr %8, align 8, !tbaa !7
+  %16 = getelementptr inbounds nuw %struct.KINMemRec, ptr %15, i32 0, i32 71
+  %17 = load i64, ptr %16, align 8, !tbaa !54
+  %18 = load ptr, ptr %6, align 8, !tbaa !58
+  store i64 %17, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %8, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.KINMemRec, ptr %19, i32 0, i32 72
+  %21 = load i64, ptr %20, align 8, !tbaa !56
+  %22 = load ptr, ptr %7, align 8, !tbaa !58
+  store i64 %21, ptr %22, align 8, !tbaa !23
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %23
+
+23:                                               ; preds = %13, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %24 = load i32, ptr %4, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1658,31 +1827,36 @@ define i32 @KINGetNumNonlinSolvIters(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 930, ptr noundef @__func__.KINGetNumNonlinSolvIters, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.KINMemRec, ptr %12, i32 0, i32 30
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 930, ptr noundef @__func__.KINGetNumNonlinSolvIters, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.KINMemRec, ptr %13, i32 0, i32 30
+  %15 = load i64, ptr %14, align 8, !tbaa !59
+  %16 = load ptr, ptr %5, align 8, !tbaa !58
+  store i64 %15, ptr %16, align 8, !tbaa !23
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1691,31 +1865,36 @@ define i32 @KINGetNumFuncEvals(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 952, ptr noundef @__func__.KINGetNumFuncEvals, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.KINMemRec, ptr %12, i32 0, i32 31
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 952, ptr noundef @__func__.KINGetNumFuncEvals, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.KINMemRec, ptr %13, i32 0, i32 31
+  %15 = load i64, ptr %14, align 8, !tbaa !60
+  %16 = load ptr, ptr %5, align 8, !tbaa !58
+  store i64 %15, ptr %16, align 8, !tbaa !23
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1724,31 +1903,36 @@ define i32 @KINGetNumBetaCondFails(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 974, ptr noundef @__func__.KINGetNumBetaCondFails, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.KINMemRec, ptr %12, i32 0, i32 34
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 974, ptr noundef @__func__.KINGetNumBetaCondFails, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.KINMemRec, ptr %13, i32 0, i32 34
+  %15 = load i64, ptr %14, align 8, !tbaa !61
+  %16 = load ptr, ptr %5, align 8, !tbaa !58
+  store i64 %15, ptr %16, align 8, !tbaa !23
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1757,31 +1941,36 @@ define i32 @KINGetNumBacktrackOps(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 996, ptr noundef @__func__.KINGetNumBacktrackOps, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.KINMemRec, ptr %12, i32 0, i32 35
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store i64 %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 996, ptr noundef @__func__.KINGetNumBacktrackOps, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.KINMemRec, ptr %13, i32 0, i32 35
+  %15 = load i64, ptr %14, align 8, !tbaa !62
+  %16 = load ptr, ptr %5, align 8, !tbaa !58
+  store i64 %15, ptr %16, align 8, !tbaa !23
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1790,31 +1979,36 @@ define i32 @KINGetFuncNorm(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 1018, ptr noundef @__func__.KINGetFuncNorm, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.KINMemRec, ptr %12, i32 0, i32 79
-  %14 = load double, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store double %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 1018, ptr noundef @__func__.KINGetFuncNorm, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.KINMemRec, ptr %13, i32 0, i32 79
+  %15 = load double, ptr %14, align 8, !tbaa !64
+  %16 = load ptr, ptr %5, align 8, !tbaa !63
+  store double %15, ptr %16, align 8, !tbaa !20
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1823,31 +2017,36 @@ define i32 @KINGetStepLength(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 1040, ptr noundef @__func__.KINGetStepLength, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.KINMemRec, ptr %12, i32 0, i32 22
-  %14 = load double, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store double %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 1040, ptr noundef @__func__.KINGetStepLength, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.KINMemRec, ptr %13, i32 0, i32 22
+  %15 = load double, ptr %14, align 8, !tbaa !65
+  %16 = load ptr, ptr %5, align 8, !tbaa !63
+  store double %15, ptr %16, align 8, !tbaa !20
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1856,31 +2055,36 @@ define i32 @KINGetUserData(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 1062, ptr noundef @__func__.KINGetUserData, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %3, align 4
-  br label %16
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.KINMemRec, ptr %12, i32 0, i32 3
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  store ptr %14, ptr %15, align 8
-  store i32 0, ptr %3, align 4
-  br label %16
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 1062, ptr noundef @__func__.KINGetUserData, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
 
-16:                                               ; preds = %10, %9
-  %17 = load i32, ptr %3, align 4
-  ret i32 %17
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %12, ptr %6, align 8, !tbaa !7
+  %13 = load ptr, ptr %6, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw %struct.KINMemRec, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !9
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %15, ptr %16, align 8, !tbaa !3
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %17
+
+17:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %18 = load i32, ptr %3, align 4
+  ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1891,314 +2095,323 @@ define i32 @KINPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 1086, ptr noundef @__func__.KINPrintAllStats, ptr noundef @.str, ptr noundef @.str.1)
-  store i32 -1, ptr %4, align 4
-  br label %256
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !66
+  store i32 %2, ptr %7, align 4, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %5, align 8
-  store ptr %14, ptr %8, align 8
-  %15 = load i32, ptr %7, align 4
-  switch i32 %15, label %253 [
-    i32 0, label %16
-    i32 1, label %130
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef null, i32 noundef -1, i32 noundef 1086, ptr noundef @__func__.KINPrintAllStats, ptr noundef @.str, ptr noundef @.str.1)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %257
+
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %15, ptr %8, align 8, !tbaa !7
+  %16 = load i32, ptr %7, align 4, !tbaa !27
+  switch i32 %16, label %254 [
+    i32 0, label %17
+    i32 1, label %131
   ]
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.KINMemRec, ptr %18, i32 0, i32 30
-  %20 = load i64, ptr %19, align 8
-  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.21, i64 noundef %20) #4
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.KINMemRec, ptr %23, i32 0, i32 31
-  %25 = load i64, ptr %24, align 8
-  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.22, i64 noundef %25) #4
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.KINMemRec, ptr %28, i32 0, i32 34
-  %30 = load i64, ptr %29, align 8
-  %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str.23, i64 noundef %30) #4
-  %32 = load ptr, ptr %6, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.KINMemRec, ptr %33, i32 0, i32 35
-  %35 = load i64, ptr %34, align 8
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef @.str.24, i64 noundef %35) #4
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.KINMemRec, ptr %38, i32 0, i32 79
-  %40 = load double, ptr %39, align 8
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef @.str.25, double noundef %40) #4
-  %42 = load ptr, ptr %6, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.KINMemRec, ptr %43, i32 0, i32 22
-  %45 = load double, ptr %44, align 8
-  %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str.26, double noundef %45) #4
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.KINMemRec, ptr %47, i32 0, i32 78
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %51, label %129
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %6, align 8, !tbaa !66
+  %19 = load ptr, ptr %8, align 8, !tbaa !7
+  %20 = getelementptr inbounds nuw %struct.KINMemRec, ptr %19, i32 0, i32 30
+  %21 = load i64, ptr %20, align 8, !tbaa !59
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.21, i64 noundef %21) #5
+  %23 = load ptr, ptr %6, align 8, !tbaa !66
+  %24 = load ptr, ptr %8, align 8, !tbaa !7
+  %25 = getelementptr inbounds nuw %struct.KINMemRec, ptr %24, i32 0, i32 31
+  %26 = load i64, ptr %25, align 8, !tbaa !60
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.22, i64 noundef %26) #5
+  %28 = load ptr, ptr %6, align 8, !tbaa !66
+  %29 = load ptr, ptr %8, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw %struct.KINMemRec, ptr %29, i32 0, i32 34
+  %31 = load i64, ptr %30, align 8, !tbaa !61
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef @.str.23, i64 noundef %31) #5
+  %33 = load ptr, ptr %6, align 8, !tbaa !66
+  %34 = load ptr, ptr %8, align 8, !tbaa !7
+  %35 = getelementptr inbounds nuw %struct.KINMemRec, ptr %34, i32 0, i32 35
+  %36 = load i64, ptr %35, align 8, !tbaa !62
+  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.24, i64 noundef %36) #5
+  %38 = load ptr, ptr %6, align 8, !tbaa !66
+  %39 = load ptr, ptr %8, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw %struct.KINMemRec, ptr %39, i32 0, i32 79
+  %41 = load double, ptr %40, align 8, !tbaa !64
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef @.str.25, double noundef %41) #5
+  %43 = load ptr, ptr %6, align 8, !tbaa !66
+  %44 = load ptr, ptr %8, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw %struct.KINMemRec, ptr %44, i32 0, i32 22
+  %46 = load double, ptr %45, align 8, !tbaa !65
+  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef @.str.26, double noundef %46) #5
+  %48 = load ptr, ptr %8, align 8, !tbaa !7
+  %49 = getelementptr inbounds nuw %struct.KINMemRec, ptr %48, i32 0, i32 78
+  %50 = load ptr, ptr %49, align 8, !tbaa !68
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %130
 
-51:                                               ; preds = %16
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.KINMemRec, ptr %52, i32 0, i32 78
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %9, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds %struct.KINLsMemRec, ptr %56, i32 0, i32 8
-  %58 = load i64, ptr %57, align 8
-  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str.27, i64 noundef %58) #4
-  %60 = load ptr, ptr %6, align 8
-  %61 = load ptr, ptr %9, align 8
-  %62 = getelementptr inbounds %struct.KINLsMemRec, ptr %61, i32 0, i32 9
-  %63 = load i64, ptr %62, align 8
-  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef @.str.28, i64 noundef %63) #4
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %9, align 8
-  %67 = getelementptr inbounds %struct.KINLsMemRec, ptr %66, i32 0, i32 10
-  %68 = load i64, ptr %67, align 8
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef @.str.29, i64 noundef %68) #4
-  %70 = load ptr, ptr %6, align 8
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct.KINLsMemRec, ptr %71, i32 0, i32 12
-  %73 = load i64, ptr %72, align 8
-  %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef @.str.30, i64 noundef %73) #4
-  %75 = load ptr, ptr %6, align 8
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct.KINLsMemRec, ptr %76, i32 0, i32 11
-  %78 = load i64, ptr %77, align 8
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef @.str.31, i64 noundef %78) #4
-  %80 = load ptr, ptr %6, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = getelementptr inbounds %struct.KINLsMemRec, ptr %81, i32 0, i32 13
-  %83 = load i64, ptr %82, align 8
-  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str.32, i64 noundef %83) #4
-  %85 = load ptr, ptr %6, align 8
-  %86 = load ptr, ptr %9, align 8
-  %87 = getelementptr inbounds %struct.KINLsMemRec, ptr %86, i32 0, i32 14
-  %88 = load i64, ptr %87, align 8
-  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef @.str.33, i64 noundef %88) #4
-  %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds %struct.KINMemRec, ptr %90, i32 0, i32 30
-  %92 = load i64, ptr %91, align 8
-  %93 = icmp sgt i64 %92, 0
-  br i1 %93, label %94, label %128
+52:                                               ; preds = %17
+  %53 = load ptr, ptr %8, align 8, !tbaa !7
+  %54 = getelementptr inbounds nuw %struct.KINMemRec, ptr %53, i32 0, i32 78
+  %55 = load ptr, ptr %54, align 8, !tbaa !68
+  store ptr %55, ptr %9, align 8, !tbaa !69
+  %56 = load ptr, ptr %6, align 8, !tbaa !66
+  %57 = load ptr, ptr %9, align 8, !tbaa !69
+  %58 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %57, i32 0, i32 8
+  %59 = load i64, ptr %58, align 8, !tbaa !71
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str.27, i64 noundef %59) #5
+  %61 = load ptr, ptr %6, align 8, !tbaa !66
+  %62 = load ptr, ptr %9, align 8, !tbaa !69
+  %63 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %62, i32 0, i32 9
+  %64 = load i64, ptr %63, align 8, !tbaa !75
+  %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef @.str.28, i64 noundef %64) #5
+  %66 = load ptr, ptr %6, align 8, !tbaa !66
+  %67 = load ptr, ptr %9, align 8, !tbaa !69
+  %68 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %67, i32 0, i32 10
+  %69 = load i64, ptr %68, align 8, !tbaa !76
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef @.str.29, i64 noundef %69) #5
+  %71 = load ptr, ptr %6, align 8, !tbaa !66
+  %72 = load ptr, ptr %9, align 8, !tbaa !69
+  %73 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %72, i32 0, i32 12
+  %74 = load i64, ptr %73, align 8, !tbaa !77
+  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef @.str.30, i64 noundef %74) #5
+  %76 = load ptr, ptr %6, align 8, !tbaa !66
+  %77 = load ptr, ptr %9, align 8, !tbaa !69
+  %78 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %77, i32 0, i32 11
+  %79 = load i64, ptr %78, align 8, !tbaa !78
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef @.str.31, i64 noundef %79) #5
+  %81 = load ptr, ptr %6, align 8, !tbaa !66
+  %82 = load ptr, ptr %9, align 8, !tbaa !69
+  %83 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %82, i32 0, i32 13
+  %84 = load i64, ptr %83, align 8, !tbaa !79
+  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.32, i64 noundef %84) #5
+  %86 = load ptr, ptr %6, align 8, !tbaa !66
+  %87 = load ptr, ptr %9, align 8, !tbaa !69
+  %88 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %87, i32 0, i32 14
+  %89 = load i64, ptr %88, align 8, !tbaa !80
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef @.str.33, i64 noundef %89) #5
+  %91 = load ptr, ptr %8, align 8, !tbaa !7
+  %92 = getelementptr inbounds nuw %struct.KINMemRec, ptr %91, i32 0, i32 30
+  %93 = load i64, ptr %92, align 8, !tbaa !59
+  %94 = icmp sgt i64 %93, 0
+  br i1 %94, label %95, label %129
 
-94:                                               ; preds = %51
-  %95 = load ptr, ptr %6, align 8
-  %96 = load ptr, ptr %9, align 8
-  %97 = getelementptr inbounds %struct.KINLsMemRec, ptr %96, i32 0, i32 11
-  %98 = load i64, ptr %97, align 8
-  %99 = sitofp i64 %98 to double
-  %100 = load ptr, ptr %8, align 8
-  %101 = getelementptr inbounds %struct.KINMemRec, ptr %100, i32 0, i32 30
-  %102 = load i64, ptr %101, align 8
-  %103 = sitofp i64 %102 to double
-  %104 = fdiv double %99, %103
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef @.str.34, double noundef %104) #4
-  %106 = load ptr, ptr %6, align 8
-  %107 = load ptr, ptr %9, align 8
-  %108 = getelementptr inbounds %struct.KINLsMemRec, ptr %107, i32 0, i32 8
-  %109 = load i64, ptr %108, align 8
-  %110 = sitofp i64 %109 to double
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %struct.KINMemRec, ptr %111, i32 0, i32 30
-  %113 = load i64, ptr %112, align 8
-  %114 = sitofp i64 %113 to double
-  %115 = fdiv double %110, %114
-  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef @.str.35, double noundef %115) #4
-  %117 = load ptr, ptr %6, align 8
-  %118 = load ptr, ptr %9, align 8
-  %119 = getelementptr inbounds %struct.KINLsMemRec, ptr %118, i32 0, i32 10
-  %120 = load i64, ptr %119, align 8
-  %121 = sitofp i64 %120 to double
-  %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds %struct.KINMemRec, ptr %122, i32 0, i32 30
-  %124 = load i64, ptr %123, align 8
-  %125 = sitofp i64 %124 to double
-  %126 = fdiv double %121, %125
-  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef @.str.36, double noundef %126) #4
-  br label %128
-
-128:                                              ; preds = %94, %51
+95:                                               ; preds = %52
+  %96 = load ptr, ptr %6, align 8, !tbaa !66
+  %97 = load ptr, ptr %9, align 8, !tbaa !69
+  %98 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %97, i32 0, i32 11
+  %99 = load i64, ptr %98, align 8, !tbaa !78
+  %100 = sitofp i64 %99 to double
+  %101 = load ptr, ptr %8, align 8, !tbaa !7
+  %102 = getelementptr inbounds nuw %struct.KINMemRec, ptr %101, i32 0, i32 30
+  %103 = load i64, ptr %102, align 8, !tbaa !59
+  %104 = sitofp i64 %103 to double
+  %105 = fdiv double %100, %104
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef @.str.34, double noundef %105) #5
+  %107 = load ptr, ptr %6, align 8, !tbaa !66
+  %108 = load ptr, ptr %9, align 8, !tbaa !69
+  %109 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %108, i32 0, i32 8
+  %110 = load i64, ptr %109, align 8, !tbaa !71
+  %111 = sitofp i64 %110 to double
+  %112 = load ptr, ptr %8, align 8, !tbaa !7
+  %113 = getelementptr inbounds nuw %struct.KINMemRec, ptr %112, i32 0, i32 30
+  %114 = load i64, ptr %113, align 8, !tbaa !59
+  %115 = sitofp i64 %114 to double
+  %116 = fdiv double %111, %115
+  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef @.str.35, double noundef %116) #5
+  %118 = load ptr, ptr %6, align 8, !tbaa !66
+  %119 = load ptr, ptr %9, align 8, !tbaa !69
+  %120 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %119, i32 0, i32 10
+  %121 = load i64, ptr %120, align 8, !tbaa !76
+  %122 = sitofp i64 %121 to double
+  %123 = load ptr, ptr %8, align 8, !tbaa !7
+  %124 = getelementptr inbounds nuw %struct.KINMemRec, ptr %123, i32 0, i32 30
+  %125 = load i64, ptr %124, align 8, !tbaa !59
+  %126 = sitofp i64 %125 to double
+  %127 = fdiv double %122, %126
+  %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef @.str.36, double noundef %127) #5
   br label %129
 
-129:                                              ; preds = %128, %16
-  br label %255
+129:                                              ; preds = %95, %52
+  br label %130
 
-130:                                              ; preds = %13
-  %131 = load ptr, ptr %6, align 8
-  %132 = load ptr, ptr %8, align 8
-  %133 = getelementptr inbounds %struct.KINMemRec, ptr %132, i32 0, i32 30
-  %134 = load i64, ptr %133, align 8
-  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef @.str.37, i64 noundef %134) #4
-  %136 = load ptr, ptr %6, align 8
-  %137 = load ptr, ptr %8, align 8
-  %138 = getelementptr inbounds %struct.KINMemRec, ptr %137, i32 0, i32 31
-  %139 = load i64, ptr %138, align 8
-  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef @.str.38, i64 noundef %139) #4
-  %141 = load ptr, ptr %6, align 8
-  %142 = load ptr, ptr %8, align 8
-  %143 = getelementptr inbounds %struct.KINMemRec, ptr %142, i32 0, i32 34
-  %144 = load i64, ptr %143, align 8
-  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef @.str.39, i64 noundef %144) #4
-  %146 = load ptr, ptr %6, align 8
-  %147 = load ptr, ptr %8, align 8
-  %148 = getelementptr inbounds %struct.KINMemRec, ptr %147, i32 0, i32 35
-  %149 = load i64, ptr %148, align 8
-  %150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef @.str.40, i64 noundef %149) #4
-  %151 = load ptr, ptr %6, align 8
-  %152 = load ptr, ptr %8, align 8
-  %153 = getelementptr inbounds %struct.KINMemRec, ptr %152, i32 0, i32 79
-  %154 = load double, ptr %153, align 8
-  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef @.str.41, double noundef %154) #4
-  %156 = load ptr, ptr %6, align 8
-  %157 = load ptr, ptr %8, align 8
-  %158 = getelementptr inbounds %struct.KINMemRec, ptr %157, i32 0, i32 22
-  %159 = load double, ptr %158, align 8
-  %160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef @.str.42, double noundef %159) #4
-  %161 = load ptr, ptr %8, align 8
-  %162 = getelementptr inbounds %struct.KINMemRec, ptr %161, i32 0, i32 78
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp ne ptr %163, null
-  br i1 %164, label %165, label %250
+130:                                              ; preds = %129, %17
+  br label %256
 
-165:                                              ; preds = %130
-  %166 = load ptr, ptr %8, align 8
-  %167 = getelementptr inbounds %struct.KINMemRec, ptr %166, i32 0, i32 78
-  %168 = load ptr, ptr %167, align 8
-  store ptr %168, ptr %9, align 8
-  %169 = load ptr, ptr %6, align 8
-  %170 = load ptr, ptr %9, align 8
-  %171 = getelementptr inbounds %struct.KINLsMemRec, ptr %170, i32 0, i32 8
-  %172 = load i64, ptr %171, align 8
-  %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef @.str.43, i64 noundef %172) #4
-  %174 = load ptr, ptr %6, align 8
-  %175 = load ptr, ptr %9, align 8
-  %176 = getelementptr inbounds %struct.KINLsMemRec, ptr %175, i32 0, i32 9
-  %177 = load i64, ptr %176, align 8
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %174, ptr noundef @.str.44, i64 noundef %177) #4
-  %179 = load ptr, ptr %6, align 8
-  %180 = load ptr, ptr %9, align 8
-  %181 = getelementptr inbounds %struct.KINLsMemRec, ptr %180, i32 0, i32 10
-  %182 = load i64, ptr %181, align 8
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %179, ptr noundef @.str.45, i64 noundef %182) #4
-  %184 = load ptr, ptr %6, align 8
-  %185 = load ptr, ptr %9, align 8
-  %186 = getelementptr inbounds %struct.KINLsMemRec, ptr %185, i32 0, i32 12
-  %187 = load i64, ptr %186, align 8
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef @.str.46, i64 noundef %187) #4
-  %189 = load ptr, ptr %6, align 8
-  %190 = load ptr, ptr %9, align 8
-  %191 = getelementptr inbounds %struct.KINLsMemRec, ptr %190, i32 0, i32 11
-  %192 = load i64, ptr %191, align 8
-  %193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %189, ptr noundef @.str.47, i64 noundef %192) #4
-  %194 = load ptr, ptr %6, align 8
-  %195 = load ptr, ptr %9, align 8
-  %196 = getelementptr inbounds %struct.KINLsMemRec, ptr %195, i32 0, i32 13
-  %197 = load i64, ptr %196, align 8
-  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef @.str.48, i64 noundef %197) #4
-  %199 = load ptr, ptr %6, align 8
-  %200 = load ptr, ptr %9, align 8
-  %201 = getelementptr inbounds %struct.KINLsMemRec, ptr %200, i32 0, i32 14
-  %202 = load i64, ptr %201, align 8
-  %203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef @.str.49, i64 noundef %202) #4
-  %204 = load ptr, ptr %8, align 8
-  %205 = getelementptr inbounds %struct.KINMemRec, ptr %204, i32 0, i32 30
-  %206 = load i64, ptr %205, align 8
-  %207 = icmp sgt i64 %206, 0
-  br i1 %207, label %208, label %242
+131:                                              ; preds = %14
+  %132 = load ptr, ptr %6, align 8, !tbaa !66
+  %133 = load ptr, ptr %8, align 8, !tbaa !7
+  %134 = getelementptr inbounds nuw %struct.KINMemRec, ptr %133, i32 0, i32 30
+  %135 = load i64, ptr %134, align 8, !tbaa !59
+  %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef @.str.37, i64 noundef %135) #5
+  %137 = load ptr, ptr %6, align 8, !tbaa !66
+  %138 = load ptr, ptr %8, align 8, !tbaa !7
+  %139 = getelementptr inbounds nuw %struct.KINMemRec, ptr %138, i32 0, i32 31
+  %140 = load i64, ptr %139, align 8, !tbaa !60
+  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef @.str.38, i64 noundef %140) #5
+  %142 = load ptr, ptr %6, align 8, !tbaa !66
+  %143 = load ptr, ptr %8, align 8, !tbaa !7
+  %144 = getelementptr inbounds nuw %struct.KINMemRec, ptr %143, i32 0, i32 34
+  %145 = load i64, ptr %144, align 8, !tbaa !61
+  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef @.str.39, i64 noundef %145) #5
+  %147 = load ptr, ptr %6, align 8, !tbaa !66
+  %148 = load ptr, ptr %8, align 8, !tbaa !7
+  %149 = getelementptr inbounds nuw %struct.KINMemRec, ptr %148, i32 0, i32 35
+  %150 = load i64, ptr %149, align 8, !tbaa !62
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %147, ptr noundef @.str.40, i64 noundef %150) #5
+  %152 = load ptr, ptr %6, align 8, !tbaa !66
+  %153 = load ptr, ptr %8, align 8, !tbaa !7
+  %154 = getelementptr inbounds nuw %struct.KINMemRec, ptr %153, i32 0, i32 79
+  %155 = load double, ptr %154, align 8, !tbaa !64
+  %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef @.str.41, double noundef %155) #5
+  %157 = load ptr, ptr %6, align 8, !tbaa !66
+  %158 = load ptr, ptr %8, align 8, !tbaa !7
+  %159 = getelementptr inbounds nuw %struct.KINMemRec, ptr %158, i32 0, i32 22
+  %160 = load double, ptr %159, align 8, !tbaa !65
+  %161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef @.str.42, double noundef %160) #5
+  %162 = load ptr, ptr %8, align 8, !tbaa !7
+  %163 = getelementptr inbounds nuw %struct.KINMemRec, ptr %162, i32 0, i32 78
+  %164 = load ptr, ptr %163, align 8, !tbaa !68
+  %165 = icmp ne ptr %164, null
+  br i1 %165, label %166, label %251
 
-208:                                              ; preds = %165
-  %209 = load ptr, ptr %6, align 8
-  %210 = load ptr, ptr %9, align 8
-  %211 = getelementptr inbounds %struct.KINLsMemRec, ptr %210, i32 0, i32 11
-  %212 = load i64, ptr %211, align 8
-  %213 = sitofp i64 %212 to double
-  %214 = load ptr, ptr %8, align 8
-  %215 = getelementptr inbounds %struct.KINMemRec, ptr %214, i32 0, i32 30
-  %216 = load i64, ptr %215, align 8
-  %217 = sitofp i64 %216 to double
-  %218 = fdiv double %213, %217
-  %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef @.str.50, double noundef %218) #4
-  %220 = load ptr, ptr %6, align 8
-  %221 = load ptr, ptr %9, align 8
-  %222 = getelementptr inbounds %struct.KINLsMemRec, ptr %221, i32 0, i32 8
-  %223 = load i64, ptr %222, align 8
-  %224 = sitofp i64 %223 to double
-  %225 = load ptr, ptr %8, align 8
-  %226 = getelementptr inbounds %struct.KINMemRec, ptr %225, i32 0, i32 30
-  %227 = load i64, ptr %226, align 8
-  %228 = sitofp i64 %227 to double
-  %229 = fdiv double %224, %228
-  %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef @.str.51, double noundef %229) #4
-  %231 = load ptr, ptr %6, align 8
-  %232 = load ptr, ptr %9, align 8
-  %233 = getelementptr inbounds %struct.KINLsMemRec, ptr %232, i32 0, i32 10
-  %234 = load i64, ptr %233, align 8
-  %235 = sitofp i64 %234 to double
-  %236 = load ptr, ptr %8, align 8
-  %237 = getelementptr inbounds %struct.KINMemRec, ptr %236, i32 0, i32 30
-  %238 = load i64, ptr %237, align 8
-  %239 = sitofp i64 %238 to double
-  %240 = fdiv double %235, %239
-  %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef @.str.52, double noundef %240) #4
-  br label %249
+166:                                              ; preds = %131
+  %167 = load ptr, ptr %8, align 8, !tbaa !7
+  %168 = getelementptr inbounds nuw %struct.KINMemRec, ptr %167, i32 0, i32 78
+  %169 = load ptr, ptr %168, align 8, !tbaa !68
+  store ptr %169, ptr %9, align 8, !tbaa !69
+  %170 = load ptr, ptr %6, align 8, !tbaa !66
+  %171 = load ptr, ptr %9, align 8, !tbaa !69
+  %172 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %171, i32 0, i32 8
+  %173 = load i64, ptr %172, align 8, !tbaa !71
+  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef @.str.43, i64 noundef %173) #5
+  %175 = load ptr, ptr %6, align 8, !tbaa !66
+  %176 = load ptr, ptr %9, align 8, !tbaa !69
+  %177 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %176, i32 0, i32 9
+  %178 = load i64, ptr %177, align 8, !tbaa !75
+  %179 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %175, ptr noundef @.str.44, i64 noundef %178) #5
+  %180 = load ptr, ptr %6, align 8, !tbaa !66
+  %181 = load ptr, ptr %9, align 8, !tbaa !69
+  %182 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %181, i32 0, i32 10
+  %183 = load i64, ptr %182, align 8, !tbaa !76
+  %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef @.str.45, i64 noundef %183) #5
+  %185 = load ptr, ptr %6, align 8, !tbaa !66
+  %186 = load ptr, ptr %9, align 8, !tbaa !69
+  %187 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %186, i32 0, i32 12
+  %188 = load i64, ptr %187, align 8, !tbaa !77
+  %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef @.str.46, i64 noundef %188) #5
+  %190 = load ptr, ptr %6, align 8, !tbaa !66
+  %191 = load ptr, ptr %9, align 8, !tbaa !69
+  %192 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %191, i32 0, i32 11
+  %193 = load i64, ptr %192, align 8, !tbaa !78
+  %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef @.str.47, i64 noundef %193) #5
+  %195 = load ptr, ptr %6, align 8, !tbaa !66
+  %196 = load ptr, ptr %9, align 8, !tbaa !69
+  %197 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %196, i32 0, i32 13
+  %198 = load i64, ptr %197, align 8, !tbaa !79
+  %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef @.str.48, i64 noundef %198) #5
+  %200 = load ptr, ptr %6, align 8, !tbaa !66
+  %201 = load ptr, ptr %9, align 8, !tbaa !69
+  %202 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %201, i32 0, i32 14
+  %203 = load i64, ptr %202, align 8, !tbaa !80
+  %204 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef @.str.49, i64 noundef %203) #5
+  %205 = load ptr, ptr %8, align 8, !tbaa !7
+  %206 = getelementptr inbounds nuw %struct.KINMemRec, ptr %205, i32 0, i32 30
+  %207 = load i64, ptr %206, align 8, !tbaa !59
+  %208 = icmp sgt i64 %207, 0
+  br i1 %208, label %209, label %243
 
-242:                                              ; preds = %165
-  %243 = load ptr, ptr %6, align 8
-  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %243, ptr noundef @.str.53) #4
-  %245 = load ptr, ptr %6, align 8
-  %246 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %245, ptr noundef @.str.54) #4
-  %247 = load ptr, ptr %6, align 8
-  %248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef @.str.55) #4
-  br label %249
-
-249:                                              ; preds = %242, %208
+209:                                              ; preds = %166
+  %210 = load ptr, ptr %6, align 8, !tbaa !66
+  %211 = load ptr, ptr %9, align 8, !tbaa !69
+  %212 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %211, i32 0, i32 11
+  %213 = load i64, ptr %212, align 8, !tbaa !78
+  %214 = sitofp i64 %213 to double
+  %215 = load ptr, ptr %8, align 8, !tbaa !7
+  %216 = getelementptr inbounds nuw %struct.KINMemRec, ptr %215, i32 0, i32 30
+  %217 = load i64, ptr %216, align 8, !tbaa !59
+  %218 = sitofp i64 %217 to double
+  %219 = fdiv double %214, %218
+  %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef @.str.50, double noundef %219) #5
+  %221 = load ptr, ptr %6, align 8, !tbaa !66
+  %222 = load ptr, ptr %9, align 8, !tbaa !69
+  %223 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %222, i32 0, i32 8
+  %224 = load i64, ptr %223, align 8, !tbaa !71
+  %225 = sitofp i64 %224 to double
+  %226 = load ptr, ptr %8, align 8, !tbaa !7
+  %227 = getelementptr inbounds nuw %struct.KINMemRec, ptr %226, i32 0, i32 30
+  %228 = load i64, ptr %227, align 8, !tbaa !59
+  %229 = sitofp i64 %228 to double
+  %230 = fdiv double %225, %229
+  %231 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef @.str.51, double noundef %230) #5
+  %232 = load ptr, ptr %6, align 8, !tbaa !66
+  %233 = load ptr, ptr %9, align 8, !tbaa !69
+  %234 = getelementptr inbounds nuw %struct.KINLsMemRec, ptr %233, i32 0, i32 10
+  %235 = load i64, ptr %234, align 8, !tbaa !76
+  %236 = sitofp i64 %235 to double
+  %237 = load ptr, ptr %8, align 8, !tbaa !7
+  %238 = getelementptr inbounds nuw %struct.KINMemRec, ptr %237, i32 0, i32 30
+  %239 = load i64, ptr %238, align 8, !tbaa !59
+  %240 = sitofp i64 %239 to double
+  %241 = fdiv double %236, %240
+  %242 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %232, ptr noundef @.str.52, double noundef %241) #5
   br label %250
 
-250:                                              ; preds = %249, %130
-  %251 = load ptr, ptr %6, align 8
-  %252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %251, ptr noundef @.str.56) #4
-  br label %255
+243:                                              ; preds = %166
+  %244 = load ptr, ptr %6, align 8, !tbaa !66
+  %245 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef @.str.53) #5
+  %246 = load ptr, ptr %6, align 8, !tbaa !66
+  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef @.str.54) #5
+  %248 = load ptr, ptr %6, align 8, !tbaa !66
+  %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef @.str.55) #5
+  br label %250
 
-253:                                              ; preds = %13
-  %254 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %254, i32 noundef -2, i32 noundef 1165, ptr noundef @__func__.KINPrintAllStats, ptr noundef @.str, ptr noundef @.str.57)
+250:                                              ; preds = %243, %209
+  br label %251
+
+251:                                              ; preds = %250, %131
+  %252 = load ptr, ptr %6, align 8, !tbaa !66
+  %253 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %252, ptr noundef @.str.56) #5
+  br label %256
+
+254:                                              ; preds = %14
+  %255 = load ptr, ptr %8, align 8, !tbaa !7
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @KINProcessError(ptr noundef %255, i32 noundef -2, i32 noundef 1165, ptr noundef @__func__.KINPrintAllStats, ptr noundef @.str, ptr noundef @.str.57)
   store i32 -2, ptr %4, align 4
-  br label %256
+  store i32 1, ptr %10, align 4
+  br label %257
 
-255:                                              ; preds = %250, %129
+256:                                              ; preds = %251, %130
   store i32 0, ptr %4, align 4
-  br label %256
+  store i32 1, ptr %10, align 4
+  br label %257
 
-256:                                              ; preds = %255, %253, %12
-  %257 = load i32, ptr %4, align 4
-  ret i32 %257
+257:                                              ; preds = %256, %254, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %258 = load i32, ptr %4, align 4
+  ret i32 %258
 }
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @KINGetReturnFlagName(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  store i64 %0, ptr %2, align 8
-  %4 = call noalias ptr @malloc(i64 noundef 24) #5
-  store ptr %4, ptr %3, align 8
-  %5 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  %4 = call noalias ptr @malloc(i64 noundef 24) #6
+  store ptr %4, ptr %3, align 8, !tbaa !81
+  %5 = load i64, ptr %2, align 8, !tbaa !23
   switch i64 %5, label %54 [
     i64 0, label %6
     i64 1, label %9
@@ -2219,111 +2432,192 @@ define ptr @KINGetReturnFlagName(i64 noundef %0) #0 {
   ]
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8
-  %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %7, ptr noundef @.str.58) #4
+  %7 = load ptr, ptr %3, align 8, !tbaa !81
+  %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %7, ptr noundef @.str.58) #5
   br label %57
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %10, ptr noundef @.str.59) #4
+  %10 = load ptr, ptr %3, align 8, !tbaa !81
+  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %10, ptr noundef @.str.59) #5
   br label %57
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %13, ptr noundef @.str.60) #4
+  %13 = load ptr, ptr %3, align 8, !tbaa !81
+  %14 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %13, ptr noundef @.str.60) #5
   br label %57
 
 15:                                               ; preds = %1
-  %16 = load ptr, ptr %3, align 8
-  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %16, ptr noundef @.str.61) #4
+  %16 = load ptr, ptr %3, align 8, !tbaa !81
+  %17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %16, ptr noundef @.str.61) #5
   br label %57
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %3, align 8
-  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %19, ptr noundef @.str.62) #4
+  %19 = load ptr, ptr %3, align 8, !tbaa !81
+  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %19, ptr noundef @.str.62) #5
   br label %57
 
 21:                                               ; preds = %1
-  %22 = load ptr, ptr %3, align 8
-  %23 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %22, ptr noundef @.str.63) #4
+  %22 = load ptr, ptr %3, align 8, !tbaa !81
+  %23 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %22, ptr noundef @.str.63) #5
   br label %57
 
 24:                                               ; preds = %1
-  %25 = load ptr, ptr %3, align 8
-  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %25, ptr noundef @.str.64) #4
+  %25 = load ptr, ptr %3, align 8, !tbaa !81
+  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %25, ptr noundef @.str.64) #5
   br label %57
 
 27:                                               ; preds = %1
-  %28 = load ptr, ptr %3, align 8
-  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %28, ptr noundef @.str.65) #4
+  %28 = load ptr, ptr %3, align 8, !tbaa !81
+  %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %28, ptr noundef @.str.65) #5
   br label %57
 
 30:                                               ; preds = %1
-  %31 = load ptr, ptr %3, align 8
-  %32 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %31, ptr noundef @.str.66) #4
+  %31 = load ptr, ptr %3, align 8, !tbaa !81
+  %32 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %31, ptr noundef @.str.66) #5
   br label %57
 
 33:                                               ; preds = %1
-  %34 = load ptr, ptr %3, align 8
-  %35 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %34, ptr noundef @.str.67) #4
+  %34 = load ptr, ptr %3, align 8, !tbaa !81
+  %35 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %34, ptr noundef @.str.67) #5
   br label %57
 
 36:                                               ; preds = %1
-  %37 = load ptr, ptr %3, align 8
-  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %37, ptr noundef @.str.68) #4
+  %37 = load ptr, ptr %3, align 8, !tbaa !81
+  %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %37, ptr noundef @.str.68) #5
   br label %57
 
 39:                                               ; preds = %1
-  %40 = load ptr, ptr %3, align 8
-  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %40, ptr noundef @.str.69) #4
+  %40 = load ptr, ptr %3, align 8, !tbaa !81
+  %41 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %40, ptr noundef @.str.69) #5
   br label %57
 
 42:                                               ; preds = %1
-  %43 = load ptr, ptr %3, align 8
-  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %43, ptr noundef @.str.70) #4
+  %43 = load ptr, ptr %3, align 8, !tbaa !81
+  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %43, ptr noundef @.str.70) #5
   br label %57
 
 45:                                               ; preds = %1
-  %46 = load ptr, ptr %3, align 8
-  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %46, ptr noundef @.str.71) #4
+  %46 = load ptr, ptr %3, align 8, !tbaa !81
+  %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %46, ptr noundef @.str.71) #5
   br label %57
 
 48:                                               ; preds = %1
-  %49 = load ptr, ptr %3, align 8
-  %50 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %49, ptr noundef @.str.72) #4
+  %49 = load ptr, ptr %3, align 8, !tbaa !81
+  %50 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %49, ptr noundef @.str.72) #5
   br label %57
 
 51:                                               ; preds = %1
-  %52 = load ptr, ptr %3, align 8
-  %53 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %52, ptr noundef @.str.73) #4
+  %52 = load ptr, ptr %3, align 8, !tbaa !81
+  %53 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %52, ptr noundef @.str.73) #5
   br label %57
 
 54:                                               ; preds = %1
-  %55 = load ptr, ptr %3, align 8
-  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %55, ptr noundef @.str.74) #4
+  %55 = load ptr, ptr %3, align 8, !tbaa !81
+  %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %55, ptr noundef @.str.74) #5
   br label %57
 
 57:                                               ; preds = %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %6
-  %58 = load ptr, ptr %3, align 8
+  %58 = load ptr, ptr %3, align 8, !tbaa !81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret ptr %58
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #3
+declare noalias ptr @malloc(i64 noundef) #4
 
 ; Function Attrs: nounwind
-declare i32 @sprintf(ptr noundef, ptr noundef, ...) #2
+declare i32 @sprintf(ptr noundef, ptr noundef, ...) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS9KINMemRec", !4, i64 0}
+!9 = !{!10, !4, i64 24}
+!10 = !{!"KINMemRec", !11, i64 0, !12, i64 8, !4, i64 16, !4, i64 24, !12, i64 32, !12, i64 40, !13, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !13, i64 88, !13, i64 92, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !13, i64 192, !12, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !15, i64 264, !15, i64 272, !15, i64 280, !15, i64 288, !15, i64 296, !15, i64 304, !15, i64 312, !15, i64 320, !15, i64 328, !15, i64 336, !15, i64 344, !13, i64 352, !13, i64 356, !12, i64 360, !15, i64 368, !15, i64 376, !16, i64 384, !16, i64 392, !16, i64 400, !12, i64 408, !17, i64 416, !17, i64 424, !17, i64 432, !18, i64 440, !14, i64 448, !14, i64 456, !13, i64 464, !4, i64 472, !19, i64 480, !13, i64 488, !17, i64 496, !16, i64 504, !14, i64 512, !14, i64 520, !14, i64 528, !14, i64 536, !4, i64 544, !4, i64 552, !4, i64 560, !4, i64 568, !13, i64 576, !4, i64 584, !12, i64 592, !12, i64 600, !12, i64 608, !12, i64 616, !12, i64 624, !13, i64 632, !12, i64 640, !12, i64 648, !12, i64 656, !13, i64 664}
+!11 = !{!"p1 _ZTS11SUNContext_", !4, i64 0}
+!12 = !{!"double", !5, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!"p1 _ZTS17_generic_N_Vector", !4, i64 0}
+!16 = !{!"p2 _ZTS17_generic_N_Vector", !4, i64 0}
+!17 = !{!"p1 double", !4, i64 0}
+!18 = !{!"p1 long", !4, i64 0}
+!19 = !{!"p1 _ZTS10_SUNQRData", !4, i64 0}
+!20 = !{!12, !12, i64 0}
+!21 = !{!10, !12, i64 360}
+!22 = !{!10, !13, i64 356}
+!23 = !{!14, !14, i64 0}
+!24 = !{!10, !14, i64 56}
+!25 = !{!10, !14, i64 448}
+!26 = !{!10, !14, i64 456}
+!27 = !{!13, !13, i64 0}
+!28 = !{!10, !13, i64 464}
+!29 = !{!10, !12, i64 408}
+!30 = !{!10, !13, i64 488}
+!31 = !{!10, !13, i64 352}
+!32 = !{!10, !13, i64 192}
+!33 = !{!10, !13, i64 108}
+!34 = !{!10, !14, i64 64}
+!35 = !{!10, !14, i64 72}
+!36 = !{!10, !13, i64 88}
+!37 = !{!10, !12, i64 168}
+!38 = !{!10, !12, i64 184}
+!39 = !{!10, !12, i64 176}
+!40 = !{!10, !12, i64 648}
+!41 = !{!10, !12, i64 656}
+!42 = !{!10, !12, i64 640}
+!43 = !{!10, !13, i64 92}
+!44 = !{!10, !12, i64 128}
+!45 = !{!10, !14, i64 80}
+!46 = !{!10, !12, i64 8}
+!47 = !{!10, !12, i64 136}
+!48 = !{!10, !12, i64 32}
+!49 = !{!10, !12, i64 40}
+!50 = !{!15, !15, i64 0}
+!51 = !{!10, !13, i64 96}
+!52 = !{!10, !15, i64 320}
+!53 = !{!10, !14, i64 512}
+!54 = !{!10, !14, i64 528}
+!55 = !{!10, !14, i64 520}
+!56 = !{!10, !14, i64 536}
+!57 = !{!10, !4, i64 16}
+!58 = !{!18, !18, i64 0}
+!59 = !{!10, !14, i64 208}
+!60 = !{!10, !14, i64 216}
+!61 = !{!10, !14, i64 240}
+!62 = !{!10, !14, i64 248}
+!63 = !{!17, !17, i64 0}
+!64 = !{!10, !12, i64 592}
+!65 = !{!10, !12, i64 144}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTS8_IO_FILE", !4, i64 0}
+!68 = !{!10, !4, i64 584}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTS11KINLsMemRec", !4, i64 0}
+!71 = !{!72, !14, i64 56}
+!72 = !{!"KINLsMemRec", !13, i64 0, !13, i64 4, !13, i64 8, !4, i64 16, !4, i64 24, !73, i64 32, !74, i64 40, !12, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104, !13, i64 112, !13, i64 116, !4, i64 120, !4, i64 128, !4, i64 136, !4, i64 144, !13, i64 152, !4, i64 160, !4, i64 168, !4, i64 176}
+!73 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !4, i64 0}
+!74 = !{!"p1 _ZTS18_generic_SUNMatrix", !4, i64 0}
+!75 = !{!72, !14, i64 64}
+!76 = !{!72, !14, i64 72}
+!77 = !{!72, !14, i64 88}
+!78 = !{!72, !14, i64 80}
+!79 = !{!72, !14, i64 96}
+!80 = !{!72, !14, i64 104}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 omnipotent char", !4, i64 0}

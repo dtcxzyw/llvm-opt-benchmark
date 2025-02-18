@@ -24,63 +24,67 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
   %14 = icmp eq ptr %0, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %9
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 69, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 69, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %233
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 78, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 78, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
   br label %233
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %21
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 87, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, i32 noundef 87, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #9
   br label %233
 
 30:                                               ; preds = %21
-  %31 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #9
+  %31 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #10
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 97, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 97, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 152
-  store ptr %0, ptr %35, align 8
+  store ptr %0, ptr %35, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store ptr %7, ptr %36, align 8
+  store ptr %7, ptr %36, align 8, !tbaa !27
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store ptr %8, ptr %37, align 8
+  store ptr %8, ptr %37, align 8, !tbaa !28
   %38 = add nsw i64 %1, -1
   %39 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %.not = icmp sgt i64 %1, %39
   %. = select i1 %.not, i64 %39, i64 %38
-  store i64 %., ptr %31, align 8
+  store i64 %., ptr %31, align 8, !tbaa !29
   %40 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
   %.not201 = icmp sgt i64 %1, %40
   %41 = select i1 %.not201, i64 %40, i64 %38
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 %41, ptr %42, align 8
+  store i64 %41, ptr %42, align 8, !tbaa !30
   %43 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
   %.not202 = icmp sgt i64 %1, %43
   %44 = select i1 %.not202, i64 %43, i64 %38
@@ -88,19 +92,19 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   %.not203 = icmp sgt i64 %1, %45
   %46 = select i1 %.not203, i64 %45, i64 %38
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 %44, ptr %47, align 8
+  store i64 %44, ptr %47, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %46, ptr %48, align 8
-  %49 = load ptr, ptr %0, align 8
-  %50 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %44, i64 noundef %46, i64 noundef %44, ptr noundef %49) #8
+  store i64 %46, ptr %48, align 8, !tbaa !32
+  %49 = load ptr, ptr %0, align 8, !tbaa !33
+  %50 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %44, i64 noundef %46, i64 noundef %44, ptr noundef %49) #9
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  store ptr %50, ptr %51, align 8
+  store ptr %50, ptr %51, align 8, !tbaa !34
   %52 = icmp eq ptr %50, null
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 119, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 119, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 54:                                               ; preds = %34
@@ -108,184 +112,184 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
   %.not204 = icmp sgt i64 %1, %55
   %.212 = select i1 %.not204, i64 %55, i64 %38
   %56 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  store ptr null, ptr %56, align 8
-  %57 = load ptr, ptr %0, align 8
-  %58 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %44, i64 noundef %46, i64 noundef %.212, ptr noundef %57) #8
-  store ptr %58, ptr %56, align 8
+  store ptr null, ptr %56, align 8, !tbaa !35
+  %57 = load ptr, ptr %0, align 8, !tbaa !33
+  %58 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %44, i64 noundef %46, i64 noundef %.212, ptr noundef %57) #9
+  store ptr %58, ptr %56, align 8, !tbaa !35
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %54
-  %61 = load ptr, ptr %51, align 8
-  tail call void @SUNMatDestroy(ptr noundef %61) #8
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 134, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  %61 = load ptr, ptr %51, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %61) #9
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 134, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 62:                                               ; preds = %54
   %63 = getelementptr inbounds nuw i8, ptr %31, i64 104
-  store ptr null, ptr %63, align 8
-  %64 = load ptr, ptr %0, align 8
-  %65 = tail call ptr @N_VNewEmpty_Serial(i64 noundef %1, ptr noundef %64) #8
-  store ptr %65, ptr %63, align 8
+  store ptr null, ptr %63, align 8, !tbaa !36
+  %64 = load ptr, ptr %0, align 8, !tbaa !33
+  %65 = tail call ptr @N_VNewEmpty_Serial(i64 noundef %1, ptr noundef %64) #9
+  store ptr %65, ptr %63, align 8, !tbaa !36
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %62
-  %68 = load ptr, ptr %56, align 8
-  tail call void @SUNMatDestroy(ptr noundef %68) #8
-  %69 = load ptr, ptr %51, align 8
-  tail call void @SUNMatDestroy(ptr noundef %69) #8
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 148, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  %68 = load ptr, ptr %56, align 8, !tbaa !35
+  tail call void @SUNMatDestroy(ptr noundef %68) #9
+  %69 = load ptr, ptr %51, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %69) #9
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 148, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 70:                                               ; preds = %62
   %71 = getelementptr inbounds nuw i8, ptr %31, i64 112
-  store ptr null, ptr %71, align 8
-  %72 = load ptr, ptr %0, align 8
-  %73 = tail call ptr @N_VNewEmpty_Serial(i64 noundef %1, ptr noundef %72) #8
-  store ptr %73, ptr %71, align 8
+  store ptr null, ptr %71, align 8, !tbaa !37
+  %72 = load ptr, ptr %0, align 8, !tbaa !33
+  %73 = tail call ptr @N_VNewEmpty_Serial(i64 noundef %1, ptr noundef %72) #9
+  store ptr %73, ptr %71, align 8, !tbaa !37
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %70
-  %76 = load ptr, ptr %63, align 8
-  tail call void @N_VDestroy(ptr noundef %76) #8
-  %77 = load ptr, ptr %56, align 8
-  tail call void @SUNMatDestroy(ptr noundef %77) #8
-  %78 = load ptr, ptr %51, align 8
-  tail call void @SUNMatDestroy(ptr noundef %78) #8
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 161, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  %76 = load ptr, ptr %63, align 8, !tbaa !36
+  tail call void @N_VDestroy(ptr noundef %76) #9
+  %77 = load ptr, ptr %56, align 8, !tbaa !35
+  tail call void @SUNMatDestroy(ptr noundef %77) #9
+  %78 = load ptr, ptr %51, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %78) #9
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 161, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 79:                                               ; preds = %70
   %80 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  store ptr null, ptr %80, align 8
-  %81 = load ptr, ptr %22, align 8
-  %82 = tail call ptr @N_VClone(ptr noundef %81) #8
-  store ptr %82, ptr %80, align 8
+  store ptr null, ptr %80, align 8, !tbaa !38
+  %81 = load ptr, ptr %22, align 8, !tbaa !17
+  %82 = tail call ptr @N_VClone(ptr noundef %81) #9
+  store ptr %82, ptr %80, align 8, !tbaa !38
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %79
-  %85 = load ptr, ptr %63, align 8
-  tail call void @N_VDestroy(ptr noundef %85) #8
-  %86 = load ptr, ptr %71, align 8
-  tail call void @N_VDestroy(ptr noundef %86) #8
-  %87 = load ptr, ptr %56, align 8
-  tail call void @SUNMatDestroy(ptr noundef %87) #8
-  %88 = load ptr, ptr %51, align 8
-  tail call void @SUNMatDestroy(ptr noundef %88) #8
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 175, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  %85 = load ptr, ptr %63, align 8, !tbaa !36
+  tail call void @N_VDestroy(ptr noundef %85) #9
+  %86 = load ptr, ptr %71, align 8, !tbaa !37
+  tail call void @N_VDestroy(ptr noundef %86) #9
+  %87 = load ptr, ptr %56, align 8, !tbaa !35
+  tail call void @SUNMatDestroy(ptr noundef %87) #9
+  %88 = load ptr, ptr %51, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %88) #9
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 175, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 89:                                               ; preds = %79
   %90 = getelementptr inbounds nuw i8, ptr %31, i64 88
-  store ptr null, ptr %90, align 8
-  %91 = load ptr, ptr %22, align 8
-  %92 = tail call ptr @N_VClone(ptr noundef %91) #8
-  store ptr %92, ptr %90, align 8
+  store ptr null, ptr %90, align 8, !tbaa !39
+  %91 = load ptr, ptr %22, align 8, !tbaa !17
+  %92 = tail call ptr @N_VClone(ptr noundef %91) #9
+  store ptr %92, ptr %90, align 8, !tbaa !39
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %89
-  %95 = load ptr, ptr %80, align 8
-  tail call void @N_VDestroy(ptr noundef %95) #8
-  %96 = load ptr, ptr %63, align 8
-  tail call void @N_VDestroy(ptr noundef %96) #8
-  %97 = load ptr, ptr %71, align 8
-  tail call void @N_VDestroy(ptr noundef %97) #8
-  %98 = load ptr, ptr %56, align 8
-  tail call void @SUNMatDestroy(ptr noundef %98) #8
-  %99 = load ptr, ptr %51, align 8
-  tail call void @SUNMatDestroy(ptr noundef %99) #8
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 190, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  %95 = load ptr, ptr %80, align 8, !tbaa !38
+  tail call void @N_VDestroy(ptr noundef %95) #9
+  %96 = load ptr, ptr %63, align 8, !tbaa !36
+  tail call void @N_VDestroy(ptr noundef %96) #9
+  %97 = load ptr, ptr %71, align 8, !tbaa !37
+  tail call void @N_VDestroy(ptr noundef %97) #9
+  %98 = load ptr, ptr %56, align 8, !tbaa !35
+  tail call void @SUNMatDestroy(ptr noundef %98) #9
+  %99 = load ptr, ptr %51, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %99) #9
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 190, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 100:                                              ; preds = %89
   %101 = getelementptr inbounds nuw i8, ptr %31, i64 96
-  store ptr null, ptr %101, align 8
-  %102 = load ptr, ptr %22, align 8
-  %103 = tail call ptr @N_VClone(ptr noundef %102) #8
-  store ptr %103, ptr %101, align 8
+  store ptr null, ptr %101, align 8, !tbaa !40
+  %102 = load ptr, ptr %22, align 8, !tbaa !17
+  %103 = tail call ptr @N_VClone(ptr noundef %102) #9
+  store ptr %103, ptr %101, align 8, !tbaa !40
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %100
-  %106 = load ptr, ptr %80, align 8
-  tail call void @N_VDestroy(ptr noundef %106) #8
-  %107 = load ptr, ptr %90, align 8
-  tail call void @N_VDestroy(ptr noundef %107) #8
-  %108 = load ptr, ptr %63, align 8
-  tail call void @N_VDestroy(ptr noundef %108) #8
-  %109 = load ptr, ptr %71, align 8
-  tail call void @N_VDestroy(ptr noundef %109) #8
-  %110 = load ptr, ptr %56, align 8
-  tail call void @SUNMatDestroy(ptr noundef %110) #8
-  %111 = load ptr, ptr %51, align 8
-  tail call void @SUNMatDestroy(ptr noundef %111) #8
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 206, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  %106 = load ptr, ptr %80, align 8, !tbaa !38
+  tail call void @N_VDestroy(ptr noundef %106) #9
+  %107 = load ptr, ptr %90, align 8, !tbaa !39
+  tail call void @N_VDestroy(ptr noundef %107) #9
+  %108 = load ptr, ptr %63, align 8, !tbaa !36
+  tail call void @N_VDestroy(ptr noundef %108) #9
+  %109 = load ptr, ptr %71, align 8, !tbaa !37
+  tail call void @N_VDestroy(ptr noundef %109) #9
+  %110 = load ptr, ptr %56, align 8, !tbaa !35
+  tail call void @SUNMatDestroy(ptr noundef %110) #9
+  %111 = load ptr, ptr %51, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %111) #9
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 206, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 112:                                              ; preds = %100
   %113 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  store ptr null, ptr %113, align 8
-  %114 = load ptr, ptr %71, align 8
-  %115 = load ptr, ptr %56, align 8
-  %116 = load ptr, ptr %0, align 8
-  %117 = tail call ptr @SUNLinSol_Band(ptr noundef %114, ptr noundef %115, ptr noundef %116) #8
-  store ptr %117, ptr %113, align 8
+  store ptr null, ptr %113, align 8, !tbaa !41
+  %114 = load ptr, ptr %71, align 8, !tbaa !37
+  %115 = load ptr, ptr %56, align 8, !tbaa !35
+  %116 = load ptr, ptr %0, align 8, !tbaa !33
+  %117 = tail call ptr @SUNLinSol_Band(ptr noundef %114, ptr noundef %115, ptr noundef %116) #9
+  store ptr %117, ptr %113, align 8, !tbaa !41
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %127
 
 119:                                              ; preds = %112
-  %120 = load ptr, ptr %80, align 8
-  tail call void @N_VDestroy(ptr noundef %120) #8
-  %121 = load ptr, ptr %90, align 8
-  tail call void @N_VDestroy(ptr noundef %121) #8
-  %122 = load ptr, ptr %101, align 8
-  tail call void @N_VDestroy(ptr noundef %122) #8
-  %123 = load ptr, ptr %63, align 8
-  tail call void @N_VDestroy(ptr noundef %123) #8
-  %124 = load ptr, ptr %71, align 8
-  tail call void @N_VDestroy(ptr noundef %124) #8
-  %125 = load ptr, ptr %56, align 8
-  tail call void @SUNMatDestroy(ptr noundef %125) #8
-  %126 = load ptr, ptr %51, align 8
-  tail call void @SUNMatDestroy(ptr noundef %126) #8
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 225, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #8
+  %120 = load ptr, ptr %80, align 8, !tbaa !38
+  tail call void @N_VDestroy(ptr noundef %120) #9
+  %121 = load ptr, ptr %90, align 8, !tbaa !39
+  tail call void @N_VDestroy(ptr noundef %121) #9
+  %122 = load ptr, ptr %101, align 8, !tbaa !40
+  tail call void @N_VDestroy(ptr noundef %122) #9
+  %123 = load ptr, ptr %63, align 8, !tbaa !36
+  tail call void @N_VDestroy(ptr noundef %123) #9
+  %124 = load ptr, ptr %71, align 8, !tbaa !37
+  tail call void @N_VDestroy(ptr noundef %124) #9
+  %125 = load ptr, ptr %56, align 8, !tbaa !35
+  tail call void @SUNMatDestroy(ptr noundef %125) #9
+  %126 = load ptr, ptr %51, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %126) #9
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -4, i32 noundef 225, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #9
   br label %233
 
 127:                                              ; preds = %112
-  %128 = tail call i32 @SUNLinSolInitialize(ptr noundef nonnull %117) #8
+  %128 = tail call i32 @SUNLinSolInitialize(ptr noundef nonnull %117) #9
   %.not205 = icmp eq i32 %128, 0
   br i1 %.not205, label %139, label %129
 
 129:                                              ; preds = %127
-  %130 = load ptr, ptr %80, align 8
-  tail call void @N_VDestroy(ptr noundef %130) #8
-  %131 = load ptr, ptr %90, align 8
-  tail call void @N_VDestroy(ptr noundef %131) #8
-  %132 = load ptr, ptr %101, align 8
-  tail call void @N_VDestroy(ptr noundef %132) #8
-  %133 = load ptr, ptr %63, align 8
-  tail call void @N_VDestroy(ptr noundef %133) #8
-  %134 = load ptr, ptr %71, align 8
-  tail call void @N_VDestroy(ptr noundef %134) #8
-  %135 = load ptr, ptr %56, align 8
-  tail call void @SUNMatDestroy(ptr noundef %135) #8
-  %136 = load ptr, ptr %51, align 8
-  tail call void @SUNMatDestroy(ptr noundef %136) #8
-  %137 = load ptr, ptr %113, align 8
-  %138 = tail call i32 @SUNLinSolFree(ptr noundef %137) #8
-  tail call void @free(ptr noundef nonnull %31) #8
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 244, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #8
+  %130 = load ptr, ptr %80, align 8, !tbaa !38
+  tail call void @N_VDestroy(ptr noundef %130) #9
+  %131 = load ptr, ptr %90, align 8, !tbaa !39
+  tail call void @N_VDestroy(ptr noundef %131) #9
+  %132 = load ptr, ptr %101, align 8, !tbaa !40
+  tail call void @N_VDestroy(ptr noundef %132) #9
+  %133 = load ptr, ptr %63, align 8, !tbaa !36
+  tail call void @N_VDestroy(ptr noundef %133) #9
+  %134 = load ptr, ptr %71, align 8, !tbaa !37
+  tail call void @N_VDestroy(ptr noundef %134) #9
+  %135 = load ptr, ptr %56, align 8, !tbaa !35
+  tail call void @SUNMatDestroy(ptr noundef %135) #9
+  %136 = load ptr, ptr %51, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %136) #9
+  %137 = load ptr, ptr %113, align 8, !tbaa !41
+  %138 = tail call i32 @SUNLinSolFree(ptr noundef %137) #9
+  tail call void @free(ptr noundef nonnull %31) #9
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -9, i32 noundef 244, ptr noundef nonnull @__func__.CVBBDPrecInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #9
   br label %233
 
 139:                                              ; preds = %127
@@ -294,347 +298,354 @@ define i32 @CVBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 no
 
 141:                                              ; preds = %139
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %143 = load double, ptr %142, align 8
+  %143 = load double, ptr %142, align 8, !tbaa !42
   %144 = fcmp ugt double %143, 0.000000e+00
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %141
-  %146 = tail call double @sqrt(double noundef %143) #8
+  %146 = tail call double @sqrt(double noundef %143) #9, !tbaa !43
   br label %147
 
 147:                                              ; preds = %139, %145, %141
   %148 = phi double [ %146, %145 ], [ 0.000000e+00, %141 ], [ %6, %139 ]
   %149 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store double %148, ptr %149, align 8
+  store double %148, ptr %149, align 8, !tbaa !44
   %150 = getelementptr inbounds nuw i8, ptr %31, i64 120
-  store i64 %1, ptr %150, align 8
+  store i64 %1, ptr %150, align 8, !tbaa !45
   %151 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %152 = getelementptr inbounds nuw i8, ptr %31, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, i8 0, i64 16, i1 false)
-  %153 = load ptr, ptr %22, align 8
+  %153 = load ptr, ptr %22, align 8, !tbaa !17
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %155 = load ptr, ptr %154, align 8
+  %155 = load ptr, ptr %154, align 8, !tbaa !18
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %157 = load ptr, ptr %156, align 8
+  %157 = load ptr, ptr %156, align 8, !tbaa !46
   %.not206 = icmp eq ptr %157, null
   br i1 %.not206, label %167, label %158
 
 158:                                              ; preds = %147
-  call void @N_VSpace(ptr noundef nonnull %153, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
-  %159 = load i64, ptr %10, align 8
+  call void @N_VSpace(ptr noundef nonnull %153, ptr noundef nonnull %10, ptr noundef nonnull %11) #9
+  %159 = load i64, ptr %10, align 8, !tbaa !47
   %160 = mul nsw i64 %159, 3
-  %161 = load i64, ptr %151, align 8
+  %161 = load i64, ptr %151, align 8, !tbaa !48
   %162 = add nsw i64 %161, %160
-  store i64 %162, ptr %151, align 8
-  %163 = load i64, ptr %11, align 8
+  store i64 %162, ptr %151, align 8, !tbaa !48
+  %163 = load i64, ptr %11, align 8, !tbaa !47
   %164 = mul nsw i64 %163, 3
-  %165 = load i64, ptr %152, align 8
+  %165 = load i64, ptr %152, align 8, !tbaa !49
   %166 = add nsw i64 %165, %164
-  store i64 %166, ptr %152, align 8
+  store i64 %166, ptr %152, align 8, !tbaa !49
   br label %167
 
 167:                                              ; preds = %158, %147
-  %168 = load ptr, ptr %71, align 8
+  %168 = load ptr, ptr %71, align 8, !tbaa !37
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %170 = load ptr, ptr %169, align 8
+  %170 = load ptr, ptr %169, align 8, !tbaa !18
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 32
-  %172 = load ptr, ptr %171, align 8
+  %172 = load ptr, ptr %171, align 8, !tbaa !46
   %.not207 = icmp eq ptr %172, null
   br i1 %.not207, label %182, label %173
 
 173:                                              ; preds = %167
-  call void @N_VSpace(ptr noundef nonnull %168, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
-  %174 = load i64, ptr %10, align 8
+  call void @N_VSpace(ptr noundef nonnull %168, ptr noundef nonnull %10, ptr noundef nonnull %11) #9
+  %174 = load i64, ptr %10, align 8, !tbaa !47
   %175 = shl nsw i64 %174, 1
-  %176 = load i64, ptr %151, align 8
+  %176 = load i64, ptr %151, align 8, !tbaa !48
   %177 = add nsw i64 %176, %175
-  store i64 %177, ptr %151, align 8
-  %178 = load i64, ptr %11, align 8
+  store i64 %177, ptr %151, align 8, !tbaa !48
+  %178 = load i64, ptr %11, align 8, !tbaa !47
   %179 = shl nsw i64 %178, 1
-  %180 = load i64, ptr %152, align 8
+  %180 = load i64, ptr %152, align 8, !tbaa !49
   %181 = add nsw i64 %180, %179
-  store i64 %181, ptr %152, align 8
+  store i64 %181, ptr %152, align 8, !tbaa !49
   br label %182
 
 182:                                              ; preds = %173, %167
-  %183 = load ptr, ptr %51, align 8
+  %183 = load ptr, ptr %51, align 8, !tbaa !34
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load ptr, ptr %184, align 8
+  %185 = load ptr, ptr %184, align 8, !tbaa !50
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 72
-  %187 = load ptr, ptr %186, align 8
+  %187 = load ptr, ptr %186, align 8, !tbaa !53
   %.not208 = icmp eq ptr %187, null
   br i1 %.not208, label %196, label %188
 
 188:                                              ; preds = %182
-  %189 = call i32 @SUNMatSpace(ptr noundef nonnull %183, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
-  %190 = load i64, ptr %12, align 8
-  %191 = load i64, ptr %151, align 8
+  %189 = call i32 @SUNMatSpace(ptr noundef nonnull %183, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
+  %190 = load i64, ptr %12, align 8, !tbaa !47
+  %191 = load i64, ptr %151, align 8, !tbaa !48
   %192 = add nsw i64 %191, %190
-  store i64 %192, ptr %151, align 8
-  %193 = load i64, ptr %13, align 8
-  %194 = load i64, ptr %152, align 8
+  store i64 %192, ptr %151, align 8, !tbaa !48
+  %193 = load i64, ptr %13, align 8, !tbaa !47
+  %194 = load i64, ptr %152, align 8, !tbaa !49
   %195 = add nsw i64 %194, %193
-  store i64 %195, ptr %152, align 8
+  store i64 %195, ptr %152, align 8, !tbaa !49
   br label %196
 
 196:                                              ; preds = %188, %182
-  %197 = load ptr, ptr %56, align 8
+  %197 = load ptr, ptr %56, align 8, !tbaa !35
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %199 = load ptr, ptr %198, align 8
+  %199 = load ptr, ptr %198, align 8, !tbaa !50
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 72
-  %201 = load ptr, ptr %200, align 8
+  %201 = load ptr, ptr %200, align 8, !tbaa !53
   %.not209 = icmp eq ptr %201, null
   br i1 %.not209, label %210, label %202
 
 202:                                              ; preds = %196
-  %203 = call i32 @SUNMatSpace(ptr noundef nonnull %197, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
-  %204 = load i64, ptr %12, align 8
-  %205 = load i64, ptr %151, align 8
+  %203 = call i32 @SUNMatSpace(ptr noundef nonnull %197, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
+  %204 = load i64, ptr %12, align 8, !tbaa !47
+  %205 = load i64, ptr %151, align 8, !tbaa !48
   %206 = add nsw i64 %205, %204
-  store i64 %206, ptr %151, align 8
-  %207 = load i64, ptr %13, align 8
-  %208 = load i64, ptr %152, align 8
+  store i64 %206, ptr %151, align 8, !tbaa !48
+  %207 = load i64, ptr %13, align 8, !tbaa !47
+  %208 = load i64, ptr %152, align 8, !tbaa !49
   %209 = add nsw i64 %208, %207
-  store i64 %209, ptr %152, align 8
+  store i64 %209, ptr %152, align 8, !tbaa !49
   br label %210
 
 210:                                              ; preds = %202, %196
-  %211 = load ptr, ptr %113, align 8
+  %211 = load ptr, ptr %113, align 8, !tbaa !41
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  %213 = load ptr, ptr %212, align 8
+  %213 = load ptr, ptr %212, align 8, !tbaa !55
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 96
-  %215 = load ptr, ptr %214, align 8
+  %215 = load ptr, ptr %214, align 8, !tbaa !58
   %.not210 = icmp eq ptr %215, null
   br i1 %.not210, label %224, label %216
 
 216:                                              ; preds = %210
-  %217 = call i32 @SUNLinSolSpace(ptr noundef nonnull %211, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
-  %218 = load i64, ptr %12, align 8
-  %219 = load i64, ptr %151, align 8
+  %217 = call i32 @SUNLinSolSpace(ptr noundef nonnull %211, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
+  %218 = load i64, ptr %12, align 8, !tbaa !47
+  %219 = load i64, ptr %151, align 8, !tbaa !48
   %220 = add nsw i64 %219, %218
-  store i64 %220, ptr %151, align 8
-  %221 = load i64, ptr %13, align 8
-  %222 = load i64, ptr %152, align 8
+  store i64 %220, ptr %151, align 8, !tbaa !48
+  %221 = load i64, ptr %13, align 8, !tbaa !47
+  %222 = load i64, ptr %152, align 8, !tbaa !49
   %223 = add nsw i64 %222, %221
-  store i64 %223, ptr %152, align 8
+  store i64 %223, ptr %152, align 8, !tbaa !49
   br label %224
 
 224:                                              ; preds = %216, %210
   %225 = getelementptr inbounds nuw i8, ptr %31, i64 144
-  store i64 0, ptr %225, align 8
+  store i64 0, ptr %225, align 8, !tbaa !60
   %226 = getelementptr inbounds nuw i8, ptr %18, i64 232
-  %227 = load ptr, ptr %226, align 8
+  %227 = load ptr, ptr %226, align 8, !tbaa !61
   %.not211 = icmp eq ptr %227, null
   br i1 %.not211, label %230, label %228
 
 228:                                              ; preds = %224
-  %229 = call i32 %227(ptr noundef nonnull %0) #8
+  %229 = call i32 %227(ptr noundef nonnull %0) #9
   br label %230
 
 230:                                              ; preds = %228, %224
   %231 = getelementptr inbounds nuw i8, ptr %18, i64 240
-  store ptr %31, ptr %231, align 8
-  store ptr @CVBBDPrecFree, ptr %226, align 8
-  %232 = call i32 @CVodeSetPreconditioner(ptr noundef nonnull %0, ptr noundef nonnull @CVBBDPrecSetup, ptr noundef nonnull @CVBBDPrecSolve) #8
+  store ptr %31, ptr %231, align 8, !tbaa !63
+  store ptr @CVBBDPrecFree, ptr %226, align 8, !tbaa !61
+  %232 = call i32 @CVodeSetPreconditioner(ptr noundef nonnull %0, ptr noundef nonnull @CVBBDPrecSetup, ptr noundef nonnull @CVBBDPrecSolve) #9
   br label %233
 
 233:                                              ; preds = %230, %129, %119, %105, %94, %84, %75, %67, %60, %53, %33, %29, %20, %15
   %.0 = phi i32 [ -1, %15 ], [ -2, %20 ], [ -3, %29 ], [ -4, %33 ], [ -4, %53 ], [ -4, %60 ], [ -4, %67 ], [ -4, %75 ], [ -4, %84 ], [ -4, %94 ], [ -4, %105 ], [ -4, %119 ], [ -9, %129 ], [ %232, %230 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
   ret i32 %.0
 }
 
-declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @cvProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
-declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @SUNBandMatrixStorage(i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #1
+declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @N_VNewEmpty_Serial(i64 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @N_VNewEmpty_Serial(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
+declare ptr @N_VClone(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SUNLinSol_Band(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @SUNLinSol_Band(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNLinSolInitialize(ptr noundef) local_unnamed_addr #1
+declare i32 @SUNLinSolInitialize(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNLinSolFree(ptr noundef) local_unnamed_addr #1
+declare i32 @SUNLinSolFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #4
+declare double @sqrt(double noundef) local_unnamed_addr #5
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNMatSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNLinSolSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @CVBBDPrecFree(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %27, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
   %8 = icmp eq ptr %7, null
   br i1 %8, label %27, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @SUNLinSolFree(ptr noundef %11) #8
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = tail call i32 @SUNLinSolFree(ptr noundef %11) #9
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %14 = load ptr, ptr %13, align 8
-  tail call void @N_VDestroy(ptr noundef %14) #8
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
+  tail call void @N_VDestroy(ptr noundef %14) #9
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %16 = load ptr, ptr %15, align 8
-  tail call void @N_VDestroy(ptr noundef %16) #8
+  %16 = load ptr, ptr %15, align 8, !tbaa !39
+  tail call void @N_VDestroy(ptr noundef %16) #9
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %18 = load ptr, ptr %17, align 8
-  tail call void @N_VDestroy(ptr noundef %18) #8
+  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  tail call void @N_VDestroy(ptr noundef %18) #9
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %20 = load ptr, ptr %19, align 8
-  tail call void @N_VDestroy(ptr noundef %20) #8
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  tail call void @N_VDestroy(ptr noundef %20) #9
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %22 = load ptr, ptr %21, align 8
-  tail call void @N_VDestroy(ptr noundef %22) #8
+  %22 = load ptr, ptr %21, align 8, !tbaa !37
+  tail call void @N_VDestroy(ptr noundef %22) #9
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %24 = load ptr, ptr %23, align 8
-  tail call void @SUNMatDestroy(ptr noundef %24) #8
+  %24 = load ptr, ptr %23, align 8, !tbaa !35
+  tail call void @SUNMatDestroy(ptr noundef %24) #9
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %26 = load ptr, ptr %25, align 8
-  tail call void @SUNMatDestroy(ptr noundef %26) #8
-  tail call void @free(ptr noundef nonnull %7) #8
+  %26 = load ptr, ptr %25, align 8, !tbaa !34
+  tail call void @SUNMatDestroy(ptr noundef %26) #9
+  tail call void @free(ptr noundef nonnull %7) #9
   br label %27
 
 27:                                               ; preds = %5, %1, %9
   ret i32 0
 }
 
-declare i32 @CVodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @CVodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, double noundef %5, ptr noundef captures(none) %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !23
   %.not = icmp eq i32 %3, 0
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %7
-  store i32 0, ptr %4, align 4
-  %12 = load ptr, ptr %10, align 8
+  store i32 0, ptr %4, align 4, !tbaa !43
+  %12 = load ptr, ptr %10, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @SUNMatCopy(ptr noundef %12, ptr noundef %14) #8
+  %14 = load ptr, ptr %13, align 8, !tbaa !35
+  %15 = tail call i32 @SUNMatCopy(ptr noundef %12, ptr noundef %14) #9
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %11
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 488, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #8
-  br label %212
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 489, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #9
+  br label %223
 
 18:                                               ; preds = %11
   %.not42 = icmp eq i32 %15, 0
-  br i1 %.not42, label %201, label %212
+  br i1 %.not42, label %212, label %223
 
 19:                                               ; preds = %7
-  store i32 1, ptr %4, align 4
-  %20 = load ptr, ptr %10, align 8
-  %21 = tail call i32 @SUNMatZero(ptr noundef %20) #8
+  store i32 1, ptr %4, align 4, !tbaa !43
+  %20 = load ptr, ptr %10, align 8, !tbaa !34
+  %21 = tail call i32 @SUNMatZero(ptr noundef %20) #9
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 502, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #8
-  br label %212
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 503, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #9
+  br label %223
 
 24:                                               ; preds = %19
   %.not39 = icmp eq i32 %21, 0
-  br i1 %.not39, label %25, label %212
+  br i1 %.not39, label %25, label %223
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !38
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %8, align 8
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %29) #8
+  %31 = load ptr, ptr %30, align 8, !tbaa !40
+  %32 = load ptr, ptr %8, align 8, !tbaa !23
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %29) #9
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %34 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !28
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %41, label %35
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %37 = load i64, ptr %36, align 8
+  %37 = load i64, ptr %36, align 8, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %34(i64 noundef %37, double noundef %0, ptr noundef %1, ptr noundef %39) #8
+  %39 = load ptr, ptr %38, align 8, !tbaa !64
+  %40 = tail call i32 %34(i64 noundef %37, double noundef %0, ptr noundef %1, ptr noundef %39) #9
   %.not171.i = icmp eq i32 %40, 0
   br i1 %.not171.i, label %41, label %CVBBDDQJac.exit
 
 41:                                               ; preds = %35, %25
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %43 = load ptr, ptr %42, align 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !27
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %45 = load i64, ptr %44, align 8
+  %45 = load i64, ptr %44, align 8, !tbaa !45
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %43(i64 noundef %45, double noundef %0, ptr noundef %29, ptr noundef %27, ptr noundef %47) #8
+  %47 = load ptr, ptr %46, align 8, !tbaa !64
+  %48 = tail call i32 %43(i64 noundef %45, double noundef %0, ptr noundef %29, ptr noundef %27, ptr noundef %47) #9
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %50 = load i64, ptr %49, align 8
+  %50 = load i64, ptr %49, align 8, !tbaa !60
   %51 = add nsw i64 %50, 1
-  store i64 %51, ptr %49, align 8
+  store i64 %51, ptr %49, align 8, !tbaa !60
   %.not172.i = icmp eq i32 %48, 0
   br i1 %.not172.i, label %52, label %CVBBDDQJac.exit
 
 52:                                               ; preds = %41
-  %53 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #8
-  %54 = tail call ptr @N_VGetArrayPointer(ptr noundef %27) #8
+  %53 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #9
+  %54 = tail call ptr @N_VGetArrayPointer(ptr noundef %27) #9
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 200
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call ptr @N_VGetArrayPointer(ptr noundef %56) #8
-  %58 = tail call ptr @N_VGetArrayPointer(ptr noundef %29) #8
-  %59 = tail call ptr @N_VGetArrayPointer(ptr noundef %31) #8
+  %56 = load ptr, ptr %55, align 8, !tbaa !65
+  %57 = tail call ptr @N_VGetArrayPointer(ptr noundef %56) #9
+  %58 = tail call ptr @N_VGetArrayPointer(ptr noundef %29) #9
+  %59 = tail call ptr @N_VGetArrayPointer(ptr noundef %31) #9
   %60 = getelementptr inbounds nuw i8, ptr %32, i64 88
-  %61 = load i32, ptr %60, align 8
+  %61 = load i32, ptr %60, align 8, !tbaa !66
   %.not173.i = icmp eq i32 %61, 0
   br i1 %.not173.i, label %66, label %62
 
 62:                                               ; preds = %52
   %63 = getelementptr inbounds nuw i8, ptr %32, i64 264
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr @N_VGetArrayPointer(ptr noundef %64) #8
+  %64 = load ptr, ptr %63, align 8, !tbaa !67
+  %65 = tail call ptr @N_VGetArrayPointer(ptr noundef %64) #9
   br label %66
 
 66:                                               ; preds = %62, %52
   %.0.i = phi ptr [ %65, %62 ], [ null, %52 ]
-  %67 = load ptr, ptr %55, align 8
-  %68 = tail call double @N_VWrmsNorm(ptr noundef %27, ptr noundef %67) #8
+  %67 = load ptr, ptr %55, align 8, !tbaa !65
+  %68 = tail call double @N_VWrmsNorm(ptr noundef %27, ptr noundef %67) #9
   %69 = fcmp une double %68, 0.000000e+00
-  %.pre.i = load i64, ptr %44, align 8
+  %.pre.i = load i64, ptr %44, align 8, !tbaa !45
   br i1 %69, label %70, label %81
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %32, i64 320
-  %72 = load double, ptr %71, align 8
+  %72 = load double, ptr %71, align 8, !tbaa !68
   %73 = tail call double @llvm.fabs.f64(double %72)
   %74 = fmul double %73, 1.000000e+03
   %75 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %76 = load double, ptr %75, align 8
+  %76 = load double, ptr %75, align 8, !tbaa !42
   %77 = fmul double %76, %74
   %78 = sitofp i64 %.pre.i to double
   %79 = fmul double %77, %78
@@ -644,8 +655,8 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
 81:                                               ; preds = %70, %66
   %82 = phi double [ %80, %70 ], [ 1.000000e+00, %66 ]
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %84 = load i64, ptr %83, align 8
-  %85 = load i64, ptr %6, align 8
+  %84 = load i64, ptr %83, align 8, !tbaa !30
+  %85 = load i64, ptr %6, align 8, !tbaa !29
   %86 = add i64 %84, 1
   %87 = add i64 %86, %85
   %..i = tail call i64 @llvm.smin.i64(i64 %87, i64 %.pre.i)
@@ -659,255 +670,271 @@ define internal i32 @CVBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
   br label %91
 
 91:                                               ; preds = %._crit_edge189.i, %.lr.ph193.i
-  %92 = phi i64 [ %.pre.i, %.lr.ph193.i ], [ %190, %._crit_edge189.i ]
-  %.0150191.i = phi i64 [ 1, %.lr.ph193.i ], [ %191, %._crit_edge189.i ]
+  %92 = phi i64 [ %.pre.i, %.lr.ph193.i ], [ %201, %._crit_edge189.i ]
+  %.0150191.i = phi i64 [ 1, %.lr.ph193.i ], [ %202, %._crit_edge189.i ]
   %93 = add nsw i64 %.0150191.i, -1
-  %.not197.i = icmp sgt i64 %.0150191.i, %92
-  br i1 %.not197.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not196.i = icmp sgt i64 %.0150191.i, %92
+  br i1 %.not196.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %91, %123
-  %.0152181.i = phi i64 [ %127, %123 ], [ %93, %91 ]
-  %94 = load double, ptr %88, align 8
-  %95 = getelementptr inbounds double, ptr %53, i64 %.0152181.i
-  %96 = load double, ptr %95, align 8
-  %97 = tail call double @llvm.fabs.f64(double %96)
-  %98 = fmul double %94, %97
-  %99 = getelementptr inbounds double, ptr %57, i64 %.0152181.i
-  %100 = load double, ptr %99, align 8
-  %101 = fdiv double %82, %100
-  %102 = fcmp ogt double %98, %101
-  %.179.i = select i1 %102, double %98, double %101
-  %103 = load i32, ptr %60, align 8
-  %.not178.i = icmp eq i32 %103, 0
-  br i1 %.not178.i, label %123, label %104
+.lr.ph.i:                                         ; preds = %91
+  %94 = load i32, ptr %60, align 8, !tbaa !66
+  %.not178.i = icmp eq i32 %94, 0
+  br i1 %.not178.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-104:                                              ; preds = %.lr.ph.i
-  %105 = getelementptr inbounds double, ptr %.0.i, i64 %.0152181.i
-  %106 = load double, ptr %105, align 8
-  %107 = tail call double @llvm.fabs.f64(double %106)
-  %108 = fcmp oeq double %107, 1.000000e+00
-  br i1 %108, label %109, label %115
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
+  %.0152181.us.i = phi i64 [ %107, %.lr.ph.split.us.i ], [ %93, %.lr.ph.i ]
+  %95 = load double, ptr %88, align 8, !tbaa !44
+  %96 = getelementptr inbounds double, ptr %53, i64 %.0152181.us.i
+  %97 = load double, ptr %96, align 8, !tbaa !69
+  %98 = tail call double @llvm.fabs.f64(double %97)
+  %99 = fmul double %95, %98
+  %100 = getelementptr inbounds double, ptr %57, i64 %.0152181.us.i
+  %101 = load double, ptr %100, align 8, !tbaa !69
+  %102 = fdiv double %82, %101
+  %103 = fcmp ogt double %99, %102
+  %.179.us.i = select i1 %103, double %99, double %102
+  %104 = getelementptr inbounds double, ptr %58, i64 %.0152181.us.i
+  %105 = load double, ptr %104, align 8, !tbaa !69
+  %106 = fadd double %105, %.179.us.i
+  store double %106, ptr %104, align 8, !tbaa !69
+  %107 = add nsw i64 %.0152181.us.i, %87
+  %108 = icmp slt i64 %107, %92
+  br i1 %108, label %.lr.ph.split.us.i, label %._crit_edge.i
 
-109:                                              ; preds = %104
-  %110 = fadd double %96, %.179.i
-  %111 = fmul double %110, %106
-  %112 = fcmp olt double %111, 0.000000e+00
-  br i1 %112, label %113, label %123
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %136
+  %.0152181.i = phi i64 [ %140, %136 ], [ %93, %.lr.ph.i ]
+  %109 = load double, ptr %88, align 8, !tbaa !44
+  %110 = getelementptr inbounds double, ptr %53, i64 %.0152181.i
+  %111 = load double, ptr %110, align 8, !tbaa !69
+  %112 = tail call double @llvm.fabs.f64(double %111)
+  %113 = fmul double %109, %112
+  %114 = getelementptr inbounds double, ptr %57, i64 %.0152181.i
+  %115 = load double, ptr %114, align 8, !tbaa !69
+  %116 = fdiv double %82, %115
+  %117 = fcmp ogt double %113, %116
+  %.179.i = select i1 %117, double %113, double %116
+  %118 = getelementptr inbounds double, ptr %.0.i, i64 %.0152181.i
+  %119 = load double, ptr %118, align 8, !tbaa !69
+  %120 = tail call double @llvm.fabs.f64(double %119)
+  %121 = fcmp oeq double %120, 1.000000e+00
+  br i1 %121, label %122, label %128
 
-113:                                              ; preds = %109
-  %114 = fneg double %.179.i
-  br label %123
+122:                                              ; preds = %.lr.ph.split.i
+  %123 = fadd double %111, %.179.i
+  %124 = fmul double %119, %123
+  %125 = fcmp olt double %124, 0.000000e+00
+  br i1 %125, label %126, label %136
 
-115:                                              ; preds = %104
-  %116 = fcmp oeq double %107, 2.000000e+00
-  br i1 %116, label %117, label %123
+126:                                              ; preds = %122
+  %127 = fneg double %.179.i
+  br label %136
 
-117:                                              ; preds = %115
-  %118 = fadd double %96, %.179.i
-  %119 = fmul double %118, %106
-  %120 = fcmp ugt double %119, 0.000000e+00
-  br i1 %120, label %123, label %121
+128:                                              ; preds = %.lr.ph.split.i
+  %129 = fcmp oeq double %120, 2.000000e+00
+  br i1 %129, label %130, label %136
 
-121:                                              ; preds = %117
-  %122 = fneg double %.179.i
-  br label %123
+130:                                              ; preds = %128
+  %131 = fadd double %111, %.179.i
+  %132 = fmul double %119, %131
+  %133 = fcmp ugt double %132, 0.000000e+00
+  br i1 %133, label %136, label %134
 
-123:                                              ; preds = %121, %117, %115, %113, %109, %.lr.ph.i
-  %.0149.i = phi double [ %114, %113 ], [ %.179.i, %109 ], [ %122, %121 ], [ %.179.i, %117 ], [ %.179.i, %115 ], [ %.179.i, %.lr.ph.i ]
-  %124 = getelementptr inbounds double, ptr %58, i64 %.0152181.i
-  %125 = load double, ptr %124, align 8
-  %126 = fadd double %.0149.i, %125
-  store double %126, ptr %124, align 8
-  %127 = add nsw i64 %.0152181.i, %87
-  %128 = load i64, ptr %44, align 8
-  %129 = icmp slt i64 %127, %128
-  br i1 %129, label %.lr.ph.i, label %._crit_edge.i
+134:                                              ; preds = %130
+  %135 = fneg double %.179.i
+  br label %136
 
-._crit_edge.i:                                    ; preds = %123, %91
-  %.lcssa.i = phi i64 [ %92, %91 ], [ %128, %123 ]
-  %130 = load ptr, ptr %42, align 8
-  %131 = load ptr, ptr %46, align 8
-  %132 = tail call i32 %130(i64 noundef %.lcssa.i, double noundef %0, ptr noundef %29, ptr noundef %31, ptr noundef %131) #8
-  %133 = load i64, ptr %49, align 8
-  %134 = add nsw i64 %133, 1
-  store i64 %134, ptr %49, align 8
-  %.not175.i = icmp eq i32 %132, 0
+136:                                              ; preds = %134, %130, %128, %126, %122
+  %.0149.i = phi double [ %127, %126 ], [ %.179.i, %122 ], [ %135, %134 ], [ %.179.i, %130 ], [ %.179.i, %128 ]
+  %137 = getelementptr inbounds double, ptr %58, i64 %.0152181.i
+  %138 = load double, ptr %137, align 8, !tbaa !69
+  %139 = fadd double %.0149.i, %138
+  store double %139, ptr %137, align 8, !tbaa !69
+  %140 = add nsw i64 %.0152181.i, %87
+  %141 = icmp slt i64 %140, %92
+  br i1 %141, label %.lr.ph.split.i, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %136, %.lr.ph.split.us.i, %91
+  %142 = load ptr, ptr %42, align 8, !tbaa !27
+  %143 = load ptr, ptr %46, align 8, !tbaa !64
+  %144 = tail call i32 %142(i64 noundef %92, double noundef %0, ptr noundef %29, ptr noundef %31, ptr noundef %143) #9
+  %145 = load i64, ptr %49, align 8, !tbaa !60
+  %146 = add nsw i64 %145, 1
+  store i64 %146, ptr %49, align 8, !tbaa !60
+  %.not175.i = icmp eq i32 %144, 0
   br i1 %.not175.i, label %.preheader.i, label %CVBBDDQJac.exit
 
 .preheader.i:                                     ; preds = %._crit_edge.i
-  %135 = load i64, ptr %44, align 8
-  %.not198.i = icmp sgt i64 %.0150191.i, %135
-  br i1 %.not198.i, label %._crit_edge189.i, label %.lr.ph188.i
+  %147 = load i64, ptr %44, align 8, !tbaa !45
+  %.not197.i = icmp sgt i64 %.0150191.i, %147
+  br i1 %.not197.i, label %._crit_edge189.i, label %.lr.ph188.i
 
 .lr.ph188.i:                                      ; preds = %.preheader.i, %._crit_edge186.i
-  %.1153187.i = phi i64 [ %188, %._crit_edge186.i ], [ %93, %.preheader.i ]
-  %136 = getelementptr inbounds double, ptr %53, i64 %.1153187.i
-  %137 = load double, ptr %136, align 8
-  %138 = getelementptr inbounds double, ptr %58, i64 %.1153187.i
-  store double %137, ptr %138, align 8
-  %139 = load ptr, ptr %10, align 8
-  %140 = tail call ptr @SUNBandMatrix_Column(ptr noundef %139, i64 noundef %.1153187.i) #8
-  %141 = load double, ptr %88, align 8
-  %142 = load double, ptr %136, align 8
-  %143 = tail call double @llvm.fabs.f64(double %142)
-  %144 = fmul double %141, %143
-  %145 = getelementptr inbounds double, ptr %57, i64 %.1153187.i
-  %146 = load double, ptr %145, align 8
-  %147 = fdiv double %82, %146
-  %148 = fcmp ogt double %144, %147
-  %.180.i = select i1 %148, double %144, double %147
-  %149 = load i32, ptr %60, align 8
-  %.not176.i = icmp eq i32 %149, 0
-  br i1 %.not176.i, label %169, label %150
+  %.1153187.i = phi i64 [ %199, %._crit_edge186.i ], [ %93, %.preheader.i ]
+  %148 = getelementptr inbounds double, ptr %53, i64 %.1153187.i
+  %149 = load double, ptr %148, align 8, !tbaa !69
+  %150 = getelementptr inbounds double, ptr %58, i64 %.1153187.i
+  store double %149, ptr %150, align 8, !tbaa !69
+  %151 = load ptr, ptr %10, align 8, !tbaa !34
+  %152 = tail call ptr @SUNBandMatrix_Column(ptr noundef %151, i64 noundef %.1153187.i) #9
+  %153 = load double, ptr %88, align 8, !tbaa !44
+  %154 = load double, ptr %148, align 8, !tbaa !69
+  %155 = tail call double @llvm.fabs.f64(double %154)
+  %156 = fmul double %153, %155
+  %157 = getelementptr inbounds double, ptr %57, i64 %.1153187.i
+  %158 = load double, ptr %157, align 8, !tbaa !69
+  %159 = fdiv double %82, %158
+  %160 = fcmp ogt double %156, %159
+  %.180.i = select i1 %160, double %156, double %159
+  %161 = load i32, ptr %60, align 8, !tbaa !66
+  %.not176.i = icmp eq i32 %161, 0
+  br i1 %.not176.i, label %181, label %162
 
-150:                                              ; preds = %.lr.ph188.i
-  %151 = getelementptr inbounds double, ptr %.0.i, i64 %.1153187.i
-  %152 = load double, ptr %151, align 8
-  %153 = tail call double @llvm.fabs.f64(double %152)
-  %154 = fcmp oeq double %153, 1.000000e+00
-  br i1 %154, label %155, label %161
+162:                                              ; preds = %.lr.ph188.i
+  %163 = getelementptr inbounds double, ptr %.0.i, i64 %.1153187.i
+  %164 = load double, ptr %163, align 8, !tbaa !69
+  %165 = tail call double @llvm.fabs.f64(double %164)
+  %166 = fcmp oeq double %165, 1.000000e+00
+  br i1 %166, label %167, label %173
 
-155:                                              ; preds = %150
-  %156 = fadd double %137, %.180.i
-  %157 = fmul double %156, %152
-  %158 = fcmp olt double %157, 0.000000e+00
-  br i1 %158, label %159, label %169
+167:                                              ; preds = %162
+  %168 = fadd double %149, %.180.i
+  %169 = fmul double %168, %164
+  %170 = fcmp olt double %169, 0.000000e+00
+  br i1 %170, label %171, label %181
 
-159:                                              ; preds = %155
-  %160 = fneg double %.180.i
-  br label %169
+171:                                              ; preds = %167
+  %172 = fneg double %.180.i
+  br label %181
 
-161:                                              ; preds = %150
-  %162 = fcmp oeq double %153, 2.000000e+00
-  br i1 %162, label %163, label %169
+173:                                              ; preds = %162
+  %174 = fcmp oeq double %165, 2.000000e+00
+  br i1 %174, label %175, label %181
 
-163:                                              ; preds = %161
-  %164 = fadd double %137, %.180.i
-  %165 = fmul double %164, %152
-  %166 = fcmp ugt double %165, 0.000000e+00
-  br i1 %166, label %169, label %167
+175:                                              ; preds = %173
+  %176 = fadd double %149, %.180.i
+  %177 = fmul double %176, %164
+  %178 = fcmp ugt double %177, 0.000000e+00
+  br i1 %178, label %181, label %179
 
-167:                                              ; preds = %163
-  %168 = fneg double %.180.i
-  br label %169
+179:                                              ; preds = %175
+  %180 = fneg double %.180.i
+  br label %181
 
-169:                                              ; preds = %167, %163, %161, %159, %155, %.lr.ph188.i
-  %.1.i = phi double [ %160, %159 ], [ %.180.i, %155 ], [ %168, %167 ], [ %.180.i, %163 ], [ %.180.i, %161 ], [ %.180.i, %.lr.ph188.i ]
-  %170 = fdiv double 1.000000e+00, %.1.i
-  %171 = load i64, ptr %89, align 8
-  %172 = sub nsw i64 %.1153187.i, %171
-  %spec.select.i = tail call i64 @llvm.smax.i64(i64 %172, i64 0)
-  %173 = load i64, ptr %90, align 8
-  %174 = add nsw i64 %173, %.1153187.i
-  %175 = load i64, ptr %44, align 8
-  %176 = add nsw i64 %175, -1
-  %177 = tail call i64 @llvm.smin.i64(i64 %174, i64 %176)
-  %.not177182.i = icmp sgt i64 %spec.select.i, %177
+181:                                              ; preds = %179, %175, %173, %171, %167, %.lr.ph188.i
+  %.1.i = phi double [ %172, %171 ], [ %.180.i, %167 ], [ %180, %179 ], [ %.180.i, %175 ], [ %.180.i, %173 ], [ %.180.i, %.lr.ph188.i ]
+  %182 = fdiv double 1.000000e+00, %.1.i
+  %183 = load i64, ptr %89, align 8, !tbaa !31
+  %184 = sub nsw i64 %.1153187.i, %183
+  %spec.select.i = tail call i64 @llvm.smax.i64(i64 %184, i64 0)
+  %185 = load i64, ptr %90, align 8, !tbaa !32
+  %186 = add nsw i64 %185, %.1153187.i
+  %187 = load i64, ptr %44, align 8, !tbaa !45
+  %188 = add nsw i64 %187, -1
+  %189 = tail call i64 @llvm.smin.i64(i64 %186, i64 %188)
+  %.not177182.i = icmp sgt i64 %spec.select.i, %189
   br i1 %.not177182.i, label %._crit_edge186.i, label %.lr.ph185.i
 
-.lr.ph185.i:                                      ; preds = %169, %.lr.ph185.i
-  %.0151183.i = phi i64 [ %186, %.lr.ph185.i ], [ %spec.select.i, %169 ]
-  %178 = getelementptr inbounds nuw double, ptr %59, i64 %.0151183.i
-  %179 = load double, ptr %178, align 8
-  %180 = getelementptr inbounds nuw double, ptr %54, i64 %.0151183.i
-  %181 = load double, ptr %180, align 8
-  %182 = fsub double %179, %181
-  %183 = fmul double %170, %182
-  %184 = sub nsw i64 %.0151183.i, %.1153187.i
-  %185 = getelementptr inbounds double, ptr %140, i64 %184
-  store double %183, ptr %185, align 8
-  %186 = add nuw nsw i64 %.0151183.i, 1
-  %.not177.not.i = icmp slt i64 %.0151183.i, %177
-  br i1 %.not177.not.i, label %.lr.ph185.i, label %._crit_edge186.loopexit.i
+.lr.ph185.i:                                      ; preds = %181, %.lr.ph185.i
+  %.0151183.i = phi i64 [ %198, %.lr.ph185.i ], [ %spec.select.i, %181 ]
+  %190 = getelementptr inbounds nuw double, ptr %59, i64 %.0151183.i
+  %191 = load double, ptr %190, align 8, !tbaa !69
+  %192 = getelementptr inbounds nuw double, ptr %54, i64 %.0151183.i
+  %193 = load double, ptr %192, align 8, !tbaa !69
+  %194 = fsub double %191, %193
+  %195 = fmul double %182, %194
+  %196 = sub nsw i64 %.0151183.i, %.1153187.i
+  %197 = getelementptr inbounds double, ptr %152, i64 %196
+  store double %195, ptr %197, align 8, !tbaa !69
+  %198 = add nuw nsw i64 %.0151183.i, 1
+  %.not177.not.i = icmp slt i64 %.0151183.i, %189
+  br i1 %.not177.not.i, label %.lr.ph185.i, label %._crit_edge186.i
 
-._crit_edge186.loopexit.i:                        ; preds = %.lr.ph185.i
-  %.pre200.i = load i64, ptr %44, align 8
-  br label %._crit_edge186.i
-
-._crit_edge186.i:                                 ; preds = %._crit_edge186.loopexit.i, %169
-  %187 = phi i64 [ %.pre200.i, %._crit_edge186.loopexit.i ], [ %175, %169 ]
-  %188 = add nsw i64 %.1153187.i, %87
-  %189 = icmp slt i64 %188, %187
-  br i1 %189, label %.lr.ph188.i, label %._crit_edge189.i
+._crit_edge186.i:                                 ; preds = %.lr.ph185.i, %181
+  %199 = add nsw i64 %.1153187.i, %87
+  %200 = icmp slt i64 %199, %187
+  br i1 %200, label %.lr.ph188.i, label %._crit_edge189.i
 
 ._crit_edge189.i:                                 ; preds = %._crit_edge186.i, %.preheader.i
-  %190 = phi i64 [ %135, %.preheader.i ], [ %187, %._crit_edge186.i ]
-  %191 = add nuw i64 %.0150191.i, 1
+  %201 = phi i64 [ %147, %.preheader.i ], [ %187, %._crit_edge186.i ]
+  %202 = add nuw i64 %.0150191.i, 1
   %exitcond.not.i = icmp eq i64 %.0150191.i, %..i
   br i1 %exitcond.not.i, label %.loopexit, label %91
 
 CVBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %35, %41
-  %.0148.i = phi i32 [ %40, %35 ], [ %48, %41 ], [ %132, %._crit_edge.i ]
-  %192 = icmp slt i32 %.0148.i, 0
-  br i1 %192, label %193, label %212
+  %.0148.i = phi i32 [ %40, %35 ], [ %48, %41 ], [ %144, %._crit_edge.i ]
+  %203 = icmp slt i32 %.0148.i, 0
+  br i1 %203, label %204, label %223
 
-193:                                              ; preds = %CVBBDDQJac.exit
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 511, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #8
-  br label %212
+204:                                              ; preds = %CVBBDDQJac.exit
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 512, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8) #9
+  br label %223
 
 .loopexit:                                        ; preds = %._crit_edge189.i, %81
-  %194 = load ptr, ptr %10, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %196 = load ptr, ptr %195, align 8
-  %197 = tail call i32 @SUNMatCopy(ptr noundef %194, ptr noundef %196) #8
-  %198 = icmp slt i32 %197, 0
-  br i1 %198, label %199, label %200
+  %205 = load ptr, ptr %10, align 8, !tbaa !34
+  %206 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %207 = load ptr, ptr %206, align 8, !tbaa !35
+  %208 = tail call i32 @SUNMatCopy(ptr noundef %205, ptr noundef %207) #9
+  %209 = icmp slt i32 %208, 0
+  br i1 %209, label %210, label %211
 
-199:                                              ; preds = %.loopexit
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 520, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #8
-  br label %212
+210:                                              ; preds = %.loopexit
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 521, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #9
+  br label %223
 
-200:                                              ; preds = %.loopexit
-  %.not41 = icmp eq i32 %197, 0
-  br i1 %.not41, label %201, label %212
+211:                                              ; preds = %.loopexit
+  %.not41 = icmp eq i32 %208, 0
+  br i1 %.not41, label %212, label %223
 
-201:                                              ; preds = %200, %18
-  %202 = fneg double %5
-  %203 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %204 = load ptr, ptr %203, align 8
-  %205 = tail call i32 @SUNMatScaleAddI(double noundef %202, ptr noundef %204) #8
-  %.not43 = icmp eq i32 %205, 0
-  br i1 %.not43, label %207, label %206
+212:                                              ; preds = %211, %18
+  %213 = fneg double %5
+  %214 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %215 = load ptr, ptr %214, align 8, !tbaa !35
+  %216 = tail call i32 @SUNMatScaleAddI(double noundef %213, ptr noundef %215) #9
+  %.not43 = icmp eq i32 %216, 0
+  br i1 %.not43, label %218, label %217
 
-206:                                              ; preds = %201
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 531, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #8
-  br label %212
+217:                                              ; preds = %212
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef %9, i32 noundef -1, i32 noundef 532, ptr noundef nonnull @__func__.CVBBDPrecSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7) #9
+  br label %223
 
-207:                                              ; preds = %201
-  %208 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %209 = load ptr, ptr %208, align 8
-  %210 = load ptr, ptr %203, align 8
-  %211 = tail call i32 @SUNLinSolSetup_Band(ptr noundef %209, ptr noundef %210) #8
-  br label %212
+218:                                              ; preds = %212
+  %219 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %220 = load ptr, ptr %219, align 8, !tbaa !41
+  %221 = load ptr, ptr %214, align 8, !tbaa !35
+  %222 = tail call i32 @SUNLinSolSetup_Band(ptr noundef %220, ptr noundef %221) #9
+  br label %223
 
-212:                                              ; preds = %CVBBDDQJac.exit, %200, %24, %18, %207, %206, %199, %193, %23, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %206 ], [ %211, %207 ], [ -1, %23 ], [ -1, %193 ], [ -1, %199 ], [ 1, %18 ], [ 1, %24 ], [ 1, %200 ], [ 1, %CVBBDDQJac.exit ]
+223:                                              ; preds = %CVBBDDQJac.exit, %211, %24, %18, %218, %217, %210, %204, %23, %17
+  %.0 = phi i32 [ -1, %17 ], [ -1, %217 ], [ %222, %218 ], [ -1, %23 ], [ -1, %204 ], [ -1, %210 ], [ 1, %18 ], [ 1, %24 ], [ 1, %211 ], [ 1, %CVBBDDQJac.exit ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBBDPrecSolve(double %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, double %5, double %6, i32 %7, ptr noundef readonly captures(none) %8) #0 {
-  %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #8
+  %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %12 = load ptr, ptr %11, align 8
-  tail call void @N_VSetArrayPointer(ptr noundef %10, ptr noundef %12) #8
-  %13 = tail call ptr @N_VGetArrayPointer(ptr noundef %4) #8
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  tail call void @N_VSetArrayPointer(ptr noundef %10, ptr noundef %12) #9
+  %13 = tail call ptr @N_VGetArrayPointer(ptr noundef %4) #9
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %15 = load ptr, ptr %14, align 8
-  tail call void @N_VSetArrayPointer(ptr noundef %13, ptr noundef %15) #8
+  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  tail call void @N_VSetArrayPointer(ptr noundef %13, ptr noundef %15) #9
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %14, align 8
-  %21 = load ptr, ptr %11, align 8
-  %22 = tail call i32 @SUNLinSolSolve(ptr noundef %17, ptr noundef %19, ptr noundef %20, ptr noundef %21, double noundef 0.000000e+00) #8
-  %23 = load ptr, ptr %11, align 8
-  tail call void @N_VSetArrayPointer(ptr noundef null, ptr noundef %23) #8
-  %24 = load ptr, ptr %14, align 8
-  tail call void @N_VSetArrayPointer(ptr noundef null, ptr noundef %24) #8
+  %19 = load ptr, ptr %18, align 8, !tbaa !35
+  %20 = load ptr, ptr %14, align 8, !tbaa !36
+  %21 = load ptr, ptr %11, align 8, !tbaa !37
+  %22 = tail call i32 @SUNLinSolSolve(ptr noundef %17, ptr noundef %19, ptr noundef %20, ptr noundef %21, double noundef 0.000000e+00) #9
+  %23 = load ptr, ptr %11, align 8, !tbaa !37
+  tail call void @N_VSetArrayPointer(ptr noundef null, ptr noundef %23) #9
+  %24 = load ptr, ptr %14, align 8, !tbaa !36
+  tail call void @N_VSetArrayPointer(ptr noundef null, ptr noundef %24) #9
   ret i32 %22
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) local_unnamed_addr #0 {
@@ -915,61 +942,61 @@ define range(i32 -5, 1) i32 @CVBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 314, ptr noundef nonnull @__func__.CVBBDPrecReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 314, ptr noundef nonnull @__func__.CVBBDPrecReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %36
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 323, ptr noundef nonnull @__func__.CVBBDPrecReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 323, ptr noundef nonnull @__func__.CVBBDPrecReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
   br label %36
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 240
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, i32 noundef 332, ptr noundef nonnull @__func__.CVBBDPrecReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, i32 noundef 332, ptr noundef nonnull @__func__.CVBBDPrecReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #9
   br label %36
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 120
-  %19 = load i64, ptr %18, align 8
+  %19 = load i64, ptr %18, align 8, !tbaa !45
   %20 = add nsw i64 %19, -1
   %21 = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
   %.not = icmp sgt i64 %19, %21
   %. = select i1 %.not, i64 %21, i64 %20
-  store i64 %., ptr %14, align 8
+  store i64 %., ptr %14, align 8, !tbaa !29
   %22 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %.not37 = icmp sgt i64 %19, %22
   %23 = select i1 %.not37, i64 %22, i64 %20
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %23, ptr %24, align 8
+  store i64 %23, ptr %24, align 8, !tbaa !30
   %25 = fcmp ogt double %3, 0.000000e+00
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load double, ptr %27, align 8
+  %28 = load double, ptr %27, align 8, !tbaa !42
   %29 = fcmp ugt double %28, 0.000000e+00
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
-  %31 = tail call double @sqrt(double noundef %28) #8
+  %31 = tail call double @sqrt(double noundef %28) #9, !tbaa !43
   br label %32
 
 32:                                               ; preds = %17, %30, %26
   %33 = phi double [ %31, %30 ], [ 0.000000e+00, %26 ], [ %3, %17 ]
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store double %33, ptr %34, align 8
+  store double %33, ptr %34, align 8, !tbaa !44
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  store i64 0, ptr %35, align 8
+  store i64 0, ptr %35, align 8, !tbaa !60
   br label %36
 
 36:                                               ; preds = %32, %16, %11, %6
@@ -983,36 +1010,36 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetWorkSpace(ptr noundef %0, ptr noundef w
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 361, ptr noundef nonnull @__func__.CVBBDPrecGetWorkSpace, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 361, ptr noundef nonnull @__func__.CVBBDPrecGetWorkSpace, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %21
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 369, ptr noundef nonnull @__func__.CVBBDPrecGetWorkSpace, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 369, ptr noundef nonnull @__func__.CVBBDPrecGetWorkSpace, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
   br label %21
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !63
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, i32 noundef 377, ptr noundef nonnull @__func__.CVBBDPrecGetWorkSpace, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, i32 noundef 377, ptr noundef nonnull @__func__.CVBBDPrecGetWorkSpace, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #9
   br label %21
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  %18 = load i64, ptr %17, align 8
-  store i64 %18, ptr %1, align 8
+  %18 = load i64, ptr %17, align 8, !tbaa !48
+  store i64 %18, ptr %1, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 136
-  %20 = load i64, ptr %19, align 8
-  store i64 %20, ptr %2, align 8
+  %20 = load i64, ptr %19, align 8, !tbaa !49
+  store i64 %20, ptr %2, align 8, !tbaa !47
   br label %21
 
 21:                                               ; preds = %16, %15, %10, %5
@@ -1026,33 +1053,33 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetNumGfnEvals(ptr noundef %0, ptr noundef
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 397, ptr noundef nonnull @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -1, i32 noundef 397, ptr noundef nonnull @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #9
   br label %18
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 405, ptr noundef nonnull @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, i32 noundef 405, ptr noundef nonnull @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #9
   br label %18
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 240
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !63
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, i32 noundef 413, ptr noundef nonnull @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #8
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -5, i32 noundef 413, ptr noundef nonnull @__func__.CVBBDPrecGetNumGfnEvals, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #9
   br label %18
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %17 = load i64, ptr %16, align 8
-  store i64 %17, ptr %1, align 8
+  %17 = load i64, ptr %16, align 8, !tbaa !60
+  store i64 %17, ptr %1, align 8, !tbaa !47
   br label %18
 
 18:                                               ; preds = %15, %14, %9, %4
@@ -1060,52 +1087,119 @@ define range(i32 -5, 1) i32 @CVBBDPrecGetNumGfnEvals(ptr noundef %0, ptr noundef
   ret i32 %.0
 }
 
-declare i32 @SUNMatCopy(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNMatCopy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNMatZero(ptr noundef) local_unnamed_addr #1
+declare i32 @SUNMatZero(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNMatScaleAddI(double noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNMatScaleAddI(double noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNLinSolSetup_Band(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @SUNLinSolSetup_Band(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #1
+declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #2
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #6
 
-declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @SUNBandMatrix_Column(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @N_VSetArrayPointer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #6
+declare i32 @SUNLinSolSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
+declare i64 @llvm.smax.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !6, i64 1040}
+!4 = !{!"CVodeMemRec", !5, i64 0, !9, i64 8, !6, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !9, i64 40, !9, i64 48, !11, i64 56, !10, i64 64, !10, i64 68, !6, i64 72, !6, i64 80, !10, i64 88, !7, i64 96, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !10, i64 272, !10, i64 276, !9, i64 280, !10, i64 288, !10, i64 292, !10, i64 296, !10, i64 300, !10, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !7, i64 376, !7, i64 488, !7, i64 536, !9, i64 640, !9, i64 648, !9, i64 656, !9, i64 664, !9, i64 672, !9, i64 680, !9, i64 688, !10, i64 696, !9, i64 704, !10, i64 712, !12, i64 720, !10, i64 728, !10, i64 732, !10, i64 736, !9, i64 744, !9, i64 752, !9, i64 760, !9, i64 768, !9, i64 776, !9, i64 784, !9, i64 792, !9, i64 800, !9, i64 808, !9, i64 816, !9, i64 824, !9, i64 832, !12, i64 840, !10, i64 848, !12, i64 856, !12, i64 864, !12, i64 872, !12, i64 880, !12, i64 888, !12, i64 896, !12, i64 904, !10, i64 912, !9, i64 920, !9, i64 928, !9, i64 936, !12, i64 944, !12, i64 952, !12, i64 960, !12, i64 968, !13, i64 976, !10, i64 984, !6, i64 992, !10, i64 1000, !6, i64 1008, !6, i64 1016, !6, i64 1024, !6, i64 1032, !6, i64 1040, !12, i64 1048, !9, i64 1056, !10, i64 1064, !12, i64 1072, !9, i64 1080, !9, i64 1088, !9, i64 1096, !10, i64 1104, !9, i64 1112, !10, i64 1120, !10, i64 1124, !10, i64 1128, !10, i64 1132, !10, i64 1136, !6, i64 1144, !12, i64 1152, !10, i64 1160, !7, i64 1168, !10, i64 1360, !12, i64 1368, !6, i64 1376, !10, i64 1384, !14, i64 1392, !14, i64 1400, !9, i64 1408, !9, i64 1416, !9, i64 1424, !15, i64 1432, !15, i64 1440, !15, i64 1448, !9, i64 1456, !9, i64 1464, !10, i64 1472, !10, i64 1476, !12, i64 1480, !14, i64 1488, !10, i64 1496, !16, i64 1504, !10, i64 1512, !10, i64 1516, !7, i64 1520, !7, i64 1624, !7, i64 1728, !10, i64 1832}
+!5 = !{!"p1 _ZTS11SUNContext_", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"double", !7, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!"p1 _ZTS17_generic_N_Vector", !6, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!"p1 _ZTS27_generic_SUNNonlinearSolver", !6, i64 0}
+!14 = !{!"p1 int", !6, i64 0}
+!15 = !{!"p1 double", !6, i64 0}
+!16 = !{!"p1 _ZTS15CVodeProjMemRec", !6, i64 0}
+!17 = !{!4, !11, i64 224}
+!18 = !{!19, !20, i64 8}
+!19 = !{!"_generic_N_Vector", !6, i64 0, !20, i64 8, !5, i64 16}
+!20 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
+!21 = !{!22, !6, i64 40}
+!22 = !{!"_generic_N_Vector_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !6, i64 424, !6, i64 432, !6, i64 440}
+!23 = !{!24, !6, i64 152}
+!24 = !{!"CVBBDPrecDataRec", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !9, i64 32, !6, i64 40, !6, i64 48, !25, i64 56, !25, i64 64, !26, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !6, i64 152}
+!25 = !{!"p1 _ZTS18_generic_SUNMatrix", !6, i64 0}
+!26 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !6, i64 0}
+!27 = !{!24, !6, i64 40}
+!28 = !{!24, !6, i64 48}
+!29 = !{!24, !12, i64 0}
+!30 = !{!24, !12, i64 8}
+!31 = !{!24, !12, i64 16}
+!32 = !{!24, !12, i64 24}
+!33 = !{!4, !5, i64 0}
+!34 = !{!24, !25, i64 56}
+!35 = !{!24, !25, i64 64}
+!36 = !{!24, !11, i64 104}
+!37 = !{!24, !11, i64 112}
+!38 = !{!24, !11, i64 80}
+!39 = !{!24, !11, i64 88}
+!40 = !{!24, !11, i64 96}
+!41 = !{!24, !26, i64 72}
+!42 = !{!4, !9, i64 8}
+!43 = !{!10, !10, i64 0}
+!44 = !{!24, !9, i64 32}
+!45 = !{!24, !12, i64 120}
+!46 = !{!22, !6, i64 32}
+!47 = !{!12, !12, i64 0}
+!48 = !{!24, !12, i64 128}
+!49 = !{!24, !12, i64 136}
+!50 = !{!51, !52, i64 8}
+!51 = !{!"_generic_SUNMatrix", !6, i64 0, !52, i64 8, !5, i64 16}
+!52 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!53 = !{!54, !6, i64 72}
+!54 = !{!"_generic_SUNMatrix_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
+!55 = !{!56, !57, i64 8}
+!56 = !{!"_generic_SUNLinearSolver", !6, i64 0, !57, i64 8, !5, i64 16}
+!57 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !6, i64 0}
+!58 = !{!59, !6, i64 96}
+!59 = !{!"_generic_SUNLinearSolver_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112}
+!60 = !{!24, !12, i64 144}
+!61 = !{!62, !6, i64 232}
+!62 = !{!"CVLsMemRec", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !6, i64 24, !10, i64 32, !9, i64 40, !10, i64 48, !9, i64 56, !9, i64 64, !26, i64 72, !25, i64 80, !25, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !9, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !10, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !10, i64 288, !6, i64 296, !6, i64 304, !10, i64 312}
+!63 = !{!62, !6, i64 240}
+!64 = !{!4, !6, i64 24}
+!65 = !{!4, !11, i64 200}
+!66 = !{!4, !10, i64 88}
+!67 = !{!4, !11, i64 264}
+!68 = !{!4, !9, i64 320}
+!69 = !{!9, !9, i64 0}

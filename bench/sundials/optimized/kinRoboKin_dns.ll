@@ -1,0 +1,693 @@
+; ModuleID = 'bench/sundials/original/kinRoboKin_dns.ll'
+source_filename = "bench/sundials/original/kinRoboKin_dns.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str.3 = private unnamed_addr constant [18 x i8] c"SUNContext_Create\00", align 1
+@.str.4 = private unnamed_addr constant [14 x i8] c"N_VNew_Serial\00", align 1
+@.str.5 = private unnamed_addr constant [10 x i8] c"KINCreate\00", align 1
+@.str.6 = private unnamed_addr constant [8 x i8] c"KINInit\00", align 1
+@.str.7 = private unnamed_addr constant [18 x i8] c"KINSetConstraints\00", align 1
+@.str.8 = private unnamed_addr constant [18 x i8] c"KINSetFuncNormTol\00", align 1
+@.str.9 = private unnamed_addr constant [20 x i8] c"KINSetScaledStepTol\00", align 1
+@.str.10 = private unnamed_addr constant [15 x i8] c"SUNDenseMatrix\00", align 1
+@.str.11 = private unnamed_addr constant [16 x i8] c"SUNLinSol_Dense\00", align 1
+@.str.12 = private unnamed_addr constant [19 x i8] c"KINSetLinearSolver\00", align 1
+@.str.13 = private unnamed_addr constant [12 x i8] c"KINSetJacFn\00", align 1
+@.str.14 = private unnamed_addr constant [20 x i8] c"KINSetMaxSetupCalls\00", align 1
+@.str.16 = private unnamed_addr constant [7 x i8] c"KINSol\00", align 1
+@stdout = external local_unnamed_addr global ptr, align 8
+@.str.19 = private unnamed_addr constant [25 x i8] c"kinRoboKin_dns_stats.csv\00", align 1
+@.str.20 = private unnamed_addr constant [2 x i8] c"w\00", align 1
+@.str.23 = private unnamed_addr constant [27 x i8] c" %10.6g   %10.6g   %10.6g\0A\00", align 1
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str.24 = private unnamed_addr constant [55 x i8] c"\0ASUNDIALS_ERROR: %s() failed - returned NULL pointer\0A\0A\00", align 1
+@.str.25 = private unnamed_addr constant [48 x i8] c"\0ASUNDIALS_ERROR: %s() failed with retval = %d\0A\0A\00", align 1
+@str = private unnamed_addr constant [26 x i8] c"\0ARobot Kinematics Example\00", align 1
+@str.1 = private unnamed_addr constant [28 x i8] c"8 variables; -1 <= x_i <= 1\00", align 1
+@str.2 = private unnamed_addr constant [36 x i8] c"KINSOL problem size: 8 + 2*8 = 24 \0A\00", align 1
+@str.3 = private unnamed_addr constant [15 x i8] c"Initial guess:\00", align 1
+@str.4 = private unnamed_addr constant [20 x i8] c"\0AComputed solution:\00", align 1
+@str.5 = private unnamed_addr constant [20 x i8] c"\0AFinal statsistics:\00", align 1
+@str.6 = private unnamed_addr constant [36 x i8] c"     l=x+1          x         u=1-x\00", align 1
+@str.7 = private unnamed_addr constant [38 x i8] c"   ----------------------------------\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  %puts38 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  %puts39 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
+  %3 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %1) #7
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %check_retval.exit, label %7
+
+check_retval.exit:                                ; preds = %0
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3, i32 noundef %3) #8
+  br label %101
+
+7:                                                ; preds = %0
+  %8 = load ptr, ptr %1, align 8, !tbaa !9
+  %9 = call ptr @N_VNew_Serial(i64 noundef 24, ptr noundef %8) #7
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %check_retval.exit58, label %13
+
+check_retval.exit58:                              ; preds = %7
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.4) #8
+  br label %101
+
+13:                                               ; preds = %7
+  %14 = load ptr, ptr %1, align 8, !tbaa !9
+  %15 = call ptr @N_VNew_Serial(i64 noundef 24, ptr noundef %14) #7
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %check_retval.exit60, label %19
+
+check_retval.exit60:                              ; preds = %13
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.4) #8
+  br label %101
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %1, align 8, !tbaa !9
+  %21 = call ptr @N_VNew_Serial(i64 noundef 24, ptr noundef %20) #7
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %check_retval.exit62, label %25
+
+check_retval.exit62:                              ; preds = %19
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.4) #8
+  br label %101
+
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %1, align 8, !tbaa !9
+  %27 = call ptr @KINCreate(ptr noundef %26) #7
+  store ptr %27, ptr %2, align 8, !tbaa !11
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %check_retval.exit64, label %31
+
+check_retval.exit64:                              ; preds = %25
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.5) #8
+  br label %101
+
+31:                                               ; preds = %25
+  %32 = call i32 @KINInit(ptr noundef nonnull %27, ptr noundef nonnull @func, ptr noundef nonnull %9) #7
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %check_retval.exit66, label %36
+
+check_retval.exit66:                              ; preds = %31
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.6, i32 noundef %32) #8
+  br label %101
+
+36:                                               ; preds = %31
+  call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %21) #7
+  %37 = load ptr, ptr %21, align 8, !tbaa !12
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !15
+  %invariant.gep = getelementptr i8, ptr %39, i64 -8
+  br label %40
+
+40:                                               ; preds = %36, %40
+  %indvars.iv = phi i64 [ 9, %36 ], [ %indvars.iv.next, %40 ]
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  store double 1.000000e+00, ptr %gep, align 8, !tbaa !20
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 25
+  br i1 %exitcond.not, label %41, label %40
+
+41:                                               ; preds = %40
+  %42 = call i32 @KINSetConstraints(ptr noundef nonnull %27, ptr noundef nonnull %21) #7
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %check_retval.exit68, label %46
+
+check_retval.exit68:                              ; preds = %41
+  %44 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.7, i32 noundef %42) #8
+  br label %101
+
+46:                                               ; preds = %41
+  %47 = call i32 @KINSetFuncNormTol(ptr noundef nonnull %27, double noundef 1.000000e-05) #7
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %check_retval.exit70, label %51
+
+check_retval.exit70:                              ; preds = %46
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.8, i32 noundef %47) #8
+  br label %101
+
+51:                                               ; preds = %46
+  %52 = call i32 @KINSetScaledStepTol(ptr noundef nonnull %27, double noundef 1.000000e-05) #7
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %check_retval.exit72, label %56
+
+check_retval.exit72:                              ; preds = %51
+  %54 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.9, i32 noundef %52) #8
+  br label %101
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %1, align 8, !tbaa !9
+  %58 = call ptr @SUNDenseMatrix(i64 noundef 24, i64 noundef 24, ptr noundef %57) #7
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %check_retval.exit74, label %62
+
+check_retval.exit74:                              ; preds = %56
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.10) #8
+  br label %101
+
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %1, align 8, !tbaa !9
+  %64 = call ptr @SUNLinSol_Dense(ptr noundef nonnull %9, ptr noundef nonnull %58, ptr noundef %63) #7
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %check_retval.exit76, label %68
+
+check_retval.exit76:                              ; preds = %62
+  %66 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.11) #8
+  br label %101
+
+68:                                               ; preds = %62
+  %69 = call i32 @KINSetLinearSolver(ptr noundef nonnull %27, ptr noundef nonnull %64, ptr noundef nonnull %58) #7
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %check_retval.exit78, label %73
+
+check_retval.exit78:                              ; preds = %68
+  %71 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.12, i32 noundef %69) #8
+  br label %101
+
+73:                                               ; preds = %68
+  %74 = call i32 @KINSetJacFn(ptr noundef nonnull %27, ptr noundef nonnull @jac) #7
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %check_retval.exit80, label %78
+
+check_retval.exit80:                              ; preds = %73
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.13, i32 noundef %74) #8
+  br label %101
+
+78:                                               ; preds = %73
+  %79 = call i32 @KINSetMaxSetupCalls(ptr noundef nonnull %27, i64 noundef 1) #7
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %check_retval.exit82, label %83
+
+check_retval.exit82:                              ; preds = %78
+  %81 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.14, i32 noundef %79) #8
+  br label %101
+
+83:                                               ; preds = %78
+  call void @N_VConst(double noundef 1.000000e+00, ptr noundef nonnull %9) #7
+  %84 = load ptr, ptr %9, align 8, !tbaa !12
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !15
+  %invariant.gep124 = getelementptr i8, ptr %86, i64 -8
+  br label %87
+
+87:                                               ; preds = %83, %87
+  %indvars.iv128 = phi i64 [ 1, %83 ], [ %indvars.iv.next129, %87 ]
+  %gep125 = getelementptr double, ptr %invariant.gep124, i64 %indvars.iv128
+  store double 0x3FE6A09E667F3BCD, ptr %gep125, align 8, !tbaa !20
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 9
+  br i1 %exitcond131.not, label %88, label %87
+
+88:                                               ; preds = %87
+  %puts53 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
+  call fastcc void @PrintOutput(ptr noundef nonnull %9)
+  call void @N_VConst(double noundef 1.000000e+00, ptr noundef nonnull %15) #7
+  %89 = call i32 @KINSol(ptr noundef nonnull %27, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %15, ptr noundef nonnull %15) #7
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %check_retval.exit84, label %93
+
+check_retval.exit84:                              ; preds = %88
+  %91 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.16, i32 noundef %89) #8
+  br label %101
+
+93:                                               ; preds = %88
+  %puts55 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
+  call fastcc void @PrintOutput(ptr noundef nonnull %9)
+  %puts56 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
+  %94 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %95 = call i32 @KINPrintAllStats(ptr noundef nonnull %27, ptr noundef %94, i32 noundef 0) #7
+  %96 = call noalias ptr @fopen(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20)
+  %97 = call i32 @KINPrintAllStats(ptr noundef nonnull %27, ptr noundef %96, i32 noundef 1) #7
+  %98 = call i32 @fclose(ptr noundef %96)
+  call void @N_VDestroy(ptr noundef nonnull %9) #7
+  call void @N_VDestroy(ptr noundef nonnull %15) #7
+  call void @N_VDestroy(ptr noundef nonnull %21) #7
+  call void @KINFree(ptr noundef nonnull %2) #7
+  %99 = call i32 @SUNLinSolFree(ptr noundef nonnull %64) #7
+  call void @SUNMatDestroy(ptr noundef nonnull %58) #7
+  %100 = call i32 @SUNContext_Free(ptr noundef nonnull %1) #7
+  br label %101
+
+101:                                              ; preds = %check_retval.exit84, %check_retval.exit82, %check_retval.exit80, %check_retval.exit78, %check_retval.exit76, %check_retval.exit74, %check_retval.exit72, %check_retval.exit70, %check_retval.exit68, %check_retval.exit66, %check_retval.exit64, %check_retval.exit62, %check_retval.exit60, %check_retval.exit58, %check_retval.exit, %93
+  %.0 = phi i32 [ 0, %93 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit58 ], [ 1, %check_retval.exit60 ], [ 1, %check_retval.exit62 ], [ 1, %check_retval.exit64 ], [ 1, %check_retval.exit66 ], [ 1, %check_retval.exit68 ], [ 1, %check_retval.exit70 ], [ 1, %check_retval.exit72 ], [ 1, %check_retval.exit74 ], [ 1, %check_retval.exit76 ], [ 1, %check_retval.exit78 ], [ 1, %check_retval.exit80 ], [ 1, %check_retval.exit82 ], [ 1, %check_retval.exit84 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+
+declare i32 @SUNContext_Create(i32 noundef, ptr noundef) local_unnamed_addr #3
+
+declare ptr @N_VNew_Serial(i64 noundef, ptr noundef) local_unnamed_addr #3
+
+declare ptr @KINCreate(ptr noundef) local_unnamed_addr #3
+
+declare i32 @KINInit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+  %4 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #7
+  %5 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #7
+  %6 = load double, ptr %4, align 8, !tbaa !20
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %8 = load double, ptr %7, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %10 = load double, ptr %9, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = load double, ptr %11, align 8, !tbaa !20
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %14 = load double, ptr %13, align 8, !tbaa !20
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %16 = load double, ptr %15, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = load double, ptr %17, align 8, !tbaa !20
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %20 = load double, ptr %19, align 8, !tbaa !20
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %22 = load double, ptr %21, align 8, !tbaa !20
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %24 = load double, ptr %23, align 8, !tbaa !20
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %26 = load double, ptr %25, align 8, !tbaa !20
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %28 = load double, ptr %27, align 8, !tbaa !20
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %30 = load double, ptr %29, align 8, !tbaa !20
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %32 = load double, ptr %31, align 8, !tbaa !20
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %34 = load double, ptr %33, align 8, !tbaa !20
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %36 = load double, ptr %35, align 8, !tbaa !20
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %38 = load double, ptr %37, align 8, !tbaa !20
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %40 = load double, ptr %39, align 8, !tbaa !20
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %42 = load double, ptr %41, align 8, !tbaa !20
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %44 = load double, ptr %43, align 8, !tbaa !20
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  %46 = load double, ptr %45, align 8, !tbaa !20
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %48 = load double, ptr %47, align 8, !tbaa !20
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %50 = load double, ptr %49, align 8, !tbaa !20
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  %52 = load double, ptr %51, align 8, !tbaa !20
+  %53 = tail call double @llvm.fmuladd.f64(double %6, double -1.238000e-01, double %42)
+  %54 = tail call double @llvm.fmuladd.f64(double %12, double -1.637000e-03, double %53)
+  %55 = tail call double @llvm.fmuladd.f64(double %24, double 0xBFEDE1B089A02752, double %54)
+  %56 = fmul double %6, 4.731000e-03
+  %57 = tail call double @llvm.fmuladd.f64(double %56, double %18, double %55)
+  %58 = fmul double %12, -3.578000e-01
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double %18, double %57)
+  %60 = fadd double %59, -3.571000e-01
+  %61 = fneg double %42
+  %62 = tail call double @llvm.fmuladd.f64(double %6, double 2.638000e-01, double %61)
+  %63 = tail call double @llvm.fmuladd.f64(double %12, double -7.745000e-02, double %62)
+  %64 = tail call double @llvm.fmuladd.f64(double %24, double -6.734000e-01, double %63)
+  %65 = fmul double %6, 2.238000e-01
+  %66 = tail call double @llvm.fmuladd.f64(double %65, double %18, double %64)
+  %67 = fmul double %12, 0x3FE864C2F837B4A2
+  %68 = tail call double @llvm.fmuladd.f64(double %67, double %18, double %66)
+  %69 = fadd double %68, -6.022000e-01
+  %70 = fmul double %12, 4.731000e-03
+  %71 = tail call double @llvm.fmuladd.f64(double %6, double 3.578000e-01, double %70)
+  %72 = tail call double @llvm.fmuladd.f64(double %36, double %48, double %71)
+  %73 = fmul double %12, 2.238000e-01
+  %74 = tail call double @llvm.fmuladd.f64(double %6, double 0xBFE864C2F837B4A2, double %73)
+  %75 = fadd double %74, 3.461000e-01
+  %76 = fmul double %12, %12
+  %77 = tail call double @llvm.fmuladd.f64(double %6, double %6, double %76)
+  %78 = fadd double %77, -1.000000e+00
+  %79 = fmul double %24, %24
+  %80 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %79)
+  %81 = fadd double %80, -1.000000e+00
+  %82 = fmul double %36, %36
+  %83 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %82)
+  %84 = fadd double %83, -1.000000e+00
+  %85 = fmul double %48, %48
+  %86 = tail call double @llvm.fmuladd.f64(double %42, double %42, double %85)
+  %87 = fadd double %86, -1.000000e+00
+  %88 = fadd double %8, -1.000000e+00
+  %89 = fsub double %88, %6
+  %90 = fadd double %14, -1.000000e+00
+  %91 = fsub double %90, %12
+  %92 = fadd double %20, -1.000000e+00
+  %93 = fsub double %92, %18
+  %94 = fadd double %26, -1.000000e+00
+  %95 = fsub double %94, %24
+  %96 = fadd double %32, -1.000000e+00
+  %97 = fsub double %96, %30
+  %98 = fadd double %38, -1.000000e+00
+  %99 = fsub double %98, %36
+  %100 = fadd double %44, -1.000000e+00
+  %101 = fsub double %100, %42
+  %102 = fadd double %50, -1.000000e+00
+  %103 = fsub double %102, %48
+  %104 = fadd double %10, -1.000000e+00
+  %105 = fadd double %6, %104
+  %106 = fadd double %16, -1.000000e+00
+  %107 = fadd double %12, %106
+  %108 = fadd double %22, -1.000000e+00
+  %109 = fadd double %18, %108
+  %110 = fadd double %28, -1.000000e+00
+  %111 = fadd double %24, %110
+  %112 = fadd double %34, -1.000000e+00
+  %113 = fadd double %30, %112
+  %114 = fadd double %40, -1.000000e+00
+  %115 = fadd double %36, %114
+  %116 = fadd double %46, -1.000000e+00
+  %117 = fadd double %42, %116
+  %118 = fadd double %52, -1.000000e+00
+  %119 = fadd double %48, %118
+  store double %60, ptr %5, align 8, !tbaa !20
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store double %89, ptr %120, align 8, !tbaa !20
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  store double %105, ptr %121, align 8, !tbaa !20
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store double %69, ptr %122, align 8, !tbaa !20
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store double %91, ptr %123, align 8, !tbaa !20
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  store double %107, ptr %124, align 8, !tbaa !20
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store double %72, ptr %125, align 8, !tbaa !20
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store double %93, ptr %126, align 8, !tbaa !20
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  store double %109, ptr %127, align 8, !tbaa !20
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store double %75, ptr %128, align 8, !tbaa !20
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store double %95, ptr %129, align 8, !tbaa !20
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  store double %111, ptr %130, align 8, !tbaa !20
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store double %78, ptr %131, align 8, !tbaa !20
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store double %97, ptr %132, align 8, !tbaa !20
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  store double %113, ptr %133, align 8, !tbaa !20
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store double %81, ptr %134, align 8, !tbaa !20
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store double %99, ptr %135, align 8, !tbaa !20
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  store double %115, ptr %136, align 8, !tbaa !20
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store double %84, ptr %137, align 8, !tbaa !20
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  store double %101, ptr %138, align 8, !tbaa !20
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  store double %117, ptr %139, align 8, !tbaa !20
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store double %87, ptr %140, align 8, !tbaa !20
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  store double %103, ptr %141, align 8, !tbaa !20
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  store double %119, ptr %142, align 8, !tbaa !20
+  ret i32 0
+}
+
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @KINSetConstraints(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @KINSetFuncNormTol(ptr noundef, double noundef) local_unnamed_addr #3
+
+declare i32 @KINSetScaledStepTol(ptr noundef, double noundef) local_unnamed_addr #3
+
+declare ptr @SUNDenseMatrix(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+
+declare ptr @SUNLinSol_Dense(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @KINSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @KINSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @jac(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
+  %7 = tail call ptr @N_VGetArrayPointer(ptr noundef %0) #7
+  %8 = load double, ptr %7, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load double, ptr %9, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %12 = load double, ptr %11, align 8, !tbaa !20
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %14 = load double, ptr %13, align 8, !tbaa !20
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %16 = load double, ptr %15, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %18 = load double, ptr %17, align 8, !tbaa !20
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %20 = load double, ptr %19, align 8, !tbaa !20
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %22 = load double, ptr %21, align 8, !tbaa !20
+  %23 = tail call double @llvm.fmuladd.f64(double %12, double 4.731000e-03, double -1.238000e-01)
+  %24 = load ptr, ptr %2, align 8, !tbaa !22
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %26 = load ptr, ptr %25, align 8, !tbaa !25
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  store double %23, ptr %27, align 8, !tbaa !20
+  %28 = tail call double @llvm.fmuladd.f64(double %12, double -3.578000e-01, double -1.637000e-03)
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !28
+  store double %28, ptr %30, align 8, !tbaa !20
+  %31 = fmul double %10, -3.578000e-01
+  %32 = tail call double @llvm.fmuladd.f64(double %8, double 4.731000e-03, double %31)
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  store double %32, ptr %34, align 8, !tbaa !20
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  store double 0xBFEDE1B089A02752, ptr %36, align 8, !tbaa !20
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %38 = load ptr, ptr %37, align 8, !tbaa !28
+  store double 1.000000e+00, ptr %38, align 8, !tbaa !20
+  %39 = tail call double @llvm.fmuladd.f64(double %12, double 2.238000e-01, double 2.638000e-01)
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store double %39, ptr %40, align 8, !tbaa !20
+  %41 = tail call double @llvm.fmuladd.f64(double %12, double 0x3FE864C2F837B4A2, double -7.745000e-02)
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store double %41, ptr %42, align 8, !tbaa !20
+  %43 = fmul double %10, 0x3FE864C2F837B4A2
+  %44 = tail call double @llvm.fmuladd.f64(double %8, double 2.238000e-01, double %43)
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store double %44, ptr %45, align 8, !tbaa !20
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store double -6.734000e-01, ptr %46, align 8, !tbaa !20
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store double -1.000000e+00, ptr %47, align 8, !tbaa !20
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store double 3.578000e-01, ptr %48, align 8, !tbaa !20
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store double 4.731000e-03, ptr %49, align 8, !tbaa !20
+  %50 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %51 = load ptr, ptr %50, align 8, !tbaa !28
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store double %22, ptr %52, align 8, !tbaa !20
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %54 = load ptr, ptr %53, align 8, !tbaa !28
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store double %18, ptr %55, align 8, !tbaa !20
+  %56 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store double 0xBFE864C2F837B4A2, ptr %56, align 8, !tbaa !20
+  %57 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store double 2.238000e-01, ptr %57, align 8, !tbaa !20
+  %58 = fmul double %8, 2.000000e+00
+  %59 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store double %58, ptr %59, align 8, !tbaa !20
+  %60 = fmul double %10, 2.000000e+00
+  %61 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store double %60, ptr %61, align 8, !tbaa !20
+  %62 = fmul double %12, 2.000000e+00
+  %63 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store double %62, ptr %63, align 8, !tbaa !20
+  %64 = fmul double %14, 2.000000e+00
+  %65 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  store double %64, ptr %65, align 8, !tbaa !20
+  %66 = fmul double %16, 2.000000e+00
+  %67 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %68 = load ptr, ptr %67, align 8, !tbaa !28
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
+  store double %66, ptr %69, align 8, !tbaa !20
+  %70 = fmul double %18, 2.000000e+00
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  store double %70, ptr %71, align 8, !tbaa !20
+  %72 = fmul double %20, 2.000000e+00
+  %73 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store double %72, ptr %73, align 8, !tbaa !20
+  %74 = fmul double %22, 2.000000e+00
+  %75 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  store double %74, ptr %75, align 8, !tbaa !20
+  %invariant.gep = getelementptr i8, ptr %26, i64 -8
+  br label %76
+
+76:                                               ; preds = %6, %76
+  %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %76 ]
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
+  %77 = load ptr, ptr %gep, align 8, !tbaa !28
+  %78 = add nuw nsw i64 %indvars.iv, 7
+  %79 = getelementptr inbounds nuw double, ptr %77, i64 %78
+  store double -1.000000e+00, ptr %79, align 8, !tbaa !20
+  %80 = getelementptr inbounds nuw ptr, ptr %26, i64 %78
+  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  %82 = getelementptr inbounds nuw double, ptr %81, i64 %78
+  store double 1.000000e+00, ptr %82, align 8, !tbaa !20
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 9
+  br i1 %exitcond.not, label %.preheader, label %76
+
+.preheader:                                       ; preds = %76, %.preheader
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.preheader ], [ 1, %76 ]
+  %gep68 = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv71
+  %83 = load ptr, ptr %gep68, align 8, !tbaa !28
+  %84 = add nuw nsw i64 %indvars.iv71, 15
+  %85 = getelementptr inbounds nuw double, ptr %83, i64 %84
+  store double 1.000000e+00, ptr %85, align 8, !tbaa !20
+  %86 = getelementptr inbounds nuw ptr, ptr %26, i64 %84
+  %87 = load ptr, ptr %86, align 8, !tbaa !28
+  %88 = getelementptr inbounds nuw double, ptr %87, i64 %84
+  store double 1.000000e+00, ptr %88, align 8, !tbaa !20
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next72, 9
+  br i1 %exitcond74.not, label %89, label %.preheader
+
+89:                                               ; preds = %.preheader
+  ret i32 0
+}
+
+declare i32 @KINSetMaxSetupCalls(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc void @PrintOutput(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
+  %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
+  %puts7 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
+  br label %2
+
+2:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %8 = load double, ptr %7, align 8, !tbaa !20
+  %9 = getelementptr i8, ptr %6, i64 -8
+  %10 = load double, ptr %9, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %12 = load double, ptr %11, align 8, !tbaa !20
+  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, double noundef %8, double noundef %10, double noundef %12)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 9
+  br i1 %exitcond.not, label %14, label %2
+
+14:                                               ; preds = %2
+  ret void
+}
+
+declare i32 @KINSol(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @KINPrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
+
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #3
+
+declare void @KINFree(ptr noundef) local_unnamed_addr #3
+
+declare i32 @SUNLinSolFree(ptr noundef) local_unnamed_addr #3
+
+declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #3
+
+declare i32 @SUNContext_Free(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #5
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS11SUNContext_", !6, i64 0}
+!11 = !{!6, !6, i64 0}
+!12 = !{!13, !6, i64 0}
+!13 = !{!"_generic_N_Vector", !6, i64 0, !14, i64 8, !10, i64 16}
+!14 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
+!15 = !{!16, !19, i64 16}
+!16 = !{!"_N_VectorContent_Serial", !17, i64 0, !18, i64 8, !19, i64 16}
+!17 = !{!"long", !7, i64 0}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!"p1 double", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !7, i64 0}
+!22 = !{!23, !6, i64 0}
+!23 = !{!"_generic_SUNMatrix", !6, i64 0, !24, i64 8, !10, i64 16}
+!24 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!25 = !{!26, !27, i64 32}
+!26 = !{!"_SUNMatrixContent_Dense", !17, i64 0, !17, i64 8, !19, i64 16, !17, i64 24, !27, i64 32}
+!27 = !{!"p2 double", !6, i64 0}
+!28 = !{!19, !19, i64 0}
