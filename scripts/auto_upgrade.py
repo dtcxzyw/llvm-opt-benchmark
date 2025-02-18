@@ -75,6 +75,7 @@ supported_project = [
     "casadi",
     "ceres",
     "cpp-httplib",
+    "crow",
 ]
 
 modify_only = [
