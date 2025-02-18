@@ -73,6 +73,7 @@ supported_project = [
     "box2d",
     "bullet3",
     "casadi",
+    "ceres",
 ]
 
 modify_only = [
@@ -98,6 +99,7 @@ modify_only = [
     "zstd",
     "assimp",
     "casadi",
+    "ceres",
 ]
 
 
