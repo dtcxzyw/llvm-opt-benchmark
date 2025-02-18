@@ -58,100 +58,110 @@ define i32 @PaPulseAudio_CheckConnection(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 -1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %10
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  store i32 -1, ptr %4, align 4, !tbaa !7
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %11
 
-8:                                                ; preds = %1
-  %9 = load i32, ptr %4, align 4
-  store i32 %9, ptr %2, align 4
-  br label %31
+9:                                                ; preds = %1
+  %10 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %10, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %32
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %11, i32 0, i32 10
-  %13 = load ptr, ptr %12, align 8
-  %14 = call i32 @pa_context_get_state(ptr noundef %13)
-  store i32 %14, ptr %5, align 4
-  %15 = load i32, ptr %5, align 4
-  %16 = call i32 @PA_CONTEXT_IS_GOOD(i32 noundef %15)
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %23
+11:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %12, i32 0, i32 10
+  %14 = load ptr, ptr %13, align 8, !tbaa !9
+  %15 = call i32 @pa_context_get_state(ptr noundef %14)
+  store i32 %15, ptr %6, align 4, !tbaa !7
+  %16 = load i32, ptr %6, align 4, !tbaa !7
+  %17 = call i32 @PA_CONTEXT_IS_GOOD(i32 noundef %16)
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %10
-  %19 = load i32, ptr %5, align 4
-  switch i32 %19, label %22 [
-    i32 4, label %20
-    i32 1, label %21
-    i32 2, label %21
-    i32 3, label %21
+19:                                               ; preds = %11
+  %20 = load i32, ptr %6, align 4, !tbaa !7
+  switch i32 %20, label %23 [
+    i32 4, label %21
+    i32 1, label %22
+    i32 2, label %22
+    i32 3, label %22
   ]
 
-20:                                               ; preds = %18
-  store i32 0, ptr %4, align 4
-  br label %22
+21:                                               ; preds = %19
+  store i32 0, ptr %4, align 4, !tbaa !7
+  br label %23
 
-21:                                               ; preds = %18, %18, %18
-  br label %22
+22:                                               ; preds = %19, %19, %19
+  br label %23
 
-22:                                               ; preds = %21, %20, %18
-  br label %29
+23:                                               ; preds = %19, %22, %21
+  br label %30
 
-23:                                               ; preds = %10
-  store i32 1, ptr %4, align 4
-  %24 = load i32, ptr %5, align 4
-  switch i32 %24, label %28 [
-    i32 0, label %25
-    i32 6, label %26
-    i32 5, label %27
+24:                                               ; preds = %11
+  store i32 1, ptr %4, align 4, !tbaa !7
+  %25 = load i32, ptr %6, align 4, !tbaa !7
+  switch i32 %25, label %29 [
+    i32 0, label %26
+    i32 6, label %27
+    i32 5, label %28
   ]
 
-25:                                               ; preds = %23
-  br label %28
-
-26:                                               ; preds = %23
-  br label %28
-
-27:                                               ; preds = %23
-  br label %28
-
-28:                                               ; preds = %27, %26, %25, %23
+26:                                               ; preds = %24
   br label %29
 
-29:                                               ; preds = %28, %22
-  %30 = load i32, ptr %4, align 4
-  store i32 %30, ptr %2, align 4
-  br label %31
+27:                                               ; preds = %24
+  br label %29
 
-31:                                               ; preds = %29, %8
-  %32 = load i32, ptr %2, align 4
-  ret i32 %32
+28:                                               ; preds = %24
+  br label %29
+
+29:                                               ; preds = %24, %28, %27, %26
+  br label %30
+
+30:                                               ; preds = %29, %23
+  %31 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %31, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  br label %32
+
+32:                                               ; preds = %30, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  %33 = load i32, ptr %2, align 4
+  ret i32 %33
 }
 
-declare i32 @pa_context_get_state(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @PA_CONTEXT_IS_GOOD(i32 noundef %0) #0 {
+declare i32 @pa_context_get_state(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @PA_CONTEXT_IS_GOOD(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !7
+  %3 = load i32, ptr %2, align 4, !tbaa !7
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4, !tbaa !7
   %7 = icmp eq i32 %6, 2
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %2, align 4
+  %9 = load i32, ptr %2, align 4, !tbaa !7
   %10 = icmp eq i32 %9, 3
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr %2, align 4
+  %12 = load i32, ptr %2, align 4, !tbaa !7
   %13 = icmp eq i32 %12, 4
   br label %14
 
@@ -161,167 +171,195 @@ define internal i32 @PA_CONTEXT_IS_GOOD(i32 noundef %0) #0 {
   ret i32 %16
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define ptr @PaPulseAudio_New() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca [2 x i32], align 4
   %4 = alloca [1024 x i8], align 16
+  %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 @__const.PaPulseAudio_New.fd, i64 8, i1 false)
-  %5 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 82256)
-  store ptr %5, ptr %2, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = icmp ne ptr %6, null
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %0
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str)
-  store ptr null, ptr %1, align 8
-  br label %59
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %4) #10
+  %6 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 82256)
+  store ptr %6, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %10, label %9
 
 9:                                                ; preds = %0
-  %10 = load ptr, ptr %2, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 82256, i1 false)
-  %11 = call ptr @pa_threaded_mainloop_new()
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %12, i32 0, i32 8
-  store ptr %11, ptr %13, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %14, i32 0, i32 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %19, label %18
-
-18:                                               ; preds = %9
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.1)
-  br label %57
-
-19:                                               ; preds = %9
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %20, i32 0, i32 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = call ptr @pa_threaded_mainloop_get_api(ptr noundef %22)
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %24, i32 0, i32 9
-  store ptr %23, ptr %25, align 8
-  %26 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %27 = load ptr, ptr @__progname, align 8
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %26, i64 noundef 1024, ptr noundef @.str.2, ptr noundef %27) #8
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %29, i32 0, i32 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @pa_threaded_mainloop_get_api(ptr noundef %31)
-  %33 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
-  %34 = call ptr @pa_context_new(ptr noundef %32, ptr noundef %33)
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %35, i32 0, i32 10
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %37, i32 0, i32 10
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %42, label %41
-
-41:                                               ; preds = %19
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.3)
-  br label %57
-
-42:                                               ; preds = %19
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %43, i32 0, i32 10
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %2, align 8
-  call void @pa_context_set_state_callback(ptr noundef %45, ptr noundef @PaPulseAudio_CheckContextStateCb, ptr noundef %46)
-  %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %47, i32 0, i32 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = call i32 @pa_threaded_mainloop_start(ptr noundef %49)
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %53
-
-52:                                               ; preds = %42
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.4)
-  br label %57
-
-53:                                               ; preds = %42
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %54, i32 0, i32 11
-  store i32 0, ptr %55, align 8
-  %56 = load ptr, ptr %2, align 8
-  store ptr %56, ptr %1, align 8
-  br label %59
-
-57:                                               ; preds = %52, %41, %18
-  %58 = load ptr, ptr %2, align 8
-  call void @PaPulseAudio_Free(ptr noundef %58)
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str)
   store ptr null, ptr %1, align 8
-  br label %59
+  store i32 1, ptr %5, align 4
+  br label %60
 
-59:                                               ; preds = %57, %53, %8
-  %60 = load ptr, ptr %1, align 8
-  ret ptr %60
+10:                                               ; preds = %0
+  %11 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 82256, i1 false)
+  %12 = call ptr @pa_threaded_mainloop_new()
+  %13 = load ptr, ptr %2, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %13, i32 0, i32 8
+  store ptr %12, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %15, i32 0, i32 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %20, label %19
+
+19:                                               ; preds = %10
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.1)
+  br label %58
+
+20:                                               ; preds = %10
+  %21 = load ptr, ptr %2, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %21, i32 0, i32 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  %24 = call ptr @pa_threaded_mainloop_get_api(ptr noundef %23)
+  %25 = load ptr, ptr %2, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %25, i32 0, i32 9
+  store ptr %24, ptr %26, align 8, !tbaa !24
+  %27 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %28 = load ptr, ptr @__progname, align 8, !tbaa !25
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef 1024, ptr noundef @.str.2, ptr noundef %28) #10
+  %30 = load ptr, ptr %2, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %30, i32 0, i32 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  %33 = call ptr @pa_threaded_mainloop_get_api(ptr noundef %32)
+  %34 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 0
+  %35 = call ptr @pa_context_new(ptr noundef %33, ptr noundef %34)
+  %36 = load ptr, ptr %2, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %36, i32 0, i32 10
+  store ptr %35, ptr %37, align 8, !tbaa !9
+  %38 = load ptr, ptr %2, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %38, i32 0, i32 10
+  %40 = load ptr, ptr %39, align 8, !tbaa !9
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %20
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.3)
+  br label %58
+
+43:                                               ; preds = %20
+  %44 = load ptr, ptr %2, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %44, i32 0, i32 10
+  %46 = load ptr, ptr %45, align 8, !tbaa !9
+  %47 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @pa_context_set_state_callback(ptr noundef %46, ptr noundef @PaPulseAudio_CheckContextStateCb, ptr noundef %47)
+  %48 = load ptr, ptr %2, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %48, i32 0, i32 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !23
+  %51 = call i32 @pa_threaded_mainloop_start(ptr noundef %50)
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %43
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.4)
+  br label %58
+
+54:                                               ; preds = %43
+  %55 = load ptr, ptr %2, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %55, i32 0, i32 11
+  store i32 0, ptr %56, align 8, !tbaa !26
+  %57 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %57, ptr %1, align 8
+  store i32 1, ptr %5, align 4
+  br label %60
+
+58:                                               ; preds = %53, %42, %19
+  %59 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @PaPulseAudio_Free(ptr noundef %59)
+  store ptr null, ptr %1, align 8
+  store i32 1, ptr %5, align 4
+  br label %60
+
+60:                                               ; preds = %58, %54, %9
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #10
+  %61 = load ptr, ptr %1, align 8
+  ret ptr %61
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) #1
+declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) #2
 
-declare void @PaUtil_SetLastHostErrorInfo(i32 noundef, i64 noundef, ptr noundef) #1
+declare void @PaUtil_SetLastHostErrorInfo(i32 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare ptr @pa_threaded_mainloop_new() #1
+declare ptr @pa_threaded_mainloop_new() #2
 
-declare ptr @pa_threaded_mainloop_get_api(ptr noundef) #1
+declare ptr @pa_threaded_mainloop_get_api(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #4
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #6
 
-declare ptr @pa_context_new(ptr noundef, ptr noundef) #1
+declare ptr @pa_context_new(ptr noundef, ptr noundef) #2
 
-declare void @pa_context_set_state_callback(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @pa_context_set_state_callback(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_CheckContextStateCb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %13, label %9
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %7, ptr %5, align 8, !tbaa !3
+  %8 = load ptr, ptr %3, align 8, !tbaa !27
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %14, label %10
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.6)
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %10, i32 0, i32 8
-  %12 = load ptr, ptr %11, align 8
-  call void @pa_threaded_mainloop_signal(ptr noundef %12, i32 noundef 0)
-  br label %17
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %11, i32 0, i32 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  call void @pa_threaded_mainloop_signal(ptr noundef %13, i32 noundef 0)
+  store i32 1, ptr %6, align 4
+  br label %18
 
-13:                                               ; preds = %2
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %14, i32 0, i32 8
-  %16 = load ptr, ptr %15, align 8
-  call void @pa_threaded_mainloop_signal(ptr noundef %16, i32 noundef 0)
-  br label %17
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %15, i32 0, i32 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  call void @pa_threaded_mainloop_signal(ptr noundef %17, i32 noundef 0)
+  store i32 0, ptr %6, align 4
+  br label %18
 
-17:                                               ; preds = %13, %9
+18:                                               ; preds = %14, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  %19 = load i32, ptr %6, align 4
+  switch i32 %19, label %21 [
+    i32 0, label %20
+    i32 1, label %20
+  ]
+
+20:                                               ; preds = %18, %18
   ret void
+
+21:                                               ; preds = %18
+  unreachable
 }
 
-declare i32 @pa_threaded_mainloop_start(ptr noundef) #1
+declare i32 @pa_threaded_mainloop_start(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_Free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp ne ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -330,112 +368,112 @@ define void @PaPulseAudio_Free(ptr noundef %0) #0 {
   br label %79
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %7, i32 0, i32 8
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %2, align 8
+  %12 = load ptr, ptr %2, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %12, i32 0, i32 8
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
   call void @pa_threaded_mainloop_stop(ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %11, %6
-  %16 = load ptr, ptr %2, align 8
+  %16 = load ptr, ptr %2, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %16, i32 0, i32 10
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = icmp ne ptr %18, null
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %2, align 8
+  %21 = load ptr, ptr %2, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %21, i32 0, i32 10
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !9
   call void @pa_context_disconnect(ptr noundef %23)
-  %24 = load ptr, ptr %2, align 8
+  %24 = load ptr, ptr %2, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %24, i32 0, i32 10
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !9
   call void @pa_context_unref(ptr noundef %26)
-  %27 = load ptr, ptr %2, align 8
+  %27 = load ptr, ptr %2, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %27, i32 0, i32 10
-  store ptr null, ptr %28, align 8
+  store ptr null, ptr %28, align 8, !tbaa !9
   br label %29
 
 29:                                               ; preds = %20, %15
-  %30 = load ptr, ptr %2, align 8
+  %30 = load ptr, ptr %2, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %30, i32 0, i32 9
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = icmp ne ptr %32, null
   br i1 %33, label %34, label %52
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %2, align 8
+  %35 = load ptr, ptr %2, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %35, i32 0, i32 12
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !28
   %38 = icmp ne ptr %37, null
   br i1 %38, label %39, label %52
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %2, align 8
+  %40 = load ptr, ptr %2, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %40, i32 0, i32 9
-  %42 = load ptr, ptr %41, align 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !24
   %43 = getelementptr inbounds nuw %struct.pa_mainloop_api, ptr %42, i32 0, i32 7
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %2, align 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !29
+  %45 = load ptr, ptr %2, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %45, i32 0, i32 12
-  %47 = load ptr, ptr %46, align 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !28
   call void %44(ptr noundef %47)
-  %48 = load ptr, ptr %2, align 8
+  %48 = load ptr, ptr %2, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %48, i32 0, i32 9
-  store ptr null, ptr %49, align 8
-  %50 = load ptr, ptr %2, align 8
+  store ptr null, ptr %49, align 8, !tbaa !24
+  %50 = load ptr, ptr %2, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %50, i32 0, i32 12
-  store ptr null, ptr %51, align 8
+  store ptr null, ptr %51, align 8, !tbaa !28
   br label %52
 
 52:                                               ; preds = %39, %34, %29
-  %53 = load ptr, ptr %2, align 8
+  %53 = load ptr, ptr %2, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %53, i32 0, i32 8
-  %55 = load ptr, ptr %54, align 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !23
   %56 = icmp ne ptr %55, null
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %52
-  %58 = load ptr, ptr %2, align 8
+  %58 = load ptr, ptr %2, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %58, i32 0, i32 8
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !23
   call void @pa_threaded_mainloop_free(ptr noundef %60)
-  %61 = load ptr, ptr %2, align 8
+  %61 = load ptr, ptr %2, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %61, i32 0, i32 8
-  store ptr null, ptr %62, align 8
+  store ptr null, ptr %62, align 8, !tbaa !23
   br label %63
 
 63:                                               ; preds = %57, %52
-  %64 = load ptr, ptr %2, align 8
+  %64 = load ptr, ptr %2, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %64, i32 0, i32 3
-  %66 = load ptr, ptr %65, align 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !31
   %67 = icmp ne ptr %66, null
   br i1 %67, label %68, label %77
 
 68:                                               ; preds = %63
-  %69 = load ptr, ptr %2, align 8
+  %69 = load ptr, ptr %2, align 8, !tbaa !3
   %70 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %69, i32 0, i32 3
-  %71 = load ptr, ptr %70, align 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !31
   call void @PaUtil_FreeAllAllocations(ptr noundef %71)
-  %72 = load ptr, ptr %2, align 8
+  %72 = load ptr, ptr %2, align 8, !tbaa !3
   %73 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %72, i32 0, i32 3
-  %74 = load ptr, ptr %73, align 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !31
   call void @PaUtil_DestroyAllocationGroup(ptr noundef %74)
-  %75 = load ptr, ptr %2, align 8
+  %75 = load ptr, ptr %2, align 8, !tbaa !3
   %76 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %75, i32 0, i32 3
-  store ptr null, ptr %76, align 8
+  store ptr null, ptr %76, align 8, !tbaa !31
   br label %77
 
 77:                                               ; preds = %68, %63
-  %78 = load ptr, ptr %2, align 8
+  %78 = load ptr, ptr %2, align 8, !tbaa !3
   call void @PaUtil_FreeMemory(ptr noundef %78)
   br label %79
 
@@ -443,21 +481,21 @@ define void @PaPulseAudio_Free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @pa_threaded_mainloop_stop(ptr noundef) #1
+declare void @pa_threaded_mainloop_stop(ptr noundef) #2
 
-declare void @pa_context_disconnect(ptr noundef) #1
+declare void @pa_context_disconnect(ptr noundef) #2
 
-declare void @pa_context_unref(ptr noundef) #1
+declare void @pa_context_unref(ptr noundef) #2
 
-declare void @pa_threaded_mainloop_free(ptr noundef) #1
+declare void @pa_threaded_mainloop_free(ptr noundef) #2
 
-declare void @PaUtil_FreeAllAllocations(ptr noundef) #1
+declare void @PaUtil_FreeAllAllocations(ptr noundef) #2
 
-declare void @PaUtil_DestroyAllocationGroup(ptr noundef) #1
+declare void @PaUtil_DestroyAllocationGroup(ptr noundef) #2
 
-declare void @PaUtil_FreeMemory(ptr noundef) #1
+declare void @PaUtil_FreeMemory(ptr noundef) #2
 
-declare void @pa_threaded_mainloop_signal(ptr noundef, i32 noundef) #1
+declare void @pa_threaded_mainloop_signal(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_ServerInfoCb(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -465,42 +503,57 @@ define void @PaPulseAudio_ServerInfoCb(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  store ptr %8, ptr %7, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %14
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store ptr %1, ptr %5, align 8, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %9, ptr %7, align 8, !tbaa !3
+  %10 = load ptr, ptr %4, align 8, !tbaa !27
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %15
 
-11:                                               ; preds = %3
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %18, label %14
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !32
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %19, label %15
 
-14:                                               ; preds = %11, %3
+15:                                               ; preds = %12, %3
   call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.7)
-  %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %15, i32 0, i32 8
-  %17 = load ptr, ptr %16, align 8
-  call void @pa_threaded_mainloop_signal(ptr noundef %17, i32 noundef 0)
-  br label %26
+  %16 = load ptr, ptr %7, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %16, i32 0, i32 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  call void @pa_threaded_mainloop_signal(ptr noundef %18, i32 noundef 0)
+  store i32 1, ptr %8, align 4
+  br label %27
 
-18:                                               ; preds = %11
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %19, i32 0, i32 7
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds nuw %struct.pa_server_info, ptr %21, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %22, i64 12, i1 false)
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %23, i32 0, i32 8
-  %25 = load ptr, ptr %24, align 8
-  call void @pa_threaded_mainloop_signal(ptr noundef %25, i32 noundef 0)
-  br label %26
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %7, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %20, i32 0, i32 7
+  %22 = load ptr, ptr %5, align 8, !tbaa !32
+  %23 = getelementptr inbounds nuw %struct.pa_server_info, ptr %22, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %21, ptr align 8 %23, i64 12, i1 false), !tbaa.struct !34
+  %24 = load ptr, ptr %7, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %24, i32 0, i32 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !23
+  call void @pa_threaded_mainloop_signal(ptr noundef %26, i32 noundef 0)
+  store i32 0, ptr %8, align 4
+  br label %27
 
-26:                                               ; preds = %18, %14
+27:                                               ; preds = %19, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  %28 = load i32, ptr %8, align 4
+  switch i32 %28, label %30 [
+    i32 0, label %29
+    i32 1, label %29
+  ]
+
+29:                                               ; preds = %27, %27
   ret void
+
+30:                                               ; preds = %27
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -519,217 +572,227 @@ define i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
   %24 = alloca ptr, align 8
-  store ptr %0, ptr %12, align 8
-  store ptr %1, ptr %13, align 8
-  store ptr %2, ptr %14, align 8
-  store i32 %3, ptr %15, align 4
-  store i32 %4, ptr %16, align 4
-  store double %5, ptr %17, align 8
-  store double %6, ptr %18, align 8
-  store double %7, ptr %19, align 8
-  store double %8, ptr %20, align 8
-  store i64 %9, ptr %21, align 8
-  %25 = load ptr, ptr %14, align 8
-  %26 = call i64 @strnlen(ptr noundef %25, i64 noundef 1023) #9
-  %27 = add i64 %26, 1
-  %28 = trunc i64 %27 to i32
-  store i32 %28, ptr %22, align 4
-  %29 = load ptr, ptr %13, align 8
-  %30 = call i64 @strnlen(ptr noundef %29, i64 noundef 1023) #9
-  %31 = add i64 %30, 1
-  %32 = trunc i64 %31 to i32
-  store i32 %32, ptr %23, align 4
-  store ptr null, ptr %24, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %33, i32 0, i32 5
-  %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %35, i32 0, i32 11
-  %37 = load i32, ptr %36, align 8
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %34, i64 0, i64 %38
-  %40 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %39, i32 0, i32 0
-  store i32 2, ptr %40, align 8
-  %41 = load ptr, ptr %12, align 8
-  %42 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %41, i32 0, i32 4
-  %43 = load i32, ptr %42, align 8
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %44, i32 0, i32 5
-  %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %46, i32 0, i32 11
-  %48 = load i32, ptr %47, align 8
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %45, i64 0, i64 %49
-  %51 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %50, i32 0, i32 2
-  store i32 %43, ptr %51, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %52, i32 0, i32 3
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr %22, align 4
-  %56 = sext i32 %55 to i64
-  %57 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %54, i64 noundef %56)
-  %58 = load ptr, ptr %12, align 8
-  %59 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %58, i32 0, i32 6
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %60, i32 0, i32 11
-  %62 = load i32, ptr %61, align 8
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [1024 x ptr], ptr %59, i64 0, i64 %63
-  store ptr %57, ptr %64, align 8
-  %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %65, i32 0, i32 3
-  %67 = load ptr, ptr %66, align 8
-  %68 = load i32, ptr %23, align 4
-  %69 = sext i32 %68 to i64
-  %70 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %67, i64 noundef %69)
-  store ptr %70, ptr %24, align 8
-  %71 = load ptr, ptr %12, align 8
-  %72 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %71, i32 0, i32 6
-  %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %73, i32 0, i32 11
-  %75 = load i32, ptr %74, align 8
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [1024 x ptr], ptr %72, i64 0, i64 %76
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %84, label %80
+  %25 = alloca i32, align 4
+  store ptr %0, ptr %12, align 8, !tbaa !3
+  store ptr %1, ptr %13, align 8, !tbaa !25
+  store ptr %2, ptr %14, align 8, !tbaa !25
+  store i32 %3, ptr %15, align 4, !tbaa !7
+  store i32 %4, ptr %16, align 4, !tbaa !7
+  store double %5, ptr %17, align 8, !tbaa !36
+  store double %6, ptr %18, align 8, !tbaa !36
+  store double %7, ptr %19, align 8, !tbaa !36
+  store double %8, ptr %20, align 8, !tbaa !36
+  store i64 %9, ptr %21, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  %26 = load ptr, ptr %14, align 8, !tbaa !25
+  %27 = call i64 @strnlen(ptr noundef %26, i64 noundef 1023) #11
+  %28 = add i64 %27, 1
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %22, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #10
+  %30 = load ptr, ptr %13, align 8, !tbaa !25
+  %31 = call i64 @strnlen(ptr noundef %30, i64 noundef 1023) #11
+  %32 = add i64 %31, 1
+  %33 = trunc i64 %32 to i32
+  store i32 %33, ptr %23, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  store ptr null, ptr %24, align 8, !tbaa !25
+  %34 = load ptr, ptr %12, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %34, i32 0, i32 5
+  %36 = load ptr, ptr %12, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %36, i32 0, i32 11
+  %38 = load i32, ptr %37, align 8, !tbaa !26
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %35, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %40, i32 0, i32 0
+  store i32 2, ptr %41, align 8, !tbaa !39
+  %42 = load ptr, ptr %12, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %42, i32 0, i32 4
+  %44 = load i32, ptr %43, align 8, !tbaa !41
+  %45 = load ptr, ptr %12, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %45, i32 0, i32 5
+  %47 = load ptr, ptr %12, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %47, i32 0, i32 11
+  %49 = load i32, ptr %48, align 8, !tbaa !26
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %46, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %51, i32 0, i32 2
+  store i32 %44, ptr %52, align 8, !tbaa !42
+  %53 = load ptr, ptr %12, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8, !tbaa !31
+  %56 = load i32, ptr %22, align 4, !tbaa !7
+  %57 = sext i32 %56 to i64
+  %58 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %55, i64 noundef %57)
+  %59 = load ptr, ptr %12, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %59, i32 0, i32 6
+  %61 = load ptr, ptr %12, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %61, i32 0, i32 11
+  %63 = load i32, ptr %62, align 8, !tbaa !26
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds [1024 x ptr], ptr %60, i64 0, i64 %64
+  store ptr %58, ptr %65, align 8, !tbaa !25
+  %66 = load ptr, ptr %12, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %66, i32 0, i32 3
+  %68 = load ptr, ptr %67, align 8, !tbaa !31
+  %69 = load i32, ptr %23, align 4, !tbaa !7
+  %70 = sext i32 %69 to i64
+  %71 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %68, i64 noundef %70)
+  store ptr %71, ptr %24, align 8, !tbaa !25
+  %72 = load ptr, ptr %12, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %72, i32 0, i32 6
+  %74 = load ptr, ptr %12, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %74, i32 0, i32 11
+  %76 = load i32, ptr %75, align 8, !tbaa !26
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds [1024 x ptr], ptr %73, i64 0, i64 %77
+  %79 = load ptr, ptr %78, align 8, !tbaa !25
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %85, label %81
 
-80:                                               ; preds = %10
-  %81 = load ptr, ptr %24, align 8
-  %82 = icmp ne ptr %81, null
-  br i1 %82, label %84, label %83
+81:                                               ; preds = %10
+  %82 = load ptr, ptr %24, align 8, !tbaa !25
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %85, label %84
 
-83:                                               ; preds = %80
+84:                                               ; preds = %81
   call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.8)
   store i32 -9992, ptr %11, align 4
-  br label %185
+  store i32 1, ptr %25, align 4
+  br label %186
 
-84:                                               ; preds = %80, %10
-  %85 = load ptr, ptr %12, align 8
-  %86 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %85, i32 0, i32 11
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp sge i32 %87, 1024
-  br i1 %88, label %89, label %90
+85:                                               ; preds = %81, %10
+  %86 = load ptr, ptr %12, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %86, i32 0, i32 11
+  %88 = load i32, ptr %87, align 8, !tbaa !26
+  %89 = icmp sge i32 %88, 1024
+  br i1 %89, label %90, label %91
 
-89:                                               ; preds = %84
+90:                                               ; preds = %85
   store i32 -9985, ptr %11, align 4
-  br label %185
+  store i32 1, ptr %25, align 4
+  br label %186
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %91, i32 0, i32 6
-  %93 = load ptr, ptr %12, align 8
-  %94 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %93, i32 0, i32 11
-  %95 = load i32, ptr %94, align 8
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds [1024 x ptr], ptr %92, i64 0, i64 %96
-  %98 = load ptr, ptr %97, align 8
-  %99 = load i32, ptr %22, align 4
-  %100 = sext i32 %99 to i64
-  %101 = load ptr, ptr %14, align 8
-  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %98, i64 noundef %100, ptr noundef @.str.2, ptr noundef %101) #8
-  %103 = load ptr, ptr %24, align 8
-  %104 = load i32, ptr %23, align 4
-  %105 = sext i32 %104 to i64
-  %106 = load ptr, ptr %13, align 8
-  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %103, i64 noundef %105, ptr noundef @.str.2, ptr noundef %106) #8
-  %108 = load ptr, ptr %24, align 8
-  %109 = load ptr, ptr %12, align 8
-  %110 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %109, i32 0, i32 5
-  %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %111, i32 0, i32 11
-  %113 = load i32, ptr %112, align 8
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %110, i64 0, i64 %114
-  %116 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %115, i32 0, i32 1
-  store ptr %108, ptr %116, align 8
-  %117 = load i32, ptr %15, align 4
-  %118 = load ptr, ptr %12, align 8
-  %119 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %118, i32 0, i32 5
-  %120 = load ptr, ptr %12, align 8
-  %121 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %120, i32 0, i32 11
-  %122 = load i32, ptr %121, align 8
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %119, i64 0, i64 %123
-  %125 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %124, i32 0, i32 3
-  store i32 %117, ptr %125, align 4
-  %126 = load i32, ptr %16, align 4
-  %127 = load ptr, ptr %12, align 8
-  %128 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %127, i32 0, i32 5
-  %129 = load ptr, ptr %12, align 8
-  %130 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %129, i32 0, i32 11
-  %131 = load i32, ptr %130, align 8
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %128, i64 0, i64 %132
-  %134 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %133, i32 0, i32 4
-  store i32 %126, ptr %134, align 8
-  %135 = load double, ptr %17, align 8
-  %136 = load ptr, ptr %12, align 8
-  %137 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %136, i32 0, i32 5
-  %138 = load ptr, ptr %12, align 8
-  %139 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %138, i32 0, i32 11
-  %140 = load i32, ptr %139, align 8
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %137, i64 0, i64 %141
-  %143 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %142, i32 0, i32 5
-  store double %135, ptr %143, align 8
-  %144 = load double, ptr %19, align 8
-  %145 = load ptr, ptr %12, align 8
-  %146 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %145, i32 0, i32 5
-  %147 = load ptr, ptr %12, align 8
-  %148 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %147, i32 0, i32 11
-  %149 = load i32, ptr %148, align 8
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %146, i64 0, i64 %150
-  %152 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %151, i32 0, i32 6
-  store double %144, ptr %152, align 8
-  %153 = load double, ptr %18, align 8
-  %154 = load ptr, ptr %12, align 8
-  %155 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %154, i32 0, i32 5
-  %156 = load ptr, ptr %12, align 8
-  %157 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %156, i32 0, i32 11
-  %158 = load i32, ptr %157, align 8
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %155, i64 0, i64 %159
-  %161 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %160, i32 0, i32 7
-  store double %153, ptr %161, align 8
-  %162 = load double, ptr %20, align 8
-  %163 = load ptr, ptr %12, align 8
-  %164 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %163, i32 0, i32 5
-  %165 = load ptr, ptr %12, align 8
-  %166 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %165, i32 0, i32 11
-  %167 = load i32, ptr %166, align 8
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %164, i64 0, i64 %168
-  %170 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %169, i32 0, i32 8
-  store double %162, ptr %170, align 8
-  %171 = load i64, ptr %21, align 8
-  %172 = sitofp i64 %171 to double
-  %173 = load ptr, ptr %12, align 8
-  %174 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %173, i32 0, i32 5
-  %175 = load ptr, ptr %12, align 8
-  %176 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %175, i32 0, i32 11
-  %177 = load i32, ptr %176, align 8
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %174, i64 0, i64 %178
-  %180 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %179, i32 0, i32 9
-  store double %172, ptr %180, align 8
-  %181 = load ptr, ptr %12, align 8
-  %182 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %181, i32 0, i32 11
-  %183 = load i32, ptr %182, align 8
-  %184 = add nsw i32 %183, 1
-  store i32 %184, ptr %182, align 8
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %12, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %92, i32 0, i32 6
+  %94 = load ptr, ptr %12, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %94, i32 0, i32 11
+  %96 = load i32, ptr %95, align 8, !tbaa !26
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds [1024 x ptr], ptr %93, i64 0, i64 %97
+  %99 = load ptr, ptr %98, align 8, !tbaa !25
+  %100 = load i32, ptr %22, align 4, !tbaa !7
+  %101 = sext i32 %100 to i64
+  %102 = load ptr, ptr %14, align 8, !tbaa !25
+  %103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %101, ptr noundef @.str.2, ptr noundef %102) #10
+  %104 = load ptr, ptr %24, align 8, !tbaa !25
+  %105 = load i32, ptr %23, align 4, !tbaa !7
+  %106 = sext i32 %105 to i64
+  %107 = load ptr, ptr %13, align 8, !tbaa !25
+  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %104, i64 noundef %106, ptr noundef @.str.2, ptr noundef %107) #10
+  %109 = load ptr, ptr %24, align 8, !tbaa !25
+  %110 = load ptr, ptr %12, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %110, i32 0, i32 5
+  %112 = load ptr, ptr %12, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %112, i32 0, i32 11
+  %114 = load i32, ptr %113, align 8, !tbaa !26
+  %115 = sext i32 %114 to i64
+  %116 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %111, i64 0, i64 %115
+  %117 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %116, i32 0, i32 1
+  store ptr %109, ptr %117, align 8, !tbaa !43
+  %118 = load i32, ptr %15, align 4, !tbaa !7
+  %119 = load ptr, ptr %12, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %119, i32 0, i32 5
+  %121 = load ptr, ptr %12, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %121, i32 0, i32 11
+  %123 = load i32, ptr %122, align 8, !tbaa !26
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %120, i64 0, i64 %124
+  %126 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %125, i32 0, i32 3
+  store i32 %118, ptr %126, align 4, !tbaa !44
+  %127 = load i32, ptr %16, align 4, !tbaa !7
+  %128 = load ptr, ptr %12, align 8, !tbaa !3
+  %129 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %128, i32 0, i32 5
+  %130 = load ptr, ptr %12, align 8, !tbaa !3
+  %131 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %130, i32 0, i32 11
+  %132 = load i32, ptr %131, align 8, !tbaa !26
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %129, i64 0, i64 %133
+  %135 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %134, i32 0, i32 4
+  store i32 %127, ptr %135, align 8, !tbaa !45
+  %136 = load double, ptr %17, align 8, !tbaa !36
+  %137 = load ptr, ptr %12, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %137, i32 0, i32 5
+  %139 = load ptr, ptr %12, align 8, !tbaa !3
+  %140 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %139, i32 0, i32 11
+  %141 = load i32, ptr %140, align 8, !tbaa !26
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %138, i64 0, i64 %142
+  %144 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %143, i32 0, i32 5
+  store double %136, ptr %144, align 8, !tbaa !46
+  %145 = load double, ptr %19, align 8, !tbaa !36
+  %146 = load ptr, ptr %12, align 8, !tbaa !3
+  %147 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %146, i32 0, i32 5
+  %148 = load ptr, ptr %12, align 8, !tbaa !3
+  %149 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %148, i32 0, i32 11
+  %150 = load i32, ptr %149, align 8, !tbaa !26
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %147, i64 0, i64 %151
+  %153 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %152, i32 0, i32 6
+  store double %145, ptr %153, align 8, !tbaa !47
+  %154 = load double, ptr %18, align 8, !tbaa !36
+  %155 = load ptr, ptr %12, align 8, !tbaa !3
+  %156 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %155, i32 0, i32 5
+  %157 = load ptr, ptr %12, align 8, !tbaa !3
+  %158 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %157, i32 0, i32 11
+  %159 = load i32, ptr %158, align 8, !tbaa !26
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %156, i64 0, i64 %160
+  %162 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %161, i32 0, i32 7
+  store double %154, ptr %162, align 8, !tbaa !48
+  %163 = load double, ptr %20, align 8, !tbaa !36
+  %164 = load ptr, ptr %12, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %164, i32 0, i32 5
+  %166 = load ptr, ptr %12, align 8, !tbaa !3
+  %167 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %166, i32 0, i32 11
+  %168 = load i32, ptr %167, align 8, !tbaa !26
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %165, i64 0, i64 %169
+  %171 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %170, i32 0, i32 8
+  store double %163, ptr %171, align 8, !tbaa !49
+  %172 = load i64, ptr %21, align 8, !tbaa !38
+  %173 = sitofp i64 %172 to double
+  %174 = load ptr, ptr %12, align 8, !tbaa !3
+  %175 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %174, i32 0, i32 5
+  %176 = load ptr, ptr %12, align 8, !tbaa !3
+  %177 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %176, i32 0, i32 11
+  %178 = load i32, ptr %177, align 8, !tbaa !26
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %175, i64 0, i64 %179
+  %181 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %180, i32 0, i32 9
+  store double %173, ptr %181, align 8, !tbaa !50
+  %182 = load ptr, ptr %12, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %182, i32 0, i32 11
+  %184 = load i32, ptr %183, align 8, !tbaa !26
+  %185 = add nsw i32 %184, 1
+  store i32 %185, ptr %183, align 8, !tbaa !26
   store i32 0, ptr %11, align 4
-  br label %185
+  store i32 1, ptr %25, align 4
+  br label %186
 
-185:                                              ; preds = %90, %89, %83
-  %186 = load i32, ptr %11, align 4
-  ret i32 %186
+186:                                              ; preds = %91, %90, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  %187 = load i32, ptr %11, align 4
+  ret i32 %187
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strnlen(ptr noundef, i64 noundef) #5
+declare i64 @strnlen(ptr noundef, i64 noundef) #7
 
-declare ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef, i64 noundef) #1
+declare ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_SinkListCb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
@@ -739,19 +802,21 @@ define void @PaPulseAudio_SinkListCb(ptr noundef %0, ptr noundef %1, i32 noundef
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %8, align 8
-  store ptr %11, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %12 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !27
+  store ptr %1, ptr %6, align 8, !tbaa !51
+  store i32 %2, ptr %7, align 4, !tbaa !7
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %11 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %11, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  store ptr null, ptr %10, align 8, !tbaa !25
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8, !tbaa !51
   %16 = icmp ne ptr %15, null
   br i1 %16, label %18, label %17
 
@@ -760,7 +825,7 @@ define void @PaPulseAudio_SinkListCb(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %54
 
 18:                                               ; preds = %14
-  %19 = load i32, ptr %7, align 4
+  %19 = load i32, ptr %7, align 4, !tbaa !7
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %22
 
@@ -768,38 +833,38 @@ define void @PaPulseAudio_SinkListCb(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %54
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %6, align 8
+  %23 = load ptr, ptr %6, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw %struct.pa_sink_info, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %10, align 8
-  %26 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !53
+  store ptr %25, ptr %10, align 8, !tbaa !25
+  %26 = load ptr, ptr %6, align 8, !tbaa !51
   %27 = getelementptr inbounds nuw %struct.pa_sink_info, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !61
   %29 = icmp ne ptr %28, null
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %22
-  %31 = load ptr, ptr %6, align 8
+  %31 = load ptr, ptr %6, align 8, !tbaa !51
   %32 = getelementptr inbounds nuw %struct.pa_sink_info, ptr %31, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %10, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !61
+  store ptr %33, ptr %10, align 8, !tbaa !25
   br label %34
 
 34:                                               ; preds = %30, %22
-  %35 = load ptr, ptr %9, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %9, align 8, !tbaa !3
+  %36 = load ptr, ptr %10, align 8, !tbaa !25
+  %37 = load ptr, ptr %6, align 8, !tbaa !51
   %38 = getelementptr inbounds nuw %struct.pa_sink_info, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !53
+  %40 = load ptr, ptr %6, align 8, !tbaa !51
   %41 = getelementptr inbounds nuw %struct.pa_sink_info, ptr %40, i32 0, i32 3
   %42 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %41, i32 0, i32 2
-  %43 = load i8, ptr %42, align 8
+  %43 = load i8, ptr %42, align 8, !tbaa !62
   %44 = zext i8 %43 to i32
-  %45 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %6, align 8, !tbaa !51
   %46 = getelementptr inbounds nuw %struct.pa_sink_info, ptr %45, i32 0, i32 3
   %47 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %46, i32 0, i32 1
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !63
   %49 = zext i32 %48 to i64
   %50 = call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %35, ptr noundef %36, ptr noundef %39, i32 noundef 0, i32 noundef %44, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e-02, double noundef 8.000000e-02, i64 noundef %49)
   %51 = icmp ne i32 %50, 0
@@ -813,10 +878,12 @@ define void @PaPulseAudio_SinkListCb(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %54
 
 54:                                               ; preds = %53, %21, %17
-  %55 = load ptr, ptr %9, align 8
+  %55 = load ptr, ptr %9, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %55, i32 0, i32 8
-  %57 = load ptr, ptr %56, align 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !23
   call void @pa_threaded_mainloop_signal(ptr noundef %57, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret void
 }
 
@@ -828,14 +895,16 @@ define void @PaPulseAudio_SourceListCb(ptr noundef %0, ptr noundef %1, i32 nound
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %8, align 8
-  store ptr %11, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %12 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !27
+  store ptr %1, ptr %6, align 8, !tbaa !64
+  store i32 %2, ptr %7, align 4, !tbaa !7
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %11 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %11, ptr %9, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  store ptr null, ptr %10, align 8, !tbaa !25
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
   %13 = icmp ne ptr %12, null
   br i1 %13, label %15, label %14
 
@@ -844,7 +913,7 @@ define void @PaPulseAudio_SourceListCb(ptr noundef %0, ptr noundef %1, i32 nound
   br label %51
 
 15:                                               ; preds = %4
-  %16 = load i32, ptr %7, align 4
+  %16 = load i32, ptr %7, align 4, !tbaa !7
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %19
 
@@ -852,38 +921,38 @@ define void @PaPulseAudio_SourceListCb(ptr noundef %0, ptr noundef %1, i32 nound
   br label %51
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %6, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw %struct.pa_source_info, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %10, align 8
-  %23 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !66
+  store ptr %22, ptr %10, align 8, !tbaa !25
+  %23 = load ptr, ptr %6, align 8, !tbaa !64
   %24 = getelementptr inbounds nuw %struct.pa_source_info, ptr %23, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !70
   %26 = icmp ne ptr %25, null
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %19
-  %28 = load ptr, ptr %6, align 8
+  %28 = load ptr, ptr %6, align 8, !tbaa !64
   %29 = getelementptr inbounds nuw %struct.pa_source_info, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %10, align 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !70
+  store ptr %30, ptr %10, align 8, !tbaa !25
   br label %31
 
 31:                                               ; preds = %27, %19
-  %32 = load ptr, ptr %9, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %9, align 8, !tbaa !3
+  %33 = load ptr, ptr %10, align 8, !tbaa !25
+  %34 = load ptr, ptr %6, align 8, !tbaa !64
   %35 = getelementptr inbounds nuw %struct.pa_source_info, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !66
+  %37 = load ptr, ptr %6, align 8, !tbaa !64
   %38 = getelementptr inbounds nuw %struct.pa_source_info, ptr %37, i32 0, i32 3
   %39 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %38, i32 0, i32 2
-  %40 = load i8, ptr %39, align 8
+  %40 = load i8, ptr %39, align 8, !tbaa !71
   %41 = zext i8 %40 to i32
-  %42 = load ptr, ptr %6, align 8
+  %42 = load ptr, ptr %6, align 8, !tbaa !64
   %43 = getelementptr inbounds nuw %struct.pa_source_info, ptr %42, i32 0, i32 3
   %44 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %43, i32 0, i32 1
-  %45 = load i32, ptr %44, align 4
+  %45 = load i32, ptr %44, align 4, !tbaa !72
   %46 = zext i32 %45 to i64
   %47 = call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %32, ptr noundef %33, ptr noundef %36, i32 noundef %41, i32 noundef 0, double noundef 1.000000e-02, double noundef 8.000000e-02, double noundef 0.000000e+00, double noundef 0.000000e+00, i64 noundef %46)
   %48 = icmp ne i32 %47, 0
@@ -897,10 +966,12 @@ define void @PaPulseAudio_SourceListCb(ptr noundef %0, ptr noundef %1, i32 nound
   br label %51
 
 51:                                               ; preds = %50, %18, %14
-  %52 = load ptr, ptr %9, align 8
+  %52 = load ptr, ptr %9, align 8, !tbaa !3
   %53 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %52, i32 0, i32 8
-  %54 = load ptr, ptr %53, align 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !23
   call void @pa_threaded_mainloop_signal(ptr noundef %54, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret void
 }
 
@@ -911,39 +982,41 @@ define void @PaPulseAudio_StreamStateCb(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = load ptr, ptr %4, align 8
-  store ptr %8, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %2
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.13)
-  br label %27
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %9, ptr %5, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  store ptr null, ptr %6, align 8, !tbaa !77
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !7
+  %10 = load ptr, ptr %3, align 8, !tbaa !73
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8
-  %14 = call i32 @pa_stream_get_state(ptr noundef %13)
-  store i32 %14, ptr %7, align 4
-  %15 = load i32, ptr %7, align 4
-  switch i32 %15, label %26 [
-    i32 1, label %16
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.13)
+  store i32 1, ptr %8, align 4
+  br label %28
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !73
+  %15 = call i32 @pa_stream_get_state(ptr noundef %14)
+  store i32 %15, ptr %7, align 4, !tbaa !7
+  %16 = load i32, ptr %7, align 4, !tbaa !7
+  switch i32 %16, label %26 [
+    i32 1, label %27
     i32 2, label %17
     i32 4, label %24
     i32 3, label %25
   ]
 
-16:                                               ; preds = %12
-  br label %27
-
-17:                                               ; preds = %12
-  %18 = load ptr, ptr %3, align 8
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %3, align 8, !tbaa !73
   %19 = call ptr @pa_stream_get_buffer_attr(ptr noundef %18)
-  store ptr %19, ptr %6, align 8
+  store ptr %19, ptr %6, align 8, !tbaa !77
   %20 = icmp ne ptr %19, null
   br i1 %20, label %22, label %21
 
@@ -956,22 +1029,39 @@ define void @PaPulseAudio_StreamStateCb(ptr noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %22, %21
   br label %27
 
-24:                                               ; preds = %12
+24:                                               ; preds = %13
   br label %27
 
-25:                                               ; preds = %12
+25:                                               ; preds = %13
   br label %26
 
-26:                                               ; preds = %25, %12
+26:                                               ; preds = %13, %25
   br label %27
 
-27:                                               ; preds = %26, %24, %23, %16, %11
+27:                                               ; preds = %26, %24, %23, %13
+  store i32 0, ptr %8, align 4
+  br label %28
+
+28:                                               ; preds = %27, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  %29 = load i32, ptr %8, align 4
+  switch i32 %29, label %31 [
+    i32 0, label %30
+    i32 1, label %30
+  ]
+
+30:                                               ; preds = %28, %28
   ret void
+
+31:                                               ; preds = %28
+  unreachable
 }
 
-declare i32 @pa_stream_get_state(ptr noundef) #1
+declare i32 @pa_stream_get_state(ptr noundef) #2
 
-declare ptr @pa_stream_get_buffer_attr(ptr noundef) #1
+declare ptr @pa_stream_get_buffer_attr(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_StreamUnderflowCb(ptr noundef %0, ptr noundef %1) #0 {
@@ -979,35 +1069,52 @@ define void @PaPulseAudio_StreamUnderflowCb(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %5, align 8
-  store ptr null, ptr %6, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %2
-  br label %21
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %8, ptr %5, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  store ptr null, ptr %6, align 8, !tbaa !77
+  %9 = load ptr, ptr %3, align 8, !tbaa !73
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %12, label %11
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %12, i32 0, i32 14
-  %14 = load i32, ptr %13, align 4
-  %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %13, align 4
-  %16 = load ptr, ptr %3, align 8
-  %17 = call ptr @pa_stream_get_buffer_attr(ptr noundef %16)
-  store ptr %17, ptr %6, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %18, i32 0, i32 5
-  %20 = load ptr, ptr %19, align 8
-  call void @pa_threaded_mainloop_signal(ptr noundef %20, i32 noundef 0)
-  br label %21
+  store i32 1, ptr %7, align 4
+  br label %22
 
-21:                                               ; preds = %11, %10
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8, !tbaa !75
+  %14 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %13, i32 0, i32 14
+  %15 = load i32, ptr %14, align 4, !tbaa !79
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %14, align 4, !tbaa !79
+  %17 = load ptr, ptr %3, align 8, !tbaa !73
+  %18 = call ptr @pa_stream_get_buffer_attr(ptr noundef %17)
+  store ptr %18, ptr %6, align 8, !tbaa !77
+  %19 = load ptr, ptr %5, align 8, !tbaa !75
+  %20 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %19, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8, !tbaa !90
+  call void @pa_threaded_mainloop_signal(ptr noundef %21, i32 noundef 0)
+  store i32 0, ptr %7, align 4
+  br label %22
+
+22:                                               ; preds = %12, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  %23 = load i32, ptr %7, align 4
+  switch i32 %23, label %25 [
+    i32 0, label %24
+    i32 1, label %24
+  ]
+
+24:                                               ; preds = %22, %22
   ret void
+
+25:                                               ; preds = %22
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1022,463 +1129,464 @@ define i32 @PaPulseAudio_Initialize(ptr noundef %0, i32 noundef %1) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %9, align 4
-  store ptr null, ptr %10, align 8
-  store ptr null, ptr %11, align 8
-  store ptr null, ptr %12, align 8
-  %13 = call ptr @PaPulseAudio_New()
-  store ptr %13, ptr %10, align 8
-  %14 = load ptr, ptr %10, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %2
-  store i32 -9992, ptr %6, align 4
-  br label %256
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !91
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  store i32 0, ptr %8, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  store ptr null, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  store ptr null, ptr %11, align 8, !tbaa !93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  store ptr null, ptr %12, align 8, !tbaa !95
+  %14 = call ptr @PaPulseAudio_New()
+  store ptr %14, ptr %10, align 8, !tbaa !3
+  %15 = load ptr, ptr %10, align 8, !tbaa !3
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %2
-  %18 = call ptr @PaUtil_CreateAllocationGroup()
-  %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %19, i32 0, i32 3
-  store ptr %18, ptr %20, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %21, i32 0, i32 3
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %26, label %25
+  store i32 -9992, ptr %6, align 4, !tbaa !7
+  br label %248
 
-25:                                               ; preds = %17
-  store i32 -9992, ptr %6, align 4
-  br label %256
+18:                                               ; preds = %2
+  %19 = call ptr @PaUtil_CreateAllocationGroup()
+  %20 = load ptr, ptr %10, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %20, i32 0, i32 3
+  store ptr %19, ptr %21, align 8, !tbaa !31
+  %22 = load ptr, ptr %10, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %22, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %27, label %26
 
-26:                                               ; preds = %17
-  %27 = load i32, ptr %5, align 4
-  %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %28, i32 0, i32 4
-  store i32 %27, ptr %29, align 8
-  %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %30, i32 0, i32 0
-  %32 = load ptr, ptr %4, align 8
-  store ptr %31, ptr %32, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %34, i32 0, i32 1
-  %36 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %35, i32 0, i32 0
-  store i32 1, ptr %36, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %38, i32 0, i32 1
-  %40 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %39, i32 0, i32 1
-  store i32 16, ptr %40, align 4
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %42, i32 0, i32 1
-  %44 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %43, i32 0, i32 2
-  store ptr @.str.14, ptr %44, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %46, i32 0, i32 1
-  %48 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %47, i32 0, i32 4
-  store i32 -1, ptr %48, align 4
-  %49 = load ptr, ptr %4, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %50, i32 0, i32 1
-  %52 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %51, i32 0, i32 5
-  store i32 -1, ptr %52, align 8
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %53, i32 0, i32 8
-  %55 = load ptr, ptr %54, align 8
-  call void @PaPulseAudio_Lock(ptr noundef %55)
-  store i32 1, ptr %9, align 4
-  %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %56, i32 0, i32 10
-  %58 = load ptr, ptr %57, align 8
-  %59 = call i32 @pa_context_connect(ptr noundef %58, ptr noundef null, i32 noundef 0, ptr noundef null)
-  store i32 %59, ptr %8, align 4
-  %60 = load i32, ptr %8, align 4
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %65
+26:                                               ; preds = %18
+  store i32 -9992, ptr %6, align 4, !tbaa !7
+  br label %248
 
-62:                                               ; preds = %26
-  %63 = load i32, ptr %8, align 4
-  %64 = sext i32 %63 to i64
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef %64, ptr noundef @.str.15)
-  store i32 -9999, ptr %6, align 4
-  br label %256
+27:                                               ; preds = %18
+  %28 = load i32, ptr %5, align 4, !tbaa !7
+  %29 = load ptr, ptr %10, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %29, i32 0, i32 4
+  store i32 %28, ptr %30, align 8, !tbaa !41
+  %31 = load ptr, ptr %10, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %4, align 8, !tbaa !91
+  store ptr %32, ptr %33, align 8, !tbaa !97
+  %34 = load ptr, ptr %4, align 8, !tbaa !91
+  %35 = load ptr, ptr %34, align 8, !tbaa !97
+  %36 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %35, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %36, i32 0, i32 0
+  store i32 1, ptr %37, align 8, !tbaa !99
+  %38 = load ptr, ptr %4, align 8, !tbaa !91
+  %39 = load ptr, ptr %38, align 8, !tbaa !97
+  %40 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %39, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %40, i32 0, i32 1
+  store i32 16, ptr %41, align 4, !tbaa !100
+  %42 = load ptr, ptr %4, align 8, !tbaa !91
+  %43 = load ptr, ptr %42, align 8, !tbaa !97
+  %44 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %43, i32 0, i32 1
+  %45 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %44, i32 0, i32 2
+  store ptr @.str.14, ptr %45, align 8, !tbaa !101
+  %46 = load ptr, ptr %4, align 8, !tbaa !91
+  %47 = load ptr, ptr %46, align 8, !tbaa !97
+  %48 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %47, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %48, i32 0, i32 4
+  store i32 -1, ptr %49, align 4, !tbaa !102
+  %50 = load ptr, ptr %4, align 8, !tbaa !91
+  %51 = load ptr, ptr %50, align 8, !tbaa !97
+  %52 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %51, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %52, i32 0, i32 5
+  store i32 -1, ptr %53, align 8, !tbaa !103
+  %54 = load ptr, ptr %10, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %54, i32 0, i32 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !23
+  call void @PaPulseAudio_Lock(ptr noundef %56)
+  store i32 1, ptr %9, align 4, !tbaa !7
+  %57 = load ptr, ptr %10, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %57, i32 0, i32 10
+  %59 = load ptr, ptr %58, align 8, !tbaa !9
+  %60 = call i32 @pa_context_connect(ptr noundef %59, ptr noundef null, i32 noundef 0, ptr noundef null)
+  store i32 %60, ptr %8, align 4, !tbaa !7
+  %61 = load i32, ptr %8, align 4, !tbaa !7
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %66
 
-65:                                               ; preds = %26
-  store i32 0, ptr %8, align 4
-  br label %66
+63:                                               ; preds = %27
+  %64 = load i32, ptr %8, align 4, !tbaa !7
+  %65 = sext i32 %64 to i64
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef %65, ptr noundef @.str.15)
+  store i32 -9999, ptr %6, align 4, !tbaa !7
+  br label %248
 
-66:                                               ; preds = %83, %65
-  %67 = load i32, ptr %8, align 4
-  %68 = icmp ne i32 %67, 0
-  %69 = xor i1 %68, true
-  br i1 %69, label %70, label %84
+66:                                               ; preds = %27
+  store i32 0, ptr %8, align 4, !tbaa !7
+  br label %67
 
-70:                                               ; preds = %66
-  %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %71, i32 0, i32 8
-  %73 = load ptr, ptr %72, align 8
-  call void @pa_threaded_mainloop_wait(ptr noundef %73)
-  %74 = load ptr, ptr %10, align 8
-  %75 = call i32 @PaPulseAudio_CheckConnection(ptr noundef %74)
-  store i32 %75, ptr %6, align 4
-  %76 = load i32, ptr %6, align 4
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %78, label %79
+67:                                               ; preds = %84, %66
+  %68 = load i32, ptr %8, align 4, !tbaa !7
+  %69 = icmp ne i32 %68, 0
+  %70 = xor i1 %69, true
+  br i1 %70, label %71, label %85
 
-78:                                               ; preds = %70
-  br label %256
+71:                                               ; preds = %67
+  %72 = load ptr, ptr %10, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %72, i32 0, i32 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !23
+  call void @pa_threaded_mainloop_wait(ptr noundef %74)
+  %75 = load ptr, ptr %10, align 8, !tbaa !3
+  %76 = call i32 @PaPulseAudio_CheckConnection(ptr noundef %75)
+  store i32 %76, ptr %6, align 4, !tbaa !7
+  %77 = load i32, ptr %6, align 4, !tbaa !7
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %79, label %80
 
-79:                                               ; preds = %70
-  %80 = load i32, ptr %6, align 4
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %83
+79:                                               ; preds = %71
+  br label %248
 
-82:                                               ; preds = %79
-  store i32 1, ptr %8, align 4
-  br label %83
+80:                                               ; preds = %71
+  %81 = load i32, ptr %6, align 4, !tbaa !7
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %84
 
-83:                                               ; preds = %82, %79
-  br label %66, !llvm.loop !4
+83:                                               ; preds = %80
+  store i32 1, ptr %8, align 4, !tbaa !7
+  br label %84
 
-84:                                               ; preds = %66
-  %85 = load ptr, ptr %10, align 8
-  %86 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %85, i32 0, i32 5
-  %87 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %86, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %87, i8 0, i64 73728, i1 false)
-  store i32 0, ptr %7, align 4
-  br label %88
+84:                                               ; preds = %83, %80
+  br label %67, !llvm.loop !104
 
-88:                                               ; preds = %97, %84
-  %89 = load i32, ptr %7, align 4
-  %90 = icmp slt i32 %89, 1024
-  br i1 %90, label %91, label %100
+85:                                               ; preds = %67
+  %86 = load ptr, ptr %10, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %86, i32 0, i32 5
+  %88 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %87, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 8 %88, i8 0, i64 73728, i1 false)
+  store i32 0, ptr %7, align 4, !tbaa !7
+  br label %89
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %92, i32 0, i32 6
-  %94 = load i32, ptr %7, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds [1024 x ptr], ptr %93, i64 0, i64 %95
-  store ptr null, ptr %96, align 8
-  br label %97
+89:                                               ; preds = %98, %85
+  %90 = load i32, ptr %7, align 4, !tbaa !7
+  %91 = icmp slt i32 %90, 1024
+  br i1 %91, label %92, label %101
 
-97:                                               ; preds = %91
-  %98 = load i32, ptr %7, align 4
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %7, align 4
-  br label %88, !llvm.loop !6
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %10, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %93, i32 0, i32 6
+  %95 = load i32, ptr %7, align 4, !tbaa !7
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds [1024 x ptr], ptr %94, i64 0, i64 %96
+  store ptr null, ptr %97, align 8, !tbaa !25
+  br label %98
 
-100:                                              ; preds = %88
-  %101 = load ptr, ptr %10, align 8
-  %102 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %101, i32 0, i32 10
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = call ptr @pa_context_get_server_info(ptr noundef %103, ptr noundef @PaPulseAudio_ServerInfoCb, ptr noundef %104)
-  store ptr %105, ptr %12, align 8
-  br label %106
+98:                                               ; preds = %92
+  %99 = load i32, ptr %7, align 4, !tbaa !7
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %7, align 4, !tbaa !7
+  br label %89, !llvm.loop !106
 
-106:                                              ; preds = %110, %100
-  %107 = load ptr, ptr %12, align 8
-  %108 = call i32 @pa_operation_get_state(ptr noundef %107)
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %114
-
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %10, align 8
+101:                                              ; preds = %89
+  %102 = load ptr, ptr %10, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %102, i32 0, i32 10
+  %104 = load ptr, ptr %103, align 8, !tbaa !9
+  %105 = load ptr, ptr %10, align 8, !tbaa !3
+  %106 = call ptr @pa_context_get_server_info(ptr noundef %104, ptr noundef @PaPulseAudio_ServerInfoCb, ptr noundef %105)
+  store ptr %106, ptr %12, align 8, !tbaa !95
+  %107 = load ptr, ptr %10, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %107, i32 0, i32 8
+  %109 = load ptr, ptr %108, align 8, !tbaa !23
+  call void @PaPulseAudio_UnLock(ptr noundef %109)
+  store i32 0, ptr %9, align 4, !tbaa !7
+  %110 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @PaPulseAudio_ReleaseOperation(ptr noundef %110, ptr noundef %12)
+  %111 = load ptr, ptr %10, align 8, !tbaa !3
   %112 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %111, i32 0, i32 8
-  %113 = load ptr, ptr %112, align 8
-  call void @pa_threaded_mainloop_wait(ptr noundef %113)
-  br label %106, !llvm.loop !7
+  %113 = load ptr, ptr %112, align 8, !tbaa !23
+  call void @PaPulseAudio_Lock(ptr noundef %113)
+  store i32 1, ptr %9, align 4, !tbaa !7
+  %114 = load ptr, ptr %10, align 8, !tbaa !3
+  %115 = load ptr, ptr %10, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %115, i32 0, i32 7
+  %117 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %116, i32 0, i32 1
+  %118 = load i32, ptr %117, align 4, !tbaa !107
+  %119 = zext i32 %118 to i64
+  %120 = call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %114, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 0, i32 noundef 32, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e-02, double noundef 8.000000e-02, i64 noundef %119)
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %123
 
-114:                                              ; preds = %106
-  %115 = load ptr, ptr %12, align 8
-  call void @pa_operation_unref(ptr noundef %115)
-  %116 = load ptr, ptr %10, align 8
-  %117 = load ptr, ptr %10, align 8
-  %118 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %117, i32 0, i32 7
-  %119 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %118, i32 0, i32 1
-  %120 = load i32, ptr %119, align 4
-  %121 = zext i32 %120 to i64
-  %122 = call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %116, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef 0, i32 noundef 32, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e-02, double noundef 8.000000e-02, i64 noundef %121)
-  %123 = icmp ne i32 %122, 0
-  br i1 %123, label %124, label %125
-
-124:                                              ; preds = %114
+122:                                              ; preds = %101
   call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.10)
-  br label %134
+  br label %132
 
-125:                                              ; preds = %114
-  %126 = load ptr, ptr %10, align 8
-  %127 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %126, i32 0, i32 11
-  %128 = load i32, ptr %127, align 8
-  %129 = sub nsw i32 %128, 1
-  %130 = load ptr, ptr %10, align 8
-  %131 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %130, i32 0, i32 0
-  %132 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %131, i32 0, i32 1
-  %133 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %132, i32 0, i32 5
-  store i32 %129, ptr %133, align 8
-  br label %134
+123:                                              ; preds = %101
+  %124 = load ptr, ptr %10, align 8, !tbaa !3
+  %125 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %124, i32 0, i32 11
+  %126 = load i32, ptr %125, align 8, !tbaa !26
+  %127 = sub nsw i32 %126, 1
+  %128 = load ptr, ptr %10, align 8, !tbaa !3
+  %129 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %128, i32 0, i32 0
+  %130 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %129, i32 0, i32 1
+  %131 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %130, i32 0, i32 5
+  store i32 %127, ptr %131, align 8, !tbaa !108
+  br label %132
 
-134:                                              ; preds = %125, %124
-  %135 = load ptr, ptr %10, align 8
-  %136 = load ptr, ptr %10, align 8
-  %137 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %136, i32 0, i32 7
-  %138 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %137, i32 0, i32 1
-  %139 = load i32, ptr %138, align 4
-  %140 = zext i32 %139 to i64
-  %141 = call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %135, ptr noundef @.str.18, ptr noundef @.str.19, i32 noundef 32, i32 noundef 0, double noundef 1.000000e-02, double noundef 8.000000e-02, double noundef 0.000000e+00, double noundef 0.000000e+00, i64 noundef %140)
-  %142 = icmp ne i32 %141, 0
-  br i1 %142, label %143, label %144
+132:                                              ; preds = %123, %122
+  %133 = load ptr, ptr %10, align 8, !tbaa !3
+  %134 = load ptr, ptr %10, align 8, !tbaa !3
+  %135 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %134, i32 0, i32 7
+  %136 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %135, i32 0, i32 1
+  %137 = load i32, ptr %136, align 4, !tbaa !107
+  %138 = zext i32 %137 to i64
+  %139 = call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %133, ptr noundef @.str.18, ptr noundef @.str.19, i32 noundef 32, i32 noundef 0, double noundef 1.000000e-02, double noundef 8.000000e-02, double noundef 0.000000e+00, double noundef 0.000000e+00, i64 noundef %138)
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %142
 
-143:                                              ; preds = %134
+141:                                              ; preds = %132
   call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.10)
-  br label %153
+  br label %151
 
-144:                                              ; preds = %134
-  %145 = load ptr, ptr %10, align 8
-  %146 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %145, i32 0, i32 11
-  %147 = load i32, ptr %146, align 8
-  %148 = sub nsw i32 %147, 1
-  %149 = load ptr, ptr %10, align 8
-  %150 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %149, i32 0, i32 0
-  %151 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %150, i32 0, i32 1
-  %152 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %151, i32 0, i32 4
-  store i32 %148, ptr %152, align 4
-  br label %153
+142:                                              ; preds = %132
+  %143 = load ptr, ptr %10, align 8, !tbaa !3
+  %144 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %143, i32 0, i32 11
+  %145 = load i32, ptr %144, align 8, !tbaa !26
+  %146 = sub nsw i32 %145, 1
+  %147 = load ptr, ptr %10, align 8, !tbaa !3
+  %148 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %147, i32 0, i32 0
+  %149 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %148, i32 0, i32 1
+  %150 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %149, i32 0, i32 4
+  store i32 %146, ptr %150, align 4, !tbaa !109
+  br label %151
 
-153:                                              ; preds = %144, %143
-  %154 = load ptr, ptr %10, align 8
-  %155 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %154, i32 0, i32 10
-  %156 = load ptr, ptr %155, align 8
-  %157 = load ptr, ptr %10, align 8
-  %158 = call ptr @pa_context_get_sink_info_list(ptr noundef %156, ptr noundef @PaPulseAudio_SinkListCb, ptr noundef %157)
-  store ptr %158, ptr %12, align 8
-  br label %159
+151:                                              ; preds = %142, %141
+  %152 = load ptr, ptr %10, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %152, i32 0, i32 10
+  %154 = load ptr, ptr %153, align 8, !tbaa !9
+  %155 = load ptr, ptr %10, align 8, !tbaa !3
+  %156 = call ptr @pa_context_get_sink_info_list(ptr noundef %154, ptr noundef @PaPulseAudio_SinkListCb, ptr noundef %155)
+  store ptr %156, ptr %12, align 8, !tbaa !95
+  %157 = load ptr, ptr %10, align 8, !tbaa !3
+  %158 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %157, i32 0, i32 8
+  %159 = load ptr, ptr %158, align 8, !tbaa !23
+  call void @PaPulseAudio_UnLock(ptr noundef %159)
+  store i32 0, ptr %9, align 4, !tbaa !7
+  %160 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @PaPulseAudio_ReleaseOperation(ptr noundef %160, ptr noundef %12)
+  %161 = load ptr, ptr %10, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %161, i32 0, i32 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !23
+  call void @PaPulseAudio_Lock(ptr noundef %163)
+  store i32 1, ptr %9, align 4, !tbaa !7
+  %164 = load ptr, ptr %10, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %164, i32 0, i32 10
+  %166 = load ptr, ptr %165, align 8, !tbaa !9
+  %167 = load ptr, ptr %10, align 8, !tbaa !3
+  %168 = call ptr @pa_context_get_source_info_list(ptr noundef %166, ptr noundef @PaPulseAudio_SourceListCb, ptr noundef %167)
+  store ptr %168, ptr %12, align 8, !tbaa !95
+  %169 = load ptr, ptr %10, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %169, i32 0, i32 8
+  %171 = load ptr, ptr %170, align 8, !tbaa !23
+  call void @PaPulseAudio_UnLock(ptr noundef %171)
+  store i32 0, ptr %9, align 4, !tbaa !7
+  %172 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @PaPulseAudio_ReleaseOperation(ptr noundef %172, ptr noundef %12)
+  %173 = load ptr, ptr %10, align 8, !tbaa !3
+  %174 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %173, i32 0, i32 8
+  %175 = load ptr, ptr %174, align 8, !tbaa !23
+  call void @PaPulseAudio_Lock(ptr noundef %175)
+  store i32 1, ptr %9, align 4, !tbaa !7
+  %176 = load ptr, ptr %10, align 8, !tbaa !3
+  %177 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %176, i32 0, i32 11
+  %178 = load i32, ptr %177, align 8, !tbaa !26
+  %179 = load ptr, ptr %4, align 8, !tbaa !91
+  %180 = load ptr, ptr %179, align 8, !tbaa !97
+  %181 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %180, i32 0, i32 1
+  %182 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %181, i32 0, i32 3
+  store i32 %178, ptr %182, align 8, !tbaa !110
+  %183 = load ptr, ptr %10, align 8, !tbaa !3
+  %184 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %183, i32 0, i32 11
+  %185 = load i32, ptr %184, align 8, !tbaa !26
+  %186 = icmp sgt i32 %185, 0
+  br i1 %186, label %187, label %230
 
-159:                                              ; preds = %163, %153
-  %160 = load ptr, ptr %12, align 8
-  %161 = call i32 @pa_operation_get_state(ptr noundef %160)
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %167
-
-163:                                              ; preds = %159
-  %164 = load ptr, ptr %10, align 8
-  %165 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %164, i32 0, i32 8
-  %166 = load ptr, ptr %165, align 8
-  call void @pa_threaded_mainloop_wait(ptr noundef %166)
-  br label %159, !llvm.loop !8
-
-167:                                              ; preds = %159
-  %168 = load ptr, ptr %12, align 8
-  call void @pa_operation_unref(ptr noundef %168)
-  %169 = load ptr, ptr %10, align 8
-  %170 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %169, i32 0, i32 10
-  %171 = load ptr, ptr %170, align 8
-  %172 = load ptr, ptr %10, align 8
-  %173 = call ptr @pa_context_get_source_info_list(ptr noundef %171, ptr noundef @PaPulseAudio_SourceListCb, ptr noundef %172)
-  store ptr %173, ptr %12, align 8
-  br label %174
-
-174:                                              ; preds = %178, %167
-  %175 = load ptr, ptr %12, align 8
-  %176 = call i32 @pa_operation_get_state(ptr noundef %175)
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %182
-
-178:                                              ; preds = %174
-  %179 = load ptr, ptr %10, align 8
-  %180 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %179, i32 0, i32 8
-  %181 = load ptr, ptr %180, align 8
-  call void @pa_threaded_mainloop_wait(ptr noundef %181)
-  br label %174, !llvm.loop !9
-
-182:                                              ; preds = %174
-  %183 = load ptr, ptr %12, align 8
-  call void @pa_operation_unref(ptr noundef %183)
-  %184 = load ptr, ptr %10, align 8
-  %185 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %184, i32 0, i32 11
-  %186 = load i32, ptr %185, align 8
-  %187 = load ptr, ptr %4, align 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %188, i32 0, i32 1
-  %190 = getelementptr inbounds nuw %struct.PaHostApiInfo, ptr %189, i32 0, i32 3
-  store i32 %186, ptr %190, align 8
-  %191 = load ptr, ptr %10, align 8
+187:                                              ; preds = %151
+  %188 = load ptr, ptr %10, align 8, !tbaa !3
+  %189 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %188, i32 0, i32 3
+  %190 = load ptr, ptr %189, align 8, !tbaa !31
+  %191 = load ptr, ptr %10, align 8, !tbaa !3
   %192 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %191, i32 0, i32 11
-  %193 = load i32, ptr %192, align 8
-  %194 = icmp sgt i32 %193, 0
-  br i1 %194, label %195, label %238
+  %193 = load i32, ptr %192, align 8, !tbaa !26
+  %194 = sext i32 %193 to i64
+  %195 = mul i64 8, %194
+  %196 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %190, i64 noundef %195)
+  %197 = load ptr, ptr %4, align 8, !tbaa !91
+  %198 = load ptr, ptr %197, align 8, !tbaa !97
+  %199 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %198, i32 0, i32 2
+  store ptr %196, ptr %199, align 8, !tbaa !111
+  %200 = load ptr, ptr %4, align 8, !tbaa !91
+  %201 = load ptr, ptr %200, align 8, !tbaa !97
+  %202 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %201, i32 0, i32 2
+  %203 = load ptr, ptr %202, align 8, !tbaa !111
+  %204 = icmp ne ptr %203, null
+  br i1 %204, label %206, label %205
 
-195:                                              ; preds = %182
-  %196 = load ptr, ptr %10, align 8
-  %197 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %196, i32 0, i32 3
-  %198 = load ptr, ptr %197, align 8
-  %199 = load ptr, ptr %10, align 8
-  %200 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %199, i32 0, i32 11
-  %201 = load i32, ptr %200, align 8
-  %202 = sext i32 %201 to i64
-  %203 = mul i64 8, %202
-  %204 = call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %198, i64 noundef %203)
-  %205 = load ptr, ptr %4, align 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %206, i32 0, i32 2
-  store ptr %204, ptr %207, align 8
-  %208 = load ptr, ptr %4, align 8
-  %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %209, i32 0, i32 2
-  %211 = load ptr, ptr %210, align 8
-  %212 = icmp ne ptr %211, null
-  br i1 %212, label %214, label %213
+205:                                              ; preds = %187
+  store i32 -9992, ptr %6, align 4, !tbaa !7
+  br label %248
 
-213:                                              ; preds = %195
-  store i32 -9992, ptr %6, align 4
-  br label %256
+206:                                              ; preds = %187
+  store i32 0, ptr %7, align 4, !tbaa !7
+  br label %207
 
-214:                                              ; preds = %195
-  store i32 0, ptr %7, align 4
-  br label %215
+207:                                              ; preds = %226, %206
+  %208 = load i32, ptr %7, align 4, !tbaa !7
+  %209 = load ptr, ptr %10, align 8, !tbaa !3
+  %210 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %209, i32 0, i32 11
+  %211 = load i32, ptr %210, align 8, !tbaa !26
+  %212 = icmp slt i32 %208, %211
+  br i1 %212, label %213, label %229
 
-215:                                              ; preds = %234, %214
-  %216 = load i32, ptr %7, align 4
-  %217 = load ptr, ptr %10, align 8
-  %218 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %217, i32 0, i32 11
-  %219 = load i32, ptr %218, align 8
-  %220 = icmp slt i32 %216, %219
-  br i1 %220, label %221, label %237
+213:                                              ; preds = %207
+  %214 = load ptr, ptr %10, align 8, !tbaa !3
+  %215 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %214, i32 0, i32 5
+  %216 = load i32, ptr %7, align 4, !tbaa !7
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %215, i64 0, i64 %217
+  %219 = load ptr, ptr %4, align 8, !tbaa !91
+  %220 = load ptr, ptr %219, align 8, !tbaa !97
+  %221 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %220, i32 0, i32 2
+  %222 = load ptr, ptr %221, align 8, !tbaa !111
+  %223 = load i32, ptr %7, align 4, !tbaa !7
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr inbounds ptr, ptr %222, i64 %224
+  store ptr %218, ptr %225, align 8, !tbaa !93
+  br label %226
 
-221:                                              ; preds = %215
-  %222 = load ptr, ptr %10, align 8
-  %223 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %222, i32 0, i32 5
-  %224 = load i32, ptr %7, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %223, i64 0, i64 %225
-  %227 = load ptr, ptr %4, align 8
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %228, i32 0, i32 2
-  %230 = load ptr, ptr %229, align 8
-  %231 = load i32, ptr %7, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds ptr, ptr %230, i64 %232
-  store ptr %226, ptr %233, align 8
-  br label %234
+226:                                              ; preds = %213
+  %227 = load i32, ptr %7, align 4, !tbaa !7
+  %228 = add nsw i32 %227, 1
+  store i32 %228, ptr %7, align 4, !tbaa !7
+  br label %207, !llvm.loop !112
 
-234:                                              ; preds = %221
-  %235 = load i32, ptr %7, align 4
-  %236 = add nsw i32 %235, 1
-  store i32 %236, ptr %7, align 4
-  br label %215, !llvm.loop !10
+229:                                              ; preds = %207
+  br label %230
 
-237:                                              ; preds = %215
-  br label %238
+230:                                              ; preds = %229, %151
+  %231 = load ptr, ptr %4, align 8, !tbaa !91
+  %232 = load ptr, ptr %231, align 8, !tbaa !97
+  %233 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %232, i32 0, i32 3
+  store ptr @Terminate, ptr %233, align 8, !tbaa !113
+  %234 = load ptr, ptr %4, align 8, !tbaa !91
+  %235 = load ptr, ptr %234, align 8, !tbaa !97
+  %236 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %235, i32 0, i32 4
+  store ptr @OpenStream, ptr %236, align 8, !tbaa !114
+  %237 = load ptr, ptr %4, align 8, !tbaa !91
+  %238 = load ptr, ptr %237, align 8, !tbaa !97
+  %239 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %238, i32 0, i32 5
+  store ptr @IsFormatSupported, ptr %239, align 8, !tbaa !115
+  %240 = load ptr, ptr %10, align 8, !tbaa !3
+  %241 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %240, i32 0, i32 1
+  call void @PaUtil_InitializeStreamInterface(ptr noundef %241, ptr noundef @PaPulseAudio_CloseStreamCb, ptr noundef @PaPulseAudio_StartStreamCb, ptr noundef @PaPulseAudio_StopStreamCb, ptr noundef @PaPulseAudio_AbortStreamCb, ptr noundef @IsStreamStopped, ptr noundef @IsStreamActive, ptr noundef @GetStreamTime, ptr noundef @GetStreamCpuLoad, ptr noundef @PaUtil_DummyRead, ptr noundef @PaUtil_DummyWrite, ptr noundef @PaUtil_DummyGetReadAvailable, ptr noundef @PaUtil_DummyGetWriteAvailable)
+  %242 = load ptr, ptr %10, align 8, !tbaa !3
+  %243 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %242, i32 0, i32 2
+  call void @PaUtil_InitializeStreamInterface(ptr noundef %243, ptr noundef @PaPulseAudio_CloseStreamCb, ptr noundef @PaPulseAudio_StartStreamCb, ptr noundef @PaPulseAudio_StopStreamCb, ptr noundef @PaPulseAudio_AbortStreamCb, ptr noundef @IsStreamStopped, ptr noundef @IsStreamActive, ptr noundef @GetStreamTime, ptr noundef @PaUtil_DummyGetCpuLoad, ptr noundef @PaPulseAudio_ReadStreamBlock, ptr noundef @PaPulseAudio_WriteStreamBlock, ptr noundef @PaPulseAudio_GetStreamReadAvailableBlock, ptr noundef @PaUtil_DummyGetWriteAvailable)
+  %244 = load ptr, ptr %10, align 8, !tbaa !3
+  %245 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %244, i32 0, i32 8
+  %246 = load ptr, ptr %245, align 8, !tbaa !23
+  call void @PaPulseAudio_UnLock(ptr noundef %246)
+  store i32 0, ptr %9, align 4, !tbaa !7
+  %247 = load i32, ptr %6, align 4, !tbaa !7
+  store i32 %247, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %262
 
-238:                                              ; preds = %237, %182
-  %239 = load ptr, ptr %4, align 8
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %240, i32 0, i32 3
-  store ptr @Terminate, ptr %241, align 8
-  %242 = load ptr, ptr %4, align 8
-  %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %243, i32 0, i32 4
-  store ptr @OpenStream, ptr %244, align 8
-  %245 = load ptr, ptr %4, align 8
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %246, i32 0, i32 5
-  store ptr @IsFormatSupported, ptr %247, align 8
-  %248 = load ptr, ptr %10, align 8
-  %249 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %248, i32 0, i32 1
-  call void @PaUtil_InitializeStreamInterface(ptr noundef %249, ptr noundef @PaPulseAudio_CloseStreamCb, ptr noundef @PaPulseAudio_StartStreamCb, ptr noundef @PaPulseAudio_StopStreamCb, ptr noundef @PaPulseAudio_AbortStreamCb, ptr noundef @IsStreamStopped, ptr noundef @IsStreamActive, ptr noundef @GetStreamTime, ptr noundef @GetStreamCpuLoad, ptr noundef @PaUtil_DummyRead, ptr noundef @PaUtil_DummyWrite, ptr noundef @PaUtil_DummyGetReadAvailable, ptr noundef @PaUtil_DummyGetWriteAvailable)
-  %250 = load ptr, ptr %10, align 8
-  %251 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %250, i32 0, i32 2
-  call void @PaUtil_InitializeStreamInterface(ptr noundef %251, ptr noundef @PaPulseAudio_CloseStreamCb, ptr noundef @PaPulseAudio_StartStreamCb, ptr noundef @PaPulseAudio_StopStreamCb, ptr noundef @PaPulseAudio_AbortStreamCb, ptr noundef @IsStreamStopped, ptr noundef @IsStreamActive, ptr noundef @GetStreamTime, ptr noundef @PaUtil_DummyGetCpuLoad, ptr noundef @PaPulseAudio_ReadStreamBlock, ptr noundef @PaPulseAudio_WriteStreamBlock, ptr noundef @PaPulseAudio_GetStreamReadAvailableBlock, ptr noundef @PaUtil_DummyGetWriteAvailable)
-  %252 = load ptr, ptr %10, align 8
-  %253 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %252, i32 0, i32 8
-  %254 = load ptr, ptr %253, align 8
-  call void @PaPulseAudio_UnLock(ptr noundef %254)
-  store i32 0, ptr %9, align 4
-  %255 = load i32, ptr %6, align 4
-  store i32 %255, ptr %3, align 4
-  br label %270
+248:                                              ; preds = %205, %79, %63, %26, %17
+  %249 = load ptr, ptr %10, align 8, !tbaa !3
+  %250 = icmp ne ptr %249, null
+  br i1 %250, label %251, label %260
 
-256:                                              ; preds = %213, %78, %62, %25, %16
-  %257 = load ptr, ptr %10, align 8
-  %258 = icmp ne ptr %257, null
-  br i1 %258, label %259, label %268
+251:                                              ; preds = %248
+  %252 = load i32, ptr %9, align 4, !tbaa !7
+  %253 = icmp ne i32 %252, 0
+  br i1 %253, label %254, label %258
 
-259:                                              ; preds = %256
-  %260 = load i32, ptr %9, align 4
-  %261 = icmp ne i32 %260, 0
-  br i1 %261, label %262, label %266
+254:                                              ; preds = %251
+  %255 = load ptr, ptr %10, align 8, !tbaa !3
+  %256 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %255, i32 0, i32 8
+  %257 = load ptr, ptr %256, align 8, !tbaa !23
+  call void @PaPulseAudio_UnLock(ptr noundef %257)
+  store i32 0, ptr %9, align 4, !tbaa !7
+  br label %258
 
-262:                                              ; preds = %259
-  %263 = load ptr, ptr %10, align 8
-  %264 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %263, i32 0, i32 8
-  %265 = load ptr, ptr %264, align 8
-  call void @PaPulseAudio_UnLock(ptr noundef %265)
-  store i32 0, ptr %9, align 4
-  br label %266
+258:                                              ; preds = %254, %251
+  %259 = load ptr, ptr %10, align 8, !tbaa !3
+  call void @PaPulseAudio_Free(ptr noundef %259)
+  store ptr null, ptr %10, align 8, !tbaa !3
+  br label %260
 
-266:                                              ; preds = %262, %259
-  %267 = load ptr, ptr %10, align 8
-  call void @PaPulseAudio_Free(ptr noundef %267)
-  store ptr null, ptr %10, align 8
-  br label %268
+260:                                              ; preds = %258, %248
+  %261 = load i32, ptr %6, align 4, !tbaa !7
+  store i32 %261, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %262
 
-268:                                              ; preds = %266, %256
-  %269 = load i32, ptr %6, align 4
-  store i32 %269, ptr %3, align 4
-  br label %270
-
-270:                                              ; preds = %268, %238
-  %271 = load i32, ptr %3, align 4
-  ret i32 %271
+262:                                              ; preds = %260, %230
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %263 = load i32, ptr %3, align 4
+  ret i32 %263
 }
 
-declare ptr @PaUtil_CreateAllocationGroup() #1
+declare ptr @PaUtil_CreateAllocationGroup() #2
 
-declare void @PaPulseAudio_Lock(ptr noundef) #1
+declare void @PaPulseAudio_Lock(ptr noundef) #2
 
-declare i32 @pa_context_connect(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @pa_context_connect(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @pa_threaded_mainloop_wait(ptr noundef) #1
+declare void @pa_threaded_mainloop_wait(ptr noundef) #2
 
-declare ptr @pa_context_get_server_info(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @pa_context_get_server_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @pa_operation_get_state(ptr noundef) #1
+declare void @PaPulseAudio_UnLock(ptr noundef) #2
 
-declare void @pa_operation_unref(ptr noundef) #1
+declare void @PaPulseAudio_ReleaseOperation(ptr noundef, ptr noundef) #2
 
-declare ptr @pa_context_get_sink_info_list(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @pa_context_get_sink_info_list(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @pa_context_get_source_info_list(ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @pa_context_get_source_info_list(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @Terminate(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !97
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !97
+  store ptr %4, ptr %3, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %5, i32 0, i32 8
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
   call void @PaPulseAudio_Lock(ptr noundef %7)
-  %8 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %8, i32 0, i32 10
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !9
   call void @pa_context_disconnect(ptr noundef %10)
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %11, i32 0, i32 8
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !23
   call void @PaPulseAudio_UnLock(ptr noundef %13)
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
   call void @PaPulseAudio_Free(ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
@@ -1504,656 +1612,679 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %27 = alloca i64, align 8
   %28 = alloca i64, align 8
   %29 = alloca i64, align 8
-  %30 = alloca [17 x i8], align 16
-  %31 = alloca [15 x i8], align 1
-  store ptr %0, ptr %11, align 8
-  store ptr %1, ptr %12, align 8
-  store ptr %2, ptr %13, align 8
-  store ptr %3, ptr %14, align 8
-  store double %4, ptr %15, align 8
-  store i64 %5, ptr %16, align 8
-  store i64 %6, ptr %17, align 8
-  store ptr %7, ptr %18, align 8
-  store ptr %8, ptr %19, align 8
-  store i32 0, ptr %20, align 4
-  %32 = load ptr, ptr %11, align 8
-  store ptr %32, ptr %21, align 8
-  store ptr null, ptr %22, align 8
-  %33 = load i64, ptr %16, align 8
-  store i64 %33, ptr %23, align 8
-  %34 = load i64, ptr %17, align 8
-  %35 = and i64 %34, 4294901760
-  %36 = icmp ne i64 %35, 0
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %9
-  store i32 -9995, ptr %10, align 4
-  br label %456
+  %30 = alloca i32, align 4
+  %31 = alloca [17 x i8], align 16
+  %32 = alloca [15 x i8], align 1
+  store ptr %0, ptr %11, align 8, !tbaa !97
+  store ptr %1, ptr %12, align 8, !tbaa !3
+  store ptr %2, ptr %13, align 8, !tbaa !116
+  store ptr %3, ptr %14, align 8, !tbaa !116
+  store double %4, ptr %15, align 8, !tbaa !36
+  store i64 %5, ptr %16, align 8, !tbaa !38
+  store i64 %6, ptr %17, align 8, !tbaa !38
+  store ptr %7, ptr %18, align 8, !tbaa !3
+  store ptr %8, ptr %19, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  store i32 0, ptr %20, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #10
+  %33 = load ptr, ptr %11, align 8, !tbaa !97
+  store ptr %33, ptr %21, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  store ptr null, ptr %22, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  %34 = load i64, ptr %16, align 8, !tbaa !38
+  store i64 %34, ptr %23, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #10
+  %35 = load i64, ptr %17, align 8, !tbaa !38
+  %36 = and i64 %35, 4294901760
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %9
-  %39 = load i64, ptr %16, align 8
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %42
+  store i32 -9995, ptr %10, align 4
+  store i32 1, ptr %30, align 4
+  br label %457
 
-41:                                               ; preds = %38
-  store i64 32, ptr %16, align 8
-  br label %42
+39:                                               ; preds = %9
+  %40 = load i64, ptr %16, align 8, !tbaa !38
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %43
 
-42:                                               ; preds = %41, %38
-  %43 = load ptr, ptr %21, align 8
-  %44 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %43, i32 0, i32 8
-  %45 = load ptr, ptr %44, align 8
-  call void @PaPulseAudio_Lock(ptr noundef %45)
-  %46 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 664)
-  store ptr %46, ptr %22, align 8
-  %47 = load ptr, ptr %22, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %50, label %49
+42:                                               ; preds = %39
+  store i64 32, ptr %16, align 8, !tbaa !38
+  br label %43
 
-49:                                               ; preds = %42
-  store i32 -9992, ptr %20, align 4
-  br label %444
+43:                                               ; preds = %42, %39
+  %44 = load ptr, ptr %21, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %44, i32 0, i32 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !23
+  call void @PaPulseAudio_Lock(ptr noundef %46)
+  %47 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 664)
+  store ptr %47, ptr %22, align 8, !tbaa !75
+  %48 = load ptr, ptr %22, align 8, !tbaa !75
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %51, label %50
 
-50:                                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %30, ptr align 16 @__const.OpenStream.defaultSourceStreamName, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 @__const.OpenStream.defaultSinkStreamName, i64 15, i1 false)
-  %51 = load i64, ptr %16, align 8
-  %52 = load ptr, ptr %22, align 8
-  %53 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %52, i32 0, i32 4
-  store i64 %51, ptr %53, align 8
-  %54 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 17)
-  %55 = load ptr, ptr %22, align 8
-  %56 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %55, i32 0, i32 24
-  store ptr %54, ptr %56, align 8
-  %57 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 15)
-  %58 = load ptr, ptr %22, align 8
-  %59 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %58, i32 0, i32 23
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %22, align 8
-  %61 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %60, i32 0, i32 24
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp ne ptr %62, null
-  br i1 %63, label %64, label %69
+50:                                               ; preds = %43
+  store i32 -9992, ptr %20, align 4, !tbaa !7
+  br label %445
 
-64:                                               ; preds = %50
-  %65 = load ptr, ptr %22, align 8
-  %66 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %65, i32 0, i32 23
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp ne ptr %67, null
-  br i1 %68, label %70, label %69
+51:                                               ; preds = %43
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %31, ptr align 16 @__const.OpenStream.defaultSourceStreamName, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 @__const.OpenStream.defaultSinkStreamName, i64 15, i1 false)
+  %52 = load i64, ptr %16, align 8, !tbaa !38
+  %53 = load ptr, ptr %22, align 8, !tbaa !75
+  %54 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %53, i32 0, i32 4
+  store i64 %52, ptr %54, align 8, !tbaa !118
+  %55 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 17)
+  %56 = load ptr, ptr %22, align 8, !tbaa !75
+  %57 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %56, i32 0, i32 24
+  store ptr %55, ptr %57, align 8, !tbaa !119
+  %58 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 15)
+  %59 = load ptr, ptr %22, align 8, !tbaa !75
+  %60 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %59, i32 0, i32 23
+  store ptr %58, ptr %60, align 8, !tbaa !120
+  %61 = load ptr, ptr %22, align 8, !tbaa !75
+  %62 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %61, i32 0, i32 24
+  %63 = load ptr, ptr %62, align 8, !tbaa !119
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %70
 
-69:                                               ; preds = %64, %50
-  store i32 -9992, ptr %20, align 4
-  br label %444
+65:                                               ; preds = %51
+  %66 = load ptr, ptr %22, align 8, !tbaa !75
+  %67 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %66, i32 0, i32 23
+  %68 = load ptr, ptr %67, align 8, !tbaa !120
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %71, label %70
 
-70:                                               ; preds = %64
-  %71 = load ptr, ptr %22, align 8
-  %72 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %71, i32 0, i32 24
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds [17 x i8], ptr %30, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 16 %74, i64 17, i1 false)
-  %75 = load ptr, ptr %22, align 8
-  %76 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %75, i32 0, i32 23
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds [15 x i8], ptr %31, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 1 %78, i64 15, i1 false)
-  %79 = load ptr, ptr %22, align 8
-  %80 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %79, i32 0, i32 27
-  store volatile i32 0, ptr %80, align 8
-  %81 = load ptr, ptr %22, align 8
-  %82 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %81, i32 0, i32 28
-  store volatile i32 1, ptr %82, align 4
-  %83 = load ptr, ptr %22, align 8
-  %84 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %83, i32 0, i32 29
-  store volatile i32 0, ptr %84, align 8
-  %85 = load ptr, ptr %22, align 8
-  %86 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %85, i32 0, i32 30
-  store volatile i32 1, ptr %86, align 4
-  %87 = load ptr, ptr %22, align 8
-  %88 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %87, i32 0, i32 10
-  store ptr null, ptr %88, align 8
-  %89 = load ptr, ptr %22, align 8
-  %90 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %89, i32 0, i32 9
-  store ptr null, ptr %90, align 8
-  %91 = load ptr, ptr %22, align 8
-  %92 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %91, i32 0, i32 25
-  call void @llvm.memset.p0.i64(ptr align 8 %92, i8 0, i64 56, i1 false)
-  %93 = load ptr, ptr %13, align 8
-  %94 = icmp ne ptr %93, null
-  br i1 %94, label %95, label %219
+70:                                               ; preds = %65, %51
+  store i32 -9992, ptr %20, align 4, !tbaa !7
+  br label %445
 
-95:                                               ; preds = %70
-  %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %96, i32 0, i32 1
-  %98 = load i32, ptr %97, align 4
-  store i32 %98, ptr %24, align 4
-  %99 = load ptr, ptr %13, align 8
-  %100 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %99, i32 0, i32 2
-  %101 = load i64, ptr %100, align 8
-  store i64 %101, ptr %26, align 8
-  %102 = load ptr, ptr %13, align 8
-  %103 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %102, i32 0, i32 0
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp eq i32 %104, -2
-  br i1 %105, label %106, label %107
+71:                                               ; preds = %65
+  %72 = load ptr, ptr %22, align 8, !tbaa !75
+  %73 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %72, i32 0, i32 24
+  %74 = load ptr, ptr %73, align 8, !tbaa !119
+  %75 = getelementptr inbounds [17 x i8], ptr %31, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 16 %75, i64 17, i1 false)
+  %76 = load ptr, ptr %22, align 8, !tbaa !75
+  %77 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %76, i32 0, i32 23
+  %78 = load ptr, ptr %77, align 8, !tbaa !120
+  %79 = getelementptr inbounds [15 x i8], ptr %32, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 1 %79, i64 15, i1 false)
+  %80 = load ptr, ptr %22, align 8, !tbaa !75
+  %81 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %80, i32 0, i32 27
+  store volatile i32 0, ptr %81, align 8, !tbaa !121
+  %82 = load ptr, ptr %22, align 8, !tbaa !75
+  %83 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %82, i32 0, i32 28
+  store volatile i32 1, ptr %83, align 4, !tbaa !122
+  %84 = load ptr, ptr %22, align 8, !tbaa !75
+  %85 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %84, i32 0, i32 29
+  store volatile i32 0, ptr %85, align 8, !tbaa !123
+  %86 = load ptr, ptr %22, align 8, !tbaa !75
+  %87 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %86, i32 0, i32 30
+  store volatile i32 1, ptr %87, align 4, !tbaa !124
+  %88 = load ptr, ptr %22, align 8, !tbaa !75
+  %89 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %88, i32 0, i32 10
+  store ptr null, ptr %89, align 8, !tbaa !125
+  %90 = load ptr, ptr %22, align 8, !tbaa !75
+  %91 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %90, i32 0, i32 9
+  store ptr null, ptr %91, align 8, !tbaa !126
+  %92 = load ptr, ptr %22, align 8, !tbaa !75
+  %93 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %92, i32 0, i32 25
+  call void @llvm.memset.p0.i64(ptr align 8 %93, i8 0, i64 56, i1 false)
+  %94 = load ptr, ptr %13, align 8, !tbaa !116
+  %95 = icmp ne ptr %94, null
+  br i1 %95, label %96, label %220
 
-106:                                              ; preds = %95
-  store i32 -9996, ptr %20, align 4
-  br label %444
+96:                                               ; preds = %71
+  %97 = load ptr, ptr %13, align 8, !tbaa !116
+  %98 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %97, i32 0, i32 1
+  %99 = load i32, ptr %98, align 4, !tbaa !127
+  store i32 %99, ptr %24, align 4, !tbaa !7
+  %100 = load ptr, ptr %13, align 8, !tbaa !116
+  %101 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %100, i32 0, i32 2
+  %102 = load i64, ptr %101, align 8, !tbaa !129
+  store i64 %102, ptr %26, align 8, !tbaa !38
+  %103 = load ptr, ptr %13, align 8, !tbaa !116
+  %104 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %103, i32 0, i32 0
+  %105 = load i32, ptr %104, align 8, !tbaa !130
+  %106 = icmp eq i32 %105, -2
+  br i1 %106, label %107, label %108
 
-107:                                              ; preds = %95
-  %108 = load i32, ptr %24, align 4
-  %109 = load ptr, ptr %11, align 8
-  %110 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %109, i32 0, i32 2
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %13, align 8
-  %113 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %112, i32 0, i32 0
-  %114 = load i32, ptr %113, align 8
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds ptr, ptr %111, i64 %115
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %117, i32 0, i32 3
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp sgt i32 %108, %119
-  br i1 %120, label %121, label %122
+107:                                              ; preds = %96
+  store i32 -9996, ptr %20, align 4, !tbaa !7
+  br label %445
 
-121:                                              ; preds = %107
-  store i32 -9998, ptr %20, align 4
-  br label %444
+108:                                              ; preds = %96
+  %109 = load i32, ptr %24, align 4, !tbaa !7
+  %110 = load ptr, ptr %11, align 8, !tbaa !97
+  %111 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %110, i32 0, i32 2
+  %112 = load ptr, ptr %111, align 8, !tbaa !111
+  %113 = load ptr, ptr %13, align 8, !tbaa !116
+  %114 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %113, i32 0, i32 0
+  %115 = load i32, ptr %114, align 8, !tbaa !130
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds ptr, ptr %112, i64 %116
+  %118 = load ptr, ptr %117, align 8, !tbaa !93
+  %119 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %118, i32 0, i32 3
+  %120 = load i32, ptr %119, align 4, !tbaa !44
+  %121 = icmp sgt i32 %109, %120
+  br i1 %121, label %122, label %123
 
-122:                                              ; preds = %107
-  %123 = load ptr, ptr %13, align 8
-  %124 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %123, i32 0, i32 4
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp ne ptr %125, null
-  br i1 %126, label %127, label %128
+122:                                              ; preds = %108
+  store i32 -9998, ptr %20, align 4, !tbaa !7
+  br label %445
 
-127:                                              ; preds = %122
-  store i32 -9984, ptr %20, align 4
-  br label %444
+123:                                              ; preds = %108
+  %124 = load ptr, ptr %13, align 8, !tbaa !116
+  %125 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %124, i32 0, i32 4
+  %126 = load ptr, ptr %125, align 8, !tbaa !131
+  %127 = icmp ne ptr %126, null
+  br i1 %127, label %128, label %129
 
-128:                                              ; preds = %122
-  %129 = load i64, ptr %26, align 8
-  %130 = load i64, ptr %26, align 8
-  %131 = call i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef %129, i64 noundef %130)
-  store i64 %131, ptr %28, align 8
-  %132 = load i64, ptr %26, align 8
-  %133 = call i32 @Pa_GetSampleSize(i64 noundef %132)
-  %134 = load i32, ptr %24, align 4
-  %135 = mul nsw i32 %133, %134
-  %136 = load ptr, ptr %22, align 8
-  %137 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %136, i32 0, i32 20
-  store i32 %135, ptr %137, align 4
-  %138 = load i64, ptr %28, align 8
-  %139 = load ptr, ptr %22, align 8
-  %140 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %139, i32 0, i32 8
-  %141 = call i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %138, ptr noundef %140)
-  store i32 %141, ptr %20, align 4
-  %142 = load i32, ptr %20, align 4
-  %143 = icmp ne i32 %142, 0
-  br i1 %143, label %144, label %145
+128:                                              ; preds = %123
+  store i32 -9984, ptr %20, align 4, !tbaa !7
+  br label %445
 
-144:                                              ; preds = %128
-  br label %444
+129:                                              ; preds = %123
+  %130 = load i64, ptr %26, align 8, !tbaa !38
+  %131 = load i64, ptr %26, align 8, !tbaa !38
+  %132 = call i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef %130, i64 noundef %131)
+  store i64 %132, ptr %28, align 8, !tbaa !38
+  %133 = load i64, ptr %26, align 8, !tbaa !38
+  %134 = call i32 @Pa_GetSampleSize(i64 noundef %133)
+  %135 = load i32, ptr %24, align 4, !tbaa !7
+  %136 = mul nsw i32 %134, %135
+  %137 = load ptr, ptr %22, align 8, !tbaa !75
+  %138 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %137, i32 0, i32 20
+  store i32 %136, ptr %138, align 4, !tbaa !132
+  %139 = load i64, ptr %28, align 8, !tbaa !38
+  %140 = load ptr, ptr %22, align 8, !tbaa !75
+  %141 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %140, i32 0, i32 8
+  %142 = call i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %139, ptr noundef %141)
+  store i32 %142, ptr %20, align 4, !tbaa !7
+  %143 = load i32, ptr %20, align 4, !tbaa !7
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %145, label %146
 
-145:                                              ; preds = %128
-  %146 = load double, ptr %15, align 8
-  %147 = fptoui double %146 to i32
-  %148 = load ptr, ptr %22, align 8
-  %149 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %148, i32 0, i32 8
-  %150 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %149, i32 0, i32 1
-  store i32 %147, ptr %150, align 4
-  %151 = load i32, ptr %24, align 4
-  %152 = trunc i32 %151 to i8
-  %153 = load ptr, ptr %22, align 8
-  %154 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %153, i32 0, i32 8
-  %155 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %154, i32 0, i32 2
-  store i8 %152, ptr %155, align 4
-  %156 = load i32, ptr %24, align 4
-  %157 = load ptr, ptr %22, align 8
-  %158 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %157, i32 0, i32 16
-  store i32 %156, ptr %158, align 4
-  %159 = load ptr, ptr %22, align 8
-  %160 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %159, i32 0, i32 8
-  %161 = call i32 @pa_sample_spec_valid(ptr noundef %160) #9
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %164, label %163
+145:                                              ; preds = %129
+  br label %445
 
-163:                                              ; preds = %145
-  store i32 -9999, ptr %20, align 4
-  br label %444
+146:                                              ; preds = %129
+  %147 = load double, ptr %15, align 8, !tbaa !36
+  %148 = fptoui double %147 to i32
+  %149 = load ptr, ptr %22, align 8, !tbaa !75
+  %150 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %149, i32 0, i32 8
+  %151 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %150, i32 0, i32 1
+  store i32 %148, ptr %151, align 4, !tbaa !133
+  %152 = load i32, ptr %24, align 4, !tbaa !7
+  %153 = trunc i32 %152 to i8
+  %154 = load ptr, ptr %22, align 8, !tbaa !75
+  %155 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %154, i32 0, i32 8
+  %156 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %155, i32 0, i32 2
+  store i8 %153, ptr %156, align 4, !tbaa !134
+  %157 = load i32, ptr %24, align 4, !tbaa !7
+  %158 = load ptr, ptr %22, align 8, !tbaa !75
+  %159 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %158, i32 0, i32 16
+  store i32 %157, ptr %159, align 4, !tbaa !135
+  %160 = load ptr, ptr %22, align 8, !tbaa !75
+  %161 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %160, i32 0, i32 8
+  %162 = call i32 @pa_sample_spec_valid(ptr noundef %161) #11
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %165, label %164
 
-164:                                              ; preds = %145
-  %165 = load ptr, ptr %21, align 8
-  %166 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %165, i32 0, i32 10
-  %167 = load ptr, ptr %166, align 8
-  %168 = load ptr, ptr %22, align 8
-  %169 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %168, i32 0, i32 24
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %22, align 8
-  %172 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %171, i32 0, i32 8
-  %173 = call ptr @pa_stream_new(ptr noundef %167, ptr noundef %170, ptr noundef %172, ptr noundef null)
-  %174 = load ptr, ptr %22, align 8
-  %175 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %174, i32 0, i32 10
-  store ptr %173, ptr %175, align 8
-  %176 = load ptr, ptr %22, align 8
-  %177 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %176, i32 0, i32 10
-  %178 = load ptr, ptr %177, align 8
-  %179 = icmp ne ptr %178, null
-  br i1 %179, label %180, label %189
+164:                                              ; preds = %146
+  store i32 -9999, ptr %20, align 4, !tbaa !7
+  br label %445
 
-180:                                              ; preds = %164
-  %181 = load ptr, ptr %22, align 8
-  %182 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %181, i32 0, i32 10
-  %183 = load ptr, ptr %182, align 8
-  %184 = load ptr, ptr %22, align 8
-  call void @pa_stream_set_state_callback(ptr noundef %183, ptr noundef @PaPulseAudio_StreamStateCb, ptr noundef %184)
-  %185 = load ptr, ptr %22, align 8
-  %186 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %185, i32 0, i32 10
-  %187 = load ptr, ptr %186, align 8
-  %188 = load ptr, ptr %22, align 8
-  call void @pa_stream_set_started_callback(ptr noundef %187, ptr noundef @PaPulseAudio_StreamStartedCb, ptr noundef %188)
-  br label %190
+165:                                              ; preds = %146
+  %166 = load ptr, ptr %21, align 8, !tbaa !3
+  %167 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %166, i32 0, i32 10
+  %168 = load ptr, ptr %167, align 8, !tbaa !9
+  %169 = load ptr, ptr %22, align 8, !tbaa !75
+  %170 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %169, i32 0, i32 24
+  %171 = load ptr, ptr %170, align 8, !tbaa !119
+  %172 = load ptr, ptr %22, align 8, !tbaa !75
+  %173 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %172, i32 0, i32 8
+  %174 = call ptr @pa_stream_new(ptr noundef %168, ptr noundef %171, ptr noundef %173, ptr noundef null)
+  %175 = load ptr, ptr %22, align 8, !tbaa !75
+  %176 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %175, i32 0, i32 10
+  store ptr %174, ptr %176, align 8, !tbaa !125
+  %177 = load ptr, ptr %22, align 8, !tbaa !75
+  %178 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %177, i32 0, i32 10
+  %179 = load ptr, ptr %178, align 8, !tbaa !125
+  %180 = icmp ne ptr %179, null
+  br i1 %180, label %181, label %190
 
-189:                                              ; preds = %164
-  br label %190
+181:                                              ; preds = %165
+  %182 = load ptr, ptr %22, align 8, !tbaa !75
+  %183 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %182, i32 0, i32 10
+  %184 = load ptr, ptr %183, align 8, !tbaa !125
+  %185 = load ptr, ptr %22, align 8, !tbaa !75
+  call void @pa_stream_set_state_callback(ptr noundef %184, ptr noundef @PaPulseAudio_StreamStateCb, ptr noundef %185)
+  %186 = load ptr, ptr %22, align 8, !tbaa !75
+  %187 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %186, i32 0, i32 10
+  %188 = load ptr, ptr %187, align 8, !tbaa !125
+  %189 = load ptr, ptr %22, align 8, !tbaa !75
+  call void @pa_stream_set_started_callback(ptr noundef %188, ptr noundef @PaPulseAudio_StreamStartedCb, ptr noundef %189)
+  br label %191
 
-190:                                              ; preds = %189, %180
-  %191 = load ptr, ptr %13, align 8
-  %192 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %191, i32 0, i32 0
-  %193 = load i32, ptr %192, align 8
-  %194 = load ptr, ptr %22, align 8
-  %195 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %194, i32 0, i32 21
-  store i32 %193, ptr %195, align 8
-  %196 = load ptr, ptr %13, align 8
-  %197 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %196, i32 0, i32 3
-  %198 = load double, ptr %197, align 8
-  %199 = fcmp oge double %198, 0.000000e+00
-  br i1 %199, label %200, label %208
+190:                                              ; preds = %165
+  br label %191
 
-200:                                              ; preds = %190
-  %201 = load ptr, ptr %13, align 8
-  %202 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %201, i32 0, i32 3
-  %203 = load double, ptr %202, align 8
-  %204 = call double @llvm.fmuladd.f64(double %203, double 1.000000e+06, double 1.000000e+00)
-  %205 = fptoui double %204 to i32
-  %206 = load ptr, ptr %22, align 8
-  %207 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %206, i32 0, i32 13
-  store i32 %205, ptr %207, align 8
-  br label %211
+191:                                              ; preds = %190, %181
+  %192 = load ptr, ptr %13, align 8, !tbaa !116
+  %193 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %192, i32 0, i32 0
+  %194 = load i32, ptr %193, align 8, !tbaa !130
+  %195 = load ptr, ptr %22, align 8, !tbaa !75
+  %196 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %195, i32 0, i32 21
+  store i32 %194, ptr %196, align 8, !tbaa !136
+  %197 = load ptr, ptr %13, align 8, !tbaa !116
+  %198 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %197, i32 0, i32 3
+  %199 = load double, ptr %198, align 8, !tbaa !137
+  %200 = fcmp oge double %199, 0.000000e+00
+  br i1 %200, label %201, label %209
 
-208:                                              ; preds = %190
-  %209 = load ptr, ptr %22, align 8
-  %210 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %209, i32 0, i32 13
-  store i32 0, ptr %210, align 8
-  br label %211
+201:                                              ; preds = %191
+  %202 = load ptr, ptr %13, align 8, !tbaa !116
+  %203 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %202, i32 0, i32 3
+  %204 = load double, ptr %203, align 8, !tbaa !137
+  %205 = call double @llvm.fmuladd.f64(double %204, double 1.000000e+06, double 1.000000e+00)
+  %206 = fptoui double %205 to i32
+  %207 = load ptr, ptr %22, align 8, !tbaa !75
+  %208 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %207, i32 0, i32 13
+  store i32 %206, ptr %208, align 8, !tbaa !138
+  br label %212
 
-211:                                              ; preds = %208, %200
-  %212 = load ptr, ptr %22, align 8
-  %213 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %212, i32 0, i32 25
-  %214 = call i32 @PaPulseAudio_BlockingInitRingBuffer(ptr noundef %213, i32 noundef 262144)
-  store i32 %214, ptr %20, align 4
-  %215 = load i32, ptr %20, align 4
-  %216 = icmp ne i32 %215, 0
-  br i1 %216, label %217, label %218
+209:                                              ; preds = %191
+  %210 = load ptr, ptr %22, align 8, !tbaa !75
+  %211 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %210, i32 0, i32 13
+  store i32 0, ptr %211, align 8, !tbaa !138
+  br label %212
 
-217:                                              ; preds = %211
-  br label %444
+212:                                              ; preds = %209, %201
+  %213 = load ptr, ptr %22, align 8, !tbaa !75
+  %214 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %213, i32 0, i32 25
+  %215 = call i32 @PaPulseAudio_BlockingInitRingBuffer(ptr noundef %214, i32 noundef 262144)
+  store i32 %215, ptr %20, align 4, !tbaa !7
+  %216 = load i32, ptr %20, align 4, !tbaa !7
+  %217 = icmp ne i32 %216, 0
+  br i1 %217, label %218, label %219
 
-218:                                              ; preds = %211
-  br label %220
+218:                                              ; preds = %212
+  br label %445
 
-219:                                              ; preds = %70
-  store i32 0, ptr %24, align 4
-  store i64 1, ptr %28, align 8
-  store i64 1, ptr %26, align 8
-  br label %220
+219:                                              ; preds = %212
+  br label %221
 
-220:                                              ; preds = %219, %218
-  %221 = load ptr, ptr %14, align 8
-  %222 = icmp ne ptr %221, null
-  br i1 %222, label %223, label %352
+220:                                              ; preds = %71
+  store i32 0, ptr %24, align 4, !tbaa !7
+  store i64 1, ptr %28, align 8, !tbaa !38
+  store i64 1, ptr %26, align 8, !tbaa !38
+  br label %221
 
-223:                                              ; preds = %220
-  %224 = load ptr, ptr %14, align 8
-  %225 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %224, i32 0, i32 1
-  %226 = load i32, ptr %225, align 4
-  store i32 %226, ptr %25, align 4
-  %227 = load ptr, ptr %14, align 8
-  %228 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %227, i32 0, i32 2
-  %229 = load i64, ptr %228, align 8
-  store i64 %229, ptr %27, align 8
-  %230 = load ptr, ptr %14, align 8
-  %231 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %230, i32 0, i32 0
-  %232 = load i32, ptr %231, align 8
-  %233 = icmp eq i32 %232, -2
-  br i1 %233, label %234, label %235
+221:                                              ; preds = %220, %219
+  %222 = load ptr, ptr %14, align 8, !tbaa !116
+  %223 = icmp ne ptr %222, null
+  br i1 %223, label %224, label %353
 
-234:                                              ; preds = %223
-  store i32 -9996, ptr %20, align 4
-  br label %444
+224:                                              ; preds = %221
+  %225 = load ptr, ptr %14, align 8, !tbaa !116
+  %226 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %225, i32 0, i32 1
+  %227 = load i32, ptr %226, align 4, !tbaa !127
+  store i32 %227, ptr %25, align 4, !tbaa !7
+  %228 = load ptr, ptr %14, align 8, !tbaa !116
+  %229 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %228, i32 0, i32 2
+  %230 = load i64, ptr %229, align 8, !tbaa !129
+  store i64 %230, ptr %27, align 8, !tbaa !38
+  %231 = load ptr, ptr %14, align 8, !tbaa !116
+  %232 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %231, i32 0, i32 0
+  %233 = load i32, ptr %232, align 8, !tbaa !130
+  %234 = icmp eq i32 %233, -2
+  br i1 %234, label %235, label %236
 
-235:                                              ; preds = %223
-  %236 = load i32, ptr %25, align 4
-  %237 = load ptr, ptr %11, align 8
-  %238 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %237, i32 0, i32 2
-  %239 = load ptr, ptr %238, align 8
-  %240 = load ptr, ptr %14, align 8
-  %241 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %240, i32 0, i32 0
-  %242 = load i32, ptr %241, align 8
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds ptr, ptr %239, i64 %243
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %245, i32 0, i32 4
-  %247 = load i32, ptr %246, align 8
-  %248 = icmp sgt i32 %236, %247
-  br i1 %248, label %249, label %250
+235:                                              ; preds = %224
+  store i32 -9996, ptr %20, align 4, !tbaa !7
+  br label %445
 
-249:                                              ; preds = %235
-  store i32 -9998, ptr %20, align 4
-  br label %444
+236:                                              ; preds = %224
+  %237 = load i32, ptr %25, align 4, !tbaa !7
+  %238 = load ptr, ptr %11, align 8, !tbaa !97
+  %239 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %238, i32 0, i32 2
+  %240 = load ptr, ptr %239, align 8, !tbaa !111
+  %241 = load ptr, ptr %14, align 8, !tbaa !116
+  %242 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %241, i32 0, i32 0
+  %243 = load i32, ptr %242, align 8, !tbaa !130
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds ptr, ptr %240, i64 %244
+  %246 = load ptr, ptr %245, align 8, !tbaa !93
+  %247 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %246, i32 0, i32 4
+  %248 = load i32, ptr %247, align 8, !tbaa !45
+  %249 = icmp sgt i32 %237, %248
+  br i1 %249, label %250, label %251
 
-250:                                              ; preds = %235
-  %251 = load ptr, ptr %14, align 8
-  %252 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %251, i32 0, i32 4
-  %253 = load ptr, ptr %252, align 8
-  %254 = icmp ne ptr %253, null
-  br i1 %254, label %255, label %256
+250:                                              ; preds = %236
+  store i32 -9998, ptr %20, align 4, !tbaa !7
+  br label %445
 
-255:                                              ; preds = %250
-  store i32 -9984, ptr %20, align 4
-  br label %444
+251:                                              ; preds = %236
+  %252 = load ptr, ptr %14, align 8, !tbaa !116
+  %253 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %252, i32 0, i32 4
+  %254 = load ptr, ptr %253, align 8, !tbaa !131
+  %255 = icmp ne ptr %254, null
+  br i1 %255, label %256, label %257
 
-256:                                              ; preds = %250
-  %257 = load i64, ptr %27, align 8
-  %258 = load i64, ptr %27, align 8
-  %259 = call i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef %257, i64 noundef %258)
-  store i64 %259, ptr %29, align 8
-  %260 = load i64, ptr %27, align 8
-  %261 = call i32 @Pa_GetSampleSize(i64 noundef %260)
-  %262 = load i32, ptr %25, align 4
-  %263 = mul nsw i32 %261, %262
-  %264 = load ptr, ptr %22, align 8
-  %265 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %264, i32 0, i32 19
-  store i32 %263, ptr %265, align 8
-  %266 = load i64, ptr %29, align 8
-  %267 = load ptr, ptr %22, align 8
-  %268 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %267, i32 0, i32 7
-  %269 = call i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %266, ptr noundef %268)
-  store i32 %269, ptr %20, align 4
-  %270 = load i32, ptr %20, align 4
-  %271 = icmp ne i32 %270, 0
-  br i1 %271, label %272, label %273
+256:                                              ; preds = %251
+  store i32 -9984, ptr %20, align 4, !tbaa !7
+  br label %445
 
-272:                                              ; preds = %256
-  br label %444
+257:                                              ; preds = %251
+  %258 = load i64, ptr %27, align 8, !tbaa !38
+  %259 = load i64, ptr %27, align 8, !tbaa !38
+  %260 = call i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef %258, i64 noundef %259)
+  store i64 %260, ptr %29, align 8, !tbaa !38
+  %261 = load i64, ptr %27, align 8, !tbaa !38
+  %262 = call i32 @Pa_GetSampleSize(i64 noundef %261)
+  %263 = load i32, ptr %25, align 4, !tbaa !7
+  %264 = mul nsw i32 %262, %263
+  %265 = load ptr, ptr %22, align 8, !tbaa !75
+  %266 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %265, i32 0, i32 19
+  store i32 %264, ptr %266, align 8, !tbaa !139
+  %267 = load i64, ptr %29, align 8, !tbaa !38
+  %268 = load ptr, ptr %22, align 8, !tbaa !75
+  %269 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %268, i32 0, i32 7
+  %270 = call i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %267, ptr noundef %269)
+  store i32 %270, ptr %20, align 4, !tbaa !7
+  %271 = load i32, ptr %20, align 4, !tbaa !7
+  %272 = icmp ne i32 %271, 0
+  br i1 %272, label %273, label %274
 
-273:                                              ; preds = %256
-  %274 = load double, ptr %15, align 8
-  %275 = fptoui double %274 to i32
-  %276 = load ptr, ptr %22, align 8
-  %277 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %276, i32 0, i32 7
-  %278 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %277, i32 0, i32 1
-  store i32 %275, ptr %278, align 4
-  %279 = load i32, ptr %25, align 4
-  %280 = trunc i32 %279 to i8
-  %281 = load ptr, ptr %22, align 8
-  %282 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %281, i32 0, i32 7
-  %283 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %282, i32 0, i32 2
-  store i8 %280, ptr %283, align 8
-  %284 = load i32, ptr %25, align 4
-  %285 = load ptr, ptr %22, align 8
-  %286 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %285, i32 0, i32 15
-  store i32 %284, ptr %286, align 8
-  %287 = load ptr, ptr %22, align 8
-  %288 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %287, i32 0, i32 7
-  %289 = call i32 @pa_sample_spec_valid(ptr noundef %288) #9
-  %290 = icmp ne i32 %289, 0
-  br i1 %290, label %292, label %291
+273:                                              ; preds = %257
+  br label %445
 
-291:                                              ; preds = %273
-  store i32 -9999, ptr %20, align 4
-  br label %444
+274:                                              ; preds = %257
+  %275 = load double, ptr %15, align 8, !tbaa !36
+  %276 = fptoui double %275 to i32
+  %277 = load ptr, ptr %22, align 8, !tbaa !75
+  %278 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %277, i32 0, i32 7
+  %279 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %278, i32 0, i32 1
+  store i32 %276, ptr %279, align 4, !tbaa !140
+  %280 = load i32, ptr %25, align 4, !tbaa !7
+  %281 = trunc i32 %280 to i8
+  %282 = load ptr, ptr %22, align 8, !tbaa !75
+  %283 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %282, i32 0, i32 7
+  %284 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %283, i32 0, i32 2
+  store i8 %281, ptr %284, align 8, !tbaa !141
+  %285 = load i32, ptr %25, align 4, !tbaa !7
+  %286 = load ptr, ptr %22, align 8, !tbaa !75
+  %287 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %286, i32 0, i32 15
+  store i32 %285, ptr %287, align 8, !tbaa !142
+  %288 = load ptr, ptr %22, align 8, !tbaa !75
+  %289 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %288, i32 0, i32 7
+  %290 = call i32 @pa_sample_spec_valid(ptr noundef %289) #11
+  %291 = icmp ne i32 %290, 0
+  br i1 %291, label %293, label %292
 
-292:                                              ; preds = %273
-  %293 = load ptr, ptr %21, align 8
-  %294 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %293, i32 0, i32 10
-  %295 = load ptr, ptr %294, align 8
-  %296 = load ptr, ptr %22, align 8
-  %297 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %296, i32 0, i32 23
-  %298 = load ptr, ptr %297, align 8
-  %299 = load ptr, ptr %22, align 8
-  %300 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %299, i32 0, i32 7
-  %301 = call ptr @pa_stream_new(ptr noundef %295, ptr noundef %298, ptr noundef %300, ptr noundef null)
-  %302 = load ptr, ptr %22, align 8
-  %303 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %302, i32 0, i32 9
-  store ptr %301, ptr %303, align 8
-  %304 = load ptr, ptr %22, align 8
-  %305 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %304, i32 0, i32 9
-  %306 = load ptr, ptr %305, align 8
-  %307 = icmp ne ptr %306, null
-  br i1 %307, label %308, label %321
+292:                                              ; preds = %274
+  store i32 -9999, ptr %20, align 4, !tbaa !7
+  br label %445
 
-308:                                              ; preds = %292
-  %309 = load ptr, ptr %22, align 8
-  %310 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %309, i32 0, i32 9
-  %311 = load ptr, ptr %310, align 8
-  %312 = load ptr, ptr %22, align 8
-  call void @pa_stream_set_state_callback(ptr noundef %311, ptr noundef @PaPulseAudio_StreamStateCb, ptr noundef %312)
-  %313 = load ptr, ptr %22, align 8
-  %314 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %313, i32 0, i32 9
-  %315 = load ptr, ptr %314, align 8
-  %316 = load ptr, ptr %22, align 8
-  call void @pa_stream_set_started_callback(ptr noundef %315, ptr noundef @PaPulseAudio_StreamStartedCb, ptr noundef %316)
-  %317 = load ptr, ptr %22, align 8
-  %318 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %317, i32 0, i32 9
-  %319 = load ptr, ptr %318, align 8
-  %320 = load ptr, ptr %22, align 8
-  call void @pa_stream_set_underflow_callback(ptr noundef %319, ptr noundef @PaPulseAudio_StreamUnderflowCb, ptr noundef %320)
-  br label %322
+293:                                              ; preds = %274
+  %294 = load ptr, ptr %21, align 8, !tbaa !3
+  %295 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %294, i32 0, i32 10
+  %296 = load ptr, ptr %295, align 8, !tbaa !9
+  %297 = load ptr, ptr %22, align 8, !tbaa !75
+  %298 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %297, i32 0, i32 23
+  %299 = load ptr, ptr %298, align 8, !tbaa !120
+  %300 = load ptr, ptr %22, align 8, !tbaa !75
+  %301 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %300, i32 0, i32 7
+  %302 = call ptr @pa_stream_new(ptr noundef %296, ptr noundef %299, ptr noundef %301, ptr noundef null)
+  %303 = load ptr, ptr %22, align 8, !tbaa !75
+  %304 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %303, i32 0, i32 9
+  store ptr %302, ptr %304, align 8, !tbaa !126
+  %305 = load ptr, ptr %22, align 8, !tbaa !75
+  %306 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %305, i32 0, i32 9
+  %307 = load ptr, ptr %306, align 8, !tbaa !126
+  %308 = icmp ne ptr %307, null
+  br i1 %308, label %309, label %322
 
-321:                                              ; preds = %292
-  br label %322
+309:                                              ; preds = %293
+  %310 = load ptr, ptr %22, align 8, !tbaa !75
+  %311 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %310, i32 0, i32 9
+  %312 = load ptr, ptr %311, align 8, !tbaa !126
+  %313 = load ptr, ptr %22, align 8, !tbaa !75
+  call void @pa_stream_set_state_callback(ptr noundef %312, ptr noundef @PaPulseAudio_StreamStateCb, ptr noundef %313)
+  %314 = load ptr, ptr %22, align 8, !tbaa !75
+  %315 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %314, i32 0, i32 9
+  %316 = load ptr, ptr %315, align 8, !tbaa !126
+  %317 = load ptr, ptr %22, align 8, !tbaa !75
+  call void @pa_stream_set_started_callback(ptr noundef %316, ptr noundef @PaPulseAudio_StreamStartedCb, ptr noundef %317)
+  %318 = load ptr, ptr %22, align 8, !tbaa !75
+  %319 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %318, i32 0, i32 9
+  %320 = load ptr, ptr %319, align 8, !tbaa !126
+  %321 = load ptr, ptr %22, align 8, !tbaa !75
+  call void @pa_stream_set_underflow_callback(ptr noundef %320, ptr noundef @PaPulseAudio_StreamUnderflowCb, ptr noundef %321)
+  br label %323
 
-322:                                              ; preds = %321, %308
-  %323 = load i32, ptr %20, align 4
-  %324 = icmp ne i32 %323, 0
-  br i1 %324, label %325, label %326
+322:                                              ; preds = %293
+  br label %323
 
-325:                                              ; preds = %322
-  br label %444
+323:                                              ; preds = %322, %309
+  %324 = load i32, ptr %20, align 4, !tbaa !7
+  %325 = icmp ne i32 %324, 0
+  br i1 %325, label %326, label %327
 
-326:                                              ; preds = %322
-  %327 = load i32, ptr %20, align 4
-  %328 = icmp ne i32 %327, 0
-  br i1 %328, label %329, label %330
+326:                                              ; preds = %323
+  br label %445
 
-329:                                              ; preds = %326
-  br label %444
+327:                                              ; preds = %323
+  %328 = load i32, ptr %20, align 4, !tbaa !7
+  %329 = icmp ne i32 %328, 0
+  br i1 %329, label %330, label %331
 
-330:                                              ; preds = %326
-  %331 = load ptr, ptr %14, align 8
-  %332 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %331, i32 0, i32 0
-  %333 = load i32, ptr %332, align 8
-  %334 = load ptr, ptr %22, align 8
-  %335 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %334, i32 0, i32 22
-  store i32 %333, ptr %335, align 4
-  %336 = load ptr, ptr %14, align 8
-  %337 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %336, i32 0, i32 3
-  %338 = load double, ptr %337, align 8
-  %339 = fcmp oge double %338, 0.000000e+00
-  br i1 %339, label %340, label %348
+330:                                              ; preds = %327
+  br label %445
 
-340:                                              ; preds = %330
-  %341 = load ptr, ptr %14, align 8
-  %342 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %341, i32 0, i32 3
-  %343 = load double, ptr %342, align 8
-  %344 = call double @llvm.fmuladd.f64(double %343, double 1.000000e+06, double 1.000000e+00)
-  %345 = fptoui double %344 to i32
-  %346 = load ptr, ptr %22, align 8
-  %347 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %346, i32 0, i32 13
-  store i32 %345, ptr %347, align 8
-  br label %351
+331:                                              ; preds = %327
+  %332 = load ptr, ptr %14, align 8, !tbaa !116
+  %333 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %332, i32 0, i32 0
+  %334 = load i32, ptr %333, align 8, !tbaa !130
+  %335 = load ptr, ptr %22, align 8, !tbaa !75
+  %336 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %335, i32 0, i32 22
+  store i32 %334, ptr %336, align 4, !tbaa !143
+  %337 = load ptr, ptr %14, align 8, !tbaa !116
+  %338 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %337, i32 0, i32 3
+  %339 = load double, ptr %338, align 8, !tbaa !137
+  %340 = fcmp oge double %339, 0.000000e+00
+  br i1 %340, label %341, label %349
 
-348:                                              ; preds = %330
-  %349 = load ptr, ptr %22, align 8
-  %350 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %349, i32 0, i32 13
-  store i32 0, ptr %350, align 8
-  br label %351
+341:                                              ; preds = %331
+  %342 = load ptr, ptr %14, align 8, !tbaa !116
+  %343 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %342, i32 0, i32 3
+  %344 = load double, ptr %343, align 8, !tbaa !137
+  %345 = call double @llvm.fmuladd.f64(double %344, double 1.000000e+06, double 1.000000e+00)
+  %346 = fptoui double %345 to i32
+  %347 = load ptr, ptr %22, align 8, !tbaa !75
+  %348 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %347, i32 0, i32 13
+  store i32 %346, ptr %348, align 8, !tbaa !138
+  br label %352
 
-351:                                              ; preds = %348, %340
-  br label %353
+349:                                              ; preds = %331
+  %350 = load ptr, ptr %22, align 8, !tbaa !75
+  %351 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %350, i32 0, i32 13
+  store i32 0, ptr %351, align 8, !tbaa !138
+  br label %352
 
-352:                                              ; preds = %220
-  store i32 0, ptr %25, align 4
-  store i64 1, ptr %29, align 8
-  store i64 1, ptr %27, align 8
-  br label %353
+352:                                              ; preds = %349, %341
+  br label %354
 
-353:                                              ; preds = %352, %351
-  %354 = load ptr, ptr %21, align 8
-  %355 = load ptr, ptr %22, align 8
-  %356 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %355, i32 0, i32 3
-  store ptr %354, ptr %356, align 8
-  %357 = load ptr, ptr %21, align 8
-  %358 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %357, i32 0, i32 10
-  %359 = load ptr, ptr %358, align 8
-  %360 = load ptr, ptr %22, align 8
-  %361 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %360, i32 0, i32 6
-  store ptr %359, ptr %361, align 8
-  %362 = load ptr, ptr %21, align 8
-  %363 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %362, i32 0, i32 8
-  %364 = load ptr, ptr %363, align 8
-  %365 = load ptr, ptr %22, align 8
-  %366 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %365, i32 0, i32 5
-  store ptr %364, ptr %366, align 8
-  %367 = load ptr, ptr %18, align 8
-  %368 = icmp ne ptr %367, null
-  br i1 %368, label %369, label %376
+353:                                              ; preds = %221
+  store i32 0, ptr %25, align 4, !tbaa !7
+  store i64 1, ptr %29, align 8, !tbaa !38
+  store i64 1, ptr %27, align 8, !tbaa !38
+  br label %354
 
-369:                                              ; preds = %353
-  %370 = load ptr, ptr %22, align 8
-  %371 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %370, i32 0, i32 0
-  %372 = load ptr, ptr %21, align 8
-  %373 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %372, i32 0, i32 1
-  %374 = load ptr, ptr %18, align 8
-  %375 = load ptr, ptr %19, align 8
-  call void @PaUtil_InitializeStreamRepresentation(ptr noundef %371, ptr noundef %373, ptr noundef %374, ptr noundef %375)
-  br label %383
+354:                                              ; preds = %353, %352
+  %355 = load ptr, ptr %21, align 8, !tbaa !3
+  %356 = load ptr, ptr %22, align 8, !tbaa !75
+  %357 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %356, i32 0, i32 3
+  store ptr %355, ptr %357, align 8, !tbaa !144
+  %358 = load ptr, ptr %21, align 8, !tbaa !3
+  %359 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %358, i32 0, i32 10
+  %360 = load ptr, ptr %359, align 8, !tbaa !9
+  %361 = load ptr, ptr %22, align 8, !tbaa !75
+  %362 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %361, i32 0, i32 6
+  store ptr %360, ptr %362, align 8, !tbaa !145
+  %363 = load ptr, ptr %21, align 8, !tbaa !3
+  %364 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %363, i32 0, i32 8
+  %365 = load ptr, ptr %364, align 8, !tbaa !23
+  %366 = load ptr, ptr %22, align 8, !tbaa !75
+  %367 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %366, i32 0, i32 5
+  store ptr %365, ptr %367, align 8, !tbaa !90
+  %368 = load ptr, ptr %18, align 8, !tbaa !3
+  %369 = icmp ne ptr %368, null
+  br i1 %369, label %370, label %377
 
-376:                                              ; preds = %353
-  %377 = load ptr, ptr %22, align 8
-  %378 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %377, i32 0, i32 0
-  %379 = load ptr, ptr %21, align 8
-  %380 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %379, i32 0, i32 2
-  %381 = load ptr, ptr %18, align 8
-  %382 = load ptr, ptr %19, align 8
-  call void @PaUtil_InitializeStreamRepresentation(ptr noundef %378, ptr noundef %380, ptr noundef %381, ptr noundef %382)
-  br label %383
+370:                                              ; preds = %354
+  %371 = load ptr, ptr %22, align 8, !tbaa !75
+  %372 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %371, i32 0, i32 0
+  %373 = load ptr, ptr %21, align 8, !tbaa !3
+  %374 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %373, i32 0, i32 1
+  %375 = load ptr, ptr %18, align 8, !tbaa !3
+  %376 = load ptr, ptr %19, align 8, !tbaa !3
+  call void @PaUtil_InitializeStreamRepresentation(ptr noundef %372, ptr noundef %374, ptr noundef %375, ptr noundef %376)
+  br label %384
 
-383:                                              ; preds = %376, %369
-  %384 = load ptr, ptr %22, align 8
-  %385 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %384, i32 0, i32 1
-  %386 = load double, ptr %15, align 8
-  call void @PaUtil_InitializeCpuLoadMeasurer(ptr noundef %385, double noundef %386)
-  %387 = load ptr, ptr %22, align 8
-  %388 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %387, i32 0, i32 2
-  %389 = load i32, ptr %24, align 4
-  %390 = load i64, ptr %26, align 8
-  %391 = load i64, ptr %28, align 8
-  %392 = load i32, ptr %25, align 4
-  %393 = load i64, ptr %27, align 8
-  %394 = load i64, ptr %29, align 8
-  %395 = load double, ptr %15, align 8
-  %396 = load i64, ptr %17, align 8
-  %397 = load i64, ptr %16, align 8
-  %398 = load i64, ptr %23, align 8
-  %399 = load ptr, ptr %18, align 8
-  %400 = load ptr, ptr %19, align 8
-  %401 = call i32 @PaUtil_InitializeBufferProcessor(ptr noundef %388, i32 noundef %389, i64 noundef %390, i64 noundef %391, i32 noundef %392, i64 noundef %393, i64 noundef %394, double noundef %395, i64 noundef %396, i64 noundef %397, i64 noundef %398, i32 noundef 2, ptr noundef %399, ptr noundef %400)
-  store i32 %401, ptr %20, align 4
-  %402 = load i32, ptr %20, align 4
-  %403 = icmp ne i32 %402, 0
-  br i1 %403, label %404, label %405
+377:                                              ; preds = %354
+  %378 = load ptr, ptr %22, align 8, !tbaa !75
+  %379 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %378, i32 0, i32 0
+  %380 = load ptr, ptr %21, align 8, !tbaa !3
+  %381 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %380, i32 0, i32 2
+  %382 = load ptr, ptr %18, align 8, !tbaa !3
+  %383 = load ptr, ptr %19, align 8, !tbaa !3
+  call void @PaUtil_InitializeStreamRepresentation(ptr noundef %379, ptr noundef %381, ptr noundef %382, ptr noundef %383)
+  br label %384
 
-404:                                              ; preds = %383
-  br label %444
+384:                                              ; preds = %377, %370
+  %385 = load ptr, ptr %22, align 8, !tbaa !75
+  %386 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %385, i32 0, i32 1
+  %387 = load double, ptr %15, align 8, !tbaa !36
+  call void @PaUtil_InitializeCpuLoadMeasurer(ptr noundef %386, double noundef %387)
+  %388 = load ptr, ptr %22, align 8, !tbaa !75
+  %389 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %388, i32 0, i32 2
+  %390 = load i32, ptr %24, align 4, !tbaa !7
+  %391 = load i64, ptr %26, align 8, !tbaa !38
+  %392 = load i64, ptr %28, align 8, !tbaa !38
+  %393 = load i32, ptr %25, align 4, !tbaa !7
+  %394 = load i64, ptr %27, align 8, !tbaa !38
+  %395 = load i64, ptr %29, align 8, !tbaa !38
+  %396 = load double, ptr %15, align 8, !tbaa !36
+  %397 = load i64, ptr %17, align 8, !tbaa !38
+  %398 = load i64, ptr %16, align 8, !tbaa !38
+  %399 = load i64, ptr %23, align 8, !tbaa !38
+  %400 = load ptr, ptr %18, align 8, !tbaa !3
+  %401 = load ptr, ptr %19, align 8, !tbaa !3
+  %402 = call i32 @PaUtil_InitializeBufferProcessor(ptr noundef %389, i32 noundef %390, i64 noundef %391, i64 noundef %392, i32 noundef %393, i64 noundef %394, i64 noundef %395, double noundef %396, i64 noundef %397, i64 noundef %398, i64 noundef %399, i32 noundef 2, ptr noundef %400, ptr noundef %401)
+  store i32 %402, ptr %20, align 4, !tbaa !7
+  %403 = load i32, ptr %20, align 4, !tbaa !7
+  %404 = icmp ne i32 %403, 0
+  br i1 %404, label %405, label %406
 
-405:                                              ; preds = %383
-  %406 = load ptr, ptr %22, align 8
-  %407 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %406, i32 0, i32 2
-  %408 = call i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef %407)
-  %409 = uitofp i64 %408 to double
-  %410 = load double, ptr %15, align 8
-  %411 = fdiv double %409, %410
-  %412 = load ptr, ptr %22, align 8
-  %413 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %412, i32 0, i32 0
-  %414 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %413, i32 0, i32 6
-  %415 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %414, i32 0, i32 1
-  store double %411, ptr %415, align 8
-  %416 = load ptr, ptr %22, align 8
-  %417 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %416, i32 0, i32 2
-  %418 = call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef %417)
-  %419 = uitofp i64 %418 to double
-  %420 = load double, ptr %15, align 8
-  %421 = fdiv double %419, %420
-  %422 = load ptr, ptr %22, align 8
-  %423 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %422, i32 0, i32 0
-  %424 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %423, i32 0, i32 6
-  %425 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %424, i32 0, i32 2
-  store double %421, ptr %425, align 8
-  %426 = load double, ptr %15, align 8
-  %427 = load ptr, ptr %22, align 8
-  %428 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %427, i32 0, i32 0
-  %429 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %428, i32 0, i32 6
-  %430 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %429, i32 0, i32 3
-  store double %426, ptr %430, align 8
-  %431 = load i64, ptr %16, align 8
-  %432 = load ptr, ptr %22, align 8
-  %433 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %432, i32 0, i32 18
-  store i64 %431, ptr %433, align 8
-  %434 = load i64, ptr %16, align 8
-  %435 = load ptr, ptr %22, align 8
-  %436 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %435, i32 0, i32 17
-  store i64 %434, ptr %436, align 8
-  %437 = load ptr, ptr %22, align 8
-  %438 = load ptr, ptr %12, align 8
-  store ptr %437, ptr %438, align 8
-  br label %439
+405:                                              ; preds = %384
+  br label %445
 
-439:                                              ; preds = %455, %405
-  %440 = load ptr, ptr %21, align 8
-  %441 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %440, i32 0, i32 8
-  %442 = load ptr, ptr %441, align 8
-  call void @PaPulseAudio_UnLock(ptr noundef %442)
-  %443 = load i32, ptr %20, align 4
-  store i32 %443, ptr %10, align 4
+406:                                              ; preds = %384
+  %407 = load ptr, ptr %22, align 8, !tbaa !75
+  %408 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %407, i32 0, i32 2
+  %409 = call i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef %408)
+  %410 = uitofp i64 %409 to double
+  %411 = load double, ptr %15, align 8, !tbaa !36
+  %412 = fdiv double %410, %411
+  %413 = load ptr, ptr %22, align 8, !tbaa !75
+  %414 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %413, i32 0, i32 0
+  %415 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %414, i32 0, i32 6
+  %416 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %415, i32 0, i32 1
+  store double %412, ptr %416, align 8, !tbaa !146
+  %417 = load ptr, ptr %22, align 8, !tbaa !75
+  %418 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %417, i32 0, i32 2
+  %419 = call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef %418)
+  %420 = uitofp i64 %419 to double
+  %421 = load double, ptr %15, align 8, !tbaa !36
+  %422 = fdiv double %420, %421
+  %423 = load ptr, ptr %22, align 8, !tbaa !75
+  %424 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %423, i32 0, i32 0
+  %425 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %424, i32 0, i32 6
+  %426 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %425, i32 0, i32 2
+  store double %422, ptr %426, align 8, !tbaa !147
+  %427 = load double, ptr %15, align 8, !tbaa !36
+  %428 = load ptr, ptr %22, align 8, !tbaa !75
+  %429 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %428, i32 0, i32 0
+  %430 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %429, i32 0, i32 6
+  %431 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %430, i32 0, i32 3
+  store double %427, ptr %431, align 8, !tbaa !148
+  %432 = load i64, ptr %16, align 8, !tbaa !38
+  %433 = load ptr, ptr %22, align 8, !tbaa !75
+  %434 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %433, i32 0, i32 18
+  store i64 %432, ptr %434, align 8, !tbaa !149
+  %435 = load i64, ptr %16, align 8, !tbaa !38
+  %436 = load ptr, ptr %22, align 8, !tbaa !75
+  %437 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %436, i32 0, i32 17
+  store i64 %435, ptr %437, align 8, !tbaa !150
+  %438 = load ptr, ptr %22, align 8, !tbaa !75
+  %439 = load ptr, ptr %12, align 8, !tbaa !3
+  store ptr %438, ptr %439, align 8, !tbaa !3
+  br label %440
+
+440:                                              ; preds = %456, %406
+  %441 = load ptr, ptr %21, align 8, !tbaa !3
+  %442 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %441, i32 0, i32 8
+  %443 = load ptr, ptr %442, align 8, !tbaa !23
+  call void @PaPulseAudio_UnLock(ptr noundef %443)
+  %444 = load i32, ptr %20, align 4, !tbaa !7
+  store i32 %444, ptr %10, align 4
+  store i32 1, ptr %30, align 4
+  br label %457
+
+445:                                              ; preds = %405, %330, %326, %292, %273, %256, %250, %235, %218, %164, %145, %128, %122, %107, %70, %50
+  %446 = load ptr, ptr %22, align 8, !tbaa !75
+  %447 = icmp ne ptr %446, null
+  br i1 %447, label %448, label %456
+
+448:                                              ; preds = %445
+  %449 = load ptr, ptr %22, align 8, !tbaa !75
+  %450 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %449, i32 0, i32 24
+  %451 = load ptr, ptr %450, align 8, !tbaa !119
+  call void @PaUtil_FreeMemory(ptr noundef %451)
+  %452 = load ptr, ptr %22, align 8, !tbaa !75
+  %453 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %452, i32 0, i32 23
+  %454 = load ptr, ptr %453, align 8, !tbaa !120
+  call void @PaUtil_FreeMemory(ptr noundef %454)
+  %455 = load ptr, ptr %22, align 8, !tbaa !75
+  call void @PaUtil_FreeMemory(ptr noundef %455)
   br label %456
 
-444:                                              ; preds = %404, %329, %325, %291, %272, %255, %249, %234, %217, %163, %144, %127, %121, %106, %69, %49
-  %445 = load ptr, ptr %22, align 8
-  %446 = icmp ne ptr %445, null
-  br i1 %446, label %447, label %455
+456:                                              ; preds = %448, %445
+  br label %440
 
-447:                                              ; preds = %444
-  %448 = load ptr, ptr %22, align 8
-  %449 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %448, i32 0, i32 24
-  %450 = load ptr, ptr %449, align 8
-  call void @PaUtil_FreeMemory(ptr noundef %450)
-  %451 = load ptr, ptr %22, align 8
-  %452 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %451, i32 0, i32 23
-  %453 = load ptr, ptr %452, align 8
-  call void @PaUtil_FreeMemory(ptr noundef %453)
-  %454 = load ptr, ptr %22, align 8
-  call void @PaUtil_FreeMemory(ptr noundef %454)
-  br label %455
-
-455:                                              ; preds = %447, %444
-  br label %439
-
-456:                                              ; preds = %439, %37
-  %457 = load i32, ptr %10, align 4
-  ret i32 %457
+457:                                              ; preds = %440, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  %458 = load i32, ptr %10, align 4
+  ret i32 %458
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2167,182 +2298,202 @@ define i32 @IsFormatSupported(ptr noundef %0, ptr noundef %1, ptr noundef %2, do
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store double %3, ptr %9, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %55
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !97
+  store ptr %1, ptr %7, align 8, !tbaa !116
+  store ptr %2, ptr %8, align 8, !tbaa !116
+  store double %3, ptr %9, align 8, !tbaa !36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %15 = load ptr, ptr %7, align 8, !tbaa !116
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %56
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %10, align 4
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %20, i32 0, i32 2
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr %12, align 8
-  %23 = load i64, ptr %12, align 8
-  %24 = and i64 %23, 65536
-  %25 = icmp ne i64 %24, 0
-  br i1 %25, label %26, label %27
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %7, align 8, !tbaa !116
+  %19 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4, !tbaa !127
+  store i32 %20, ptr %10, align 4, !tbaa !7
+  %21 = load ptr, ptr %7, align 8, !tbaa !116
+  %22 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %21, i32 0, i32 2
+  %23 = load i64, ptr %22, align 8, !tbaa !129
+  store i64 %23, ptr %12, align 8, !tbaa !38
+  %24 = load i64, ptr %12, align 8, !tbaa !38
+  %25 = and i64 %24, 65536
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %16
+27:                                               ; preds = %17
   store i32 -9994, ptr %5, align 4
-  br label %100
+  store i32 1, ptr %14, align 4
+  br label %101
 
-27:                                               ; preds = %16
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp eq i32 %30, -2
-  br i1 %31, label %32, label %33
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %7, align 8, !tbaa !116
+  %30 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 8, !tbaa !130
+  %32 = icmp eq i32 %31, -2
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   store i32 -9996, ptr %5, align 4
-  br label %100
+  store i32 1, ptr %14, align 4
+  br label %101
 
-33:                                               ; preds = %27
-  %34 = load i32, ptr %10, align 4
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 8
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %37, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %43, i32 0, i32 3
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp sgt i32 %34, %45
-  br i1 %46, label %47, label %48
+34:                                               ; preds = %28
+  %35 = load i32, ptr %10, align 4, !tbaa !7
+  %36 = load ptr, ptr %6, align 8, !tbaa !97
+  %37 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %36, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !111
+  %39 = load ptr, ptr %7, align 8, !tbaa !116
+  %40 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8, !tbaa !130
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds ptr, ptr %38, i64 %42
+  %44 = load ptr, ptr %43, align 8, !tbaa !93
+  %45 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %44, i32 0, i32 3
+  %46 = load i32, ptr %45, align 4, !tbaa !44
+  %47 = icmp sgt i32 %35, %46
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %33
+48:                                               ; preds = %34
   store i32 -9998, ptr %5, align 4
-  br label %100
+  store i32 1, ptr %14, align 4
+  br label %101
 
-48:                                               ; preds = %33
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %49, i32 0, i32 4
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp ne ptr %51, null
-  br i1 %52, label %53, label %54
+49:                                               ; preds = %34
+  %50 = load ptr, ptr %7, align 8, !tbaa !116
+  %51 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %50, i32 0, i32 4
+  %52 = load ptr, ptr %51, align 8, !tbaa !131
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %55
 
-53:                                               ; preds = %48
+54:                                               ; preds = %49
   store i32 -9984, ptr %5, align 4
-  br label %100
+  store i32 1, ptr %14, align 4
+  br label %101
 
-54:                                               ; preds = %48
-  br label %56
+55:                                               ; preds = %49
+  br label %57
 
-55:                                               ; preds = %4
-  store i32 0, ptr %10, align 4
-  br label %56
+56:                                               ; preds = %4
+  store i32 0, ptr %10, align 4, !tbaa !7
+  br label %57
 
-56:                                               ; preds = %55, %54
-  %57 = load ptr, ptr %8, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %98
+57:                                               ; preds = %56, %55
+  %58 = load ptr, ptr %8, align 8, !tbaa !116
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %99
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %60, i32 0, i32 1
-  %62 = load i32, ptr %61, align 4
-  store i32 %62, ptr %11, align 4
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %63, i32 0, i32 2
-  %65 = load i64, ptr %64, align 8
-  store i64 %65, ptr %13, align 8
-  %66 = load i64, ptr %13, align 8
-  %67 = and i64 %66, 65536
-  %68 = icmp ne i64 %67, 0
-  br i1 %68, label %69, label %70
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %8, align 8, !tbaa !116
+  %62 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %61, i32 0, i32 1
+  %63 = load i32, ptr %62, align 4, !tbaa !127
+  store i32 %63, ptr %11, align 4, !tbaa !7
+  %64 = load ptr, ptr %8, align 8, !tbaa !116
+  %65 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %64, i32 0, i32 2
+  %66 = load i64, ptr %65, align 8, !tbaa !129
+  store i64 %66, ptr %13, align 8, !tbaa !38
+  %67 = load i64, ptr %13, align 8, !tbaa !38
+  %68 = and i64 %67, 65536
+  %69 = icmp ne i64 %68, 0
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %59
+70:                                               ; preds = %60
   store i32 -9994, ptr %5, align 4
-  br label %100
+  store i32 1, ptr %14, align 4
+  br label %101
 
-70:                                               ; preds = %59
-  %71 = load ptr, ptr %8, align 8
-  %72 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %71, i32 0, i32 0
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp eq i32 %73, -2
-  br i1 %74, label %75, label %76
+71:                                               ; preds = %60
+  %72 = load ptr, ptr %8, align 8, !tbaa !116
+  %73 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %72, i32 0, i32 0
+  %74 = load i32, ptr %73, align 8, !tbaa !130
+  %75 = icmp eq i32 %74, -2
+  br i1 %75, label %76, label %77
 
-75:                                               ; preds = %70
+76:                                               ; preds = %71
   store i32 -9996, ptr %5, align 4
-  br label %100
+  store i32 1, ptr %14, align 4
+  br label %101
 
-76:                                               ; preds = %70
-  %77 = load i32, ptr %11, align 4
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %78, i32 0, i32 2
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %81, i32 0, i32 0
-  %83 = load i32, ptr %82, align 8
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %80, i64 %84
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %86, i32 0, i32 4
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp sgt i32 %77, %88
-  br i1 %89, label %90, label %91
+77:                                               ; preds = %71
+  %78 = load i32, ptr %11, align 4, !tbaa !7
+  %79 = load ptr, ptr %6, align 8, !tbaa !97
+  %80 = getelementptr inbounds nuw %struct.PaUtilHostApiRepresentation, ptr %79, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8, !tbaa !111
+  %82 = load ptr, ptr %8, align 8, !tbaa !116
+  %83 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %82, i32 0, i32 0
+  %84 = load i32, ptr %83, align 8, !tbaa !130
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds ptr, ptr %81, i64 %85
+  %87 = load ptr, ptr %86, align 8, !tbaa !93
+  %88 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %87, i32 0, i32 4
+  %89 = load i32, ptr %88, align 8, !tbaa !45
+  %90 = icmp sgt i32 %78, %89
+  br i1 %90, label %91, label %92
 
-90:                                               ; preds = %76
+91:                                               ; preds = %77
   store i32 -9998, ptr %5, align 4
-  br label %100
+  store i32 1, ptr %14, align 4
+  br label %101
 
-91:                                               ; preds = %76
-  %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %92, i32 0, i32 4
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp ne ptr %94, null
-  br i1 %95, label %96, label %97
+92:                                               ; preds = %77
+  %93 = load ptr, ptr %8, align 8, !tbaa !116
+  %94 = getelementptr inbounds nuw %struct.PaStreamParameters, ptr %93, i32 0, i32 4
+  %95 = load ptr, ptr %94, align 8, !tbaa !131
+  %96 = icmp ne ptr %95, null
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %91
+97:                                               ; preds = %92
   store i32 -9984, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %101
+
+98:                                               ; preds = %92
   br label %100
 
-97:                                               ; preds = %91
-  br label %99
+99:                                               ; preds = %57
+  store i32 0, ptr %11, align 4, !tbaa !7
+  br label %100
 
-98:                                               ; preds = %56
-  store i32 0, ptr %11, align 4
-  br label %99
-
-99:                                               ; preds = %98, %97
+100:                                              ; preds = %99, %98
   store i32 0, ptr %5, align 4
-  br label %100
+  store i32 1, ptr %14, align 4
+  br label %101
 
-100:                                              ; preds = %99, %96, %90, %75, %69, %53, %47, %32, %26
-  %101 = load i32, ptr %5, align 4
-  ret i32 %101
+101:                                              ; preds = %100, %97, %91, %76, %70, %54, %48, %33, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  %102 = load i32, ptr %5, align 4
+  ret i32 %102
 }
 
-declare void @PaUtil_InitializeStreamInterface(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare void @PaUtil_InitializeStreamInterface(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @PaPulseAudio_CloseStreamCb(ptr noundef) #1
+declare i32 @PaPulseAudio_CloseStreamCb(ptr noundef) #2
 
-declare i32 @PaPulseAudio_StartStreamCb(ptr noundef) #1
+declare i32 @PaPulseAudio_StartStreamCb(ptr noundef) #2
 
-declare i32 @PaPulseAudio_StopStreamCb(ptr noundef) #1
+declare i32 @PaPulseAudio_StopStreamCb(ptr noundef) #2
 
-declare i32 @PaPulseAudio_AbortStreamCb(ptr noundef) #1
+declare i32 @PaPulseAudio_AbortStreamCb(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @IsStreamStopped(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %4, ptr %3, align 8, !tbaa !75
+  %5 = load ptr, ptr %3, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %5, i32 0, i32 28
-  %7 = load volatile i32, ptr %6, align 4
+  %7 = load volatile i32, ptr %6, align 4, !tbaa !122
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i32 %7
 }
 
@@ -2350,12 +2501,14 @@ define i32 @IsStreamStopped(ptr noundef %0) #0 {
 define i32 @IsStreamActive(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %4, ptr %3, align 8, !tbaa !75
+  %5 = load ptr, ptr %3, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %5, i32 0, i32 27
-  %7 = load volatile i32, ptr %6, align 8
+  %7 = load volatile i32, ptr %6, align 8, !tbaa !121
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret i32 %7
 }
 
@@ -2366,115 +2519,125 @@ define double @GetStreamTime(ptr noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.PaStreamCallbackTimeInfo, align 8
-  store ptr %0, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %4, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %8, i32 0, i32 3
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %5, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %8, ptr %4, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %9 = load ptr, ptr %4, align 8, !tbaa !75
+  %10 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %9, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8, !tbaa !144
+  store ptr %11, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #10
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 24, i1 false)
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %11, i32 0, i32 8
-  %13 = load ptr, ptr %12, align 8
-  call void @PaPulseAudio_Lock(ptr noundef %13)
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %14, i32 0, i32 9
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %26
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %12, i32 0, i32 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  call void @PaPulseAudio_Lock(ptr noundef %14)
+  %15 = load ptr, ptr %4, align 8, !tbaa !75
+  %16 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %15, i32 0, i32 9
+  %17 = load ptr, ptr %16, align 8, !tbaa !126
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %27
 
-18:                                               ; preds = %1
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %19, i32 0, i32 9
-  %21 = load ptr, ptr %20, align 8
-  %22 = call i32 @PaPulseAudio_updateTimeInfo(ptr noundef %21, ptr noundef %6, i32 noundef 0)
-  %23 = icmp eq i32 %22, -16
-  br i1 %23, label %24, label %25
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %4, align 8, !tbaa !75
+  %21 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %20, i32 0, i32 9
+  %22 = load ptr, ptr %21, align 8, !tbaa !126
+  %23 = call i32 @PaPulseAudio_updateTimeInfo(ptr noundef %22, ptr noundef %6, i32 noundef 0)
+  %24 = icmp eq i32 %23, -16
+  br i1 %24, label %25, label %26
 
-24:                                               ; preds = %18
+25:                                               ; preds = %19
   store double 0.000000e+00, ptr %2, align 8
-  br label %45
+  store i32 1, ptr %7, align 4
+  br label %46
 
-25:                                               ; preds = %18
-  br label %26
+26:                                               ; preds = %19
+  br label %27
 
-26:                                               ; preds = %25, %1
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %27, i32 0, i32 10
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %39
+27:                                               ; preds = %26, %1
+  %28 = load ptr, ptr %4, align 8, !tbaa !75
+  %29 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %28, i32 0, i32 10
+  %30 = load ptr, ptr %29, align 8, !tbaa !125
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %40
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %32, i32 0, i32 10
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @PaPulseAudio_updateTimeInfo(ptr noundef %34, ptr noundef %6, i32 noundef 1)
-  %36 = icmp eq i32 %35, -16
-  br i1 %36, label %37, label %38
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %4, align 8, !tbaa !75
+  %34 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %33, i32 0, i32 10
+  %35 = load ptr, ptr %34, align 8, !tbaa !125
+  %36 = call i32 @PaPulseAudio_updateTimeInfo(ptr noundef %35, ptr noundef %6, i32 noundef 1)
+  %37 = icmp eq i32 %36, -16
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %31
+38:                                               ; preds = %32
   store double 0.000000e+00, ptr %2, align 8
-  br label %45
+  store i32 1, ptr %7, align 4
+  br label %46
 
-38:                                               ; preds = %31
-  br label %39
+39:                                               ; preds = %32
+  br label %40
 
-39:                                               ; preds = %38, %26
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %40, i32 0, i32 8
-  %42 = load ptr, ptr %41, align 8
-  call void @PaPulseAudio_UnLock(ptr noundef %42)
-  %43 = getelementptr inbounds nuw %struct.PaStreamCallbackTimeInfo, ptr %6, i32 0, i32 1
-  %44 = load double, ptr %43, align 8
-  store double %44, ptr %2, align 8
-  br label %45
+40:                                               ; preds = %39, %27
+  %41 = load ptr, ptr %5, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.PaPulseAudio_HostApiRepresentation, ptr %41, i32 0, i32 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !23
+  call void @PaPulseAudio_UnLock(ptr noundef %43)
+  %44 = getelementptr inbounds nuw %struct.PaStreamCallbackTimeInfo, ptr %6, i32 0, i32 1
+  %45 = load double, ptr %44, align 8, !tbaa !151
+  store double %45, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %46
 
-45:                                               ; preds = %39, %37, %24
-  %46 = load double, ptr %2, align 8
-  ret double %46
+46:                                               ; preds = %40, %38, %25
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %47 = load double, ptr %2, align 8
+  ret double %47
 }
 
 ; Function Attrs: nounwind uwtable
 define double @GetStreamCpuLoad(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  store ptr %4, ptr %3, align 8, !tbaa !75
+  %5 = load ptr, ptr %3, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %5, i32 0, i32 1
   %7 = call double @PaUtil_GetCpuLoad(ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret double %7
 }
 
-declare i32 @PaUtil_DummyRead(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @PaUtil_DummyRead(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @PaUtil_DummyWrite(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @PaUtil_DummyWrite(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i64 @PaUtil_DummyGetReadAvailable(ptr noundef) #1
+declare i64 @PaUtil_DummyGetReadAvailable(ptr noundef) #2
 
-declare i64 @PaUtil_DummyGetWriteAvailable(ptr noundef) #1
+declare i64 @PaUtil_DummyGetWriteAvailable(ptr noundef) #2
 
-declare double @PaUtil_DummyGetCpuLoad(ptr noundef) #1
+declare double @PaUtil_DummyGetCpuLoad(ptr noundef) #2
 
-declare i32 @PaPulseAudio_ReadStreamBlock(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @PaPulseAudio_ReadStreamBlock(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @PaPulseAudio_WriteStreamBlock(ptr noundef, ptr noundef, i64 noundef) #1
+declare i32 @PaPulseAudio_WriteStreamBlock(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare i64 @PaPulseAudio_GetStreamReadAvailableBlock(ptr noundef) #1
-
-declare void @PaPulseAudio_UnLock(ptr noundef) #1
+declare i64 @PaPulseAudio_GetStreamReadAvailableBlock(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  store i64 %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load i64, ptr %4, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !38
+  store ptr %1, ptr %5, align 8, !tbaa !153
+  %6 = load i64, ptr %4, align 8, !tbaa !38
   switch i64 %6, label %26 [
     i64 1, label %7
     i64 2, label %10
@@ -2487,46 +2650,46 @@ define i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %0, p
   ]
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !153
   %9 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %8, i32 0, i32 0
-  store i32 5, ptr %9, align 4
+  store i32 5, ptr %9, align 4, !tbaa !155
   br label %26
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !153
   %12 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %11, i32 0, i32 0
-  store i32 7, ptr %12, align 4
+  store i32 7, ptr %12, align 4, !tbaa !155
   br label %26
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %5, align 8, !tbaa !153
   %15 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %14, i32 0, i32 0
-  store i32 9, ptr %15, align 4
+  store i32 9, ptr %15, align 4, !tbaa !155
   br label %26
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %5, align 8, !tbaa !153
   %18 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %17, i32 0, i32 0
-  store i32 3, ptr %18, align 4
+  store i32 3, ptr %18, align 4, !tbaa !155
   br label %26
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8
+  %20 = load ptr, ptr %5, align 8, !tbaa !153
   %21 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %20, i32 0, i32 0
-  store i32 0, ptr %21, align 4
+  store i32 0, ptr %21, align 4, !tbaa !155
   br label %26
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %5, align 8, !tbaa !153
   %24 = getelementptr inbounds nuw %struct.pa_sample_spec, ptr %23, i32 0, i32 0
-  store i32 0, ptr %24, align 4
+  store i32 0, ptr %24, align 4, !tbaa !155
   br label %26
 
 25:                                               ; preds = %2, %2
   store i32 -9994, ptr %3, align 4
   br label %27
 
-26:                                               ; preds = %22, %19, %16, %13, %10, %7, %2
+26:                                               ; preds = %2, %22, %19, %16, %13, %10, %7
   store i32 0, ptr %3, align 4
   br label %27
 
@@ -2542,95 +2705,103 @@ define i32 @PaPulseAudio_BlockingInitRingBuffer(ptr noundef %0, i32 noundef %1) 
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %8 = load i32, ptr %5, align 4
-  %9 = sext i32 %8 to i64
-  %10 = call noalias ptr @malloc(i64 noundef %9) #10
-  store ptr %10, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %2
-  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.20)
-  store i32 -9992, ptr %3, align 4
-  br label %29
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !156
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %9 = load i32, ptr %5, align 4, !tbaa !7
+  %10 = sext i32 %9 to i64
+  %11 = call noalias ptr @malloc(i64 noundef %10) #12
+  store ptr %11, ptr %6, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !7
+  %12 = load ptr, ptr %6, align 8, !tbaa !25
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = sext i32 %16 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %15, i8 0, i64 %17, i1 false)
-  %18 = load ptr, ptr %4, align 8
-  %19 = load i32, ptr %5, align 4
-  %20 = sext i32 %19 to i64
-  %21 = load ptr, ptr %6, align 8
-  %22 = call i64 @PaUtil_InitializeRingBuffer(ptr noundef %18, i64 noundef 1, i64 noundef %20, ptr noundef %21)
-  %23 = trunc i64 %22 to i32
-  store i32 %23, ptr %7, align 4
-  %24 = load i32, ptr %7, align 4
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %28
+  call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.20)
+  store i32 -9992, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %30
 
-26:                                               ; preds = %14
-  %27 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %27) #8
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %6, align 8, !tbaa !25
+  %17 = load i32, ptr %5, align 4, !tbaa !7
+  %18 = sext i32 %17 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %16, i8 0, i64 %18, i1 false)
+  %19 = load ptr, ptr %4, align 8, !tbaa !156
+  %20 = load i32, ptr %5, align 4, !tbaa !7
+  %21 = sext i32 %20 to i64
+  %22 = load ptr, ptr %6, align 8, !tbaa !25
+  %23 = call i64 @PaUtil_InitializeRingBuffer(ptr noundef %19, i64 noundef 1, i64 noundef %21, ptr noundef %22)
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %7, align 4, !tbaa !7
+  %25 = load i32, ptr %7, align 4, !tbaa !7
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %29
+
+27:                                               ; preds = %15
+  %28 = load ptr, ptr %6, align 8, !tbaa !25
+  call void @free(ptr noundef %28) #10
   call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef 0, ptr noundef @.str.21)
   store i32 -10000, ptr %3, align 4
-  br label %29
+  store i32 1, ptr %8, align 4
+  br label %30
 
-28:                                               ; preds = %14
+29:                                               ; preds = %15
   store i32 0, ptr %3, align 4
-  br label %29
+  store i32 1, ptr %8, align 4
+  br label %30
 
-29:                                               ; preds = %28, %26, %13
-  %30 = load i32, ptr %3, align 4
-  ret i32 %30
+30:                                               ; preds = %29, %27, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %31 = load i32, ptr %3, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #6
+declare noalias ptr @malloc(i64 noundef) #8
 
-declare i64 @PaUtil_InitializeRingBuffer(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
+declare i64 @PaUtil_InitializeRingBuffer(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #4
+declare void @free(ptr noundef) #6
 
-declare i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef, i64 noundef) #1
+declare i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef, i64 noundef) #2
 
-declare i32 @Pa_GetSampleSize(i64 noundef) #1
+declare i32 @Pa_GetSampleSize(i64 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @pa_sample_spec_valid(ptr noundef) #5
+declare i32 @pa_sample_spec_valid(ptr noundef) #7
 
-declare ptr @pa_stream_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @pa_stream_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @pa_stream_set_state_callback(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @pa_stream_set_state_callback(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @pa_stream_set_started_callback(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @pa_stream_set_started_callback(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @PaPulseAudio_StreamStartedCb(ptr noundef, ptr noundef) #1
+declare void @PaPulseAudio_StreamStartedCb(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #9
 
-declare void @pa_stream_set_underflow_callback(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @pa_stream_set_underflow_callback(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @PaUtil_InitializeStreamRepresentation(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare void @PaUtil_InitializeStreamRepresentation(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @PaUtil_InitializeCpuLoadMeasurer(ptr noundef, double noundef) #1
+declare void @PaUtil_InitializeCpuLoadMeasurer(ptr noundef, double noundef) #2
 
-declare i32 @PaUtil_InitializeBufferProcessor(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, i64 noundef, double noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+declare i32 @PaUtil_InitializeBufferProcessor(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, i64 noundef, double noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef) #1
+declare i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef) #2
 
-declare i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef) #1
+declare i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef) #2
 
-declare i32 @PaPulseAudio_updateTimeInfo(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @PaPulseAudio_updateTimeInfo(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare double @PaUtil_GetCpuLoad(ptr noundef) #1
+declare double @PaUtil_GetCpuLoad(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @PaPulseAudio_RenameSource(ptr noundef %0, ptr noundef %1) #0 {
@@ -2640,97 +2811,100 @@ define i32 @PaPulseAudio_RenameSource(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  store ptr null, ptr %8, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %11, i32 0, i32 10
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %2
-  store i32 -9996, ptr %3, align 4
-  br label %62
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %11, ptr %6, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  store ptr null, ptr %8, align 8, !tbaa !95
+  %12 = load ptr, ptr %6, align 8, !tbaa !75
+  %13 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %12, i32 0, i32 10
+  %14 = load ptr, ptr %13, align 8, !tbaa !125
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %17, i32 0, i32 5
-  %19 = load ptr, ptr %18, align 8
-  call void @PaPulseAudio_Lock(ptr noundef %19)
-  %20 = load ptr, ptr %5, align 8
-  %21 = call i64 @strnlen(ptr noundef %20, i64 noundef 1024) #9
-  %22 = add i64 %21, 1
-  %23 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %22)
-  store ptr %23, ptr %9, align 8
-  %24 = load ptr, ptr %9, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %30, label %26
+  store i32 -9996, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %58
 
-26:                                               ; preds = %16
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %27, i32 0, i32 5
-  %29 = load ptr, ptr %28, align 8
-  call void @PaPulseAudio_UnLock(ptr noundef %29)
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %6, align 8, !tbaa !75
+  %19 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8, !tbaa !90
+  call void @PaPulseAudio_Lock(ptr noundef %20)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %21 = load ptr, ptr %5, align 8, !tbaa !25
+  %22 = call i64 @strnlen(ptr noundef %21, i64 noundef 1024) #11
+  %23 = add i64 %22, 1
+  %24 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %23)
+  store ptr %24, ptr %10, align 8, !tbaa !25
+  %25 = load ptr, ptr %10, align 8, !tbaa !25
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %31, label %27
+
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %6, align 8, !tbaa !75
+  %29 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %28, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8, !tbaa !90
+  call void @PaPulseAudio_UnLock(ptr noundef %30)
   store i32 -9992, ptr %3, align 4
-  br label %62
+  store i32 1, ptr %9, align 4
+  br label %57
 
-30:                                               ; preds = %16
-  %31 = load ptr, ptr %9, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = call i64 @strnlen(ptr noundef %32, i64 noundef 1024) #9
-  %34 = add i64 %33, 1
-  %35 = load ptr, ptr %5, align 8
-  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef %34, ptr noundef @.str.2, ptr noundef %35) #8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %37, i32 0, i32 24
-  %39 = load ptr, ptr %38, align 8
-  call void @PaUtil_FreeMemory(ptr noundef %39)
-  %40 = load ptr, ptr %9, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %41, i32 0, i32 24
-  store ptr %40, ptr %42, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %43, i32 0, i32 10
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = call ptr @pa_stream_set_name(ptr noundef %45, ptr noundef %46, ptr noundef @RenameStreamCb, ptr noundef %47)
-  store ptr %48, ptr %8, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %49, i32 0, i32 5
-  %51 = load ptr, ptr %50, align 8
-  call void @PaPulseAudio_UnLock(ptr noundef %51)
-  br label %52
+31:                                               ; preds = %17
+  %32 = load ptr, ptr %10, align 8, !tbaa !25
+  %33 = load ptr, ptr %5, align 8, !tbaa !25
+  %34 = call i64 @strnlen(ptr noundef %33, i64 noundef 1024) #11
+  %35 = add i64 %34, 1
+  %36 = load ptr, ptr %5, align 8, !tbaa !25
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef %35, ptr noundef @.str.2, ptr noundef %36) #10
+  %38 = load ptr, ptr %6, align 8, !tbaa !75
+  %39 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %38, i32 0, i32 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !119
+  call void @PaUtil_FreeMemory(ptr noundef %40)
+  %41 = load ptr, ptr %10, align 8, !tbaa !25
+  %42 = load ptr, ptr %6, align 8, !tbaa !75
+  %43 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %42, i32 0, i32 24
+  store ptr %41, ptr %43, align 8, !tbaa !119
+  %44 = load ptr, ptr %6, align 8, !tbaa !75
+  %45 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %44, i32 0, i32 10
+  %46 = load ptr, ptr %45, align 8, !tbaa !125
+  %47 = load ptr, ptr %5, align 8, !tbaa !25
+  %48 = load ptr, ptr %6, align 8, !tbaa !75
+  %49 = call ptr @pa_stream_set_name(ptr noundef %46, ptr noundef %47, ptr noundef @RenameStreamCb, ptr noundef %48)
+  store ptr %49, ptr %8, align 8, !tbaa !95
+  %50 = load ptr, ptr %6, align 8, !tbaa !75
+  %51 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %50, i32 0, i32 5
+  %52 = load ptr, ptr %51, align 8, !tbaa !90
+  call void @PaPulseAudio_UnLock(ptr noundef %52)
+  %53 = load ptr, ptr %6, align 8, !tbaa !75
+  %54 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8, !tbaa !144
+  call void @PaPulseAudio_ReleaseOperation(ptr noundef %55, ptr noundef %8)
+  %56 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %56, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-52:                                               ; preds = %56, %30
-  %53 = load ptr, ptr %8, align 8
-  %54 = call i32 @pa_operation_get_state(ptr noundef %53)
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %60
+57:                                               ; preds = %31, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  br label %58
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %57, i32 0, i32 5
-  %59 = load ptr, ptr %58, align 8
-  call void @pa_threaded_mainloop_wait(ptr noundef %59)
-  br label %52, !llvm.loop !11
-
-60:                                               ; preds = %52
-  %61 = load i32, ptr %7, align 4
-  store i32 %61, ptr %3, align 4
-  br label %62
-
-62:                                               ; preds = %60, %26, %15
-  %63 = load i32, ptr %3, align 4
-  ret i32 %63
+58:                                               ; preds = %57, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %59 = load i32, ptr %3, align 4
+  ret i32 %59
 }
 
-declare ptr @pa_stream_set_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare ptr @pa_stream_set_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @RenameStreamCb(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -2738,15 +2912,17 @@ define internal void @RenameStreamCb(ptr noundef %0, i32 noundef %1, ptr noundef
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  store ptr %8, ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !73
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %8, ptr %7, align 8, !tbaa !75
+  %9 = load ptr, ptr %7, align 8, !tbaa !75
   %10 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %9, i32 0, i32 5
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !90
   call void @pa_threaded_mainloop_signal(ptr noundef %11, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
   ret void
 }
 
@@ -2758,120 +2934,270 @@ define i32 @PaPulseAudio_RenameSink(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  store ptr null, ptr %8, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %11, i32 0, i32 9
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %2
-  store i32 -9996, ptr %3, align 4
-  br label %62
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %11, ptr %6, align 8, !tbaa !75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  store ptr null, ptr %8, align 8, !tbaa !95
+  %12 = load ptr, ptr %6, align 8, !tbaa !75
+  %13 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %12, i32 0, i32 9
+  %14 = load ptr, ptr %13, align 8, !tbaa !126
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %17, i32 0, i32 5
-  %19 = load ptr, ptr %18, align 8
-  call void @PaPulseAudio_Lock(ptr noundef %19)
-  %20 = load ptr, ptr %5, align 8
-  %21 = call i64 @strnlen(ptr noundef %20, i64 noundef 1024) #9
-  %22 = add i64 %21, 1
-  %23 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %22)
-  store ptr %23, ptr %9, align 8
-  %24 = load ptr, ptr %9, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %30, label %26
+  store i32 -9996, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %58
 
-26:                                               ; preds = %16
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %27, i32 0, i32 5
-  %29 = load ptr, ptr %28, align 8
-  call void @PaPulseAudio_UnLock(ptr noundef %29)
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %6, align 8, !tbaa !75
+  %19 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8, !tbaa !90
+  call void @PaPulseAudio_Lock(ptr noundef %20)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %21 = load ptr, ptr %5, align 8, !tbaa !25
+  %22 = call i64 @strnlen(ptr noundef %21, i64 noundef 1024) #11
+  %23 = add i64 %22, 1
+  %24 = call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %23)
+  store ptr %24, ptr %10, align 8, !tbaa !25
+  %25 = load ptr, ptr %10, align 8, !tbaa !25
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %31, label %27
+
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %6, align 8, !tbaa !75
+  %29 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %28, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8, !tbaa !90
+  call void @PaPulseAudio_UnLock(ptr noundef %30)
   store i32 -9992, ptr %3, align 4
-  br label %62
+  store i32 1, ptr %9, align 4
+  br label %57
 
-30:                                               ; preds = %16
-  %31 = load ptr, ptr %9, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = call i64 @strnlen(ptr noundef %32, i64 noundef 1024) #9
-  %34 = add i64 %33, 1
-  %35 = load ptr, ptr %5, align 8
-  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef %34, ptr noundef @.str.2, ptr noundef %35) #8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %37, i32 0, i32 23
-  %39 = load ptr, ptr %38, align 8
-  call void @PaUtil_FreeMemory(ptr noundef %39)
-  %40 = load ptr, ptr %9, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %41, i32 0, i32 23
-  store ptr %40, ptr %42, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %43, i32 0, i32 9
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = call ptr @pa_stream_set_name(ptr noundef %45, ptr noundef %46, ptr noundef @RenameStreamCb, ptr noundef %47)
-  store ptr %48, ptr %8, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %49, i32 0, i32 5
-  %51 = load ptr, ptr %50, align 8
-  call void @PaPulseAudio_UnLock(ptr noundef %51)
-  br label %52
+31:                                               ; preds = %17
+  %32 = load ptr, ptr %10, align 8, !tbaa !25
+  %33 = load ptr, ptr %5, align 8, !tbaa !25
+  %34 = call i64 @strnlen(ptr noundef %33, i64 noundef 1024) #11
+  %35 = add i64 %34, 1
+  %36 = load ptr, ptr %5, align 8, !tbaa !25
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef %35, ptr noundef @.str.2, ptr noundef %36) #10
+  %38 = load ptr, ptr %6, align 8, !tbaa !75
+  %39 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %38, i32 0, i32 23
+  %40 = load ptr, ptr %39, align 8, !tbaa !120
+  call void @PaUtil_FreeMemory(ptr noundef %40)
+  %41 = load ptr, ptr %10, align 8, !tbaa !25
+  %42 = load ptr, ptr %6, align 8, !tbaa !75
+  %43 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %42, i32 0, i32 23
+  store ptr %41, ptr %43, align 8, !tbaa !120
+  %44 = load ptr, ptr %6, align 8, !tbaa !75
+  %45 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %44, i32 0, i32 9
+  %46 = load ptr, ptr %45, align 8, !tbaa !126
+  %47 = load ptr, ptr %5, align 8, !tbaa !25
+  %48 = load ptr, ptr %6, align 8, !tbaa !75
+  %49 = call ptr @pa_stream_set_name(ptr noundef %46, ptr noundef %47, ptr noundef @RenameStreamCb, ptr noundef %48)
+  store ptr %49, ptr %8, align 8, !tbaa !95
+  %50 = load ptr, ptr %6, align 8, !tbaa !75
+  %51 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %50, i32 0, i32 5
+  %52 = load ptr, ptr %51, align 8, !tbaa !90
+  call void @PaPulseAudio_UnLock(ptr noundef %52)
+  %53 = load ptr, ptr %6, align 8, !tbaa !75
+  %54 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %53, i32 0, i32 3
+  %55 = load ptr, ptr %54, align 8, !tbaa !144
+  call void @PaPulseAudio_ReleaseOperation(ptr noundef %55, ptr noundef %8)
+  %56 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %56, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-52:                                               ; preds = %56, %30
-  %53 = load ptr, ptr %8, align 8
-  %54 = call i32 @pa_operation_get_state(ptr noundef %53)
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %60
+57:                                               ; preds = %31, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  br label %58
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds nuw %struct.PaPulseAudio_Stream, ptr %57, i32 0, i32 5
-  %59 = load ptr, ptr %58, align 8
-  call void @pa_threaded_mainloop_wait(ptr noundef %59)
-  br label %52, !llvm.loop !12
-
-60:                                               ; preds = %52
-  %61 = load i32, ptr %7, align 4
-  store i32 %61, ptr %3, align 4
-  br label %62
-
-62:                                               ; preds = %60, %26, %15
-  %63 = load i32, ptr %3, align 4
-  ret i32 %63
+58:                                               ; preds = %57, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %59 = load i32, ptr %3, align 4
+  ret i32 %59
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !21, i64 82232}
+!10 = !{!"", !11, i64 0, !17, i64 72, !17, i64 168, !4, i64 264, !8, i64 272, !5, i64 280, !5, i64 74008, !18, i64 82200, !19, i64 82216, !20, i64 82224, !21, i64 82232, !8, i64 82240, !22, i64 82248}
+!11 = !{!"PaUtilHostApiRepresentation", !12, i64 0, !14, i64 8, !16, i64 40, !4, i64 48, !4, i64 56, !4, i64 64}
+!12 = !{!"PaUtilPrivatePaFrontHostApiInfo", !13, i64 0}
+!13 = !{!"long", !5, i64 0}
+!14 = !{!"PaHostApiInfo", !8, i64 0, !8, i64 4, !15, i64 8, !8, i64 16, !8, i64 20, !8, i64 24}
+!15 = !{!"p1 omnipotent char", !4, i64 0}
+!16 = !{!"p2 _ZTS12PaDeviceInfo", !4, i64 0}
+!17 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88}
+!18 = !{!"pa_sample_spec", !8, i64 0, !8, i64 4, !5, i64 8}
+!19 = !{!"p1 _ZTS20pa_threaded_mainloop", !4, i64 0}
+!20 = !{!"p1 _ZTS15pa_mainloop_api", !4, i64 0}
+!21 = !{!"p1 _ZTS10pa_context", !4, i64 0}
+!22 = !{!"p1 _ZTS13pa_time_event", !4, i64 0}
+!23 = !{!10, !19, i64 82216}
+!24 = !{!10, !20, i64 82224}
+!25 = !{!15, !15, i64 0}
+!26 = !{!10, !8, i64 82240}
+!27 = !{!21, !21, i64 0}
+!28 = !{!10, !22, i64 82248}
+!29 = !{!30, !4, i64 56}
+!30 = !{!"pa_mainloop_api", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88, !4, i64 96, !4, i64 104}
+!31 = !{!10, !4, i64 264}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS14pa_server_info", !4, i64 0}
+!34 = !{i64 0, i64 4, !7, i64 4, i64 4, !7, i64 8, i64 1, !35}
+!35 = !{!5, !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"double", !5, i64 0}
+!38 = !{!13, !13, i64 0}
+!39 = !{!40, !8, i64 0}
+!40 = !{!"PaDeviceInfo", !8, i64 0, !15, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !37, i64 32, !37, i64 40, !37, i64 48, !37, i64 56, !37, i64 64}
+!41 = !{!10, !8, i64 272}
+!42 = !{!40, !8, i64 16}
+!43 = !{!40, !15, i64 8}
+!44 = !{!40, !8, i64 20}
+!45 = !{!40, !8, i64 24}
+!46 = !{!40, !37, i64 32}
+!47 = !{!40, !37, i64 40}
+!48 = !{!40, !37, i64 48}
+!49 = !{!40, !37, i64 56}
+!50 = !{!40, !37, i64 64}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS12pa_sink_info", !4, i64 0}
+!53 = !{!54, !15, i64 0}
+!54 = !{!"pa_sink_info", !15, i64 0, !8, i64 8, !15, i64 16, !18, i64 24, !55, i64 36, !8, i64 168, !56, i64 172, !8, i64 304, !8, i64 308, !15, i64 312, !13, i64 320, !15, i64 328, !8, i64 336, !57, i64 344, !13, i64 352, !8, i64 360, !8, i64 364, !8, i64 368, !8, i64 372, !8, i64 376, !58, i64 384, !59, i64 392, !5, i64 400, !60, i64 408}
+!55 = !{!"pa_channel_map", !5, i64 0, !5, i64 4}
+!56 = !{!"pa_cvolume", !5, i64 0, !5, i64 4}
+!57 = !{!"p1 _ZTS11pa_proplist", !4, i64 0}
+!58 = !{!"p2 _ZTS17pa_sink_port_info", !4, i64 0}
+!59 = !{!"p1 _ZTS17pa_sink_port_info", !4, i64 0}
+!60 = !{!"p2 _ZTS14pa_format_info", !4, i64 0}
+!61 = !{!54, !15, i64 16}
+!62 = !{!54, !5, i64 32}
+!63 = !{!54, !8, i64 28}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS14pa_source_info", !4, i64 0}
+!66 = !{!67, !15, i64 0}
+!67 = !{!"pa_source_info", !15, i64 0, !8, i64 8, !15, i64 16, !18, i64 24, !55, i64 36, !8, i64 168, !56, i64 172, !8, i64 304, !8, i64 308, !15, i64 312, !13, i64 320, !15, i64 328, !8, i64 336, !57, i64 344, !13, i64 352, !8, i64 360, !8, i64 364, !8, i64 368, !8, i64 372, !8, i64 376, !68, i64 384, !69, i64 392, !5, i64 400, !60, i64 408}
+!68 = !{!"p2 _ZTS19pa_source_port_info", !4, i64 0}
+!69 = !{!"p1 _ZTS19pa_source_port_info", !4, i64 0}
+!70 = !{!67, !15, i64 16}
+!71 = !{!67, !5, i64 32}
+!72 = !{!67, !8, i64 28}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS9pa_stream", !4, i64 0}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"p1 _ZTS19PaPulseAudio_Stream", !4, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTS14pa_buffer_attr", !4, i64 0}
+!79 = !{!80, !8, i64 524}
+!80 = !{!"PaPulseAudio_Stream", !81, i64 0, !84, i64 80, !85, i64 104, !4, i64 408, !13, i64 416, !19, i64 424, !21, i64 432, !18, i64 440, !18, i64 452, !74, i64 464, !74, i64 472, !88, i64 480, !88, i64 500, !8, i64 520, !8, i64 524, !8, i64 528, !8, i64 532, !13, i64 536, !13, i64 544, !8, i64 552, !8, i64 556, !8, i64 560, !8, i64 564, !15, i64 568, !15, i64 576, !89, i64 584, !13, i64 640, !8, i64 648, !8, i64 652, !8, i64 656, !8, i64 660}
+!81 = !{!"PaUtilStreamRepresentation", !13, i64 0, !82, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !83, i64 48}
+!82 = !{!"p1 _ZTS26PaUtilStreamRepresentation", !4, i64 0}
+!83 = !{!"PaStreamInfo", !8, i64 0, !37, i64 8, !37, i64 16, !37, i64 24}
+!84 = !{!"", !37, i64 0, !37, i64 8, !37, i64 16}
+!85 = !{!"", !13, i64 0, !13, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28, !13, i64 32, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !4, i64 56, !4, i64 64, !8, i64 72, !8, i64 76, !8, i64 80, !8, i64 84, !4, i64 88, !4, i64 96, !13, i64 104, !13, i64 112, !4, i64 120, !4, i64 128, !13, i64 136, !4, i64 144, !4, i64 152, !13, i64 160, !86, i64 168, !13, i64 176, !8, i64 184, !5, i64 192, !5, i64 208, !8, i64 224, !5, i64 232, !5, i64 248, !87, i64 264, !37, i64 280, !4, i64 288, !4, i64 296}
+!86 = !{!"p1 _ZTS24PaStreamCallbackTimeInfo", !4, i64 0}
+!87 = !{!"PaUtilTriangularDitherGenerator", !8, i64 0, !8, i64 4, !8, i64 8}
+!88 = !{!"pa_buffer_attr", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16}
+!89 = !{!"PaUtilRingBuffer", !13, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !15, i64 48}
+!90 = !{!80, !19, i64 424}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p2 _ZTS27PaUtilHostApiRepresentation", !4, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTS12PaDeviceInfo", !4, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 _ZTS12pa_operation", !4, i64 0}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTS27PaUtilHostApiRepresentation", !4, i64 0}
+!99 = !{!11, !8, i64 8}
+!100 = !{!11, !8, i64 12}
+!101 = !{!11, !15, i64 16}
+!102 = !{!11, !8, i64 28}
+!103 = !{!11, !8, i64 32}
+!104 = distinct !{!104, !105}
+!105 = !{!"llvm.loop.mustprogress"}
+!106 = distinct !{!106, !105}
+!107 = !{!10, !8, i64 82204}
+!108 = !{!10, !8, i64 32}
+!109 = !{!10, !8, i64 28}
+!110 = !{!11, !8, i64 24}
+!111 = !{!11, !16, i64 40}
+!112 = distinct !{!112, !105}
+!113 = !{!11, !4, i64 48}
+!114 = !{!11, !4, i64 56}
+!115 = !{!11, !4, i64 64}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTS18PaStreamParameters", !4, i64 0}
+!118 = !{!80, !13, i64 416}
+!119 = !{!80, !15, i64 576}
+!120 = !{!80, !15, i64 568}
+!121 = !{!80, !8, i64 648}
+!122 = !{!80, !8, i64 652}
+!123 = !{!80, !8, i64 656}
+!124 = !{!80, !8, i64 660}
+!125 = !{!80, !74, i64 472}
+!126 = !{!80, !74, i64 464}
+!127 = !{!128, !8, i64 4}
+!128 = !{!"PaStreamParameters", !8, i64 0, !8, i64 4, !13, i64 8, !37, i64 16, !4, i64 24}
+!129 = !{!128, !13, i64 8}
+!130 = !{!128, !8, i64 0}
+!131 = !{!128, !4, i64 24}
+!132 = !{!80, !8, i64 556}
+!133 = !{!80, !8, i64 456}
+!134 = !{!80, !5, i64 460}
+!135 = !{!80, !8, i64 532}
+!136 = !{!80, !8, i64 560}
+!137 = !{!128, !37, i64 16}
+!138 = !{!80, !8, i64 520}
+!139 = !{!80, !8, i64 552}
+!140 = !{!80, !8, i64 444}
+!141 = !{!80, !5, i64 448}
+!142 = !{!80, !8, i64 528}
+!143 = !{!80, !8, i64 564}
+!144 = !{!80, !4, i64 408}
+!145 = !{!80, !21, i64 432}
+!146 = !{!80, !37, i64 56}
+!147 = !{!80, !37, i64 64}
+!148 = !{!80, !37, i64 72}
+!149 = !{!80, !13, i64 544}
+!150 = !{!80, !13, i64 536}
+!151 = !{!152, !37, i64 8}
+!152 = !{!"PaStreamCallbackTimeInfo", !37, i64 0, !37, i64 8, !37, i64 16}
+!153 = !{!154, !154, i64 0}
+!154 = !{!"p1 _ZTS14pa_sample_spec", !4, i64 0}
+!155 = !{!18, !8, i64 0}
+!156 = !{!157, !157, i64 0}
+!157 = !{!"p1 _ZTS16PaUtilRingBuffer", !4, i64 0}

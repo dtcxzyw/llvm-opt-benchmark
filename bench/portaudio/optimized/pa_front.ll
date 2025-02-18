@@ -3,13 +3,9 @@ source_filename = "bench/portaudio/original/pa_front.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PaVersionInfo = type { i32, i32, i32, ptr, ptr }
-%struct.PaHostErrorInfo = type { i32, i64, ptr }
 %struct.PaStreamParameters = type { i32, i32, i64, double, ptr }
 
 @.str = private unnamed_addr constant [42 x i8] c"PortAudio V19.7.0-devel, revision unknown\00", align 1
-@versionInfo_ = internal global %struct.PaVersionInfo { i32 19, i32 7, i32 0, ptr @.str.34, ptr @.str }, align 8
-@lastHostErrorInfo_ = internal global %struct.PaHostErrorInfo { i32 -1, i64 0, ptr @lastHostErrorText_ }, align 8
 @lastHostErrorText_ = internal global [1025 x i8] zeroinitializer, align 16
 @firstOpenStream_ = local_unnamed_addr global ptr null, align 8
 @initializationCount_ = internal unnamed_addr global i32 0, align 4
@@ -52,6 +48,8 @@ target triple = "x86_64-pc-linux-gnu"
 @defaultHostApiIndex_ = internal unnamed_addr global i32 0, align 4
 @deviceCount_ = internal unnamed_addr global i32 0, align 4
 @.str.34 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@versionInfo_ = internal global { i32, i32, i32, [4 x i8], ptr, ptr } { i32 19, i32 7, i32 0, [4 x i8] zeroinitializer, ptr @.str.34, ptr @.str }, align 8
+@lastHostErrorInfo_ = internal global { i32, [4 x i8], i64, ptr } { i32 -1, [4 x i8] zeroinitializer, i64 0, ptr @lastHostErrorText_ }, align 8
 @paHostApiInitializers = external local_unnamed_addr global [0 x ptr], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -71,9 +69,9 @@ define noundef nonnull ptr @Pa_GetVersionInfo() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @PaUtil_SetLastHostErrorInfo(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
-  store i32 %0, ptr @lastHostErrorInfo_, align 8
-  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @lastHostErrorInfo_, i64 8), align 8
-  %4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @lastHostErrorText_, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #12
+  store i32 %0, ptr @lastHostErrorInfo_, align 8, !tbaa !3
+  store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @lastHostErrorInfo_, i64 8), align 8, !tbaa !11
+  %4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @lastHostErrorText_, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #13
   ret void
 }
 
@@ -82,13 +80,13 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_Initialize() local_unnamed_addr #3 {
-  %1 = load i32, ptr @initializationCount_, align 4
+  %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
   %3 = add nsw i32 %1, 1
-  store i32 %3, ptr @initializationCount_, align 4
+  store i32 %3, ptr @initializationCount_, align 4, !tbaa !12
   br label %71
 
 4:                                                ; preds = %0
@@ -97,30 +95,30 @@ define i32 @Pa_Initialize() local_unnamed_addr #3 {
 
 5:                                                ; preds = %4
   store i1 true, ptr @initializing_, align 4
-  tail call void @PaUtil_InitializeClock() #12
+  tail call void @PaUtil_InitializeClock() #13
   br label %6
 
 6:                                                ; preds = %6, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %6 ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw [0 x ptr], ptr @paHostApiInitializers, i64 0, i64 %indvars.iv.i.i
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %8, null
   %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
-  br i1 %.not.i.i, label %CountHostApiInitializers.exit.i, label %6, !llvm.loop !4
+  br i1 %.not.i.i, label %CountHostApiInitializers.exit.i, label %6, !llvm.loop !14
 
 CountHostApiInitializers.exit.i:                  ; preds = %6
   %indvars8.le = trunc i64 %indvars.iv.i.i to i32
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %9 = ashr exact i64 %sext.i, 29
-  %10 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %9) #12
-  store ptr %10, ptr @hostApis_, align 8
+  %10 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %9) #13
+  store ptr %10, ptr @hostApis_, align 8, !tbaa !16
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.loopexit.i, label %11
 
 11:                                               ; preds = %CountHostApiInitializers.exit.i
-  store i32 0, ptr @hostApisCount_, align 4
-  store i32 -1, ptr @defaultHostApiIndex_, align 4
-  store i32 0, ptr @deviceCount_, align 4
+  store i32 0, ptr @hostApisCount_, align 4, !tbaa !12
+  store i32 -1, ptr @defaultHostApiIndex_, align 4, !tbaa !12
+  store i32 0, ptr @deviceCount_, align 4, !tbaa !12
   %.not39.i = icmp eq i64 %indvars.iv.i.i, 0
   br i1 %.not39.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
@@ -136,27 +134,27 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   %.02138.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %51 ]
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
-  store ptr null, ptr %15, align 8
+  store ptr null, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw [0 x ptr], ptr @paHostApiInitializers, i64 0, i64 %indvars.iv.i
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef nonnull %15, i32 noundef %12) #12
+  %17 = load ptr, ptr %16, align 8, !tbaa !13
+  %18 = tail call i32 %17(ptr noundef nonnull %15, i32 noundef %12) #13
   %.not30.i = icmp eq i32 %18, 0
   br i1 %.not30.i, label %19, label %.loopexit.i
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = load ptr, ptr @hostApis_, align 8
-  %21 = load i32, ptr @hostApisCount_, align 4
+  %20 = load ptr, ptr @hostApis_, align 8, !tbaa !16
+  %21 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds ptr, ptr %20, i64 %22
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
   %.not31.i = icmp eq ptr %24, null
   br i1 %.not31.i, label %51, label %25
 
 25:                                               ; preds = %19
-  %26 = load i32, ptr @defaultHostApiIndex_, align 4
+  %26 = load i32, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   %27 = icmp eq i32 %26, -1
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
-  %29 = load i32, ptr %28, align 4
+  %29 = load i32, ptr %28, align 4, !tbaa !20
   br i1 %27, label %30, label %._crit_edge44.i
 
 30:                                               ; preds = %25
@@ -165,50 +163,50 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %33 = load i32, ptr %32, align 8
+  %33 = load i32, ptr %32, align 8, !tbaa !25
   %.not33.i = icmp eq i32 %33, -1
   br i1 %.not33.i, label %.thread.i, label %35
 
 .thread.i:                                        ; preds = %31
   %34 = sext i32 %.02138.i to i64
-  store i64 %34, ptr %24, align 8
+  store i64 %34, ptr %24, align 8, !tbaa !26
   br label %39
 
 35:                                               ; preds = %31, %30
-  store i32 %21, ptr @defaultHostApiIndex_, align 4
+  store i32 %21, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   br label %._crit_edge44.i
 
 ._crit_edge44.i:                                  ; preds = %35, %25
   %36 = sext i32 %.02138.i to i64
-  store i64 %36, ptr %24, align 8
+  store i64 %36, ptr %24, align 8, !tbaa !26
   %.not34.i = icmp eq i32 %29, -1
   br i1 %.not34.i, label %39, label %37
 
 37:                                               ; preds = %._crit_edge44.i
   %38 = add nsw i32 %29, %.02138.i
-  store i32 %38, ptr %28, align 4
+  store i32 %38, ptr %28, align 4, !tbaa !20
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge44.i, %.thread.i
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %41 = load i32, ptr %40, align 8
+  %41 = load i32, ptr %40, align 8, !tbaa !25
   %.not35.i = icmp eq i32 %41, -1
   br i1 %.not35.i, label %44, label %42
 
 42:                                               ; preds = %39
   %43 = add nsw i32 %41, %.02138.i
-  store i32 %43, ptr %40, align 8
+  store i32 %43, ptr %40, align 8, !tbaa !25
   br label %44
 
 44:                                               ; preds = %42, %39
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %46 = load i32, ptr %45, align 8
+  %46 = load i32, ptr %45, align 8, !tbaa !27
   %47 = add nsw i32 %46, %.02138.i
-  %48 = load i32, ptr @deviceCount_, align 4
+  %48 = load i32, ptr @deviceCount_, align 4, !tbaa !12
   %49 = add nsw i32 %48, %46
-  store i32 %49, ptr @deviceCount_, align 4
+  store i32 %49, ptr @deviceCount_, align 4, !tbaa !12
   %50 = add nsw i32 %21, 1
-  store i32 %50, ptr @hostApisCount_, align 4
+  store i32 %50, ptr @hostApisCount_, align 4, !tbaa !12
   br label %51
 
 51:                                               ; preds = %44, %19
@@ -216,58 +214,58 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   %.1.i = phi i32 [ %47, %44 ], [ %.02138.i, %19 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %51
-  %.pre45.i = load i32, ptr @defaultHostApiIndex_, align 4
+  %.pre45.i = load i32, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   %53 = icmp eq i32 %.pre45.i, -1
   br i1 %53, label %._crit_edge.thread.i, label %InitializeHostApis.exit.thread
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %11
-  store i32 0, ptr @defaultHostApiIndex_, align 4
+  store i32 0, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   br label %InitializeHostApis.exit.thread
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %CountHostApiInitializers.exit.i
   %.022.i = phi i32 [ -9992, %CountHostApiInitializers.exit.i ], [ %18, %.lr.ph.i ]
-  %54 = load i32, ptr @hostApisCount_, align 4
+  %54 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i, %.lr.ph.i.i
   %56 = phi i32 [ %64, %.lr.ph.i.i ], [ %54, %.loopexit.i ]
   %57 = add nsw i32 %56, -1
-  store i32 %57, ptr @hostApisCount_, align 4
-  %58 = load ptr, ptr @hostApis_, align 8
+  store i32 %57, ptr @hostApisCount_, align 4, !tbaa !12
+  %58 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %59 = zext nneg i32 %57 to i64
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
-  %61 = load ptr, ptr %60, align 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !18
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
-  %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef %61) #12
-  %64 = load i32, ptr @hostApisCount_, align 4
+  %63 = load ptr, ptr %62, align 8, !tbaa !29
+  tail call void %63(ptr noundef %61) #13
+  %64 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !7
+  br i1 %65, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.loopexit.i
-  store i32 0, ptr @hostApisCount_, align 4
-  store i32 0, ptr @defaultHostApiIndex_, align 4
-  store i32 0, ptr @deviceCount_, align 4
-  %66 = load ptr, ptr @hostApis_, align 8
+  store i32 0, ptr @hostApisCount_, align 4, !tbaa !12
+  store i32 0, ptr @defaultHostApiIndex_, align 4, !tbaa !12
+  store i32 0, ptr @deviceCount_, align 4, !tbaa !12
+  %66 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %.not.i36.i = icmp eq ptr %66, null
   br i1 %.not.i36.i, label %InitializeHostApis.exit, label %67
 
 67:                                               ; preds = %._crit_edge.i.i
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %66) #12
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %66) #13
   br label %InitializeHostApis.exit
 
 InitializeHostApis.exit:                          ; preds = %._crit_edge.i.i, %67
-  store ptr null, ptr @hostApis_, align 8
+  store ptr null, ptr @hostApis_, align 8, !tbaa !16
   br label %70
 
 InitializeHostApis.exit.thread:                   ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %68 = load i32, ptr @initializationCount_, align 4
+  %68 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr @initializationCount_, align 4
+  store i32 %69, ptr @initializationCount_, align 4, !tbaa !12
   br label %70
 
 70:                                               ; preds = %InitializeHostApis.exit, %InitializeHostApis.exit.thread
@@ -280,23 +278,29 @@ InitializeHostApis.exit.thread:                   ; preds = %._crit_edge.i, %._c
   ret i32 %.0
 }
 
-declare void @PaUtil_InitializeClock() local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+declare void @PaUtil_InitializeClock() local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -10000, 1) i32 @Pa_Terminate() local_unnamed_addr #3 {
-  %1 = load i32, ptr @initializationCount_, align 4
+  %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   switch i32 %1, label %40 [
     i32 0, label %43
     i32 1, label %2
   ]
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr @firstOpenStream_, align 8
+  %3 = load ptr, ptr @firstOpenStream_, align 8, !tbaa !31
   %.not2.i = icmp eq ptr %3, null
   br i1 %.not2.i, label %CloseOpenStreams.exit, label %.lr.ph.split.i
 
 .lr.ph.splitthread-pre-split.i:                   ; preds = %Pa_CloseStream.exit.i
-  %.pr.i = load i32, ptr @initializationCount_, align 4
+  %.pr.i = load i32, ptr @initializationCount_, align 4, !tbaa !12
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %2, %.lr.ph.splitthread-pre-split.i
@@ -306,25 +310,25 @@ define range(i32 -10000, 1) i32 @Pa_Terminate() local_unnamed_addr #3 {
   br i1 %.not.i.i.i, label %RemoveOpenStream.exit.i.thread.i, label %6
 
 6:                                                ; preds = %.lr.ph.split.i
-  %7 = load i64, ptr %5, align 8
+  %7 = load i64, ptr %5, align 8, !tbaa !33
   %.not3.i.i.i = icmp eq i64 %7, 405222981
   br i1 %.not3.i.i.i, label %10, label %RemoveOpenStream.exit.i.thread.i
 
 RemoveOpenStream.exit.i.thread.i:                 ; preds = %6, %.lr.ph.split.i
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr @firstOpenStream_, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
+  store ptr %9, ptr @firstOpenStream_, align 8, !tbaa !31
   br label %Pa_CloseStream.exit.i
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr @firstOpenStream_, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  store ptr %12, ptr @firstOpenStream_, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef nonnull %5) #12
+  %16 = load ptr, ptr %15, align 8, !tbaa !39
+  %17 = tail call i32 %16(ptr noundef nonnull %5) #13
   switch i32 %17, label %Pa_CloseStream.exitthread-pre-split.i [
     i32 1, label %.thread.i.i
     i32 0, label %18
@@ -332,66 +336,66 @@ RemoveOpenStream.exit.i.thread.i:                 ; preds = %6, %.lr.ph.split.i
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef nonnull %5) #12
+  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  %21 = tail call i32 %20(ptr noundef nonnull %5) #13
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread.i.i, label %Pa_CloseStream.exitthread-pre-split.i
 
 .thread.i.i:                                      ; preds = %18, %10
-  %23 = load ptr, ptr %14, align 8
-  %24 = tail call i32 %23(ptr noundef nonnull %5) #12
+  %23 = load ptr, ptr %14, align 8, !tbaa !42
+  %24 = tail call i32 %23(ptr noundef nonnull %5) #13
   br label %Pa_CloseStream.exitthread-pre-split.i
 
 Pa_CloseStream.exitthread-pre-split.i:            ; preds = %.thread.i.i, %18, %10
-  %.pr3.i = load ptr, ptr @firstOpenStream_, align 8
+  %.pr3.i = load ptr, ptr @firstOpenStream_, align 8, !tbaa !31
   br label %Pa_CloseStream.exit.i
 
 Pa_CloseStream.exit.i:                            ; preds = %Pa_CloseStream.exitthread-pre-split.i, %RemoveOpenStream.exit.i.thread.i
   %25 = phi ptr [ %.pr3.i, %Pa_CloseStream.exitthread-pre-split.i ], [ %9, %RemoveOpenStream.exit.i.thread.i ]
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %CloseOpenStreams.exit, label %.lr.ph.splitthread-pre-split.i, !llvm.loop !8
+  br i1 %.not.i, label %CloseOpenStreams.exit, label %.lr.ph.splitthread-pre-split.i, !llvm.loop !43
 
 CloseOpenStreams.exit:                            ; preds = %Pa_CloseStream.exit.i, %2
-  %26 = load i32, ptr @hostApisCount_, align 4
+  %26 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph.i3, label %._crit_edge.i
 
 .lr.ph.i3:                                        ; preds = %CloseOpenStreams.exit, %.lr.ph.i3
   %28 = phi i32 [ %36, %.lr.ph.i3 ], [ %26, %CloseOpenStreams.exit ]
   %29 = add nsw i32 %28, -1
-  store i32 %29, ptr @hostApisCount_, align 4
-  %30 = load ptr, ptr @hostApis_, align 8
+  store i32 %29, ptr @hostApisCount_, align 4, !tbaa !12
+  %30 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %31 = zext nneg i32 %29 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef %33) #12
-  %36 = load i32, ptr @hostApisCount_, align 4
+  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  tail call void %35(ptr noundef %33) #13
+  %36 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph.i3, label %._crit_edge.i, !llvm.loop !7
+  br i1 %37, label %.lr.ph.i3, label %._crit_edge.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %CloseOpenStreams.exit
-  store i32 0, ptr @hostApisCount_, align 4
-  store i32 0, ptr @defaultHostApiIndex_, align 4
-  store i32 0, ptr @deviceCount_, align 4
-  %38 = load ptr, ptr @hostApis_, align 8
+  store i32 0, ptr @hostApisCount_, align 4, !tbaa !12
+  store i32 0, ptr @defaultHostApiIndex_, align 4, !tbaa !12
+  store i32 0, ptr @deviceCount_, align 4, !tbaa !12
+  %38 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %.not.i2 = icmp eq ptr %38, null
   br i1 %.not.i2, label %TerminateHostApis.exit, label %39
 
 39:                                               ; preds = %._crit_edge.i
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %38) #12
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %38) #13
   br label %TerminateHostApis.exit
 
 TerminateHostApis.exit:                           ; preds = %._crit_edge.i, %39
-  store ptr null, ptr @hostApis_, align 8
-  %.pre = load i32, ptr @initializationCount_, align 4
+  store ptr null, ptr @hostApis_, align 8, !tbaa !16
+  %.pre = load i32, ptr @initializationCount_, align 4, !tbaa !12
   br label %40
 
 40:                                               ; preds = %0, %TerminateHostApis.exit
   %41 = phi i32 [ %1, %0 ], [ %.pre, %TerminateHostApis.exit ]
   %42 = add nsw i32 %41, -1
-  store i32 %42, ptr @initializationCount_, align 4
+  store i32 %42, ptr @initializationCount_, align 4, !tbaa !12
   br label %43
 
 43:                                               ; preds = %0, %40
@@ -541,34 +545,34 @@ define noundef nonnull ptr @Pa_GetErrorText(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Pa_HostApiTypeIdToHostApiIndex(i32 noundef %0) local_unnamed_addr #5 {
-  %2 = load i32, ptr @initializationCount_, align 4
+define range(i32 -2147483648, 2147483647) i32 @Pa_HostApiTypeIdToHostApiIndex(i32 noundef %0) local_unnamed_addr #6 {
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = load i32, ptr @hostApisCount_, align 4
+  %3 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = load ptr, ptr @hostApis_, align 8
+  %5 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %6
 
 6:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !45
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %.loopexit.loopexit.split.loop.exit, label %12
 
 12:                                               ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !46
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %6
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -580,37 +584,37 @@ define range(i32 -2147483648, 2147483647) i32 @Pa_HostApiTypeIdToHostApiIndex(i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = load i32, ptr @initializationCount_, align 4
+define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
+  %3 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = load i32, ptr @hostApisCount_, align 4
+  %4 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = load ptr, ptr @hostApis_, align 8
+  %6 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !47
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !45
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %7
 
 14:                                               ; preds = %8
-  store ptr %10, ptr %0, align 8
+  store ptr %10, ptr %0, align 8, !tbaa !18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.preheader, %2, %14
@@ -619,8 +623,8 @@ define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -9996, 1) i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
-  %4 = load i64, ptr %2, align 8
+define range(i32 -9996, 1) i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
+  %4 = load i64, ptr %2, align 8, !tbaa !26
   %5 = trunc i64 %4 to i32
   %6 = sub i32 %1, %5
   %7 = icmp slt i32 %6, 0
@@ -628,12 +632,12 @@ define range(i32 -9996, 1) i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr nound
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %10 = load i32, ptr %9, align 8
+  %10 = load i32, ptr %9, align 8, !tbaa !27
   %.not = icmp slt i32 %6, %10
   br i1 %.not, label %11, label %12
 
 11:                                               ; preds = %8
-  store i32 %6, ptr %0, align 4
+  store i32 %6, ptr %0, align 4, !tbaa !12
   br label %12
 
 12:                                               ; preds = %3, %8, %11
@@ -642,8 +646,8 @@ define range(i32 -9996, 1) i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Pa_GetHostApiCount() local_unnamed_addr #8 {
-  %1 = load i32, ptr @initializationCount_, align 4
+define range(i32 -2147483647, -2147483648) i32 @Pa_GetHostApiCount() local_unnamed_addr #9 {
+  %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %1, 0
   %2 = load i32, ptr @hostApisCount_, align 4
   %.0 = select i1 %.not, i32 -10000, i32 %2
@@ -651,13 +655,13 @@ define range(i32 -2147483647, -2147483648) i32 @Pa_GetHostApiCount() local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 -10000, 2147483647) i32 @Pa_GetDefaultHostApi() local_unnamed_addr #8 {
-  %1 = load i32, ptr @initializationCount_, align 4
+define range(i32 -10000, 2147483647) i32 @Pa_GetDefaultHostApi() local_unnamed_addr #9 {
+  %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %0
-  %3 = load i32, ptr @defaultHostApiIndex_, align 4
+  %3 = load i32, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   %4 = icmp sgt i32 %3, -1
   %5 = load i32, ptr @hostApisCount_, align 4
   %.not4 = icmp slt i32 %3, %5
@@ -671,8 +675,8 @@ define range(i32 -10000, 2147483647) i32 @Pa_GetDefaultHostApi() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Pa_GetHostApiInfo(i32 noundef %0) local_unnamed_addr #9 {
-  %2 = load i32, ptr @initializationCount_, align 4
+define ptr @Pa_GetHostApiInfo(i32 noundef %0) local_unnamed_addr #10 {
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %12, label %3
 
@@ -684,10 +688,10 @@ define ptr @Pa_GetHostApiInfo(i32 noundef %0) local_unnamed_addr #9 {
   br i1 %or.cond, label %6, label %12
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @hostApis_, align 8
+  %7 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %8 = zext nneg i32 %0 to i64
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %12
 
@@ -697,8 +701,8 @@ define ptr @Pa_GetHostApiInfo(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) local_unnamed_addr #9 {
-  %3 = load i32, ptr @initializationCount_, align 4
+define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+  %3 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %20, label %4
 
@@ -714,17 +718,17 @@ define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) l
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr @hostApis_, align 8
+  %10 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %11 = zext nneg i32 %0 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !27
   %.not11 = icmp slt i32 %1, %15
   br i1 %.not11, label %16, label %20
 
 16:                                               ; preds = %9
-  %17 = load i64, ptr %13, align 8
+  %17 = load i64, ptr %13, align 8, !tbaa !26
   %18 = trunc i64 %17 to i32
   %19 = add i32 %1, %18
   br label %20
@@ -735,8 +739,8 @@ define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @Pa_GetDeviceCount() local_unnamed_addr #8 {
-  %1 = load i32, ptr @initializationCount_, align 4
+define i32 @Pa_GetDeviceCount() local_unnamed_addr #9 {
+  %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %1, 0
   %2 = load i32, ptr @deviceCount_, align 4
   %.0 = select i1 %.not, i32 -10000, i32 %2
@@ -744,13 +748,13 @@ define i32 @Pa_GetDeviceCount() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Pa_GetDefaultInputDevice() local_unnamed_addr #9 {
-  %1 = load i32, ptr @initializationCount_, align 4
+define i32 @Pa_GetDefaultInputDevice() local_unnamed_addr #10 {
+  %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %Pa_GetDefaultHostApi.exit.thread, label %2
 
 2:                                                ; preds = %0
-  %3 = load i32, ptr @defaultHostApiIndex_, align 4
+  %3 = load i32, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   %4 = icmp sgt i32 %3, -1
   %5 = load i32, ptr @hostApisCount_, align 4
   %.not4.i = icmp slt i32 %3, %5
@@ -758,12 +762,12 @@ define i32 @Pa_GetDefaultInputDevice() local_unnamed_addr #9 {
   br i1 %or.cond.i, label %Pa_GetDefaultHostApi.exit, label %Pa_GetDefaultHostApi.exit.thread
 
 Pa_GetDefaultHostApi.exit:                        ; preds = %2
-  %6 = load ptr, ptr @hostApis_, align 8
+  %6 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   br label %Pa_GetDefaultHostApi.exit.thread
 
 Pa_GetDefaultHostApi.exit.thread:                 ; preds = %2, %0, %Pa_GetDefaultHostApi.exit
@@ -772,13 +776,13 @@ Pa_GetDefaultHostApi.exit.thread:                 ; preds = %2, %0, %Pa_GetDefau
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Pa_GetDefaultOutputDevice() local_unnamed_addr #9 {
-  %1 = load i32, ptr @initializationCount_, align 4
+define i32 @Pa_GetDefaultOutputDevice() local_unnamed_addr #10 {
+  %1 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %Pa_GetDefaultHostApi.exit.thread, label %2
 
 2:                                                ; preds = %0
-  %3 = load i32, ptr @defaultHostApiIndex_, align 4
+  %3 = load i32, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   %4 = icmp sgt i32 %3, -1
   %5 = load i32, ptr @hostApisCount_, align 4
   %.not4.i = icmp slt i32 %3, %5
@@ -786,12 +790,12 @@ define i32 @Pa_GetDefaultOutputDevice() local_unnamed_addr #9 {
   br i1 %or.cond.i, label %Pa_GetDefaultHostApi.exit, label %Pa_GetDefaultHostApi.exit.thread
 
 Pa_GetDefaultHostApi.exit:                        ; preds = %2
-  %6 = load ptr, ptr @hostApis_, align 8
+  %6 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 8, !tbaa !25
   br label %Pa_GetDefaultHostApi.exit.thread
 
 Pa_GetDefaultHostApi.exit.thread:                 ; preds = %2, %0, %Pa_GetDefaultHostApi.exit
@@ -800,20 +804,20 @@ Pa_GetDefaultHostApi.exit.thread:                 ; preds = %2, %0, %Pa_GetDefau
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Pa_GetDeviceInfo(i32 noundef %0) local_unnamed_addr #5 {
-  %2 = load i32, ptr @initializationCount_, align 4
+define ptr @Pa_GetDeviceInfo(i32 noundef %0) local_unnamed_addr #6 {
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   %3 = icmp slt i32 %0, 0
   %or.cond.i = or i1 %3, %.not.i
   br i1 %or.cond.i, label %FindHostApi.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %4 = load i32, ptr @hostApisCount_, align 4
+  %4 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %FindHostApi.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %6 = load ptr, ptr @hostApis_, align 8
+  %6 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %wide.trip.count.i = zext nneg i32 %4 to i64
   br label %7
 
@@ -821,9 +825,9 @@ define ptr @Pa_GetDeviceInfo(i32 noundef %0) local_unnamed_addr #5 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %.01321.i = phi i32 [ %0, %.lr.ph.i ], [ %13, %12 ]
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 8, !tbaa !27
   %.not17.i = icmp slt i32 %.01321.i, %11
   br i1 %.not17.i, label %FindHostApi.exit, label %12
 
@@ -831,17 +835,17 @@ define ptr @Pa_GetDeviceInfo(i32 noundef %0) local_unnamed_addr #5 {
   %13 = sub nsw i32 %.01321.i, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %FindHostApi.exit.thread, label %7, !llvm.loop !12
+  br i1 %exitcond.not.i, label %FindHostApi.exit.thread, label %7, !llvm.loop !48
 
 FindHostApi.exit:                                 ; preds = %7
   %14 = and i64 %indvars.iv.i, 4294967295
   %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %14
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !49
   %19 = sext i32 %.01321.i to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !50
   br label %FindHostApi.exit.thread
 
 FindHostApi.exit.thread:                          ; preds = %12, %.preheader.i, %1, %FindHostApi.exit
@@ -856,10 +860,15 @@ define i32 @Pa_IsFormatSupported(ptr noundef captures(address_is_null) %0, ptr n
   %6 = alloca i32, align 4
   %7 = alloca %struct.PaStreamParameters, align 8
   %8 = alloca %struct.PaStreamParameters, align 8
-  store ptr null, ptr %4, align 8
-  store i32 -1, ptr %5, align 4
-  store i32 -1, ptr %6, align 4
-  %9 = load i32, ptr @initializationCount_, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  store ptr null, ptr %4, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  store i32 -1, ptr %5, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  store i32 -1, ptr %6, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
+  %9 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %47, label %10
 
@@ -873,24 +882,24 @@ define i32 @Pa_IsFormatSupported(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %.not26, label %27, label %13
 
 13:                                               ; preds = %12
-  %14 = load i32, ptr %5, align 4
-  store i32 %14, ptr %7, align 8
+  %14 = load i32, ptr %5, align 4, !tbaa !12
+  store i32 %14, ptr %7, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %16, ptr %17, align 4
+  store i32 %16, ptr %17, align 4, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8
+  %19 = load i64, ptr %18, align 8, !tbaa !55
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %19, ptr %20, align 8
+  store i64 %19, ptr %20, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load double, ptr %21, align 8
+  %22 = load double, ptr %21, align 8, !tbaa !56
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store double %22, ptr %23, align 8
+  store double %22, ptr %23, align 8, !tbaa !56
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !57
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %25, ptr %26, align 8
+  store ptr %25, ptr %26, align 8, !tbaa !57
   br label %27
 
 27:                                               ; preds = %12, %13
@@ -899,41 +908,46 @@ define i32 @Pa_IsFormatSupported(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %.not27, label %42, label %28
 
 28:                                               ; preds = %27
-  %29 = load i32, ptr %6, align 4
-  store i32 %29, ptr %8, align 8
+  %29 = load i32, ptr %6, align 4, !tbaa !12
+  store i32 %29, ptr %8, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %31 = load i32, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %31, ptr %32, align 4
+  store i32 %31, ptr %32, align 4, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = load i64, ptr %33, align 8
+  %34 = load i64, ptr %33, align 8, !tbaa !55
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %34, ptr %35, align 8
+  store i64 %34, ptr %35, align 8, !tbaa !55
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = load double, ptr %36, align 8
+  %37 = load double, ptr %36, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %37, ptr %38, align 8
+  store double %37, ptr %38, align 8, !tbaa !56
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !57
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %40, ptr %41, align 8
+  store ptr %40, ptr %41, align 8, !tbaa !57
   br label %42
 
 42:                                               ; preds = %27, %28
   %.0 = phi ptr [ %8, %28 ], [ null, %27 ]
-  %43 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %4, align 8, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 %45(ptr noundef %43, ptr noundef %.020, ptr noundef %.0, double noundef %2) #12
+  %45 = load ptr, ptr %44, align 8, !tbaa !58
+  %46 = call i32 %45(ptr noundef %43, ptr noundef %.020, ptr noundef %.0, double noundef %2) #13
   br label %47
 
 47:                                               ; preds = %10, %3, %42
   %.021 = phi i32 [ %46, %42 ], [ -10000, %3 ], [ %11, %10 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   ret i32 %.021
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #6 {
+define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, double noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #7 {
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
   %or.cond = and i1 %10, %11
@@ -943,35 +957,35 @@ define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr
   br i1 %10, label %13, label %14
 
 13:                                               ; preds = %12
-  store i32 -1, ptr %7, align 4
+  store i32 -1, ptr %7, align 4, !tbaa !12
   br label %71
 
 14:                                               ; preds = %12
-  %15 = load i32, ptr %0, align 8
+  %15 = load i32, ptr %0, align 8, !tbaa !52
   %16 = icmp eq i32 %15, -2
   br i1 %16, label %17, label %38
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !57
   %.not80 = icmp eq ptr %19, null
   br i1 %.not80, label %FindHostApi.exit.thread, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load i32, ptr %21, align 8
-  %23 = load i32, ptr @initializationCount_, align 4
+  %22 = load i32, ptr %21, align 8, !tbaa !59
+  %23 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge, label %.preheader.i
 
 .Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge: ; preds = %20
-  %.pre = load ptr, ptr @hostApis_, align 8
+  %.pre = load ptr, ptr @hostApis_, align 8, !tbaa !16
   br label %Pa_HostApiTypeIdToHostApiIndex.exit.thread
 
 .preheader.i:                                     ; preds = %20
-  %24 = load i32, ptr @hostApisCount_, align 4
+  %24 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %25 = icmp sgt i32 %24, 0
-  %.pre157 = load ptr, ptr @hostApis_, align 8
+  %.pre157 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   br i1 %25, label %.lr.ph.i, label %Pa_HostApiTypeIdToHostApiIndex.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader.i
@@ -981,16 +995,16 @@ define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr
 26:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %27 = getelementptr inbounds nuw ptr, ptr %.pre157, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 4, !tbaa !45
   %31 = icmp eq i32 %30, %22
   br i1 %31, label %Pa_HostApiTypeIdToHostApiIndex.exit, label %32
 
 32:                                               ; preds = %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Pa_HostApiTypeIdToHostApiIndex.exit.thread, label %26, !llvm.loop !10
+  br i1 %exitcond.not.i, label %Pa_HostApiTypeIdToHostApiIndex.exit.thread, label %26, !llvm.loop !46
 
 Pa_HostApiTypeIdToHostApiIndex.exit:              ; preds = %26
   %33 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -999,11 +1013,11 @@ Pa_HostApiTypeIdToHostApiIndex.exit:              ; preds = %26
 Pa_HostApiTypeIdToHostApiIndex.exit.thread:       ; preds = %32, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge, %Pa_HostApiTypeIdToHostApiIndex.exit, %.preheader.i
   %34 = phi ptr [ %.pre157, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ %.pre157, %.preheader.i ], [ %.pre, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ %.pre157, %32 ]
   %.06.i129 = phi i32 [ %33, %Pa_HostApiTypeIdToHostApiIndex.exit ], [ -9979, %.preheader.i ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit.thread_crit_edge ], [ -9979, %32 ]
-  store i32 -2, ptr %7, align 4
+  store i32 -2, ptr %7, align 4, !tbaa !12
   %35 = sext i32 %.06.i129 to i64
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %6, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !18
+  store ptr %37, ptr %6, align 8, !tbaa !18
   br label %71
 
 38:                                               ; preds = %14
@@ -1014,17 +1028,17 @@ Pa_HostApiTypeIdToHostApiIndex.exit.thread:       ; preds = %32, %.Pa_HostApiTyp
   br i1 %or.cond93, label %41, label %FindHostApi.exit.thread
 
 41:                                               ; preds = %38
-  %42 = load i32, ptr @initializationCount_, align 4
+  %42 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i98 = icmp eq i32 %42, 0
   br i1 %.not.i98, label %FindHostApi.exit.thread, label %.preheader.i99
 
 .preheader.i99:                                   ; preds = %41
-  %43 = load i32, ptr @hostApisCount_, align 4
+  %43 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph.i100, label %FindHostApi.exit.thread
 
 .lr.ph.i100:                                      ; preds = %.preheader.i99
-  %45 = load ptr, ptr @hostApis_, align 8
+  %45 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %wide.trip.count.i101 = zext nneg i32 %43 to i64
   br label %46
 
@@ -1032,9 +1046,9 @@ Pa_HostApiTypeIdToHostApiIndex.exit.thread:       ; preds = %32, %.Pa_HostApiTyp
   %indvars.iv.i102 = phi i64 [ 0, %.lr.ph.i100 ], [ %indvars.iv.next.i103, %51 ]
   %.01321.i = phi i32 [ %15, %.lr.ph.i100 ], [ %52, %51 ]
   %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i102
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !18
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load i32, ptr %49, align 8
+  %50 = load i32, ptr %49, align 8, !tbaa !27
   %.not17.i = icmp slt i32 %.01321.i, %50
   br i1 %.not17.i, label %FindHostApi.exit, label %51
 
@@ -1042,23 +1056,23 @@ Pa_HostApiTypeIdToHostApiIndex.exit.thread:       ; preds = %32, %.Pa_HostApiTyp
   %52 = sub nsw i32 %.01321.i, %50
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i101
-  br i1 %exitcond.not.i104, label %FindHostApi.exit.thread, label %46, !llvm.loop !12
+  br i1 %exitcond.not.i104, label %FindHostApi.exit.thread, label %46, !llvm.loop !48
 
 FindHostApi.exit:                                 ; preds = %46
   %53 = trunc nuw nsw i64 %indvars.iv.i102 to i32
-  store i32 %.01321.i, ptr %7, align 4
+  store i32 %.01321.i, ptr %7, align 4, !tbaa !12
   %54 = and i64 %indvars.iv.i102, 4294967295
   %55 = getelementptr inbounds nuw ptr, ptr %45, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  store ptr %56, ptr %6, align 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !18
+  store ptr %56, ptr %6, align 8, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %58 = load i32, ptr %57, align 4
+  %58 = load i32, ptr %57, align 4, !tbaa !54
   %59 = icmp slt i32 %58, 1
   br i1 %59, label %FindHostApi.exit.thread, label %60
 
 60:                                               ; preds = %FindHostApi.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load i64, ptr %61, align 8
+  %62 = load i64, ptr %61, align 8, !tbaa !55
   %63 = and i64 %62, -2147483649
   switch i64 %63, label %FindHostApi.exit.thread [
     i64 1, label %SampleFormatIsValid.exit
@@ -1072,15 +1086,15 @@ FindHostApi.exit:                                 ; preds = %46
 
 SampleFormatIsValid.exit:                         ; preds = %60, %60, %60, %60, %60, %60, %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %65 = load ptr, ptr %64, align 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !57
   %.not78 = icmp eq ptr %65, null
   br i1 %.not78, label %71, label %66
 
 66:                                               ; preds = %SampleFormatIsValid.exit
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %68 = load i32, ptr %67, align 8
+  %68 = load i32, ptr %67, align 8, !tbaa !59
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %70 = load i32, ptr %69, align 4
+  %70 = load i32, ptr %69, align 4, !tbaa !45
   %.not79 = icmp eq i32 %68, %70
   br i1 %.not79, label %71, label %FindHostApi.exit.thread
 
@@ -1089,35 +1103,35 @@ SampleFormatIsValid.exit:                         ; preds = %60, %60, %60, %60, 
   br i1 %11, label %.thread, label %72
 
 .thread:                                          ; preds = %71
-  store i32 -1, ptr %8, align 4
+  store i32 -1, ptr %8, align 4, !tbaa !12
   br label %131
 
 72:                                               ; preds = %71
-  %73 = load i32, ptr %1, align 8
+  %73 = load i32, ptr %1, align 8, !tbaa !52
   %74 = icmp eq i32 %73, -2
   br i1 %74, label %75, label %96
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %77 = load ptr, ptr %76, align 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !57
   %.not86 = icmp eq ptr %77, null
   br i1 %.not86, label %FindHostApi.exit.thread, label %78
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = load i32, ptr @initializationCount_, align 4
+  %80 = load i32, ptr %79, align 8, !tbaa !59
+  %81 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i105 = icmp eq i32 %81, 0
   br i1 %.not.i105, label %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge, label %.preheader.i106
 
 .Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge: ; preds = %78
-  %.pre158 = load ptr, ptr @hostApis_, align 8
+  %.pre158 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   br label %Pa_HostApiTypeIdToHostApiIndex.exit114.thread
 
 .preheader.i106:                                  ; preds = %78
-  %82 = load i32, ptr @hostApisCount_, align 4
+  %82 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %83 = icmp sgt i32 %82, 0
-  %.pre159 = load ptr, ptr @hostApis_, align 8
+  %.pre159 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   br i1 %83, label %.lr.ph.i108, label %Pa_HostApiTypeIdToHostApiIndex.exit114.thread
 
 .lr.ph.i108:                                      ; preds = %.preheader.i106
@@ -1127,16 +1141,16 @@ SampleFormatIsValid.exit:                         ; preds = %60, %60, %60, %60, 
 84:                                               ; preds = %90, %.lr.ph.i108
   %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.i108 ], [ %indvars.iv.next.i111, %90 ]
   %85 = getelementptr inbounds nuw ptr, ptr %.pre159, i64 %indvars.iv.i110
-  %86 = load ptr, ptr %85, align 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !18
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
-  %88 = load i32, ptr %87, align 4
+  %88 = load i32, ptr %87, align 4, !tbaa !45
   %89 = icmp eq i32 %88, %80
   br i1 %89, label %Pa_HostApiTypeIdToHostApiIndex.exit114, label %90
 
 90:                                               ; preds = %84
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
   %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, %wide.trip.count.i109
-  br i1 %exitcond.not.i112, label %Pa_HostApiTypeIdToHostApiIndex.exit114.thread, label %84, !llvm.loop !10
+  br i1 %exitcond.not.i112, label %Pa_HostApiTypeIdToHostApiIndex.exit114.thread, label %84, !llvm.loop !46
 
 Pa_HostApiTypeIdToHostApiIndex.exit114:           ; preds = %84
   %91 = trunc nuw nsw i64 %indvars.iv.i110 to i32
@@ -1145,11 +1159,11 @@ Pa_HostApiTypeIdToHostApiIndex.exit114:           ; preds = %84
 Pa_HostApiTypeIdToHostApiIndex.exit114.thread:    ; preds = %90, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge, %Pa_HostApiTypeIdToHostApiIndex.exit114, %.preheader.i106
   %92 = phi ptr [ %.pre159, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ %.pre159, %.preheader.i106 ], [ %.pre158, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ %.pre159, %90 ]
   %.06.i107135 = phi i32 [ %91, %Pa_HostApiTypeIdToHostApiIndex.exit114 ], [ -9979, %.preheader.i106 ], [ -10000, %.Pa_HostApiTypeIdToHostApiIndex.exit114.thread_crit_edge ], [ -9979, %90 ]
-  store i32 -2, ptr %8, align 4
+  store i32 -2, ptr %8, align 4, !tbaa !12
   %93 = sext i32 %.06.i107135 to i64
   %94 = getelementptr inbounds ptr, ptr %92, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %6, align 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !18
+  store ptr %95, ptr %6, align 8, !tbaa !18
   br label %130
 
 96:                                               ; preds = %72
@@ -1160,17 +1174,17 @@ Pa_HostApiTypeIdToHostApiIndex.exit114.thread:    ; preds = %90, %.Pa_HostApiTyp
   br i1 %or.cond94, label %99, label %FindHostApi.exit.thread
 
 99:                                               ; preds = %96
-  %100 = load i32, ptr @initializationCount_, align 4
+  %100 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i115 = icmp eq i32 %100, 0
   br i1 %.not.i115, label %FindHostApi.exit.thread, label %.preheader.i117
 
 .preheader.i117:                                  ; preds = %99
-  %101 = load i32, ptr @hostApisCount_, align 4
+  %101 = load i32, ptr @hostApisCount_, align 4, !tbaa !12
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.lr.ph.i119, label %FindHostApi.exit.thread
 
 .lr.ph.i119:                                      ; preds = %.preheader.i117
-  %103 = load ptr, ptr @hostApis_, align 8
+  %103 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %wide.trip.count.i120 = zext nneg i32 %101 to i64
   br label %104
 
@@ -1178,9 +1192,9 @@ Pa_HostApiTypeIdToHostApiIndex.exit114.thread:    ; preds = %90, %.Pa_HostApiTyp
   %indvars.iv.i121 = phi i64 [ 0, %.lr.ph.i119 ], [ %indvars.iv.next.i124, %109 ]
   %.01321.i122 = phi i32 [ %73, %.lr.ph.i119 ], [ %110, %109 ]
   %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv.i121
-  %106 = load ptr, ptr %105, align 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !18
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %108 = load i32, ptr %107, align 8
+  %108 = load i32, ptr %107, align 8, !tbaa !27
   %.not17.i123 = icmp slt i32 %.01321.i122, %108
   br i1 %.not17.i123, label %FindHostApi.exit126, label %109
 
@@ -1188,38 +1202,38 @@ Pa_HostApiTypeIdToHostApiIndex.exit114.thread:    ; preds = %90, %.Pa_HostApiTyp
   %110 = sub nsw i32 %.01321.i122, %108
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i121, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, %wide.trip.count.i120
-  br i1 %exitcond.not.i125, label %FindHostApi.exit.thread, label %104, !llvm.loop !12
+  br i1 %exitcond.not.i125, label %FindHostApi.exit.thread, label %104, !llvm.loop !48
 
 FindHostApi.exit126:                              ; preds = %104
   %111 = trunc nuw nsw i64 %indvars.iv.i121 to i32
-  store i32 %.01321.i122, ptr %8, align 4
+  store i32 %.01321.i122, ptr %8, align 4, !tbaa !12
   %112 = and i64 %indvars.iv.i121, 4294967295
   %113 = getelementptr inbounds nuw ptr, ptr %103, i64 %112
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %6, align 8
+  %114 = load ptr, ptr %113, align 8, !tbaa !18
+  store ptr %114, ptr %6, align 8, !tbaa !18
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %116 = load i32, ptr %115, align 4
+  %116 = load i32, ptr %115, align 4, !tbaa !54
   %117 = icmp slt i32 %116, 1
   br i1 %117, label %FindHostApi.exit.thread, label %118
 
 118:                                              ; preds = %FindHostApi.exit126
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %120 = load i64, ptr %119, align 8
+  %120 = load i64, ptr %119, align 8, !tbaa !55
   %121 = tail call fastcc i32 @SampleFormatIsValid(i64 noundef %120)
   %.not83 = icmp eq i32 %121, 0
   br i1 %.not83, label %FindHostApi.exit.thread, label %122
 
 122:                                              ; preds = %118
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %124 = load ptr, ptr %123, align 8
+  %124 = load ptr, ptr %123, align 8, !tbaa !57
   %.not84 = icmp eq ptr %124, null
   br i1 %.not84, label %130, label %125
 
 125:                                              ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %127 = load i32, ptr %126, align 8
+  %127 = load i32, ptr %126, align 8, !tbaa !59
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 12
-  %129 = load i32, ptr %128, align 4
+  %129 = load i32, ptr %128, align 4, !tbaa !45
   %.not85 = icmp eq i32 %127, %129
   br i1 %.not85, label %130, label %FindHostApi.exit.thread
 
@@ -1268,10 +1282,15 @@ define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef captures(address_is_null) 
   %11 = alloca i32, align 4
   %12 = alloca %struct.PaStreamParameters, align 8
   %13 = alloca %struct.PaStreamParameters, align 8
-  store ptr null, ptr %9, align 8
-  store i32 -1, ptr %10, align 4
-  store i32 -1, ptr %11, align 4
-  %14 = load i32, ptr @initializationCount_, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  store ptr null, ptr %9, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  store i32 -1, ptr %10, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
+  store i32 -1, ptr %11, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #13
+  %14 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %59, label %15
 
@@ -1289,24 +1308,24 @@ define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef captures(address_is_null) 
   br i1 %.not39, label %34, label %20
 
 20:                                               ; preds = %19
-  %21 = load i32, ptr %10, align 4
-  store i32 %21, ptr %12, align 8
+  %21 = load i32, ptr %10, align 4, !tbaa !12
+  store i32 %21, ptr %12, align 8, !tbaa !52
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %23, ptr %24, align 4
+  store i32 %23, ptr %24, align 4, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load i64, ptr %25, align 8
+  %26 = load i64, ptr %25, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %26, ptr %27, align 8
+  store i64 %26, ptr %27, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %29 = load double, ptr %28, align 8
+  %29 = load double, ptr %28, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double %29, ptr %30, align 8
+  store double %29, ptr %30, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !57
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %32, ptr %33, align 8
+  store ptr %32, ptr %33, align 8, !tbaa !57
   br label %34
 
 34:                                               ; preds = %19, %20
@@ -1315,45 +1334,50 @@ define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef captures(address_is_null) 
   br i1 %.not40, label %49, label %35
 
 35:                                               ; preds = %34
-  %36 = load i32, ptr %11, align 4
-  store i32 %36, ptr %13, align 8
+  %36 = load i32, ptr %11, align 4, !tbaa !12
+  store i32 %36, ptr %13, align 8, !tbaa !52
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %38 = load i32, ptr %37, align 4
+  %38 = load i32, ptr %37, align 4, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %38, ptr %39, align 4
+  store i32 %38, ptr %39, align 4, !tbaa !54
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %41 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8, !tbaa !55
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %41, ptr %42, align 8
+  store i64 %41, ptr %42, align 8, !tbaa !55
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %44 = load double, ptr %43, align 8
+  %44 = load double, ptr %43, align 8, !tbaa !56
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store double %44, ptr %45, align 8
+  store double %44, ptr %45, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %47 = load ptr, ptr %46, align 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !57
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr %47, ptr %48, align 8
+  store ptr %47, ptr %48, align 8, !tbaa !57
   br label %49
 
 49:                                               ; preds = %34, %35
   %.0 = phi ptr [ %13, %35 ], [ null, %34 ]
-  %50 = load ptr, ptr %9, align 8
+  %50 = load ptr, ptr %9, align 8, !tbaa !18
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i32 %52(ptr noundef %50, ptr noundef nonnull %0, ptr noundef %.032, ptr noundef %.0, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #12
+  %52 = load ptr, ptr %51, align 8, !tbaa !61
+  %53 = call i32 %52(ptr noundef %50, ptr noundef nonnull %0, ptr noundef %.032, ptr noundef %.0, double noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #13
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %49
-  %56 = load ptr, ptr %0, align 8
-  %57 = load ptr, ptr @firstOpenStream_, align 8
+  %56 = load ptr, ptr %0, align 8, !tbaa !13
+  %57 = load ptr, ptr @firstOpenStream_, align 8, !tbaa !31
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %57, ptr %58, align 8
-  store ptr %56, ptr @firstOpenStream_, align 8
+  store ptr %57, ptr %58, align 8, !tbaa !37
+  store ptr %56, ptr @firstOpenStream_, align 8, !tbaa !31
   br label %59
 
 59:                                               ; preds = %49, %55, %17, %15, %8
   %.033 = phi i32 [ -10000, %8 ], [ -9988, %15 ], [ %18, %17 ], [ 0, %55 ], [ %53, %49 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   ret i32 %.033
 }
 
@@ -1361,16 +1385,18 @@ define i32 @Pa_OpenStream(ptr noundef %0, ptr noundef captures(address_is_null) 
 define i32 @Pa_OpenDefaultStream(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, double noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = alloca %struct.PaStreamParameters, align 8
   %10 = alloca %struct.PaStreamParameters, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
   %11 = icmp sgt i32 %1, 0
   br i1 %11, label %12, label %50
 
 12:                                               ; preds = %8
-  %13 = load i32, ptr @initializationCount_, align 4
+  %13 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i, label %Pa_GetDefaultInputDevice.exit.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = load i32, ptr @defaultHostApiIndex_, align 4
+  %15 = load i32, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   %16 = icmp sgt i32 %15, -1
   %17 = load i32, ptr @hostApisCount_, align 4
   %.not4.i.i = icmp slt i32 %15, %17
@@ -1378,29 +1404,29 @@ define i32 @Pa_OpenDefaultStream(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %or.cond.i.i, label %Pa_GetDefaultInputDevice.exit, label %Pa_GetDefaultInputDevice.exit.thread
 
 Pa_GetDefaultInputDevice.exit:                    ; preds = %14
-  %18 = load ptr, ptr @hostApis_, align 8
+  %18 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %19 = zext nneg i32 %15 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  %23 = load i32, ptr %22, align 4
-  store i32 %23, ptr %9, align 8
+  %23 = load i32, ptr %22, align 4, !tbaa !20
+  store i32 %23, ptr %9, align 8, !tbaa !52
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %Pa_GetDefaultInputDevice.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %Pa_GetDefaultInputDevice.exit
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %1, ptr %25, align 4
+  store i32 %1, ptr %25, align 4, !tbaa !54
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %3, ptr %26, align 8
+  store i64 %3, ptr %26, align 8, !tbaa !55
   %27 = icmp sgt i32 %23, -1
   tail call void @llvm.assume(i1 %27)
   %28 = icmp sgt i32 %17, 0
   tail call void @llvm.assume(i1 %28)
   %wide.trip.count.i.i = zext nneg i32 %17 to i64
-  %29 = load ptr, ptr %18, align 8
+  %29 = load ptr, ptr %18, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load i32, ptr %30, align 8
+  %31 = load i32, ptr %30, align 8, !tbaa !27
   %.not17.i.i41 = icmp slt i32 %23, %31
   br i1 %.not17.i.i41, label %FindHostApi.exit.i, label %.lr.ph
 
@@ -1413,9 +1439,9 @@ Pa_GetDefaultInputDevice.exit:                    ; preds = %14
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   tail call void @llvm.assume(i1 %exitcond.not.i.i)
   %34 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.next.i.i
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !18
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load i32, ptr %36, align 8
+  %37 = load i32, ptr %36, align 8, !tbaa !27
   %.not17.i.i = icmp slt i32 %33, %37
   br i1 %.not17.i.i, label %FindHostApi.exit.i.loopexit, label %.lr.ph
 
@@ -1427,18 +1453,18 @@ FindHostApi.exit.i:                               ; preds = %FindHostApi.exit.i.
   %indvars.iv.i.i.lcssa = phi i64 [ 0, %.preheader.i.i ], [ %38, %FindHostApi.exit.i.loopexit ]
   %.01321.i.i.lcssa = phi i32 [ %23, %.preheader.i.i ], [ %33, %FindHostApi.exit.i.loopexit ]
   %39 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i.lcssa
-  %40 = load ptr, ptr %39, align 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !49
   %43 = sext i32 %.01321.i.i.lcssa to i64
   %44 = getelementptr inbounds ptr, ptr %42, i64 %43
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %47 = load double, ptr %46, align 8
+  %47 = load double, ptr %46, align 8, !tbaa !62
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %47, ptr %48, align 8
+  store double %47, ptr %48, align 8, !tbaa !56
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr null, ptr %49, align 8
+  store ptr null, ptr %49, align 8, !tbaa !57
   br label %50
 
 50:                                               ; preds = %8, %FindHostApi.exit.i
@@ -1447,12 +1473,12 @@ FindHostApi.exit.i:                               ; preds = %FindHostApi.exit.i.
   br i1 %51, label %52, label %90
 
 52:                                               ; preds = %50
-  %53 = load i32, ptr @initializationCount_, align 4
+  %53 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i.i21 = icmp eq i32 %53, 0
   br i1 %.not.i.i21, label %Pa_GetDefaultInputDevice.exit.thread, label %54
 
 54:                                               ; preds = %52
-  %55 = load i32, ptr @defaultHostApiIndex_, align 4
+  %55 = load i32, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   %56 = icmp sgt i32 %55, -1
   %57 = load i32, ptr @hostApisCount_, align 4
   %.not4.i.i22 = icmp slt i32 %55, %57
@@ -1460,29 +1486,29 @@ FindHostApi.exit.i:                               ; preds = %FindHostApi.exit.i.
   br i1 %or.cond.i.i23, label %Pa_GetDefaultOutputDevice.exit, label %Pa_GetDefaultInputDevice.exit.thread
 
 Pa_GetDefaultOutputDevice.exit:                   ; preds = %54
-  %58 = load ptr, ptr @hostApis_, align 8
+  %58 = load ptr, ptr @hostApis_, align 8, !tbaa !16
   %59 = zext nneg i32 %55 to i64
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
-  %61 = load ptr, ptr %60, align 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !18
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %63 = load i32, ptr %62, align 8
-  store i32 %63, ptr %10, align 8
+  %63 = load i32, ptr %62, align 8, !tbaa !25
+  store i32 %63, ptr %10, align 8, !tbaa !52
   %64 = icmp eq i32 %63, -1
   br i1 %64, label %Pa_GetDefaultInputDevice.exit.thread, label %.preheader.i.i28
 
 .preheader.i.i28:                                 ; preds = %Pa_GetDefaultOutputDevice.exit
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %2, ptr %65, align 4
+  store i32 %2, ptr %65, align 4, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %3, ptr %66, align 8
+  store i64 %3, ptr %66, align 8, !tbaa !55
   %67 = icmp sgt i32 %63, -1
   tail call void @llvm.assume(i1 %67)
   %68 = icmp sgt i32 %57, 0
   tail call void @llvm.assume(i1 %68)
   %wide.trip.count.i.i31 = zext nneg i32 %57 to i64
-  %69 = load ptr, ptr %58, align 8
+  %69 = load ptr, ptr %58, align 8, !tbaa !18
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load i32, ptr %70, align 8
+  %71 = load i32, ptr %70, align 8, !tbaa !27
   %.not17.i.i3445 = icmp slt i32 %63, %71
   br i1 %.not17.i.i3445, label %FindHostApi.exit.i37, label %.lr.ph48
 
@@ -1495,9 +1521,9 @@ Pa_GetDefaultOutputDevice.exit:                   ; preds = %54
   %exitcond.not.i.i36 = icmp ne i64 %indvars.iv.next.i.i35, %wide.trip.count.i.i31
   tail call void @llvm.assume(i1 %exitcond.not.i.i36)
   %74 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.next.i.i35
-  %75 = load ptr, ptr %74, align 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !18
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load i32, ptr %76, align 8
+  %77 = load i32, ptr %76, align 8, !tbaa !27
   %.not17.i.i34 = icmp slt i32 %73, %77
   br i1 %.not17.i.i34, label %FindHostApi.exit.i37.loopexit, label %.lr.ph48
 
@@ -1509,18 +1535,18 @@ FindHostApi.exit.i37:                             ; preds = %FindHostApi.exit.i3
   %indvars.iv.i.i32.lcssa = phi i64 [ 0, %.preheader.i.i28 ], [ %78, %FindHostApi.exit.i37.loopexit ]
   %.01321.i.i33.lcssa = phi i32 [ %63, %.preheader.i.i28 ], [ %73, %FindHostApi.exit.i37.loopexit ]
   %79 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i.i32.lcssa
-  %80 = load ptr, ptr %79, align 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !18
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %82 = load ptr, ptr %81, align 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !49
   %83 = sext i32 %.01321.i.i33.lcssa to i64
   %84 = getelementptr inbounds ptr, ptr %82, i64 %83
-  %85 = load ptr, ptr %84, align 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !50
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %87 = load double, ptr %86, align 8
+  %87 = load double, ptr %86, align 8, !tbaa !64
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %87, ptr %88, align 8
+  store double %87, ptr %88, align 8, !tbaa !56
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr null, ptr %89, align 8
+  store ptr null, ptr %89, align 8, !tbaa !57
   br label %90
 
 90:                                               ; preds = %50, %FindHostApi.exit.i37
@@ -1530,12 +1556,14 @@ FindHostApi.exit.i37:                             ; preds = %FindHostApi.exit.i3
 
 Pa_GetDefaultInputDevice.exit.thread:             ; preds = %54, %52, %14, %12, %Pa_GetDefaultOutputDevice.exit, %Pa_GetDefaultInputDevice.exit, %90
   %.015 = phi i32 [ %91, %90 ], [ -9985, %Pa_GetDefaultInputDevice.exit ], [ -9985, %Pa_GetDefaultOutputDevice.exit ], [ -9985, %12 ], [ -9985, %14 ], [ -9985, %52 ], [ -9985, %54 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
   ret i32 %.015
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -10000, 1) i32 @PaUtil_ValidateStreamPointer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
-  %2 = load i32, ptr @initializationCount_, align 4
+define range(i32 -10000, 1) i32 @PaUtil_ValidateStreamPointer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -1544,7 +1572,7 @@ define range(i32 -10000, 1) i32 @PaUtil_ValidateStreamPointer(ptr noundef readon
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %0, align 8, !tbaa !33
   %.not3 = icmp eq i64 %6, 405222981
   %. = select i1 %.not3, i32 0, i32 -9988
   br label %7
@@ -1556,7 +1584,7 @@ define range(i32 -10000, 1) i32 @PaUtil_ValidateStreamPointer(ptr noundef readon
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_CloseStream(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit, label %3
 
@@ -1565,14 +1593,14 @@ define i32 @Pa_CloseStream(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %4, label %PaUtil_ValidateStreamPointer.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %6, 405222981
   %..i = select i1 %.not3.i, i32 0, i32 -9988
   br label %PaUtil_ValidateStreamPointer.exit
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %1, %3, %5
   %.0.i = phi i32 [ -10000, %1 ], [ -9988, %3 ], [ %..i, %5 ]
-  %.012.i = load ptr, ptr @firstOpenStream_, align 8
+  %.012.i = load ptr, ptr @firstOpenStream_, align 8, !tbaa !31
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %RemoveOpenStream.exit, label %.lr.ph.i.preheader
 
@@ -1582,27 +1610,27 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %1, %3, %5
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %8 = icmp eq ptr %.0.i15, %0
-  br i1 %8, label %12, label %.lr.ph, !llvm.loop !13
+  br i1 %8, label %12, label %.lr.ph, !llvm.loop !65
 
 9:                                                ; preds = %.lr.ph.i.preheader
   %10 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr @firstOpenStream_, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  store ptr %11, ptr @firstOpenStream_, align 8, !tbaa !31
   br label %RemoveOpenStream.exit
 
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 8
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = getelementptr inbounds nuw i8, ptr %.015.i22, i64 8
-  store ptr %14, ptr %15, align 8
+  store ptr %14, ptr %15, align 8, !tbaa !37
   br label %RemoveOpenStream.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.015.i22 = phi ptr [ %.0.i15, %.lr.ph.i ], [ %.012.i, %.lr.ph.i.preheader ]
   %16 = getelementptr inbounds nuw i8, ptr %.015.i22, i64 8
-  %.0.i15 = load ptr, ptr %16, align 8
+  %.0.i15 = load ptr, ptr %16, align 8, !tbaa !31
   %.not.i16 = icmp eq ptr %.0.i15, null
-  br i1 %.not.i16, label %RemoveOpenStream.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i16, label %RemoveOpenStream.exit, label %.lr.ph.i, !llvm.loop !65
 
 RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_ValidateStreamPointer.exit, %9, %12
   %17 = icmp eq i32 %.0.i, 0
@@ -1610,10 +1638,10 @@ RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_Val
 
 18:                                               ; preds = %RemoveOpenStream.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %0) #12
+  %22 = load ptr, ptr %21, align 8, !tbaa !39
+  %23 = tail call i32 %22(ptr noundef %0) #13
   switch i32 %23, label %.thread18 [
     i32 1, label %.thread
     i32 0, label %24
@@ -1621,14 +1649,14 @@ RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_Val
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef nonnull %0) #12
+  %26 = load ptr, ptr %25, align 8, !tbaa !41
+  %27 = tail call i32 %26(ptr noundef nonnull %0) #13
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.thread, label %.thread18
 
 .thread:                                          ; preds = %18, %24
-  %29 = load ptr, ptr %20, align 8
-  %30 = tail call i32 %29(ptr noundef nonnull %0) #12
+  %29 = load ptr, ptr %20, align 8, !tbaa !42
+  %30 = tail call i32 %29(ptr noundef nonnull %0) #13
   br label %.thread18
 
 .thread18:                                        ; preds = %18, %24, %.thread, %RemoveOpenStream.exit
@@ -1638,7 +1666,7 @@ RemoveOpenStream.exit:                            ; preds = %.lr.ph, %PaUtil_Val
 
 ; Function Attrs: nounwind uwtable
 define range(i32 2, 1) i32 @Pa_SetStreamFinishedCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr @initializationCount_, align 4
+  %3 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %4
 
@@ -1647,16 +1675,16 @@ define range(i32 2, 1) i32 @Pa_SetStreamFinishedCallback(ptr noundef %0, ptr nou
   br i1 %5, label %PaUtil_ValidateStreamPointer.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = load i64, ptr %0, align 8
+  %7 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %7, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef nonnull %0) #12
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
+  %12 = tail call i32 %11(ptr noundef nonnull %0) #13
   %13 = icmp eq i32 %12, 0
   %spec.store.select = select i1 %13, i32 -9982, i32 %12
   %14 = icmp eq i32 %spec.store.select, 1
@@ -1664,7 +1692,7 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %6
 
 15:                                               ; preds = %PaUtil_ValidateStreamPointer.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %16, align 8
+  store ptr %1, ptr %16, align 8, !tbaa !66
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %6, %4, %2, %PaUtil_ValidateStreamPointer.exit, %15
@@ -1674,7 +1702,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %6, %4, %2, %PaUtil_
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_StartStream(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %3
 
@@ -1683,26 +1711,26 @@ define i32 @Pa_StartStream(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %4, label %PaUtil_ValidateStreamPointer.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %6, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #12
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
   switch i32 %11, label %.fold.split [
     i32 0, label %PaUtil_ValidateStreamPointer.exit.thread
     i32 1, label %12
   ]
 
 12:                                               ; preds = %PaUtil_ValidateStreamPointer.exit
-  %13 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %7, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef nonnull %0) #12
+  %15 = load ptr, ptr %14, align 8, !tbaa !67
+  %16 = tail call i32 %15(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 .fold.split:                                      ; preds = %PaUtil_ValidateStreamPointer.exit
@@ -1715,7 +1743,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_StopStream(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %3
 
@@ -1724,24 +1752,24 @@ define i32 @Pa_StopStream(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %4, label %PaUtil_ValidateStreamPointer.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %6, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #12
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %PaUtil_ValidateStreamPointer.exit
-  %14 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %7, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef nonnull %0) #12
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  %17 = tail call i32 %16(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 18:                                               ; preds = %PaUtil_ValidateStreamPointer.exit
@@ -1756,7 +1784,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %13, %18
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_AbortStream(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %3
 
@@ -1765,24 +1793,24 @@ define i32 @Pa_AbortStream(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %4, label %PaUtil_ValidateStreamPointer.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %6, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #12
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %PaUtil_ValidateStreamPointer.exit
-  %14 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %7, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef nonnull %0) #12
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
+  %17 = tail call i32 %16(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 18:                                               ; preds = %PaUtil_ValidateStreamPointer.exit
@@ -1797,7 +1825,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %13, %18
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_IsStreamStopped(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %3
 
@@ -1806,16 +1834,16 @@ define i32 @Pa_IsStreamStopped(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %4, label %PaUtil_ValidateStreamPointer.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %6, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #12
+  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_ValidateStreamPointer.exit
@@ -1825,7 +1853,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_IsStreamActive(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %3
 
@@ -1834,16 +1862,16 @@ define i32 @Pa_IsStreamActive(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %4, label %PaUtil_ValidateStreamPointer.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %6, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef nonnull %0) #12
+  %10 = load ptr, ptr %9, align 8, !tbaa !69
+  %11 = tail call i32 %10(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_ValidateStreamPointer.exit
@@ -1852,15 +1880,15 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %5, %3, %1, %PaUtil_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Pa_GetStreamInfo(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #9 {
-  %2 = load i32, ptr @initializationCount_, align 4
+define ptr @Pa_GetStreamInfo(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #10 {
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   %3 = icmp eq ptr %0, null
   %or.cond = or i1 %3, %.not.i
   br i1 %or.cond, label %PaUtil_ValidateStreamPointer.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr %0, align 8
+  %5 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %5, 405222981
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %spec.select = select i1 %.not3.i, ptr %6, ptr null
@@ -1873,23 +1901,23 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1
 
 ; Function Attrs: nounwind uwtable
 define double @Pa_GetStreamTime(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   %3 = icmp eq ptr %0, null
   %or.cond = or i1 %3, %.not.i
   br i1 %or.cond, label %PaUtil_ValidateStreamPointer.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr %0, align 8
+  %5 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %5, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call double %9(ptr noundef nonnull %0) #12
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
+  %10 = tail call double %9(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_ValidateStreamPointer.exit
@@ -1899,23 +1927,23 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_Vali
 
 ; Function Attrs: nounwind uwtable
 define double @Pa_GetStreamCpuLoad(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   %3 = icmp eq ptr %0, null
   %or.cond = or i1 %3, %.not.i
   br i1 %or.cond, label %PaUtil_ValidateStreamPointer.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr %0, align 8
+  %5 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %5, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call double %9(ptr noundef nonnull %0) #12
+  %9 = load ptr, ptr %8, align 8, !tbaa !71
+  %10 = tail call double %9(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_ValidateStreamPointer.exit
@@ -1925,7 +1953,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_Vali
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_ReadStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
-  %4 = load i32, ptr @initializationCount_, align 4
+  %4 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %5
 
@@ -1934,7 +1962,7 @@ define i32 @Pa_ReadStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_
   br i1 %6, label %PaUtil_ValidateStreamPointer.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = load i64, ptr %0, align 8
+  %8 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %8, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
@@ -1948,18 +1976,18 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %7
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef nonnull %0) #12
+  %16 = load ptr, ptr %15, align 8, !tbaa !39
+  %17 = tail call i32 %16(ptr noundef nonnull %0) #13
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %13, align 8
+  %20 = load ptr, ptr %13, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #12
+  %22 = load ptr, ptr %21, align 8, !tbaa !72
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 24:                                               ; preds = %12
@@ -1974,7 +2002,7 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %7, %5, %3, %10, %Pa
 
 ; Function Attrs: nounwind uwtable
 define i32 @Pa_WriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
-  %4 = load i32, ptr @initializationCount_, align 4
+  %4 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %PaUtil_ValidateStreamPointer.exit.thread, label %5
 
@@ -1983,7 +2011,7 @@ define i32 @Pa_WriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   br i1 %6, label %PaUtil_ValidateStreamPointer.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = load i64, ptr %0, align 8
+  %8 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %8, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
@@ -1997,18 +2025,18 @@ PaUtil_ValidateStreamPointer.exit:                ; preds = %7
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef nonnull %0) #12
+  %16 = load ptr, ptr %15, align 8, !tbaa !39
+  %17 = tail call i32 %16(ptr noundef nonnull %0) #13
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %12
-  %20 = load ptr, ptr %13, align 8
+  %20 = load ptr, ptr %13, align 8, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #12
+  %22 = load ptr, ptr %21, align 8, !tbaa !73
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 24:                                               ; preds = %12
@@ -2023,23 +2051,23 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %7, %5, %3, %10, %Pa
 
 ; Function Attrs: nounwind uwtable
 define i64 @Pa_GetStreamReadAvailable(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   %3 = icmp eq ptr %0, null
   %or.cond = or i1 %3, %.not.i
   br i1 %or.cond, label %PaUtil_ValidateStreamPointer.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr %0, align 8
+  %5 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %5, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull %0) #12
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %10 = tail call i64 %9(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_ValidateStreamPointer.exit
@@ -2049,23 +2077,23 @@ PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_Vali
 
 ; Function Attrs: nounwind uwtable
 define i64 @Pa_GetStreamWriteAvailable(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = load i32, ptr @initializationCount_, align 4
+  %2 = load i32, ptr @initializationCount_, align 4, !tbaa !12
   %.not.i = icmp eq i32 %2, 0
   %3 = icmp eq ptr %0, null
   %or.cond = or i1 %3, %.not.i
   br i1 %or.cond, label %PaUtil_ValidateStreamPointer.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = load i64, ptr %0, align 8
+  %5 = load i64, ptr %0, align 8, !tbaa !33
   %.not3.i = icmp eq i64 %5, 405222981
   br i1 %.not3.i, label %PaUtil_ValidateStreamPointer.exit, label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit:                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 %9(ptr noundef nonnull %0) #12
+  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %10 = tail call i64 %9(ptr noundef nonnull %0) #13
   br label %PaUtil_ValidateStreamPointer.exit.thread
 
 PaUtil_ValidateStreamPointer.exit.thread:         ; preds = %4, %1, %PaUtil_ValidateStreamPointer.exit
@@ -2102,9 +2130,9 @@ define range(i32 -9994, 5) i32 @Pa_GetSampleSize(i64 noundef %0) local_unnamed_a
   ret i32 %.0
 }
 
-declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) local_unnamed_addr #4
+declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) local_unnamed_addr #5
 
-declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #4
+declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc range(i32 0, 2) i32 @SampleFormatIsValid(i64 noundef %0) unnamed_addr #0 {
@@ -2128,38 +2156,101 @@ define internal fastcc range(i32 0, 2) i32 @SampleFormatIsValid(i64 noundef %0) 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5, !9}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"PaHostErrorInfo", !5, i64 0, !8, i64 8, !9, i64 16}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"long", !6, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!4, !8, i64 8}
+!12 = !{!5, !5, i64 0}
+!13 = !{!10, !10, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p2 _ZTS27PaUtilHostApiRepresentation", !10, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS27PaUtilHostApiRepresentation", !10, i64 0}
+!20 = !{!21, !5, i64 28}
+!21 = !{!"PaUtilHostApiRepresentation", !22, i64 0, !23, i64 8, !24, i64 40, !10, i64 48, !10, i64 56, !10, i64 64}
+!22 = !{!"PaUtilPrivatePaFrontHostApiInfo", !8, i64 0}
+!23 = !{!"PaHostApiInfo", !5, i64 0, !5, i64 4, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24}
+!24 = !{!"p2 _ZTS12PaDeviceInfo", !10, i64 0}
+!25 = !{!21, !5, i64 32}
+!26 = !{!21, !8, i64 0}
+!27 = !{!21, !5, i64 24}
+!28 = distinct !{!28, !15}
+!29 = !{!21, !10, i64 48}
+!30 = distinct !{!30, !15}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS26PaUtilStreamRepresentation", !10, i64 0}
+!33 = !{!34, !8, i64 0}
+!34 = !{!"PaUtilStreamRepresentation", !8, i64 0, !32, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !35, i64 48}
+!35 = !{!"PaStreamInfo", !5, i64 0, !36, i64 8, !36, i64 16, !36, i64 24}
+!36 = !{!"double", !6, i64 0}
+!37 = !{!34, !32, i64 8}
+!38 = !{!34, !10, i64 16}
+!39 = !{!40, !10, i64 32}
+!40 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88}
+!41 = !{!40, !10, i64 24}
+!42 = !{!40, !10, i64 0}
+!43 = distinct !{!43, !15, !44}
+!44 = !{!"llvm.loop.unswitch.partial.disable"}
+!45 = !{!21, !5, i64 12}
+!46 = distinct !{!46, !15}
+!47 = distinct !{!47, !15}
+!48 = distinct !{!48, !15}
+!49 = !{!21, !24, i64 40}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS12PaDeviceInfo", !10, i64 0}
+!52 = !{!53, !5, i64 0}
+!53 = !{!"PaStreamParameters", !5, i64 0, !5, i64 4, !8, i64 8, !36, i64 16, !10, i64 24}
+!54 = !{!53, !5, i64 4}
+!55 = !{!53, !8, i64 8}
+!56 = !{!53, !36, i64 16}
+!57 = !{!53, !10, i64 24}
+!58 = !{!21, !10, i64 64}
+!59 = !{!60, !5, i64 8}
+!60 = !{!"PaUtilHostApiSpecificStreamInfoHeader", !8, i64 0, !5, i64 8, !8, i64 16}
+!61 = !{!21, !10, i64 56}
+!62 = !{!63, !36, i64 48}
+!63 = !{!"PaDeviceInfo", !5, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !36, i64 32, !36, i64 40, !36, i64 48, !36, i64 56, !36, i64 64}
+!64 = !{!63, !36, i64 56}
+!65 = distinct !{!65, !15}
+!66 = !{!34, !10, i64 32}
+!67 = !{!40, !10, i64 8}
+!68 = !{!40, !10, i64 16}
+!69 = !{!40, !10, i64 40}
+!70 = !{!40, !10, i64 48}
+!71 = !{!40, !10, i64 56}
+!72 = !{!40, !10, i64 64}
+!73 = !{!40, !10, i64 72}
+!74 = !{!40, !10, i64 80}
+!75 = !{!40, !10, i64 88}

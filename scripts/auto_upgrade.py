@@ -48,6 +48,7 @@ supported_project = [
     "openssl",
     "osqp",
     "php",
+    "portaudio",
 ]
 
 modify_only = [

@@ -20,67 +20,67 @@ define void @PaUtil_InitializeStreamInterface(ptr noundef %0, ptr noundef %1, pt
   %24 = alloca ptr, align 8
   %25 = alloca ptr, align 8
   %26 = alloca ptr, align 8
-  store ptr %0, ptr %14, align 8
-  store ptr %1, ptr %15, align 8
-  store ptr %2, ptr %16, align 8
-  store ptr %3, ptr %17, align 8
-  store ptr %4, ptr %18, align 8
-  store ptr %5, ptr %19, align 8
-  store ptr %6, ptr %20, align 8
-  store ptr %7, ptr %21, align 8
-  store ptr %8, ptr %22, align 8
-  store ptr %9, ptr %23, align 8
-  store ptr %10, ptr %24, align 8
-  store ptr %11, ptr %25, align 8
-  store ptr %12, ptr %26, align 8
-  %27 = load ptr, ptr %15, align 8
-  %28 = load ptr, ptr %14, align 8
+  store ptr %0, ptr %14, align 8, !tbaa !3
+  store ptr %1, ptr %15, align 8, !tbaa !3
+  store ptr %2, ptr %16, align 8, !tbaa !3
+  store ptr %3, ptr %17, align 8, !tbaa !3
+  store ptr %4, ptr %18, align 8, !tbaa !3
+  store ptr %5, ptr %19, align 8, !tbaa !3
+  store ptr %6, ptr %20, align 8, !tbaa !3
+  store ptr %7, ptr %21, align 8, !tbaa !3
+  store ptr %8, ptr %22, align 8, !tbaa !3
+  store ptr %9, ptr %23, align 8, !tbaa !3
+  store ptr %10, ptr %24, align 8, !tbaa !3
+  store ptr %11, ptr %25, align 8, !tbaa !3
+  store ptr %12, ptr %26, align 8, !tbaa !3
+  %27 = load ptr, ptr %15, align 8, !tbaa !3
+  %28 = load ptr, ptr %14, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %28, i32 0, i32 0
-  store ptr %27, ptr %29, align 8
-  %30 = load ptr, ptr %16, align 8
-  %31 = load ptr, ptr %14, align 8
+  store ptr %27, ptr %29, align 8, !tbaa !7
+  %30 = load ptr, ptr %16, align 8, !tbaa !3
+  %31 = load ptr, ptr %14, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %31, i32 0, i32 1
-  store ptr %30, ptr %32, align 8
-  %33 = load ptr, ptr %17, align 8
-  %34 = load ptr, ptr %14, align 8
+  store ptr %30, ptr %32, align 8, !tbaa !9
+  %33 = load ptr, ptr %17, align 8, !tbaa !3
+  %34 = load ptr, ptr %14, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %34, i32 0, i32 2
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %18, align 8
-  %37 = load ptr, ptr %14, align 8
+  store ptr %33, ptr %35, align 8, !tbaa !10
+  %36 = load ptr, ptr %18, align 8, !tbaa !3
+  %37 = load ptr, ptr %14, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %37, i32 0, i32 3
-  store ptr %36, ptr %38, align 8
-  %39 = load ptr, ptr %19, align 8
-  %40 = load ptr, ptr %14, align 8
+  store ptr %36, ptr %38, align 8, !tbaa !11
+  %39 = load ptr, ptr %19, align 8, !tbaa !3
+  %40 = load ptr, ptr %14, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %40, i32 0, i32 4
-  store ptr %39, ptr %41, align 8
-  %42 = load ptr, ptr %20, align 8
-  %43 = load ptr, ptr %14, align 8
+  store ptr %39, ptr %41, align 8, !tbaa !12
+  %42 = load ptr, ptr %20, align 8, !tbaa !3
+  %43 = load ptr, ptr %14, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %43, i32 0, i32 5
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %21, align 8
-  %46 = load ptr, ptr %14, align 8
+  store ptr %42, ptr %44, align 8, !tbaa !13
+  %45 = load ptr, ptr %21, align 8, !tbaa !3
+  %46 = load ptr, ptr %14, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %46, i32 0, i32 6
-  store ptr %45, ptr %47, align 8
-  %48 = load ptr, ptr %22, align 8
-  %49 = load ptr, ptr %14, align 8
+  store ptr %45, ptr %47, align 8, !tbaa !14
+  %48 = load ptr, ptr %22, align 8, !tbaa !3
+  %49 = load ptr, ptr %14, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %49, i32 0, i32 7
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %23, align 8
-  %52 = load ptr, ptr %14, align 8
+  store ptr %48, ptr %50, align 8, !tbaa !15
+  %51 = load ptr, ptr %23, align 8, !tbaa !3
+  %52 = load ptr, ptr %14, align 8, !tbaa !3
   %53 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %52, i32 0, i32 8
-  store ptr %51, ptr %53, align 8
-  %54 = load ptr, ptr %24, align 8
-  %55 = load ptr, ptr %14, align 8
+  store ptr %51, ptr %53, align 8, !tbaa !16
+  %54 = load ptr, ptr %24, align 8, !tbaa !3
+  %55 = load ptr, ptr %14, align 8, !tbaa !3
   %56 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %55, i32 0, i32 9
-  store ptr %54, ptr %56, align 8
-  %57 = load ptr, ptr %25, align 8
-  %58 = load ptr, ptr %14, align 8
+  store ptr %54, ptr %56, align 8, !tbaa !17
+  %57 = load ptr, ptr %25, align 8, !tbaa !3
+  %58 = load ptr, ptr %14, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %58, i32 0, i32 10
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %26, align 8
-  %61 = load ptr, ptr %14, align 8
+  store ptr %57, ptr %59, align 8, !tbaa !18
+  %60 = load ptr, ptr %26, align 8, !tbaa !3
+  %61 = load ptr, ptr %14, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw %struct.PaUtilStreamInterface, ptr %61, i32 0, i32 11
-  store ptr %60, ptr %62, align 8
+  store ptr %60, ptr %62, align 8, !tbaa !19
   ret void
 }
 
@@ -90,53 +90,53 @@ define void @PaUtil_InitializeStreamRepresentation(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %9 = load ptr, ptr %5, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %9, i32 0, i32 0
-  store i64 405222981, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
+  store i64 405222981, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %5, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %11, i32 0, i32 1
-  store ptr null, ptr %12, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %5, align 8
+  store ptr null, ptr %12, align 8, !tbaa !28
+  %13 = load ptr, ptr %6, align 8, !tbaa !3
+  %14 = load ptr, ptr %5, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %14, i32 0, i32 2
-  store ptr %13, ptr %15, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %15, align 8, !tbaa !29
+  %16 = load ptr, ptr %7, align 8, !tbaa !3
+  %17 = load ptr, ptr %5, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %17, i32 0, i32 3
-  store ptr %16, ptr %18, align 8
-  %19 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %18, align 8, !tbaa !30
+  %19 = load ptr, ptr %5, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %19, i32 0, i32 4
-  store ptr null, ptr %20, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = load ptr, ptr %5, align 8
+  store ptr null, ptr %20, align 8, !tbaa !31
+  %21 = load ptr, ptr %8, align 8, !tbaa !3
+  %22 = load ptr, ptr %5, align 8, !tbaa !20
   %23 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %22, i32 0, i32 5
-  store ptr %21, ptr %23, align 8
-  %24 = load ptr, ptr %5, align 8
+  store ptr %21, ptr %23, align 8, !tbaa !32
+  %24 = load ptr, ptr %5, align 8, !tbaa !20
   %25 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %24, i32 0, i32 6
   %26 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %25, i32 0, i32 1
-  store double 0.000000e+00, ptr %26, align 8
-  %27 = load ptr, ptr %5, align 8
+  store double 0.000000e+00, ptr %26, align 8, !tbaa !33
+  %27 = load ptr, ptr %5, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %27, i32 0, i32 6
   %29 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %28, i32 0, i32 2
-  store double 0.000000e+00, ptr %29, align 8
-  %30 = load ptr, ptr %5, align 8
+  store double 0.000000e+00, ptr %29, align 8, !tbaa !34
+  %30 = load ptr, ptr %5, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %30, i32 0, i32 6
   %32 = getelementptr inbounds nuw %struct.PaStreamInfo, ptr %31, i32 0, i32 3
-  store double 0.000000e+00, ptr %32, align 8
+  store double 0.000000e+00, ptr %32, align 8, !tbaa !35
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @PaUtil_TerminateStreamRepresentation(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw %struct.PaUtilStreamRepresentation, ptr %3, i32 0, i32 0
-  store i64 0, ptr %4, align 8
+  store i64 0, ptr %4, align 8, !tbaa !22
   ret void
 }
 
@@ -145,9 +145,9 @@ define i32 @PaUtil_DummyRead(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i64 %2, ptr %6, align 8, !tbaa !36
   ret i32 -9977
 }
 
@@ -156,38 +156,71 @@ define i32 @PaUtil_DummyWrite(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i64 %2, ptr %6, align 8, !tbaa !36
   ret i32 -9976
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @PaUtil_DummyGetReadAvailable(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i64 -9977
 }
 
 ; Function Attrs: nounwind uwtable
 define i64 @PaUtil_DummyGetWriteAvailable(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret i64 -9976
 }
 
 ; Function Attrs: nounwind uwtable
 define double @PaUtil_DummyGetCpuLoad(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret double 0.000000e+00
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !4, i64 0}
+!8 = !{!"", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !4, i64 48, !4, i64 56, !4, i64 64, !4, i64 72, !4, i64 80, !4, i64 88}
+!9 = !{!8, !4, i64 8}
+!10 = !{!8, !4, i64 16}
+!11 = !{!8, !4, i64 24}
+!12 = !{!8, !4, i64 32}
+!13 = !{!8, !4, i64 40}
+!14 = !{!8, !4, i64 48}
+!15 = !{!8, !4, i64 56}
+!16 = !{!8, !4, i64 64}
+!17 = !{!8, !4, i64 72}
+!18 = !{!8, !4, i64 80}
+!19 = !{!8, !4, i64 88}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS26PaUtilStreamRepresentation", !4, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"PaUtilStreamRepresentation", !24, i64 0, !21, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !25, i64 48}
+!24 = !{!"long", !5, i64 0}
+!25 = !{!"PaStreamInfo", !26, i64 0, !27, i64 8, !27, i64 16, !27, i64 24}
+!26 = !{!"int", !5, i64 0}
+!27 = !{!"double", !5, i64 0}
+!28 = !{!23, !21, i64 8}
+!29 = !{!23, !4, i64 16}
+!30 = !{!23, !4, i64 24}
+!31 = !{!23, !4, i64 32}
+!32 = !{!23, !4, i64 40}
+!33 = !{!23, !27, i64 56}
+!34 = !{!23, !27, i64 64}
+!35 = !{!23, !27, i64 72}
+!36 = !{!24, !24, i64 0}
