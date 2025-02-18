@@ -51,6 +51,7 @@ supported_project = [
     "portaudio",
     "postgres",
     "qemu",
+    "qoi",
 ]
 
 modify_only = [
